@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch09_04_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 09 | Accessing Deeply Nested Values - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 09 | Accessing Deeply Nested Values";
         var mkdocs_page_input_path = "Core Syntax\\ch09_04_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch09_04_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -438,6 +438,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-example-reading-a-configuration-file">🔧 Example 5: Practical example — reading a configuration file</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-nested-dictionaries_1">⚙️ What Are Nested Dictionaries?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-basic-approach-chaining-square-brackets_1">🕵️ The Basic Approach: Chaining Square Brackets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#safe-access-with-the-get-method_1">🛠️ Safe Access with the .get() Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-square-brackets-vs-get-method_1">📊 Comparison: Square Brackets vs .get() Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-accessing-a-server-configuration_1">🧪 Practical Example: Accessing a Server Configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-missing-keys-gracefully_1">🧰 Handling Missing Keys Gracefully</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🧩 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-accessing-a-value-one-level-deep_1">🔧 Example 1: Accessing a value one level deep</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-accessing-a-value-two-levels-deep_1">🔧 Example 2: Accessing a value two levels deep</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-the-get-method-for-safe-access_1">🔧 Example 3: Using the .get() method for safe access</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-accessing-values-inside-a-list-of-nested-dictionaries_1">🔧 Example 4: Accessing values inside a list of nested dictionaries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-example-reading-a-configuration-file_1">🔧 Example 5: Practical example — reading a configuration file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="accessing-deeply-nested-values">Accessing Deeply Nested Values</h1>
 <p><span class="category-tag">🏷️ Dictionaries /  Nested Dictionaries</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1183,8 +1211,7 @@ This returns <strong>None</strong> if any key is missing, instead of raising an 
 <li>Use <strong>try-except</strong> when you need custom error handling.</li>
 </ul>
 <p>Mastering deeply nested value access will help you work confidently with complex data from APIs, configuration files, and JSON responses—all common tasks in your daily work.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Accessing deeply nested values means retrieving data from dictionaries that contain other dictionaries inside them, like layers of folders within folders.</p>
 <hr />
 <h3 id="example-1-accessing-a-value-one-level-deep">🔧 Example 1: Accessing a value one level deep</h3>
@@ -1266,6 +1293,221 @@ This returns <strong>None</strong> if any key is missing, instead of raising an 
 <p>📤 Output: <strong>admin</strong></p>
 <hr />
 <h3 id="comparison-table">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Use Case</th>
+<th>Error if key missing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dict["key"]</code></td>
+<td>Direct access</td>
+<td>Yes — raises KeyError</td>
+</tr>
+<tr>
+<td><code>dict.get("key")</code></td>
+<td>Safe access</td>
+<td>No — returns None or default</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When working with real-world data in Python, you'll often encounter dictionaries that contain other dictionaries inside them—sometimes several layers deep. This is called <strong>nested dictionaries</strong>. Accessing values buried deep inside these structures can be tricky, but with the right approach, it becomes straightforward. This guide will show you how to safely and efficiently retrieve deeply nested values.</p>
+<hr />
+<h3 id="what-are-nested-dictionaries_1">⚙️ What Are Nested Dictionaries?</h3>
+<p>A nested dictionary is simply a dictionary where the value of a key is itself another dictionary. You can have multiple levels of nesting, like a tree structure.</p>
+<p><strong>Example structure:</strong>
+- A dictionary called <strong>config</strong> contains a key <strong>"server"</strong> whose value is another dictionary.
+- That inner dictionary has a key <strong>"database"</strong> whose value is yet another dictionary.
+- Inside that, you find the actual value you need, like <strong>"host"</strong> or <strong>"port"</strong>.</p>
+<p>This pattern is common when working with configuration files, API responses, or JSON data.</p>
+<hr />
+<h3 id="the-basic-approach-chaining-square-brackets_1">🕵️ The Basic Approach: Chaining Square Brackets</h3>
+<p>To access a deeply nested value, you chain square brackets <strong>[]</strong> one after another, each representing a level deeper.</p>
+<p><strong>How it works:</strong>
+- Start with the outermost dictionary name.
+- Add <strong>["key1"]</strong> to go one level in.
+- Add <strong>["key2"]</strong> to go another level in.
+- Continue until you reach the desired value.</p>
+<p><strong>Example:</strong>
+If you have a dictionary called <strong>data</strong> and you want to get the value of <strong>"city"</strong> inside <strong>"address"</strong> inside <strong>"user"</strong>, you write: <strong>data["user"]["address"]["city"]</strong></p>
+<p><strong>Important:</strong> This method will raise a <strong>KeyError</strong> if any key in the chain does not exist.</p>
+<hr />
+<h3 id="safe-access-with-the-get-method_1">🛠️ Safe Access with the <code>.get()</code> Method</h3>
+<p>To avoid errors when a key might be missing, use the <strong>.get()</strong> method. It returns <strong>None</strong> (or a default value you specify) instead of crashing.</p>
+<p><strong>How it works:</strong>
+- Call <strong>.get("key")</strong> on the dictionary instead of using square brackets.
+- You can chain <strong>.get()</strong> calls just like square brackets.
+- Optionally, provide a second argument as a default value if the key is missing.</p>
+<p><strong>Example:</strong>
+<strong>data.get("user", {}).get("address", {}).get("city")</strong>
+This returns <strong>None</strong> if any key is missing, instead of raising an error.</p>
+<hr />
+<h3 id="comparison-square-brackets-vs-get-method_1">📊 Comparison: Square Brackets vs <code>.get()</code> Method</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Square Brackets <strong>[]</strong></th>
+<th><code>.get()</code> Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Behavior when key exists</td>
+<td>Returns the value</td>
+<td>Returns the value</td>
+</tr>
+<tr>
+<td>Behavior when key is missing</td>
+<td>Raises <strong>KeyError</strong></td>
+<td>Returns <strong>None</strong> (or custom default)</td>
+</tr>
+<tr>
+<td>Chaining syntax</td>
+<td><strong>dict["a"]["b"]["c"]</strong></td>
+<td><strong>dict.get("a", {}).get("b", {}).get("c")</strong></td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>When you are certain keys exist</td>
+<td>When keys might be missing</td>
+</tr>
+<tr>
+<td>Code readability</td>
+<td>Clean and short</td>
+<td>Slightly longer but safer</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-accessing-a-server-configuration_1">🧪 Practical Example: Accessing a Server Configuration</h3>
+<p>Imagine you have a configuration dictionary for a server setup:</p>
+<ul>
+<li><strong>config</strong> dictionary contains:</li>
+<li><strong>"production"</strong> key with a nested dictionary</li>
+<li>Inside that, <strong>"database"</strong> key with another dictionary</li>
+<li>Inside that, <strong>"connection"</strong> key with values like <strong>"host"</strong> and <strong>"port"</strong></li>
+</ul>
+<p><strong>To get the database host safely:</strong>
+<strong>config.get("production", {}).get("database", {}).get("connection", {}).get("host")</strong></p>
+<p>This returns the host value if everything exists, or <strong>None</strong> if any level is missing.</p>
+<p><strong>To get the database port with a default:</strong>
+<strong>config.get("production", {}).get("database", {}).get("connection", {}).get("port", 5432)</strong></p>
+<p>This returns <strong>5432</strong> as a fallback if the port is not specified.</p>
+<hr />
+<h3 id="handling-missing-keys-gracefully_1">🧰 Handling Missing Keys Gracefully</h3>
+<p>Sometimes you need more than just a default value—you might want to log a warning or take alternative action.</p>
+<p><strong>Approach:</strong>
+- Use a <strong>try-except</strong> block around the chain of square brackets.
+- Catch the <strong>KeyError</strong> and handle it appropriately.</p>
+<p><strong>Example logic:</strong>
+- Try: <strong>value = config["production"]["database"]["connection"]["host"]</strong>
+- Except KeyError: Set <strong>value</strong> to <strong>"localhost"</strong> and print a warning message.</p>
+<p>This gives you full control over what happens when data is missing.</p>
+<hr />
+<h3 id="summary_1">🧩 Summary</h3>
+<ul>
+<li><strong>Nested dictionaries</strong> store data in layers, like a tree.</li>
+<li><strong>Square brackets []</strong> give direct access but crash on missing keys.</li>
+<li><strong>.get() method</strong> provides safe access with optional defaults.</li>
+<li><strong>Chaining</strong> either method lets you drill down multiple levels.</li>
+<li>Use <strong>try-except</strong> when you need custom error handling.</li>
+</ul>
+<p>Mastering deeply nested value access will help you work confidently with complex data from APIs, configuration files, and JSON responses—all common tasks in your daily work.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Accessing deeply nested values means retrieving data from dictionaries that contain other dictionaries inside them, like layers of folders within folders.</p>
+<hr />
+<h3 id="example-1-accessing-a-value-one-level-deep_1">🔧 Example 1: Accessing a value one level deep</h3>
+<p>This example shows how to get a value from a single nested dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">user</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;address&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Denver&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">city_name</span> <span class="o">=</span> <span class="n">user</span><span class="p">[</span><span class="s2">&quot;address&quot;</span><span class="p">][</span><span class="s2">&quot;city&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">city_name</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Denver</strong></p>
+<hr />
+<h3 id="example-2-accessing-a-value-two-levels-deep_1">🔧 Example 2: Accessing a value two levels deep</h3>
+<p>This example shows how to reach a value nested inside two layers of dictionaries.</p>
+<div class="highlight"><pre><span></span><code><span class="n">company</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;engineering&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;team_lead&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">lead_name</span> <span class="o">=</span> <span class="n">company</span><span class="p">[</span><span class="s2">&quot;engineering&quot;</span><span class="p">][</span><span class="s2">&quot;team_lead&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lead_name</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Bob</strong></p>
+<hr />
+<h3 id="example-3-using-the-get-method-for-safe-access_1">🔧 Example 3: Using the <code>.get()</code> method for safe access</h3>
+<p>This example shows how to avoid errors when a key might not exist.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;database&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">5432</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">port_value</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;database&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">port_value</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>5432</strong></p>
+<hr />
+<h3 id="example-4-accessing-values-inside-a-list-of-nested-dictionaries_1">🔧 Example 4: Accessing values inside a list of nested dictionaries</h3>
+<p>This example shows how to retrieve data from a list where each item is a nested dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">employees</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Carol&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;engineer&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Dave&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;manager&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">first_employee_name</span> <span class="o">=</span> <span class="n">employees</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_employee_name</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Carol</strong></p>
+<hr />
+<h3 id="example-5-practical-example-reading-a-configuration-file_1">🔧 Example 5: Practical example — reading a configuration file</h3>
+<p>This example shows how engineers might access a deeply nested server configuration.</p>
+<div class="highlight"><pre><span></span><code><span class="n">server_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;production&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;web&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span>
+            <span class="s2">&quot;ssl&quot;</span><span class="p">:</span> <span class="kc">True</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;database&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;db.example.com&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;credentials&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;secret123&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">db_user</span> <span class="o">=</span> <span class="n">server_config</span><span class="p">[</span><span class="s2">&quot;production&quot;</span><span class="p">][</span><span class="s2">&quot;database&quot;</span><span class="p">][</span><span class="s2">&quot;credentials&quot;</span><span class="p">][</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">db_user</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>admin</strong></p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

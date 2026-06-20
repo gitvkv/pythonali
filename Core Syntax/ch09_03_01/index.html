@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch09_03_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 09 | Iterating Over Keys by Default - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 09 | Iterating Over Keys by Default";
         var mkdocs_page_input_path = "Core Syntax\\ch09_03_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch09_03_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -426,6 +426,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-filtering-keys-by-condition">🔧 Example 5: Filtering Keys by Condition</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-iteration-methods">Comparison Table: Iteration Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-default-iteration-works_1">⚙️ How Default Iteration Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-keys-by-default_1">📊 Why Keys by Default?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-in-context_1">🛠️ Practical Example in Context</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-patterns-and-tips_1">🕵️ Common Patterns and Tips</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference_1">📖 Quick Reference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-key-iteration_1">🔧 Example 1: Basic Key Iteration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-using-keys-to-access-values_1">🔧 Example 2: Using Keys to Access Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-checking-if-a-key-exists_1">🔧 Example 3: Checking If a Key Exists</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-building-a-list-of-keys_1">🔧 Example 4: Building a List of Keys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-filtering-keys-by-condition_1">🔧 Example 5: Filtering Keys by Condition</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-iteration-methods_1">Comparison Table: Iteration Methods</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="iterating-over-keys-by-default">Iterating Over Keys by Default</h1>
 <p><span class="category-tag">🏷️ Dictionaries /  Iterating Over Dictionaries</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1165,8 +1191,7 @@
 <li><strong>Common variable names:</strong> <strong>key</strong>, <strong>k</strong>, <strong>item</strong>, or a descriptive name like <strong>user_id</strong></li>
 <li><strong>Remember:</strong> The loop variable holds the key, not the value</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>When you loop through a dictionary in Python, it automatically iterates over its keys unless you specify otherwise.</p>
 <h3 id="example-1-basic-key-iteration">🔧 Example 1: Basic Key Iteration</h3>
 <p>This shows the simplest way to loop through a dictionary — Python gives you each key one at a time.</p>
@@ -1220,6 +1245,186 @@
 <p>📤 Output: <strong>Engineers with 90+: ['Alice', 'Charlie']</strong></p>
 <hr />
 <h3 id="comparison-table-iteration-methods">Comparison Table: Iteration Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What You Get</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>for key in dict</code></td>
+<td>Keys only</td>
+<td>Default, simplest loop</td>
+</tr>
+<tr>
+<td><code>for key in dict.keys()</code></td>
+<td>Keys only</td>
+<td>Explicit, same as default</td>
+</tr>
+<tr>
+<td><code>for key, value in dict.items()</code></td>
+<td>Both key and value</td>
+<td>When you need both directly</td>
+</tr>
+<tr>
+<td><code>for value in dict.values()</code></td>
+<td>Values only</td>
+<td>When keys are not needed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When you work with dictionaries in Python, one of the most common tasks is looping through their contents. By default, when you iterate over a dictionary using a simple <strong>for</strong> loop, Python gives you the <strong>keys</strong> — not the values. This is a fundamental behavior that makes dictionary iteration intuitive and efficient. Understanding this default behavior helps you write cleaner code and avoid confusion when accessing dictionary data.</p>
+<hr />
+<h3 id="how-default-iteration-works_1">⚙️ How Default Iteration Works</h3>
+<ul>
+<li>A dictionary stores data as <strong>key-value pairs</strong>.</li>
+<li>When you write a <strong>for</strong> loop directly on a dictionary, Python automatically iterates over its <strong>keys</strong>.</li>
+<li>This means you can access each key one by one without needing any special method.</li>
+</ul>
+<p><strong>Example:</strong>
+- You have a dictionary named <strong>server_status</strong> with keys like <strong>"web01"</strong>, <strong>"db01"</strong>, and <strong>"cache01"</strong>.
+- Writing <strong>for item in server_status:</strong> will assign each key to <strong>item</strong> in sequence.
+- The loop will run once for each key in the dictionary.</p>
+<p><strong>Expected behavior:</strong>
+- First iteration: <strong>item</strong> equals <strong>"web01"</strong>
+- Second iteration: <strong>item</strong> equals <strong>"db01"</strong>
+- Third iteration: <strong>item</strong> equals <strong>"cache01"</strong></p>
+<hr />
+<h3 id="why-keys-by-default_1">📊 Why Keys by Default?</h3>
+<table>
+<thead>
+<tr>
+<th>Reason</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🔑 <strong>Keys are unique identifiers</strong></td>
+<td>Keys are the primary way to look up data, so iterating over them first makes logical sense</td>
+</tr>
+<tr>
+<td>⚡ <strong>Efficient access to values</strong></td>
+<td>Once you have a key, you can easily get its corresponding value using square brackets</td>
+</tr>
+<tr>
+<td>🧹 <strong>Cleaner syntax</strong></td>
+<td>No need to call a special method just to get started with iteration</td>
+</tr>
+<tr>
+<td>🔄 <strong>Consistent behavior</strong></td>
+<td>This default works the same way across all Python versions</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-in-context_1">🛠️ Practical Example in Context</h3>
+<p>Consider a dictionary storing server configurations:</p>
+<ul>
+<li><strong>servers</strong> dictionary contains: <strong>"web01"</strong> maps to <strong>"192.168.1.10"</strong>, <strong>"db01"</strong> maps to <strong>"192.168.1.20"</strong>, and <strong>"cache01"</strong> maps to <strong>"192.168.1.30"</strong></li>
+</ul>
+<p>When you write a loop like <strong>for server in servers:</strong> , you get each server name one at a time.</p>
+<p>To access the IP address for each server, you would use <strong>servers[server]</strong> inside the loop.</p>
+<p><strong>What happens step by step:</strong>
+1. The loop starts with <strong>server</strong> equal to <strong>"web01"</strong>
+2. You can print <strong>server</strong> to see the key
+3. You can print <strong>servers[server]</strong> to see the value <strong>"192.168.1.10"</strong>
+4. The loop moves to <strong>"db01"</strong> and repeats the process
+5. Finally, it processes <strong>"cache01"</strong></p>
+<hr />
+<h3 id="common-patterns-and-tips_1">🕵️ Common Patterns and Tips</h3>
+<ul>
+<li><strong>Accessing values inside the loop:</strong> Use <strong>dictionary_name[key]</strong> to get the value for the current key</li>
+<li><strong>Naming your loop variable:</strong> Use a descriptive name like <strong>key</strong>, <strong>server</strong>, or <strong>hostname</strong> instead of generic names like <strong>x</strong> or <strong>item</strong></li>
+<li><strong>Modifying values:</strong> You can update values inside the loop using <strong>dictionary_name[key] = new_value</strong></li>
+<li><strong>Checking for key existence:</strong> Use <strong>if key in dictionary_name:</strong> before accessing to avoid errors</li>
+</ul>
+<p><strong>Example pattern:</strong>
+- Loop variable: <strong>host</strong>
+- Access value: <strong>config[host]</strong>
+- This gives you the configuration details for each host as you iterate</p>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li>Python dictionaries iterate over <strong>keys by default</strong> — no extra methods needed</li>
+<li>This default behavior is designed for clarity and efficiency</li>
+<li>Use the key variable inside the loop to access corresponding values</li>
+<li>Always use descriptive loop variable names for better code readability</li>
+<li>This pattern is consistent across all dictionary sizes and data types</li>
+</ul>
+<hr />
+<h3 id="quick-reference_1">📖 Quick Reference</h3>
+<ul>
+<li><strong>Default loop:</strong> <strong>for key in my_dict:</strong> — iterates over keys</li>
+<li><strong>Access value:</strong> <strong>my_dict[key]</strong> — gets the value for the current key</li>
+<li><strong>Common variable names:</strong> <strong>key</strong>, <strong>k</strong>, <strong>item</strong>, or a descriptive name like <strong>user_id</strong></li>
+<li><strong>Remember:</strong> The loop variable holds the key, not the value</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>When you loop through a dictionary in Python, it automatically iterates over its keys unless you specify otherwise.</p>
+<h3 id="example-1-basic-key-iteration_1">🔧 Example 1: Basic Key Iteration</h3>
+<p>This shows the simplest way to loop through a dictionary — Python gives you each key one at a time.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineer_scores</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">91</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">engineer_scores</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Alice Bob Charlie</strong></p>
+<hr />
+<h3 id="example-2-using-keys-to-access-values_1">🔧 Example 2: Using Keys to Access Values</h3>
+<p>This demonstrates how to get both the key and its corresponding value inside the loop.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineer_scores</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">91</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">engineer_scores</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">engineer_scores</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;scored&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Alice scored 95 Bob scored 82 Charlie scored 91</strong></p>
+<hr />
+<h3 id="example-3-checking-if-a-key-exists_1">🔧 Example 3: Checking If a Key Exists</h3>
+<p>This shows how to use key iteration to verify membership before accessing a value.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineer_scores</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">91</span><span class="p">}</span>
+<span class="n">search_name</span> <span class="o">=</span> <span class="s2">&quot;David&quot;</span>
+<span class="n">found</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">engineer_scores</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">search_name</span><span class="p">:</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">break</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found:&quot;</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Found: False</strong></p>
+<hr />
+<h3 id="example-4-building-a-list-of-keys_1">🔧 Example 4: Building a List of Keys</h3>
+<p>This demonstrates collecting all keys into a list during iteration for later use.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineer_scores</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">91</span><span class="p">}</span>
+<span class="n">key_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">engineer_scores</span><span class="p">:</span>
+    <span class="n">key_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">key_list</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Alice', 'Bob', 'Charlie']</strong></p>
+<hr />
+<h3 id="example-5-filtering-keys-by-condition_1">🔧 Example 5: Filtering Keys by Condition</h3>
+<p>This shows how to iterate over keys and only process those that meet a specific condition.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineer_scores</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">91</span><span class="p">,</span> <span class="s2">&quot;Diana&quot;</span><span class="p">:</span> <span class="mi">78</span><span class="p">}</span>
+<span class="n">high_scorers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">engineer_scores</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">engineer_scores</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+        <span class="n">high_scorers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Engineers with 90+:&quot;</span><span class="p">,</span> <span class="n">high_scorers</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Engineers with 90+: ['Alice', 'Charlie']</strong></p>
+<hr />
+<h3 id="comparison-table-iteration-methods_1">Comparison Table: Iteration Methods</h3>
 <table>
 <thead>
 <tr>

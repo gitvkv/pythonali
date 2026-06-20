@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch09_05_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 09 | Practical Example: Inverting Dictionaries - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 09 | Practical Example: Inverting Dictionaries";
         var mkdocs_page_input_path = "Core Syntax\\ch09_05_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch09_05_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -446,6 +446,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-inverting-a-dictionary-of-sensor-ids-to-locations-then-looking-up-a-location">📘 Example 5: Inverting a dictionary of sensor IDs to locations, then looking up a location</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-inversion-methods">Comparison Table: Inversion Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">📝 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-does-inverting-a-dictionary-mean_1">⚙️ What Does Inverting a Dictionary Mean?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-approach-using-a-loop_1">🛠️ Basic Approach Using a Loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-duplicate-values_1">🕵️ Handling Duplicate Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-loop-vs-dictionary-comprehension_1">📊 Comparison: Loop vs. Dictionary Comprehension</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-dictionary-comprehension-for-inversion_1">🛠️ Using Dictionary Comprehension for Inversion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">🕵️ Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-use-cases-for-engineers_1">🛠️ Practical Use Cases for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-dictionary-inversion-with-unique-values_1">📘 Example 1: Basic dictionary inversion with unique values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-inverting-a-dictionary-with-duplicate-values-last-key-wins_1">📘 Example 2: Inverting a dictionary with duplicate values (last key wins)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-inverting-a-dictionary-and-collecting-duplicate-values-into-a-list_1">📘 Example 3: Inverting a dictionary and collecting duplicate values into a list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-inverting-a-dictionary-with-integer-keys-and-string-values_1">📘 Example 4: Inverting a dictionary with integer keys and string values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-inverting-a-dictionary-of-sensor-ids-to-locations-then-looking-up-a-location_1">📘 Example 5: Inverting a dictionary of sensor IDs to locations, then looking up a location</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-inversion-methods_1">Comparison Table: Inversion Methods</a>
     </li>
     </ul>
                 </li>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="practical-example-inverting-dictionaries">Practical Example: Inverting Dictionaries</h1>
 <p><span class="category-tag">🏷️ Dictionaries /  Dictionary Comprehensions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1206,8 +1236,7 @@
 <li>Always check for duplicate values to avoid data loss.</li>
 <li>Inverted dictionaries are powerful tools for configuration, logging, and data transformation tasks.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Inverting a dictionary swaps its keys and values, turning each original value into a key and each original key into its corresponding value.</p>
 <h3 id="example-1-basic-dictionary-inversion-with-unique-values">📘 Example 1: Basic dictionary inversion with unique values</h3>
 <p>This shows the simplest case where every value in the original dictionary is unique.</p>
@@ -1260,6 +1289,221 @@
 <p>📤 Output: <strong>['sensor_1', 'sensor_3']</strong></p>
 <hr />
 <h3 id="comparison-table-inversion-methods">Comparison Table: Inversion Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Handles Duplicate Values</th>
+<th>Output Type</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple comprehension</td>
+<td>No (last key wins)</td>
+<td>Dictionary</td>
+<td>Unique values guaranteed</td>
+</tr>
+<tr>
+<td>Loop with list grouping</td>
+<td>Yes</td>
+<td>Dictionary of lists</td>
+<td>Multiple keys per value</td>
+</tr>
+<tr>
+<td><code>get()</code> with default</td>
+<td>Yes</td>
+<td>Dictionary of lists</td>
+<td>Safe lookup for missing keys</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">📝 Context Introduction</h3>
+<p>When working with dictionaries, you will often encounter situations where you need to reverse the mapping — turning keys into values and values into keys. This operation is called <strong>inverting a dictionary</strong>. It is especially useful when you need to look up data in the opposite direction, such as finding a username by an employee ID or locating a configuration key by its value. Understanding how to invert dictionaries efficiently will help you write cleaner and more readable code.</p>
+<hr />
+<h3 id="what-does-inverting-a-dictionary-mean_1">⚙️ What Does Inverting a Dictionary Mean?</h3>
+<p>Inverting a dictionary means swapping each key-value pair so that the original value becomes the new key and the original key becomes the new value.</p>
+<p><strong>Original dictionary:</strong>
+- Key: "user1" → Value: 101
+- Key: "user2" → Value: 102
+- Key: "user3" → Value: 103</p>
+<p><strong>Inverted dictionary:</strong>
+- Key: 101 → Value: "user1"
+- Key: 102 → Value: "user2"
+- Key: 103 → Value: "user3"</p>
+<hr />
+<h3 id="basic-approach-using-a-loop_1">🛠️ Basic Approach Using a Loop</h3>
+<p>The simplest way to invert a dictionary is by using a <strong>for loop</strong> to iterate over the original dictionary and build a new one.</p>
+<p><strong>Step-by-step process:</strong>
+1. Create an empty dictionary to store the inverted result.
+2. Loop through each key-value pair in the original dictionary.
+3. For each pair, assign the original value as the new key and the original key as the new value.</p>
+<p><strong>Example script:</strong>
+- Start with a dictionary named <strong>user_ids</strong> containing keys like "alice", "bob", and "charlie" with values 101, 102, and 103.
+- Create an empty dictionary named <strong>id_to_user</strong>.
+- Use a <strong>for loop</strong> to iterate over <strong>user_ids.items()</strong>.
+- Inside the loop, set <strong>id_to_user[value] = key</strong> for each pair.
+- Print <strong>id_to_user</strong> to see the inverted result.</p>
+<p><strong>Expected output:</strong>
+- The new dictionary will have keys 101, 102, and 103 with corresponding values "alice", "bob", and "charlie".</p>
+<hr />
+<h3 id="handling-duplicate-values_1">🕵️ Handling Duplicate Values</h3>
+<p>A critical consideration when inverting dictionaries is that <strong>values must be unique</strong> to serve as keys in the inverted dictionary. If duplicate values exist, the last key encountered will overwrite previous ones.</p>
+<p><strong>Example with duplicate values:</strong>
+- Original dictionary: "a" → 1, "b" → 2, "c" → 1
+- Inverted dictionary: 1 → "c", 2 → "b"
+- The value "a" is lost because "c" overwrote it.</p>
+<p><strong>How to handle duplicates:</strong>
+- Check if the value already exists in the inverted dictionary.
+- If it does, store the keys in a list instead of a single value.</p>
+<p><strong>Example script for handling duplicates:</strong>
+- Start with a dictionary named <strong>colors</strong> containing "red" → "primary", "blue" → "primary", "green" → "secondary".
+- Create an empty dictionary named <strong>grouped</strong>.
+- Use a <strong>for loop</strong> to iterate over <strong>colors.items()</strong>.
+- Inside the loop, check if the value is already a key in <strong>grouped</strong>.
+- If not, assign an empty list as the value and append the key.
+- If yes, simply append the key to the existing list.
+- Print <strong>grouped</strong> to see the result.</p>
+<p><strong>Expected output:</strong>
+- "primary" → ["red", "blue"]
+- "secondary" → ["green"]</p>
+<hr />
+<h3 id="comparison-loop-vs-dictionary-comprehension_1">📊 Comparison: Loop vs. Dictionary Comprehension</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Loop Approach</th>
+<th>Dictionary Comprehension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Readability</td>
+<td>Easy to follow for beginners</td>
+<td>More compact and Pythonic</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Slightly slower for large dictionaries</td>
+<td>Faster due to optimized internal handling</td>
+</tr>
+<tr>
+<td>Flexibility</td>
+<td>Can handle complex logic (e.g., duplicate values)</td>
+<td>Best for simple, one-to-one mappings</td>
+</tr>
+<tr>
+<td>Code length</td>
+<td>Longer (4-5 lines)</td>
+<td>Shorter (1-2 lines)</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>When you need conditional logic or error handling</td>
+<td>When all values are unique and mapping is straightforward</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="using-dictionary-comprehension-for-inversion_1">🛠️ Using Dictionary Comprehension for Inversion</h3>
+<p>When all values in the original dictionary are unique, you can use a <strong>dictionary comprehension</strong> for a more concise solution.</p>
+<p><strong>Syntax structure:</strong>
+- <strong>{value: key for key, value in original_dict.items()}</strong></p>
+<p><strong>Example script:</strong>
+- Start with a dictionary named <strong>server_roles</strong> containing "web01" → "frontend", "db01" → "backend", "cache01" → "cache".
+- Create a new dictionary named <strong>role_to_server</strong> using dictionary comprehension.
+- Print <strong>role_to_server</strong> to see the inverted result.</p>
+<p><strong>Expected output:</strong>
+- "frontend" → "web01"
+- "backend" → "db01"
+- "cache" → "cache01"</p>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">🕵️ Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Assuming all values are unique:</strong> Always verify that your dictionary does not contain duplicate values before inverting, or use the list-based approach to preserve all data.</li>
+<li><strong>Forgetting that keys must be hashable:</strong> The original values must be immutable types (strings, numbers, tuples) to become valid keys in the inverted dictionary. Lists or dictionaries as values will cause an error.</li>
+<li><strong>Overwriting data unintentionally:</strong> When using a simple loop or comprehension, duplicate values will silently overwrite previous entries. Always check for duplicates if data integrity is important.</li>
+</ul>
+<hr />
+<h3 id="practical-use-cases-for-engineers_1">🛠️ Practical Use Cases for Engineers</h3>
+<ul>
+<li><strong>Configuration management:</strong> Inverting a dictionary that maps server names to IP addresses allows you to look up a server name by its IP address.</li>
+<li><strong>Log analysis:</strong> If you have a dictionary mapping error codes to descriptions, inverting it lets you find the error code for a given description.</li>
+<li><strong>Data transformation:</strong> When processing API responses, you may need to swap keys and values to match a different data format required by another system.</li>
+<li><strong>Caching lookups:</strong> Inverting a dictionary can create a reverse lookup cache, speeding up searches in both directions.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li>Inverting a dictionary swaps keys and values to create a reverse mapping.</li>
+<li>Use a <strong>for loop</strong> when you need to handle duplicate values or complex logic.</li>
+<li>Use <strong>dictionary comprehension</strong> for simple, one-to-one mappings with unique values.</li>
+<li>Always check for duplicate values to avoid data loss.</li>
+<li>Inverted dictionaries are powerful tools for configuration, logging, and data transformation tasks.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Inverting a dictionary swaps its keys and values, turning each original value into a key and each original key into its corresponding value.</p>
+<h3 id="example-1-basic-dictionary-inversion-with-unique-values_1">📘 Example 1: Basic dictionary inversion with unique values</h3>
+<p>This shows the simplest case where every value in the original dictionary is unique.</p>
+<div class="highlight"><pre><span></span><code><span class="n">original</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">inverted</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">original</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inverted</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{1: 'a', 2: 'b', 3: 'c'}</strong></p>
+<hr />
+<h3 id="example-2-inverting-a-dictionary-with-duplicate-values-last-key-wins_1">📘 Example 2: Inverting a dictionary with duplicate values (last key wins)</h3>
+<p>This demonstrates what happens when multiple keys share the same value — only the last key is kept.</p>
+<div class="highlight"><pre><span></span><code><span class="n">original</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+<span class="n">inverted</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">original</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inverted</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{10: 'z', 20: 'y'}</strong></p>
+<hr />
+<h3 id="example-3-inverting-a-dictionary-and-collecting-duplicate-values-into-a-list_1">📘 Example 3: Inverting a dictionary and collecting duplicate values into a list</h3>
+<p>This handles duplicate values by grouping all matching keys into a list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">original</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;apple&quot;</span><span class="p">:</span> <span class="s2">&quot;fruit&quot;</span><span class="p">,</span> <span class="s2">&quot;carrot&quot;</span><span class="p">:</span> <span class="s2">&quot;vegetable&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">:</span> <span class="s2">&quot;fruit&quot;</span><span class="p">}</span>
+<span class="n">inverted</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">original</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">inverted</span><span class="p">:</span>
+        <span class="n">inverted</span><span class="p">[</span><span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">inverted</span><span class="p">[</span><span class="n">value</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inverted</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'fruit': ['apple', 'banana'], 'vegetable': ['carrot']}</strong></p>
+<hr />
+<h3 id="example-4-inverting-a-dictionary-with-integer-keys-and-string-values_1">📘 Example 4: Inverting a dictionary with integer keys and string values</h3>
+<p>This shows inversion when keys are numbers and values are text — common in configuration data for engineers.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="mi">101</span><span class="p">:</span> <span class="s2">&quot;server_a&quot;</span><span class="p">,</span> <span class="mi">102</span><span class="p">:</span> <span class="s2">&quot;server_b&quot;</span><span class="p">,</span> <span class="mi">103</span><span class="p">:</span> <span class="s2">&quot;server_c&quot;</span><span class="p">}</span>
+<span class="n">inverted</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inverted</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'server_a': 101, 'server_b': 102, 'server_c': 103}</strong></p>
+<hr />
+<h3 id="example-5-inverting-a-dictionary-of-sensor-ids-to-locations-then-looking-up-a-location_1">📘 Example 5: Inverting a dictionary of sensor IDs to locations, then looking up a location</h3>
+<p>This practical example for engineers inverts a sensor mapping to find which sensor is at a given location.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensor_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;sensor_1&quot;</span><span class="p">:</span> <span class="s2">&quot;room_a&quot;</span><span class="p">,</span> <span class="s2">&quot;sensor_2&quot;</span><span class="p">:</span> <span class="s2">&quot;room_b&quot;</span><span class="p">,</span> <span class="s2">&quot;sensor_3&quot;</span><span class="p">:</span> <span class="s2">&quot;room_a&quot;</span><span class="p">}</span>
+<span class="n">location_to_sensor</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">sensor</span><span class="p">,</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">sensor_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">location</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">location_to_sensor</span><span class="p">:</span>
+        <span class="n">location_to_sensor</span><span class="p">[</span><span class="n">location</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">location_to_sensor</span><span class="p">[</span><span class="n">location</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sensor</span><span class="p">)</span>
+<span class="n">target_location</span> <span class="o">=</span> <span class="s2">&quot;room_a&quot;</span>
+<span class="n">sensors_in_room</span> <span class="o">=</span> <span class="n">location_to_sensor</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">target_location</span><span class="p">,</span> <span class="p">[])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensors_in_room</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['sensor_1', 'sensor_3']</strong></p>
+<hr />
+<h3 id="comparison-table-inversion-methods_1">Comparison Table: Inversion Methods</h3>
 <table>
 <thead>
 <tr>

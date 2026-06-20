@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_01_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Listing Directory Contents via listdir - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Listing Directory Contents via listdir";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_01_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_01_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -643,6 +643,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-oslistdir_1">⚙️ What is os.listdir()?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-usage_1">🛠️ Basic Usage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-with-the-results_1">🕵️ Working with the Results</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-use-cases-for-engineers_1">📊 Common Use Cases for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-considerations_1">⚠️ Important Considerations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-tips_1">🧪 Practical Tips</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-list-contents-of-the-current-working-directory_1">📂 Example 1: List contents of the current working directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-list-contents-of-a-specific-folder-path_1">📂 Example 2: List contents of a specific folder path</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-count-items-in-a-directory_1">📂 Example 3: Count items in a directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-filter-for-only-python-files-using-list-comprehension_1">📂 Example 4: Filter for only Python files using list comprehension</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-check-if-a-directory-is-empty-before-processing_1">📂 Example 5: Check if a directory is empty before processing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_01_03/">Ch 14 | Creating Directories (mkdir, File Structures)</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="listing-directory-contents-via-listdir">Listing Directory Contents via listdir</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  The os Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1190,8 +1218,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p><strong>os.listdir()</strong> is your go-to function for quickly seeing what's inside a directory. It is simple, fast, and works across all major operating systems. While it only returns names (not full paths or metadata), it serves as the perfect starting point for any file or folder inspection task. Combine it with other <strong>os.path</strong> functions to build powerful directory scanning and processing scripts with minimal code.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>os.listdir()</code> function returns a list of all files and folder names in a specified directory path.</p>
 <hr />
 <h3 id="example-1-list-contents-of-the-current-working-directory">📂 Example 1: List contents of the current working directory</h3>
@@ -1247,6 +1274,210 @@
 <p>📤 Output: <strong>Directory contains 3 item(s)</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>os.listdir()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Returns</td>
+<td>List of strings (names only)</td>
+</tr>
+<tr>
+<td>Includes full paths</td>
+<td>No — names only</td>
+</tr>
+<tr>
+<td>Includes hidden files (Unix)</td>
+<td>Yes — includes dot-files</td>
+</tr>
+<tr>
+<td>Requires import</td>
+<td><code>import os</code></td>
+</tr>
+<tr>
+<td>Error if path missing</td>
+<td>Raises <code>FileNotFoundError</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When working with files and folders on a system, one of the most common tasks is simply seeing what's inside a directory. Whether you're checking log files, inspecting configuration directories, or verifying deployment outputs, listing directory contents is a foundational skill. Python's <strong>os.listdir()</strong> function gives you a quick and easy way to retrieve the names of all files and folders within a given directory path.</p>
+<hr />
+<h3 id="what-is-oslistdir_1">⚙️ What is os.listdir()?</h3>
+<p>The <strong>os.listdir()</strong> function returns a list containing the names of every entry (files, folders, hidden items) in a specified directory. It does not include the full path — just the names as they appear inside that folder.</p>
+<p>Key points to remember:</p>
+<ul>
+<li>It returns a <strong>Python list</strong> of strings.</li>
+<li>The order of items is <strong>not guaranteed</strong> to be alphabetical or sorted.</li>
+<li>It includes <strong>hidden files</strong> (those starting with a dot on Unix/Linux/macOS).</li>
+<li>It does <strong>not</strong> include special entries like <strong>.</strong> (current directory) or <strong>..</strong> (parent directory).</li>
+<li>You must <strong>import os</strong> before using it.</li>
+</ul>
+<hr />
+<h3 id="basic-usage_1">🛠️ Basic Usage</h3>
+<p>To use <strong>os.listdir()</strong>, you pass the path of the directory you want to inspect as a string argument. If you call it with no argument, it defaults to the <strong>current working directory</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Example Call</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current directory</td>
+<td><strong>os.listdir()</strong></td>
+<td>Lists everything in the folder where your script is running</td>
+</tr>
+<tr>
+<td>Specific path</td>
+<td><strong>os.listdir('/var/log')</strong></td>
+<td>Lists everything inside the /var/log directory</td>
+</tr>
+<tr>
+<td>Relative path</td>
+<td><strong>os.listdir('./data')</strong></td>
+<td>Lists everything inside the data subfolder</td>
+</tr>
+</tbody>
+</table>
+<p>The result is always a list of strings. You can store it in a variable and then loop over it, print it, or process each item further.</p>
+<hr />
+<h3 id="working-with-the-results_1">🕵️ Working with the Results</h3>
+<p>Once you have the list of directory contents, you often want to do more than just see the names. Here are common patterns:</p>
+<ul>
+<li><strong>Loop through each item</strong> to perform an action on every file or folder.</li>
+<li><strong>Check if an item is a file or a directory</strong> using <strong>os.path.isfile()</strong> or <strong>os.path.isdir()</strong>.</li>
+<li><strong>Filter out hidden files</strong> by checking if the name starts with a dot.</li>
+<li><strong>Sort the list</strong> using Python's built-in <strong>sorted()</strong> function for predictable output.</li>
+</ul>
+<p>Example workflow without code blocks:</p>
+<ol>
+<li>Call <strong>os.listdir('/etc')</strong> to get all entries in the etc directory.</li>
+<li>Store the result in a variable called <strong>entries</strong>.</li>
+<li>Loop through <strong>entries</strong> using a <strong>for</strong> loop.</li>
+<li>Inside the loop, use <strong>os.path.isdir()</strong> to check if each entry is a folder.</li>
+<li>Print only the folder names, or print all names with a label indicating type.</li>
+</ol>
+<hr />
+<h3 id="common-use-cases-for-engineers_1">📊 Common Use Cases for Engineers</h3>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Checking log directories</td>
+<td>Quickly see which log files exist before reading or rotating them</td>
+</tr>
+<tr>
+<td>Verifying deployment artifacts</td>
+<td>Confirm that expected files were copied to a target directory</td>
+</tr>
+<tr>
+<td>Cleaning up old files</td>
+<td>List contents, filter by date or extension, then remove outdated items</td>
+</tr>
+<tr>
+<td>Inspecting configuration folders</td>
+<td>See all config files available before modifying or backing them up</td>
+</tr>
+<tr>
+<td>Automating backups</td>
+<td>List source directory contents to know exactly what needs to be copied</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="important-considerations_1">⚠️ Important Considerations</h3>
+<ul>
+<li><strong>Error handling</strong>: If the directory does not exist or you lack permissions, <strong>os.listdir()</strong> raises a <strong>FileNotFoundError</strong> or <strong>PermissionError</strong>. Always wrap calls in a <strong>try/except</strong> block when dealing with unknown paths.</li>
+<li><strong>Large directories</strong>: For folders with thousands of entries, the list can consume memory. For very large directories, consider using <strong>os.scandir()</strong> which is more efficient.</li>
+<li><strong>Full paths</strong>: Remember that <strong>os.listdir()</strong> returns only names, not full paths. To get the full path, combine the directory path with the entry name using <strong>os.path.join()</strong>.</li>
+<li><strong>Cross-platform</strong>: Works on Windows, macOS, and Linux, but path separators differ. Use <strong>os.path.join()</strong> to build paths safely.</li>
+</ul>
+<hr />
+<h3 id="practical-tips_1">🧪 Practical Tips</h3>
+<ul>
+<li>Always use <strong>os.path.join(dir_path, entry)</strong> when you need to access or inspect the actual file or folder.</li>
+<li>Combine <strong>os.listdir()</strong> with list comprehensions for clean, one-line filtering. For example, to get only text files, you can filter entries that end with <strong>.txt</strong>.</li>
+<li>For recursive listing (going into subdirectories), you will need to use <strong>os.walk()</strong> instead — <strong>os.listdir()</strong> only shows one level deep.</li>
+<li>Use <strong>sorted(os.listdir(path))</strong> to get an alphabetically ordered list for consistent output in reports or logs.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p><strong>os.listdir()</strong> is your go-to function for quickly seeing what's inside a directory. It is simple, fast, and works across all major operating systems. While it only returns names (not full paths or metadata), it serves as the perfect starting point for any file or folder inspection task. Combine it with other <strong>os.path</strong> functions to build powerful directory scanning and processing scripts with minimal code.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>os.listdir()</code> function returns a list of all files and folder names in a specified directory path.</p>
+<hr />
+<h3 id="example-1-list-contents-of-the-current-working-directory_1">📂 Example 1: List contents of the current working directory</h3>
+<p>Shows how to get all items in the folder where your Python script is running.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">contents</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['file1.txt', 'folder_a', 'script.py', 'notes.md', 'data.csv']</strong></p>
+<hr />
+<h3 id="example-2-list-contents-of-a-specific-folder-path_1">📂 Example 2: List contents of a specific folder path</h3>
+<p>Demonstrates passing an explicit directory path instead of the current directory.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">contents</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;/home/engineer/projects&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['config.yaml', 'src', 'tests', 'README.md']</strong></p>
+<hr />
+<h3 id="example-3-count-items-in-a-directory_1">📂 Example 3: Count items in a directory</h3>
+<p>Shows how to get the number of files and folders inside a directory.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">contents</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;/var/log&#39;</span><span class="p">)</span>
+<span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>12</strong></p>
+<hr />
+<h3 id="example-4-filter-for-only-python-files-using-list-comprehension_1">📂 Example 4: Filter for only Python files using list comprehension</h3>
+<p>Shows how to extract only files ending with <code>.py</code> from a directory listing.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">all_items</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">python_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">all_items</span> <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.py&#39;</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">python_files</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['main.py', 'utils.py', 'test_runner.py']</strong></p>
+<hr />
+<h3 id="example-5-check-if-a-directory-is-empty-before-processing_1">📂 Example 5: Check if a directory is empty before processing</h3>
+<p>Shows a practical pattern engineers use to verify a folder has contents before working with it.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">folder_path</span> <span class="o">=</span> <span class="s1">&#39;/tmp/backup&#39;</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Directory is empty&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Directory contains </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span><span class="si">}</span><span class="s1"> item(s)&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Directory contains 3 item(s)</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

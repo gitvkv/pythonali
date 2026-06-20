@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch13_05_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 13 | Inheriting from the Base Exception Class - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 13 | Inheriting from the Base Exception Class";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch13_05_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch13_05_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -631,6 +631,38 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📋 Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-create-custom-exceptions_1">⚙️ Why Create Custom Exceptions?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-base-exception-class_1">🛠️ The Base Exception Class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-a-simple-custom-exception_1">📊 Creating a Simple Custom Exception</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-custom-attributes_1">🕵️ Adding Custom Attributes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-built-in-vs-custom-exceptions_1">📋 Comparison: Built-in vs Custom Exceptions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-custom-exceptions_1">🧩 Best Practices for Custom Exceptions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-a-configuration-error-hierarchy_1">🌟 Practical Example: A Configuration Error Hierarchy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#raising-and-catching-custom-exceptions_1">🔄 Raising and Catching Custom Exceptions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-simplest-custom-exception-with-pass_1">🧱 Example 1: Simplest custom exception with pass</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-custom-exception-with-a-custom-message_1">🔧 Example 2: Custom exception with a custom message</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-a-custom-exception-in-a-try-except-block_1">🧪 Example 3: Using a custom exception in a try-except block</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-custom-exception-with-additional-attributes_1">📊 Example 4: Custom exception with additional attributes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-custom-exception-hierarchy-for-a-validation-system_1">🛡️ Example 5: Custom exception hierarchy for a validation system</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📋 Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch13_05_02/">Ch 13 | Code Clarity Improvements via Custom Errors</a>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="inheriting-from-the-base-exception-class">Inheriting from the Base Exception Class</h1>
 <p><span class="category-tag">🏷️ Error Handling and Exceptions /  Custom Exceptions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1208,8 +1240,7 @@
 <li>Custom exceptions are raised and caught using the same syntax as built-in exceptions.</li>
 </ul>
 <p>By creating your own exception classes, you transform vague error messages into precise, actionable information that makes debugging and maintenance significantly easier.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Inheriting from the base Exception class lets engineers create their own custom error types that behave like built-in Python exceptions.</p>
 <hr />
 <h3 id="example-1-simplest-custom-exception-with-pass">🧱 Example 1: Simplest custom exception with pass</h3>
@@ -1306,6 +1337,271 @@
 <p>📤 Output: <strong>Format issue: Email must be in format: user@domain.com</strong></p>
 <hr />
 <h3 id="comparison-table">📋 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Built-in Exception</th>
+<th>Custom Exception</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Definition</td>
+<td>Provided by Python</td>
+<td>Created by engineers</td>
+</tr>
+<tr>
+<td>Inheritance</td>
+<td>Inherits from BaseException</td>
+<td>Inherits from Exception</td>
+</tr>
+<tr>
+<td>Custom attributes</td>
+<td>Limited</td>
+<td>Engineers can add any data</td>
+</tr>
+<tr>
+<td>Reusability</td>
+<td>General purpose</td>
+<td>Specific to application needs</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>Generic names</td>
+<td>Descriptive names for the domain</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>Python provides a rich set of built-in exceptions like <strong>ValueError</strong>, <strong>TypeError</strong>, and <strong>KeyError</strong>. However, as you build more complex systems, you will encounter situations where none of these built-in exceptions accurately describe the problem. This is where custom exceptions come in. By inheriting from Python's base <strong>Exception</strong> class, you can create your own exception types that make your code more readable, maintainable, and easier to debug.</p>
+<hr />
+<h3 id="why-create-custom-exceptions_1">⚙️ Why Create Custom Exceptions?</h3>
+<ul>
+<li><strong>Clarity</strong>: A custom exception like <strong>ConfigFileNotFoundError</strong> tells you exactly what went wrong, unlike a generic <strong>FileNotFoundError</strong>.</li>
+<li><strong>Control</strong>: You can catch specific exceptions from your application without accidentally catching unrelated errors from third-party libraries.</li>
+<li><strong>Organization</strong>: Custom exceptions help group related errors together, making your error handling logic cleaner.</li>
+<li><strong>Extensibility</strong>: You can add custom attributes or methods to your exceptions to carry additional context about the error.</li>
+</ul>
+<hr />
+<h3 id="the-base-exception-class_1">🛠️ The Base Exception Class</h3>
+<p>Every custom exception in Python should inherit from the <strong>Exception</strong> class (or one of its subclasses). The <strong>Exception</strong> class itself inherits from <strong>BaseException</strong>, but you should always inherit from <strong>Exception</strong> unless you have a very specific reason not to.</p>
+<p>Key points about the <strong>Exception</strong> class:
+- It provides the basic structure for all standard exceptions.
+- It accepts an optional message argument that describes the error.
+- It has a built-in <strong>args</strong> attribute that stores the arguments passed to the constructor.
+- It supports string representation through the <strong><strong>str</strong></strong> method.</p>
+<hr />
+<h3 id="creating-a-simple-custom-exception_1">📊 Creating a Simple Custom Exception</h3>
+<p>To create a custom exception, you define a new class that inherits from <strong>Exception</strong>. Here is the basic pattern:</p>
+<ul>
+<li>Define a class with a name ending in <strong>Error</strong> (by convention).</li>
+<li>Make it inherit from <strong>Exception</strong>.</li>
+<li>Optionally, add a custom <strong><strong>init</strong></strong> method to accept additional parameters.</li>
+</ul>
+<p>Example structure:
+- Class name: <strong>ConfigurationError</strong>
+- Inherits from: <strong>Exception</strong>
+- Purpose: Raised when a configuration file is missing or malformed</p>
+<p>The simplest custom exception requires only the <strong>pass</strong> statement inside the class body. Python's <strong>Exception</strong> class handles everything else.</p>
+<hr />
+<h3 id="adding-custom-attributes_1">🕵️ Adding Custom Attributes</h3>
+<p>Custom exceptions become more powerful when you add attributes that carry additional context. For example, you might want to include the name of a missing file or the invalid value that caused the error.</p>
+<p>To add custom attributes:
+- Override the <strong><strong>init</strong></strong> method in your exception class.
+- Call the parent <strong><strong>init</strong></strong> method with a descriptive message.
+- Store additional data as instance attributes.</p>
+<p>Example attributes for a <strong>ValidationError</strong>:
+- <strong>field_name</strong>: The name of the field that failed validation
+- <strong>invalid_value</strong>: The value that was rejected
+- <strong>expected_type</strong>: What type was expected instead</p>
+<p>These attributes can then be accessed in your exception handling code to provide detailed error messages or to make decisions about how to recover.</p>
+<hr />
+<h3 id="comparison-built-in-vs-custom-exceptions_1">📋 Comparison: Built-in vs Custom Exceptions</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Built-in Exceptions</th>
+<th>Custom Exceptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purpose</td>
+<td>General-purpose errors</td>
+<td>Application-specific errors</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>May require comments to explain context</td>
+<td>Self-documenting through class name</td>
+</tr>
+<tr>
+<td>Specificity</td>
+<td>Broad categories (e.g., ValueError)</td>
+<td>Narrow and precise (e.g., InvalidPortError)</td>
+</tr>
+<tr>
+<td>Extensibility</td>
+<td>Fixed attributes</td>
+<td>Can carry custom data</td>
+</tr>
+<tr>
+<td>Maintenance</td>
+<td>Cannot be modified</td>
+<td>Fully under your control</td>
+</tr>
+<tr>
+<td>Reusability</td>
+<td>Works across all Python code</td>
+<td>Specific to your project</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="best-practices-for-custom-exceptions_1">🧩 Best Practices for Custom Exceptions</h3>
+<ul>
+<li><strong>Inherit from Exception</strong>: Always inherit from <strong>Exception</strong>, not <strong>BaseException</strong>. The <strong>BaseException</strong> class is reserved for system-exiting exceptions like <strong>KeyboardInterrupt</strong> and <strong>SystemExit</strong>.</li>
+<li><strong>Use descriptive names</strong>: Name your exception classes clearly, ending with <strong>Error</strong> (e.g., <strong>DatabaseConnectionError</strong>, <strong>InvalidInputError</strong>).</li>
+<li><strong>Keep it simple</strong>: Start with a basic exception and add complexity only when needed. A custom exception with just a message is often sufficient.</li>
+<li><strong>Document your exceptions</strong>: Include a docstring in your exception class explaining when it should be raised.</li>
+<li><strong>Create a hierarchy</strong>: For complex applications, create a base custom exception for your project and have more specific exceptions inherit from it.</li>
+</ul>
+<hr />
+<h3 id="practical-example-a-configuration-error-hierarchy_1">🌟 Practical Example: A Configuration Error Hierarchy</h3>
+<p>Consider a system that reads configuration files. You might create the following exception hierarchy:</p>
+<ul>
+<li><strong>ConfigError</strong> (inherits from <strong>Exception</strong>): Base exception for all configuration-related errors</li>
+<li><strong>ConfigFileNotFoundError</strong> (inherits from <strong>ConfigError</strong>): Raised when a config file does not exist</li>
+<li><strong>ConfigParseError</strong> (inherits from <strong>ConfigError</strong>): Raised when a config file has invalid syntax</li>
+<li><strong>ConfigValidationError</strong> (inherits from <strong>ConfigError</strong>): Raised when a config value fails validation</li>
+</ul>
+<p>This hierarchy allows you to catch all configuration errors with a single <strong>except ConfigError</strong> block, or handle specific cases individually.</p>
+<hr />
+<h3 id="raising-and-catching-custom-exceptions_1">🔄 Raising and Catching Custom Exceptions</h3>
+<p>Custom exceptions are raised and caught exactly like built-in exceptions:</p>
+<ul>
+<li>Use the <strong>raise</strong> keyword followed by an instance of your custom exception.</li>
+<li>Pass a descriptive message as an argument to the constructor.</li>
+<li>Use <strong>try/except</strong> blocks to catch your custom exceptions.</li>
+<li>You can catch the base custom exception to handle all related errors, or catch specific subclasses for targeted handling.</li>
+</ul>
+<p>When catching custom exceptions, remember that the order of <strong>except</strong> clauses matters. More specific exceptions should be listed before more general ones.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li>Custom exceptions inherit from the <strong>Exception</strong> class and allow you to create application-specific error types.</li>
+<li>They improve code readability by making error conditions explicit and self-documenting.</li>
+<li>You can add custom attributes to carry additional context about what went wrong.</li>
+<li>A well-designed exception hierarchy helps organize error handling in complex systems.</li>
+<li>Custom exceptions are raised and caught using the same syntax as built-in exceptions.</li>
+</ul>
+<p>By creating your own exception classes, you transform vague error messages into precise, actionable information that makes debugging and maintenance significantly easier.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Inheriting from the base Exception class lets engineers create their own custom error types that behave like built-in Python exceptions.</p>
+<hr />
+<h3 id="example-1-simplest-custom-exception-with-pass_1">🧱 Example 1: Simplest custom exception with pass</h3>
+<p>This example shows the minimum code needed to create a custom exception class.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyCustomError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">raise</span> <span class="n">MyCustomError</span><span class="p">(</span><span class="s2">&quot;Something went wrong&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>MyCustomError: Something went wrong</strong></p>
+<hr />
+<h3 id="example-2-custom-exception-with-a-custom-message_1">🔧 Example 2: Custom exception with a custom message</h3>
+<p>This example shows how to pass and store a custom message inside the exception.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ValueTooLargeError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+
+<span class="k">raise</span> <span class="n">ValueTooLargeError</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="s2">&quot;Value exceeds the allowed limit&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ValueTooLargeError: Value exceeds the allowed limit</strong></p>
+<hr />
+<h3 id="example-3-using-a-custom-exception-in-a-try-except-block_1">🧪 Example 3: Using a custom exception in a try-except block</h3>
+<p>This example shows how to catch and handle a custom exception like any built-in exception.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">NegativeNumberError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_positive</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">NegativeNumberError</span><span class="p">(</span><span class="s2">&quot;Negative numbers are not allowed&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">number</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">check_positive</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">NegativeNumberError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Caught error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Caught error: Negative numbers are not allowed</strong></p>
+<hr />
+<h3 id="example-4-custom-exception-with-additional-attributes_1">📊 Example 4: Custom exception with additional attributes</h3>
+<p>This example shows how to store extra data inside the exception for debugging.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">InvalidAgeError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">min_age</span><span class="p">,</span> <span class="n">max_age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">min_age</span> <span class="o">=</span> <span class="n">min_age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_age</span> <span class="o">=</span> <span class="n">max_age</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Age </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> is not between </span><span class="si">{</span><span class="n">min_age</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">max_age</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="n">InvalidAgeError</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">InvalidAgeError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Problem: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Supplied age: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Allowed range: </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">min_age</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">error</span><span class="o">.</span><span class="n">max_age</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Problem: Age 200 is not between 0 and 120</strong><br />
+📤 Output: <strong>Supplied age: 200</strong><br />
+📤 Output: <strong>Allowed range: 0 to 120</strong></p>
+<hr />
+<h3 id="example-5-custom-exception-hierarchy-for-a-validation-system_1">🛡️ Example 5: Custom exception hierarchy for a validation system</h3>
+<p>This example shows how to create a family of related custom exceptions for different error types.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ValidationError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">EmptyFieldError</span><span class="p">(</span><span class="n">ValidationError</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_name</span> <span class="o">=</span> <span class="n">field_name</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> cannot be empty&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">InvalidFormatError</span><span class="p">(</span><span class="n">ValidationError</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field_name</span><span class="p">,</span> <span class="n">expected_format</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_name</span> <span class="o">=</span> <span class="n">field_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">expected_format</span> <span class="o">=</span> <span class="n">expected_format</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2"> must be in format: </span><span class="si">{</span><span class="n">expected_format</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_email</span><span class="p">(</span><span class="n">email</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">email</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">EmptyFieldError</span><span class="p">(</span><span class="s2">&quot;Email&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;@&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">email</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">InvalidFormatError</span><span class="p">(</span><span class="s2">&quot;Email&quot;</span><span class="p">,</span> <span class="s2">&quot;user@domain.com&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">validate_email</span><span class="p">(</span><span class="s2">&quot;bad-email&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">EmptyFieldError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Empty field: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">InvalidFormatError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Format issue: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;General validation error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Format issue: Email must be in format: user@domain.com</strong></p>
+<hr />
+<h3 id="comparison-table_1">📋 Comparison Table</h3>
 <table>
 <thead>
 <tr>

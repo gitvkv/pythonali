@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch20_06_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 20 | Pre-Execution Checks and Target State Assertions - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 20 | Pre-Execution Checks and Target State Assertions";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch20_06_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch20_06_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -971,6 +971,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-pre-execution-checks-vs-target-state-assertions">Comparison Table: Pre-Execution Checks vs Target State Assertions</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-pre-execution-checks_1">⚙️ What Are Pre-Execution Checks?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-target-state-assertions_1">🕵️ What Are Target State Assertions?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#implementing-pre-execution-checks-in-python_1">🛠️ Implementing Pre-Execution Checks in Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-without-checks-vs-with-checks_1">📊 Comparison: Without Checks vs. With Checks</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-checklist-for-pre-execution-checks_1">📋 Practical Checklist for Pre-Execution Checks</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#target-state-assertions-in-practice_1">🔁 Target State Assertions in Practice</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benefits-of-this-approach_1">✅ Benefits of This Approach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#final-thoughts_1">🧪 Final Thoughts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-checking-if-a-file-exists-before-reading_1">✅ Example 1: Checking if a file exists before reading</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-asserting-a-variable-meets-a-minimum-value_1">✅ Example 2: Asserting a variable meets a minimum value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-checking-that-a-directory-exists-before-writing-output_1">✅ Example 3: Checking that a directory exists before writing output</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-verifying-a-service-is-running-before-connecting_1">✅ Example 4: Verifying a service is running before connecting</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-asserting-target-state-after-a-file-copy-operation_1">✅ Example 5: Asserting target state after a file copy operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-pre-execution-checks-vs-target-state-assertions_1">Comparison Table: Pre-Execution Checks vs Target State Assertions</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch20_06_03/">Ch 20 | Ensuring Multiple Passes Yield Consistent States</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="pre-execution-checks-and-target-state-assertions">Pre-Execution Checks and Target State Assertions</h1>
 <p><span class="category-tag">🏷️ Python Scripting Best Practices /  Writing Idempotent Scripts</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Before any script begins modifying system resources, it is critical to verify that the current environment matches what the script expects. This practice prevents partial failures, accidental overwrites, and cascading errors. Pre-execution checks and target state assertions form the foundation of safe, predictable automation.</p>
@@ -1199,8 +1229,7 @@ A script that ensures a configuration file contains a specific setting. It first
 <hr />
 <h3 id="final-thoughts">🧪 Final Thoughts</h3>
 <p>Pre-execution checks and target state assertions are not optional extras—they are essential practices for writing professional, reliable Python scripts. By investing time in upfront validation and state-aware logic, you create scripts that are safe to run, easy to debug, and predictable in any environment. Every script should ask: <em>Is the world ready for me?</em> and <em>Is the world already how I want it?</em> before taking any action.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Pre-execution checks and target state assertions verify that conditions are correct before running a script and confirm the desired outcome was achieved.</p>
 <hr />
 <h3 id="example-1-checking-if-a-file-exists-before-reading">✅ Example 1: Checking if a file exists before reading</h3>
@@ -1283,6 +1312,250 @@ A script that ensures a configuration file contains a specific setting. It first
 <p>📤 Output: <strong>File copied successfully. Target state achieved.</strong></p>
 <hr />
 <h3 id="comparison-table-pre-execution-checks-vs-target-state-assertions">Comparison Table: Pre-Execution Checks vs Target State Assertions</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Pre-Execution Checks</th>
+<th>Target State Assertions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>When used</td>
+<td>Before running the main logic</td>
+<td>After running the main logic</td>
+</tr>
+<tr>
+<td>Purpose</td>
+<td>Verify conditions are safe to proceed</td>
+<td>Confirm the desired outcome occurred</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>Check if file exists before reading</td>
+<td>Check if file exists after writing</td>
+</tr>
+<tr>
+<td>Failure action</td>
+<td>Abort or skip the operation</td>
+<td>Raise error or log failure</td>
+</tr>
+<tr>
+<td>Typical tools</td>
+<td><code>if</code>, <code>os.path.exists</code>, <code>assert</code></td>
+<td><code>if</code>, <code>os.path.exists</code>, <code>assert</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>Before any script begins modifying system resources, it is critical to verify that the current environment matches what the script expects. This practice prevents partial failures, accidental overwrites, and cascading errors. Pre-execution checks and target state assertions form the foundation of safe, predictable automation.</p>
+<hr />
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>A well-written script does not blindly execute its logic. Instead, it first asks: <em>Is the environment ready? Are the prerequisites met? What is the current state compared to the desired state?</em> By answering these questions upfront, the script can either proceed confidently, adjust its behavior, or fail gracefully with a clear message. This approach transforms fragile scripts into resilient tools that engineers can trust in production workflows.</p>
+<hr />
+<h3 id="what-are-pre-execution-checks_1">⚙️ What Are Pre-Execution Checks?</h3>
+<p>Pre-execution checks are validations performed <strong>before</strong> any main logic runs. They confirm that the runtime environment, dependencies, and input parameters are valid.</p>
+<p><strong>Common pre-execution checks include:</strong>
+- Verifying that required environment variables are set
+- Confirming that configuration files exist and are readable
+- Checking that required tools or libraries are installed
+- Validating that input arguments meet expected formats or ranges
+- Ensuring the script has appropriate file system permissions
+- Testing network connectivity to required endpoints</p>
+<p><strong>Example approach:</strong>
+A script that processes log files first checks if the log directory exists, if the log file is accessible, and if there is enough disk space. Only after all checks pass does it begin reading and transforming data.</p>
+<hr />
+<h3 id="what-are-target-state-assertions_1">🕵️ What Are Target State Assertions?</h3>
+<p>Target state assertions verify that the current system state matches the <strong>desired state</strong> before and after operations. These assertions prevent redundant work and ensure idempotency.</p>
+<p><strong>Key characteristics of target state assertions:</strong>
+- They define what "done" looks like for each operation
+- They check if the target state already exists before taking action
+- They confirm the target state was achieved after execution
+- They allow the script to skip unnecessary work when the state is already correct</p>
+<p><strong>Example approach:</strong>
+A script that creates a user account first checks if the user already exists. If the user exists with the correct configuration, the script skips creation entirely. If the user exists but with different settings, the script updates only what is needed.</p>
+<hr />
+<h3 id="implementing-pre-execution-checks-in-python_1">🛠️ Implementing Pre-Execution Checks in Python</h3>
+<p>When writing pre-execution checks, structure them as a clear sequence of validations that return early with helpful messages when conditions are not met.</p>
+<p><strong>Recommended structure:</strong>
+- Define a dedicated function or module for all checks
+- Use descriptive variable names for conditions being tested
+- Return meaningful error messages that explain what is missing
+- Exit gracefully rather than letting the script crash later</p>
+<p><strong>Example pattern:</strong>
+A function named <strong>check_prerequisites</strong> that returns a list of missing requirements. The main script calls this function first. If the list is not empty, it prints each missing item and exits. If the list is empty, the script proceeds to the main logic.</p>
+<p><strong>Common checks to include:</strong>
+- Python version minimum requirement
+- Operating system compatibility
+- Required third-party package availability
+- Environment variable presence and format
+- File or directory existence with correct permissions
+- Network reachability for external dependencies</p>
+<hr />
+<h3 id="comparison-without-checks-vs-with-checks_1">📊 Comparison: Without Checks vs. With Checks</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Without Pre-Execution Checks</th>
+<th>With Pre-Execution Checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Error handling</td>
+<td>Script fails mid-operation with cryptic traceback</td>
+<td>Script fails early with clear, actionable message</td>
+</tr>
+<tr>
+<td>Idempotency</td>
+<td>May create duplicate resources or overwrite data</td>
+<td>Detects existing state and skips or adjusts</td>
+</tr>
+<tr>
+<td>Debugging</td>
+<td>Requires manual investigation of failure point</td>
+<td>Logs exactly what prerequisite was missing</td>
+</tr>
+<tr>
+<td>Reliability</td>
+<td>Unpredictable across different environments</td>
+<td>Consistent behavior regardless of environment</td>
+</tr>
+<tr>
+<td>Engineer confidence</td>
+<td>Low; each run feels risky</td>
+<td>High; script validates its own readiness</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-checklist-for-pre-execution-checks_1">📋 Practical Checklist for Pre-Execution Checks</h3>
+<p>When designing pre-execution checks for any script, consider this checklist:</p>
+<ul>
+<li><strong>Input validation</strong>: Are all required arguments provided and correctly formatted?</li>
+<li><strong>Environment readiness</strong>: Are required environment variables set to valid values?</li>
+<li><strong>Dependency availability</strong>: Are required files, directories, and tools present?</li>
+<li><strong>Permission verification</strong>: Does the script have read/write/execute access where needed?</li>
+<li><strong>State detection</strong>: Does the target resource already exist in the desired state?</li>
+<li><strong>Resource capacity</strong>: Is there enough disk space, memory, or network bandwidth?</li>
+<li><strong>Safety conditions</strong>: Are there any locks, running processes, or conflicts that would prevent safe execution?</li>
+</ul>
+<hr />
+<h3 id="target-state-assertions-in-practice_1">🔁 Target State Assertions in Practice</h3>
+<p>Target state assertions follow a simple three-step pattern for each resource the script manages:</p>
+<p><strong>Step 1 - Check current state:</strong>
+Query the system to determine the actual state of the resource. For example, check if a file exists, if a service is running, or if a configuration value matches expectations.</p>
+<p><strong>Step 2 - Compare with desired state:</strong>
+Compare the actual state against the desired state defined in the script or configuration. Determine if an action is needed, and if so, what specific action.</p>
+<p><strong>Step 3 - Act or skip:</strong>
+If the states match, log that the target state is already achieved and skip the operation. If they differ, perform only the necessary changes to reach the desired state, then verify the result.</p>
+<p><strong>Example scenario:</strong>
+A script that ensures a configuration file contains a specific setting. It first reads the file and checks if the setting already exists with the correct value. If yes, it reports success and exits. If the setting is missing or incorrect, it updates only that line and confirms the change.</p>
+<hr />
+<h3 id="benefits-of-this-approach_1">✅ Benefits of This Approach</h3>
+<p>Adopting pre-execution checks and target state assertions brings several advantages to any Python automation:</p>
+<ul>
+<li><strong>Idempotency</strong>: Running the script multiple times produces the same result without side effects</li>
+<li><strong>Safety</strong>: Failures happen early and predictably, not in the middle of critical operations</li>
+<li><strong>Clarity</strong>: Logs and error messages clearly indicate what is needed or what went wrong</li>
+<li><strong>Reusability</strong>: Scripts can be safely run in different environments with minimal adjustment</li>
+<li><strong>Maintainability</strong>: New engineers can understand the script's requirements by reading the checks</li>
+<li><strong>Auditability</strong>: Each run produces a clear record of what was checked and what actions were taken</li>
+</ul>
+<hr />
+<h3 id="final-thoughts_1">🧪 Final Thoughts</h3>
+<p>Pre-execution checks and target state assertions are not optional extras—they are essential practices for writing professional, reliable Python scripts. By investing time in upfront validation and state-aware logic, you create scripts that are safe to run, easy to debug, and predictable in any environment. Every script should ask: <em>Is the world ready for me?</em> and <em>Is the world already how I want it?</em> before taking any action.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Pre-execution checks and target state assertions verify that conditions are correct before running a script and confirm the desired outcome was achieved.</p>
+<hr />
+<h3 id="example-1-checking-if-a-file-exists-before-reading_1">✅ Example 1: Checking if a file exists before reading</h3>
+<p>This example checks that a required input file exists before attempting to read it.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;data.csv&quot;</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File exists. Proceeding with read.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found. Aborting.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>File not found. Aborting.</strong></p>
+<hr />
+<h3 id="example-2-asserting-a-variable-meets-a-minimum-value_1">✅ Example 2: Asserting a variable meets a minimum value</h3>
+<p>This example verifies that a number is above a threshold before performing a calculation.</p>
+<div class="highlight"><pre><span></span><code><span class="n">temperature</span> <span class="o">=</span> <span class="mi">85</span>
+
+<span class="k">assert</span> <span class="n">temperature</span> <span class="o">&gt;=</span> <span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;Temperature too low for operation&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature is acceptable. Running process.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Temperature is acceptable. Running process.</strong></p>
+<hr />
+<h3 id="example-3-checking-that-a-directory-exists-before-writing-output_1">✅ Example 3: Checking that a directory exists before writing output</h3>
+<p>This example ensures the output directory exists before attempting to save a file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">output_dir</span> <span class="o">=</span> <span class="s2">&quot;/tmp/results&quot;</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">output_dir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Created output directory.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Output directory already exists.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ready to write files.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Created output directory.</strong></p>
+<hr />
+<h3 id="example-4-verifying-a-service-is-running-before-connecting_1">✅ Example 4: Verifying a service is running before connecting</h3>
+<p>This example checks that a database service is active before attempting a connection.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">service_name</span> <span class="o">=</span> <span class="s2">&quot;postgresql&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;systemctl&quot;</span><span class="p">,</span> <span class="s2">&quot;is-active&quot;</span><span class="p">,</span> <span class="n">service_name</span><span class="p">],</span>
+    <span class="n">capture_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;active&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Service is running. Connecting to database.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Service is not running. Cannot connect.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Service is running. Connecting to database.</strong></p>
+<hr />
+<h3 id="example-5-asserting-target-state-after-a-file-copy-operation_1">✅ Example 5: Asserting target state after a file copy operation</h3>
+<p>This example confirms that a file was copied successfully by checking its existence at the destination.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;/tmp/source.txt&quot;</span>
+<span class="n">destination</span> <span class="o">=</span> <span class="s2">&quot;/tmp/destination.txt&quot;</span>
+
+<span class="c1"># Create a dummy source file for demonstration</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;test data&quot;</span><span class="p">)</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">destination</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File copied successfully. Target state achieved.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File copy failed. Target state not achieved.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>File copied successfully. Target state achieved.</strong></p>
+<hr />
+<h3 id="comparison-table-pre-execution-checks-vs-target-state-assertions_1">Comparison Table: Pre-Execution Checks vs Target State Assertions</h3>
 <table>
 <thead>
 <tr>

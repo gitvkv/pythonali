@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch09_02_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 09 | Merging Dictionaries with Update - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 09 | Merging Dictionaries with Update";
         var mkdocs_page_input_path = "Core Syntax\\ch09_02_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch09_02_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -424,6 +424,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-merge-of-server-configuration">🟢 Example 5: Practical merge of server configuration</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-update-vs-creating-a-new-dictionary">📊 Comparison: .update() vs Creating a New Dictionary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-does-merging-dictionaries-mean_1">⚙️ What Does Merging Dictionaries Mean?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-the-update-method-works_1">🛠️ How the Update Method Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-merging-two-dictionaries_1">📊 Example: Merging Two Dictionaries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-behaviors-to-remember_1">🕵️ Key Behaviors to Remember</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-use-cases_1">🧪 Practical Use Cases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-notes_1">⚠️ Important Notes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-summary_1">💡 Quick Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-merge-of-two-dictionaries_1">🟢 Example 1: Basic merge of two dictionaries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-overwriting-existing-keys-during-merge_1">🟢 Example 2: Overwriting existing keys during merge</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-merging-with-keyword-arguments_1">🟢 Example 3: Merging with keyword arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-merging-an-empty-dictionary_1">🟢 Example 4: Merging an empty dictionary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-merge-of-server-configuration_1">🟢 Example 5: Practical merge of server configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-update-vs-creating-a-new-dictionary_1">📊 Comparison: .update() vs Creating a New Dictionary</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="merging-dictionaries-with-update">Merging Dictionaries with Update</h1>
 <p><span class="category-tag">🏷️ Dictionaries /  Modifying Dictionaries</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with dictionaries in Python, you'll often need to combine data from multiple sources. The <strong>update</strong> method provides a straightforward way to merge one dictionary into another. This is particularly useful when you're consolidating configuration data, combining API responses, or merging settings from different files.</p>
@@ -1151,8 +1177,7 @@
 <hr />
 <h3 id="quick-summary">💡 Quick Summary</h3>
 <p>Merging dictionaries with <strong>update</strong> is a simple yet powerful way to combine data. It modifies the original dictionary by adding new keys and overwriting existing ones. This method is ideal when you want to apply changes directly to your working dictionary without creating unnecessary copies.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>.update()</code> method merges key-value pairs from one dictionary into another, overwriting any existing keys.</p>
 <hr />
 <h3 id="example-1-basic-merge-of-two-dictionaries">🟢 Example 1: Basic merge of two dictionaries</h3>
@@ -1205,6 +1230,171 @@
 <p>📤 Output: <strong>{'port': 8080, 'debug': True, 'max_connections': 10}</strong></p>
 <hr />
 <h3 id="comparison-update-vs-creating-a-new-dictionary">📊 Comparison: <code>.update()</code> vs Creating a New Dictionary</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>.update()</code></th>
+<th>New dict with <code>{**dict1, **dict2}</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modifies original</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>Lower (in-place)</td>
+<td>Higher (new copy)</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>Simple and clear</td>
+<td>Compact but less obvious</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>When original can be changed</td>
+<td>When original must stay untouched</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with dictionaries in Python, you'll often need to combine data from multiple sources. The <strong>update</strong> method provides a straightforward way to merge one dictionary into another. This is particularly useful when you're consolidating configuration data, combining API responses, or merging settings from different files.</p>
+<hr />
+<h3 id="what-does-merging-dictionaries-mean_1">⚙️ What Does Merging Dictionaries Mean?</h3>
+<p>Merging dictionaries means taking the key-value pairs from one dictionary and adding them to another. If both dictionaries share the same key, the value from the dictionary being merged in will <strong>overwrite</strong> the existing value.</p>
+<ul>
+<li>The <strong>update</strong> method modifies the original dictionary in place</li>
+<li>It accepts another dictionary or an iterable of key-value pairs</li>
+<li>The operation is permanent on the original dictionary</li>
+</ul>
+<hr />
+<h3 id="how-the-update-method-works_1">🛠️ How the Update Method Works</h3>
+<p>The <strong>update</strong> method is called on the dictionary you want to modify. You pass in the dictionary whose contents you want to merge.</p>
+<ul>
+<li>The syntax is: <strong>dictionary1.update(dictionary2)</strong></li>
+<li>All keys from <strong>dictionary2</strong> are added to <strong>dictionary1</strong></li>
+<li>If a key already exists in <strong>dictionary1</strong>, its value is replaced with the value from <strong>dictionary2</strong></li>
+<li>The method returns <strong>None</strong> (it modifies the original dictionary directly)</li>
+</ul>
+<hr />
+<h3 id="example-merging-two-dictionaries_1">📊 Example: Merging Two Dictionaries</h3>
+<p>Consider you have a base configuration dictionary and an override dictionary with updated settings.</p>
+<ul>
+<li><strong>Base dictionary</strong>: <strong>config = {"host": "localhost", "port": 8080, "debug": False}</strong></li>
+<li><strong>Override dictionary</strong>: <strong>updates = {"port": 9090, "debug": True, "timeout": 30}</strong></li>
+<li>After calling <strong>config.update(updates)</strong>, the <strong>config</strong> dictionary becomes:</li>
+<li><strong>{"host": "localhost", "port": 9090, "debug": True, "timeout": 30}</strong></li>
+</ul>
+<p>Notice how the <strong>port</strong> and <strong>debug</strong> values were replaced, while <strong>timeout</strong> was added as a new key.</p>
+<hr />
+<h3 id="key-behaviors-to-remember_1">🕵️ Key Behaviors to Remember</h3>
+<table>
+<thead>
+<tr>
+<th>Behavior</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Original is modified</strong></td>
+<td>The dictionary you call update on is changed permanently</td>
+</tr>
+<tr>
+<td><strong>Duplicate keys overwrite</strong></td>
+<td>Existing values are replaced by new values</td>
+</tr>
+<tr>
+<td><strong>New keys are added</strong></td>
+<td>Keys not present in the original are appended</td>
+</tr>
+<tr>
+<td><strong>Returns nothing</strong></td>
+<td>The method returns None, not a new dictionary</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-use-cases_1">🧪 Practical Use Cases</h3>
+<ul>
+<li><strong>Configuration merging</strong>: Combine default settings with user-provided overrides</li>
+<li><strong>Data aggregation</strong>: Merge results from multiple API calls into one dictionary</li>
+<li><strong>State updates</strong>: Update a dictionary representing system state with new information</li>
+<li><strong>Template filling</strong>: Merge variable values into a template dictionary</li>
+</ul>
+<hr />
+<h3 id="important-notes_1">⚠️ Important Notes</h3>
+<ul>
+<li>The <strong>update</strong> method changes the original dictionary, so make a copy if you need to preserve the original</li>
+<li>You can also pass keyword arguments to update: <strong>config.update(port=3000, timeout=60)</strong></li>
+<li>For creating a new merged dictionary without modifying the originals, consider using the <strong>{</strong>dict1, <strong>dict2}</strong> syntax (available in Python 3.5+)</li>
+</ul>
+<hr />
+<h3 id="quick-summary_1">💡 Quick Summary</h3>
+<p>Merging dictionaries with <strong>update</strong> is a simple yet powerful way to combine data. It modifies the original dictionary by adding new keys and overwriting existing ones. This method is ideal when you want to apply changes directly to your working dictionary without creating unnecessary copies.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>.update()</code> method merges key-value pairs from one dictionary into another, overwriting any existing keys.</p>
+<hr />
+<h3 id="example-1-basic-merge-of-two-dictionaries_1">🟢 Example 1: Basic merge of two dictionaries</h3>
+<p>This example shows how to add all items from one dictionary into another.</p>
+<div class="highlight"><pre><span></span><code><span class="n">settings</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;dark&quot;</span><span class="p">,</span> <span class="s2">&quot;font&quot;</span><span class="p">:</span> <span class="s2">&quot;Arial&quot;</span><span class="p">}</span>
+<span class="n">new_settings</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;font_size&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;line_height&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">}</span>
+
+<span class="n">settings</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">new_settings</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'theme': 'dark', 'font': 'Arial', 'font_size': 14, 'line_height': 1.5}</strong></p>
+<hr />
+<h3 id="example-2-overwriting-existing-keys-during-merge_1">🟢 Example 2: Overwriting existing keys during merge</h3>
+<p>This example shows that when both dictionaries share a key, the incoming value replaces the original.</p>
+<div class="highlight"><pre><span></span><code><span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;viewer&quot;</span><span class="p">}</span>
+<span class="n">update</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;editor&quot;</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;engineering&quot;</span><span class="p">}</span>
+
+<span class="n">user</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">update</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'name': 'Alice', 'role': 'editor', 'department': 'engineering'}</strong></p>
+<hr />
+<h3 id="example-3-merging-with-keyword-arguments_1">🟢 Example 3: Merging with keyword arguments</h3>
+<p>This example shows how to pass key-value pairs directly as arguments to <code>.update()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8080</span><span class="p">}</span>
+
+<span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'host': '0.0.0.0', 'port': 8080, 'timeout': 30}</strong></p>
+<hr />
+<h3 id="example-4-merging-an-empty-dictionary_1">🟢 Example 4: Merging an empty dictionary</h3>
+<p>This example shows that merging an empty dictionary leaves the original unchanged.</p>
+<div class="highlight"><pre><span></span><code><span class="n">original</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">empty</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">original</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">empty</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'a': 1, 'b': 2}</strong></p>
+<hr />
+<h3 id="example-5-practical-merge-of-server-configuration_1">🟢 Example 5: Practical merge of server configuration</h3>
+<p>This example shows a realistic scenario where default settings are overridden by user-provided values.</p>
+<div class="highlight"><pre><span></span><code><span class="n">default_config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span> <span class="s2">&quot;debug&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;max_connections&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">}</span>
+<span class="n">user_config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="s2">&quot;debug&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+
+<span class="n">default_config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">user_config</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">default_config</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'port': 8080, 'debug': True, 'max_connections': 10}</strong></p>
+<hr />
+<h3 id="comparison-update-vs-creating-a-new-dictionary_1">📊 Comparison: <code>.update()</code> vs Creating a New Dictionary</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_05_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Calling Parent Constructors via the super Mechanism - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Calling Parent Constructors via the super Mechanism";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_05_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_05_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -857,6 +857,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-with-vs-without-super">Comparison: With vs Without super()</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-use-super_1">🧠 Why Use super()?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-syntax_1">⚙️ Basic Syntax</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simple-example-parent-and-child-classes_1">🛠️ Simple Example: Parent and Child Classes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-with-super-vs-without-super_1">📊 Comparison: With super() vs Without super()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-super-function-in-detail_1">🕵️ The super() Function in Detail</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-with-multiple-parameters_1">🧪 Practical Example with Multiple Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-mistakes-to-avoid_1">⚠️ Common Mistakes to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">🎯 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-parent-constructor-call-with-super_1">🧩 Example 1: Basic parent constructor call with super()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-passing-arguments-to-the-parent-constructor_1">🧩 Example 2: Passing arguments to the parent constructor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-parent-constructor-with-default-arguments_1">🧩 Example 3: Parent constructor with default arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-multi-level-inheritance-with-super_1">🧩 Example 4: Multi-level inheritance with super()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-logging-system-with-parent-initialization_1">🧩 Example 5: Practical use — logging system with parent initialization</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-with-vs-without-super_1">Comparison: With vs Without super()</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_05_03/">Ch 18 | Overriding Parent Actions in Specialized Child Classes</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="calling-parent-constructors-via-the-super-mechanism">Calling Parent Constructors via the super Mechanism</h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Inheritance</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When you create a child class that inherits from a parent class, you often need to initialize both the parent's attributes and the child's own attributes. The <strong>super()</strong> function provides a clean and efficient way to call the parent class constructor (the <code>__init__</code> method) from within the child class.</p>
@@ -1181,8 +1209,7 @@
 <li>Using <strong>super()</strong> makes your code more robust and easier to maintain when class hierarchies change</li>
 </ul>
 <p>By mastering the <strong>super()</strong> mechanism, you ensure that your inheritance hierarchies work correctly and your code remains clean and maintainable as your projects grow.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>super()</code> function lets a child class call its parent class's constructor to reuse initialization logic.</p>
 <hr />
 <h3 id="example-1-basic-parent-constructor-call-with-super">🧩 Example 1: Basic parent constructor call with super()</h3>
@@ -1300,6 +1327,264 @@
 <strong>[INFO] User logged in</strong></p>
 <hr />
 <h3 id="comparison-with-vs-without-super">Comparison: With vs Without super()</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Using <code>super()</code></th>
+<th>Without <code>super()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parent constructor call</td>
+<td><code>super().__init__(args)</code></td>
+<td><code>Parent.__init__(self, args)</code></td>
+</tr>
+<tr>
+<td>Works with multiple inheritance</td>
+<td>Yes</td>
+<td>No (manual calls break MRO)</td>
+</tr>
+<tr>
+<td>Code maintenance</td>
+<td>Easy — parent class name change doesn't affect child</td>
+<td>Hard — must update every explicit parent name</td>
+</tr>
+<tr>
+<td>Readability for engineers</td>
+<td>Clear and concise</td>
+<td>More verbose and error-prone</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you create a child class that inherits from a parent class, you often need to initialize both the parent's attributes and the child's own attributes. The <strong>super()</strong> function provides a clean and efficient way to call the parent class constructor (the <code>__init__</code> method) from within the child class.</p>
+<hr />
+<h3 id="why-use-super_1">🧠 Why Use super()?</h3>
+<ul>
+<li><strong>Avoids code duplication</strong> – You don't have to rewrite the parent's initialization logic</li>
+<li><strong>Maintains inheritance chain</strong> – Properly calls constructors in complex inheritance hierarchies</li>
+<li><strong>Keeps your code DRY</strong> (Don't Repeat Yourself) – Changes to the parent constructor automatically apply to all child classes</li>
+<li><strong>Supports multiple inheritance</strong> – Works correctly even when a class inherits from multiple parent classes</li>
+</ul>
+<hr />
+<h3 id="basic-syntax_1">⚙️ Basic Syntax</h3>
+<p>The <strong>super()</strong> function returns a temporary object of the parent class, allowing you to call its methods.</p>
+<p><strong>Without super()</strong> – Manually calling the parent constructor:
+- You would write: <strong>ParentClassName.<strong>init</strong>(self, arg1, arg2)</strong>
+- This approach is repetitive and breaks if the parent class name changes</p>
+<p><strong>With super()</strong> – The recommended approach:
+- You write: <strong>super().<strong>init</strong>(arg1, arg2)</strong>
+- Python automatically finds the correct parent class and passes <strong>self</strong> implicitly</p>
+<hr />
+<h3 id="simple-example-parent-and-child-classes_1">🛠️ Simple Example: Parent and Child Classes</h3>
+<p>Consider a parent class <strong>Vehicle</strong> and a child class <strong>Car</strong>:</p>
+<p><strong>Parent class (Vehicle):</strong>
+- Has an <strong><strong>init</strong></strong> method that accepts <strong>make</strong> and <strong>model</strong> parameters
+- Stores these values as instance attributes</p>
+<p><strong>Child class (Car):</strong>
+- Inherits from <strong>Vehicle</strong>
+- Has its own <strong><strong>init</strong></strong> method that accepts <strong>make</strong>, <strong>model</strong>, and <strong>doors</strong> parameters
+- Uses <strong>super().<strong>init</strong>(make, model)</strong> to initialize the inherited attributes
+- Then sets the <strong>doors</strong> attribute specific to the Car class</p>
+<p>When you create a <strong>Car</strong> object like <strong>my_car = Car("Toyota", "Camry", 4)</strong>, the following happens:
+1. Python calls <strong>Car.<strong>init</strong></strong> with the three arguments
+2. Inside <strong>Car.<strong>init</strong></strong>, <strong>super().<strong>init</strong>("Toyota", "Camry")</strong> calls <strong>Vehicle.<strong>init</strong></strong>
+3. <strong>Vehicle.<strong>init</strong></strong> sets <strong>self.make = "Toyota"</strong> and <strong>self.model = "Camry"</strong>
+4. Control returns to <strong>Car.<strong>init</strong></strong>, which sets <strong>self.doors = 4</strong></p>
+<hr />
+<h3 id="comparison-with-super-vs-without-super_1">📊 Comparison: With super() vs Without super()</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Code Example</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Using super()</strong></td>
+<td><strong>super().<strong>init</strong>(make, model)</strong></td>
+<td>Clean, maintainable, works with inheritance chains</td>
+<td>Requires understanding of MRO (Method Resolution Order)</td>
+</tr>
+<tr>
+<td><strong>Manual parent call</strong></td>
+<td><strong>Vehicle.<strong>init</strong>(self, make, model)</strong></td>
+<td>Explicit and easy to understand</td>
+<td>Breaks if parent class name changes; doesn't work well with multiple inheritance</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="the-super-function-in-detail_1">🕵️ The super() Function in Detail</h3>
+<p><strong>What super() actually does:</strong>
+- Returns a proxy object that delegates method calls to the parent class
+- Automatically handles the <strong>self</strong> argument – you don't need to pass it
+- Follows the Method Resolution Order (MRO) to find the correct parent</p>
+<p><strong>Important rules:</strong>
+- <strong>super()</strong> is most commonly used inside the child class constructor
+- You can call <strong>super().<strong>init</strong>()</strong> at any point in the child's constructor
+- The child class can add its own parameters beyond what the parent expects
+- If the parent constructor requires arguments, you must pass them to <strong>super().<strong>init</strong>()</strong></p>
+<hr />
+<h3 id="practical-example-with-multiple-parameters_1">🧪 Practical Example with Multiple Parameters</h3>
+<p><strong>Parent class: Employee</strong>
+- Constructor accepts: <strong>name</strong>, <strong>employee_id</strong>, <strong>department</strong>
+- Sets all three as instance attributes</p>
+<p><strong>Child class: Manager</strong>
+- Constructor accepts: <strong>name</strong>, <strong>employee_id</strong>, <strong>department</strong>, <strong>team_size</strong>
+- Calls <strong>super().<strong>init</strong>(name, employee_id, department)</strong> to set the inherited attributes
+- Then sets <strong>self.team_size = team_size</strong></p>
+<p>When you create <strong>manager = Manager("Alice", "M123", "Engineering", 8)</strong>:
+- The parent constructor sets <strong>name</strong>, <strong>employee_id</strong>, and <strong>department</strong>
+- The child constructor adds <strong>team_size</strong>
+- The resulting object has all four attributes available</p>
+<hr />
+<h3 id="common-mistakes-to-avoid_1">⚠️ Common Mistakes to Avoid</h3>
+<ul>
+<li><strong>Forgetting to call super().<strong>init</strong>()</strong> – The parent attributes will never be initialized, leading to AttributeError when you try to access them</li>
+<li><strong>Passing too many or too few arguments</strong> – The arguments you pass to <strong>super().<strong>init</strong>()</strong> must match what the parent constructor expects</li>
+<li><strong>Calling super().<strong>init</strong>() after setting child attributes</strong> – While this works, it's better practice to initialize the parent first, then add child-specific attributes</li>
+<li><strong>Using the wrong parameter order</strong> – Make sure the arguments you pass match the parent constructor's parameter sequence</li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">🎯 Key Takeaways</h3>
+<ul>
+<li><strong>super()</strong> provides a clean, maintainable way to call parent constructors</li>
+<li>It automatically handles the inheritance chain and works with complex hierarchies</li>
+<li>Always call <strong>super().<strong>init</strong>()</strong> in your child class constructor to properly initialize inherited attributes</li>
+<li>The child class can extend the parent's initialization with its own attributes</li>
+<li>Using <strong>super()</strong> makes your code more robust and easier to maintain when class hierarchies change</li>
+</ul>
+<p>By mastering the <strong>super()</strong> mechanism, you ensure that your inheritance hierarchies work correctly and your code remains clean and maintainable as your projects grow.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>super()</code> function lets a child class call its parent class's constructor to reuse initialization logic.</p>
+<hr />
+<h3 id="example-1-basic-parent-constructor-call-with-super_1">🧩 Example 1: Basic parent constructor call with super()</h3>
+<p>This example shows how a child class explicitly calls the parent constructor using <code>super().__init__()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Parent</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Parent initialized&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Child</span><span class="p">(</span><span class="n">Parent</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">child_message</span> <span class="o">=</span> <span class="s2">&quot;Child initialized&quot;</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">Child</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">child_message</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Parent initialized</strong><br />
+<strong>Child initialized</strong></p>
+<hr />
+<h3 id="example-2-passing-arguments-to-the-parent-constructor_1">🧩 Example 2: Passing arguments to the parent constructor</h3>
+<p>This example demonstrates how to pass arguments from the child to the parent constructor via <code>super()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">brand</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">brand</span> <span class="o">=</span> <span class="n">brand</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">(</span><span class="n">Vehicle</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">brand</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">brand</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+
+<span class="n">my_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s2">&quot;Toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;Corolla&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_car</span><span class="o">.</span><span class="n">brand</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_car</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Toyota</strong><br />
+<strong>Corolla</strong></p>
+<hr />
+<h3 id="example-3-parent-constructor-with-default-arguments_1">🧩 Example 3: Parent constructor with default arguments</h3>
+<p>This example shows how the child can override default values when calling the parent constructor.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Employee</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">salary</span><span class="o">=</span><span class="mi">50000</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">salary</span> <span class="o">=</span> <span class="n">salary</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Manager</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">department</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">salary</span><span class="o">=</span><span class="mi">80000</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">department</span> <span class="o">=</span> <span class="n">department</span>
+
+<span class="n">lead</span> <span class="o">=</span> <span class="n">Manager</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Engineering&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lead</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lead</span><span class="o">.</span><span class="n">salary</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lead</span><span class="o">.</span><span class="n">department</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Alice</strong><br />
+<strong>80000</strong><br />
+<strong>Engineering</strong></p>
+<hr />
+<h3 id="example-4-multi-level-inheritance-with-super_1">🧩 Example 4: Multi-level inheritance with super()</h3>
+<p>This example shows how <code>super()</code> works correctly through a chain of inherited classes.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="n">species</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Mammal</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">fur_color</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">species</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fur_color</span> <span class="o">=</span> <span class="n">fur_color</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Dog</span><span class="p">(</span><span class="n">Mammal</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">fur_color</span><span class="p">,</span> <span class="n">breed</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">species</span><span class="p">,</span> <span class="n">fur_color</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>
+
+<span class="n">pet</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;Canine&quot;</span><span class="p">,</span> <span class="s2">&quot;Brown&quot;</span><span class="p">,</span> <span class="s2">&quot;Labrador&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pet</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pet</span><span class="o">.</span><span class="n">fur_color</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pet</span><span class="o">.</span><span class="n">breed</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Canine</strong><br />
+<strong>Brown</strong><br />
+<strong>Labrador</strong></p>
+<hr />
+<h3 id="example-5-practical-use-logging-system-with-parent-initialization_1">🧩 Example 5: Practical use — logging system with parent initialization</h3>
+<p>This example shows a real-world pattern where the parent constructor sets up shared logging, and children add specialized behavior.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Logger</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_level</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log_level</span> <span class="o">=</span> <span class="n">log_level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logs</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">log_level</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">FileLogger</span><span class="p">(</span><span class="n">Logger</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">log_level</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">log_level</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">write_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">log</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">logs</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">log</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">FileLogger</span><span class="p">(</span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span> <span class="s2">&quot;app.log&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">add_log</span><span class="p">(</span><span class="s2">&quot;System started&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">add_log</span><span class="p">(</span><span class="s2">&quot;User logged in&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">write_to_file</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;app.log&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>[INFO] System started</strong><br />
+<strong>[INFO] User logged in</strong></p>
+<hr />
+<h3 id="comparison-with-vs-without-super_1">Comparison: With vs Without super()</h3>
 <table>
 <thead>
 <tr>

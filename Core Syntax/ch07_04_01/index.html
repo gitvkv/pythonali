@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch07_04_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 07 | In-Place Sorting vs the sorted() Function - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 07 | In-Place Sorting vs the sorted() Function";
         var mkdocs_page_input_path = "Core Syntax\\ch07_04_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch07_04_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -346,6 +346,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-case-sorting-employee-records">🏢 Example 5: Practical use case — sorting employee records</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-in-place-sorting_1">⚙️ What Is In-Place Sorting?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-the-sorted-function_1">🕵️ What Is the sorted() Function?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-table-in-place-vs-sorted_1">📊 Comparison Table: In-Place vs sorted()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#when-to-use-each_1">🛠️ When to Use Each</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-pitfalls-to-avoid_1">🧪 Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#quick-memory-trick_1">🧠 Quick Memory Trick</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-basic-in-place-sorting-with-sort_1">🛠 Example 1: Basic in-place sorting with .sort()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-basic-sorted-function-returning-a-new-list_1">📦 Example 2: Basic sorted() function returning a new list</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-sorting-in-reverse-order-with-both-methods_1">🔄 Example 3: Sorting in reverse order with both methods</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-sorting-strings-by-length-using-key-parameter_1">📋 Example 4: Sorting strings by length using key parameter</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-practical-use-case-sorting-employee-records_1">🏢 Example 5: Practical use case — sorting employee records</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1102,7 @@
               
                 <h1 id="in-place-sorting-vs-the-sorted-function">In-Place Sorting vs the sorted() Function</h1>
 <p><span class="category-tag">🏷️ Lists and List Operations /  List Methods and Built-in Functions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with lists in Python, you'll often need to arrange items in a specific order. Python gives you two main ways to sort: one that changes the original list directly, and another that leaves the original untouched and returns a new sorted copy. Understanding the difference is essential for writing predictable, bug-free code.</p>
@@ -1161,8 +1189,7 @@
 <li><strong>sorted()</strong> returns a new sorted list and leaves the original unchanged. Use it when you need to preserve the original data.</li>
 <li>Choose based on whether you need to keep the original order and whether you are working with lists or other iterables.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>In-place sorting modifies the original list directly, while the sorted() function returns a new sorted list without changing the original.</p>
 <hr />
 <h3 id="example-1-basic-in-place-sorting-with-sort">🛠 Example 1: Basic in-place sorting with .sort()</h3>
@@ -1235,6 +1262,206 @@
 <p>📤 Output: <strong>Original records: (Alice, Engineering, 5 years) (Bob, Marketing, 3 years) (Charlie, Engineering, 8 years) (Diana, Sales, 2 years) Sorted by experience (ascending): (Diana, Sales, 2 years) (Bob, Marketing, 3 years) (Alice, Engineering, 5 years) (Charlie, Engineering, 8 years)</strong></p>
 <hr />
 <h2 id="comparison-table">Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>.sort() (in-place)</th>
+<th>sorted() function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modifies original list</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Returns new list</td>
+<td>❌ No (returns None)</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Works on any iterable</td>
+<td>❌ Lists only</td>
+<td>✅ Yes (tuples, strings, etc.)</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>Lower (no copy)</td>
+<td>Higher (creates copy)</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>When original can be discarded</td>
+<td>When original must be preserved</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with lists in Python, you'll often need to arrange items in a specific order. Python gives you two main ways to sort: one that changes the original list directly, and another that leaves the original untouched and returns a new sorted copy. Understanding the difference is essential for writing predictable, bug-free code.</p>
+<hr />
+<h3 id="what-is-in-place-sorting_1">⚙️ What Is In-Place Sorting?</h3>
+<p>In-place sorting modifies the original list object. No new list is created; the existing list is rearranged in memory. This is done using the <strong>.sort()</strong> method.</p>
+<ul>
+<li><strong>.sort()</strong> is a method available only on lists.</li>
+<li>It returns <strong>None</strong>, not a new list.</li>
+<li>The original list is permanently changed.</li>
+</ul>
+<p>Example: If you have a list <strong>my_list = [3, 1, 2]</strong> and call <strong>my_list.sort()</strong>, the list becomes <strong>[1, 2, 3]</strong>. The variable <strong>my_list</strong> now points to the sorted data. If you try to assign the result to another variable like <strong>sorted_list = my_list.sort()</strong>, that variable will hold <strong>None</strong>, not the sorted list.</p>
+<hr />
+<h3 id="what-is-the-sorted-function_1">🕵️ What Is the sorted() Function?</h3>
+<p>The <strong>sorted()</strong> function is a built-in Python function that works on any iterable (lists, tuples, strings, dictionaries, etc.). It creates a new sorted list and leaves the original data unchanged.</p>
+<ul>
+<li><strong>sorted()</strong> returns a new list containing all items in sorted order.</li>
+<li>The original iterable remains exactly as it was.</li>
+<li>It can be used on any iterable, not just lists.</li>
+</ul>
+<p>Example: With <strong>my_list = [3, 1, 2]</strong>, calling <strong>new_list = sorted(my_list)</strong> gives you <strong>new_list = [1, 2, 3]</strong>, while <strong>my_list</strong> stays as <strong>[3, 1, 2]</strong>.</p>
+<hr />
+<h3 id="comparison-table-in-place-vs-sorted_1">📊 Comparison Table: In-Place vs sorted()</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>.sort() (In-Place)</th>
+<th>sorted() (Returns New)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modifies original list?</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Returns a value?</td>
+<td>❌ Returns None</td>
+<td>✅ Returns a new list</td>
+</tr>
+<tr>
+<td>Works on all iterables?</td>
+<td>❌ Lists only</td>
+<td>✅ Lists, tuples, strings, etc.</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>Low (no copy)</td>
+<td>Higher (creates a copy)</td>
+</tr>
+<tr>
+<td>Typical use case</td>
+<td>When original list is no longer needed</td>
+<td>When you need to preserve the original order</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="when-to-use-each_1">🛠️ When to Use Each</h3>
+<p><strong>Use .sort() when:</strong>
+- You no longer need the original order of the list.
+- You want to save memory by avoiding a copy.
+- You are working exclusively with lists.</p>
+<p><strong>Use sorted() when:</strong>
+- You need to keep the original data intact for later use.
+- You are sorting non-list iterables like tuples or strings.
+- You want a clean, functional style where no data is mutated.</p>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">🧪 Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Assigning .sort() to a variable</strong>: Since .sort() returns <strong>None</strong>, doing <strong>result = my_list.sort()</strong> will set <strong>result</strong> to <strong>None</strong>, not a sorted list.</li>
+<li><strong>Assuming sorted() modifies the original</strong>: Beginners sometimes expect <strong>sorted(my_list)</strong> to change <strong>my_list</strong>, but it does not. Always assign the result to a new variable.</li>
+<li><strong>Using .sort() on tuples or strings</strong>: Tuples and strings are immutable. Calling <strong>.sort()</strong> on them will raise an <strong>AttributeError</strong>. Use <strong>sorted()</strong> instead.</li>
+</ul>
+<hr />
+<h3 id="quick-memory-trick_1">🧠 Quick Memory Trick</h3>
+<p>Think of <strong>.sort()</strong> as a "destructive" action — it changes the list in place and gives nothing back. Think of <strong>sorted()</strong> as a "generous" function — it gives you a new sorted list while leaving the original untouched.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li><strong>.sort()</strong> modifies the list in place and returns <strong>None</strong>. Use it when you don't need the original order.</li>
+<li><strong>sorted()</strong> returns a new sorted list and leaves the original unchanged. Use it when you need to preserve the original data.</li>
+<li>Choose based on whether you need to keep the original order and whether you are working with lists or other iterables.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>In-place sorting modifies the original list directly, while the sorted() function returns a new sorted list without changing the original.</p>
+<hr />
+<h3 id="example-1-basic-in-place-sorting-with-sort_1">🛠 Example 1: Basic in-place sorting with .sort()</h3>
+<p>This example shows how .sort() changes the original list permanently.</p>
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">numbers</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[1, 1, 2, 3, 4, 5, 9]</strong></p>
+<hr />
+<h3 id="example-2-basic-sorted-function-returning-a-new-list_1">📦 Example 2: Basic sorted() function returning a new list</h3>
+<p>This example shows how sorted() creates a new sorted list while leaving the original unchanged.</p>
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">sorted_numbers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original:&quot;</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorted:&quot;</span><span class="p">,</span> <span class="n">sorted_numbers</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Original: [3, 1, 4, 1, 5, 9, 2] Sorted: [1, 1, 2, 3, 4, 5, 9]</strong></p>
+<hr />
+<h3 id="example-3-sorting-in-reverse-order-with-both-methods_1">🔄 Example 3: Sorting in reverse order with both methods</h3>
+<p>This example demonstrates reverse sorting using both .sort() and sorted().</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In-place reverse sort</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">numbers</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In-place reverse:&quot;</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
+
+<span class="c1"># sorted() reverse sort</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">reversed_numbers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original:&quot;</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorted reverse:&quot;</span><span class="p">,</span> <span class="n">reversed_numbers</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>In-place reverse: [9, 5, 4, 3, 2, 1, 1] Original: [3, 1, 4, 1, 5, 9, 2] Sorted reverse: [9, 5, 4, 3, 2, 1, 1]</strong></p>
+<hr />
+<h3 id="example-4-sorting-strings-by-length-using-key-parameter_1">📋 Example 4: Sorting strings by length using key parameter</h3>
+<p>This example shows how both methods can sort based on a custom key function.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In-place sort by string length</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;java&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;javascript&quot;</span><span class="p">,</span> <span class="s2">&quot;go&quot;</span><span class="p">]</span>
+<span class="n">words</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In-place by length:&quot;</span><span class="p">,</span> <span class="n">words</span><span class="p">)</span>
+
+<span class="c1"># sorted() by string length</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;java&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;javascript&quot;</span><span class="p">,</span> <span class="s2">&quot;go&quot;</span><span class="p">]</span>
+<span class="n">sorted_words</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original:&quot;</span><span class="p">,</span> <span class="n">words</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorted by length:&quot;</span><span class="p">,</span> <span class="n">sorted_words</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>In-place by length: ['c', 'go', 'java', 'python', 'javascript'] Original: ['python', 'java', 'c', 'javascript', 'go'] Sorted by length: ['c', 'go', 'java', 'python', 'javascript']</strong></p>
+<hr />
+<h3 id="example-5-practical-use-case-sorting-employee-records_1">🏢 Example 5: Practical use case — sorting employee records</h3>
+<p>This example shows a real-world scenario where you need to keep the original data intact.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Employee records as list of tuples (name, department, years)</span>
+<span class="n">employees</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Engineering&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Marketing&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Engineering&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Diana&quot;</span><span class="p">,</span> <span class="s2">&quot;Sales&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c1"># Sort by years of experience (ascending) — keep original for reference</span>
+<span class="n">sorted_by_experience</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">employees</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">emp</span><span class="p">:</span> <span class="n">emp</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original records:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">emp</span> <span class="ow">in</span> <span class="n">employees</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">emp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">emp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">emp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2"> years&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sorted by experience (ascending):&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">emp</span> <span class="ow">in</span> <span class="n">sorted_by_experience</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">emp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">emp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">emp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2"> years&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Original records: (Alice, Engineering, 5 years) (Bob, Marketing, 3 years) (Charlie, Engineering, 8 years) (Diana, Sales, 2 years) Sorted by experience (ascending): (Diana, Sales, 2 years) (Bob, Marketing, 3 years) (Alice, Engineering, 5 years) (Charlie, Engineering, 8 years)</strong></p>
+<hr />
+<h2 id="comparison-table_1">Comparison Table</h2>
 <table>
 <thead>
 <tr>

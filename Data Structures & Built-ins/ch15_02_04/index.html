@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch15_02_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 15 | Matching Character Sets Using Brackets - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 15 | Matching Character Sets Using Brackets";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch15_02_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch15_02_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -701,6 +701,32 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-bracket-patterns">📊 Comparison Table: Bracket Patterns</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-character-sets_1">⚙️ What Are Character Sets?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#defining-ranges-inside-brackets_1">🕵️ Defining Ranges Inside Brackets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-single-character-vs-character-set_1">📊 Comparison: Single Character vs. Character Set</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#negating-a-character-set_1">🛠️ Negating a Character Set</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-use-cases-for-engineers_1">🧩 Common Use Cases for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-matching-a-date-component_1">🎯 Practical Example: Matching a Date Component</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-matching-a-single-character-from-a-set_1">🔧 Example 1: Matching a Single Character from a Set</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-matching-any-digit-from-a-range_1">🔧 Example 2: Matching Any Digit from a Range</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-matching-any-letter-from-a-range_1">🔧 Example 3: Matching Any Letter from a Range</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-matching-characters-not-in-a-set_1">🔧 Example 4: Matching Characters NOT in a Set</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-matching-multiple-character-sets-in-a-phone-number_1">🔧 Example 5: Matching Multiple Character Sets in a Phone Number</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-bracket-patterns_1">📊 Comparison Table: Bracket Patterns</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch15_02_05/">Ch 15 | Negated Character Sets (Caret in Brackets)</a>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="matching-character-sets-using-brackets">Matching Character Sets Using Brackets</h1>
 <p><span class="category-tag">🏷️ Regular Expressions (Regex) /  Basic Regex Patterns</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with text data, you often need to match not just a single specific character, but <strong>any character from a group of allowed options</strong>. This is where <strong>bracket notation</strong> <code>[...]</code> becomes incredibly useful. Instead of writing multiple patterns for each possible character, you define a <strong>character set</strong> inside square brackets, and the regex engine will match if it finds <strong>any one</strong> of those characters at that position.</p>
@@ -1171,8 +1197,7 @@
 <li><strong>Always consider case sensitivity</strong> — include both uppercase and lowercase ranges if needed.</li>
 </ul>
 <p>Mastering character sets is a foundational step toward building powerful regex patterns for data validation, log parsing, and text extraction tasks.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Brackets <code>[]</code> in regex define a character set that matches any single character listed inside the brackets.</p>
 <hr />
 <h3 id="example-1-matching-a-single-character-from-a-set">🔧 Example 1: Matching a Single Character from a Set</h3>
@@ -1236,6 +1261,213 @@
 <p>📤 Output: <strong>555</strong></p>
 <hr />
 <h3 id="comparison-table-bracket-patterns">📊 Comparison Table: Bracket Patterns</h3>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Matches</th>
+<th>Example Input</th>
+<th>Match Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[abc]</code></td>
+<td>a, b, or c</td>
+<td>"cat"</td>
+<td>"a"</td>
+</tr>
+<tr>
+<td><code>[0-9]</code></td>
+<td>any digit</td>
+<td>"Room 42"</td>
+<td>"4"</td>
+</tr>
+<tr>
+<td><code>[a-z]</code></td>
+<td>any lowercase letter</td>
+<td>"HELLO world"</td>
+<td>"w"</td>
+</tr>
+<tr>
+<td><code>[^aeiou]</code></td>
+<td>any non-vowel</td>
+<td>"apple"</td>
+<td>"p"</td>
+</tr>
+<tr>
+<td><code>[0-9]{3}</code></td>
+<td>exactly 3 digits</td>
+<td>"555-1234"</td>
+<td>"555"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with text data, you often need to match not just a single specific character, but <strong>any character from a group of allowed options</strong>. This is where <strong>bracket notation</strong> <code>[...]</code> becomes incredibly useful. Instead of writing multiple patterns for each possible character, you define a <strong>character set</strong> inside square brackets, and the regex engine will match if it finds <strong>any one</strong> of those characters at that position.</p>
+<hr />
+<h3 id="what-are-character-sets_1">⚙️ What Are Character Sets?</h3>
+<p>A <strong>character set</strong> is a list of characters placed inside square brackets <code>[ ]</code>. The pattern will match <strong>exactly one character</strong> from that list.</p>
+<ul>
+<li><strong>Syntax:</strong> <code>[abc]</code> matches either <code>a</code>, <code>b</code>, or <code>c</code>.</li>
+<li><strong>Behavior:</strong> It matches only <strong>one</strong> character, but that character can be any one from the set.</li>
+<li><strong>Case sensitivity:</strong> By default, <code>[abc]</code> does <strong>not</strong> match <code>A</code>, <code>B</code>, or <code>C</code>. You must include uppercase versions if needed.</li>
+</ul>
+<p><strong>Example:</strong> The pattern <code>[aeiou]</code> will match any single vowel (lowercase) in a string. If you search the word <strong>"hello"</strong>, it will match the <code>e</code> and the <code>o</code>.</p>
+<hr />
+<h3 id="defining-ranges-inside-brackets_1">🕵️ Defining Ranges Inside Brackets</h3>
+<p>Instead of listing every character individually (e.g., <code>[0123456789]</code>), you can use a <strong>hyphen</strong> <code>-</code> to define a range.</p>
+<ul>
+<li><strong>Digit range:</strong> <code>[0-9]</code> matches any single digit from 0 to 9.</li>
+<li><strong>Letter range:</strong> <code>[a-z]</code> matches any lowercase letter from a to z.</li>
+<li><strong>Mixed ranges:</strong> <code>[a-zA-Z]</code> matches any single uppercase or lowercase letter.</li>
+<li><strong>Alphanumeric:</strong> <code>[a-zA-Z0-9]</code> matches any single letter or digit.</li>
+</ul>
+<p><strong>Important rule:</strong> The hyphen is only treated as a range indicator when it appears between two characters. If you place it at the start or end of the set (e.g., <code>[-abc]</code> or <code>[abc-]</code>), it becomes a literal hyphen character.</p>
+<hr />
+<h3 id="comparison-single-character-vs-character-set_1">📊 Comparison: Single Character vs. Character Set</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Pattern</th>
+<th style="text-align: left;">What It Matches</th>
+<th style="text-align: left;">Example Match in "cat1"</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>c</code></td>
+<td style="text-align: left;">Only the letter <code>c</code></td>
+<td style="text-align: left;"><code>c</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>[abc]</code></td>
+<td style="text-align: left;">Any one of <code>a</code>, <code>b</code>, or <code>c</code></td>
+<td style="text-align: left;"><code>c</code> (first match from left)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>[0-9]</code></td>
+<td style="text-align: left;">Any single digit</td>
+<td style="text-align: left;"><code>1</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>[a-z]</code></td>
+<td style="text-align: left;">Any single lowercase letter</td>
+<td style="text-align: left;"><code>c</code> (first match from left)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>[cC]</code></td>
+<td style="text-align: left;">Either lowercase <code>c</code> or uppercase <code>C</code></td>
+<td style="text-align: left;"><code>c</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="negating-a-character-set_1">🛠️ Negating a Character Set</h3>
+<p>Sometimes you want to match <strong>any character except</strong> the ones listed. You do this by placing a <strong>caret</strong> <code>^</code> immediately after the opening bracket.</p>
+<ul>
+<li><strong>Syntax:</strong> <code>[^abc]</code> matches any character that is <strong>not</strong> <code>a</code>, <code>b</code>, or <code>c</code>.</li>
+<li><strong>Behavior:</strong> It will match spaces, digits, punctuation, and any other character not in the set.</li>
+<li><strong>Important:</strong> The caret only negates when it is the <strong>first character</strong> inside the brackets. If placed elsewhere (e.g., <code>[a^b]</code>), it becomes a literal caret character.</li>
+</ul>
+<p><strong>Example:</strong> The pattern <code>[^0-9]</code> will match any character that is <strong>not</strong> a digit. In the string <strong>"Room 101"</strong>, it would match <code>R</code>, <code>o</code>, <code>o</code>, <code>m</code>, and the space.</p>
+<hr />
+<h3 id="common-use-cases-for-engineers_1">🧩 Common Use Cases for Engineers</h3>
+<ul>
+<li><strong>Validating input fields:</strong> <code>[a-zA-Z0-9]</code> to ensure a username contains only letters and digits.</li>
+<li><strong>Parsing log files:</strong> <code>[0-9]{2}</code> to match two-digit values like hours or days.</li>
+<li><strong>Filtering special characters:</strong> <code>[^a-zA-Z0-9]</code> to find all non-alphanumeric characters in a string.</li>
+<li><strong>Matching specific delimiters:</strong> <code>[,;:]</code> to match commas, semicolons, or colons in CSV-like data.</li>
+</ul>
+<hr />
+<h3 id="practical-example-matching-a-date-component_1">🎯 Practical Example: Matching a Date Component</h3>
+<p>Imagine you need to find the month number in a date string like <strong>"2024-03-15"</strong>.</p>
+<ul>
+<li><strong>Pattern:</strong> <code>[0-9]{2}</code> would match <code>20</code>, <code>24</code>, <code>03</code>, <code>15</code> — too broad.</li>
+<li><strong>Better pattern:</strong> <code>-[0-9]{2}-</code> would match <code>-03-</code> specifically.</li>
+<li><strong>Even more precise:</strong> <code>-[0-1][0-9]-</code> would match months from <code>-01-</code> to <code>-12-</code> (first digit must be 0 or 1).</li>
+</ul>
+<p>This shows how combining character sets with quantifiers (like <code>{2}</code>) gives you fine-grained control over what you extract.</p>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li><strong>Brackets <code>[...]</code> define a set of allowed characters</strong> — the pattern matches if any one of them is present.</li>
+<li><strong>Use hyphens <code>-</code> to define ranges</strong> like <code>[0-9]</code> or <code>[a-z]</code> for cleaner patterns.</li>
+<li><strong>Use caret <code>^</code> at the start of the set</strong> to negate it: <code>[^abc]</code> matches anything except <code>a</code>, <code>b</code>, or <code>c</code>.</li>
+<li><strong>Character sets match exactly one character</strong> — combine them with quantifiers (<code>+</code>, <code>*</code>, <code>{n}</code>) to match multiple characters.</li>
+<li><strong>Always consider case sensitivity</strong> — include both uppercase and lowercase ranges if needed.</li>
+</ul>
+<p>Mastering character sets is a foundational step toward building powerful regex patterns for data validation, log parsing, and text extraction tasks.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Brackets <code>[]</code> in regex define a character set that matches any single character listed inside the brackets.</p>
+<hr />
+<h3 id="example-1-matching-a-single-character-from-a-set_1">🔧 Example 1: Matching a Single Character from a Set</h3>
+<p>This example checks if a string contains either the letter "a" or "b".</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[ab]&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;cat&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>a</strong></p>
+<hr />
+<h3 id="example-2-matching-any-digit-from-a-range_1">🔧 Example 2: Matching Any Digit from a Range</h3>
+<p>This example finds the first digit in a string using a range inside brackets.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[0-9]&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Room 42&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>4</strong></p>
+<hr />
+<h3 id="example-3-matching-any-letter-from-a-range_1">🔧 Example 3: Matching Any Letter from a Range</h3>
+<p>This example finds the first lowercase letter in a string using a range inside brackets.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[a-z]&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;HELLO world&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>w</strong></p>
+<hr />
+<h3 id="example-4-matching-characters-not-in-a-set_1">🔧 Example 4: Matching Characters NOT in a Set</h3>
+<p>This example finds the first character that is NOT a vowel.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[^aeiou]&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>p</strong></p>
+<hr />
+<h3 id="example-5-matching-multiple-character-sets-in-a-phone-number_1">🔧 Example 5: Matching Multiple Character Sets in a Phone Number</h3>
+<p>This example extracts the area code from a phone number using a character set for digits.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[0-9]</span><span class="si">{3}</span><span class="s2">&quot;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Phone: 555-1234&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>555</strong></p>
+<hr />
+<h3 id="comparison-table-bracket-patterns_1">📊 Comparison Table: Bracket Patterns</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch07_05_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 07 | Practical Example: Filtering High CPU Servers - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 07 | Practical Example: Filtering High CPU Servers";
         var mkdocs_page_input_path = "Core Syntax\\ch07_05_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch07_05_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -366,6 +366,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-alert-generation-with-custom-messages">🔧 Example 5: Practical alert generation with custom messages</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-filtering-methods">📊 Comparison Table: Filtering Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🔍 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-problem-setup_1">⚙️ The Problem Setup</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-traditional-approach-without-list-comprehension_1">🛠️ The Traditional Approach (Without List Comprehension)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-list-comprehension-solution_1">🚀 The List Comprehension Solution</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-loop-vs-list-comprehension_1">📊 Comparison: Loop vs. List Comprehension</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#breaking-down-the-comprehension-step-by-step_1">🕵️ Breaking Down the Comprehension Step by Step</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-with-different-thresholds_1">🧪 Testing with Different Thresholds</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways-for-engineers_1">📝 Key Takeaways for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#final-thought_1">🎯 Final Thought</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-list-comprehension-to-extract-cpu-values_1">🔧 Example 1: Basic list comprehension to extract CPU values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-filtering-server-names-with-high-cpu_1">🔧 Example 2: Filtering server names with high CPU</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-creating-a-list-of-tuples-with-server-and-cpu-data_1">🔧 Example 3: Creating a list of tuples with server and CPU data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-filtering-with-multiple-conditions-cpu-and-memory_1">🔧 Example 4: Filtering with multiple conditions (CPU and memory)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-alert-generation-with-custom-messages_1">🔧 Example 5: Practical alert generation with custom messages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-filtering-methods_1">📊 Comparison Table: Filtering Methods</a>
     </li>
     </ul>
                 </li>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="practical-example-filtering-high-cpu-servers">Practical Example: Filtering High CPU Servers</h1>
 <p><span class="category-tag">🏷️ Lists and List Operations /  List Comprehensions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1195,8 +1225,7 @@
 <hr />
 <h3 id="final-thought">🎯 Final Thought</h3>
 <p>Mastering list comprehensions transforms how you process data in Python. What once required a loop with multiple lines now becomes a single, expressive statement. For any engineer dealing with lists of metrics, logs, or configurations, this tool is indispensable for writing clean, efficient, and maintainable code.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example shows how to use list comprehensions to filter server CPU data and identify high-usage machines.</p>
 <h3 id="example-1-basic-list-comprehension-to-extract-cpu-values">🔧 Example 1: Basic list comprehension to extract CPU values</h3>
 <p>This example creates a simple list of CPU percentages from server data.</p>
@@ -1252,6 +1281,225 @@
 <strong>ALERT: db01 CPU at 91%</strong></p>
 <hr />
 <h3 id="comparison-table-filtering-methods">📊 Comparison Table: Filtering Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Use Case</th>
+<th>Code Complexity</th>
+<th>Readability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic list comprehension</td>
+<td>Simple filter on values</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Index-based filter</td>
+<td>Filter with paired data</td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Tuple creation</td>
+<td>Group related data</td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Multiple conditions</td>
+<td>Complex filtering</td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Alert generation</td>
+<td>Practical output</td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🔍 Context Introduction</h3>
+<p>Imagine you're monitoring a fleet of servers and need to quickly identify which ones are running at dangerously high CPU levels. You have a list of server names and their corresponding CPU usage percentages. Instead of manually scanning through the data, you can use Python's list comprehensions to instantly filter out only the servers that exceed a certain threshold. This is a common real-world scenario where list operations save time and reduce human error.</p>
+<hr />
+<h3 id="the-problem-setup_1">⚙️ The Problem Setup</h3>
+<p>We have two parallel lists:</p>
+<ul>
+<li><strong>Server names</strong>: A list of strings identifying each machine.</li>
+<li><strong>CPU usage</strong>: A list of numbers representing the current CPU percentage for each server.</li>
+</ul>
+<p>Our goal is to extract only the servers where CPU usage is above <strong>80%</strong>.</p>
+<p><strong>Example Data:</strong></p>
+<ul>
+<li>Server names: <strong>web-server-01</strong>, <strong>db-server-02</strong>, <strong>cache-node-03</strong>, <strong>app-server-04</strong>, <strong>monitor-host-05</strong></li>
+<li>CPU usage: <strong>75</strong>, <strong>92</strong>, <strong>88</strong>, <strong>45</strong>, <strong>96</strong></li>
+</ul>
+<hr />
+<h3 id="the-traditional-approach-without-list-comprehension_1">🛠️ The Traditional Approach (Without List Comprehension)</h3>
+<p>Before using list comprehensions, an engineer might write a loop to build a new list manually:</p>
+<ul>
+<li>Create an empty list called <strong>high_cpu_servers</strong>.</li>
+<li>Use a <strong>for loop</strong> with <strong>range()</strong> to iterate over the index positions.</li>
+<li>Inside the loop, check if the CPU value at that index is greater than <strong>80</strong>.</li>
+<li>If true, append the corresponding server name to the new list.</li>
+<li>Print the result.</li>
+</ul>
+<p>This works, but it requires multiple lines of code and is more prone to small mistakes like off-by-one errors.</p>
+<hr />
+<h3 id="the-list-comprehension-solution_1">🚀 The List Comprehension Solution</h3>
+<p>A list comprehension achieves the same result in a single, readable line. Here's how it breaks down:</p>
+<p><strong>Syntax Structure:</strong></p>
+<ul>
+<li>Start with square brackets <strong>[]</strong> to create a new list.</li>
+<li>Inside, write the <strong>expression</strong> for what you want to include (the server name).</li>
+<li>Then write the <strong>for clause</strong> to iterate over the data.</li>
+<li>Finally, add an <strong>if condition</strong> to filter only the items you need.</li>
+</ul>
+<p><strong>For our example:</strong></p>
+<ul>
+<li>Expression: <strong>server_names[i]</strong> (the server name at the current index)</li>
+<li>For clause: <strong>for i in range(len(cpu_usage))</strong> (loop over all index positions)</li>
+<li>If condition: <strong>if cpu_usage[i] &gt; 80</strong> (only include if CPU is above threshold)</li>
+</ul>
+<p>The result is a new list containing: <strong>db-server-02</strong>, <strong>cache-node-03</strong>, <strong>monitor-host-05</strong></p>
+<hr />
+<h3 id="comparison-loop-vs-list-comprehension_1">📊 Comparison: Loop vs. List Comprehension</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Traditional Loop</th>
+<th>List Comprehension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lines of code</td>
+<td>4–5 lines</td>
+<td>1 line</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>Clear but verbose</td>
+<td>Concise and expressive</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Slightly slower</td>
+<td>Faster (optimized in C)</td>
+</tr>
+<tr>
+<td>Error potential</td>
+<td>Higher (indexing mistakes)</td>
+<td>Lower (less code to debug)</td>
+</tr>
+<tr>
+<td>Best use case</td>
+<td>Complex logic inside loop</td>
+<td>Simple filtering or transformation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="breaking-down-the-comprehension-step-by-step_1">🕵️ Breaking Down the Comprehension Step by Step</h3>
+<p>Let's walk through what happens when Python executes this list comprehension:</p>
+<ol>
+<li>Python starts the <strong>for</strong> loop, setting <strong>i</strong> to <strong>0</strong>.</li>
+<li>It checks the <strong>if</strong> condition: <strong>cpu_usage[0]</strong> is <strong>75</strong>. Is <strong>75 &gt; 80</strong>? No, so skip.</li>
+<li>Next iteration: <strong>i = 1</strong>. <strong>cpu_usage[1]</strong> is <strong>92</strong>. Is <strong>92 &gt; 80</strong>? Yes. Add <strong>server_names[1]</strong> to the new list.</li>
+<li>Next: <strong>i = 2</strong>. <strong>cpu_usage[2]</strong> is <strong>88</strong>. Is <strong>88 &gt; 80</strong>? Yes. Add <strong>server_names[2]</strong>.</li>
+<li>Next: <strong>i = 3</strong>. <strong>cpu_usage[3]</strong> is <strong>45</strong>. Is <strong>45 &gt; 80</strong>? No, skip.</li>
+<li>Next: <strong>i = 4</strong>. <strong>cpu_usage[4]</strong> is <strong>96</strong>. Is <strong>96 &gt; 80</strong>? Yes. Add <strong>server_names[4]</strong>.</li>
+<li>Loop ends. The new list now contains three server names.</li>
+</ol>
+<hr />
+<h3 id="testing-with-different-thresholds_1">🧪 Testing with Different Thresholds</h3>
+<p>You can easily change the filtering condition without rewriting the entire logic:</p>
+<ul>
+<li>To find servers with CPU <strong>exactly at 100%</strong>: Change condition to <strong>cpu_usage[i] == 100</strong></li>
+<li>To find servers with CPU <strong>below 50%</strong>: Change condition to <strong>cpu_usage[i] &lt; 50</strong></li>
+<li>To find servers with CPU <strong>between 70 and 90</strong>: Use <strong>70 &lt; cpu_usage[i] &lt; 90</strong></li>
+</ul>
+<p>This flexibility makes list comprehensions extremely practical for dynamic monitoring scripts.</p>
+<hr />
+<h3 id="key-takeaways-for-engineers_1">📝 Key Takeaways for Engineers</h3>
+<ul>
+<li>List comprehensions are <strong>not just for simple math</strong>; they excel at filtering real-world data.</li>
+<li>The pattern <strong>expression + for + if</strong> is reusable across many scenarios, not just server monitoring.</li>
+<li>When working with <strong>parallel lists</strong>, always ensure both lists have the same length to avoid index errors.</li>
+<li>For more complex filtering (multiple conditions), you can chain <strong>if</strong> statements or use <strong>and</strong> / <strong>or</strong> inside the condition.</li>
+</ul>
+<hr />
+<h3 id="final-thought_1">🎯 Final Thought</h3>
+<p>Mastering list comprehensions transforms how you process data in Python. What once required a loop with multiple lines now becomes a single, expressive statement. For any engineer dealing with lists of metrics, logs, or configurations, this tool is indispensable for writing clean, efficient, and maintainable code.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example shows how to use list comprehensions to filter server CPU data and identify high-usage machines.</p>
+<h3 id="example-1-basic-list-comprehension-to-extract-cpu-values_1">🔧 Example 1: Basic list comprehension to extract CPU values</h3>
+<p>This example creates a simple list of CPU percentages from server data.</p>
+<div class="highlight"><pre><span></span><code><span class="n">servers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;web01&quot;</span><span class="p">,</span> <span class="s2">&quot;web02&quot;</span><span class="p">,</span> <span class="s2">&quot;db01&quot;</span><span class="p">,</span> <span class="s2">&quot;app01&quot;</span><span class="p">,</span> <span class="s2">&quot;cache01&quot;</span><span class="p">]</span>
+<span class="n">cpu_usage</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+
+<span class="n">high_cpu</span> <span class="o">=</span> <span class="p">[</span><span class="n">cpu</span> <span class="k">for</span> <span class="n">cpu</span> <span class="ow">in</span> <span class="n">cpu_usage</span> <span class="k">if</span> <span class="n">cpu</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">high_cpu</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[82, 91]</strong></p>
+<hr />
+<h3 id="example-2-filtering-server-names-with-high-cpu_1">🔧 Example 2: Filtering server names with high CPU</h3>
+<p>This example pairs server names with their CPU usage and filters only the high-usage servers.</p>
+<div class="highlight"><pre><span></span><code><span class="n">servers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;web01&quot;</span><span class="p">,</span> <span class="s2">&quot;web02&quot;</span><span class="p">,</span> <span class="s2">&quot;db01&quot;</span><span class="p">,</span> <span class="s2">&quot;app01&quot;</span><span class="p">,</span> <span class="s2">&quot;cache01&quot;</span><span class="p">]</span>
+<span class="n">cpu_usage</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+
+<span class="n">high_cpu_servers</span> <span class="o">=</span> <span class="p">[</span><span class="n">servers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">servers</span><span class="p">))</span> <span class="k">if</span> <span class="n">cpu_usage</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">high_cpu_servers</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['web02', 'db01']</strong></p>
+<hr />
+<h3 id="example-3-creating-a-list-of-tuples-with-server-and-cpu-data_1">🔧 Example 3: Creating a list of tuples with server and CPU data</h3>
+<p>This example builds a list of (server, cpu) pairs for all servers with CPU over 75%.</p>
+<div class="highlight"><pre><span></span><code><span class="n">servers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;web01&quot;</span><span class="p">,</span> <span class="s2">&quot;web02&quot;</span><span class="p">,</span> <span class="s2">&quot;db01&quot;</span><span class="p">,</span> <span class="s2">&quot;app01&quot;</span><span class="p">,</span> <span class="s2">&quot;cache01&quot;</span><span class="p">]</span>
+<span class="n">cpu_usage</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+
+<span class="n">high_cpu_pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">servers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cpu_usage</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">servers</span><span class="p">))</span> <span class="k">if</span> <span class="n">cpu_usage</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">75</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">high_cpu_pairs</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[('web02', 82), ('db01', 91)]</strong></p>
+<hr />
+<h3 id="example-4-filtering-with-multiple-conditions-cpu-and-memory_1">🔧 Example 4: Filtering with multiple conditions (CPU and memory)</h3>
+<p>This example filters servers where both CPU is high and memory usage is also high.</p>
+<div class="highlight"><pre><span></span><code><span class="n">servers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;web01&quot;</span><span class="p">,</span> <span class="s2">&quot;web02&quot;</span><span class="p">,</span> <span class="s2">&quot;db01&quot;</span><span class="p">,</span> <span class="s2">&quot;app01&quot;</span><span class="p">,</span> <span class="s2">&quot;cache01&quot;</span><span class="p">]</span>
+<span class="n">cpu_usage</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+<span class="n">memory_usage</span> <span class="o">=</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">72</span><span class="p">]</span>
+
+<span class="n">critical_servers</span> <span class="o">=</span> <span class="p">[</span><span class="n">servers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">servers</span><span class="p">))</span> <span class="k">if</span> <span class="n">cpu_usage</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">80</span> <span class="ow">and</span> <span class="n">memory_usage</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">75</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">critical_servers</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['db01']</strong></p>
+<hr />
+<h3 id="example-5-practical-alert-generation-with-custom-messages_1">🔧 Example 5: Practical alert generation with custom messages</h3>
+<p>This example generates alert messages for servers exceeding CPU thresholds.</p>
+<div class="highlight"><pre><span></span><code><span class="n">servers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;web01&quot;</span><span class="p">,</span> <span class="s2">&quot;web02&quot;</span><span class="p">,</span> <span class="s2">&quot;db01&quot;</span><span class="p">,</span> <span class="s2">&quot;app01&quot;</span><span class="p">,</span> <span class="s2">&quot;cache01&quot;</span><span class="p">]</span>
+<span class="n">cpu_usage</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+
+<span class="n">alerts</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;ALERT: </span><span class="si">{</span><span class="n">servers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2"> CPU at </span><span class="si">{</span><span class="n">cpu_usage</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">%&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">servers</span><span class="p">))</span> <span class="k">if</span> <span class="n">cpu_usage</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">alert</span> <span class="ow">in</span> <span class="n">alerts</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">alert</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ALERT: web02 CPU at 82%</strong><br />
+<strong>ALERT: db01 CPU at 91%</strong></p>
+<hr />
+<h3 id="comparison-table-filtering-methods_1">📊 Comparison Table: Filtering Methods</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch04_04_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 04 | Floating Point Precision Limitations - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 04 | Floating Point Precision Limitations";
         var mkdocs_page_input_path = "Getting Started\\ch04_04_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch04_04_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -222,6 +222,30 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-currency-calculation-with-precision-issues">💰 Example 5: Practical currency calculation with precision issues</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-does-this-happen_1">⚙️ Why Does This Happen?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-examples-of-precision-issues_1">📊 Common Examples of Precision Issues</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-work-around-floating-point-precision_1">🛠️ How to Work Around Floating Point Precision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-tips-for-engineers_1">🕵️ Practical Tips for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-simple-decimal-that-cannot-be-stored-exactly_1">🔧 Example 1: Simple decimal that cannot be stored exactly</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-accumulated-rounding-error-from-repeated-addition_1">🔍 Example 2: Accumulated rounding error from repeated addition</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-comparison-that-fails-due-to-precision_1">⚖️ Example 3: Comparison that fails due to precision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-round-to-handle-precision-for-display_1">📐 Example 4: Using round() to handle precision for display</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-currency-calculation-with-precision-issues_1">💰 Example 5: Practical currency calculation with precision issues</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1072,7 +1096,7 @@
               
                 <h1 id="floating-point-precision-limitations">Floating Point Precision Limitations</h1>
 <p><span class="category-tag">🏷️ Numbers and Mathematical Operations /  Large Numbers and Precision</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1143,8 +1167,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Floating‑point precision limitations are a natural consequence of how computers store real numbers. They are not bugs in Python—they are inherent to binary representation. By understanding these limitations and using tools like <strong>round()</strong>, tolerance comparisons, the <strong>Decimal</strong> module, or integer scaling, you can avoid subtle bugs and write more robust code. Always test your assumptions when working with decimal numbers, especially in critical calculations.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Floating point precision limitations describe how computers represent decimal numbers with limited accuracy due to binary storage constraints.</p>
 <h3 id="example-1-simple-decimal-that-cannot-be-stored-exactly">🔧 Example 1: Simple decimal that cannot be stored exactly</h3>
 <p>This example shows that even a simple decimal like 0.1 cannot be represented precisely in binary.</p>
@@ -1196,6 +1219,175 @@
 <p>📤 Output: <strong>21.3893</strong></p>
 <hr />
 <h3 id="comparison-table">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Expected Result</th>
+<th>Actual Result</th>
+<th>Issue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0.1 + 0.2</code></td>
+<td>0.3</td>
+<td>0.30000000000000004</td>
+<td>Rounding error</td>
+</tr>
+<tr>
+<td><code>0.1 * 10</code></td>
+<td>1.0</td>
+<td>0.9999999999999999</td>
+<td>Accumulated error</td>
+</tr>
+<tr>
+<td><code>0.1 + 0.2 == 0.3</code></td>
+<td>True</td>
+<td>False</td>
+<td>Comparison failure</td>
+</tr>
+<tr>
+<td><code>round(0.1 + 0.2, 2)</code></td>
+<td>0.3</td>
+<td>0.3</td>
+<td>Correct after rounding</td>
+</tr>
+<tr>
+<td><code>19.99 * 1.07</code></td>
+<td>21.3893</td>
+<td>21.3893</td>
+<td>Appears correct but internally imprecise</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When working with numbers in Python, you might expect simple arithmetic to behave exactly as it does in mathematics. However, computers represent numbers in binary (base‑2), and many decimal fractions cannot be represented exactly in binary—just like <strong>1/3</strong> cannot be represented exactly as a decimal (0.3333...). This leads to small rounding errors that can surprise new engineers. Understanding these limitations helps you write more reliable code, especially when dealing with financial calculations, scientific data, or comparisons.</p>
+<hr />
+<h3 id="why-does-this-happen_1">⚙️ Why Does This Happen?</h3>
+<ul>
+<li><strong>Binary representation</strong>: Python uses the <strong>IEEE 754 double‑precision standard</strong> (64‑bit) for floating‑point numbers. This gives about <strong>15–17 decimal digits</strong> of precision, but not every decimal number can be stored exactly.</li>
+<li><strong>Example</strong>: The decimal number <strong>0.1</strong> in binary is a repeating fraction: <strong>0.0001100110011...</strong> (endless). When stored, it gets rounded, causing tiny errors.</li>
+<li><strong>Result</strong>: Operations like <strong>0.1 + 0.2</strong> do not equal <strong>0.3</strong> exactly. Instead, you get <strong>0.30000000000000004</strong>.</li>
+</ul>
+<hr />
+<h3 id="common-examples-of-precision-issues_1">📊 Common Examples of Precision Issues</h3>
+<ul>
+<li><strong>Addition</strong>: <strong>0.1 + 0.2</strong> yields <strong>0.30000000000000004</strong> instead of <strong>0.3</strong></li>
+<li><strong>Multiplication</strong>: <strong>1.1 * 1.1</strong> yields <strong>1.2100000000000002</strong> instead of <strong>1.21</strong></li>
+<li><strong>Comparison</strong>: <strong>0.1 + 0.2 == 0.3</strong> evaluates to <strong>False</strong></li>
+<li><strong>Large numbers</strong>: Adding a very small number to a very large number may have no effect because the small number is lost in the precision gap</li>
+</ul>
+<hr />
+<h3 id="how-to-work-around-floating-point-precision_1">🛠️ How to Work Around Floating Point Precision</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Description</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rounding</strong></td>
+<td>Use <strong>round(value, decimal_places)</strong> to round results before comparisons or display</td>
+<td>When you need a fixed number of decimal places</td>
+</tr>
+<tr>
+<td><strong>Tolerance comparison</strong></td>
+<td>Check if the absolute difference between two numbers is less than a small threshold (e.g., <strong>1e-9</strong>)</td>
+<td>When comparing floating‑point values for equality</td>
+</tr>
+<tr>
+<td><strong>Decimal module</strong></td>
+<td>Use <strong>from decimal import Decimal</strong> to perform exact decimal arithmetic</td>
+<td>Financial calculations, currency, or any situation requiring exact precision</td>
+</tr>
+<tr>
+<td><strong>Fraction module</strong></td>
+<td>Use <strong>from fractions import Fraction</strong> to work with rational numbers exactly</td>
+<td>When dealing with ratios or fractions that must be exact</td>
+</tr>
+<tr>
+<td><strong>Integer arithmetic</strong></td>
+<td>Convert to integers by scaling (e.g., work in cents instead of dollars)</td>
+<td>Simple financial calculations without decimals</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-tips-for-engineers_1">🕵️ Practical Tips for Engineers</h3>
+<ul>
+<li><strong>Never compare floating‑point numbers directly with ==</strong> unless you are certain they were assigned the same literal value</li>
+<li><strong>Use a tolerance</strong> like <strong>abs(a - b) &lt; 1e-9</strong> for equality checks</li>
+<li><strong>Be careful with loops</strong> that increment by a floating‑point step (e.g., <strong>0.1</strong>). Errors accumulate over many iterations</li>
+<li><strong>Format output</strong> with <strong>f"{value:.2f}"</strong> to display only the digits you care about</li>
+<li><strong>Remember</strong>: The error is usually very small (around <strong>1e-16</strong> relative to the number), but it can become significant after many operations or when subtracting nearly equal numbers</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Floating‑point precision limitations are a natural consequence of how computers store real numbers. They are not bugs in Python—they are inherent to binary representation. By understanding these limitations and using tools like <strong>round()</strong>, tolerance comparisons, the <strong>Decimal</strong> module, or integer scaling, you can avoid subtle bugs and write more robust code. Always test your assumptions when working with decimal numbers, especially in critical calculations.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Floating point precision limitations describe how computers represent decimal numbers with limited accuracy due to binary storage constraints.</p>
+<h3 id="example-1-simple-decimal-that-cannot-be-stored-exactly_1">🔧 Example 1: Simple decimal that cannot be stored exactly</h3>
+<p>This example shows that even a simple decimal like 0.1 cannot be represented precisely in binary.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>0.1</strong></p>
+<hr />
+<h3 id="example-2-accumulated-rounding-error-from-repeated-addition_1">🔍 Example 2: Accumulated rounding error from repeated addition</h3>
+<p>This example demonstrates how small precision errors grow when adding a floating point number repeatedly.</p>
+<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="mf">0.1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>0.9999999999999999</strong></p>
+<hr />
+<h3 id="example-3-comparison-that-fails-due-to-precision_1">⚖️ Example 3: Comparison that fails due to precision</h3>
+<p>This example shows why direct equality comparisons with floating point numbers can produce unexpected results.</p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>False</strong></p>
+<hr />
+<h3 id="example-4-using-round-to-handle-precision-for-display_1">📐 Example 4: Using round() to handle precision for display</h3>
+<p>This example demonstrates how to round a floating point number to a specific number of decimal places for practical use.</p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span>
+
+<span class="n">rounded_result</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">rounded_result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>0.3</strong></p>
+<hr />
+<h3 id="example-5-practical-currency-calculation-with-precision-issues_1">💰 Example 5: Practical currency calculation with precision issues</h3>
+<p>This example shows how floating point precision can cause problems in financial calculations that engineers must handle carefully.</p>
+<div class="highlight"><pre><span></span><code><span class="n">price</span> <span class="o">=</span> <span class="mf">19.99</span>
+
+<span class="n">tax_rate</span> <span class="o">=</span> <span class="mf">0.07</span>
+
+<span class="n">tax_amount</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">tax_rate</span>
+
+<span class="n">total_cost</span> <span class="o">=</span> <span class="n">price</span> <span class="o">+</span> <span class="n">tax_amount</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">total_cost</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>21.3893</strong></p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

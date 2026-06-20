@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch15_02_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 15 | Character Classes (Digits, Words, Whitespace) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 15 | Character Classes (Digits, Words, Whitespace)";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch15_02_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch15_02_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -715,6 +715,48 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#character-class-comparison-table">📊 Character Class Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-three-core-character-classes_1">⚙️ The Three Core Character Classes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference-table_1">📊 Quick Reference Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-they-work-in-practice_1">🕵️ How They Work in Practice</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#matching-digits-with-d_1">🔢 Matching Digits with \d</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#matching-word-characters-with-w_1">🔤 Matching Word Characters with \w</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#matching-whitespace-with-s_1">⬜ Matching Whitespace with \s</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-negated-classes-opposites_1">🛠️ Using Negated Classes (Opposites)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples-for-engineers_1">🧪 Practical Examples for Engineers</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#parsing-a-log-line_1">Parsing a Log Line</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#validating-a-simple-input_1">Validating a Simple Input</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-notes-to-remember_1">⚠️ Important Notes to Remember</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🧩 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-matching-a-single-digit-with-d_1">🔢 Example 1: Matching a single digit with \d</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-matching-a-single-word-character-with-w_1">🔤 Example 2: Matching a single word character with \w</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-matching-whitespace-with-s_1">⬜ Example 3: Matching whitespace with \s</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-finding-all-digits-in-a-string-with-d_1">🔢 Example 4: Finding all digits in a string with \d</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-finding-all-words-in-a-sentence-with-w_1">🔤 Example 5: Finding all words in a sentence with \w+</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#character-class-comparison-table_1">📊 Character Class Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch15_02_04/">Ch 15 | Matching Character Sets Using Brackets</a>
@@ -1090,7 +1132,7 @@
               
                 <h1 id="character-classes-digits-words-whitespace">Character Classes (Digits, Words, Whitespace)</h1>
 <p><span class="category-tag">🏷️ Regular Expressions (Regex) /  Basic Regex Patterns</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1214,8 +1256,7 @@
 <li><strong><code>\s</code></strong> for whitespace, <strong><code>\S</code></strong> for non-whitespace</li>
 </ul>
 <p>These classes make your regex patterns cleaner, more readable, and easier to maintain. Practice combining them with quantifiers and anchors to build powerful text-matching patterns for your everyday tasks.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Character classes let you match specific types of characters like digits, letters, or whitespace using shorthand codes.</p>
 <hr />
 <h3 id="example-1-matching-a-single-digit-with-d">🔢 Example 1: Matching a single digit with <code>\d</code></h3>
@@ -1274,6 +1315,223 @@
 <p>📤 Output: <strong>['Python', '3', '9', 'is', 'great']</strong></p>
 <hr />
 <h3 id="character-class-comparison-table">📊 Character Class Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Shorthand</th>
+<th>Matches</th>
+<th>Opposite</th>
+<th>Opposite Matches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\d</code></td>
+<td>Any digit (0-9)</td>
+<td><code>\D</code></td>
+<td>Any non-digit</td>
+</tr>
+<tr>
+<td><code>\w</code></td>
+<td>Any word char (a-z, A-Z, 0-9, _)</td>
+<td><code>\W</code></td>
+<td>Any non-word character</td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>Any whitespace (space, tab, newline)</td>
+<td><code>\S</code></td>
+<td>Any non-whitespace character</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When working with text data—whether it's parsing log files, validating configuration inputs, or cleaning up system output—you'll often need to match specific types of characters. Instead of writing long patterns like <strong><code>[0123456789]</code></strong> or <strong><code>[abcdefghijklmnopqrstuvwxyz]</code></strong> , regex provides <strong>shorthand character classes</strong> that make your patterns cleaner, shorter, and easier to read.</p>
+<p>Character classes are like shortcuts for common character groups. They allow you to match digits, word characters, whitespace, and their opposites with just a single symbol.</p>
+<hr />
+<h3 id="the-three-core-character-classes_1">⚙️ The Three Core Character Classes</h3>
+<p>There are three essential character classes you'll use most often:</p>
+<ul>
+<li><strong><code>\d</code></strong> – Matches any digit (0 through 9). Equivalent to <strong><code>[0-9]</code></strong></li>
+<li><strong><code>\w</code></strong> – Matches any "word" character: letters (a-z, A-Z), digits (0-9), and underscore (_). Equivalent to <strong><code>[a-zA-Z0-9_]</code></strong></li>
+<li><strong><code>\s</code></strong> – Matches any whitespace character: space, tab, newline, carriage return, form feed. Equivalent to <strong><code>[ \t\n\r\f]</code></strong></li>
+</ul>
+<p>Each of these also has a <strong>negated (opposite) version</strong> using an uppercase letter:</p>
+<ul>
+<li><strong><code>\D</code></strong> – Matches any character that is NOT a digit</li>
+<li><strong><code>\W</code></strong> – Matches any character that is NOT a word character</li>
+<li><strong><code>\S</code></strong> – Matches any character that is NOT whitespace</li>
+</ul>
+<hr />
+<h3 id="quick-reference-table_1">📊 Quick Reference Table</h3>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Matches</th>
+<th>Equivalent To</th>
+<th>Opposite Class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>\d</code></strong></td>
+<td>Any digit (0-9)</td>
+<td><strong><code>[0-9]</code></strong></td>
+<td><strong><code>\D</code></strong> (non-digit)</td>
+</tr>
+<tr>
+<td><strong><code>\w</code></strong></td>
+<td>Letter, digit, or underscore</td>
+<td><strong><code>[a-zA-Z0-9_]</code></strong></td>
+<td><strong><code>\W</code></strong> (non-word)</td>
+</tr>
+<tr>
+<td><strong><code>\s</code></strong></td>
+<td>Space, tab, newline, etc.</td>
+<td><strong><code>[ \t\n\r\f]</code></strong></td>
+<td><strong><code>\S</code></strong> (non-whitespace)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-they-work-in-practice_1">🕵️ How They Work in Practice</h3>
+<h4 id="matching-digits-with-d_1">🔢 Matching Digits with <code>\d</code></h4>
+<p>The <strong><code>\d</code></strong> class is perfect when you need to find numbers in text:</p>
+<ul>
+<li>Pattern <strong><code>\d\d\d</code></strong> matches any three consecutive digits, such as <strong>123</strong>, <strong>456</strong>, or <strong>789</strong></li>
+<li>Pattern <strong><code>\d{3}-\d{2}-\d{4}</code></strong> matches a social security number format like <strong>123-45-6789</strong></li>
+<li>Pattern <strong><code>\d+</code></strong> matches one or more digits in a row, like <strong>42</strong> or <strong>1000</strong></li>
+</ul>
+<h4 id="matching-word-characters-with-w_1">🔤 Matching Word Characters with <code>\w</code></h4>
+<p>The <strong><code>\w</code></strong> class is useful for finding identifiers, variable names, or any alphanumeric content:</p>
+<ul>
+<li>Pattern <strong><code>\w+</code></strong> matches whole words like <strong>hello</strong>, <strong>test123</strong>, or <strong>user_name</strong></li>
+<li>Pattern <strong><code>\w{5}</code></strong> matches any five-character word, such as <strong>hello</strong> or <strong>world</strong></li>
+<li>Pattern <strong><code>\w+@\w+\.\w+</code></strong> is a simple pattern to match email-like strings (<strong>user@example.com</strong>)</li>
+</ul>
+<h4 id="matching-whitespace-with-s_1">⬜ Matching Whitespace with <code>\s</code></h4>
+<p>The <strong><code>\s</code></strong> class helps you find spaces, tabs, and line breaks:</p>
+<ul>
+<li>Pattern <strong><code>\s+</code></strong> matches one or more whitespace characters, useful for splitting text</li>
+<li>Pattern <strong><code>\d\s\d</code></strong> matches a digit, followed by a space, followed by another digit (<strong>3 7</strong>)</li>
+<li>Pattern <strong><code>\n</code></strong> specifically matches a newline character (though <strong><code>\s</code></strong> also matches it)</li>
+</ul>
+<hr />
+<h3 id="using-negated-classes-opposites_1">🛠️ Using Negated Classes (Opposites)</h3>
+<p>Sometimes you need to match what is <strong>not</strong> a digit, word, or whitespace. This is where uppercase versions shine:</p>
+<ul>
+<li><strong><code>\D</code></strong> matches any non-digit: letters, symbols, spaces—anything except <strong>0-9</strong></li>
+<li><strong><code>\W</code></strong> matches any non-word character: punctuation, spaces, symbols like <strong>@</strong>, <strong>#</strong>, <strong>$</strong>, <strong>%</strong></li>
+<li><strong><code>\S</code></strong> matches any non-whitespace character: everything that isn't a space, tab, or newline</li>
+</ul>
+<p>Example use cases:
+- Pattern <strong><code>\D+</code></strong> matches a sequence of non-digit characters, like <strong>hello</strong> or <strong>abc-xyz</strong>
+- Pattern <strong><code>\W+</code></strong> matches punctuation or symbols between words, like <strong>--</strong> or <strong>!!!</strong>
+- Pattern <strong><code>\S+</code></strong> matches a continuous string of non-whitespace, which is great for extracting tokens or URLs</p>
+<hr />
+<h3 id="practical-examples-for-engineers_1">🧪 Practical Examples for Engineers</h3>
+<h4 id="parsing-a-log-line_1">Parsing a Log Line</h4>
+<p>Imagine a log entry like <strong>ERROR 404: Page not found at 2024-01-15 14:30:00</strong></p>
+<ul>
+<li><strong><code>\d+</code></strong> would match <strong>404</strong>, <strong>2024</strong>, <strong>01</strong>, <strong>15</strong>, <strong>14</strong>, <strong>30</strong>, <strong>00</strong></li>
+<li><strong><code>\w+</code></strong> would match <strong>ERROR</strong>, <strong>Page</strong>, <strong>not</strong>, <strong>found</strong>, <strong>at</strong></li>
+<li><strong><code>\s+</code></strong> would match each space between words</li>
+<li><strong><code>\D+</code></strong> would match <strong>ERROR</strong>, <strong>: Page not found at</strong>, and the spaces and colons</li>
+</ul>
+<h4 id="validating-a-simple-input_1">Validating a Simple Input</h4>
+<p>For a username that should only contain letters, digits, and underscores:</p>
+<ul>
+<li>Pattern <strong><code>^\w+$</code></strong> ensures the entire string consists only of word characters</li>
+<li>The <strong><code>^</code></strong> anchors to the start, <strong><code>$</code></strong> anchors to the end</li>
+</ul>
+<p>For a phone number like <strong>555-123-4567</strong>:</p>
+<ul>
+<li>Pattern <strong><code>\d{3}-\d{3}-\d{4}</code></strong> matches the exact format</li>
+</ul>
+<hr />
+<h3 id="important-notes-to-remember_1">⚠️ Important Notes to Remember</h3>
+<ul>
+<li>Character classes match <strong>one single character</strong> at a time unless you use a quantifier like <strong><code>+</code></strong> (one or more) or <strong><code>*</code></strong> (zero or more)</li>
+<li>The underscore <strong><code>_</code></strong> is included in <strong><code>\w</code></strong> , which is why it's great for matching variable names</li>
+<li><strong><code>\s</code></strong> matches more than just a space—it also matches tabs (<strong><code>\t</code></strong> ), newlines (<strong><code>\n</code></strong> ), and carriage returns (<strong><code>\r</code></strong> )</li>
+<li>Negated classes (<strong><code>\D</code></strong> , <strong><code>\W</code></strong> , <strong><code>\S</code></strong> ) match everything that the lowercase version does not—including characters you might not expect, like punctuation or symbols</li>
+</ul>
+<hr />
+<h3 id="summary_1">🧩 Summary</h3>
+<p>Character classes are your shortcuts for matching common character types:</p>
+<ul>
+<li><strong><code>\d</code></strong> for digits, <strong><code>\D</code></strong> for non-digits</li>
+<li><strong><code>\w</code></strong> for word characters, <strong><code>\W</code></strong> for non-word characters</li>
+<li><strong><code>\s</code></strong> for whitespace, <strong><code>\S</code></strong> for non-whitespace</li>
+</ul>
+<p>These classes make your regex patterns cleaner, more readable, and easier to maintain. Practice combining them with quantifiers and anchors to build powerful text-matching patterns for your everyday tasks.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Character classes let you match specific types of characters like digits, letters, or whitespace using shorthand codes.</p>
+<hr />
+<h3 id="example-1-matching-a-single-digit-with-d_1">🔢 Example 1: Matching a single digit with <code>\d</code></h3>
+<p>This example finds the first digit in a string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Order 42 is ready&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\d&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>4</strong></p>
+<hr />
+<h3 id="example-2-matching-a-single-word-character-with-w_1">🔤 Example 2: Matching a single word character with <code>\w</code></h3>
+<p>This example finds the first letter, digit, or underscore in a string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\w&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>H</strong></p>
+<hr />
+<h3 id="example-3-matching-whitespace-with-s_1">⬜ Example 3: Matching whitespace with <code>\s</code></h3>
+<p>This example finds the first space, tab, or newline in a string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;first second&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\s&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: ** **</p>
+<hr />
+<h3 id="example-4-finding-all-digits-in-a-string-with-d_1">🔢 Example 4: Finding all digits in a string with <code>\d</code></h3>
+<p>This example extracts every digit from a phone number string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Call 555-1234 now&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\d&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['5', '5', '5', '1', '2', '3', '4']</strong></p>
+<hr />
+<h3 id="example-5-finding-all-words-in-a-sentence-with-w_1">🔤 Example 5: Finding all words in a sentence with <code>\w+</code></h3>
+<p>This example extracts all complete words from a sentence.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Python 3.9 is great!&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\w+&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Python', '3', '9', 'is', 'great']</strong></p>
+<hr />
+<h3 id="character-class-comparison-table_1">📊 Character Class Comparison Table</h3>
 <table>
 <thead>
 <tr>

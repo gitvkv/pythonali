@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch11_03_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 11 | The os Module for System Interactions - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 11 | The os Module for System Interactions";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch11_03_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch11_03_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -524,6 +524,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-checking-if-a-file-exists-before-deleting">🧹 Example 5: Checking if a file exists before deleting</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🌱 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-the-os-module_1">⚙️ What is the os Module?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-os-module-functions_1">🛠️ Common os Module Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-ospath-vs-os-module-functions_1">📊 Comparison: os.path vs os Module Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples-for-engineers_1">🕵️ Practical Examples for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways-for-engineers_1">🧠 Key Takeaways for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference-summary_1">🔁 Quick Reference Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">🚀 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-getting-the-current-working-directory_1">🖥️ Example 1: Getting the current working directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-listing-files-and-folders-in-a-directory_1">📂 Example 2: Listing files and folders in a directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-creating-a-new-folder_1">🗂️ Example 3: Creating a new folder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-renaming-a-file_1">🔄 Example 4: Renaming a file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-checking-if-a-file-exists-before-deleting_1">🧹 Example 5: Checking if a file exists before deleting</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="the-os-module-for-system-interactions">The os Module for System Interactions</h1>
 <p><span class="category-tag">🏷️ Modules and Imports /  Built-in Modules for Engineers</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1284,8 +1312,7 @@
 <hr />
 <h3 id="next-steps">🚀 Next Steps</h3>
 <p>Practice by writing a small script that creates a folder structure for a new project, checks if certain files exist, and prints out the current user and working directory. The <strong>os module</strong> is one of the most practical tools you will use daily as an engineer working with Python.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>os</code> module provides functions to interact with your computer's operating system, allowing you to work with files, folders, and system information from within Python.</p>
 <hr />
 <h3 id="example-1-getting-the-current-working-directory">🖥️ Example 1: Getting the current working directory</h3>
@@ -1339,6 +1366,313 @@
 <p>📤 Output: <strong>File deleted</strong></p>
 <hr />
 <h3 id="comparison-table">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>What It Does</th>
+<th>Example Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>os.getcwd()</code></td>
+<td>Gets current folder path</td>
+<td>Know where your script runs</td>
+</tr>
+<tr>
+<td><code>os.listdir()</code></td>
+<td>Lists all items in a folder</td>
+<td>See files and subfolders</td>
+</tr>
+<tr>
+<td><code>os.mkdir()</code></td>
+<td>Creates a new folder</td>
+<td>Organize project files</td>
+</tr>
+<tr>
+<td><code>os.rename()</code></td>
+<td>Renames a file or folder</td>
+<td>Update file names</td>
+</tr>
+<tr>
+<td><code>os.remove()</code></td>
+<td>Deletes a file</td>
+<td>Clean up old files</td>
+</tr>
+<tr>
+<td><code>os.path.exists()</code></td>
+<td>Checks if a file or folder exists</td>
+<td>Avoid errors before actions</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🌱 Context Introduction</h3>
+<p>Python's <strong>os module</strong> is a built-in toolkit that allows your scripts to interact directly with the operating system. Whether you need to navigate folders, check file paths, read environment variables, or run system commands, the <strong>os module</strong> gives you the power to control the underlying system from within your Python code. It acts as a bridge between your script and the operating system's core functions.</p>
+<hr />
+<h3 id="what-is-the-os-module_1">⚙️ What is the os Module?</h3>
+<p>The <strong>os module</strong> provides a portable way of using operating system-dependent functionality. It includes functions for:</p>
+<ul>
+<li><strong>File and directory operations</strong> — creating, removing, renaming, and navigating folders</li>
+<li><strong>Path manipulations</strong> — joining, splitting, and checking paths</li>
+<li><strong>Environment variables</strong> — reading and setting system-level variables</li>
+<li><strong>Process management</strong> — getting current process ID, user information</li>
+<li><strong>Running system commands</strong> — executing shell commands from Python</li>
+</ul>
+<hr />
+<h3 id="common-os-module-functions_1">🛠️ Common os Module Functions</h3>
+<p>Here are the most frequently used functions for system interactions:</p>
+<p><strong>Working with Current Directory</strong></p>
+<ul>
+<li><strong>os.getcwd()</strong> — Returns the current working directory as a string</li>
+<li><strong>os.chdir(path)</strong> — Changes the current working directory to the specified path</li>
+</ul>
+<p><strong>Listing and Creating Directories</strong></p>
+<ul>
+<li><strong>os.listdir(path)</strong> — Returns a list of all files and folders in the given directory</li>
+<li><strong>os.mkdir(path)</strong> — Creates a single new directory</li>
+<li><strong>os.makedirs(path)</strong> — Creates a directory and any necessary parent directories</li>
+</ul>
+<p><strong>Removing Files and Directories</strong></p>
+<ul>
+<li><strong>os.remove(path)</strong> — Deletes a single file</li>
+<li><strong>os.rmdir(path)</strong> — Removes an empty directory</li>
+<li><strong>os.removedirs(path)</strong> — Removes a directory and its empty parent directories</li>
+</ul>
+<p><strong>Checking Paths</strong></p>
+<ul>
+<li><strong>os.path.exists(path)</strong> — Returns <strong>True</strong> if the path exists, otherwise <strong>False</strong></li>
+<li><strong>os.path.isfile(path)</strong> — Returns <strong>True</strong> if the path is a file</li>
+<li><strong>os.path.isdir(path)</strong> — Returns <strong>True</strong> if the path is a directory</li>
+</ul>
+<p><strong>Environment Variables</strong></p>
+<ul>
+<li><strong>os.environ</strong> — A dictionary-like object containing all environment variables</li>
+<li><strong>os.getenv('VAR_NAME')</strong> — Returns the value of a specific environment variable</li>
+<li><strong>os.environ['VAR_NAME'] = 'value'</strong> — Sets a new environment variable</li>
+</ul>
+<p><strong>System Information</strong></p>
+<ul>
+<li><strong>os.name</strong> — Returns the operating system name (posix, nt, java)</li>
+<li><strong>os.getlogin()</strong> — Returns the name of the user logged in</li>
+<li><strong>os.getpid()</strong> — Returns the current process ID</li>
+</ul>
+<hr />
+<h3 id="comparison-ospath-vs-os-module-functions_1">📊 Comparison: os.path vs os Module Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>os.path Functions</th>
+<th>os Module Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Path manipulation and checks</td>
+<td>Direct system operations</td>
+</tr>
+<tr>
+<td><strong>Join paths</strong></td>
+<td><strong>os.path.join()</strong></td>
+<td>Not available</td>
+</tr>
+<tr>
+<td><strong>Split paths</strong></td>
+<td><strong>os.path.split()</strong></td>
+<td>Not available</td>
+</tr>
+<tr>
+<td><strong>Check existence</strong></td>
+<td><strong>os.path.exists()</strong></td>
+<td>Not available</td>
+</tr>
+<tr>
+<td><strong>Create directory</strong></td>
+<td>Not available</td>
+<td><strong>os.mkdir()</strong></td>
+</tr>
+<tr>
+<td><strong>List directory</strong></td>
+<td>Not available</td>
+<td><strong>os.listdir()</strong></td>
+</tr>
+<tr>
+<td><strong>Change directory</strong></td>
+<td>Not available</td>
+<td><strong>os.chdir()</strong></td>
+</tr>
+<tr>
+<td><strong>Get file size</strong></td>
+<td><strong>os.path.getsize()</strong></td>
+<td>Not available</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-examples-for-engineers_1">🕵️ Practical Examples for Engineers</h3>
+<p><strong>Example 1: Navigating and Listing Directories</strong></p>
+<p>Start by importing the module: <strong>import os</strong></p>
+<p>Get your current location: <strong>current_dir = os.getcwd()</strong> — this stores the path as a string</p>
+<p>List everything in that directory: <strong>items = os.listdir(current_dir)</strong> — this gives you a list of file and folder names</p>
+<p>Change to a different folder: <strong>os.chdir('/tmp')</strong> — now your script is working from the /tmp directory</p>
+<p><strong>Example 2: Creating a Project Folder Structure</strong></p>
+<p>Define a base path: <strong>base_path = '/home/user/projects'</strong></p>
+<p>Create nested folders: <strong>os.makedirs(base_path + '/logs/2024')</strong> — this creates both the logs folder and the 2024 subfolder in one command</p>
+<p>Check if it worked: <strong>os.path.exists(base_path + '/logs/2024')</strong> — returns <strong>True</strong> if successful</p>
+<p><strong>Example 3: Reading Environment Variables</strong></p>
+<p>Get a specific variable: <strong>home_dir = os.getenv('HOME')</strong> — returns something like <strong>/home/username</strong></p>
+<p>List all environment variables: <strong>for key, value in os.environ.items(): print(f'{key} = {value}')</strong> — this prints every variable and its value</p>
+<p>Set a temporary variable: <strong>os.environ['MY_VAR'] = 'hello'</strong> — this variable exists only while your script runs</p>
+<p><strong>Example 4: Checking File Types</strong></p>
+<p>Define a path: <strong>path_to_check = '/etc/hosts'</strong></p>
+<p>Check what it is: <strong>if os.path.isfile(path_to_check): print('It is a file')</strong> — returns <strong>True</strong> for /etc/hosts</p>
+<p>Check if it exists: <strong>if os.path.exists(path_to_check): print('Path exists')</strong> — always good to check before acting</p>
+<hr />
+<h3 id="key-takeaways-for-engineers_1">🧠 Key Takeaways for Engineers</h3>
+<ul>
+<li>The <strong>os module</strong> is your direct line to the operating system from Python</li>
+<li>Always import it first: <strong>import os</strong></li>
+<li>Use <strong>os.path</strong> functions for safe path manipulations across different operating systems</li>
+<li>Environment variables accessed via <strong>os.environ</strong> are case-sensitive</li>
+<li>Directory creation with <strong>os.makedirs</strong> is safer than <strong>os.mkdir</strong> because it creates parent folders automatically</li>
+<li>Always check if a path exists before trying to read or write to it</li>
+<li>The <strong>os module</strong> works on Windows, macOS, and Linux, making your scripts portable</li>
+</ul>
+<hr />
+<h3 id="quick-reference-summary_1">🔁 Quick Reference Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get current directory</td>
+<td><strong>os.getcwd()</strong></td>
+</tr>
+<tr>
+<td>Change directory</td>
+<td><strong>os.chdir(path)</strong></td>
+</tr>
+<tr>
+<td>List directory contents</td>
+<td><strong>os.listdir(path)</strong></td>
+</tr>
+<tr>
+<td>Create single directory</td>
+<td><strong>os.mkdir(path)</strong></td>
+</tr>
+<tr>
+<td>Create nested directories</td>
+<td><strong>os.makedirs(path)</strong></td>
+</tr>
+<tr>
+<td>Delete file</td>
+<td><strong>os.remove(path)</strong></td>
+</tr>
+<tr>
+<td>Delete empty directory</td>
+<td><strong>os.rmdir(path)</strong></td>
+</tr>
+<tr>
+<td>Check if path exists</td>
+<td><strong>os.path.exists(path)</strong></td>
+</tr>
+<tr>
+<td>Check if it's a file</td>
+<td><strong>os.path.isfile(path)</strong></td>
+</tr>
+<tr>
+<td>Check if it's a directory</td>
+<td><strong>os.path.isdir(path)</strong></td>
+</tr>
+<tr>
+<td>Get environment variable</td>
+<td><strong>os.getenv('VAR')</strong></td>
+</tr>
+<tr>
+<td>Set environment variable</td>
+<td><strong>os.environ['VAR'] = 'value'</strong></td>
+</tr>
+<tr>
+<td>Join path components</td>
+<td><strong>os.path.join('dir', 'file')</strong></td>
+</tr>
+<tr>
+<td>Get file size</td>
+<td><strong>os.path.getsize(path)</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="next-steps_1">🚀 Next Steps</h3>
+<p>Practice by writing a small script that creates a folder structure for a new project, checks if certain files exist, and prints out the current user and working directory. The <strong>os module</strong> is one of the most practical tools you will use daily as an engineer working with Python.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>os</code> module provides functions to interact with your computer's operating system, allowing you to work with files, folders, and system information from within Python.</p>
+<hr />
+<h3 id="example-1-getting-the-current-working-directory_1">🖥️ Example 1: Getting the current working directory</h3>
+<p>Shows how to find out which folder your Python script is currently running in.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">current_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_folder</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>/home/user/projects</strong></p>
+<hr />
+<h3 id="example-2-listing-files-and-folders-in-a-directory_1">📂 Example 2: Listing files and folders in a directory</h3>
+<p>Shows how to see all items inside a specific folder.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">items</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['main.py', 'data.csv', 'images', 'notes.txt']</strong></p>
+<hr />
+<h3 id="example-3-creating-a-new-folder_1">🗂️ Example 3: Creating a new folder</h3>
+<p>Shows how to make a new directory for organizing files.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;new_project_folder&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Folder created successfully&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Folder created successfully</strong></p>
+<hr />
+<h3 id="example-4-renaming-a-file_1">🔄 Example 4: Renaming a file</h3>
+<p>Shows how to change the name of an existing file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;old_report.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;new_report.txt&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File renamed&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>File renamed</strong></p>
+<hr />
+<h3 id="example-5-checking-if-a-file-exists-before-deleting_1">🧹 Example 5: Checking if a file exists before deleting</h3>
+<p>Shows a safe way to remove a file only if it is present.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;temp_data.txt&quot;</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File deleted&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>File deleted</strong></p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

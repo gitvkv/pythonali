@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_01_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Tracing High-Level Information Flow and Error Catching - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Tracing High-Level Information Flow and Error Catching";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_01_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_01_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -983,6 +983,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-tracing-vs-error-catching">📊 Comparison Table: Tracing vs. Error Catching</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-information-flow_1">⚙️ What is Information Flow?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tracing-the-flow-with-a-real-world-example_1">🕵️ Tracing the Flow with a Real-World Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#where-to-catch-errors-in-the-flow_1">🛠️ Where to Catch Errors in the Flow</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-flat-error-handling-vs-flow-aware-error-handling_1">📊 Comparison: Flat Error Handling vs. Flow-Aware Error Handling</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-a-simple-error-catching-strategy_1">🧩 Building a Simple Error Catching Strategy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-tips-for-tracing-your-own-scripts_1">✅ Practical Tips for Tracing Your Own Scripts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🔁 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-printing-the-flow-of-a-simple-value_1">🧩 Example 1: Printing the flow of a simple value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-catching-a-conversion-error-with-try-except_1">🧩 Example 2: Catching a conversion error with try-except</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-tracing-a-value-through-a-function_1">🧩 Example 3: Tracing a value through a function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-catching-a-missing-file-error_1">🧩 Example 4: Catching a missing file error</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-tracing-and-catching-errors-in-a-data-processing-pipeline_1">🧩 Example 5: Tracing and catching errors in a data processing pipeline</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-tracing-vs-error-catching_1">📊 Comparison Table: Tracing vs. Error Catching</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_01_04/">Ch 21 | Fleshing Out Milestones Using Functional Pseudo-Code</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="tracing-high-level-information-flow-and-error-catching">Tracing High-Level Information Flow and Error Catching</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Planning an Automation Script</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1168,8 +1196,7 @@
 <hr />
 <h3 id="summary">🔁 Summary</h3>
 <p>Tracing high-level information flow and planning your error catching before you write code is one of the most valuable habits you can develop. It turns a chaotic debugging process into a structured, predictable one. By mapping out where data enters, how it transforms, and where it exits, you give yourself a clear blueprint for where to place targeted error handlers. This approach leads to scripts that are more reliable, easier to maintain, and far less frustrating to troubleshoot when things inevitably go wrong in production.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This section shows how to follow data as it moves through a script and catch errors when something goes wrong.</p>
 <h3 id="example-1-printing-the-flow-of-a-simple-value">🧩 Example 1: Printing the flow of a simple value</h3>
 <p>This example shows how to trace a value from input to output by printing each step.</p>
@@ -1252,6 +1279,206 @@
 <strong>Step 3: Final total: 110</strong></p>
 <hr />
 <h3 id="comparison-table-tracing-vs-error-catching">📊 Comparison Table: Tracing vs. Error Catching</h3>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Purpose</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Tracing</strong></td>
+<td>Follow data step-by-step through the script</td>
+<td>Debugging or verifying each transformation</td>
+</tr>
+<tr>
+<td><strong>Error Catching</strong></td>
+<td>Handle unexpected failures gracefully</td>
+<td>When input data may be invalid or resources may be missing</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>Before writing a single line of code in your automation script, it is essential to map out how information will move through your program. Think of this as drawing a roadmap: you need to know where data starts, what happens to it along the way, where it ends up, and what to do when something goes wrong. This planning phase saves hours of debugging later and ensures your script behaves predictably under both normal and failure conditions.</p>
+<hr />
+<h3 id="what-is-information-flow_1">⚙️ What is Information Flow?</h3>
+<p>Information flow describes the journey of data from input to output within your script. For a typical automation script, this flow follows a predictable pattern:</p>
+<ul>
+<li><strong>Input Stage</strong>: Data enters your script from external sources such as configuration files, command-line arguments, environment variables, or API responses</li>
+<li><strong>Processing Stage</strong>: The script transforms, validates, or enriches the data through functions and logic</li>
+<li><strong>Output Stage</strong>: The processed data is written to a file, sent to an API, logged to a database, or displayed to the user</li>
+</ul>
+<p>Each stage represents a point where errors can occur. Understanding this flow helps you decide exactly where to place error-catching mechanisms.</p>
+<hr />
+<h3 id="tracing-the-flow-with-a-real-world-example_1">🕵️ Tracing the Flow with a Real-World Example</h3>
+<p>Imagine you are building a script that reads server hostnames from a CSV file, pings each server, and writes the results to a report. The information flow would look like this:</p>
+<ul>
+<li><strong>Step 1</strong>: Read the CSV file and extract the list of hostnames</li>
+<li><strong>Step 2</strong>: For each hostname, attempt a ping operation</li>
+<li><strong>Step 3</strong>: Collect the success or failure status for each host</li>
+<li><strong>Step 4</strong>: Write the final report to a new file</li>
+</ul>
+<p>At each step, you must ask: <em>What could break here?</em> The CSV file might be missing or malformed. A hostname might be invalid. The network might be down. The output directory might not exist. Tracing the flow forces you to anticipate these failures before they happen.</p>
+<hr />
+<h3 id="where-to-catch-errors-in-the-flow_1">🛠️ Where to Catch Errors in the Flow</h3>
+<p>Errors should be caught as close to their source as possible, but not so early that you lose context. Use this simple guideline:</p>
+<ul>
+<li><strong>At the input stage</strong>: Catch errors related to missing files, bad formats, or invalid user input</li>
+<li><strong>At the processing stage</strong>: Catch errors from external services, network timeouts, or data transformation failures</li>
+<li><strong>At the output stage</strong>: Catch errors from file write permissions, disk space issues, or connection problems to external systems</li>
+</ul>
+<p>A common mistake is wrapping the entire script in one large error handler. This makes it impossible to know which step failed and why. Instead, place targeted error handling at each stage of the flow.</p>
+<hr />
+<h3 id="comparison-flat-error-handling-vs-flow-aware-error-handling_1">📊 Comparison: Flat Error Handling vs. Flow-Aware Error Handling</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Flat Error Handling</th>
+<th>Flow-Aware Error Handling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Error location</td>
+<td>Unknown which step failed</td>
+<td>Exact step is identified</td>
+</tr>
+<tr>
+<td>Debugging effort</td>
+<td>High — must add print statements</td>
+<td>Low — error message includes context</td>
+</tr>
+<tr>
+<td>Recovery options</td>
+<td>Script usually stops entirely</td>
+<td>Can retry or skip specific steps</td>
+</tr>
+<tr>
+<td>Code readability</td>
+<td>Cluttered with generic try-except blocks</td>
+<td>Clean and intentional error handling</td>
+</tr>
+<tr>
+<td>User feedback</td>
+<td>Vague "something went wrong" messages</td>
+<td>Clear messages like "Failed to read config file"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="building-a-simple-error-catching-strategy_1">🧩 Building a Simple Error Catching Strategy</h3>
+<p>When planning your script, define a strategy for each stage of the information flow:</p>
+<ul>
+<li><strong>Define expected errors</strong>: List the specific things that could go wrong at each stage. For example, at the input stage, expected errors might include <em>file not found</em>, <em>empty file</em>, or <em>incorrect data format</em></li>
+<li><strong>Decide on the response</strong>: For each expected error, decide whether the script should stop immediately, skip the problematic item, retry the operation, or log the error and continue</li>
+<li><strong>Add fallback values</strong>: Where possible, provide sensible defaults so the script can continue even when a non-critical input is missing</li>
+<li><strong>Log the context</strong>: Always include the stage name and the specific data being processed when an error occurs. This makes troubleshooting much faster</li>
+</ul>
+<hr />
+<h3 id="practical-tips-for-tracing-your-own-scripts_1">✅ Practical Tips for Tracing Your Own Scripts</h3>
+<ul>
+<li><strong>Draw the flow on paper first</strong>: Sketch out the input, processing, and output stages before writing code. This visual map reveals hidden dependencies and potential failure points</li>
+<li><strong>Add one error handler at a time</strong>: Start with the most critical stage, test it thoroughly, then move to the next. This prevents overwhelming yourself with too many error paths at once</li>
+<li><strong>Use meaningful variable names</strong>: Names like <strong>config_data</strong>, <strong>host_list</strong>, or <strong>ping_results</strong> make it obvious what data is flowing through each stage</li>
+<li><strong>Test with bad data deliberately</strong>: Feed your script a missing file, an empty file, and a malformed file to confirm your error catching works as intended</li>
+<li><strong>Keep error messages user-friendly</strong>: Engineers who run your script later will thank you for messages like <em>"Could not open config file at /etc/app/config.yaml — check that the file exists and is readable"</em> instead of a generic error</li>
+</ul>
+<hr />
+<h3 id="summary_1">🔁 Summary</h3>
+<p>Tracing high-level information flow and planning your error catching before you write code is one of the most valuable habits you can develop. It turns a chaotic debugging process into a structured, predictable one. By mapping out where data enters, how it transforms, and where it exits, you give yourself a clear blueprint for where to place targeted error handlers. This approach leads to scripts that are more reliable, easier to maintain, and far less frustrating to troubleshoot when things inevitably go wrong in production.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This section shows how to follow data as it moves through a script and catch errors when something goes wrong.</p>
+<h3 id="example-1-printing-the-flow-of-a-simple-value_1">🧩 Example 1: Printing the flow of a simple value</h3>
+<p>This example shows how to trace a value from input to output by printing each step.</p>
+<div class="highlight"><pre><span></span><code><span class="n">user_input</span> <span class="o">=</span> <span class="s2">&quot;42&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step 1: Raw input is&quot;</span><span class="p">,</span> <span class="n">user_input</span><span class="p">)</span>
+<span class="n">converted_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step 2: Converted to integer is&quot;</span><span class="p">,</span> <span class="n">converted_value</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">converted_value</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step 3: Final result is&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Step 1: Raw input is 42</strong><br />
+<strong>Step 2: Converted to integer is 42</strong><br />
+<strong>Step 3: Final result is 84</strong></p>
+<hr />
+<h3 id="example-2-catching-a-conversion-error-with-try-except_1">🧩 Example 2: Catching a conversion error with try-except</h3>
+<p>This example demonstrates how to catch an error when a string cannot be converted to a number.</p>
+<div class="highlight"><pre><span></span><code><span class="n">user_input</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">converted_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Conversion succeeded:&quot;</span><span class="p">,</span> <span class="n">converted_value</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Could not convert &#39;hello&#39; to a number&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Error: Could not convert 'hello' to a number</strong></p>
+<hr />
+<h3 id="example-3-tracing-a-value-through-a-function_1">🧩 Example 3: Tracing a value through a function</h3>
+<p>This example shows how to follow a value as it enters and leaves a function.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">double_number</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside function: received&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">value</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside function: returning&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">original</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before function call:&quot;</span><span class="p">,</span> <span class="n">original</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">double_number</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After function call:&quot;</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Before function call: 5</strong><br />
+<strong>Inside function: received 5</strong><br />
+<strong>Inside function: returning 10</strong><br />
+<strong>After function call: 10</strong></p>
+<hr />
+<h3 id="example-4-catching-a-missing-file-error_1">🧩 Example 4: Catching a missing file error</h3>
+<p>This example demonstrates how to catch an error when a file does not exist.</p>
+<div class="highlight"><pre><span></span><code><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;missing_data.txt&quot;</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">file_handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file_handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File contents:&quot;</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+    <span class="n">file_handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: The file &#39;missing_data.txt&#39; was not found&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Error: The file 'missing_data.txt' was not found</strong></p>
+<hr />
+<h3 id="example-5-tracing-and-catching-errors-in-a-data-processing-pipeline_1">🧩 Example 5: Tracing and catching errors in a data processing pipeline</h3>
+<p>This example shows how to trace data through a multi-step pipeline and catch errors at each stage.</p>
+<div class="highlight"><pre><span></span><code><span class="n">raw_data</span> <span class="o">=</span> <span class="s2">&quot;10,20,30,forty,50&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step 1: Raw data string:&quot;</span><span class="p">,</span> <span class="n">raw_data</span><span class="p">)</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">raw_data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step 2: Split into list:&quot;</span><span class="p">,</span> <span class="n">items</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Converted:&quot;</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">number</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Error: Cannot convert&quot;</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="s2">&quot;to a number — skipping&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step 3: Final total:&quot;</span><span class="p">,</span> <span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Step 1: Raw data string: 10,20,30,forty,50</strong><br />
+<strong>Step 2: Split into list: ['10', '20', '30', 'forty', '50']</strong><br />
+<strong>Converted: 10 -&gt; 10</strong><br />
+<strong>Converted: 20 -&gt; 20</strong><br />
+<strong>Converted: 30 -&gt; 30</strong><br />
+<strong>Error: Cannot convert forty to a number — skipping</strong><br />
+<strong>Converted: 50 -&gt; 50</strong><br />
+<strong>Step 3: Final total: 110</strong></p>
+<hr />
+<h3 id="comparison-table-tracing-vs-error-catching_1">📊 Comparison Table: Tracing vs. Error Catching</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_03_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Practical Example: Server Class with check_status() - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Practical Example: Server Class with check_status()";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_03_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_03_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -855,6 +855,42 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">📝 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-we-are-building_1">⚙️ What We Are Building</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-by-step-breakdown_1">🛠️ Step-by-Step Breakdown</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-defining-the-server-class_1">1️⃣ Defining the Server Class</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-creating-the-check_status-method_1">2️⃣ Creating the check_status() Method</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-creating-server-objects_1">3️⃣ Creating Server Objects</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-calling-the-method_1">4️⃣ Calling the Method</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-without-class-vs-with-class_1">📊 Comparison: Without Class vs. With Class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#full-example-walkthrough_1">🕵️ Full Example Walkthrough</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">💡 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">🚀 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-server-class-with-status-attribute_1">🔧 Example 1: Basic Server class with status attribute</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-server-with-default-status_1">🔧 Example 2: Server with default status</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-server-with-dynamic-status-update_1">🔧 Example 3: Server with dynamic status update</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-server-with-status-validation_1">🔧 Example 4: Server with status validation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-server-with-multiple-servers-and-status-reporting_1">🔧 Example 5: Server with multiple servers and status reporting</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_04_01/">Ch 18 | Binding Data and Behavior Within Scopes</a>
@@ -1084,7 +1120,7 @@
               
                 <h1 id="practical-example-server-class-with-check_status">Practical Example: Server Class with check_status()</h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Instance Methods</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">📝 Context Introduction</h3>
@@ -1194,8 +1230,7 @@
 - Add a <strong>stop()</strong> method that changes the status to <strong>"stopped"</strong>.
 - Create a list of server objects and loop through them to check all statuses at once.</p>
 <p>Practice building small classes like this to get comfortable with the OOP mindset — it will make managing complex systems much easier.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>A Server class with a <code>check_status()</code> method simulates monitoring a server's health by returning its current operational state.</p>
 <h3 id="example-1-basic-server-class-with-status-attribute">🔧 Example 1: Basic Server class with status attribute</h3>
 <p>This example shows the simplest possible Server class that stores and returns a status string.</p>
@@ -1294,6 +1329,273 @@
 📤 Output: <strong>cache-01 -&gt; offline</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Example 1</th>
+<th>Example 2</th>
+<th>Example 3</th>
+<th>Example 4</th>
+<th>Example 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default status</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Status update</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Status validation</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Multiple servers</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Custom message format</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">📝 Context Introduction</h3>
+<p>When managing servers in a real-world environment, you often need to track each server's details and check whether it's running properly. Instead of writing separate variables and functions for every server, we can create a <strong>Server class</strong> that acts as a blueprint. Each server we create from this class will have its own attributes (like name, IP address, and status) and its own behaviors (like checking its status). This makes our code cleaner, reusable, and much easier to maintain as our server fleet grows.</p>
+<hr />
+<h3 id="what-we-are-building_1">⚙️ What We Are Building</h3>
+<p>We are going to build a simple <strong>Server class</strong> that:
+- Stores basic information about a server (name, IP address, and current status).
+- Has an <strong>instance method</strong> called <strong>check_status()</strong> that simulates checking whether the server is online or offline.
+- Allows us to create multiple server objects, each with its own independent data.</p>
+<hr />
+<h3 id="step-by-step-breakdown_1">🛠️ Step-by-Step Breakdown</h3>
+<h4 id="1-defining-the-server-class_1">1️⃣ Defining the Server Class</h4>
+<p>We start by defining the class using the <strong>class</strong> keyword. Inside the class, we define an <strong><strong>init</strong></strong> method (the constructor) that runs automatically when we create a new server object. This method sets up the initial attributes for each server.</p>
+<ul>
+<li>The <strong><strong>init</strong></strong> method takes three parameters: <strong>self</strong>, <strong>name</strong>, <strong>ip_address</strong>, and <strong>status</strong>.</li>
+<li><strong>self</strong> refers to the specific server object being created.</li>
+<li>We store the values as instance attributes: <strong>self.name</strong>, <strong>self.ip_address</strong>, and <strong>self.status</strong>.</li>
+</ul>
+<h4 id="2-creating-the-check_status-method_1">2️⃣ Creating the check_status() Method</h4>
+<p>The <strong>check_status()</strong> method is an <strong>instance method</strong> — it belongs to each server object and can access that object's attributes using <strong>self</strong>.</p>
+<ul>
+<li>This method checks the current <strong>self.status</strong> attribute.</li>
+<li>If the status is <strong>"running"</strong>, it prints a message saying the server is online.</li>
+<li>If the status is <strong>"stopped"</strong>, it prints a message saying the server is offline.</li>
+<li>If the status is anything else, it prints a message saying the status is unknown.</li>
+</ul>
+<h4 id="3-creating-server-objects_1">3️⃣ Creating Server Objects</h4>
+<p>Once the class is defined, we can create as many server objects as we need. Each object gets its own copy of the attributes and methods.</p>
+<ul>
+<li>We call the class like a function, passing the required arguments: <strong>name</strong>, <strong>ip_address</strong>, and <strong>status</strong>.</li>
+<li>The result is stored in a variable representing that specific server.</li>
+</ul>
+<h4 id="4-calling-the-method_1">4️⃣ Calling the Method</h4>
+<p>We call the <strong>check_status()</strong> method on each server object using dot notation: <strong>server_object.check_status()</strong>.</p>
+<ul>
+<li>Each server object runs its own version of the method, using its own stored data.</li>
+</ul>
+<hr />
+<h3 id="comparison-without-class-vs-with-class_1">📊 Comparison: Without Class vs. With Class</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Without Class (Procedural)</th>
+<th>With Class (OOP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data Storage</strong></td>
+<td>Separate variables for each server (e.g., <strong>server1_name</strong>, <strong>server2_ip</strong>)</td>
+<td>Attributes stored inside each object (e.g., <strong>server1.name</strong>, <strong>server2.ip</strong>)</td>
+</tr>
+<tr>
+<td><strong>Code Reusability</strong></td>
+<td>Must rewrite logic for each new server</td>
+<td>Define once in the class, reuse for all servers</td>
+</tr>
+<tr>
+<td><strong>Maintainability</strong></td>
+<td>Changes require updating every server's code</td>
+<td>Change the class method, all objects benefit</td>
+</tr>
+<tr>
+<td><strong>Scalability</strong></td>
+<td>Becomes messy with many servers</td>
+<td>Clean and organized, easy to add more servers</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="full-example-walkthrough_1">🕵️ Full Example Walkthrough</h3>
+<p><strong>Step 1: Define the Server class</strong></p>
+<p>We write the class with the <strong><strong>init</strong></strong> method to set up <strong>name</strong>, <strong>ip_address</strong>, and <strong>status</strong>. Then we define the <strong>check_status()</strong> instance method.</p>
+<ul>
+<li>The <strong><strong>init</strong></strong> method stores the three values as instance attributes.</li>
+<li>The <strong>check_status()</strong> method uses an <strong>if-elif-else</strong> structure to evaluate <strong>self.status</strong> and print the appropriate message.</li>
+</ul>
+<p><strong>Step 2: Create server objects</strong></p>
+<p>We create two servers:
+- <strong>web_server</strong> with name <strong>"WebServer"</strong>, IP <strong>"192.168.1.10"</strong>, and status <strong>"running"</strong>.
+- <strong>db_server</strong> with name <strong>"DBServer"</strong>, IP <strong>"192.168.1.20"</strong>, and status <strong>"stopped"</strong>.</p>
+<p><strong>Step 3: Call the check_status() method on each server</strong></p>
+<ul>
+<li>For <strong>web_server</strong>, the method checks <strong>self.status</strong> which is <strong>"running"</strong>, so it prints that the server is online.</li>
+<li>For <strong>db_server</strong>, the method checks <strong>self.status</strong> which is <strong>"stopped"</strong>, so it prints that the server is offline.</li>
+</ul>
+<p><strong>Expected output from the example:</strong></p>
+<ul>
+<li><strong>WebServer (192.168.1.10) is ONLINE and running.</strong></li>
+<li><strong>DBServer (192.168.1.20) is OFFLINE and stopped.</strong></li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">💡 Key Takeaways</h3>
+<ul>
+<li>A <strong>class</strong> is a blueprint for creating objects that share common attributes and methods.</li>
+<li>The <strong><strong>init</strong></strong> method initializes each object's unique data when it is created.</li>
+<li><strong>Instance methods</strong> like <strong>check_status()</strong> operate on the data stored inside a specific object using <strong>self</strong>.</li>
+<li>Each object (server) is independent — changing one server's status does not affect others.</li>
+<li>This approach makes it easy to add new servers, modify behavior in one place, and keep your code organized as your infrastructure grows.</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">🚀 Next Steps</h3>
+<p>Now that you understand how to create a class with instance methods, try extending this example on your own:
+- Add a <strong>restart()</strong> method that changes the status to <strong>"running"</strong>.
+- Add a <strong>stop()</strong> method that changes the status to <strong>"stopped"</strong>.
+- Create a list of server objects and loop through them to check all statuses at once.</p>
+<p>Practice building small classes like this to get comfortable with the OOP mindset — it will make managing complex systems much easier.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>A Server class with a <code>check_status()</code> method simulates monitoring a server's health by returning its current operational state.</p>
+<h3 id="example-1-basic-server-class-with-status-attribute_1">🔧 Example 1: Basic Server class with status attribute</h3>
+<p>This example shows the simplest possible Server class that stores and returns a status string.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Server</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span>
+
+<span class="n">server_a</span> <span class="o">=</span> <span class="n">Server</span><span class="p">(</span><span class="s2">&quot;online&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">server_a</span><span class="o">.</span><span class="n">check_status</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>online</strong></p>
+<hr />
+<h3 id="example-2-server-with-default-status_1">🔧 Example 2: Server with default status</h3>
+<p>This example shows how to set a default status when no status is provided during creation.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Server</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;unknown&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span>
+
+<span class="n">server_b</span> <span class="o">=</span> <span class="n">Server</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">server_b</span><span class="o">.</span><span class="n">check_status</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>unknown</strong></p>
+<hr />
+<h3 id="example-3-server-with-dynamic-status-update_1">🔧 Example 3: Server with dynamic status update</h3>
+<p>This example shows how to change the server status after creation and then check it again.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Server</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;offline&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">server_c</span> <span class="o">=</span> <span class="n">Server</span><span class="p">(</span><span class="s2">&quot;web-01&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">server_c</span><span class="o">.</span><span class="n">check_status</span><span class="p">())</span>
+<span class="n">server_c</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;online&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">server_c</span><span class="o">.</span><span class="n">check_status</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>web-01 is offline</strong><br />
+📤 Output: <strong>web-01 is online</strong></p>
+<hr />
+<h3 id="example-4-server-with-status-validation_1">🔧 Example 4: Server with status validation</h3>
+<p>This example shows how to validate that only allowed status values can be assigned to a server.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Server</span><span class="p">:</span>
+    <span class="n">VALID_STATUSES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;online&quot;</span><span class="p">,</span> <span class="s2">&quot;offline&quot;</span><span class="p">,</span> <span class="s2">&quot;maintenance&quot;</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;offline&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">if</span> <span class="n">status</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">VALID_STATUSES</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;unknown&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Server </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">server_d</span> <span class="o">=</span> <span class="n">Server</span><span class="p">(</span><span class="s2">&quot;db-01&quot;</span><span class="p">,</span> <span class="s2">&quot;online&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">server_d</span><span class="o">.</span><span class="n">check_status</span><span class="p">())</span>
+<span class="n">server_e</span> <span class="o">=</span> <span class="n">Server</span><span class="p">(</span><span class="s2">&quot;db-02&quot;</span><span class="p">,</span> <span class="s2">&quot;crashed&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">server_e</span><span class="o">.</span><span class="n">check_status</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>Server db-01: online</strong><br />
+📤 Output: <strong>Server db-02: unknown</strong></p>
+<hr />
+<h3 id="example-5-server-with-multiple-servers-and-status-reporting_1">🔧 Example 5: Server with multiple servers and status reporting</h3>
+<p>This example shows how to create multiple servers and check their status in a loop.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Server</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;offline&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">servers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Server</span><span class="p">(</span><span class="s2">&quot;web-01&quot;</span><span class="p">,</span> <span class="s2">&quot;online&quot;</span><span class="p">),</span>
+    <span class="n">Server</span><span class="p">(</span><span class="s2">&quot;web-02&quot;</span><span class="p">,</span> <span class="s2">&quot;online&quot;</span><span class="p">),</span>
+    <span class="n">Server</span><span class="p">(</span><span class="s2">&quot;db-01&quot;</span><span class="p">,</span> <span class="s2">&quot;maintenance&quot;</span><span class="p">),</span>
+    <span class="n">Server</span><span class="p">(</span><span class="s2">&quot;cache-01&quot;</span><span class="p">,</span> <span class="s2">&quot;offline&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">servers</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">server</span><span class="o">.</span><span class="n">check_status</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>web-01 -&gt; online</strong><br />
+📤 Output: <strong>web-02 -&gt; online</strong><br />
+📤 Output: <strong>db-01 -&gt; maintenance</strong><br />
+📤 Output: <strong>cache-01 -&gt; offline</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

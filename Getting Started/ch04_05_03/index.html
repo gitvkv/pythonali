@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch04_05_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 04 | Summing Collections with sum() - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 04 | Summing Collections with sum()";
         var mkdocs_page_input_path = "Getting Started\\ch04_05_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch04_05_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -232,6 +232,30 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-summing-values-from-a-list-of-sensor-readings">🔧 Example 5: Summing values from a list of sensor readings</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-does-sum-do_1">⚙️ What Does sum() Do?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simple-examples_1">📊 Simple Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-use-cases_1">🛠️ Practical Use Cases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-loop-vs-sum_1">🕵️ Comparison: Loop vs. sum()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-notes-and-gotchas_1">⚡ Important Notes and Gotchas</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📝 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-summing-a-list-of-integers_1">🔧 Example 1: Summing a list of integers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-summing-a-tuple-of-floats_1">🔧 Example 2: Summing a tuple of floats</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-summing-with-a-starting-value_1">🔧 Example 3: Summing with a starting value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-summing-a-range-of-numbers_1">🔧 Example 4: Summing a range of numbers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-summing-values-from-a-list-of-sensor-readings_1">🔧 Example 5: Summing values from a list of sensor readings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1072,7 +1096,7 @@
               
                 <h1 id="summing-collections-with-sum">Summing Collections with sum()</h1>
 <p><span class="category-tag">🏷️ Numbers and Mathematical Operations /  Numeric Built-in Functions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with lists, tuples, or other collections of numbers, you often need to calculate the total. Instead of writing a loop to add each value manually, Python provides a clean and efficient built-in function called <strong>sum()</strong>. This function takes an iterable (like a list or tuple) and returns the sum of all its numeric elements.</p>
@@ -1142,8 +1166,7 @@
 <hr />
 <h3 id="summary">📝 Summary</h3>
 <p>The <strong>sum()</strong> function is a simple yet powerful tool for adding up numbers in any collection. It replaces verbose loops with a single, readable function call. Whether you are calculating totals from monitoring data, configuration values, or any numeric list, sum() makes your code cleaner and more efficient.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>sum()</code> function adds together all numeric items in a collection and returns the total.</p>
 <h3 id="example-1-summing-a-list-of-integers">🔧 Example 1: Summing a list of integers</h3>
 <p>This example shows the most basic use of <code>sum()</code> — adding numbers in a list.</p>
@@ -1187,6 +1210,166 @@
 <p>📤 Output: <strong>86.5</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Function Call</th>
+<th>Collection Type</th>
+<th>Start Value</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sum([10, 20, 30, 40, 50])</code></td>
+<td>list of ints</td>
+<td>0 (default)</td>
+<td>150</td>
+</tr>
+<tr>
+<td><code>sum((2.5, 3.1, 1.8, 4.0))</code></td>
+<td>tuple of floats</td>
+<td>0 (default)</td>
+<td>11.4</td>
+</tr>
+<tr>
+<td><code>sum([85, 92, 78, 95], 10)</code></td>
+<td>list of ints</td>
+<td>10</td>
+<td>360</td>
+</tr>
+<tr>
+<td><code>sum(range(1, 11))</code></td>
+<td>range object</td>
+<td>0 (default)</td>
+<td>55</td>
+</tr>
+<tr>
+<td><code>sum([12.4, 11.8, 13.2, 10.9, 14.1, 12.6, 11.5])</code></td>
+<td>list of floats</td>
+<td>0 (default)</td>
+<td>86.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with lists, tuples, or other collections of numbers, you often need to calculate the total. Instead of writing a loop to add each value manually, Python provides a clean and efficient built-in function called <strong>sum()</strong>. This function takes an iterable (like a list or tuple) and returns the sum of all its numeric elements.</p>
+<hr />
+<h3 id="what-does-sum-do_1">⚙️ What Does sum() Do?</h3>
+<p>The <strong>sum()</strong> function adds up all the numbers in a collection and returns the total. It works with any iterable that contains numeric values.</p>
+<ul>
+<li><strong>Basic syntax:</strong> <strong>sum(iterable, start=0)</strong></li>
+<li>The <strong>iterable</strong> is the collection of numbers you want to add.</li>
+<li>The optional <strong>start</strong> parameter adds an initial value to the total (default is 0).</li>
+</ul>
+<hr />
+<h3 id="simple-examples_1">📊 Simple Examples</h3>
+<p>Here are straightforward examples to show how sum() works in practice:</p>
+<ul>
+<li><strong>Summing a list of integers:</strong> <strong>sum([10, 20, 30])</strong> returns <strong>60</strong></li>
+<li><strong>Summing a tuple of floats:</strong> <strong>sum((2.5, 3.5, 4.0))</strong> returns <strong>10.0</strong></li>
+<li><strong>Using the start parameter:</strong> <strong>sum([5, 10, 15], 100)</strong> returns <strong>130</strong> (100 + 5 + 10 + 15)</li>
+<li><strong>Summing an empty list:</strong> <strong>sum([])</strong> returns <strong>0</strong></li>
+</ul>
+<hr />
+<h3 id="practical-use-cases_1">🛠️ Practical Use Cases</h3>
+<p>Here are common scenarios where sum() saves time and reduces code complexity:</p>
+<ul>
+<li><strong>Calculating total disk usage</strong> from a list of file sizes in megabytes</li>
+<li><strong>Adding up response times</strong> from a list of API latency measurements</li>
+<li><strong>Summing resource counts</strong> like total CPU cores or memory across multiple servers</li>
+<li><strong>Computing totals</strong> from configuration values or monitoring data</li>
+</ul>
+<hr />
+<h3 id="comparison-loop-vs-sum_1">🕵️ Comparison: Loop vs. sum()</h3>
+<p>The table below shows how sum() simplifies code compared to a manual loop:</p>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Code Example</th>
+<th>Readability</th>
+<th>Lines of Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manual Loop</td>
+<td><strong>total = 0; for num in numbers: total += num</strong></td>
+<td>Moderate</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Using sum()</td>
+<td><strong>total = sum(numbers)</strong></td>
+<td>High</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>The sum() function is not only shorter but also easier to read and less prone to errors.</p>
+<hr />
+<h3 id="important-notes-and-gotchas_1">⚡ Important Notes and Gotchas</h3>
+<p>Keep these points in mind when using sum():</p>
+<ul>
+<li><strong>All elements must be numeric.</strong> If your collection contains strings or other non-numeric types, sum() will raise a <strong>TypeError</strong>.</li>
+<li><strong>For large collections,</strong> sum() is optimized in C under the hood, making it faster than a manual Python loop.</li>
+<li><strong>The start parameter</strong> is useful when you want to add a base value to the total, such as an initial count or offset.</li>
+<li><strong>sum() works with generators</strong> too, so you can pass a generator expression directly: <strong>sum(x * 2 for x in range(5))</strong></li>
+</ul>
+<hr />
+<h3 id="summary_1">📝 Summary</h3>
+<p>The <strong>sum()</strong> function is a simple yet powerful tool for adding up numbers in any collection. It replaces verbose loops with a single, readable function call. Whether you are calculating totals from monitoring data, configuration values, or any numeric list, sum() makes your code cleaner and more efficient.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>sum()</code> function adds together all numeric items in a collection and returns the total.</p>
+<h3 id="example-1-summing-a-list-of-integers_1">🔧 Example 1: Summing a list of integers</h3>
+<p>This example shows the most basic use of <code>sum()</code> — adding numbers in a list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>150</strong></p>
+<hr />
+<h3 id="example-2-summing-a-tuple-of-floats_1">🔧 Example 2: Summing a tuple of floats</h3>
+<p>This example demonstrates <code>sum()</code> working with decimal numbers stored in a tuple.</p>
+<div class="highlight"><pre><span></span><code><span class="n">measurements</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>11.4</strong></p>
+<hr />
+<h3 id="example-3-summing-with-a-starting-value_1">🔧 Example 3: Summing with a starting value</h3>
+<p>This example shows how to add an initial value to the total using the <code>start</code> parameter.</p>
+<div class="highlight"><pre><span></span><code><span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">95</span><span class="p">]</span>
+<span class="n">bonus</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">bonus</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>360</strong></p>
+<hr />
+<h3 id="example-4-summing-a-range-of-numbers_1">🔧 Example 4: Summing a range of numbers</h3>
+<p>This example uses <code>sum()</code> with a <code>range()</code> object to add a sequence of consecutive integers.</p>
+<div class="highlight"><pre><span></span><code><span class="n">first_ten</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">first_ten</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>55</strong></p>
+<hr />
+<h3 id="example-5-summing-values-from-a-list-of-sensor-readings_1">🔧 Example 5: Summing values from a list of sensor readings</h3>
+<p>This example calculates the total energy consumption from a week of daily sensor readings.</p>
+<div class="highlight"><pre><span></span><code><span class="n">daily_kwh</span> <span class="o">=</span> <span class="p">[</span><span class="mf">12.4</span><span class="p">,</span> <span class="mf">11.8</span><span class="p">,</span> <span class="mf">13.2</span><span class="p">,</span> <span class="mf">10.9</span><span class="p">,</span> <span class="mf">14.1</span><span class="p">,</span> <span class="mf">12.6</span><span class="p">,</span> <span class="mf">11.5</span><span class="p">]</span>
+<span class="n">weekly_total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">daily_kwh</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">weekly_total</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>86.5</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

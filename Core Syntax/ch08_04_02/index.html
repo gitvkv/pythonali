@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch08_04_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 08 | Removing Elements (remove vs discard) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 08 | Removing Elements (remove vs discard)";
         var mkdocs_page_input_path = "Core Syntax\\ch08_04_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch08_04_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -390,6 +390,28 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-4-discard-silently-does-nothing-when-element-is-missing">🔧 Example 4: discard() silently does nothing when element is missing</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-safely-cleaning-sensor-ids">🔧 Example 5: Practical use — safely cleaning sensor IDs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-core-difference_1">⚙️ The Core Difference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-they-work_1">🛠️ How They Work</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-scenarios_1">🕵️ Example Scenarios</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-each_1">✅ When to Use Each</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-tip_1">🧠 Quick Tip</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-using-remove-on-an-existing-element_1">🔧 Example 1: Using remove() on an existing element</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-using-discard-on-an-existing-element_1">🔧 Example 2: Using discard() on an existing element</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-remove-raises-an-error-when-element-is-missing_1">🔧 Example 3: remove() raises an error when element is missing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-discard-silently-does-nothing-when-element-is-missing_1">🔧 Example 4: discard() silently does nothing when element is missing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-safely-cleaning-sensor-ids_1">🔧 Example 5: Practical use — safely cleaning sensor IDs</a>
     </li>
     </ul>
                 </li>
@@ -1070,7 +1092,7 @@
               
                 <h1 id="removing-elements-remove-vs-discard">Removing Elements (remove vs discard)</h1>
 <p><span class="category-tag">🏷️ Tuples and Sets /  Set Operations</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with sets in Python, you'll often need to remove items. Two common methods for this are <strong>remove</strong> and <strong>discard</strong>. While they seem similar, they behave differently when the element you want to delete doesn't exist in the set. Understanding this difference helps you write safer, more predictable code.</p>
@@ -1154,8 +1176,7 @@
 <hr />
 <h3 id="quick-tip">🧠 Quick Tip</h3>
 <p>If you need to remove an element and also check whether it was present, use <strong>remove</strong> inside a try-except block. If you just want to ensure an element is gone without caring whether it was there, use <strong>discard</strong>. This keeps your code clean and intentional.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Both <code>remove()</code> and <code>discard()</code> delete an element from a set, but they behave differently when the element does not exist.</p>
 <hr />
 <h3 id="example-1-using-remove-on-an-existing-element">🔧 Example 1: Using remove() on an existing element</h3>
@@ -1191,6 +1212,159 @@
 <p>📤 Output: <strong>{'bolt', 'nut', 'washer'}</strong></p>
 <hr />
 <h3 id="example-5-practical-use-safely-cleaning-sensor-ids">🔧 Example 5: Practical use — safely cleaning sensor IDs</h3>
+<p>This shows a real-world pattern where engineers use discard() to avoid crashes when cleaning up data.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensor_ids</span> <span class="o">=</span> <span class="p">{</span><span class="mi">101</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">105</span><span class="p">}</span>
+<span class="c1"># Remove a sensor that might already be gone</span>
+<span class="n">sensor_ids</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="mi">106</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor_ids</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{101, 102, 103, 104, 105}</strong></p>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Behavior when element exists</th>
+<th>Behavior when element is missing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>remove()</code></td>
+<td>Deletes the element</td>
+<td>Raises a <code>KeyError</code> (crashes program)</td>
+</tr>
+<tr>
+<td><code>discard()</code></td>
+<td>Deletes the element</td>
+<td>Does nothing (safe)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with sets in Python, you'll often need to remove items. Two common methods for this are <strong>remove</strong> and <strong>discard</strong>. While they seem similar, they behave differently when the element you want to delete doesn't exist in the set. Understanding this difference helps you write safer, more predictable code.</p>
+<hr />
+<h3 id="the-core-difference_1">⚙️ The Core Difference</h3>
+<p>Both <strong>remove</strong> and <strong>discard</strong> delete a specified element from a set. The key distinction is how they handle missing elements:</p>
+<ul>
+<li><strong>remove</strong> raises a <strong>KeyError</strong> if the element is not found in the set</li>
+<li><strong>discard</strong> does nothing if the element is not found — no error, no warning</li>
+</ul>
+<p>This makes <strong>discard</strong> the safer choice when you're not certain whether an element exists.</p>
+<hr />
+<h3 id="how-they-work_1">🛠️ How They Work</h3>
+<p><strong>Using remove:</strong>
+- You call <strong>my_set.remove(element)</strong> where element is the value you want to delete
+- If the element exists, it is removed from the set
+- If the element does not exist, Python raises a <strong>KeyError</strong> and your program stops unless you handle the error</p>
+<p><strong>Using discard:</strong>
+- You call <strong>my_set.discard(element)</strong> where element is the value you want to delete
+- If the element exists, it is removed from the set
+- If the element does not exist, nothing happens — the set remains unchanged and no error occurs</p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>remove</th>
+<th>discard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Removes element if present</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Error if element missing</td>
+<td>❌ Raises KeyError</td>
+<td>✅ No error</td>
+</tr>
+<tr>
+<td>Safe for unknown elements</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>When element must exist</td>
+<td>When element may or may not exist</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="example-scenarios_1">🕵️ Example Scenarios</h3>
+<p><strong>Scenario 1: Element exists in the set</strong></p>
+<p>Starting set: <strong>{10, 20, 30, 40}</strong></p>
+<ul>
+<li>Using <strong>remove(20)</strong> results in set becoming <strong>{10, 30, 40}</strong></li>
+<li>Using <strong>discard(20)</strong> also results in set becoming <strong>{10, 30, 40}</strong></li>
+</ul>
+<p>Both methods produce the same result when the element is present.</p>
+<p><strong>Scenario 2: Element does not exist in the set</strong></p>
+<p>Starting set: <strong>{10, 20, 30, 40}</strong></p>
+<ul>
+<li>Using <strong>remove(99)</strong> causes a <strong>KeyError</strong> with message like <strong>99 is not in the set</strong></li>
+<li>Using <strong>discard(99)</strong> leaves the set unchanged as <strong>{10, 20, 30, 40}</strong> with no error</li>
+</ul>
+<p>This is where the difference matters most.</p>
+<hr />
+<h3 id="when-to-use-each_1">✅ When to Use Each</h3>
+<p><strong>Use remove when:</strong>
+- You are certain the element exists in the set
+- You want to catch missing elements as an error condition
+- You are debugging and want to know if data is missing unexpectedly</p>
+<p><strong>Use discard when:</strong>
+- You are not sure if the element exists
+- You want to clean up a set without worrying about errors
+- You are processing data where some elements may already have been removed</p>
+<hr />
+<h3 id="quick-tip_1">🧠 Quick Tip</h3>
+<p>If you need to remove an element and also check whether it was present, use <strong>remove</strong> inside a try-except block. If you just want to ensure an element is gone without caring whether it was there, use <strong>discard</strong>. This keeps your code clean and intentional.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Both <code>remove()</code> and <code>discard()</code> delete an element from a set, but they behave differently when the element does not exist.</p>
+<hr />
+<h3 id="example-1-using-remove-on-an-existing-element_1">🔧 Example 1: Using remove() on an existing element</h3>
+<p>This shows the basic way to delete an element that is definitely in the set.</p>
+<div class="highlight"><pre><span></span><code><span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">}</span>
+<span class="n">colors</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'red', 'green'}</strong></p>
+<hr />
+<h3 id="example-2-using-discard-on-an-existing-element_1">🔧 Example 2: Using discard() on an existing element</h3>
+<p>This shows discard() working the same way as remove() when the element exists.</p>
+<div class="highlight"><pre><span></span><code><span class="n">tools</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;hammer&quot;</span><span class="p">,</span> <span class="s2">&quot;wrench&quot;</span><span class="p">,</span> <span class="s2">&quot;screwdriver&quot;</span><span class="p">}</span>
+<span class="n">tools</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s2">&quot;wrench&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tools</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'hammer', 'screwdriver'}</strong></p>
+<hr />
+<h3 id="example-3-remove-raises-an-error-when-element-is-missing_1">🔧 Example 3: remove() raises an error when element is missing</h3>
+<p>This demonstrates that remove() will crash your program if the element is not found.</p>
+<div class="highlight"><pre><span></span><code><span class="n">parts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;bolt&quot;</span><span class="p">,</span> <span class="s2">&quot;nut&quot;</span><span class="p">,</span> <span class="s2">&quot;washer&quot;</span><span class="p">}</span>
+<span class="n">parts</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;nail&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>KeyError: 'nail'</strong></p>
+<hr />
+<h3 id="example-4-discard-silently-does-nothing-when-element-is-missing_1">🔧 Example 4: discard() silently does nothing when element is missing</h3>
+<p>This shows discard() being safe — it won't stop your program if the element is absent.</p>
+<div class="highlight"><pre><span></span><code><span class="n">parts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;bolt&quot;</span><span class="p">,</span> <span class="s2">&quot;nut&quot;</span><span class="p">,</span> <span class="s2">&quot;washer&quot;</span><span class="p">}</span>
+<span class="n">parts</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="s2">&quot;nail&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'bolt', 'nut', 'washer'}</strong></p>
+<hr />
+<h3 id="example-5-practical-use-safely-cleaning-sensor-ids_1">🔧 Example 5: Practical use — safely cleaning sensor IDs</h3>
 <p>This shows a real-world pattern where engineers use discard() to avoid crashes when cleaning up data.</p>
 <div class="highlight"><pre><span></span><code><span class="n">sensor_ids</span> <span class="o">=</span> <span class="p">{</span><span class="mi">101</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">105</span><span class="p">}</span>
 <span class="c1"># Remove a sensor that might already be gone</span>

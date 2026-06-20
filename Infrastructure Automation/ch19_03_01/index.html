@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_03_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Extracting Tabular Data Rows as List Objects - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Extracting Tabular Data Rows as List Objects";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_03_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_03_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -901,6 +901,38 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-does-rows-as-list-objects-mean_1">⚙️ What Does "Rows as List Objects" Mean?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-approach-reading-rows-with-the-csv-module_1">🛠️ Basic Approach: Reading Rows with the CSV Module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#storing-all-rows-in-a-single-list_1">📊 Storing All Rows in a Single List</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-with-specific-columns-from-each-row_1">🕵️ Working with Specific Columns from Each Row</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-headers-separately_1">🧩 Handling Headers Separately</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#converting-rows-to-dictionaries-for-easier-access_1">🔄 Converting Rows to Dictionaries for Easier Access</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-processing-server-inventory_1">⚡ Practical Example: Processing Server Inventory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cleaning-up-data-during-extraction_1">🧹 Cleaning Up Data During Extraction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary-of-key-points_1">📋 Summary of Key Points</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">🚀 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-reading-a-single-row-as-a-list_1">📘 Example 1: Reading a Single Row as a List</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-reading-all-rows-as-a-list-of-lists_1">📘 Example 2: Reading All Rows as a List of Lists</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-extracting-a-specific-row-by-index_1">📘 Example 3: Extracting a Specific Row by Index</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-extracting-a-specific-field-from-each-row_1">📘 Example 4: Extracting a Specific Field from Each Row</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-converting-fields-to-numbers-while-extracting-rows_1">📘 Example 5: Converting Fields to Numbers While Extracting Rows</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_03_02/">Ch 19 | Extracting Row Cells as Dictionary Keys via DictReader</a>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="extracting-tabular-data-rows-as-list-objects">Extracting Tabular Data Rows as List Objects</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  CSV In-Depth</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with CSV files, one of the most common tasks is reading the data row by row. Each row in a CSV file represents a single record, and extracting these rows as list objects gives you a clean, structured way to access and manipulate your data. This approach is especially useful when you need to process each record individually or transform tabular data into other formats.</p>
@@ -1273,8 +1305,7 @@
 <li>Write a script that extracts data, cleans it, and writes it back to a new CSV file.</li>
 <li>Explore handling CSV files with different delimiters (like tabs or semicolons) using the <strong>delimiter</strong> parameter.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This technique reads rows from a CSV file and stores each row as a Python list, allowing engineers to access individual fields by index.</p>
 <hr />
 <h3 id="example-1-reading-a-single-row-as-a-list">📘 Example 1: Reading a Single Row as a List</h3>
@@ -1348,6 +1379,313 @@
 <p>📤 Output: <strong>[['Alice', 30, 'New York'], ['Bob', 25, 'London']]</strong></p>
 <hr />
 <h3 id="comparison-table">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>next(reader)</code></td>
+<td>Single list</td>
+<td>Get first row only</td>
+</tr>
+<tr>
+<td><code>list(reader)</code></td>
+<td>List of lists</td>
+<td>Load entire file into memory</td>
+</tr>
+<tr>
+<td><code>rows[index]</code></td>
+<td>Single list</td>
+<td>Access specific row by position</td>
+</tr>
+<tr>
+<td>Loop with <code>row[index]</code></td>
+<td>Single value per iteration</td>
+<td>Extract one column from all rows</td>
+</tr>
+<tr>
+<td>Loop with type conversion</td>
+<td>List of lists with mixed types</td>
+<td>Prepare data for calculations</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with CSV files, one of the most common tasks is reading the data row by row. Each row in a CSV file represents a single record, and extracting these rows as list objects gives you a clean, structured way to access and manipulate your data. This approach is especially useful when you need to process each record individually or transform tabular data into other formats.</p>
+<hr />
+<h3 id="what-does-rows-as-list-objects-mean_1">⚙️ What Does "Rows as List Objects" Mean?</h3>
+<p>A CSV file is essentially a table where each line is a row, and each value in that row is separated by a comma. When we extract rows as list objects, we convert each line into a Python list where each element corresponds to a cell in that row.</p>
+<p><strong>Example CSV content (file: servers.csv):</strong>
+- <strong>Row 1:</strong> hostname,ip_address,os,ram_gb
+- <strong>Row 2:</strong> web-01,192.168.1.10,Ubuntu,16
+- <strong>Row 3:</strong> db-01,192.168.1.20,CentOS,32
+- <strong>Row 4:</strong> cache-01,192.168.1.30,Ubuntu,8</p>
+<p>When extracted as list objects, these rows become:
+- <strong>Row 1 (header):</strong> ["hostname", "ip_address", "os", "ram_gb"]
+- <strong>Row 2:</strong> ["web-01", "192.168.1.10", "Ubuntu", "16"]
+- <strong>Row 3:</strong> ["db-01", "192.168.1.20", "CentOS", "32"]
+- <strong>Row 4:</strong> ["cache-01", "192.168.1.30", "Ubuntu", "8"]</p>
+<hr />
+<h3 id="basic-approach-reading-rows-with-the-csv-module_1">🛠️ Basic Approach: Reading Rows with the CSV Module</h3>
+<p>Python's built-in <strong>csv</strong> module provides a simple way to read CSV files and extract rows as lists. The <strong>csv.reader</strong> object does exactly this.</p>
+<p><strong>Step-by-step process:</strong>
+1. Import the <strong>csv</strong> module.
+2. Open the CSV file using Python's <strong>open()</strong> function.
+3. Pass the file object to <strong>csv.reader()</strong>.
+4. Iterate over the reader object to get each row as a list.</p>
+<p><strong>Example script structure:</strong>
+- <strong>Import:</strong> import csv
+- <strong>Open file:</strong> with open("servers.csv", "r") as file:
+- <strong>Create reader:</strong> reader = csv.reader(file)
+- <strong>Iterate:</strong> for row in reader: print(row)</p>
+<p><strong>Expected output when printed:</strong>
+- <strong>First iteration:</strong> ["hostname", "ip_address", "os", "ram_gb"]
+- <strong>Second iteration:</strong> ["web-01", "192.168.1.10", "Ubuntu", "16"]
+- <strong>Third iteration:</strong> ["db-01", "192.168.1.20", "CentOS", "32"]
+- <strong>Fourth iteration:</strong> ["cache-01", "192.168.1.30", "Ubuntu", "8"]</p>
+<hr />
+<h3 id="storing-all-rows-in-a-single-list_1">📊 Storing All Rows in a Single List</h3>
+<p>Sometimes you need to keep all rows in memory for further processing. You can store each row list inside a parent list.</p>
+<p><strong>How it works:</strong>
+- Create an empty list before the loop.
+- Append each row to that list during iteration.
+- The result is a list of lists, where each inner list represents a row.</p>
+<p><strong>Example structure:</strong>
+- <strong>Initialize:</strong> all_rows = []
+- <strong>Loop:</strong> for row in reader: all_rows.append(row)
+- <strong>Access:</strong> all_rows[0] gives the header, all_rows[1] gives the first data row</p>
+<p><strong>Resulting data structure:</strong>
+- <strong>all_rows[0]:</strong> ["hostname", "ip_address", "os", "ram_gb"]
+- <strong>all_rows[1]:</strong> ["web-01", "192.168.1.10", "Ubuntu", "16"]
+- <strong>all_rows[2]:</strong> ["db-01", "192.168.1.20", "CentOS", "32"]
+- <strong>all_rows[3]:</strong> ["cache-01", "192.168.1.30", "Ubuntu", "8"]</p>
+<hr />
+<h3 id="working-with-specific-columns-from-each-row_1">🕵️ Working with Specific Columns from Each Row</h3>
+<p>Once you have rows as lists, you can access individual columns using their index position. Remember that Python lists are zero-indexed, so the first column is index 0, the second is index 1, and so on.</p>
+<p><strong>Column index mapping for our example:</strong>
+- <strong>Index 0:</strong> hostname
+- <strong>Index 1:</strong> ip_address
+- <strong>Index 2:</strong> os
+- <strong>Index 3:</strong> ram_gb</p>
+<p><strong>Common operations:</strong>
+- <strong>Get hostname from second row:</strong> row[0] returns "web-01"
+- <strong>Get IP address from third row:</strong> row[1] returns "192.168.1.20"
+- <strong>Check if OS is Ubuntu:</strong> if row[2] == "Ubuntu": print(row[0])</p>
+<p><strong>Example use case - filtering rows:</strong>
+- Loop through all rows (skip the header).
+- If the OS column equals "Ubuntu", print the hostname and IP address.
+- This gives you a filtered list of Ubuntu servers.</p>
+<hr />
+<h3 id="handling-headers-separately_1">🧩 Handling Headers Separately</h3>
+<p>Most CSV files have a header row that describes the columns. It's common practice to extract the header separately and then process only the data rows.</p>
+<p><strong>Two approaches:</strong></p>
+<p><strong>Approach 1: Read header first, then data</strong>
+- Call <strong>next(reader)</strong> once before the loop to get the header row.
+- The remaining iterations will only return data rows.</p>
+<p><strong>Approach 2: Use a flag variable</strong>
+- Set a boolean flag like <strong>is_header = True</strong>.
+- In the loop, if the flag is True, store the row as header and set the flag to False.
+- For all subsequent rows, process them as data.</p>
+<p><strong>Why separate headers?</strong>
+- You can use the header to create dictionaries later.
+- You avoid accidentally processing column names as data.
+- It makes your code clearer about what is metadata versus actual records.</p>
+<hr />
+<h3 id="converting-rows-to-dictionaries-for-easier-access_1">🔄 Converting Rows to Dictionaries for Easier Access</h3>
+<p>While lists are useful, accessing columns by index (like row[2]) can be confusing. A more readable approach is to convert each row into a dictionary using the header as keys.</p>
+<p><strong>Using csv.DictReader:</strong>
+- Instead of <strong>csv.reader</strong>, use <strong>csv.DictReader</strong>.
+- The first row is automatically treated as the header.
+- Each subsequent row is returned as a dictionary with column names as keys.</p>
+<p><strong>Example with DictReader:</strong>
+- <strong>Create reader:</strong> reader = csv.DictReader(file)
+- <strong>Access data:</strong> row["hostname"] instead of row[0]
+- <strong>Filter:</strong> if row["os"] == "Ubuntu": print(row["hostname"])</p>
+<p><strong>Comparison: List vs Dictionary access</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>List Access</th>
+<th>Dictionary Access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Syntax</td>
+<td>row[0]</td>
+<td>row["hostname"]</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>Low - must remember column positions</td>
+<td>High - uses meaningful names</td>
+</tr>
+<tr>
+<td>Flexibility</td>
+<td>Breaks if column order changes</td>
+<td>Works regardless of column order</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>Slightly less</td>
+<td>Slightly more</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Simple, fixed-format files</td>
+<td>Complex or changing data structures</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-processing-server-inventory_1">⚡ Practical Example: Processing Server Inventory</h3>
+<p>Let's walk through a complete workflow for extracting and working with server data from a CSV file.</p>
+<p><strong>Scenario:</strong> You have a CSV file with server inventory data. You need to:
+1. Extract all rows as lists.
+2. Find all Ubuntu servers.
+3. Calculate total RAM for all servers.</p>
+<p><strong>Step 1: Read the file and store rows</strong>
+- Open the file using <strong>with open("servers.csv", "r") as file</strong>.
+- Create a <strong>csv.reader</strong> object.
+- Store all rows in a list called <strong>all_rows</strong>.</p>
+<p><strong>Step 2: Separate header from data</strong>
+- The first element <strong>all_rows[0]</strong> is the header.
+- The remaining elements <strong>all_rows[1:]</strong> are the data rows.</p>
+<p><strong>Step 3: Filter Ubuntu servers</strong>
+- Loop through <strong>all_rows[1:]</strong>.
+- Check if <strong>row[2]</strong> equals "Ubuntu".
+- If yes, print <strong>row[0]</strong> (hostname) and <strong>row[1]</strong> (IP address).</p>
+<p><strong>Step 4: Calculate total RAM</strong>
+- Initialize a variable <strong>total_ram = 0</strong>.
+- Loop through <strong>all_rows[1:]</strong>.
+- Convert <strong>row[3]</strong> from string to integer using <strong>int(row[3])</strong>.
+- Add the value to <strong>total_ram</strong>.
+- Print the final total.</p>
+<p><strong>Expected result:</strong>
+- <strong>Ubuntu servers:</strong> web-01 (192.168.1.10), cache-01 (192.168.1.30)
+- <strong>Total RAM:</strong> 16 + 32 + 8 = 56 GB</p>
+<hr />
+<h3 id="cleaning-up-data-during-extraction_1">🧹 Cleaning Up Data During Extraction</h3>
+<p>CSV data often contains extra whitespace, missing values, or inconsistent formatting. You can clean each row as you extract it.</p>
+<p><strong>Common cleaning operations:</strong>
+- <strong>Strip whitespace:</strong> Use <strong>row[0].strip()</strong> to remove leading/trailing spaces.
+- <strong>Handle missing values:</strong> Check if a cell is empty with <strong>if row[2] == ""</strong>.
+- <strong>Convert data types:</strong> Use <strong>int()</strong> or <strong>float()</strong> for numeric columns.
+- <strong>Skip empty rows:</strong> Check <strong>if not row</strong> or <strong>if all(cell == "" for cell in row)</strong>.</p>
+<p><strong>Example of a cleaned extraction loop:</strong>
+- For each row in the reader:
+  - Create a new list called <strong>cleaned_row</strong>.
+  - For each cell in the row:
+    - Strip whitespace from the cell.
+    - If the cell is empty, replace with <strong>None</strong> or a default value.
+    - Append the cleaned cell to <strong>cleaned_row</strong>.
+  - Append <strong>cleaned_row</strong> to your main data list.</p>
+<hr />
+<h3 id="summary-of-key-points_1">📋 Summary of Key Points</h3>
+<ul>
+<li><strong>csv.reader</strong> returns each row as a list of strings.</li>
+<li>Use <strong>next(reader)</strong> to skip the header row and get it separately.</li>
+<li>Access columns by index: <strong>row[0]</strong>, <strong>row[1]</strong>, etc.</li>
+<li>Store all rows in a parent list for later processing.</li>
+<li>Use <strong>csv.DictReader</strong> for dictionary-based access with column names.</li>
+<li>Clean and convert data types during extraction for better quality.</li>
+<li>Lists are memory-efficient but dictionaries are more readable and flexible.</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">🚀 Next Steps</h3>
+<ul>
+<li>Practice reading different CSV files and printing specific columns.</li>
+<li>Try filtering rows based on multiple conditions (e.g., OS is Ubuntu AND RAM is greater than 16).</li>
+<li>Experiment with <strong>csv.DictReader</strong> and compare it to <strong>csv.reader</strong>.</li>
+<li>Write a script that extracts data, cleans it, and writes it back to a new CSV file.</li>
+<li>Explore handling CSV files with different delimiters (like tabs or semicolons) using the <strong>delimiter</strong> parameter.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This technique reads rows from a CSV file and stores each row as a Python list, allowing engineers to access individual fields by index.</p>
+<hr />
+<h3 id="example-1-reading-a-single-row-as-a-list_1">📘 Example 1: Reading a Single Row as a List</h3>
+<p>This example shows how to open a CSV file and read the first row as a list of strings.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">first_row</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">first_row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Name', 'Age', 'City']</strong></p>
+<hr />
+<h3 id="example-2-reading-all-rows-as-a-list-of-lists_1">📘 Example 2: Reading All Rows as a List of Lists</h3>
+<p>This example reads every row from the CSV file and stores them in a list where each element is a list.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">all_rows</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">all_rows</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[['Name', 'Age', 'City'], ['Alice', '30', 'New York'], ['Bob', '25', 'London']]</strong></p>
+<hr />
+<h3 id="example-3-extracting-a-specific-row-by-index_1">📘 Example 3: Extracting a Specific Row by Index</h3>
+<p>This example shows how to access a particular row from the list of rows using its position.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+
+<span class="n">second_row</span> <span class="o">=</span> <span class="n">rows</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Alice', '30', 'New York']</strong></p>
+<hr />
+<h3 id="example-4-extracting-a-specific-field-from-each-row_1">📘 Example 4: Extracting a Specific Field from Each Row</h3>
+<p>This example loops through all rows and extracts only the second field (index 1) from each row.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+    <span class="n">ages</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">ages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['30', '25']</strong></p>
+<hr />
+<h3 id="example-5-converting-fields-to-numbers-while-extracting-rows_1">📘 Example 5: Converting Fields to Numbers While Extracting Rows</h3>
+<p>This example reads rows and converts numeric fields from strings to integers for further processing.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+    <span class="n">numeric_rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">city</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">numeric_rows</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">city</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">numeric_rows</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[['Alice', 30, 'New York'], ['Bob', 25, 'London']]</strong></p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

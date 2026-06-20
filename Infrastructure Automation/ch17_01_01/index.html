@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch17_01_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 17 | REST API Request-Response Framework Models - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 17 | REST API Request-Response Framework Models";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch17_01_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch17_01_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -781,6 +781,32 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#request-response-model-comparison">📊 Request-Response Model Comparison</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">📖 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-anatomy-of-a-rest-request_1">⚙️ The Anatomy of a REST Request</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-anatomy-of-a-rest-response_1">📊 The Anatomy of a REST Response</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-request-response-cycle-in-python_1">🛠️ The Request-Response Cycle in Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-concepts-for-engineers_1">🕵️ Key Concepts for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-common-http-methods-in-the-request-response-model_1">📊 Comparison: Common HTTP Methods in the Request-Response Model</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-simple-get-request-to-fetch-data_1">🟢 Example 1: Simple GET request to fetch data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-post-request-with-a-json-body_1">🟢 Example 2: POST request with a JSON body</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-put-request-to-update-an-entire-resource_1">🟢 Example 3: PUT request to update an entire resource</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-patch-request-for-partial-updates_1">🟢 Example 4: PATCH request for partial updates</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-delete-request-with-status-confirmation_1">🟢 Example 5: DELETE request with status confirmation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#request-response-model-comparison_1">📊 Request-Response Model Comparison</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch17_01_02/">Ch 17 | HTTP Methods (GET, POST, PUT, DELETE)</a>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="rest-api-request-response-framework-models">REST API Request-Response Framework Models</h1>
 <p><span class="category-tag">🏷️ APIs and HTTP Requests /  API Architecture Brief Recap</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">📖 Context Introduction</h3>
@@ -1203,8 +1229,7 @@
 - <strong>Send</strong> it to the server.
 - <strong>Interpret</strong> the response (status code and body) to determine success or failure.</p>
 <p>Mastering this cycle is the first step toward effectively consuming and building APIs. The <strong>requests</strong> library in Python makes this process clean and intuitive, allowing you to focus on the logic of your application rather than the low-level details of HTTP.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide shows how REST APIs use request-response models to let engineers send data and get structured replies.</p>
 <hr />
 <h3 id="example-1-simple-get-request-to-fetch-data">🟢 Example 1: Simple GET request to fetch data</h3>
@@ -1275,6 +1300,252 @@
 <p>📤 Output: <strong>200 Resource deleted successfully</strong></p>
 <hr />
 <h3 id="request-response-model-comparison">📊 Request-Response Model Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>HTTP Method</th>
+<th>Purpose</th>
+<th>Body Required</th>
+<th>Typical Status Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>Fetch data</td>
+<td>No</td>
+<td>200 OK</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>Create new resource</td>
+<td>Yes</td>
+<td>201 Created</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>Replace entire resource</td>
+<td>Yes</td>
+<td>200 OK</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>Partial update</td>
+<td>Yes</td>
+<td>200 OK</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>Remove resource</td>
+<td>No</td>
+<td>200 OK or 204 No Content</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">📖 Context Introduction</h3>
+<p>REST (Representational State Transfer) is an architectural style for designing networked applications. It relies on a stateless, client-server communication protocol—almost always HTTP. In a RESTful system, the client sends a <strong>request</strong> to a server, and the server sends back a <strong>response</strong>. Understanding the structure of these requests and responses is fundamental for any engineer working with APIs, as it forms the backbone of how systems communicate over the web.</p>
+<hr />
+<h3 id="the-anatomy-of-a-rest-request_1">⚙️ The Anatomy of a REST Request</h3>
+<p>Every REST request is composed of several key parts. When you interact with an API, you are essentially sending a message that includes:</p>
+<ul>
+<li><strong>HTTP Method (Verb):</strong> This tells the server what action to perform. Common methods include:</li>
+<li><strong>GET:</strong> Retrieve data (e.g., fetch a list of users).</li>
+<li><strong>POST:</strong> Create new data (e.g., add a new user).</li>
+<li><strong>PUT:</strong> Update existing data (e.g., replace a user's information).</li>
+<li><strong>PATCH:</strong> Partially update data (e.g., change only a user's email).</li>
+<li>
+<p><strong>DELETE:</strong> Remove data (e.g., delete a user).</p>
+</li>
+<li>
+<p><strong>URL (Endpoint):</strong> The specific address on the server where the resource lives. For example, <code>https://api.example.com/users</code>.</p>
+</li>
+<li>
+<p><strong>Headers:</strong> Metadata sent along with the request. They provide context like authentication tokens (<code>Authorization</code>), the format of the data being sent (<code>Content-Type</code>), or the expected response format (<code>Accept</code>).</p>
+</li>
+<li>
+<p><strong>Body (Optional):</strong> The actual data payload sent with the request. This is common with <strong>POST</strong> and <strong>PUT</strong> requests. The data is often formatted as <strong>JSON</strong> (JavaScript Object Notation).</p>
+</li>
+</ul>
+<hr />
+<h3 id="the-anatomy-of-a-rest-response_1">📊 The Anatomy of a REST Response</h3>
+<p>Once the server processes the request, it sends back a response. A standard response includes:</p>
+<ul>
+<li><strong>Status Code:</strong> A three-digit number indicating the result of the request. Common codes include:</li>
+<li><strong>200 OK:</strong> The request was successful.</li>
+<li><strong>201 Created:</strong> A new resource was successfully created (often used with POST).</li>
+<li><strong>204 No Content:</strong> The request was successful, but there is no content to return (often used with DELETE).</li>
+<li><strong>400 Bad Request:</strong> The server could not understand the request (e.g., malformed syntax).</li>
+<li><strong>401 Unauthorized:</strong> Authentication is required or has failed.</li>
+<li><strong>404 Not Found:</strong> The requested resource could not be found.</li>
+<li>
+<p><strong>500 Internal Server Error:</strong> A generic error occurred on the server.</p>
+</li>
+<li>
+<p><strong>Headers:</strong> Metadata from the server, such as the format of the response data (<code>Content-Type</code>) or server information.</p>
+</li>
+<li>
+<p><strong>Body (Optional):</strong> The data returned by the server. For a successful <strong>GET</strong> request, this would be the requested resource (e.g., a list of users in JSON format). For an error, this might contain a message explaining what went wrong.</p>
+</li>
+</ul>
+<hr />
+<h3 id="the-request-response-cycle-in-python_1">🛠️ The Request-Response Cycle in Python</h3>
+<p>When working with APIs in Python, you typically use the <strong>requests</strong> library. The cycle is straightforward:</p>
+<ol>
+<li><strong>Construct the Request:</strong> You define the method, URL, headers, and body.</li>
+<li><strong>Send the Request:</strong> You use a function like <strong>requests.get()</strong> or <strong>requests.post()</strong>.</li>
+<li><strong>Receive the Response:</strong> The server returns a <strong>Response</strong> object.</li>
+<li><strong>Parse the Response:</strong> You extract the status code, headers, and body from the <strong>Response</strong> object.</li>
+</ol>
+<p>For example, a simple GET request to fetch data would look like this in your code:</p>
+<ul>
+<li>You define a variable for the URL: <strong>url = "https://api.example.com/users"</strong></li>
+<li>You send the request: <strong>response = requests.get(url)</strong></li>
+<li>You check the status: <strong>response.status_code</strong> (e.g., 200)</li>
+<li>You access the data: <strong>response.json()</strong> (which parses the JSON body into a Python dictionary)</li>
+</ul>
+<hr />
+<h3 id="key-concepts-for-engineers_1">🕵️ Key Concepts for Engineers</h3>
+<p>Understanding these models helps you debug and build robust integrations:</p>
+<ul>
+<li><strong>Statelessness:</strong> Each request from a client to a server must contain all the information needed to understand and process the request. The server does not store any client context between requests.</li>
+<li><strong>Idempotency:</strong> Some methods (like <strong>GET</strong>, <strong>PUT</strong>, <strong>DELETE</strong>) are idempotent, meaning making the same request multiple times has the same effect as making it once. <strong>POST</strong> is not idempotent.</li>
+<li><strong>Resource-Based:</strong> Everything in REST is a resource (e.g., a user, an order, a file). URLs represent these resources, and HTTP methods define the operations on them.</li>
+</ul>
+<hr />
+<h3 id="comparison-common-http-methods-in-the-request-response-model_1">📊 Comparison: Common HTTP Methods in the Request-Response Model</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Purpose</th>
+<th style="text-align: left;">Request Body</th>
+<th style="text-align: left;">Response Body</th>
+<th style="text-align: left;">Idempotent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>GET</strong></td>
+<td style="text-align: left;">Retrieve a resource</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Yes (the resource)</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>POST</strong></td>
+<td style="text-align: left;">Create a new resource</td>
+<td style="text-align: left;">Yes (new resource data)</td>
+<td style="text-align: left;">Yes (the created resource)</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PUT</strong></td>
+<td style="text-align: left;">Update/replace a resource</td>
+<td style="text-align: left;">Yes (full resource data)</td>
+<td style="text-align: left;">Yes (the updated resource)</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PATCH</strong></td>
+<td style="text-align: left;">Partially update a resource</td>
+<td style="text-align: left;">Yes (partial data)</td>
+<td style="text-align: left;">Yes (the updated resource)</td>
+<td style="text-align: left;">No</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DELETE</strong></td>
+<td style="text-align: left;">Remove a resource</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Usually empty (204)</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>The REST API Request-Response Framework is a simple but powerful model. As an engineer, your primary tasks are to:
+- <strong>Construct</strong> the correct request (method, URL, headers, body).
+- <strong>Send</strong> it to the server.
+- <strong>Interpret</strong> the response (status code and body) to determine success or failure.</p>
+<p>Mastering this cycle is the first step toward effectively consuming and building APIs. The <strong>requests</strong> library in Python makes this process clean and intuitive, allowing you to focus on the logic of your application rather than the low-level details of HTTP.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide shows how REST APIs use request-response models to let engineers send data and get structured replies.</p>
+<hr />
+<h3 id="example-1-simple-get-request-to-fetch-data_1">🟢 Example 1: Simple GET request to fetch data</h3>
+<p>This example shows the most basic request-response model where an engineer asks for data and gets a list back.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/posts/1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>200 {'userId': 1, 'id': 1, 'title': 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit', 'body': 'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto'}</strong></p>
+<hr />
+<h3 id="example-2-post-request-with-a-json-body_1">🟢 Example 2: POST request with a JSON body</h3>
+<p>This example shows how an engineer sends new data to a server and gets back the created resource with an ID.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">new_post</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Python for Engineers&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;Learning REST APIs step by step&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;userId&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/posts&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">new_post</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>201 {'title': 'Python for Engineers', 'body': 'Learning REST APIs step by step', 'userId': 1, 'id': 101}</strong></p>
+<hr />
+<h3 id="example-3-put-request-to-update-an-entire-resource_1">🟢 Example 3: PUT request to update an entire resource</h3>
+<p>This example shows how an engineer replaces all fields of an existing resource using a full update model.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">updated_post</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Updated Title for Engineers&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="s2">&quot;This replaces the entire post body&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;userId&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/posts/1&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">updated_post</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>200 {'id': 1, 'title': 'Updated Title for Engineers', 'body': 'This replaces the entire post body', 'userId': 1}</strong></p>
+<hr />
+<h3 id="example-4-patch-request-for-partial-updates_1">🟢 Example 4: PATCH request for partial updates</h3>
+<p>This example shows how an engineer sends only the fields that need changing, leaving the rest untouched.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">partial_update</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Partially Updated Title&quot;</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/posts/1&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">partial_update</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>200 {'userId': 1, 'id': 1, 'title': 'Partially Updated Title', 'body': 'quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto'}</strong></p>
+<hr />
+<h3 id="example-5-delete-request-with-status-confirmation_1">🟢 Example 5: DELETE request with status confirmation</h3>
+<p>This example shows how an engineer removes a resource and checks the response status to confirm deletion.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/posts/1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resource deleted successfully&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Deletion failed&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>200 Resource deleted successfully</strong></p>
+<hr />
+<h3 id="request-response-model-comparison_1">📊 Request-Response Model Comparison</h3>
 <table>
 <thead>
 <tr>

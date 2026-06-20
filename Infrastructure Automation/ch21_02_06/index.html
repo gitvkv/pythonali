@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_02_06/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Serialization of Reports into JSON or Text Files - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Serialization of Reports into JSON or Text Files";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_02_06.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_02_06/";
       </script>
     
     <!--[if lt IE 9]>
@@ -998,6 +998,38 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-writing-a-list-of-reports-to-json-with-pretty-printing">📄 Example 5: Writing a list of reports to JSON with pretty printing</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-text-files-vs-json-files">Comparison Table: Text Files vs JSON Files</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#why-serialize-reports_1">⚙️ Why Serialize Reports?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#json-serialization-structured-machine-friendly_1">📊 JSON Serialization – Structured &amp; Machine-Friendly</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#text-file-serialization-simple-human-readable_1">🛠️ Text File Serialization – Simple &amp; Human-Readable</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#json-vs-text-when-to-use-which_1">🕵️ JSON vs Text – When to Use Which</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#file-naming-organization-tips_1">📁 File Naming &amp; Organization Tips</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-pitfalls-to-avoid_1">🧪 Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#next-steps-for-your-project_1">🚀 Next Steps for Your Project</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-writing-a-simple-string-to-a-text-file_1">📄 Example 1: Writing a simple string to a text file</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-writing-multiple-lines-to-a-text-file_1">📄 Example 2: Writing multiple lines to a text file</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-converting-a-dictionary-to-json-and-saving-it_1">📄 Example 3: Converting a dictionary to JSON and saving it</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-reading-a-json-file-back-into-python_1">📄 Example 4: Reading a JSON file back into Python</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-writing-a-list-of-reports-to-json-with-pretty-printing_1">📄 Example 5: Writing a list of reports to JSON with pretty printing</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-text-files-vs-json-files_1">Comparison Table: Text Files vs JSON Files</a>
     </li>
     </ul>
                 </li>
@@ -1078,7 +1110,7 @@
               
                 <h1 id="serialization-of-reports-into-json-or-text-files">Serialization of Reports into JSON or Text Files</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Project: System Health Reporter</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1192,8 +1224,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Serialization turns your live system health data into permanent, shareable reports. JSON gives you structure and machine readability—perfect for feeding into other tools. Text files give you simplicity and immediate human readability—great for quick checks and logs. By mastering both, you can build a flexible reporting system that serves both automated pipelines and manual reviews. Start with one format, then add the other as your project grows.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how to save system health report data into JSON and text files so engineers can store and share results.</p>
 <hr />
 <h3 id="example-1-writing-a-simple-string-to-a-text-file">📄 Example 1: Writing a simple string to a text file</h3>
@@ -1255,6 +1286,223 @@
 <p>📤 Output: <strong>reports.json file created with three report entries, each indented for readability</strong></p>
 <hr />
 <h2 id="comparison-table-text-files-vs-json-files">Comparison Table: Text Files vs JSON Files</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Text File (.txt)</th>
+<th>JSON File (.json)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data structure</td>
+<td>Plain strings</td>
+<td>Dictionaries, lists, numbers</td>
+</tr>
+<tr>
+<td>Readable by humans</td>
+<td>Yes, simple</td>
+<td>Yes, structured</td>
+</tr>
+<tr>
+<td>Easy to parse in Python</td>
+<td>Manual splitting needed</td>
+<td>Built-in json module</td>
+</tr>
+<tr>
+<td>Supports nested data</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Quick notes, logs</td>
+<td>Complex report data</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>After collecting system health data—CPU usage, memory stats, disk space, and running services—the next logical step is to <strong>save that data</strong> so it can be reviewed later, shared with teammates, or fed into monitoring dashboards. This process is called <strong>serialization</strong>: converting in-memory Python objects (like dictionaries and lists) into a storable format. The two most common formats for engineers are <strong>JSON</strong> (JavaScript Object Notation) and <strong>plain text files</strong>. JSON is structured and machine-readable, while text files are simple and human-friendly. This guide walks through both approaches so you can choose the right one for your system health reports.</p>
+<hr />
+<h3 id="why-serialize-reports_1">⚙️ Why Serialize Reports?</h3>
+<ul>
+<li><strong>Persistence</strong> – Data survives after the script finishes running.</li>
+<li><strong>Sharing</strong> – Reports can be emailed, uploaded, or stored in a shared directory.</li>
+<li><strong>Automation</strong> – Other tools (like log aggregators or dashboards) can ingest JSON files.</li>
+<li><strong>Audit Trail</strong> – Historical snapshots let you compare system health over time.</li>
+</ul>
+<hr />
+<h3 id="json-serialization-structured-machine-friendly_1">📊 JSON Serialization – Structured &amp; Machine-Friendly</h3>
+<p>JSON is the go-to format when you need to parse the report programmatically. Python's built-in <strong>json</strong> module handles the conversion.</p>
+<p><strong>Key steps:</strong></p>
+<ul>
+<li>Import the <strong>json</strong> module at the top of your script.</li>
+<li>Build a Python dictionary containing all your system health metrics (CPU, memory, disk, services).</li>
+<li>Use <strong>json.dumps()</strong> to convert the dictionary into a JSON string.</li>
+<li>Write that string to a file using Python's <strong>open()</strong> function with <strong>'w'</strong> mode.</li>
+<li>For pretty printing (readable indentation), pass the <strong>indent=4</strong> argument to <strong>json.dumps()</strong>.</li>
+</ul>
+<p><strong>Example flow (no code blocks):</strong></p>
+<ul>
+<li>Create a dictionary like <strong>report = {"timestamp": "2025-04-10 14:30", "cpu_percent": 45.2, "memory_used_mb": 2048}</strong></li>
+<li>Call <strong>json.dumps(report, indent=4)</strong> to get a formatted JSON string.</li>
+<li>Open a file named <strong>system_report.json</strong> with <strong>open("system_report.json", "w") as f:</strong></li>
+<li>Write the string with <strong>f.write(json_string)</strong> .</li>
+</ul>
+<p><strong>Result:</strong> A file that looks like a clean, indented JSON object—perfect for loading into other scripts or tools.</p>
+<hr />
+<h3 id="text-file-serialization-simple-human-readable_1">🛠️ Text File Serialization – Simple &amp; Human-Readable</h3>
+<p>Sometimes you just want a quick, readable log. Text files are ideal for that. No special modules are needed—just Python's built-in file handling.</p>
+<p><strong>Key steps:</strong></p>
+<ul>
+<li>Build a string that contains your report in plain English (or any format you prefer).</li>
+<li>Use <strong>open()</strong> with <strong>'w'</strong> mode to create or overwrite a text file.</li>
+<li>Write each line with <strong>f.write()</strong> or use <strong>f.writelines()</strong> for a list of strings.</li>
+<li>Add timestamps and section headers to make the text file easy to scan.</li>
+</ul>
+<p><strong>Example flow (no code blocks):</strong></p>
+<ul>
+<li>Construct a multi-line string: <strong>report_text = "System Health Report\nDate: 2025-04-10\nCPU: 45.2%\nMemory: 2048 MB used\n"</strong></li>
+<li>Open <strong>system_report.txt</strong> with <strong>open("system_report.txt", "w") as f:</strong></li>
+<li>Write the entire string with <strong>f.write(report_text)</strong> .</li>
+</ul>
+<p><strong>Result:</strong> A plain text file that can be opened in any editor or printed directly to the terminal with <strong>cat</strong> or <strong>type</strong>.</p>
+<hr />
+<h3 id="json-vs-text-when-to-use-which_1">🕵️ JSON vs Text – When to Use Which</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>JSON</th>
+<th>Text File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Readability for humans</strong></td>
+<td>Moderate (with indentation)</td>
+<td>High (plain language)</td>
+</tr>
+<tr>
+<td><strong>Readability for machines</strong></td>
+<td>Excellent (parsed easily)</td>
+<td>Low (needs custom parsing)</td>
+</tr>
+<tr>
+<td><strong>Size on disk</strong></td>
+<td>Slightly larger (brackets, quotes)</td>
+<td>Smaller (no extra syntax)</td>
+</tr>
+<tr>
+<td><strong>Ease of automation</strong></td>
+<td>High (load with <strong>json.load()</strong>)</td>
+<td>Low (string parsing required)</td>
+</tr>
+<tr>
+<td><strong>Best use case</strong></td>
+<td>Feeding into dashboards, APIs, or scripts</td>
+<td>Quick logs, email reports, manual review</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="file-naming-organization-tips_1">📁 File Naming &amp; Organization Tips</h3>
+<ul>
+<li>Use timestamps in filenames to avoid overwriting: <strong>system_report_2025-04-10.json</strong></li>
+<li>Store reports in a dedicated directory like <strong>./reports/</strong> for clean project structure.</li>
+<li>For repeated runs, append to a single log file using <strong>'a'</strong> (append) mode instead of <strong>'w'</strong> (write).</li>
+<li>Consider compressing old JSON reports with <strong>gzip</strong> if disk space is a concern.</li>
+</ul>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">🧪 Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Forgetting to close the file</strong> – Always use the <strong>with</strong> statement (context manager) so files close automatically.</li>
+<li><strong>Trying to serialize non-serializable objects</strong> – JSON only supports dicts, lists, strings, numbers, booleans, and None. Convert custom objects (like datetime) to strings first.</li>
+<li><strong>Overwriting previous reports</strong> – Use unique filenames (timestamped) or append mode to preserve history.</li>
+<li><strong>Writing binary data to text mode</strong> – Use <strong>'wb'</strong> for binary files (like compressed JSON) and <strong>'w'</strong> for text.</li>
+</ul>
+<hr />
+<h3 id="next-steps-for-your-project_1">🚀 Next Steps for Your Project</h3>
+<ul>
+<li>Combine both formats: save a JSON file for automation and a text file for quick viewing.</li>
+<li>Add error handling with <strong>try/except</strong> blocks around file operations to handle permission errors or missing directories.</li>
+<li>Extend your report to include network stats, disk I/O, or running process counts.</li>
+<li>Schedule your script with <strong>cron</strong> (Linux) or <strong>Task Scheduler</strong> (Windows) to generate reports automatically.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Serialization turns your live system health data into permanent, shareable reports. JSON gives you structure and machine readability—perfect for feeding into other tools. Text files give you simplicity and immediate human readability—great for quick checks and logs. By mastering both, you can build a flexible reporting system that serves both automated pipelines and manual reviews. Start with one format, then add the other as your project grows.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how to save system health report data into JSON and text files so engineers can store and share results.</p>
+<hr />
+<h3 id="example-1-writing-a-simple-string-to-a-text-file_1">📄 Example 1: Writing a simple string to a text file</h3>
+<p>This example writes a single line of text into a new file.</p>
+<div class="highlight"><pre><span></span><code><span class="n">report</span> <span class="o">=</span> <span class="s2">&quot;System health: OK&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;report.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>report.txt file created with content "System health: OK"</strong></p>
+<hr />
+<h3 id="example-2-writing-multiple-lines-to-a-text-file_1">📄 Example 2: Writing multiple lines to a text file</h3>
+<p>This example writes a multi-line report using a list of strings.</p>
+<div class="highlight"><pre><span></span><code><span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CPU: 45%&quot;</span><span class="p">,</span> <span class="s2">&quot;Memory: 2.1 GB used&quot;</span><span class="p">,</span> <span class="s2">&quot;Disk: 120 GB free&quot;</span><span class="p">]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;report.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>report.txt file created with three lines of health data</strong></p>
+<hr />
+<h3 id="example-3-converting-a-dictionary-to-json-and-saving-it_1">📄 Example 3: Converting a dictionary to JSON and saving it</h3>
+<p>This example takes a Python dictionary and writes it as a JSON file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">report_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;cpu_usage&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span>
+    <span class="s2">&quot;memory_used_gb&quot;</span><span class="p">:</span> <span class="mf">2.1</span><span class="p">,</span>
+    <span class="s2">&quot;disk_free_gb&quot;</span><span class="p">:</span> <span class="mi">120</span>
+<span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;report.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">report_data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>report.json file created with JSON-formatted dictionary</strong></p>
+<hr />
+<h3 id="example-4-reading-a-json-file-back-into-python_1">📄 Example 4: Reading a JSON file back into Python</h3>
+<p>This example loads the JSON file created in Example 3 and prints the data.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;report.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">loaded_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">loaded_data</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'cpu_usage': 45, 'memory_used_gb': 2.1, 'disk_free_gb': 120}</strong></p>
+<hr />
+<h3 id="example-5-writing-a-list-of-reports-to-json-with-pretty-printing_1">📄 Example 5: Writing a list of reports to JSON with pretty printing</h3>
+<p>This example saves multiple system health snapshots with readable indentation.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">reports</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-01-15 10:00&quot;</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s2">&quot;memory&quot;</span><span class="p">:</span> <span class="mf">2.1</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-01-15 11:00&quot;</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s2">&quot;memory&quot;</span><span class="p">:</span> <span class="mf">3.4</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-01-15 12:00&quot;</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">:</span> <span class="mi">38</span><span class="p">,</span> <span class="s2">&quot;memory&quot;</span><span class="p">:</span> <span class="mf">1.8</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;reports.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">reports</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>reports.json file created with three report entries, each indented for readability</strong></p>
+<hr />
+<h2 id="comparison-table-text-files-vs-json-files_1">Comparison Table: Text Files vs JSON Files</h2>
 <table>
 <thead>
 <tr>

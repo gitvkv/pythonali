@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch06_04_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 06 | Practical Example: Scanning IP and Port Combinations - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 06 | Practical Example: Scanning IP and Port Combinations";
         var mkdocs_page_input_path = "Core Syntax\\ch06_04_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch06_04_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -312,6 +312,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-scan-with-status-reporting">🔍 Example 5: Practical scan with status reporting</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-we-are-building_1">🕵️ What We Are Building</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-core-concept-nested-loops-for-combinations_1">⚙️ The Core Concept: Nested Loops for Combinations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-by-step-script-breakdown_1">🛠️ Step-by-Step Script Breakdown</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-without-nested-loops-vs-with-nested-loops_1">📊 Comparison: Without Nested Loops vs With Nested Loops</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-output-conceptual_1">🧪 Example Output (Conceptual)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#real-world-extensions_1">🔁 Real-World Extensions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-scanning-a-single-ip-with-multiple-ports_1">🔍 Example 1: Scanning a single IP with multiple ports</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-scanning-multiple-ips-with-a-single-port_1">🔍 Example 2: Scanning multiple IPs with a single port</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-full-ip-and-port-combination-scan_1">🔍 Example 3: Full IP and port combination scan</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-generating-ip-range-with-port-scan_1">🔍 Example 4: Generating IP range with port scan</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-scan-with-status-reporting_1">🔍 Example 5: Practical scan with status reporting</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="practical-example-scanning-ip-and-port-combinations">Practical Example: Scanning IP and Port Combinations</h1>
 <p><span class="category-tag">🏷️ Loops and Iteration /  Nested Loops</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1177,8 +1205,7 @@
 <li>Always test with small lists first to verify your logic before scaling up</li>
 </ul>
 <p>By mastering this nested loop pattern, you gain a powerful tool for automating repetitive checks across multiple systems and services.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example shows how to use nested loops to systematically test combinations of IP addresses and port numbers, simulating a basic network scan.</p>
 <h3 id="example-1-scanning-a-single-ip-with-multiple-ports">🔍 Example 1: Scanning a single IP with multiple ports</h3>
 <p>Demonstrates the simplest nested loop: one IP address tested against a list of common ports.</p>
@@ -1257,6 +1284,238 @@ Scanning 192.168.1.3:80</strong></p>
 10.0.0.2:443 - OPEN</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>IPs Scanned</th>
+<th>Ports Scanned</th>
+<th>Dynamic IP Generation</th>
+<th>Status Reporting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3</td>
+<td>2</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2</td>
+<td>2</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When working with networked systems, one of the most common tasks is checking whether specific services are running on particular machines. This often involves testing combinations of IP addresses and port numbers. A nested loop is the perfect tool for this job — it allows you to systematically iterate through every IP in a list and, for each IP, check every port in a separate list. This practical example will walk you through building a simple IP and port scanner using nested loops.</p>
+<hr />
+<h3 id="what-we-are-building_1">🕵️ What We Are Building</h3>
+<p>We are creating a script that:
+- Takes a list of IP addresses
+- Takes a list of port numbers
+- Uses a nested loop to test each IP against each port
+- Simulates a connection attempt (or prints a status message) for each combination</p>
+<p>This is a foundational pattern used in network diagnostics, security audits, and service discovery.</p>
+<hr />
+<h3 id="the-core-concept-nested-loops-for-combinations_1">⚙️ The Core Concept: Nested Loops for Combinations</h3>
+<p>A nested loop means one loop runs inside another. For every iteration of the outer loop, the inner loop runs completely through all its iterations.</p>
+<p><strong>How it applies here:</strong>
+- <strong>Outer loop:</strong> Iterates over each IP address
+- <strong>Inner loop:</strong> Iterates over each port number for the current IP</p>
+<p>This creates a full cross-product of all IP and port combinations.</p>
+<hr />
+<h3 id="step-by-step-script-breakdown_1">🛠️ Step-by-Step Script Breakdown</h3>
+<p><strong>Step 1: Define your data</strong>
+- Create a list called <strong>ip_list</strong> containing IP addresses as strings (for example: <strong>"192.168.1.1"</strong>, <strong>"192.168.1.2"</strong>, <strong>"10.0.0.1"</strong>)
+- Create a list called <strong>port_list</strong> containing port numbers as integers (for example: <strong>22</strong>, <strong>80</strong>, <strong>443</strong>, <strong>8080</strong>)</p>
+<p><strong>Step 2: Write the outer loop</strong>
+- Use a <strong>for</strong> loop to iterate over each IP in <strong>ip_list</strong>
+- Inside this loop, print a header message like <strong>"Scanning IP: {current_ip}"</strong> to show which IP is being checked</p>
+<p><strong>Step 3: Write the inner loop</strong>
+- Inside the outer loop, write another <strong>for</strong> loop to iterate over each port in <strong>port_list</strong>
+- For each port, print a message like <strong>"Checking port {port} on {ip}"</strong></p>
+<p><strong>Step 4: Add a simulated check</strong>
+- To make it realistic, you can use a conditional statement to simulate whether a port is open or closed
+- For demonstration, you might mark port <strong>22</strong> and <strong>80</strong> as "open" and everything else as "closed"
+- Print the result for each combination</p>
+<hr />
+<h3 id="comparison-without-nested-loops-vs-with-nested-loops_1">📊 Comparison: Without Nested Loops vs With Nested Loops</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Without Nested Loops</th>
+<th>With Nested Loops</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code structure</td>
+<td>Requires separate loops for each IP or manual repetition</td>
+<td>One clean, compact structure</td>
+</tr>
+<tr>
+<td>Scalability</td>
+<td>Hard to add more IPs or ports without rewriting code</td>
+<td>Easily extend lists and the loop handles everything</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>Messy and error-prone</td>
+<td>Clear and logical</td>
+</tr>
+<tr>
+<td>Maintenance</td>
+<td>High effort for changes</td>
+<td>Low effort — just update the lists</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="example-output-conceptual_1">🧪 Example Output (Conceptual)</h3>
+<p>When you run the script, the output would look something like this (formatted as inline text):</p>
+<p><strong>Scanning IP: 192.168.1.1</strong><br />
+<strong>Checking port 22 on 192.168.1.1 — Status: Open</strong><br />
+<strong>Checking port 80 on 192.168.1.1 — Status: Open</strong><br />
+<strong>Checking port 443 on 192.168.1.1 — Status: Closed</strong><br />
+<strong>Checking port 8080 on 192.168.1.1 — Status: Closed</strong>  </p>
+<p><strong>Scanning IP: 192.168.1.2</strong><br />
+<strong>Checking port 22 on 192.168.1.2 — Status: Open</strong><br />
+<strong>Checking port 80 on 192.168.1.2 — Status: Closed</strong><br />
+<strong>Checking port 443 on 192.168.1.2 — Status: Open</strong><br />
+<strong>Checking port 8080 on 192.168.1.2 — Status: Closed</strong>  </p>
+<hr />
+<h3 id="real-world-extensions_1">🔁 Real-World Extensions</h3>
+<p>Once you understand the nested loop pattern, you can extend this script in many useful ways:</p>
+<ul>
+<li><strong>Add timeout handling</strong> to avoid hanging on unresponsive IPs</li>
+<li><strong>Use socket connections</strong> to actually attempt connecting to ports instead of simulating</li>
+<li><strong>Log results to a file</strong> for later analysis</li>
+<li><strong>Add threading</strong> to scan multiple IPs simultaneously for faster results</li>
+<li><strong>Filter by port</strong> to only scan specific services like web servers (port 80, 443) or SSH (port 22)</li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li>Nested loops are ideal for working with combinations of two or more lists</li>
+<li>The outer loop controls the first dimension (IPs), and the inner loop controls the second dimension (ports)</li>
+<li>This pattern is widely used in network scanning, configuration validation, and data processing</li>
+<li>Start simple with print statements, then gradually add real functionality like socket connections</li>
+<li>Always test with small lists first to verify your logic before scaling up</li>
+</ul>
+<p>By mastering this nested loop pattern, you gain a powerful tool for automating repetitive checks across multiple systems and services.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example shows how to use nested loops to systematically test combinations of IP addresses and port numbers, simulating a basic network scan.</p>
+<h3 id="example-1-scanning-a-single-ip-with-multiple-ports_1">🔍 Example 1: Scanning a single IP with multiple ports</h3>
+<p>Demonstrates the simplest nested loop: one IP address tested against a list of common ports.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ip_address</span> <span class="o">=</span> <span class="s2">&quot;192.168.1.1&quot;</span>
+<span class="n">ports</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">443</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scanning </span><span class="si">{</span><span class="n">ip_address</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Scanning 192.168.1.1:22<br />
+Scanning 192.168.1.1:80<br />
+Scanning 192.168.1.1:443</strong></p>
+<hr />
+<h3 id="example-2-scanning-multiple-ips-with-a-single-port_1">🔍 Example 2: Scanning multiple IPs with a single port</h3>
+<p>Shows how to iterate over a list of IP addresses while keeping the port fixed.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ip_addresses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.2&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.3&quot;</span><span class="p">]</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">80</span>
+
+<span class="k">for</span> <span class="n">ip</span> <span class="ow">in</span> <span class="n">ip_addresses</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scanning </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Scanning 192.168.1.1:80<br />
+Scanning 192.168.1.2:80<br />
+Scanning 192.168.1.3:80</strong></p>
+<hr />
+<h3 id="example-3-full-ip-and-port-combination-scan_1">🔍 Example 3: Full IP and port combination scan</h3>
+<p>Uses nested loops to test every IP against every port in separate lists.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ip_addresses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.2&quot;</span><span class="p">]</span>
+<span class="n">ports</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">443</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">ip</span> <span class="ow">in</span> <span class="n">ip_addresses</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scanning </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Scanning 192.168.1.1:22<br />
+Scanning 192.168.1.1:80<br />
+Scanning 192.168.1.1:443<br />
+Scanning 192.168.1.2:22<br />
+Scanning 192.168.1.2:80<br />
+Scanning 192.168.1.2:443</strong></p>
+<hr />
+<h3 id="example-4-generating-ip-range-with-port-scan_1">🔍 Example 4: Generating IP range with port scan</h3>
+<p>Generates a small range of IP addresses dynamically and scans each with multiple ports.</p>
+<div class="highlight"><pre><span></span><code><span class="n">base_ip</span> <span class="o">=</span> <span class="s2">&quot;192.168.1&quot;</span>
+<span class="n">ports</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">last_octet</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="n">ip</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_ip</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">last_octet</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scanning </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Scanning 192.168.1.1:22<br />
+Scanning 192.168.1.1:80<br />
+Scanning 192.168.1.2:22<br />
+Scanning 192.168.1.2:80<br />
+Scanning 192.168.1.3:22<br />
+Scanning 192.168.1.3:80</strong></p>
+<hr />
+<h3 id="example-5-practical-scan-with-status-reporting_1">🔍 Example 5: Practical scan with status reporting</h3>
+<p>Simulates a realistic scan by checking if a port is "open" or "closed" using a condition inside the nested loop.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ip_addresses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;10.0.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.2&quot;</span><span class="p">]</span>
+<span class="n">ports</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">443</span><span class="p">]</span>
+<span class="n">open_ports</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;10.0.0.1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">22</span><span class="p">],</span> <span class="s2">&quot;10.0.0.2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">443</span><span class="p">]}</span>
+
+<span class="k">for</span> <span class="n">ip</span> <span class="ow">in</span> <span class="n">ip_addresses</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">ports</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">open_ports</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;OPEN&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;CLOSED&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>10.0.0.1:22 - OPEN<br />
+10.0.0.1:443 - CLOSED<br />
+10.0.0.2:22 - CLOSED<br />
+10.0.0.2:443 - OPEN</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

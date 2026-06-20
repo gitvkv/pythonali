@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch15_03_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 15 | Compiling Reusable Patterns via re.compile() - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 15 | Compiling Reusable Patterns via re.compile()";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch15_03_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch15_03_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -717,6 +717,38 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-recompile-vs-direct-re-functions">Comparison: re.compile() vs Direct re Functions</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-does-recompile-do_1">⚙️ What Does re.compile() Do?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-syntax_1">🛠️ Basic Syntax</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-without-vs-with-recompile_1">📊 Comparison: Without vs. With re.compile()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-should-you-use-recompile_1">🕵️ When Should You Use re.compile()?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples_1">🧪 Practical Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-methods-on-compiled-pattern-objects_1">🧩 Common Methods on Compiled Pattern Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices_1">✅ Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls_1">⚠️ Common Pitfalls</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📝 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-creating-a-compiled-pattern-object_1">🔧 Example 1: Creating a compiled pattern object</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-matching-with-a-compiled-pattern_1">🔧 Example 2: Matching with a compiled pattern</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-reusing-a-compiled-pattern-across-multiple-strings_1">🔧 Example 3: Reusing a compiled pattern across multiple strings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-finding-all-matches-with-a-compiled-pattern_1">🔧 Example 4: Finding all matches with a compiled pattern</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-using-compiled-pattern-for-validation-in-a-loop_1">🔧 Example 5: Using compiled pattern for validation in a loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-recompile-vs-direct-re-functions_1">Comparison: re.compile() vs Direct re Functions</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch15_04_01/">Ch 15 | Creating Capture Groups Using Parentheses</a>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="compiling-reusable-patterns-via-recompile">Compiling Reusable Patterns via re.compile()</h1>
 <p><span class="category-tag">🏷️ Regular Expressions (Regex) /  Key re Functions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1205,8 +1237,7 @@
 <hr />
 <h3 id="summary">📝 Summary</h3>
 <p><strong>re.compile()</strong> is a simple but powerful tool that makes your regex code faster and cleaner. By compiling a pattern once and reusing it, you avoid unnecessary overhead and make your intentions clearer. For any engineer working with text processing, log parsing, or data validation, mastering <strong>re.compile()</strong> is a small step that pays big dividends in performance and code quality.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p><code>re.compile()</code> converts a regex pattern string into a reusable pattern object that can be matched against multiple strings efficiently.</p>
 <h3 id="example-1-creating-a-compiled-pattern-object">🔧 Example 1: Creating a compiled pattern object</h3>
 <p>This example shows how to compile a simple pattern and confirm it is a pattern object.</p>
@@ -1265,6 +1296,225 @@
 <p>📤 Output: <strong>Alice is valid Bob123 is invalid Charlie is valid Dave! is invalid</strong></p>
 <hr />
 <h3 id="comparison-recompile-vs-direct-re-functions">Comparison: <code>re.compile()</code> vs Direct <code>re</code> Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>re.compile()</code></th>
+<th>Direct <code>re</code> functions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reusability</td>
+<td>Can reuse pattern many times</td>
+<td>Pattern recompiled each call</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Faster for multiple matches</td>
+<td>Slower for repeated use</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>Pattern defined once</td>
+<td>Pattern inline each time</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Loops, validation, bulk processing</td>
+<td>One-time quick matches</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When you start working with regular expressions in Python, you might find yourself using the same pattern over and over again. Every time you call a function like <strong>re.search()</strong> or <strong>re.findall()</strong>, Python has to compile the pattern string into an internal format before it can do the matching. This compilation step takes time and resources. For small scripts with a few pattern uses, this overhead is negligible. But when you're processing large log files, parsing configuration data, or running pattern matching in a loop thousands of times, that repeated compilation slows everything down.</p>
+<p>The <strong>re.compile()</strong> function solves this by letting you compile your regex pattern once and reuse it as many times as you want. This makes your code faster, cleaner, and more maintainable.</p>
+<hr />
+<h3 id="what-does-recompile-do_1">⚙️ What Does re.compile() Do?</h3>
+<ul>
+<li><strong>re.compile()</strong> takes a regex pattern string and returns a <strong>pattern object</strong>.</li>
+<li>This pattern object has all the same methods as the <strong>re</strong> module (like <strong>search()</strong>, <strong>match()</strong>, <strong>findall()</strong>, <strong>sub()</strong>, etc.).</li>
+<li>Once compiled, you can call these methods directly on the pattern object without recompiling the pattern each time.</li>
+<li>The compiled pattern is stored in memory and reused instantly.</li>
+</ul>
+<hr />
+<h3 id="basic-syntax_1">🛠️ Basic Syntax</h3>
+<p>The syntax is straightforward:</p>
+<ul>
+<li><strong>Without compile:</strong> <strong>re.search(pattern, text)</strong></li>
+<li><strong>With compile:</strong> <strong>pattern = re.compile(pattern)</strong> then <strong>pattern.search(text)</strong></li>
+</ul>
+<p>You can also pass flags (like <strong>re.IGNORECASE</strong> or <strong>re.MULTILINE</strong>) directly to <strong>re.compile()</strong> as a second argument.</p>
+<hr />
+<h3 id="comparison-without-vs-with-recompile_1">📊 Comparison: Without vs. With re.compile()</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Without re.compile()</th>
+<th>With re.compile()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Pattern recompiled every call</td>
+<td>Pattern compiled once</td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Pattern embedded in each call</td>
+<td>Pattern defined once, named clearly</td>
+</tr>
+<tr>
+<td><strong>Reusability</strong></td>
+<td>Must retype pattern each time</td>
+<td>Use the same pattern object anywhere</td>
+</tr>
+<tr>
+<td><strong>Flag handling</strong></td>
+<td>Pass flags in each function call</td>
+<td>Set flags once at compile time</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>One-off searches</td>
+<td>Repeated matching in loops or multiple locations</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="when-should-you-use-recompile_1">🕵️ When Should You Use re.compile()?</h3>
+<ul>
+<li><strong>Processing large files line by line</strong> — Compile once, match thousands of lines.</li>
+<li><strong>Parsing structured logs</strong> — Same pattern used across many entries.</li>
+<li><strong>Validating user input</strong> — Same validation pattern reused in multiple places.</li>
+<li><strong>Inside functions or classes</strong> — Compile at module level or during initialization.</li>
+<li><strong>Performance-critical code</strong> — Any loop that runs many iterations with the same pattern.</li>
+</ul>
+<hr />
+<h3 id="practical-examples_1">🧪 Practical Examples</h3>
+<p><strong>Example 1: Searching in a loop</strong></p>
+<p>Without compile, every iteration recompiles the pattern:</p>
+<ul>
+<li><strong>for line in log_file:</strong> then <strong>if re.search(r'ERROR', line):</strong> then <strong>process(line)</strong></li>
+</ul>
+<p>With compile, the pattern is compiled once before the loop:</p>
+<ul>
+<li><strong>error_pattern = re.compile(r'ERROR')</strong> then <strong>for line in log_file:</strong> then <strong>if error_pattern.search(line):</strong> then <strong>process(line)</strong></li>
+</ul>
+<p><strong>Example 2: Using multiple methods on the same pattern</strong></p>
+<ul>
+<li><strong>ip_pattern = re.compile(r'\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}')</strong></li>
+<li><strong>ip_pattern.findall(log_text)</strong> returns all IP addresses.</li>
+<li><strong>ip_pattern.search(log_text)</strong> finds the first IP address.</li>
+<li><strong>ip_pattern.sub('REDACTED', log_text)</strong> replaces all IPs with "REDACTED".</li>
+</ul>
+<p><strong>Example 3: Compiling with flags</strong></p>
+<ul>
+<li><strong>case_insensitive_pattern = re.compile(r'error', re.IGNORECASE)</strong></li>
+<li><strong>case_insensitive_pattern.search('ERROR')</strong> returns a match.</li>
+<li><strong>case_insensitive_pattern.search('Error')</strong> also returns a match.</li>
+</ul>
+<hr />
+<h3 id="common-methods-on-compiled-pattern-objects_1">🧩 Common Methods on Compiled Pattern Objects</h3>
+<p>Once you have a compiled pattern object, you can call these methods:</p>
+<ul>
+<li><strong>pattern.search(text)</strong> — Find the first match anywhere in the string.</li>
+<li><strong>pattern.match(text)</strong> — Find a match only at the beginning of the string.</li>
+<li><strong>pattern.findall(text)</strong> — Return all non-overlapping matches as a list.</li>
+<li><strong>pattern.finditer(text)</strong> — Return an iterator of match objects.</li>
+<li><strong>pattern.sub(replacement, text)</strong> — Replace matches with a replacement string.</li>
+<li><strong>pattern.split(text)</strong> — Split the string at every match.</li>
+</ul>
+<p>All these methods work exactly like their <strong>re</strong> module counterparts, but without recompiling the pattern.</p>
+<hr />
+<h3 id="best-practices_1">✅ Best Practices</h3>
+<ul>
+<li><strong>Compile at module level</strong> if the pattern is used across multiple functions in the same file.</li>
+<li><strong>Compile inside a class constructor</strong> if the pattern is used by multiple methods.</li>
+<li><strong>Name your compiled patterns clearly</strong> so others (and future you) understand what they match.</li>
+<li><strong>Use raw strings (r'pattern')</strong> when defining patterns to avoid escape character confusion.</li>
+<li><strong>Don't overuse compile</strong> — for a single use in a small script, the difference is negligible.</li>
+</ul>
+<hr />
+<h3 id="common-pitfalls_1">⚠️ Common Pitfalls</h3>
+<ul>
+<li><strong>Forgetting to call methods on the pattern object</strong> — It's <strong>pattern.search(text)</strong>, not <strong>re.search(pattern, text)</strong>.</li>
+<li><strong>Compiling inside a loop</strong> — This defeats the purpose. Compile once before the loop.</li>
+<li><strong>Using compile for dynamic patterns</strong> — If your pattern changes each iteration, compile won't help.</li>
+<li><strong>Not using raw strings</strong> — Backslashes in patterns can cause unexpected behavior without the <strong>r</strong> prefix.</li>
+</ul>
+<hr />
+<h3 id="summary_1">📝 Summary</h3>
+<p><strong>re.compile()</strong> is a simple but powerful tool that makes your regex code faster and cleaner. By compiling a pattern once and reusing it, you avoid unnecessary overhead and make your intentions clearer. For any engineer working with text processing, log parsing, or data validation, mastering <strong>re.compile()</strong> is a small step that pays big dividends in performance and code quality.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><code>re.compile()</code> converts a regex pattern string into a reusable pattern object that can be matched against multiple strings efficiently.</p>
+<h3 id="example-1-creating-a-compiled-pattern-object_1">🔧 Example 1: Creating a compiled pattern object</h3>
+<p>This example shows how to compile a simple pattern and confirm it is a pattern object.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">pattern</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong><class 're.Pattern'></strong></p>
+<hr />
+<h3 id="example-2-matching-with-a-compiled-pattern_1">🔧 Example 2: Matching with a compiled pattern</h3>
+<p>This example demonstrates using a compiled pattern to find a match in a string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;world&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>world</strong></p>
+<hr />
+<h3 id="example-3-reusing-a-compiled-pattern-across-multiple-strings_1">🔧 Example 3: Reusing a compiled pattern across multiple strings</h3>
+<p>This example shows how one compiled pattern can be applied to several different strings.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">)</span>
+<span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;Order 42 shipped&quot;</span>
+<span class="n">text2</span> <span class="o">=</span> <span class="s2">&quot;Item 7 backorder&quot;</span>
+<span class="n">text3</span> <span class="o">=</span> <span class="s2">&quot;Total 100 items&quot;</span>
+<span class="n">match1</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
+<span class="n">match2</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span>
+<span class="n">match3</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">text3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match1</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match2</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match3</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>42 7 100</strong></p>
+<hr />
+<h3 id="example-4-finding-all-matches-with-a-compiled-pattern_1">🔧 Example 4: Finding all matches with a compiled pattern</h3>
+<p>This example demonstrates using <code>findall()</code> on a compiled pattern to get all occurrences.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[aeiou]&quot;</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;engineer&quot;</span>
+<span class="n">vowels</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vowels</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['e', 'i', 'e', 'e']</strong></p>
+<hr />
+<h3 id="example-5-using-compiled-pattern-for-validation-in-a-loop_1">🔧 Example 5: Using compiled pattern for validation in a loop</h3>
+<p>This example shows a practical use case — validating multiple user inputs with the same pattern.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[A-Za-z]+$&quot;</span><span class="p">)</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob123&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Dave!&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">pattern</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is valid&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is invalid&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Alice is valid Bob123 is invalid Charlie is valid Dave! is invalid</strong></p>
+<hr />
+<h3 id="comparison-recompile-vs-direct-re-functions_1">Comparison: <code>re.compile()</code> vs Direct <code>re</code> Functions</h3>
 <table>
 <thead>
 <tr>

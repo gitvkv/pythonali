@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_04_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Weighing Human Legibility Against Machine Parsing Speeds - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Weighing Human Legibility Against Machine Parsing Speeds";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_04_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_04_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -913,6 +913,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-why-this-trade-off-matters_1">🧠 Context: Why This Trade-Off Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#human-legibility-yamls-strength_1">⚙️ Human Legibility: YAML's Strength</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#machine-parsing-speed-jsons-strength_1">📊 Machine Parsing Speed: JSON's Strength</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-differences-at-a-glance_1">🕵️ Key Differences at a Glance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-which_1">🛠️ When to Use Which</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-simple-key-value-pair-in-json_1">📝 Example 1: Simple key-value pair in JSON</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-simple-key-value-pair-in-yaml_1">📝 Example 2: Simple key-value pair in YAML</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-nested-data-in-json_1">📝 Example 3: Nested data in JSON</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-nested-data-in-yaml_1">📝 Example 4: Nested data in YAML</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-list-of-items-in-json_1">📝 Example 5: List of items in JSON</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-6-list-of-items-in-yaml_1">📝 Example 6: List of items in YAML</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-7-timing-comparison-for-parsing_1">📝 Example 7: Timing comparison for parsing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_05_01/">Ch 19 | Checking for Mandatory Schema Configuration Key Markers</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="weighing-human-legibility-against-machine-parsing-speeds">Weighing Human Legibility Against Machine Parsing Speeds</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  Comparing JSON and YAML</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with configuration files, API responses, or data exchange between systems, engineers often choose between JSON and YAML. Both formats are widely used, but they serve different priorities. JSON is built for machines—fast to parse and strict in structure. YAML is built for humans—clean, readable, and flexible. Understanding the trade-off between human legibility and machine parsing speed helps you pick the right tool for the job.</p>
@@ -1181,8 +1209,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>There is no absolute winner between JSON and YAML. The right choice depends on whether the primary consumer of the data is a machine or a human. JSON wins on speed and strictness, making it ideal for data interchange. YAML wins on clarity and flexibility, making it ideal for configuration. As an engineer, understanding this trade-off allows you to make informed decisions that balance performance with maintainability.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic compares how easy JSON and YAML are for engineers to read versus how fast machines can parse each format.</p>
 <hr />
 <h3 id="example-1-simple-key-value-pair-in-json">📝 Example 1: Simple key-value pair in JSON</h3>
@@ -1286,6 +1313,255 @@
 <p>📤 Output: <strong>JSON time: 0.0123 YAML time: 0.0456</strong> (values will vary)</p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>JSON</th>
+<th>YAML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Human legibility</td>
+<td>Moderate — uses brackets and quotes</td>
+<td>High — uses indentation and minimal syntax</td>
+</tr>
+<tr>
+<td>Machine parsing speed</td>
+<td>Fast — simple grammar</td>
+<td>Slower — complex grammar with indentation rules</td>
+</tr>
+<tr>
+<td>Common use case</td>
+<td>Machine-to-machine data transfer</td>
+<td>Configuration files for engineers</td>
+</tr>
+<tr>
+<td>Syntax complexity</td>
+<td>Low — strict but simple</td>
+<td>Medium — flexible but more rules</td>
+</tr>
+<tr>
+<td>File size</td>
+<td>Smaller — less whitespace</td>
+<td>Larger — uses indentation and blank lines</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with configuration files, API responses, or data exchange between systems, engineers often choose between JSON and YAML. Both formats are widely used, but they serve different priorities. JSON is built for machines—fast to parse and strict in structure. YAML is built for humans—clean, readable, and flexible. Understanding the trade-off between human legibility and machine parsing speed helps you pick the right tool for the job.</p>
+<hr />
+<h3 id="context-why-this-trade-off-matters_1">🧠 Context: Why This Trade-Off Matters</h3>
+<p>In automation scripts, infrastructure-as-code tools, and data pipelines, you will frequently encounter both JSON and YAML. JSON is the default for many APIs and databases because it is lightweight and quick to process. YAML is the default for tools like Ansible, Kubernetes, and CI/CD pipelines because it is easier for humans to write and review by hand. The choice often comes down to: <em>Who or what is consuming this data most often?</em></p>
+<hr />
+<h3 id="human-legibility-yamls-strength_1">⚙️ Human Legibility: YAML's Strength</h3>
+<p>YAML was designed with human readability as its primary goal. It uses indentation to show structure, avoids excessive punctuation, and supports comments.</p>
+<ul>
+<li><strong>Indentation-based nesting</strong> — YAML uses spaces to define hierarchy, making the structure visually clear at a glance.</li>
+<li><strong>No brackets or quotes required</strong> — Strings and lists can be written without extra symbols, reducing visual clutter.</li>
+<li><strong>Inline comments</strong> — You can add notes directly in the file using the <code>#</code> symbol, which is invaluable for documenting configuration.</li>
+<li><strong>Support for multiple document types</strong> — YAML can represent strings, numbers, booleans, null values, lists, and dictionaries in a very natural way.</li>
+</ul>
+<p>Example of a simple YAML block:</p>
+<ul>
+<li>A server configuration with a name, IP address, and a list of roles.</li>
+<li>Each field is on its own line, indentation shows the grouping.</li>
+<li>Comments explain the purpose of each section.</li>
+</ul>
+<p>This makes YAML ideal for configuration files that are manually edited and reviewed by engineers.</p>
+<hr />
+<h3 id="machine-parsing-speed-jsons-strength_1">📊 Machine Parsing Speed: JSON's Strength</h3>
+<p>JSON was designed to be easy for machines to parse and generate. Its syntax is strict and unambiguous, which allows parsers to process it very quickly.</p>
+<ul>
+<li><strong>Explicit syntax</strong> — Every object is wrapped in curly braces <code>{}</code>, every array in square brackets <code>[]</code>, and every string must be quoted with double quotes <code>""</code>.</li>
+<li><strong>No indentation dependency</strong> — Whitespace is ignored, so parsers do not need to track indentation levels.</li>
+<li><strong>Deterministic structure</strong> — The strict rules mean there is only one way to represent a given piece of data, reducing ambiguity and parsing errors.</li>
+<li><strong>Native support in many languages</strong> — Most programming languages have built-in or highly optimized JSON parsers, making it the fastest choice for data interchange.</li>
+</ul>
+<p>Example of a simple JSON block:</p>
+<ul>
+<li>A server configuration with a name, IP address, and a list of roles.</li>
+<li>Every key is in double quotes, values are clearly typed, and the entire structure is enclosed in braces.</li>
+</ul>
+<p>This makes JSON the default for APIs, database exports, and any scenario where data is consumed programmatically at scale.</p>
+<hr />
+<h3 id="key-differences-at-a-glance_1">🕵️ Key Differences at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>JSON</th>
+<th>YAML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary audience</strong></td>
+<td>Machines (parsers, APIs)</td>
+<td>Humans (engineers, reviewers)</td>
+</tr>
+<tr>
+<td><strong>Syntax style</strong></td>
+<td>Punctuation-heavy (braces, brackets, quotes)</td>
+<td>Indentation-based, minimal punctuation</td>
+</tr>
+<tr>
+<td><strong>Comments supported</strong></td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Parsing speed</strong></td>
+<td>Very fast</td>
+<td>Slower (due to indentation and flexibility)</td>
+</tr>
+<tr>
+<td><strong>Error tolerance</strong></td>
+<td>Strict — one typo breaks the file</td>
+<td>More forgiving, but indentation errors are common</td>
+</tr>
+<tr>
+<td><strong>File size</strong></td>
+<td>Typically smaller</td>
+<td>Typically larger (due to whitespace and comments)</td>
+</tr>
+<tr>
+<td><strong>Common use cases</strong></td>
+<td>API responses, data storage, web configs</td>
+<td>Infrastructure configs, CI/CD, Ansible, Kubernetes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="when-to-use-which_1">🛠️ When to Use Which</h3>
+<p><strong>Choose JSON when:</strong></p>
+<ul>
+<li>You are exchanging data between systems or APIs.</li>
+<li>You need the fastest possible parsing speed.</li>
+<li>You are working with large datasets or high-throughput pipelines.</li>
+<li>You want to avoid indentation-related errors in automated workflows.</li>
+</ul>
+<p><strong>Choose YAML when:</strong></p>
+<ul>
+<li>You are writing configuration files that humans will edit and review.</li>
+<li>You need to include comments to document settings.</li>
+<li>You are using tools like Ansible, Docker Compose, or Kubernetes.</li>
+<li>Readability and ease of manual editing are more important than parsing speed.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>There is no absolute winner between JSON and YAML. The right choice depends on whether the primary consumer of the data is a machine or a human. JSON wins on speed and strictness, making it ideal for data interchange. YAML wins on clarity and flexibility, making it ideal for configuration. As an engineer, understanding this trade-off allows you to make informed decisions that balance performance with maintainability.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic compares how easy JSON and YAML are for engineers to read versus how fast machines can parse each format.</p>
+<hr />
+<h3 id="example-1-simple-key-value-pair-in-json_1">📝 Example 1: Simple key-value pair in JSON</h3>
+<p>This shows the most basic JSON structure — a single key with a string value.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;{&quot;name&quot;: &quot;engineer&quot;}&#39;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>engineer</strong></p>
+<hr />
+<h3 id="example-2-simple-key-value-pair-in-yaml_1">📝 Example 2: Simple key-value pair in YAML</h3>
+<p>This shows the same data in YAML format — no quotes needed for simple strings.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;name: engineer&quot;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>engineer</strong></p>
+<hr />
+<h3 id="example-3-nested-data-in-json_1">📝 Example 3: Nested data in JSON</h3>
+<p>This shows how JSON handles nested structures with curly braces and brackets.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;{&quot;user&quot;: {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 30, &quot;active&quot;: true}}&#39;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">][</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">][</span><span class="s2">&quot;active&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>Alice 30 True</strong></p>
+<hr />
+<h3 id="example-4-nested-data-in-yaml_1">📝 Example 4: Nested data in YAML</h3>
+<p>This shows how YAML uses indentation to represent the same nested structure more readably.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">user:</span>
+<span class="s2">  name: Alice</span>
+<span class="s2">  age: 30</span>
+<span class="s2">  active: true</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">][</span><span class="s2">&quot;age&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">][</span><span class="s2">&quot;active&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>Alice 30 True</strong></p>
+<hr />
+<h3 id="example-5-list-of-items-in-json_1">📝 Example 5: List of items in JSON</h3>
+<p>This shows how JSON represents a list of multiple items with brackets and commas.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;{&quot;servers&quot;: [&quot;web01&quot;, &quot;db01&quot;, &quot;cache01&quot;]}&#39;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;servers&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>web01 db01 cache01</strong></p>
+<hr />
+<h3 id="example-6-list-of-items-in-yaml_1">📝 Example 6: List of items in YAML</h3>
+<p>This shows how YAML represents the same list with dashes — easier for engineers to scan visually.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">servers:</span>
+<span class="s2">  - web01</span>
+<span class="s2">  - db01</span>
+<span class="s2">  - cache01</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;servers&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>web01 db01 cache01</strong></p>
+<hr />
+<h3 id="example-7-timing-comparison-for-parsing_1">📝 Example 7: Timing comparison for parsing</h3>
+<p>This shows a basic timing comparison — JSON parses faster than YAML for the same data.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">json_data</span> <span class="o">=</span> <span class="s1">&#39;{&quot;name&quot;: &quot;engineer&quot;, &quot;role&quot;: &quot;devops&quot;, &quot;years&quot;: 5}&#39;</span>
+<span class="n">yaml_data</span> <span class="o">=</span> <span class="s2">&quot;name: engineer</span><span class="se">\n</span><span class="s2">role: devops</span><span class="se">\n</span><span class="s2">years: 5&quot;</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+<span class="n">json_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">yaml_data</span><span class="p">)</span>
+<span class="n">yaml_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JSON time: </span><span class="si">{</span><span class="n">json_time</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;YAML time: </span><span class="si">{</span><span class="n">yaml_time</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>JSON time: 0.0123 YAML time: 0.0456</strong> (values will vary)</p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

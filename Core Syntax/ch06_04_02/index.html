@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch06_04_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 06 | Inner Loop Completion and Outer Loop Advancement - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 06 | Inner Loop Completion and Outer Loop Advancement";
         var mkdocs_page_input_path = "Core Syntax\\ch06_04_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch06_04_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -310,6 +310,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-checking-items-in-a-list-of-lists">🔧 Example 5: Practical — checking items in a list of lists</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-inner-loop-completion-works_1">⚙️ How Inner Loop Completion Works</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#visualizing-the-execution-flow_1">📊 Visualizing the Execution Flow</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-example-processing-a-grid_1">🛠️ Practical Example: Processing a Grid</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-misunderstandings_1">🕵️ Common Misunderstandings</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-table-outer-loop-vs-inner-loop-behavior_1">📋 Comparison Table: Outer Loop vs Inner Loop Behavior</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#real-world-analogy_1">🧩 Real-World Analogy</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-basic-two-level-nested-loop-showing-completion-order_1">🔧 Example 1: Basic two-level nested loop showing completion order</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-counting-total-iterations-across-all-inner-loops_1">🔧 Example 2: Counting total iterations across all inner loops</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-inner-loop-depends-on-outer-loop-value_1">🔧 Example 3: Inner loop depends on outer loop value</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-breaking-inner-loop-early-outer-still-advances_1">🔧 Example 4: Breaking inner loop early — outer still advances</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-practical-checking-items-in-a-list-of-lists_1">🔧 Example 5: Practical — checking items in a list of lists</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1106,7 @@
               
                 <h1 id="inner-loop-completion-and-outer-loop-advancement">Inner Loop Completion and Outer Loop Advancement</h1>
 <p><span class="category-tag">🏷️ Loops and Iteration /  Nested Loops</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1172,8 +1202,7 @@
 <li>Always visualize the flow as: <em>outer step → full inner cycle → next outer step → full inner cycle again</em>.</li>
 </ul>
 <p>Mastering this concept will help you confidently build nested loops for data processing, pattern generation, and any scenario requiring layered iteration.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This concept describes how a nested loop must finish all its iterations (inner loop completion) before the outer loop moves to its next iteration (outer loop advancement).</p>
 <hr />
 <h3 id="example-1-basic-two-level-nested-loop-showing-completion-order">🔧 Example 1: Basic two-level nested loop showing completion order</h3>
@@ -1296,6 +1325,260 @@ Checking group 3
 </code></pre></div></p>
 <hr />
 <h2 id="comparison-table">Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Inner Loop</th>
+<th>Outer Loop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Completion</td>
+<td>Runs all iterations before outer advances</td>
+<td>Waits for inner to finish</td>
+</tr>
+<tr>
+<td>Variable scope</td>
+<td>Can access outer variable</td>
+<td>Cannot access inner variable</td>
+</tr>
+<tr>
+<td>Total iterations</td>
+<td>Depends on outer loop value</td>
+<td>Controls how many times inner runs</td>
+</tr>
+<tr>
+<td>Break effect</td>
+<td>Stops only inner, outer continues</td>
+<td>Stops entire nested loop</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When working with nested loops, one of the most important concepts to grasp is how the <strong>inner loop</strong> and <strong>outer loop</strong> interact. The inner loop runs to completion <em>every single time</em> the outer loop advances by one step. This means the inner loop is fully executed for each iteration of the outer loop. Understanding this flow is critical for tasks like processing multi-dimensional data, generating patterns, or iterating over complex structures.</p>
+<hr />
+<h3 id="how-inner-loop-completion-works_1">⚙️ How Inner Loop Completion Works</h3>
+<ul>
+<li>The <strong>inner loop</strong> is placed inside the body of the <strong>outer loop</strong>.</li>
+<li>For each single iteration of the outer loop, the inner loop starts from its beginning and runs until its condition is no longer met.</li>
+<li>Once the inner loop finishes all its iterations, control returns to the outer loop, which then moves to its next iteration.</li>
+<li>This process repeats until the outer loop has completed all its cycles.</li>
+</ul>
+<hr />
+<h3 id="visualizing-the-execution-flow_1">📊 Visualizing the Execution Flow</h3>
+<p>Consider a simple scenario where the outer loop runs <strong>3 times</strong> and the inner loop runs <strong>2 times</strong>:</p>
+<ul>
+<li><strong>Outer Loop Iteration 1</strong> → Inner Loop runs fully (Iteration 1, Iteration 2) → Inner Loop completes → Outer Loop advances</li>
+<li><strong>Outer Loop Iteration 2</strong> → Inner Loop runs fully (Iteration 1, Iteration 2) → Inner Loop completes → Outer Loop advances</li>
+<li><strong>Outer Loop Iteration 3</strong> → Inner Loop runs fully (Iteration 1, Iteration 2) → Inner Loop completes → Outer Loop ends</li>
+</ul>
+<p>The total number of inner loop executions is <strong>outer loop count × inner loop count</strong>.</p>
+<hr />
+<h3 id="practical-example-processing-a-grid_1">🛠️ Practical Example: Processing a Grid</h3>
+<p>Imagine you have a grid with <strong>3 rows</strong> and <strong>4 columns</strong>. The outer loop handles the rows, and the inner loop handles the columns.</p>
+<ul>
+<li>The outer loop starts with <strong>Row 1</strong>.</li>
+<li>The inner loop then processes <strong>Column 1, Column 2, Column 3, Column 4</strong> in that row.</li>
+<li>Once all columns are processed, the inner loop completes.</li>
+<li>The outer loop advances to <strong>Row 2</strong>, and the inner loop again processes all columns.</li>
+<li>This continues until all rows are processed.</li>
+</ul>
+<p>Key takeaway: The inner loop must finish its entire cycle before the outer loop moves forward.</p>
+<hr />
+<h3 id="common-misunderstandings_1">🕵️ Common Misunderstandings</h3>
+<ul>
+<li><strong>Mistake 1:</strong> Thinking the outer loop waits for the inner loop to partially run and then they alternate. This is incorrect. The inner loop runs fully each time.</li>
+<li><strong>Mistake 2:</strong> Assuming the inner loop resets its counter incorrectly. The inner loop always starts from its initial value when the outer loop advances.</li>
+<li><strong>Mistake 3:</strong> Forgetting that the inner loop's condition is re-evaluated fresh for each outer loop iteration.</li>
+</ul>
+<hr />
+<h3 id="comparison-table-outer-loop-vs-inner-loop-behavior_1">📋 Comparison Table: Outer Loop vs Inner Loop Behavior</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Outer Loop</th>
+<th>Inner Loop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Role</strong></td>
+<td>Controls the major iteration</td>
+<td>Controls the minor iteration</td>
+</tr>
+<tr>
+<td><strong>Execution</strong></td>
+<td>Advances only after inner loop completes</td>
+<td>Runs fully for each outer loop step</td>
+</tr>
+<tr>
+<td><strong>Scope</strong></td>
+<td>Wraps around the inner loop</td>
+<td>Nested inside the outer loop body</td>
+</tr>
+<tr>
+<td><strong>Total Runs</strong></td>
+<td>Defined by its own condition</td>
+<td>Outer loop count × Inner loop count</td>
+</tr>
+<tr>
+<td><strong>Completion</strong></td>
+<td>Finishes last</td>
+<td>Finishes multiple times before outer loop ends</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="real-world-analogy_1">🧩 Real-World Analogy</h3>
+<p>Think of a <strong>calendar</strong> where the outer loop represents <strong>months</strong> and the inner loop represents <strong>days</strong>.</p>
+<ul>
+<li><strong>January (Outer Loop Iteration 1):</strong> The inner loop runs through all 31 days. Once day 31 is reached, the inner loop completes.</li>
+<li><strong>February (Outer Loop Iteration 2):</strong> The inner loop starts fresh and runs through all 28 or 29 days. Once done, the inner loop completes again.</li>
+<li>This pattern repeats for every month until the year ends.</li>
+</ul>
+<p>The inner loop (days) must finish its full cycle before the outer loop (months) can advance to the next month.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li>The <strong>inner loop completes entirely</strong> before the <strong>outer loop advances</strong>.</li>
+<li>This creates a <strong>sequential, predictable</strong> execution pattern.</li>
+<li>Total inner loop iterations = Outer loop count × Inner loop count.</li>
+<li>Always visualize the flow as: <em>outer step → full inner cycle → next outer step → full inner cycle again</em>.</li>
+</ul>
+<p>Mastering this concept will help you confidently build nested loops for data processing, pattern generation, and any scenario requiring layered iteration.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This concept describes how a nested loop must finish all its iterations (inner loop completion) before the outer loop moves to its next iteration (outer loop advancement).</p>
+<hr />
+<h3 id="example-1-basic-two-level-nested-loop-showing-completion-order_1">🔧 Example 1: Basic two-level nested loop showing completion order</h3>
+<p>This demonstrates that the inner loop runs fully for each single step of the outer loop.</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">outer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outer:&quot;</span><span class="p">,</span> <span class="n">outer</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">inner</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Inner:&quot;</span><span class="p">,</span> <span class="n">inner</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output:<br />
+<div class="highlight"><pre><span></span><code>Outer: 1
+  Inner: 1
+  Inner: 2
+  Inner: 3
+Outer: 2
+  Inner: 1
+  Inner: 2
+  Inner: 3
+Outer: 3
+  Inner: 1
+  Inner: 2
+  Inner: 3
+</code></pre></div></p>
+<hr />
+<h3 id="example-2-counting-total-iterations-across-all-inner-loops_1">🔧 Example 2: Counting total iterations across all inner loops</h3>
+<p>This shows that the inner loop runs completely for each outer loop value, producing a total of outer × inner iterations.</p>
+<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">outer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">inner</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Iteration&quot;</span><span class="p">,</span> <span class="n">total</span><span class="p">,</span> <span class="s2">&quot;- Outer:&quot;</span><span class="p">,</span> <span class="n">outer</span><span class="p">,</span> <span class="s2">&quot;Inner:&quot;</span><span class="p">,</span> <span class="n">inner</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output:<br />
+<div class="highlight"><pre><span></span><code>Iteration 1 - Outer: 1 Inner: 1
+Iteration 2 - Outer: 1 Inner: 2
+Iteration 3 - Outer: 1 Inner: 3
+Iteration 4 - Outer: 2 Inner: 1
+Iteration 5 - Outer: 2 Inner: 2
+Iteration 6 - Outer: 2 Inner: 3
+Iteration 7 - Outer: 3 Inner: 1
+Iteration 8 - Outer: 3 Inner: 2
+Iteration 9 - Outer: 3 Inner: 3
+</code></pre></div></p>
+<hr />
+<h3 id="example-3-inner-loop-depends-on-outer-loop-value_1">🔧 Example 3: Inner loop depends on outer loop value</h3>
+<p>This shows that the inner loop uses the current outer loop variable, and runs completely before outer advances.</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">outer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Multiplication table for&quot;</span><span class="p">,</span> <span class="n">outer</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">inner</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">outer</span> <span class="o">*</span> <span class="n">inner</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">,</span> <span class="n">outer</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">inner</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output:<br />
+<div class="highlight"><pre><span></span><code>Multiplication table for 1
+   1 x 1 = 1
+   1 x 2 = 2
+   1 x 3 = 3
+Multiplication table for 2
+   2 x 1 = 2
+   2 x 2 = 4
+   2 x 3 = 6
+Multiplication table for 3
+   3 x 1 = 3
+   3 x 2 = 6
+   3 x 3 = 9
+Multiplication table for 4
+   4 x 1 = 4
+   4 x 2 = 8
+   4 x 3 = 12
+</code></pre></div></p>
+<hr />
+<h3 id="example-4-breaking-inner-loop-early-outer-still-advances_1">🔧 Example 4: Breaking inner loop early — outer still advances</h3>
+<p>This shows that even if the inner loop is stopped early (break), the outer loop continues to its next value.</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">outer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Outer:&quot;</span><span class="p">,</span> <span class="n">outer</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">inner</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">inner</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Breaking inner at&quot;</span><span class="p">,</span> <span class="n">inner</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Inner:&quot;</span><span class="p">,</span> <span class="n">inner</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output:<br />
+<div class="highlight"><pre><span></span><code>Outer: 1
+  Inner: 1
+  Inner: 2
+  Breaking inner at 3
+Outer: 2
+  Inner: 1
+  Inner: 2
+  Breaking inner at 3
+Outer: 3
+  Inner: 1
+  Inner: 2
+  Breaking inner at 3
+</code></pre></div></p>
+<hr />
+<h3 id="example-5-practical-checking-items-in-a-list-of-lists_1">🔧 Example 5: Practical — checking items in a list of lists</h3>
+<p>This shows a real-world use where engineers scan each inner list completely before moving to the next outer list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;sensor1&quot;</span><span class="p">,</span> <span class="s2">&quot;sensor2&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;sensor3&quot;</span><span class="p">,</span> <span class="s2">&quot;sensor4&quot;</span><span class="p">,</span> <span class="s2">&quot;sensor5&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;sensor6&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">outer_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Checking group&quot;</span><span class="p">,</span> <span class="n">outer_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">inner_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">outer_index</span><span class="p">])):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Reading:&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">outer_index</span><span class="p">][</span><span class="n">inner_index</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output:<br />
+<div class="highlight"><pre><span></span><code>Checking group 1
+  Reading: sensor1
+  Reading: sensor2
+Checking group 2
+  Reading: sensor3
+  Reading: sensor4
+  Reading: sensor5
+Checking group 3
+  Reading: sensor6
+</code></pre></div></p>
+<hr />
+<h2 id="comparison-table_1">Comparison Table</h2>
 <table>
 <thead>
 <tr>

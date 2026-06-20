@@ -24,3 +24,52 @@
     margin-bottom: 20px;
     display: inline-block;
 }
+
+/* 4. Tabbed Panel styling (Theory/Code) */
+.tabbed-set {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 1.5em 0 2em;
+}
+.tabbed-set > input {
+    display: none;
+}
+.tabbed-labels {
+    display: flex;
+    width: 100%;
+    border-bottom: 2px solid #e1e4e5;
+    margin-bottom: 1.5em;
+}
+.tabbed-labels > label {
+    padding: 12px 24px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555555;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s ease-in-out;
+    user-select: none;
+}
+.tabbed-labels > label:hover {
+    color: #2980b9;
+}
+.tabbed-content {
+    width: 100%;
+}
+.tabbed-block {
+    display: none;
+}
+
+/* Toggle Visibility and Active Tab Styling */
+.tabbed-set > input:nth-of-type(1):checked ~ .tabbed-labels > label:nth-of-type(1),
+.tabbed-set > input:nth-of-type(2):checked ~ .tabbed-labels > label:nth-of-type(2),
+.tabbed-set > input:nth-of-type(3):checked ~ .tabbed-labels > label:nth-of-type(3) {
+    color: #2980b9;
+    border-bottom: 2px solid #2980b9;
+}
+.tabbed-set > input:nth-of-type(1):checked ~ .tabbed-content > .tabbed-block:nth-of-type(1),
+.tabbed-set > input:nth-of-type(2):checked ~ .tabbed-content > .tabbed-block:nth-of-type(2),
+.tabbed-set > input:nth-of-type(3):checked ~ .tabbed-content > .tabbed-block:nth-of-type(3) {
+    display: block;
+}

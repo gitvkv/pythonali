@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_02_06/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Practical Example: Reading Ansible Inventory YAMLs - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Practical Example: Reading Ansible Inventory YAMLs";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_02_06.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_02_06/";
       </script>
     
     <!--[if lt IE 9]>
@@ -903,6 +903,42 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-an-ansible-inventory-yaml_1">⚙️ What is an Ansible Inventory YAML?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-1-install-the-required-library_1">🛠️ Step 1: Install the Required Library</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-2-reading-the-yaml-file_1">🕵️ Step 2: Reading the YAML File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-3-exploring-the-parsed-data_1">📊 Step 3: Exploring the Parsed Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-4-extracting-specific-information_1">🧩 Step 4: Extracting Specific Information</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-5-handling-nested-variables_1">🧪 Step 5: Handling Nested Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-yaml-vs-python-dictionary_1">📋 Comparison: YAML vs Python Dictionary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-6-validating-the-inventory-structure_1">🧹 Step 6: Validating the Inventory Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-use-case-generating-a-host-list-for-monitoring_1">🚀 Practical Use Case: Generating a Host List for Monitoring</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">📚 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-reading-a-simple-ansible-inventory-file_1">🐍 Example 1: Reading a simple Ansible inventory file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-accessing-host-variables-from-an-inventory_1">🐍 Example 2: Accessing host variables from an inventory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-working-with-host-groups-and-children_1">🐍 Example 3: Working with host groups and children</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-extracting-all-host-ips-from-a-nested-inventory_1">🐍 Example 4: Extracting all host IPs from a nested inventory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-reading-an-inventory-from-a-file-and-filtering-by-group_1">🐍 Example 5: Reading an inventory from a file and filtering by group</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_03_01/">Ch 19 | Extracting Tabular Data Rows as List Objects</a>
@@ -1084,7 +1120,7 @@
               
                 <h1 id="practical-example-reading-ansible-inventory-yamls">Practical Example: Reading Ansible Inventory YAMLs</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  YAML Processing</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1258,8 +1294,7 @@
 </ul>
 <hr />
 <p><em>Happy automating!</em></p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example shows how to read and work with Ansible inventory files in YAML format using Python's <code>yaml</code> library.</p>
 <h3 id="example-1-reading-a-simple-ansible-inventory-file">🐍 Example 1: Reading a simple Ansible inventory file</h3>
 <p>This example loads a basic inventory with one host group and prints the group name.</p>
@@ -1371,6 +1406,350 @@
 <strong>web02 -&gt; 10.0.0.2</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Example 1</th>
+<th>Example 2</th>
+<th>Example 3</th>
+<th>Example 4</th>
+<th>Example 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reads from string</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌ (file)</td>
+</tr>
+<tr>
+<td>Accesses host variables</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Handles multiple groups</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Flattens nested data</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Uses file input</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>Ansible is a widely used automation tool, and its inventory files—which define the hosts and groups you manage—are typically written in YAML. For engineers working with automation pipelines, being able to read, parse, and manipulate these YAML inventory files programmatically is a valuable skill. This allows you to dynamically generate inventories, validate configurations, or extract specific host information for reporting or monitoring purposes.</p>
+<p>In this guide, we'll walk through a practical example of reading an Ansible inventory YAML file using Python's <strong>PyYAML</strong> library, breaking down each step in a simple, clear manner.</p>
+<hr />
+<h3 id="what-is-an-ansible-inventory-yaml_1">⚙️ What is an Ansible Inventory YAML?</h3>
+<p>An Ansible inventory file written in YAML defines:</p>
+<ul>
+<li><strong>Hosts</strong>: Individual machines (e.g., web servers, database servers).</li>
+<li><strong>Groups</strong>: Logical collections of hosts (e.g., <code>webservers</code>, <code>databases</code>).</li>
+<li><strong>Variables</strong>: Key-value pairs that apply to hosts or groups (e.g., <code>ansible_user</code>, <code>http_port</code>).</li>
+</ul>
+<p>A typical inventory YAML looks like this:</p>
+<ul>
+<li><strong>all</strong>: The root group containing all hosts.</li>
+<li><strong>children</strong>: Sub-groups under <code>all</code>.</li>
+<li><strong>hosts</strong>: Individual machines listed under a group.</li>
+<li><strong>vars</strong>: Variables specific to a group or host.</li>
+</ul>
+<hr />
+<h3 id="step-1-install-the-required-library_1">🛠️ Step 1: Install the Required Library</h3>
+<p>Before we can read YAML files in Python, we need the <strong>PyYAML</strong> library.</p>
+<ul>
+<li>Install it using <strong>pip</strong>: <code>pip install pyyaml</code></li>
+<li>This library provides functions to parse YAML content into Python dictionaries and lists.</li>
+</ul>
+<hr />
+<h3 id="step-2-reading-the-yaml-file_1">🕵️ Step 2: Reading the YAML File</h3>
+<p>We'll use a sample inventory file named <strong>inventory.yml</strong> with the following structure:</p>
+<ul>
+<li><strong>all</strong> group contains:</li>
+<li><strong>children</strong>:<ul>
+<li><strong>webservers</strong> group with hosts: <strong>web1.example.com</strong> and <strong>web2.example.com</strong></li>
+<li><strong>databases</strong> group with hosts: <strong>db1.example.com</strong> and <strong>db2.example.com</strong></li>
+</ul>
+</li>
+<li><strong>vars</strong>:<ul>
+<li><strong>ansible_user</strong>: <strong>admin</strong></li>
+<li><strong>ansible_port</strong>: <strong>22</strong></li>
+</ul>
+</li>
+</ul>
+<p>To read this file in Python:</p>
+<ul>
+<li>Import the <strong>yaml</strong> module.</li>
+<li>Open the file using Python's built-in <strong>open()</strong> function.</li>
+<li>Use <strong>yaml.safe_load()</strong> to parse the file content into a Python dictionary.</li>
+</ul>
+<p>Example code flow:</p>
+<ul>
+<li><strong>import yaml</strong></li>
+<li><strong>with open('inventory.yml', 'r') as file:</strong></li>
+<li><strong>data = yaml.safe_load(file)</strong></li>
+<li>The variable <strong>data</strong> now holds the entire inventory as a nested Python dictionary.</li>
+</ul>
+<hr />
+<h3 id="step-3-exploring-the-parsed-data_1">📊 Step 3: Exploring the Parsed Data</h3>
+<p>Once the YAML is loaded, we can explore its structure using Python dictionary methods.</p>
+<ul>
+<li>To see all top-level keys: <strong>data.keys()</strong> returns <strong>dict_keys(['all'])</strong></li>
+<li>To access the <strong>children</strong> section: <strong>data['all']['children']</strong> returns a dictionary of groups.</li>
+<li>To list all groups: <strong>data['all']['children'].keys()</strong> returns <strong>dict_keys(['webservers', 'databases'])</strong></li>
+<li>To get hosts under <strong>webservers</strong>: <strong>data['all']['children']['webservers']['hosts']</strong> returns a dictionary of host names.</li>
+<li>To access global variables: <strong>data['all']['vars']</strong> returns <strong>{'ansible_user': 'admin', 'ansible_port': 22}</strong></li>
+</ul>
+<hr />
+<h3 id="step-4-extracting-specific-information_1">🧩 Step 4: Extracting Specific Information</h3>
+<p>Let's say we want to extract all hostnames from the inventory for reporting.</p>
+<p>We can loop through each group and collect the hostnames:</p>
+<ul>
+<li>Initialize an empty list: <strong>all_hosts = []</strong></li>
+<li>Loop through each group in <strong>data['all']['children']</strong>:</li>
+<li>For each group, access its <strong>hosts</strong> key.</li>
+<li>Loop through the hosts and append each hostname to <strong>all_hosts</strong>.</li>
+<li>The final list <strong>all_hosts</strong> will contain: <strong>['web1.example.com', 'web2.example.com', 'db1.example.com', 'db2.example.com']</strong></li>
+</ul>
+<hr />
+<h3 id="step-5-handling-nested-variables_1">🧪 Step 5: Handling Nested Variables</h3>
+<p>Sometimes variables are defined at the group level or even at the host level. To retrieve all variables for a specific host:</p>
+<ul>
+<li>Access the host's group first.</li>
+<li>Check if the host has its own <strong>vars</strong> section.</li>
+<li>Merge group-level variables with host-level variables if needed.</li>
+</ul>
+<p>For example, if <strong>web1.example.com</strong> has a custom variable <strong>http_port: 8080</strong>, we can access it as:</p>
+<ul>
+<li><strong>data['all']['children']['webservers']['hosts']['web1.example.com']['http_port']</strong></li>
+</ul>
+<hr />
+<h3 id="comparison-yaml-vs-python-dictionary_1">📋 Comparison: YAML vs Python Dictionary</h3>
+<table>
+<thead>
+<tr>
+<th>YAML Structure</th>
+<th>Python Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>all:</strong></td>
+<td>Dictionary key <strong>'all'</strong></td>
+</tr>
+<tr>
+<td><strong>children:</strong></td>
+<td>Dictionary key <strong>'children'</strong></td>
+</tr>
+<tr>
+<td><strong>webservers:</strong></td>
+<td>Dictionary key <strong>'webservers'</strong></td>
+</tr>
+<tr>
+<td><strong>hosts:</strong></td>
+<td>Dictionary key <strong>'hosts'</strong></td>
+</tr>
+<tr>
+<td><strong>web1.example.com:</strong></td>
+<td>Dictionary key <strong>'web1.example.com'</strong></td>
+</tr>
+<tr>
+<td><strong>vars:</strong></td>
+<td>Dictionary key <strong>'vars'</strong></td>
+</tr>
+<tr>
+<td><strong>ansible_user: admin</strong></td>
+<td>Key-value pair <strong>'ansible_user': 'admin'</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="step-6-validating-the-inventory-structure_1">🧹 Step 6: Validating the Inventory Structure</h3>
+<p>Before processing, it's good practice to validate that the inventory has the expected structure.</p>
+<ul>
+<li>Check if the <strong>'all'</strong> key exists: <strong>if 'all' in data:</strong></li>
+<li>Check if <strong>'children'</strong> exists under <strong>'all'</strong>: <strong>if 'children' in data['all']:</strong></li>
+<li>Check if a specific group exists: <strong>if 'webservers' in data['all']['children']:</strong></li>
+<li>This prevents <strong>KeyError</strong> exceptions when accessing nested data.</li>
+</ul>
+<hr />
+<h3 id="practical-use-case-generating-a-host-list-for-monitoring_1">🚀 Practical Use Case: Generating a Host List for Monitoring</h3>
+<p>Imagine you need to generate a simple text file listing all hosts for a monitoring tool.</p>
+<p>Steps:</p>
+<ol>
+<li>Read the inventory YAML as shown above.</li>
+<li>Extract all hostnames into a list.</li>
+<li>Write each hostname to a new file, one per line.</li>
+</ol>
+<p>The output file would contain:</p>
+<ul>
+<li><strong>web1.example.com</strong></li>
+<li><strong>web2.example.com</strong></li>
+<li><strong>db1.example.com</strong></li>
+<li><strong>db2.example.com</strong></li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li>Ansible inventory YAML files are structured as nested dictionaries in Python.</li>
+<li>The <strong>PyYAML</strong> library's <strong>yaml.safe_load()</strong> function converts YAML to Python data structures.</li>
+<li>Access hosts, groups, and variables using standard dictionary key lookups.</li>
+<li>Always validate the structure before accessing nested keys to avoid errors.</li>
+<li>This approach allows you to dynamically process inventories for automation, reporting, or integration with other tools.</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">📚 Next Steps</h3>
+<ul>
+<li>Experiment with more complex inventory files that include nested groups or host-specific variables.</li>
+<li>Learn to write or modify YAML files using <strong>yaml.dump()</strong>.</li>
+<li>Explore error handling with <strong>try-except</strong> blocks when reading files or parsing YAML.</li>
+</ul>
+<hr />
+<p><em>Happy automating!</em></p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example shows how to read and work with Ansible inventory files in YAML format using Python's <code>yaml</code> library.</p>
+<h3 id="example-1-reading-a-simple-ansible-inventory-file_1">🐍 Example 1: Reading a simple Ansible inventory file</h3>
+<p>This example loads a basic inventory with one host group and prints the group name.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="n">inventory_yaml</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">all:</span>
+<span class="s2">  hosts:</span>
+<span class="s2">    webserver01:</span>
+<span class="s2">      ansible_host: 192.168.1.10</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">inventory</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">inventory_yaml</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inventory</span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">][</span><span class="s2">&quot;hosts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>dict_keys(['webserver01'])</strong></p>
+<hr />
+<h3 id="example-2-accessing-host-variables-from-an-inventory_1">🐍 Example 2: Accessing host variables from an inventory</h3>
+<p>This example reads host-specific variables like IP addresses from the inventory.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="n">inventory_yaml</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">all:</span>
+<span class="s2">  hosts:</span>
+<span class="s2">    webserver01:</span>
+<span class="s2">      ansible_host: 192.168.1.10</span>
+<span class="s2">      ansible_user: admin</span>
+<span class="s2">    dbserver01:</span>
+<span class="s2">      ansible_host: 192.168.1.20</span>
+<span class="s2">      ansible_user: dbadmin</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">inventory</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">inventory_yaml</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">host</span><span class="p">,</span> <span class="nb">vars</span> <span class="ow">in</span> <span class="n">inventory</span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">][</span><span class="s2">&quot;hosts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">vars</span><span class="p">[</span><span class="s1">&#39;ansible_host&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>webserver01: 192.168.1.10</strong><br />
+<strong>dbserver01: 192.168.1.20</strong></p>
+<hr />
+<h3 id="example-3-working-with-host-groups-and-children_1">🐍 Example 3: Working with host groups and children</h3>
+<p>This example reads a multi-group inventory and lists all hosts in each group.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="n">inventory_yaml</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">all:</span>
+<span class="s2">  children:</span>
+<span class="s2">    webservers:</span>
+<span class="s2">      hosts:</span>
+<span class="s2">        web01:</span>
+<span class="s2">          ansible_host: 10.0.0.1</span>
+<span class="s2">        web02:</span>
+<span class="s2">          ansible_host: 10.0.0.2</span>
+<span class="s2">    databases:</span>
+<span class="s2">      hosts:</span>
+<span class="s2">        db01:</span>
+<span class="s2">          ansible_host: 10.0.1.1</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">inventory</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">inventory_yaml</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">group</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">inventory</span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">][</span><span class="s2">&quot;children&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">hosts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;hosts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Group &#39;</span><span class="si">{</span><span class="n">group</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">hosts</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Group 'webservers': ['web01', 'web02']</strong><br />
+<strong>Group 'databases': ['db01']</strong></p>
+<hr />
+<h3 id="example-4-extracting-all-host-ips-from-a-nested-inventory_1">🐍 Example 4: Extracting all host IPs from a nested inventory</h3>
+<p>This example flattens a multi-group inventory into a simple list of all host IP addresses.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="n">inventory_yaml</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">all:</span>
+<span class="s2">  children:</span>
+<span class="s2">    webservers:</span>
+<span class="s2">      hosts:</span>
+<span class="s2">        web01:</span>
+<span class="s2">          ansible_host: 10.0.0.1</span>
+<span class="s2">        web02:</span>
+<span class="s2">          ansible_host: 10.0.0.2</span>
+<span class="s2">    databases:</span>
+<span class="s2">      hosts:</span>
+<span class="s2">        db01:</span>
+<span class="s2">          ansible_host: 10.0.1.1</span>
+<span class="s2">        db02:</span>
+<span class="s2">          ansible_host: 10.0.1.2</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">inventory</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">inventory_yaml</span><span class="p">)</span>
+<span class="n">all_ips</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">inventory</span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">][</span><span class="s2">&quot;children&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">host_vars</span> <span class="ow">in</span> <span class="n">group</span><span class="p">[</span><span class="s2">&quot;hosts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">all_ips</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">host_vars</span><span class="p">[</span><span class="s2">&quot;ansible_host&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_ips</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['10.0.0.1', '10.0.0.2', '10.0.1.1', '10.0.1.2']</strong></p>
+<hr />
+<h3 id="example-5-reading-an-inventory-from-a-file-and-filtering-by-group_1">🐍 Example 5: Reading an inventory from a file and filtering by group</h3>
+<p>This example loads an actual YAML file and prints only hosts in the "webservers" group.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;inventory.yml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">inventory</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="n">webserver_hosts</span> <span class="o">=</span> <span class="n">inventory</span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">][</span><span class="s2">&quot;children&quot;</span><span class="p">][</span><span class="s2">&quot;webservers&quot;</span><span class="p">][</span><span class="s2">&quot;hosts&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">host</span><span class="p">,</span> <span class="nb">vars</span> <span class="ow">in</span> <span class="n">webserver_hosts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="nb">vars</span><span class="p">[</span><span class="s1">&#39;ansible_host&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>web01 -&gt; 10.0.0.1</strong><br />
+<strong>web02 -&gt; 10.0.0.2</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch20_07_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 20 | Standard Script Topography (Imports down to Main Loop) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 20 | Standard Script Topography (Imports down to Main Loop)";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch20_07_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch20_07_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -985,6 +985,42 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-script-topography-elements">📊 Comparison Table: Script Topography Elements</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-standard-script-layout-top-to-bottom_1">🗺️ The Standard Script Layout (Top to Bottom)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-1-module-imports-always-at-the-top_1">📦 Step 1: Module Imports (Always at the Top)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-2-global-constants-configuration_1">🔧 Step 2: Global Constants &amp; Configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-3-helper-functions-classes_1">🧩 Step 3: Helper Functions &amp; Classes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-4-core-logic-functions_1">⚙️ Step 4: Core Logic Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-5-the-main-execution-block-the-entry-point_1">🚀 Step 5: The Main Execution Block (The Entry Point)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-good-vs-poor-script-topography_1">🆚 Comparison: Good vs. Poor Script Topography</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-inline-format_1">🛠️ Practical Example (Inline Format)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-this-topography-matters-for-engineers_1">🕵️ Why This Topography Matters for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-checklist-for-your-next-script_1">✅ Quick Checklist for Your Next Script</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#final-thought_1">📌 Final Thought</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-minimal-script-with-imports-and-a-main-function_1">🧱 Example 1: Minimal script with imports and a main function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-multiple-imports-grouped-by-type_1">🧱 Example 2: Multiple imports grouped by type</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-constants-defined-after-imports-before-functions_1">🧱 Example 3: Constants defined after imports, before functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-helper-functions-before-the-main-function_1">🧱 Example 4: Helper functions before the main function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-script-with-argument-parsing-and-main-loop_1">🧱 Example 5: Practical script with argument parsing and main loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-script-topography-elements_1">📊 Comparison Table: Script Topography Elements</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_01_01/">Ch 21 | Problem Definition and Input-Output Mapping Profiles</a>
@@ -1084,7 +1120,7 @@
               
                 <h1 id="standard-script-topography-imports-down-to-main-loop">Standard Script Topography (Imports down to Main Loop)</h1>
 <p><span class="category-tag">🏷️ Python Scripting Best Practices /  The Script Entry Point Pattern</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1220,8 +1256,7 @@
 <hr />
 <h3 id="final-thought">📌 Final Thought</h3>
 <p>Script topography is not about being fancy—it's about being <strong>predictable</strong>. When every script you write follows the same structure, you spend less time figuring out how it works and more time solving the actual problem. Start every new script with imports at the top and the main block at the bottom, and you'll already be writing professional-grade Python.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This pattern defines the standard order of elements in a Python script, starting with imports at the top and ending with the main execution block at the bottom.</p>
 <h3 id="example-1-minimal-script-with-imports-and-a-main-function">🧱 Example 1: Minimal script with imports and a main function</h3>
 <p>This example shows the simplest valid script structure with one import and one function.</p>
@@ -1336,6 +1371,297 @@
 <p>📤 Output: <strong>HELLO WORLD</strong> (assuming data.txt contains "hello world")</p>
 <hr />
 <h3 id="comparison-table-script-topography-elements">📊 Comparison Table: Script Topography Elements</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Position</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Imports</td>
+<td>Top of file</td>
+<td>Load external modules and libraries</td>
+</tr>
+<tr>
+<td>Constants</td>
+<td>After imports</td>
+<td>Define fixed values used throughout script</td>
+</tr>
+<tr>
+<td>Helper functions</td>
+<td>After constants</td>
+<td>Small reusable utility functions</td>
+</tr>
+<tr>
+<td>Main function</td>
+<td>Before main guard</td>
+<td>Primary logic of the script</td>
+</tr>
+<tr>
+<td><code>if __name__ == "__main__"</code></td>
+<td>Bottom of file</td>
+<td>Entry point that calls main()</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When you open a well-structured Python script, you'll notice a consistent flow from top to bottom. This predictable layout—from imports through to the main execution block—is called <strong>script topography</strong>. For engineers new to Python, understanding this standard structure helps you read, write, and debug scripts with confidence. Think of it as the blueprint every professional Python script follows.</p>
+<hr />
+<h3 id="the-standard-script-layout-top-to-bottom_1">🗺️ The Standard Script Layout (Top to Bottom)</h3>
+<p>A typical Python script follows this exact order:</p>
+<ul>
+<li><strong>📦 Module Imports</strong> – All external libraries and modules are loaded first.</li>
+<li><strong>🔧 Global Constants &amp; Configuration</strong> – Fixed values and settings that don't change.</li>
+<li><strong>🧩 Helper Functions &amp; Classes</strong> – Reusable logic blocks defined before they are used.</li>
+<li><strong>⚙️ Core Logic Functions</strong> – The main processing functions that do the real work.</li>
+<li><strong>🚀 Main Execution Block</strong> – The entry point that ties everything together and runs the script.</li>
+</ul>
+<hr />
+<h3 id="step-1-module-imports-always-at-the-top_1">📦 Step 1: Module Imports (Always at the Top)</h3>
+<p>Imports are grouped and ordered for clarity:</p>
+<ul>
+<li><strong>Standard library imports first</strong> – Built-in modules like <strong>os</strong>, <strong>sys</strong>, <strong>json</strong>, <strong>datetime</strong>.</li>
+<li><strong>Third-party imports second</strong> – External packages like <strong>requests</strong>, <strong>boto3</strong>, <strong>pandas</strong>.</li>
+<li><strong>Local application imports last</strong> – Custom modules from your own project.</li>
+</ul>
+<p>Example structure:
+- <strong>import os</strong> and <strong>import sys</strong> at the very top.
+- A blank line, then <strong>import requests</strong> and <strong>import boto3</strong>.
+- Another blank line, then <strong>from my_local_module import helper_func</strong>.</p>
+<hr />
+<h3 id="step-2-global-constants-configuration_1">🔧 Step 2: Global Constants &amp; Configuration</h3>
+<p>After imports, define values that remain constant throughout the script:</p>
+<ul>
+<li><strong>LOG_FILE = "app.log"</strong> – File paths and names.</li>
+<li><strong>MAX_RETRIES = 3</strong> – Configuration limits.</li>
+<li><strong>API_ENDPOINT = "https://api.example.com"</strong> – External service URLs.</li>
+<li><strong>DEFAULT_TIMEOUT = 30</strong> – Timeout values in seconds.</li>
+</ul>
+<p>These are placed in <strong>ALL_CAPS</strong> to signal they are constants and should not be modified during execution.</p>
+<hr />
+<h3 id="step-3-helper-functions-classes_1">🧩 Step 3: Helper Functions &amp; Classes</h3>
+<p>Define smaller, reusable pieces of logic before the main functions:</p>
+<ul>
+<li><strong>def validate_input(data):</strong> – Checks if input meets requirements.</li>
+<li><strong>def format_timestamp():</strong> – Converts timestamps to a standard format.</li>
+<li><strong>class ConfigLoader:</strong> – Reads and parses configuration files.</li>
+</ul>
+<p>These helpers are used by the core logic functions that come next.</p>
+<hr />
+<h3 id="step-4-core-logic-functions_1">⚙️ Step 4: Core Logic Functions</h3>
+<p>These are the main functions that perform the script's primary purpose:</p>
+<ul>
+<li><strong>def process_data(raw_data):</strong> – Transforms and analyzes input data.</li>
+<li><strong>def send_notification(message):</strong> – Sends alerts or updates.</li>
+<li><strong>def run_pipeline():</strong> – Orchestrates the entire workflow step by step.</li>
+</ul>
+<p>Each function should do <strong>one thing well</strong> and have a clear, descriptive name.</p>
+<hr />
+<h3 id="step-5-the-main-execution-block-the-entry-point_1">🚀 Step 5: The Main Execution Block (The Entry Point)</h3>
+<p>This is the most critical part of the topography. It uses the <strong>if <strong>name</strong> == "<strong>main</strong>":</strong> pattern:</p>
+<ul>
+<li><strong>if <strong>name</strong> == "<strong>main</strong>":</strong> – This line checks if the script is being run directly (not imported as a module).</li>
+<li>Inside this block:</li>
+<li>Parse command-line arguments if needed.</li>
+<li>Call the main orchestration function (e.g., <strong>run_pipeline()</strong>).</li>
+<li>Handle any top-level exceptions.</li>
+<li>Print results or exit with appropriate status codes.</li>
+</ul>
+<p>This pattern allows your script to be both <strong>executable</strong> (run from the command line) and <strong>importable</strong> (used by other scripts without side effects).</p>
+<hr />
+<h3 id="comparison-good-vs-poor-script-topography_1">🆚 Comparison: Good vs. Poor Script Topography</h3>
+<table>
+<thead>
+<tr>
+<th>✅ Well-Structured Script</th>
+<th>❌ Poorly Structured Script</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Imports at the very top</td>
+<td>Imports scattered throughout the file</td>
+</tr>
+<tr>
+<td>Constants clearly defined in one section</td>
+<td>Magic numbers and strings buried in code</td>
+</tr>
+<tr>
+<td>Helper functions before main logic</td>
+<td>Functions defined after they are called</td>
+</tr>
+<tr>
+<td>Single entry point with <strong>if <strong>name</strong> == "<strong>main</strong>":</strong></td>
+<td>Code runs immediately on import</td>
+</tr>
+<tr>
+<td>Functions have clear, single responsibilities</td>
+<td>One giant function does everything</td>
+</tr>
+<tr>
+<td>Consistent naming conventions</td>
+<td>Mixed styles (camelCase, snake_case, random)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-inline-format_1">🛠️ Practical Example (Inline Format)</h3>
+<p>A well-structured script follows this exact flow:</p>
+<ul>
+<li><strong>Line 1-5:</strong> Import <strong>os</strong>, <strong>sys</strong>, <strong>json</strong>, <strong>requests</strong>, and <strong>datetime</strong>.</li>
+<li><strong>Line 7-10:</strong> Define constants like <strong>LOG_FILE = "pipeline.log"</strong> and <strong>RETRY_LIMIT = 3</strong>.</li>
+<li><strong>Line 12-18:</strong> Write a helper function <strong>def load_config(filepath):</strong> that reads a JSON config.</li>
+<li><strong>Line 20-35:</strong> Write the core function <strong>def process_events(events):</strong> that filters and transforms data.</li>
+<li><strong>Line 37-45:</strong> Write the main orchestration function <strong>def main():</strong> that loads config, processes events, and logs results.</li>
+<li><strong>Line 47-50:</strong> The entry point: <strong>if <strong>name</strong> == "<strong>main</strong>":</strong> followed by <strong>main()</strong>.</li>
+</ul>
+<hr />
+<h3 id="why-this-topography-matters-for-engineers_1">🕵️ Why This Topography Matters for Engineers</h3>
+<ul>
+<li><strong>Readability</strong> – Anyone familiar with Python can open your script and immediately understand the flow.</li>
+<li><strong>Debugging</strong> – You can quickly locate where imports, constants, or logic live.</li>
+<li><strong>Reusability</strong> – The <strong>if <strong>name</strong> == "<strong>main</strong>":</strong> pattern lets other scripts safely import your functions.</li>
+<li><strong>Maintainability</strong> – Adding new features means adding a function in the right section, not rewriting the entire script.</li>
+<li><strong>Collaboration</strong> – Team members know exactly where to look for configuration, helpers, or the main logic.</li>
+</ul>
+<hr />
+<h3 id="quick-checklist-for-your-next-script_1">✅ Quick Checklist for Your Next Script</h3>
+<ul>
+<li>[ ] All imports grouped and ordered at the top.</li>
+<li>[ ] Constants defined in ALL_CAPS right after imports.</li>
+<li>[ ] Helper functions defined before core logic functions.</li>
+<li>[ ] A single <strong>main()</strong> function that orchestrates everything.</li>
+<li>[ ] The <strong>if <strong>name</strong> == "<strong>main</strong>":</strong> block at the very end.</li>
+<li>[ ] No code runs automatically when the script is imported.</li>
+</ul>
+<hr />
+<h3 id="final-thought_1">📌 Final Thought</h3>
+<p>Script topography is not about being fancy—it's about being <strong>predictable</strong>. When every script you write follows the same structure, you spend less time figuring out how it works and more time solving the actual problem. Start every new script with imports at the top and the main block at the bottom, and you'll already be writing professional-grade Python.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This pattern defines the standard order of elements in a Python script, starting with imports at the top and ending with the main execution block at the bottom.</p>
+<h3 id="example-1-minimal-script-with-imports-and-a-main-function_1">🧱 Example 1: Minimal script with imports and a main function</h3>
+<p>This example shows the simplest valid script structure with one import and one function.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">calculate_circle_area</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>78.53981633974483</strong></p>
+<hr />
+<h3 id="example-2-multiple-imports-grouped-by-type_1">🧱 Example 2: Multiple imports grouped by type</h3>
+<p>This example demonstrates grouping standard library imports together before custom code.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_config</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">load_config</span><span class="p">(</span><span class="s2">&quot;settings.json&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'debug': True, 'port': 8080}</strong></p>
+<hr />
+<h3 id="example-3-constants-defined-after-imports-before-functions_1">🧱 Example 3: Constants defined after imports, before functions</h3>
+<p>This example shows where to place constant values in the script topography.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="n">MAX_RETRIES</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">TIMEOUT_SECONDS</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">connect_to_server</span><span class="p">(</span><span class="n">address</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">MAX_RETRIES</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempt </span><span class="si">{</span><span class="n">attempt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> to connect to </span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">connect_to_server</span><span class="p">(</span><span class="s2">&quot;192.168.1.1&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Attempt 1 to connect to 192.168.1.1\nAttempt 2 to connect to 192.168.1.1\nAttempt 3 to connect to 192.168.1.1\nTrue</strong></p>
+<hr />
+<h3 id="example-4-helper-functions-before-the-main-function_1">🧱 Example 4: Helper functions before the main function</h3>
+<p>This example shows the standard order: imports, constants, helper functions, then the main function.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="n">MIN_VALUE</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">MAX_VALUE</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_random_number</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">MIN_VALUE</span><span class="p">,</span> <span class="n">MAX_VALUE</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_guess</span><span class="p">(</span><span class="n">guess</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Too low&quot;</span>
+    <span class="k">elif</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Too high&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Correct&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">generate_random_number</span><span class="p">()</span>
+    <span class="n">guess</span> <span class="o">=</span> <span class="mi">50</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">check_guess</span><span class="p">(</span><span class="n">guess</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Guess </span><span class="si">{</span><span class="n">guess</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Guess 50: Too low</strong> (or another result depending on random value)</p>
+<hr />
+<h3 id="example-5-practical-script-with-argument-parsing-and-main-loop_1">🧱 Example 5: Practical script with argument parsing and main loop</h3>
+<p>This example shows a complete script topography with argument handling and a processing loop.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+
+<span class="n">DEFAULT_INPUT_FILE</span> <span class="o">=</span> <span class="s2">&quot;data.txt&quot;</span>
+<span class="n">OUTPUT_PREFIX</span> <span class="o">=</span> <span class="s2">&quot;processed_&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_arguments</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Process data files&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--input&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">DEFAULT_INPUT_FILE</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Input file path&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--verbose&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enable verbose output&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_data</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_line</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parse_arguments</span><span class="p">()</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+        <span class="n">processed</span> <span class="o">=</span> <span class="n">process_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing: </span><span class="si">{</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">processed</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>HELLO WORLD</strong> (assuming data.txt contains "hello world")</p>
+<hr />
+<h3 id="comparison-table-script-topography-elements_1">📊 Comparison Table: Script Topography Elements</h3>
 <table>
 <thead>
 <tr>

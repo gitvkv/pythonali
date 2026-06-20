@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch20_06_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 20 | Idempotency Laws and Automation Safety Value - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 20 | Idempotency Laws and Automation Safety Value";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch20_06_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch20_06_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -967,6 +967,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#idempotent-vs-non-idempotent-operations">📊 Idempotent vs Non-Idempotent Operations</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-idempotency_1">⚙️ What Is Idempotency?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-two-core-idempotency-laws_1">🛠️ The Two Core Idempotency Laws</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-idempotency-is-critical-for-automation-safety_1">🕵️ Why Idempotency Is Critical for Automation Safety</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#idempotent-vs-non-idempotent-scripts-a-comparison_1">📊 Idempotent vs. Non-Idempotent Scripts: A Comparison</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-patterns-for-writing-idempotent-python-scripts_1">🧩 Practical Patterns for Writing Idempotent Python Scripts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#real-world-example-creating-a-directory_1">🔍 Real-World Example: Creating a Directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary-the-safety-value-of-idempotency_1">✅ Summary: The Safety Value of Idempotency</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-non-idempotent-vs-idempotent-adding-to-a-list_1">🧪 Example 1: Non-Idempotent vs Idempotent — Adding to a List</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-making-an-append-idempotent-with-a-check_1">🧪 Example 2: Making an Append Idempotent with a Check</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-idempotent-file-writing-only-write-if-file-missing_1">🧪 Example 3: Idempotent File Writing — Only Write If File Missing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-idempotent-directory-creation_1">🧪 Example 4: Idempotent Directory Creation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-idempotent-database-record-insert_1">🧪 Example 5: Idempotent Database Record Insert</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#idempotent-vs-non-idempotent-operations_1">📊 Idempotent vs Non-Idempotent Operations</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch20_06_02/">Ch 20 | Pre-Execution Checks and Target State Assertions</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="idempotency-laws-and-automation-safety-value">Idempotency Laws and Automation Safety Value</h1>
 <p><span class="category-tag">🏷️ Python Scripting Best Practices /  Writing Idempotent Scripts</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1188,8 +1216,7 @@
 <li><strong>Resilience</strong> against network failures, timeouts, and human mistakes</li>
 </ul>
 <p>Every script you write should answer one question: <em>If I run this a hundred times, will the outcome be the same as running it once?</em> If the answer is yes, you have built automation that is safe, predictable, and trustworthy.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Idempotency means running the same operation multiple times produces the same result as running it once, making automation safe to repeat without causing unintended side effects.</p>
 <hr />
 <h3 id="example-1-non-idempotent-vs-idempotent-adding-to-a-list">🧪 Example 1: Non-Idempotent vs Idempotent — Adding to a List</h3>
@@ -1252,6 +1279,221 @@
 <p>📤 Output: <strong>[101, 102, 103, 104]</strong></p>
 <hr />
 <h3 id="idempotent-vs-non-idempotent-operations">📊 Idempotent vs Non-Idempotent Operations</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Non-Idempotent Behavior</th>
+<th>Idempotent Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adding to a list</td>
+<td><code>append()</code> adds duplicate each run</td>
+<td>Check existence before <code>append()</code></td>
+</tr>
+<tr>
+<td>Writing a file</td>
+<td>Overwrites content each run</td>
+<td>Write only if file does not exist</td>
+</tr>
+<tr>
+<td>Creating a directory</td>
+<td>Raises error if directory exists</td>
+<td>Check existence before <code>mkdir()</code></td>
+</tr>
+<tr>
+<td>Inserting a database record</td>
+<td>Creates duplicate rows each run</td>
+<td>Check primary key before insert</td>
+</tr>
+<tr>
+<td>Setting a configuration value</td>
+<td>Changes value each run</td>
+<td>Set value only if not already set</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When you run a script once, everything works fine. But what happens when you run it again? And again? If your script behaves differently on the second or third run—or worse, breaks something—you have a problem. This is where <strong>idempotency</strong> becomes your best friend. In simple terms, an idempotent operation produces the same result no matter how many times you execute it. For automation, this is the foundation of safety, predictability, and trust.</p>
+<hr />
+<h3 id="what-is-idempotency_1">⚙️ What Is Idempotency?</h3>
+<p>Idempotency means that applying an operation multiple times has the same effect as applying it once.</p>
+<ul>
+<li><strong>Example in real life</strong>: Turning on a light switch that is already on. The result (light on) does not change.</li>
+<li><strong>Example in automation</strong>: Creating a directory. If the directory already exists, the script should not fail or create duplicates.</li>
+<li><strong>Key idea</strong>: Your script should be safe to run over and over again without causing unintended side effects.</li>
+</ul>
+<hr />
+<h3 id="the-two-core-idempotency-laws_1">🛠️ The Two Core Idempotency Laws</h3>
+<table>
+<thead>
+<tr>
+<th>Law</th>
+<th>What It Means</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Law of Repeatability</strong></td>
+<td>Running the script multiple times yields the same final state.</td>
+<td>Prevents drift, corruption, and unexpected failures.</td>
+</tr>
+<tr>
+<td><strong>Law of Safety</strong></td>
+<td>If the desired state is already achieved, the script does nothing harmful.</td>
+<td>Reduces risk during retries, scheduled runs, or accidental execution.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="why-idempotency-is-critical-for-automation-safety_1">🕵️ Why Idempotency Is Critical for Automation Safety</h3>
+<ul>
+<li><strong>Prevents duplicate resources</strong>: No two identical files, users, or configurations created by accident.</li>
+<li><strong>Enables safe retries</strong>: If a network failure occurs mid-run, re-running the script won't corrupt your system.</li>
+<li><strong>Supports scheduled automation</strong>: Cron jobs, CI/CD pipelines, and monitoring tools can run scripts repeatedly without fear.</li>
+<li><strong>Simplifies debugging</strong>: You know exactly what the script will do on every run, making logs and outcomes predictable.</li>
+<li><strong>Protects against human error</strong>: Engineers can run scripts manually without needing to remember "was this already done?"</li>
+</ul>
+<hr />
+<h3 id="idempotent-vs-non-idempotent-scripts-a-comparison_1">📊 Idempotent vs. Non-Idempotent Scripts: A Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Behavior</th>
+<th>Non-Idempotent Script</th>
+<th>Idempotent Script</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>First run</strong></td>
+<td>Creates a file successfully</td>
+<td>Creates a file successfully</td>
+</tr>
+<tr>
+<td><strong>Second run</strong></td>
+<td>Fails because file exists, or overwrites data</td>
+<td>Checks if file exists, skips creation</td>
+</tr>
+<tr>
+<td><strong>Third run</strong></td>
+<td>May create duplicate entries or corrupt state</td>
+<td>Still safe, no changes made</td>
+</tr>
+<tr>
+<td><strong>Error recovery</strong></td>
+<td>Hard to recover; state is unpredictable</td>
+<td>Easy to recover; re-run is safe</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-patterns-for-writing-idempotent-python-scripts_1">🧩 Practical Patterns for Writing Idempotent Python Scripts</h3>
+<p><strong>Check before you act</strong>
+- Before creating a resource, verify if it already exists.
+- Before modifying a configuration, compare current state with desired state.</p>
+<p><strong>Use conditional logic</strong>
+- If a directory exists, skip the creation step.
+- If a user account exists, skip the account creation step.</p>
+<p><strong>Prefer "set" operations over "add" operations</strong>
+- Setting a value to a specific state is idempotent. Adding to a value is not.
+- Example: Setting a configuration key to "enabled" is safe. Toggling it on and off is not.</p>
+<p><strong>Design for partial completion</strong>
+- If your script fails halfway, the next run should pick up where it left off.
+- Use state files, database records, or API checks to track progress.</p>
+<hr />
+<h3 id="real-world-example-creating-a-directory_1">🔍 Real-World Example: Creating a Directory</h3>
+<p><strong>Non-idempotent approach</strong>:
+- Attempt to create a directory every time.
+- If the directory exists, the script raises an error or overwrites permissions.</p>
+<p><strong>Idempotent approach</strong>:
+- Check if the directory exists.
+- If it does not exist, create it.
+- If it exists, verify permissions are correct and skip creation.</p>
+<p>The result is the same every time: the directory exists with the correct permissions.</p>
+<hr />
+<h3 id="summary-the-safety-value-of-idempotency_1">✅ Summary: The Safety Value of Idempotency</h3>
+<p>Idempotency is not just a technical concept—it is a <strong>safety contract</strong> between you and your automation. When you write idempotent scripts, you gain:</p>
+<ul>
+<li><strong>Confidence</strong> to run scripts on production systems</li>
+<li><strong>Simplicity</strong> in scheduling and retry logic</li>
+<li><strong>Clarity</strong> in understanding what your automation actually does</li>
+<li><strong>Resilience</strong> against network failures, timeouts, and human mistakes</li>
+</ul>
+<p>Every script you write should answer one question: <em>If I run this a hundred times, will the outcome be the same as running it once?</em> If the answer is yes, you have built automation that is safe, predictable, and trustworthy.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Idempotency means running the same operation multiple times produces the same result as running it once, making automation safe to repeat without causing unintended side effects.</p>
+<hr />
+<h3 id="example-1-non-idempotent-vs-idempotent-adding-to-a-list_1">🧪 Example 1: Non-Idempotent vs Idempotent — Adding to a List</h3>
+<p>This example shows how appending to a list is not idempotent because each run adds another item.</p>
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[1, 2, 3, 4, 4, 4]</strong></p>
+<hr />
+<h3 id="example-2-making-an-append-idempotent-with-a-check_1">🧪 Example 2: Making an Append Idempotent with a Check</h3>
+<p>This example shows how to make an append operation safe by checking if the value already exists.</p>
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">new_value</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">if</span> <span class="n">new_value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_value</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">new_value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_value</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">new_value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_value</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[1, 2, 3, 4]</strong></p>
+<hr />
+<h3 id="example-3-idempotent-file-writing-only-write-if-file-missing_1">🧪 Example 3: Idempotent File Writing — Only Write If File Missing</h3>
+<p>This example shows how to write a configuration file only once, preventing overwrites on repeated runs.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">config_content</span> <span class="o">=</span> <span class="s2">&quot;timeout=30&quot;</span>
+<span class="n">config_path</span> <span class="o">=</span> <span class="s2">&quot;config.txt&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">config_path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">config_content</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>config.txt created only on first run; subsequent runs do nothing</strong></p>
+<hr />
+<h3 id="example-4-idempotent-directory-creation_1">🧪 Example 4: Idempotent Directory Creation</h3>
+<p>This example shows how to create a directory safely without raising errors if it already exists.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">directory</span> <span class="o">=</span> <span class="s2">&quot;logs&quot;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>logs directory created once; second and third mkdir calls are skipped</strong></p>
+<hr />
+<h3 id="example-5-idempotent-database-record-insert_1">🧪 Example 5: Idempotent Database Record Insert</h3>
+<p>This example shows how to insert a record only if it does not already exist, making the operation safe to repeat.</p>
+<div class="highlight"><pre><span></span><code><span class="n">existing_ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">101</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">103</span><span class="p">]</span>
+<span class="n">new_record_id</span> <span class="o">=</span> <span class="mi">104</span>
+<span class="k">if</span> <span class="n">new_record_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">existing_ids</span><span class="p">:</span>
+    <span class="n">existing_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_record_id</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">new_record_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">existing_ids</span><span class="p">:</span>
+    <span class="n">existing_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_record_id</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">new_record_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">existing_ids</span><span class="p">:</span>
+    <span class="n">existing_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_record_id</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[101, 102, 103, 104]</strong></p>
+<hr />
+<h3 id="idempotent-vs-non-idempotent-operations_1">📊 Idempotent vs Non-Idempotent Operations</h3>
 <table>
 <thead>
 <tr>

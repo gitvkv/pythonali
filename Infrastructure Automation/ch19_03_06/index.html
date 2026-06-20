@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_03_06/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Practical Example: Reading Firewall Rule Matrix Exports - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Practical Example: Reading Firewall Rule Matrix Exports";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_03_06.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_03_06/";
       </script>
     
     <!--[if lt IE 9]>
@@ -909,6 +909,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-csv-reading-methods">Comparison Table: CSV Reading Methods</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-scenario-a-firewall-rule-matrix_1">⚙️ The Scenario: A Firewall Rule Matrix</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-1-opening-and-reading-the-csv-file_1">🛠️ Step 1: Opening and Reading the CSV File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-2-filtering-rules-by-action_1">📊 Step 2: Filtering Rules by Action</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-3-searching-for-rules-by-port-or-protocol_1">🕵️ Step 3: Searching for Rules by Port or Protocol</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-4-counting-rules-and-generating-a-summary_1">📋 Step 4: Counting Rules and Generating a Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-csv-vs-manual-inspection_1">🧩 Comparison: CSV vs. Manual Inspection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together-a-complete-workflow_1">🧪 Putting It All Together: A Complete Workflow</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-reading-a-simple-firewall-rule-csv_1">📖 Example 1: Reading a Simple Firewall Rule CSV</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-reading-rules-as-dictionaries_1">📖 Example 2: Reading Rules as Dictionaries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-filtering-rules-by-action-type_1">📖 Example 3: Filtering Rules by Action Type</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-counting-rules-per-port_1">📖 Example 4: Counting Rules per Port</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-building-a-rule-lookup-table_1">📖 Example 5: Building a Rule Lookup Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-csv-reading-methods_1">Comparison Table: CSV Reading Methods</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_04_01/">Ch 19 | Context Analysis and Format Selection Frameworks</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="practical-example-reading-firewall-rule-matrix-exports">Practical Example: Reading Firewall Rule Matrix Exports</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  CSV In-Depth</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1200,8 +1230,7 @@
 <li>This approach scales from a dozen rules to thousands without performance issues.</li>
 </ul>
 <p>By mastering this practical example, you can confidently parse any structured firewall export and extract meaningful insights for audits, migrations, or compliance checks.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example shows how to read and work with firewall rule matrix exports stored as CSV files, which engineers commonly encounter when analyzing access control policies.</p>
 <h3 id="example-1-reading-a-simple-firewall-rule-csv">📖 Example 1: Reading a Simple Firewall Rule CSV</h3>
 <p>This example demonstrates how to load a basic CSV file containing firewall rules into Python.</p>
@@ -1277,6 +1306,234 @@
 <p>📤 Output: <strong>ALLOW DENY</strong></p>
 <hr />
 <h3 id="comparison-table-csv-reading-methods">Comparison Table: CSV Reading Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>csv.reader()</code></td>
+<td>List of lists</td>
+<td>Simple row-by-row processing</td>
+</tr>
+<tr>
+<td><code>csv.DictReader()</code></td>
+<td>List of dictionaries</td>
+<td>Named column access</td>
+</tr>
+<tr>
+<td>Dictionary lookup</td>
+<td>Key-value pairs</td>
+<td>Fast rule matching</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>Firewall rule exports are often provided as CSV files—a matrix of source IPs, destination IPs, ports, protocols, and actions. As engineers, you'll frequently need to parse these exports to audit rules, find overlaps, or generate reports. This example walks through reading a firewall rule matrix from a CSV file using Python's built-in <strong>csv</strong> module, without any external dependencies.</p>
+<hr />
+<h3 id="the-scenario-a-firewall-rule-matrix_1">⚙️ The Scenario: A Firewall Rule Matrix</h3>
+<p>Imagine you receive a CSV file named <strong>firewall_rules.csv</strong> with the following columns:</p>
+<ul>
+<li><strong>RuleID</strong> – Unique identifier for each rule</li>
+<li><strong>SourceIP</strong> – Source IP address or subnet</li>
+<li><strong>DestIP</strong> – Destination IP address or subnet</li>
+<li><strong>Port</strong> – Destination port number</li>
+<li><strong>Protocol</strong> – TCP or UDP</li>
+<li><strong>Action</strong> – Allow or Deny</li>
+</ul>
+<p>A sample row might look like this:</p>
+<p><strong>RuleID:</strong> R001, <strong>SourceIP:</strong> 10.0.1.0/24, <strong>DestIP:</strong> 192.168.1.100, <strong>Port:</strong> 443, <strong>Protocol:</strong> TCP, <strong>Action:</strong> Allow</p>
+<hr />
+<h3 id="step-1-opening-and-reading-the-csv-file_1">🛠️ Step 1: Opening and Reading the CSV File</h3>
+<p>To begin, you open the file using Python's <strong>open()</strong> function and pass it to the <strong>csv.DictReader</strong> class. This reader treats the first row as column headers and returns each subsequent row as a dictionary.</p>
+<p>The process looks like this:</p>
+<ul>
+<li>Import the <strong>csv</strong> module at the top of your script.</li>
+<li>Use <strong>with open('firewall_rules.csv', mode='r') as file:</strong> to safely open the file.</li>
+<li>Create a reader object: <strong>reader = csv.DictReader(file)</strong>.</li>
+<li>Loop through <strong>reader</strong> to access each row as a dictionary.</li>
+</ul>
+<p>Each row dictionary will have keys matching the column headers. For example, accessing <strong>row['SourceIP']</strong> gives you the source IP for that rule.</p>
+<hr />
+<h3 id="step-2-filtering-rules-by-action_1">📊 Step 2: Filtering Rules by Action</h3>
+<p>A common task is to separate <strong>Allow</strong> rules from <strong>Deny</strong> rules. You can do this by checking the <strong>Action</strong> field while iterating through the rows.</p>
+<p>Here's the logic:</p>
+<ul>
+<li>Initialize two empty lists: <strong>allow_rules = []</strong> and <strong>deny_rules = []</strong>.</li>
+<li>For each row in the reader, check the value of <strong>row['Action']</strong>.</li>
+<li>If the action equals <strong>'Allow'</strong>, append the row to <strong>allow_rules</strong>.</li>
+<li>If the action equals <strong>'Deny'</strong>, append the row to <strong>deny_rules</strong>.</li>
+</ul>
+<p>After the loop, you have two separate lists containing only the relevant rules.</p>
+<hr />
+<h3 id="step-3-searching-for-rules-by-port-or-protocol_1">🕵️ Step 3: Searching for Rules by Port or Protocol</h3>
+<p>You might need to find all rules that affect a specific port, like port <strong>22</strong> for SSH. This is a simple conditional filter:</p>
+<ul>
+<li>Loop through the reader rows again (or through your <strong>allow_rules</strong> list).</li>
+<li>Check if <strong>row['Port'] == '22'</strong>.</li>
+<li>If true, print or store that rule for review.</li>
+</ul>
+<p>Similarly, you can filter by protocol:</p>
+<ul>
+<li>Check if <strong>row['Protocol'] == 'UDP'</strong> to find all UDP-related rules.</li>
+</ul>
+<hr />
+<h3 id="step-4-counting-rules-and-generating-a-summary_1">📋 Step 4: Counting Rules and Generating a Summary</h3>
+<p>To get a quick overview of your firewall matrix, you can count how many rules exist for each action type.</p>
+<p>The approach:</p>
+<ul>
+<li>Initialize counters: <strong>allow_count = 0</strong> and <strong>deny_count = 0</strong>.</li>
+<li>As you loop through the reader, increment the appropriate counter based on the <strong>Action</strong> field.</li>
+<li>After the loop, print the totals.</li>
+</ul>
+<p>You can also count unique source IPs or destination IPs by adding them to a <strong>set()</strong> and checking the set's length.</p>
+<hr />
+<h3 id="comparison-csv-vs-manual-inspection_1">🧩 Comparison: CSV vs. Manual Inspection</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>CSV with Python</th>
+<th>Manual Inspection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Speed</strong></td>
+<td>Processes hundreds of rules in seconds</td>
+<td>Takes minutes for even small files</td>
+</tr>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>No human error in filtering or counting</td>
+<td>Prone to missed rows or typos</td>
+</tr>
+<tr>
+<td><strong>Reproducibility</strong></td>
+<td>Same script works on any CSV export</td>
+<td>Must re-check manually each time</td>
+</tr>
+<tr>
+<td><strong>Flexibility</strong></td>
+<td>Easily change filters (port, protocol, IP)</td>
+<td>Requires starting over for new criteria</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="putting-it-all-together-a-complete-workflow_1">🧪 Putting It All Together: A Complete Workflow</h3>
+<p>A typical script for reading a firewall rule matrix would follow this sequence:</p>
+<ol>
+<li><strong>Import the csv module</strong> at the top.</li>
+<li><strong>Open the file</strong> using <strong>with open()</strong> and <strong>csv.DictReader</strong>.</li>
+<li><strong>Initialize lists and counters</strong> for allow rules, deny rules, and totals.</li>
+<li><strong>Loop through each row</strong> and populate your lists and counters based on conditions.</li>
+<li><strong>Print a summary</strong> showing total rules, allow count, deny count, and unique IPs.</li>
+<li><strong>Optionally, write filtered results</strong> to a new CSV file for reporting.</li>
+</ol>
+<p>The output might look like this:</p>
+<p><strong>Total rules found:</strong> 150<br />
+<strong>Allow rules:</strong> 120<br />
+<strong>Deny rules:</strong> 30<br />
+<strong>Unique source IPs:</strong> 45<br />
+<strong>Unique destination IPs:</strong> 22  </p>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li>The <strong>csv.DictReader</strong> makes reading CSV files intuitive by mapping headers to dictionary keys.</li>
+<li>Filtering by column values (action, port, protocol) is straightforward with simple <strong>if</strong> conditions.</li>
+<li>Counting and summarizing rules helps you quickly understand the firewall posture.</li>
+<li>Python's standard library is sufficient—no need for <strong>pandas</strong> or other external libraries for basic CSV parsing.</li>
+<li>This approach scales from a dozen rules to thousands without performance issues.</li>
+</ul>
+<p>By mastering this practical example, you can confidently parse any structured firewall export and extract meaningful insights for audits, migrations, or compliance checks.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example shows how to read and work with firewall rule matrix exports stored as CSV files, which engineers commonly encounter when analyzing access control policies.</p>
+<h3 id="example-1-reading-a-simple-firewall-rule-csv_1">📖 Example 1: Reading a Simple Firewall Rule CSV</h3>
+<p>This example demonstrates how to load a basic CSV file containing firewall rules into Python.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;firewall_rules.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Source', 'Destination', 'Port', 'Action'] ['10.0.1.0/24', '10.0.2.0/24', '443', 'ALLOW'] ['10.0.1.0/24', '10.0.3.0/24', '80', 'DENY']</strong></p>
+<hr />
+<h3 id="example-2-reading-rules-as-dictionaries_1">📖 Example 2: Reading Rules as Dictionaries</h3>
+<p>This example shows how to read each firewall rule row as a dictionary with named columns.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;firewall_rules.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Source&#39;</span><span class="p">],</span> <span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Destination&#39;</span><span class="p">],</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Port&#39;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>10.0.1.0/24 -&gt; 10.0.2.0/24 : 443 10.0.1.0/24 -&gt; 10.0.3.0/24 : 80</strong></p>
+<hr />
+<h3 id="example-3-filtering-rules-by-action-type_1">📖 Example 3: Filtering Rules by Action Type</h3>
+<p>This example demonstrates how to extract only the ALLOW rules from the firewall matrix.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">allow_rules</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;firewall_rules.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Action&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;ALLOW&#39;</span><span class="p">:</span>
+            <span class="n">allow_rules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">allow_rules</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'Source': '10.0.1.0/24', 'Destination': '10.0.2.0/24', 'Port': '443', 'Action': 'ALLOW'}</strong></p>
+<hr />
+<h3 id="example-4-counting-rules-per-port_1">📖 Example 4: Counting Rules per Port</h3>
+<p>This example shows how to count how many firewall rules exist for each port number.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">port_counts</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;firewall_rules.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Port&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">port_counts</span><span class="p">:</span>
+            <span class="n">port_counts</span><span class="p">[</span><span class="n">port</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">port_counts</span><span class="p">[</span><span class="n">port</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">port</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">port_counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>443 : 1 80 : 1</strong></p>
+<hr />
+<h3 id="example-5-building-a-rule-lookup-table_1">📖 Example 5: Building a Rule Lookup Table</h3>
+<p>This example demonstrates creating a dictionary that maps source-destination pairs to their action, useful for quick lookups.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">rule_lookup</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;firewall_rules.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Source&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Destination&#39;</span><span class="p">])</span>
+        <span class="n">rule_lookup</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Action&#39;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">rule_lookup</span><span class="p">[(</span><span class="s1">&#39;10.0.1.0/24&#39;</span><span class="p">,</span> <span class="s1">&#39;10.0.2.0/24&#39;</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rule_lookup</span><span class="p">[(</span><span class="s1">&#39;10.0.1.0/24&#39;</span><span class="p">,</span> <span class="s1">&#39;10.0.3.0/24&#39;</span><span class="p">)])</span>
+</code></pre></div>
+<p>📤 Output: <strong>ALLOW DENY</strong></p>
+<hr />
+<h3 id="comparison-table-csv-reading-methods_1">Comparison Table: CSV Reading Methods</h3>
 <table>
 <thead>
 <tr>

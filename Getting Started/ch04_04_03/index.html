@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch04_04_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 04 | Rounding Numbers Safely with round() - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 04 | Rounding Numbers Safely with round()";
         var mkdocs_page_input_path = "Getting Started\\ch04_04_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch04_04_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -226,6 +226,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-rounding-currency-values-for-engineers">🔧 Example 5: Practical use — rounding currency values for engineers</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-rounding-methods">Comparison Table: Rounding Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-rounding-matters_1">⚙️ Why Rounding Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-round-works-in-python_1">🛠️ How round() Works in Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-bankers-rounding-vs-traditional-rounding_1">📊 Comparison: Banker's Rounding vs. Traditional Rounding</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-with-floating-point-numbers_1">🕵️ Common Pitfalls with Floating-Point Numbers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#safer-alternatives-for-rounding_1">🧰 Safer Alternatives for Rounding</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-safe-rounding_1">✅ Best Practices for Safe Rounding</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference_1">📝 Quick Reference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-rounding-to-zero-decimal-places_1">🔧 Example 1: Basic rounding to zero decimal places</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-rounding-to-a-specific-number-of-decimal-places_1">🔧 Example 2: Rounding to a specific number of decimal places</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-the-bankers-rounding-behavior-for-5_1">🔧 Example 3: The "banker's rounding" behavior for .5</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-rounding-negative-numbers_1">🔧 Example 4: Rounding negative numbers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-rounding-currency-values-for-engineers_1">🔧 Example 5: Practical use — rounding currency values for engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-rounding-methods_1">Comparison Table: Rounding Methods</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="rounding-numbers-safely-with-round">Rounding Numbers Safely with round()</h1>
 <p><span class="category-tag">🏷️ Numbers and Mathematical Operations /  Large Numbers and Precision</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with numbers in Python, rounding seems simple at first glance. However, Python's built-in <strong>round()</strong> function behaves in ways that can surprise new engineers. Understanding how rounding works—and when to use alternatives—will help you avoid subtle bugs in your scripts and automation tasks.</p>
@@ -1196,8 +1222,7 @@
 </tbody>
 </table>
 <p>Rounding safely means choosing the right tool for your specific need and understanding the behavior of each approach. Start with <strong>round()</strong> for simple cases, then graduate to the <strong>decimal</strong> module when precision matters most.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>round()</code> function in Python rounds a number to a specified number of decimal places, but it uses "banker's rounding" which rounds .5 to the nearest even number to avoid bias in calculations.</p>
 <hr />
 <h3 id="example-1-basic-rounding-to-zero-decimal-places">🔧 Example 1: Basic rounding to zero decimal places</h3>
@@ -1245,6 +1270,211 @@
 <p>📤 Output: <strong>Engineer report: 45.68 units</strong></p>
 <hr />
 <h3 id="comparison-table-rounding-methods">Comparison Table: Rounding Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Behavior for .5</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>round(x)</code></td>
+<td>Rounds to nearest even number</td>
+<td>General purpose, statistical calculations</td>
+</tr>
+<tr>
+<td><code>round(x, n)</code></td>
+<td>Rounds to nearest even at nth decimal</td>
+<td>Precision control for engineers</td>
+</tr>
+<tr>
+<td><code>math.floor(x)</code></td>
+<td>Always rounds down</td>
+<td>Truncation, positive values only</td>
+</tr>
+<tr>
+<td><code>math.ceil(x)</code></td>
+<td>Always rounds up</td>
+<td>Safety margins, overestimation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with numbers in Python, rounding seems simple at first glance. However, Python's built-in <strong>round()</strong> function behaves in ways that can surprise new engineers. Understanding how rounding works—and when to use alternatives—will help you avoid subtle bugs in your scripts and automation tasks.</p>
+<hr />
+<h3 id="why-rounding-matters_1">⚙️ Why Rounding Matters</h3>
+<p>Rounding is essential when you need to:
+- Format output for readability (e.g., showing only two decimal places)
+- Reduce floating-point precision errors after calculations
+- Prepare numbers for systems that expect integer or fixed-precision values</p>
+<p>Without safe rounding practices, you might encounter unexpected results like <strong>0.1 + 0.2</strong> not equaling <strong>0.3</strong> due to how computers store floating-point numbers.</p>
+<hr />
+<h3 id="how-round-works-in-python_1">🛠️ How round() Works in Python</h3>
+<p>Python's <strong>round()</strong> function takes two arguments: the number to round and the number of decimal places (optional).</p>
+<p><strong>Basic usage:</strong>
+- <strong>round(3.14159, 2)</strong> returns <strong>3.14</strong>
+- <strong>round(2.71828, 1)</strong> returns <strong>2.7</strong>
+- <strong>round(5.0)</strong> returns <strong>5</strong> (no decimal places defaults to integer)</p>
+<p><strong>The tricky part:</strong> Python uses <strong>banker's rounding</strong> (also called round-half-to-even). This means when a number is exactly halfway between two rounding options, Python rounds to the nearest even digit.</p>
+<p><strong>Examples of banker's rounding:</strong>
+- <strong>round(2.5)</strong> returns <strong>2</strong> (2 is even)
+- <strong>round(3.5)</strong> returns <strong>4</strong> (4 is even)
+- <strong>round(2.675, 2)</strong> returns <strong>2.67</strong> (not 2.68 as you might expect)</p>
+<p>This behavior prevents cumulative rounding bias in large datasets, but it can confuse engineers who expect traditional "round half up" behavior.</p>
+<hr />
+<h3 id="comparison-bankers-rounding-vs-traditional-rounding_1">📊 Comparison: Banker's Rounding vs. Traditional Rounding</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Python round()</th>
+<th>Expected (Traditional)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>round(2.5)</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>round(3.5)</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>round(4.5)</td>
+<td>4</td>
+<td>5</td>
+</tr>
+<tr>
+<td>round(2.675, 2)</td>
+<td>2.67</td>
+<td>2.68</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-pitfalls-with-floating-point-numbers_1">🕵️ Common Pitfalls with Floating-Point Numbers</h3>
+<p>Floating-point representation can cause unexpected rounding behavior:</p>
+<ul>
+<li><strong>round(2.675, 2)</strong> gives <strong>2.67</strong> because <strong>2.675</strong> is stored internally as <strong>2.6749999999999998</strong></li>
+<li><strong>round(1.005, 2)</strong> gives <strong>1.0</strong> instead of <strong>1.01</strong> for the same reason</li>
+</ul>
+<p>These issues arise because decimal numbers like <strong>0.1</strong> and <strong>0.675</strong> cannot be represented exactly in binary floating-point format.</p>
+<hr />
+<h3 id="safer-alternatives-for-rounding_1">🧰 Safer Alternatives for Rounding</h3>
+<p>When you need predictable, traditional rounding behavior, consider these approaches:</p>
+<p><strong>Using the decimal module for precise decimal arithmetic:</strong>
+- Import <strong>Decimal</strong> from the <strong>decimal</strong> module
+- Create a Decimal from a string: <strong>Decimal('2.675')</strong> instead of <strong>Decimal(2.675)</strong>
+- Use <strong>quantize()</strong> with <strong>ROUND_HALF_UP</strong> for traditional rounding</p>
+<p><strong>Example approach:</strong>
+- <strong>Decimal('2.675').quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)</strong> returns <strong>2.68</strong></p>
+<p><strong>Using math.floor() and math.ceil() for integer rounding:</strong>
+- <strong>math.floor(3.7)</strong> returns <strong>3</strong> (always rounds down)
+- <strong>math.ceil(3.2)</strong> returns <strong>4</strong> (always rounds up)</p>
+<p><strong>Using string formatting for display purposes:</strong>
+- <strong>f"{3.14159:.2f}"</strong> produces the string <strong>"3.14"</strong>
+- <strong>format(2.675, '.2f')</strong> produces the string <strong>"2.67"</strong> (still uses banker's rounding)</p>
+<hr />
+<h3 id="best-practices-for-safe-rounding_1">✅ Best Practices for Safe Rounding</h3>
+<ul>
+<li>Use <strong>round()</strong> when you understand and accept banker's rounding behavior</li>
+<li>Use the <strong>decimal</strong> module when you need exact decimal arithmetic and traditional rounding</li>
+<li>Use <strong>math.floor()</strong> and <strong>math.ceil()</strong> when you need deterministic rounding direction</li>
+<li>Use string formatting when you only need to display rounded values (not perform further calculations)</li>
+<li>Always test your rounding logic with edge cases like <strong>.5</strong>, <strong>.05</strong>, and <strong>.005</strong> values</li>
+</ul>
+<hr />
+<h3 id="quick-reference_1">📝 Quick Reference</h3>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Recommended Tool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple rounding, understand banker's rounding</td>
+<td>round()</td>
+</tr>
+<tr>
+<td>Traditional "round half up" behavior</td>
+<td>decimal module with ROUND_HALF_UP</td>
+</tr>
+<tr>
+<td>Always round down</td>
+<td>math.floor()</td>
+</tr>
+<tr>
+<td>Always round up</td>
+<td>math.ceil()</td>
+</tr>
+<tr>
+<td>Display only, no further math</td>
+<td>f-strings or format()</td>
+</tr>
+</tbody>
+</table>
+<p>Rounding safely means choosing the right tool for your specific need and understanding the behavior of each approach. Start with <strong>round()</strong> for simple cases, then graduate to the <strong>decimal</strong> module when precision matters most.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>round()</code> function in Python rounds a number to a specified number of decimal places, but it uses "banker's rounding" which rounds .5 to the nearest even number to avoid bias in calculations.</p>
+<hr />
+<h3 id="example-1-basic-rounding-to-zero-decimal-places_1">🔧 Example 1: Basic rounding to zero decimal places</h3>
+<p>This shows how <code>round()</code> works with no decimal argument — it rounds to the nearest whole number.</p>
+<div class="highlight"><pre><span></span><code><span class="n">value</span> <span class="o">=</span> <span class="mf">3.7</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>4</strong></p>
+<hr />
+<h3 id="example-2-rounding-to-a-specific-number-of-decimal-places_1">🔧 Example 2: Rounding to a specific number of decimal places</h3>
+<p>This demonstrates rounding a number to two decimal places using the second argument.</p>
+<div class="highlight"><pre><span></span><code><span class="n">price</span> <span class="o">=</span> <span class="mf">19.5678</span>
+<span class="n">rounded_price</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rounded_price</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>19.57</strong></p>
+<hr />
+<h3 id="example-3-the-bankers-rounding-behavior-for-5_1">🔧 Example 3: The "banker's rounding" behavior for .5</h3>
+<p>This shows that when a number ends in exactly .5, Python rounds to the nearest even number instead of always rounding up.</p>
+<div class="highlight"><pre><span></span><code><span class="n">value_one</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">value_two</span> <span class="o">=</span> <span class="mf">3.5</span>
+<span class="n">result_one</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">value_one</span><span class="p">)</span>
+<span class="n">result_two</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">value_two</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_one</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_two</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2</strong><br />
+📤 Output: <strong>4</strong></p>
+<hr />
+<h3 id="example-4-rounding-negative-numbers_1">🔧 Example 4: Rounding negative numbers</h3>
+<p>This demonstrates that <code>round()</code> works consistently with negative values, following the same banker's rounding rule.</p>
+<div class="highlight"><pre><span></span><code><span class="n">negative_value</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span>
+<span class="n">result</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">negative_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>-2</strong></p>
+<hr />
+<h3 id="example-5-practical-use-rounding-currency-values-for-engineers_1">🔧 Example 5: Practical use — rounding currency values for engineers</h3>
+<p>This shows a real-world scenario where engineers round sensor readings to two decimal places for reporting.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensor_reading</span> <span class="o">=</span> <span class="mf">45.6789</span>
+<span class="n">rounded_reading</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">sensor_reading</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Engineer report: </span><span class="si">{</span><span class="n">rounded_reading</span><span class="si">}</span><span class="s2"> units&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Engineer report: 45.68 units</strong></p>
+<hr />
+<h3 id="comparison-table-rounding-methods_1">Comparison Table: Rounding Methods</h3>
 <table>
 <thead>
 <tr>

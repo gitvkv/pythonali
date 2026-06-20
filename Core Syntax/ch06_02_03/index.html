@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch06_02_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 06 | Infinite Loop Dangers and Mitigations - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 06 | Infinite Loop Dangers and Mitigations";
         var mkdocs_page_input_path = "Core Syntax\\ch06_02_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch06_02_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -294,6 +294,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-user-input-with-a-break-condition">✅ Example 5: User Input with a Break Condition</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-infinite-loop-vs-safe-loop">Comparison Table: Infinite Loop vs. Safe Loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-an-infinite-loop_1">⚙️ What Is an Infinite Loop?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-causes-of-infinite-loops_1">🕵️ Common Causes of Infinite Loops</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-safe-loop-vs-infinite-loop_1">📊 Comparison: Safe Loop vs. Infinite Loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-prevent-infinite-loops_1">🛠️ How to Prevent Infinite Loops</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-a-safe-while-loop-pattern_1">🧪 Example: A Safe While Loop Pattern</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-to-do-if-you-create-an-infinite-loop_1">🚨 What to Do If You Create an Infinite Loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-summary_1">✅ Best Practices Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-a-classic-infinite-loop_1">⚠️ Example 1: A Classic Infinite Loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-fixing-the-infinite-loop-with-an-update_1">✅ Example 2: Fixing the Infinite Loop with an Update</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-infinite-loop-from-wrong-condition-logic_1">⚠️ Example 3: Infinite Loop from Wrong Condition Logic</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-mitigation-with-a-maximum-iteration-guard_1">✅ Example 4: Mitigation with a Maximum Iteration Guard</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-user-input-with-a-break-condition_1">✅ Example 5: User Input with a Break Condition</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-infinite-loop-vs-safe-loop_1">Comparison Table: Infinite Loop vs. Safe Loop</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="infinite-loop-dangers-and-mitigations">Infinite Loop Dangers and Mitigations</h1>
 <p><span class="category-tag">🏷️ Loops and Iteration /  The While Loop</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with <strong>while loops</strong>, one of the most common pitfalls engineers face is accidentally creating an <strong>infinite loop</strong> — a loop that never stops running. This happens when the condition controlling the loop never becomes <strong>False</strong>. Understanding why infinite loops occur and how to prevent them is essential for writing safe, reliable code.</p>
@@ -1175,8 +1201,7 @@
 <li>Keep loop conditions simple and easy to verify.</li>
 </ul>
 <p>By understanding these dangers and applying these mitigations, you can write while loops that are both powerful and safe — avoiding the frustration of programs that never finish.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>An infinite loop is a <code>while</code> loop that never stops because its condition never becomes <code>False</code>, causing your program to run forever.</p>
 <hr />
 <h3 id="example-1-a-classic-infinite-loop">⚠️ Example 1: A Classic Infinite Loop</h3>
@@ -1239,6 +1264,210 @@
 <p>📤 Output: <strong>prompts user repeatedly until they type 'quit', then prints Goodbye!</strong></p>
 <hr />
 <h3 id="comparison-table-infinite-loop-vs-safe-loop">Comparison Table: Infinite Loop vs. Safe Loop</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Infinite Loop (Danger)</th>
+<th>Safe Loop (Mitigation)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Loop variable</td>
+<td>Never updated</td>
+<td>Updated each iteration</td>
+</tr>
+<tr>
+<td>Condition</td>
+<td>Never becomes <code>False</code></td>
+<td>Becomes <code>False</code> eventually</td>
+</tr>
+<tr>
+<td>Safety guard</td>
+<td>None</td>
+<td>Max iteration counter or user break</td>
+</tr>
+<tr>
+<td>Program behavior</td>
+<td>Runs forever, must force-stop</td>
+<td>Stops automatically or on command</td>
+</tr>
+<tr>
+<td>Example</td>
+<td><code>while x &gt; 0:</code> with no <code>x</code> change</td>
+<td><code>while x &gt; 0:</code> with <code>x = x - 1</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with <strong>while loops</strong>, one of the most common pitfalls engineers face is accidentally creating an <strong>infinite loop</strong> — a loop that never stops running. This happens when the condition controlling the loop never becomes <strong>False</strong>. Understanding why infinite loops occur and how to prevent them is essential for writing safe, reliable code.</p>
+<hr />
+<h3 id="what-is-an-infinite-loop_1">⚙️ What Is an Infinite Loop?</h3>
+<p>An infinite loop is a loop that continues executing indefinitely because its terminating condition is never met. This can cause your program to hang, consume excessive CPU resources, or crash entirely.</p>
+<ul>
+<li>The loop condition remains <strong>True</strong> forever.</li>
+<li>The program never reaches the code after the loop.</li>
+<li>The system may become unresponsive or run out of memory.</li>
+</ul>
+<hr />
+<h3 id="common-causes-of-infinite-loops_1">🕵️ Common Causes of Infinite Loops</h3>
+<p>Infinite loops usually stem from small mistakes in how the loop condition is managed. Here are the most frequent causes:</p>
+<ul>
+<li><strong>Forgotten update statement</strong> — The variable controlling the loop condition is never modified inside the loop body.</li>
+<li><strong>Incorrect condition logic</strong> — The condition is written in a way that can never become False (e.g., using <strong>while True</strong> without a break).</li>
+<li><strong>Wrong variable being updated</strong> — A different variable is modified instead of the one checked in the condition.</li>
+<li><strong>User input never changes</strong> — The loop waits for input to change a condition, but the input remains the same.</li>
+<li><strong>Off-by-one errors</strong> — The loop counter starts or ends at the wrong value, causing the condition to always be True.</li>
+</ul>
+<hr />
+<h3 id="comparison-safe-loop-vs-infinite-loop_1">📊 Comparison: Safe Loop vs. Infinite Loop</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Safe While Loop</th>
+<th>Infinite Loop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Condition</strong></td>
+<td>Eventually becomes False</td>
+<td>Never becomes False</td>
+</tr>
+<tr>
+<td><strong>Update statement</strong></td>
+<td>Present and correct</td>
+<td>Missing or incorrect</td>
+</tr>
+<tr>
+<td><strong>Program behavior</strong></td>
+<td>Completes and continues</td>
+<td>Hangs or crashes</td>
+</tr>
+<tr>
+<td><strong>CPU usage</strong></td>
+<td>Normal</td>
+<td>Spikes to 100%</td>
+</tr>
+<tr>
+<td><strong>Memory usage</strong></td>
+<td>Stable</td>
+<td>May grow indefinitely</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-to-prevent-infinite-loops_1">🛠️ How to Prevent Infinite Loops</h3>
+<p>Follow these practical strategies to avoid infinite loops in your code:</p>
+<ul>
+<li><strong>Always include an update statement</strong> — Ensure the variable in the condition is modified inside the loop body (e.g., incrementing a counter).</li>
+<li><strong>Use a counter with a maximum limit</strong> — Add a safety counter that breaks the loop after a certain number of iterations.</li>
+<li><strong>Test your condition carefully</strong> — Walk through the logic manually to confirm it will eventually become False.</li>
+<li><strong>Add a break statement as a safety net</strong> — Include a condition that explicitly exits the loop if something goes wrong.</li>
+<li><strong>Print debug information</strong> — Temporarily print the loop variable's value inside the loop to see if it's changing as expected.</li>
+</ul>
+<hr />
+<h3 id="example-a-safe-while-loop-pattern_1">🧪 Example: A Safe While Loop Pattern</h3>
+<p>Consider a loop that counts from 1 to 5. The key is that the counter variable <strong>count</strong> is incremented each time the loop runs:</p>
+<ul>
+<li>Initialize <strong>count = 1</strong></li>
+<li>Set the condition: <strong>while count &lt;= 5</strong></li>
+<li>Inside the loop, print the current count</li>
+<li>Then increment: <strong>count = count + 1</strong></li>
+<li>After 5 iterations, count becomes 6, the condition becomes False, and the loop ends</li>
+</ul>
+<p>If you forget the increment line, <strong>count</strong> stays at 1 forever, and the loop never stops.</p>
+<hr />
+<h3 id="what-to-do-if-you-create-an-infinite-loop_1">🚨 What to Do If You Create an Infinite Loop</h3>
+<p>If your program gets stuck in an infinite loop:</p>
+<ul>
+<li><strong>Stop the program</strong> — Use <strong>Ctrl + C</strong> (or <strong>Cmd + C</strong> on macOS) in the terminal to interrupt execution.</li>
+<li><strong>Check the loop variable</strong> — Look at where the condition variable is updated inside the loop.</li>
+<li><strong>Add a safety counter</strong> — Insert a counter that breaks the loop after a maximum number of iterations.</li>
+<li><strong>Review the condition logic</strong> — Ensure the condition can eventually evaluate to False.</li>
+<li><strong>Test incrementally</strong> — Run the loop with a small number of iterations first to verify behavior.</li>
+</ul>
+<hr />
+<h3 id="best-practices-summary_1">✅ Best Practices Summary</h3>
+<ul>
+<li>Always initialize your loop variable before the while loop.</li>
+<li>Update the loop variable inside the loop body.</li>
+<li>Use a maximum iteration guard for critical loops.</li>
+<li>Test loops with small values before running them in production.</li>
+<li>Keep loop conditions simple and easy to verify.</li>
+</ul>
+<p>By understanding these dangers and applying these mitigations, you can write while loops that are both powerful and safe — avoiding the frustration of programs that never finish.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>An infinite loop is a <code>while</code> loop that never stops because its condition never becomes <code>False</code>, causing your program to run forever.</p>
+<hr />
+<h3 id="example-1-a-classic-infinite-loop_1">⚠️ Example 1: A Classic Infinite Loop</h3>
+<p>This example shows the most common mistake — forgetting to update the loop variable.</p>
+<div class="highlight"><pre><span></span><code><span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">counter</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Still running...&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>prints "Still running..." forever until you force-stop the program</strong></p>
+<hr />
+<h3 id="example-2-fixing-the-infinite-loop-with-an-update_1">✅ Example 2: Fixing the Infinite Loop with an Update</h3>
+<p>This example shows how to prevent an infinite loop by incrementing the counter.</p>
+<div class="highlight"><pre><span></span><code><span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">counter</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Counter is:&quot;</span><span class="p">,</span> <span class="n">counter</span><span class="p">)</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div>
+<p>📤 Output: <strong>Counter is: 1 Counter is: 2 Counter is: 3 Counter is: 4 Counter is: 5</strong></p>
+<hr />
+<h3 id="example-3-infinite-loop-from-wrong-condition-logic_1">⚠️ Example 3: Infinite Loop from Wrong Condition Logic</h3>
+<p>This example shows an infinite loop caused by a condition that never becomes <code>False</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">temperature</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="k">while</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature is:&quot;</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="s2">&quot;degrees&quot;</span><span class="p">)</span>
+    <span class="n">temperature</span> <span class="o">=</span> <span class="n">temperature</span> <span class="o">+</span> <span class="mi">10</span>
+</code></pre></div>
+<p>📤 Output: <strong>prints increasing temperatures forever (100, 110, 120, ...) until force-stopped</strong></p>
+<hr />
+<h3 id="example-4-mitigation-with-a-maximum-iteration-guard_1">✅ Example 4: Mitigation with a Maximum Iteration Guard</h3>
+<p>This example shows how to use a safety counter to stop a loop that might run too long.</p>
+<div class="highlight"><pre><span></span><code><span class="n">temperature</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">max_iterations</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">current_iteration</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="ow">and</span> <span class="n">current_iteration</span> <span class="o">&lt;</span> <span class="n">max_iterations</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temperature is:&quot;</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="s2">&quot;degrees&quot;</span><span class="p">)</span>
+    <span class="n">temperature</span> <span class="o">=</span> <span class="n">temperature</span> <span class="o">+</span> <span class="mi">10</span>
+    <span class="n">current_iteration</span> <span class="o">=</span> <span class="n">current_iteration</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loop stopped safely after&quot;</span><span class="p">,</span> <span class="n">current_iteration</span><span class="p">,</span> <span class="s2">&quot;iterations&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Temperature is: 100 degrees Temperature is: 110 degrees ... (10 times) Loop stopped safely after 10 iterations</strong></p>
+<hr />
+<h3 id="example-5-user-input-with-a-break-condition_1">✅ Example 5: User Input with a Break Condition</h3>
+<p>This example shows a practical mitigation — letting the user control when to exit.</p>
+<div class="highlight"><pre><span></span><code><span class="n">user_input</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Type &#39;quit&#39; to stop: &quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">user_input</span> <span class="o">==</span> <span class="s2">&quot;quit&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Goodbye!&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You typed:&quot;</span><span class="p">,</span> <span class="n">user_input</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>prompts user repeatedly until they type 'quit', then prints Goodbye!</strong></p>
+<hr />
+<h3 id="comparison-table-infinite-loop-vs-safe-loop_1">Comparison Table: Infinite Loop vs. Safe Loop</h3>
 <table>
 <thead>
 <tr>

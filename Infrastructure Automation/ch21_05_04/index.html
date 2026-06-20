@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_05_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Validating Script Automation Actions Using Pytest - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Validating Script Automation Actions Using Pytest";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_05_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_05_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -1063,6 +1063,68 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-test-types-and-their-use-cases">Comparison Table: Test Types and Their Use Cases</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-pytest-and-why-use-it-for-automation-validation_1">⚙️ What Is Pytest and Why Use It for Automation Validation?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-concepts-for-testing-automation-scripts_1">🛠️ Core Concepts for Testing Automation Scripts</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#test-functions_1">Test Functions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#assertions_1">Assertions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#test-discovery_1">Test Discovery</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-manual-validation-vs-pytest-validation_1">📊 Comparison: Manual Validation vs. Pytest Validation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#writing-your-first-test-for-an-automation-script_1">🕵️ Writing Your First Test for an Automation Script</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#step-1-identify-what-to-validate_1">Step 1: Identify What to Validate</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#step-2-structure-your-test-file_1">Step 2: Structure Your Test File</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#step-3-write-simple-assertions_1">Step 3: Write Simple Assertions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#step-4-run-your-tests_1">Step 4: Run Your Tests</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-patterns-for-automation-validation_1">🧪 Practical Example Patterns for Automation Validation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#pattern-1-file-existence-test_1">Pattern 1: File Existence Test</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pattern-2-data-content-test_1">Pattern 2: Data Content Test</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pattern-3-error-handling-test_1">Pattern 3: Error Handling Test</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#organizing-tests-for-multiple-automation-scripts_1">🧰 Organizing Tests for Multiple Automation Scripts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#running-tests-efficiently_1">⚡ Running Tests Efficiently</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-for-new-test-writers_1">🚦 Common Pitfalls for New Test Writers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#integrating-tests-into-your-workflow_1">🔄 Integrating Tests Into Your Workflow</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">🎯 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps-after-this-topic_1">📚 Next Steps After This Topic</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-testing-a-simple-function-that-returns-a-value_1">✅ Example 1: Testing a simple function that returns a value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-testing-a-function-that-modifies-a-list_1">✅ Example 2: Testing a function that modifies a list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-testing-a-file-creation-action_1">✅ Example 3: Testing a file creation action</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-testing-a-script-that-processes-command-line-arguments_1">✅ Example 4: Testing a script that processes command-line arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-testing-a-script-that-sends-an-email-notification_1">✅ Example 5: Testing a script that sends an email notification</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-test-types-and-their-use-cases_1">Comparison Table: Test Types and Their Use Cases</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_05_05/">Ch 21 | Binding Scripts to Database Endpoints via Native Drivers</a>
@@ -1110,7 +1172,7 @@
               
                 <h1 id="validating-script-automation-actions-using-pytest">Validating Script Automation Actions Using Pytest</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Next Steps After This Curriculum</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1291,8 +1353,7 @@
 <li>Expand into <strong>mocking</strong> to test scripts that interact with external systems</li>
 </ul>
 <p>Validating your automation scripts with Pytest transforms you from someone who hopes scripts work to someone who <em>knows</em> they work. This skill is essential for building reliable, production-ready automation that you and your team can trust.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide shows engineers how to write automated tests for their Python scripts using pytest, so they can verify that automation actions produce the correct results.</p>
 <h3 id="example-1-testing-a-simple-function-that-returns-a-value">✅ Example 1: Testing a simple function that returns a value</h3>
 <p>This example demonstrates how to test a basic function that adds two numbers.</p>
@@ -1388,6 +1449,323 @@
 <p>📤 Output: <strong>pytest passes (no output)</strong></p>
 <hr />
 <h3 id="comparison-table-test-types-and-their-use-cases">Comparison Table: Test Types and Their Use Cases</h3>
+<table>
+<thead>
+<tr>
+<th>Test Type</th>
+<th>What It Verifies</th>
+<th>Example Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Function return value</td>
+<td>Correct output from a function</td>
+<td>Adding numbers, processing data</td>
+</tr>
+<tr>
+<td>Side effect on data</td>
+<td>Changes to lists, dicts, or objects</td>
+<td>Appending items, updating records</td>
+</tr>
+<tr>
+<td>File system action</td>
+<td>File creation, deletion, or content</td>
+<td>Writing config files, logs</td>
+</tr>
+<tr>
+<td>Command-line behavior</td>
+<td>Script response to arguments</td>
+<td>Verbose mode, dry-run mode</td>
+</tr>
+<tr>
+<td>External service call</td>
+<td>Correct parameters passed to services</td>
+<td>Email, API calls, notifications</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>Throughout this curriculum, you have built automation scripts that perform critical tasks like file management, data processing, and system checks. But how do you know your script is working correctly every time? This is where validation becomes essential. <strong>Pytest</strong> is a powerful testing framework that helps you confirm your automation scripts behave as expected, catch bugs early, and ensure reliability before running scripts in production environments. This guide introduces you to validating script automation actions using Pytest in a simple, practical way.</p>
+<hr />
+<h3 id="what-is-pytest-and-why-use-it-for-automation-validation_1">⚙️ What Is Pytest and Why Use It for Automation Validation?</h3>
+<p>Pytest is a testing tool for Python that makes it easy to write small, readable tests for your code. For automation scripts, Pytest helps you:</p>
+<ul>
+<li>✅ <strong>Verify outputs</strong> — Confirm your script produces the correct files, data, or results</li>
+<li>✅ <strong>Catch regressions</strong> — Ensure new changes don't break existing functionality</li>
+<li>✅ <strong>Automate validation</strong> — Run tests automatically as part of your workflow</li>
+<li>✅ <strong>Improve confidence</strong> — Deploy scripts knowing they work as intended</li>
+</ul>
+<hr />
+<h3 id="core-concepts-for-testing-automation-scripts_1">🛠️ Core Concepts for Testing Automation Scripts</h3>
+<h4 id="test-functions_1">Test Functions</h4>
+<p>A test is simply a Python function that starts with the word <strong>test_</strong>. Inside the function, you use <strong>assert</strong> statements to check if something is true.</p>
+<ul>
+<li><strong>test_file_created()</strong> — Checks if a file exists after running a script</li>
+<li><strong>test_data_format()</strong> — Verifies data matches expected structure</li>
+<li><strong>test_exit_code()</strong> — Confirms script completes without errors</li>
+</ul>
+<h4 id="assertions_1">Assertions</h4>
+<p>Assertions are the heart of testing. They compare actual results to expected results.</p>
+<ul>
+<li><strong>assert result == expected</strong> — Checks equality</li>
+<li><strong>assert file.exists()</strong> — Checks file existence</li>
+<li><strong>assert len(data) &gt; 0</strong> — Checks data is not empty</li>
+<li><strong>assert "success" in output</strong> — Checks string content</li>
+</ul>
+<h4 id="test-discovery_1">Test Discovery</h4>
+<p>Pytest automatically finds all files and functions matching the pattern <strong>test_<em>.py** or </em></strong>_test.py<strong>. This means you simply place your tests in files named like </strong>test_backup_script.py** and Pytest handles the rest.</p>
+<hr />
+<h3 id="comparison-manual-validation-vs-pytest-validation_1">📊 Comparison: Manual Validation vs. Pytest Validation</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Manual Validation</th>
+<th>Pytest Validation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Effort</td>
+<td>Run script, check output by eye</td>
+<td>Write test once, run automatically</td>
+</tr>
+<tr>
+<td>Repeatability</td>
+<td>Inconsistent, easy to miss steps</td>
+<td>Consistent every time</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Slow for multiple checks</td>
+<td>Fast, runs all tests in seconds</td>
+</tr>
+<tr>
+<td>Error detection</td>
+<td>Depends on human attention</td>
+<td>Catches subtle failures reliably</td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td>No record of what was checked</td>
+<td>Tests serve as living documentation</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>Cannot be automated in CI/CD</td>
+<td>Easily integrated into pipelines</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="writing-your-first-test-for-an-automation-script_1">🕵️ Writing Your First Test for an Automation Script</h3>
+<h4 id="step-1-identify-what-to-validate_1">Step 1: Identify What to Validate</h4>
+<p>Before writing a test, ask yourself: <em>What should this script guarantee?</em></p>
+<ul>
+<li>Does it create a specific output file?</li>
+<li>Does it transform data correctly?</li>
+<li>Does it handle missing input gracefully?</li>
+<li>Does it return the expected exit code?</li>
+</ul>
+<h4 id="step-2-structure-your-test-file_1">Step 2: Structure Your Test File</h4>
+<p>Create a file named <strong>test_your_script.py</strong> in the same directory as your automation script. Inside, import your script's functions or use <strong>subprocess</strong> to run the script as a command.</p>
+<h4 id="step-3-write-simple-assertions_1">Step 3: Write Simple Assertions</h4>
+<p>For a script that generates a report file, your test might:</p>
+<ul>
+<li>Run the script using a helper function</li>
+<li>Check that the output file exists</li>
+<li>Verify the file contains expected headers</li>
+<li>Confirm the file size is greater than zero</li>
+</ul>
+<h4 id="step-4-run-your-tests_1">Step 4: Run Your Tests</h4>
+<p>Execute Pytest from the terminal by running <strong>pytest</strong> in your project folder. Pytest will discover and run all test functions, showing you a clear pass or fail result for each one.</p>
+<hr />
+<h3 id="practical-example-patterns-for-automation-validation_1">🧪 Practical Example Patterns for Automation Validation</h3>
+<h4 id="pattern-1-file-existence-test_1">Pattern 1: File Existence Test</h4>
+<p>For a script that creates a backup file, you validate that the file was actually created.</p>
+<ul>
+<li>Run the backup script with test input data</li>
+<li>Use <strong>os.path.exists()</strong> inside an assert statement</li>
+<li>Clean up the test file after the test completes</li>
+</ul>
+<h4 id="pattern-2-data-content-test_1">Pattern 2: Data Content Test</h4>
+<p>For a script that processes a CSV file, you validate the output data.</p>
+<ul>
+<li>Run the script with known input data</li>
+<li>Read the output file and compare values</li>
+<li>Assert that specific fields contain expected transformations</li>
+</ul>
+<h4 id="pattern-3-error-handling-test_1">Pattern 3: Error Handling Test</h4>
+<p>For a script that should fail gracefully with missing input, you validate error behavior.</p>
+<ul>
+<li>Run the script without required arguments</li>
+<li>Assert that the script exits with a non-zero code</li>
+<li>Assert that an error message appears in the output</li>
+</ul>
+<hr />
+<h3 id="organizing-tests-for-multiple-automation-scripts_1">🧰 Organizing Tests for Multiple Automation Scripts</h3>
+<p>As your collection of automation scripts grows, organize your tests logically:</p>
+<ul>
+<li><strong>tests/</strong> folder — Store all test files in a dedicated directory</li>
+<li><strong>test_backup.py</strong> — Tests for backup automation</li>
+<li><strong>test_report.py</strong> — Tests for report generation</li>
+<li><strong>test_cleanup.py</strong> — Tests for cleanup routines</li>
+<li><strong>conftest.py</strong> — Shared test fixtures and helpers</li>
+</ul>
+<p>This structure keeps your tests separate from your scripts and makes it easy to run all tests at once.</p>
+<hr />
+<h3 id="running-tests-efficiently_1">⚡ Running Tests Efficiently</h3>
+<p>Pytest provides several ways to run tests:</p>
+<ul>
+<li><strong>pytest</strong> — Runs all tests in the current directory and subdirectories</li>
+<li><strong>pytest test_backup.py</strong> — Runs tests only from a specific file</li>
+<li><strong>pytest -k "backup"</strong> — Runs tests with "backup" in their name</li>
+<li><strong>pytest -v</strong> — Shows detailed output for each test</li>
+<li><strong>pytest --tb=short</strong> — Shows shorter traceback for failures</li>
+</ul>
+<hr />
+<h3 id="common-pitfalls-for-new-test-writers_1">🚦 Common Pitfalls for New Test Writers</h3>
+<ul>
+<li>❌ <strong>Testing too much in one test</strong> — Keep each test focused on one behavior</li>
+<li>❌ <strong>Forgetting to clean up</strong> — Test files left behind can interfere with other tests</li>
+<li>❌ <strong>Hardcoding paths</strong> — Use relative paths or temporary directories instead</li>
+<li>❌ <strong>Ignoring test failures</strong> — A failing test is a signal to investigate, not ignore</li>
+<li>❌ <strong>Testing implementation details</strong> — Focus on what the script does, not how it does it</li>
+</ul>
+<hr />
+<h3 id="integrating-tests-into-your-workflow_1">🔄 Integrating Tests Into Your Workflow</h3>
+<p>Make testing a natural part of your development cycle:</p>
+<ul>
+<li><strong>Before committing code</strong> — Run all tests to confirm nothing is broken</li>
+<li><strong>After making changes</strong> — Run tests to verify your changes work correctly</li>
+<li><strong>Before deploying</strong> — Run tests in a staging environment</li>
+<li><strong>Scheduled runs</strong> — Automate tests to run daily or weekly for long-running scripts</li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">🎯 Key Takeaways</h3>
+<ul>
+<li>Pytest validates that your automation scripts produce correct, expected results</li>
+<li>Tests are simple Python functions using <strong>assert</strong> statements</li>
+<li>Focus on validating outputs, file creation, data content, and error handling</li>
+<li>Organize tests in a dedicated <strong>tests/</strong> folder for clarity</li>
+<li>Run tests frequently to catch issues early and maintain script reliability</li>
+<li>Testing builds confidence that your automation works correctly every time</li>
+</ul>
+<hr />
+<h3 id="next-steps-after-this-topic_1">📚 Next Steps After This Topic</h3>
+<p>Now that you understand how to validate script actions with Pytest, you are ready to:</p>
+<ul>
+<li>Apply testing to your capstone project scripts</li>
+<li>Explore <strong>fixtures</strong> for reusable test setup and cleanup</li>
+<li>Learn <strong>parametrize</strong> to test multiple input scenarios efficiently</li>
+<li>Integrate Pytest with <strong>CI/CD pipelines</strong> for automated validation</li>
+<li>Expand into <strong>mocking</strong> to test scripts that interact with external systems</li>
+</ul>
+<p>Validating your automation scripts with Pytest transforms you from someone who hopes scripts work to someone who <em>knows</em> they work. This skill is essential for building reliable, production-ready automation that you and your team can trust.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide shows engineers how to write automated tests for their Python scripts using pytest, so they can verify that automation actions produce the correct results.</p>
+<h3 id="example-1-testing-a-simple-function-that-returns-a-value_1">✅ Example 1: Testing a simple function that returns a value</h3>
+<p>This example demonstrates how to test a basic function that adds two numbers.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># save as test_math.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_add_positive_numbers</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">8</span>
+</code></pre></div>
+<p>📤 Output: <strong>pytest passes (no output)</strong></p>
+<hr />
+<h3 id="example-2-testing-a-function-that-modifies-a-list_1">✅ Example 2: Testing a function that modifies a list</h3>
+<p>This example shows how to verify that a function correctly updates a list in place.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># save as test_list_ops.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">append_item</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+    <span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">my_list</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_append_item_adds_to_list</span><span class="p">():</span>
+    <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">append_item</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</code></pre></div>
+<p>📤 Output: <strong>pytest passes (no output)</strong></p>
+<hr />
+<h3 id="example-3-testing-a-file-creation-action_1">✅ Example 3: Testing a file creation action</h3>
+<p>This example demonstrates how to test that a script creates a file with the correct content.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># save as test_file_ops.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_config_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;host: localhost</span><span class="se">\n</span><span class="s1">port: 8080&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_create_config_file_creates_file</span><span class="p">():</span>
+    <span class="n">test_filename</span> <span class="o">=</span> <span class="s1">&#39;test_config.txt&#39;</span>
+    <span class="n">create_config_file</span><span class="p">(</span><span class="n">test_filename</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">test_filename</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">test_filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="s1">&#39;host: localhost&#39;</span> <span class="ow">in</span> <span class="n">content</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">test_filename</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>pytest passes (no output)</strong></p>
+<hr />
+<h3 id="example-4-testing-a-script-that-processes-command-line-arguments_1">✅ Example 4: Testing a script that processes command-line arguments</h3>
+<p>This example shows how to test a script that reads arguments and performs an action based on them.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># save as test_cli_script.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_args</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;--verbose&#39;</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Running in verbose mode&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Running in normal mode&#39;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_process_args_with_verbose</span><span class="p">():</span>
+    <span class="n">test_args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;script.py&#39;</span><span class="p">,</span> <span class="s1">&#39;--verbose&#39;</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">process_args</span><span class="p">(</span><span class="n">test_args</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="s1">&#39;Running in verbose mode&#39;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_process_args_without_verbose</span><span class="p">():</span>
+    <span class="n">test_args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;script.py&#39;</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">process_args</span><span class="p">(</span><span class="n">test_args</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="s1">&#39;Running in normal mode&#39;</span>
+</code></pre></div>
+<p>📤 Output: <strong>pytest passes (no output)</strong></p>
+<hr />
+<h3 id="example-5-testing-a-script-that-sends-an-email-notification_1">✅ Example 5: Testing a script that sends an email notification</h3>
+<p>This example demonstrates how to test an email sending function using a mock to avoid actually sending emails.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># save as test_email.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">send_notification</span><span class="p">(</span><span class="n">email_service</span><span class="p">,</span> <span class="n">recipient</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+    <span class="n">email_service</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">recipient</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_send_notification_calls_send</span><span class="p">():</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">MockEmailService</span><span class="p">:</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sent_to</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sent_message</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sent_to</span> <span class="o">=</span> <span class="n">to</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sent_message</span> <span class="o">=</span> <span class="n">msg</span>
+
+    <span class="n">mock_service</span> <span class="o">=</span> <span class="n">MockEmailService</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">send_notification</span><span class="p">(</span><span class="n">mock_service</span><span class="p">,</span> <span class="s1">&#39;engineer@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Deployment complete&#39;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="kc">True</span>
+    <span class="k">assert</span> <span class="n">mock_service</span><span class="o">.</span><span class="n">sent_to</span> <span class="o">==</span> <span class="s1">&#39;engineer@example.com&#39;</span>
+    <span class="k">assert</span> <span class="n">mock_service</span><span class="o">.</span><span class="n">sent_message</span> <span class="o">==</span> <span class="s1">&#39;Deployment complete&#39;</span>
+</code></pre></div>
+<p>📤 Output: <strong>pytest passes (no output)</strong></p>
+<hr />
+<h3 id="comparison-table-test-types-and-their-use-cases_1">Comparison Table: Test Types and Their Use Cases</h3>
 <table>
 <thead>
 <tr>

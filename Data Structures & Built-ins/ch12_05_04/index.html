@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch12_05_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 12 | Practical Example: Reading Server Inventory CSVs - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 12 | Practical Example: Reading Server Inventory CSVs";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch12_05_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch12_05_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -597,6 +597,40 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sample-csv-structure_1">📂 Sample CSV Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-1-opening-and-reading-the-csv-file_1">⚙️ Step 1: Opening and Reading the CSV File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-2-skipping-the-header-row_1">🕵️ Step 2: Skipping the Header Row</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-3-extracting-and-displaying-server-information_1">📊 Step 3: Extracting and Displaying Server Information</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-4-filtering-servers-by-condition_1">🛠️ Step 4: Filtering Servers by Condition</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-reading-methods_1">📋 Comparison Table: Reading Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-5-handling-missing-or-malformed-data_1">🧪 Step 5: Handling Missing or Malformed Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together_1">🚀 Putting It All Together</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">📚 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-reading-a-csv-file-line-by-line_1">📄 Example 1: Reading a CSV file line by line</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-skipping-the-header-row_1">📄 Example 2: Skipping the header row</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-reading-csv-as-dictionaries_1">📄 Example 3: Reading CSV as dictionaries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-filtering-servers-by-operating-system_1">📄 Example 4: Filtering servers by operating system</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-calculating-total-ram-across-all-servers_1">📄 Example 5: Calculating total RAM across all servers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch12_06_01/">Ch 12 | File Deserialization via json.load()</a>
@@ -1082,7 +1116,7 @@
               
                 <h1 id="practical-example-reading-server-inventory-csvs">Practical Example: Reading Server Inventory CSVs</h1>
 <p><span class="category-tag">🏷️ File Handling /  CSV Files</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1213,8 +1247,7 @@
 </ul>
 <hr />
 <p><em>Happy scripting – your server inventory is now just a Python script away from being fully automated!</em></p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide shows how to read server inventory data from CSV files using Python's built-in csv module.</p>
 <h3 id="example-1-reading-a-csv-file-line-by-line">📄 Example 1: Reading a CSV file line by line</h3>
 <p>This example opens a CSV file and prints each row as a list of values.</p>
@@ -1279,6 +1312,227 @@
 <p>📤 Output: <strong>Total RAM across all servers: 56 GB</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>csv.reader()</td>
+<td>List of strings per row</td>
+<td>Simple row-by-row processing</td>
+</tr>
+<tr>
+<td>csv.DictReader()</td>
+<td>Dictionary per row</td>
+<td>Accessing columns by name</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>As engineers, you'll frequently work with CSV files containing server inventory data. These files might list hostnames, IP addresses, operating systems, CPU cores, memory, and disk space. Learning to read and process this data with Python is a foundational skill for automation, reporting, and monitoring tasks. This example walks through reading a real-world server inventory CSV and extracting meaningful information.</p>
+<hr />
+<h3 id="sample-csv-structure_1">📂 Sample CSV Structure</h3>
+<p>Imagine a file named <strong>server_inventory.csv</strong> with the following columns:</p>
+<ul>
+<li><strong>Hostname</strong> – The server's name</li>
+<li><strong>IP_Address</strong> – Management IP</li>
+<li><strong>OS</strong> – Operating system (e.g., Ubuntu 20.04, Windows Server 2019)</li>
+<li><strong>CPU_Cores</strong> – Number of CPU cores</li>
+<li><strong>RAM_GB</strong> – Memory in gigabytes</li>
+<li><strong>Disk_GB</strong> – Total disk space in gigabytes</li>
+<li><strong>Status</strong> – Online, Offline, Maintenance</li>
+</ul>
+<p>A typical row might look like:</p>
+<p><strong>web-server-01, 192.168.1.10, Ubuntu 20.04, 4, 16, 500, Online</strong></p>
+<hr />
+<h3 id="step-1-opening-and-reading-the-csv-file_1">⚙️ Step 1: Opening and Reading the CSV File</h3>
+<p>The first step is to open the file and read its contents. Python's built-in <strong>csv</strong> module handles this cleanly.</p>
+<ul>
+<li>Import the <strong>csv</strong> module at the top of your script.</li>
+<li>Use the <strong>open()</strong> function with the filename and mode <strong>'r'</strong> (read).</li>
+<li>Wrap the file object with <strong>csv.reader()</strong> to parse each row into a list.</li>
+<li>Use a <strong>for loop</strong> to iterate through each row.</li>
+</ul>
+<p>The file object should be closed automatically using a <strong>with</strong> statement. This ensures the file is properly closed even if an error occurs.</p>
+<hr />
+<h3 id="step-2-skipping-the-header-row_1">🕵️ Step 2: Skipping the Header Row</h3>
+<p>CSV files usually have a header row with column names. You want to skip this when processing data.</p>
+<ul>
+<li>Call <strong>next(reader)</strong> once before your loop to advance past the header row.</li>
+<li>The header row is still available if you need to verify column names later.</li>
+</ul>
+<hr />
+<h3 id="step-3-extracting-and-displaying-server-information_1">📊 Step 3: Extracting and Displaying Server Information</h3>
+<p>Once you have each row as a list, you can access individual fields by index. For example:</p>
+<ul>
+<li>Index <strong>0</strong> = Hostname</li>
+<li>Index <strong>1</strong> = IP_Address</li>
+<li>Index <strong>2</strong> = OS</li>
+<li>Index <strong>3</strong> = CPU_Cores</li>
+<li>Index <strong>4</strong> = RAM_GB</li>
+<li>Index <strong>5</strong> = Disk_GB</li>
+<li>Index <strong>6</strong> = Status</li>
+</ul>
+<p>You can print a formatted summary for each server, such as:</p>
+<p><strong>Server: web-server-01 | IP: 192.168.1.10 | OS: Ubuntu 20.04 | CPU: 4 cores | RAM: 16 GB | Disk: 500 GB | Status: Online</strong></p>
+<hr />
+<h3 id="step-4-filtering-servers-by-condition_1">🛠️ Step 4: Filtering Servers by Condition</h3>
+<p>Often you need to find specific servers, like all servers with <strong>Status = 'Offline'</strong> or servers with <strong>RAM_GB &gt;= 32</strong>.</p>
+<ul>
+<li>Use an <strong>if statement</strong> inside your loop to check the value at the relevant index.</li>
+<li>For numeric comparisons, convert the string value to an integer using <strong>int()</strong>.</li>
+<li>Print only the rows that match your condition.</li>
+</ul>
+<p>Example condition: <strong>if row[6] == 'Offline':</strong> – prints only offline servers.</p>
+<hr />
+<h3 id="comparison-table-reading-methods_1">📋 Comparison Table: Reading Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Use Case</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>csv.reader</strong></td>
+<td>Simple row-by-row access</td>
+<td>Easy to use, lightweight</td>
+<td>Must remember column indices</td>
+</tr>
+<tr>
+<td><strong>csv.DictReader</strong></td>
+<td>Access columns by name</td>
+<td>More readable code, uses header names</td>
+<td>Slightly more memory overhead</td>
+</tr>
+<tr>
+<td><strong>pandas.read_csv</strong></td>
+<td>Large datasets, analysis</td>
+<td>Powerful filtering, statistics</td>
+<td>External library, heavier</td>
+</tr>
+</tbody>
+</table>
+<p>For most inventory tasks, <strong>csv.DictReader</strong> is recommended because you can reference columns by name (e.g., <strong>row['Hostname']</strong>) instead of numeric indices.</p>
+<hr />
+<h3 id="step-5-handling-missing-or-malformed-data_1">🧪 Step 5: Handling Missing or Malformed Data</h3>
+<p>Real-world CSV files often have missing values or inconsistent formatting.</p>
+<ul>
+<li>Check if a field is empty using <strong>if not row[column]:</strong> before using it.</li>
+<li>Wrap numeric conversions in a <strong>try/except</strong> block to catch <strong>ValueError</strong> when a string cannot be converted to an integer.</li>
+<li>Print a warning message for rows that fail validation, but continue processing the rest of the file.</li>
+</ul>
+<hr />
+<h3 id="putting-it-all-together_1">🚀 Putting It All Together</h3>
+<p>A complete script would:</p>
+<ol>
+<li>Open <strong>server_inventory.csv</strong> using <strong>with open(...) as file:</strong></li>
+<li>Create a <strong>csv.DictReader</strong> object for named access.</li>
+<li>Loop through each row.</li>
+<li>For each server, print a formatted line with all details.</li>
+<li>After the loop, print a summary count like <strong>Total servers processed: 25</strong>.</li>
+<li>Optionally, print a filtered list such as <strong>Offline servers: 3</strong>.</li>
+</ol>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li>The <strong>csv</strong> module is part of Python's standard library – no extra installs needed.</li>
+<li>Always use <strong>with open()</strong> to safely handle file resources.</li>
+<li><strong>csv.DictReader</strong> makes your code more readable and maintainable.</li>
+<li>Always validate and clean data before using it in calculations or decisions.</li>
+<li>Start simple: read all rows, then add filtering and error handling step by step.</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">📚 Next Steps</h3>
+<ul>
+<li>Try writing a filtered CSV with only online servers.</li>
+<li>Add logic to calculate average CPU cores or total RAM across all servers.</li>
+<li>Extend the script to accept the filename as a command-line argument.</li>
+<li>Explore <strong>pandas</strong> for more advanced data manipulation when your inventory grows large.</li>
+</ul>
+<hr />
+<p><em>Happy scripting – your server inventory is now just a Python script away from being fully automated!</em></p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide shows how to read server inventory data from CSV files using Python's built-in csv module.</p>
+<h3 id="example-1-reading-a-csv-file-line-by-line_1">📄 Example 1: Reading a CSV file line by line</h3>
+<p>This example opens a CSV file and prints each row as a list of values.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;server_inventory.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['hostname', 'ip_address', 'os', 'ram_gb'] ['web01', '192.168.1.10', 'Ubuntu', '16'] ['db01', '192.168.1.20', 'CentOS', '32'] ['app01', '192.168.1.30', 'Ubuntu', '8']</strong></p>
+<hr />
+<h3 id="example-2-skipping-the-header-row_1">📄 Example 2: Skipping the header row</h3>
+<p>This example reads the CSV but skips the first row (column names) using next().</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;server_inventory.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Header:&quot;</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Header: ['hostname', 'ip_address', 'os', 'ram_gb'] ['web01', '192.168.1.10', 'Ubuntu', '16'] ['db01', '192.168.1.20', 'CentOS', '32'] ['app01', '192.168.1.30', 'Ubuntu', '8']</strong></p>
+<hr />
+<h3 id="example-3-reading-csv-as-dictionaries_1">📄 Example 3: Reading CSV as dictionaries</h3>
+<p>This example reads each row as a dictionary where column names become keys.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;server_inventory.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'hostname': 'web01', 'ip_address': '192.168.1.10', 'os': 'Ubuntu', 'ram_gb': '16'} {'hostname': 'db01', 'ip_address': '192.168.1.20', 'os': 'CentOS', 'ram_gb': '32'} {'hostname': 'app01', 'ip_address': '192.168.1.30', 'os': 'Ubuntu', 'ram_gb': '8'}</strong></p>
+<hr />
+<h3 id="example-4-filtering-servers-by-operating-system_1">📄 Example 4: Filtering servers by operating system</h3>
+<p>This example reads the CSV and prints only servers running Ubuntu.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;server_inventory.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;os&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Ubuntu&#39;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;hostname&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;ip_address&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;ram_gb&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">GB RAM&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>web01 - 192.168.1.10 - 16GB RAM app01 - 192.168.1.30 - 8GB RAM</strong></p>
+<hr />
+<h3 id="example-5-calculating-total-ram-across-all-servers_1">📄 Example 5: Calculating total RAM across all servers</h3>
+<p>This example sums the RAM values from all servers in the inventory.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">total_ram</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;server_inventory.csv&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">total_ram</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;ram_gb&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total RAM across all servers: </span><span class="si">{</span><span class="n">total_ram</span><span class="si">}</span><span class="s2"> GB&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Total RAM across all servers: 56 GB</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

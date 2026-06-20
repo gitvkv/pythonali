@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch15_03_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 15 | Substitutions and Replacing Patterns via sub() - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 15 | Substitutions and Replacing Patterns via sub()";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch15_03_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch15_03_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -718,6 +718,44 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-6-replacing-with-captured-groups">🔧 Example 6: Replacing with captured groups</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-resub_1">⚙️ What is re.sub()?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#basic-syntax_1">🛠️ Basic Syntax</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#simple-substitution-examples_1">📊 Simple Substitution Examples</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#using-backreferences-in-replacement_1">🕵️ Using Backreferences in Replacement</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#limiting-replacements-with-count_1">🔄 Limiting Replacements with count</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#using-a-function-as-replacement_1">🧩 Using a Function as Replacement</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-use-cases-for-engineers_1">🧹 Practical Use Cases for Engineers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#important-notes_1">⚠️ Important Notes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#quick-reference-resub-vs-resubn_1">🧪 Quick Reference: re.sub() vs re.subn()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#final-tip_1">💡 Final Tip</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-basic-word-replacement_1">🔧 Example 1: Basic word replacement</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-case-insensitive-replacement_1">🔧 Example 2: Case-insensitive replacement</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-limiting-the-number-of-replacements_1">🔧 Example 3: Limiting the number of replacements</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-using-a-replacement-function_1">🔧 Example 4: Using a replacement function</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-removing-unwanted-characters_1">🔧 Example 5: Removing unwanted characters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-6-replacing-with-captured-groups_1">🔧 Example 6: Replacing with captured groups</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1084,7 +1122,7 @@
               
                 <h1 id="substitutions-and-replacing-patterns-via-sub">Substitutions and Replacing Patterns via sub()</h1>
 <p><span class="category-tag">🏷️ Regular Expressions (Regex) /  Key re Functions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1241,8 +1279,7 @@ Result: <strong>"Values: 10, 20, 30"</strong></p>
 <hr />
 <h3 id="final-tip">💡 Final Tip</h3>
 <p>Start with simple patterns and test them on sample strings before applying to real data. The <strong>re.sub()</strong> function is incredibly versatile—whether you're cleaning logs, transforming configuration files, or masking sensitive data, mastering substitutions will save you hours of manual text editing.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>re.sub()</code> function finds all matches of a pattern in a string and replaces them with a specified replacement string.</p>
 <hr />
 <h3 id="example-1-basic-word-replacement">🔧 Example 1: Basic word replacement</h3>
@@ -1310,6 +1347,271 @@ Result: <strong>"Values: 10, 20, 30"</strong></p>
 <p>📤 Output: <strong>John Smith | Jane Doe</strong></p>
 <hr />
 <h2 id="comparison-table">Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>re.sub()</code></th>
+<th><code>str.replace()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pattern matching</td>
+<td>Supports regex patterns</td>
+<td>Only exact strings</td>
+</tr>
+<tr>
+<td>Case-insensitive</td>
+<td>Yes, with <code>flags=re.IGNORECASE</code></td>
+<td>No</td>
+</tr>
+<tr>
+<td>Limit replacements</td>
+<td>Yes, with <code>count=</code> parameter</td>
+<td>Yes, with <code>count=</code> parameter</td>
+</tr>
+<tr>
+<td>Replacement function</td>
+<td>Yes, pass a callable</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Capture group support</td>
+<td>Yes, via <code>\1</code>, <code>\2</code>, etc.</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When working with text data—whether it's cleaning log files, updating configuration values, or masking sensitive information—you'll often need to find specific patterns and replace them with something else. Python's <strong>re.sub()</strong> function is your go-to tool for this task. It allows you to search for a regex pattern in a string and substitute all matches with a replacement string, giving you powerful control over text transformations.</p>
+<hr />
+<h3 id="what-is-resub_1">⚙️ What is re.sub()?</h3>
+<p>The <strong>re.sub()</strong> function performs <strong>substitution</strong> (find-and-replace) using regular expressions. It scans through a string, finds all non-overlapping matches of a pattern, and replaces them with a specified replacement.</p>
+<p><strong>Key characteristics:</strong>
+- Returns a <strong>new string</strong> with the replacements applied (original string remains unchanged)
+- Can replace <strong>all occurrences</strong> or a <strong>limited number</strong> of matches
+- Supports <strong>backreferences</strong> to reuse parts of the matched text in the replacement
+- Can accept a <strong>function</strong> as the replacement for dynamic substitutions</p>
+<hr />
+<h3 id="basic-syntax_1">🛠️ Basic Syntax</h3>
+<p>The general structure of <strong>re.sub()</strong> is:</p>
+<p><strong>re.sub(pattern, replacement, string, count=0, flags=0)</strong></p>
+<p>Where:
+- <strong>pattern</strong> – The regex pattern to search for
+- <strong>replacement</strong> – The string (or function) to replace matches with
+- <strong>string</strong> – The input text to process
+- <strong>count</strong> – (Optional) Maximum number of replacements; default 0 means replace all
+- <strong>flags</strong> – (Optional) Regex flags like re.IGNORECASE</p>
+<hr />
+<h3 id="simple-substitution-examples_1">📊 Simple Substitution Examples</h3>
+<p><strong>Example 1: Replace all digits with a placeholder</strong></p>
+<p>Input string: <strong>"Order 12345 shipped on 2024-01-15"</strong><br />
+Pattern: <strong>\d+</strong> (one or more digits)<br />
+Replacement: <strong>"[REDACTED]"</strong><br />
+Result: <strong>"Order [REDACTED] shipped on [REDACTED]-[REDACTED]-[REDACTED]"</strong></p>
+<p><strong>Example 2: Replace specific word</strong></p>
+<p>Input string: <strong>"The color of the sky is blue"</strong><br />
+Pattern: <strong>blue</strong><br />
+Replacement: <strong>red</strong><br />
+Result: <strong>"The color of the sky is red"</strong></p>
+<hr />
+<h3 id="using-backreferences-in-replacement_1">🕵️ Using Backreferences in Replacement</h3>
+<p>Backreferences allow you to <strong>reuse captured groups</strong> from the pattern inside the replacement string. They are referenced using <strong>\1</strong>, <strong>\2</strong>, etc.</p>
+<p><strong>Example: Swap first and last name</strong></p>
+<p>Input string: <strong>"Doe, John"</strong><br />
+Pattern: <strong>(\w+),\s(\w+)</strong><br />
+Replacement: <strong>\2 \1</strong><br />
+Result: <strong>"John Doe"</strong></p>
+<p><strong>Explanation:</strong>
+- <strong>(\w+)</strong> captures "Doe" into group 1
+- <strong>(\w+)</strong> captures "John" into group 2
+- <strong>\2 \1</strong> places group 2 first, then group 1</p>
+<hr />
+<h3 id="limiting-replacements-with-count_1">🔄 Limiting Replacements with count</h3>
+<p>By default, <strong>re.sub()</strong> replaces <strong>all occurrences</strong>. Use the <strong>count</strong> parameter to limit replacements.</p>
+<p><strong>Example: Replace only first two digits</strong></p>
+<p>Input string: <strong>"Item 123, Price 456, Tax 789"</strong><br />
+Pattern: <strong>\d+</strong><br />
+Replacement: <strong>"XXX"</strong><br />
+Count: <strong>2</strong><br />
+Result: <strong>"Item XXX, Price XXX, Tax 789"</strong></p>
+<hr />
+<h3 id="using-a-function-as-replacement_1">🧩 Using a Function as Replacement</h3>
+<p>Instead of a static string, you can pass a <strong>function</strong> that receives each match object and returns the replacement dynamically.</p>
+<p><strong>Example: Double all numbers</strong></p>
+<p>Input string: <strong>"Values: 5, 10, 15"</strong><br />
+Pattern: <strong>\d+</strong><br />
+Replacement function: <strong>lambda m: str(int(m.group()) * 2)</strong><br />
+Result: <strong>"Values: 10, 20, 30"</strong></p>
+<p><strong>How it works:</strong>
+- The function is called for each match
+- <strong>m.group()</strong> gets the matched text
+- The function returns the transformed replacement string</p>
+<hr />
+<h3 id="practical-use-cases-for-engineers_1">🧹 Practical Use Cases for Engineers</h3>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Pattern</th>
+<th>Replacement</th>
+<th>Example Input</th>
+<th>Example Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mask email addresses</td>
+<td><strong>\b[\w.-]+@[\w.-]+.\w+\b</strong></td>
+<td><strong>"[EMAIL]"</strong></td>
+<td>"Contact: admin@example.com"</td>
+<td>"Contact: [EMAIL]"</td>
+</tr>
+<tr>
+<td>Normalize whitespace</td>
+<td><strong>\s+</strong></td>
+<td><strong>" "</strong></td>
+<td>"Hello   World\nTest"</td>
+<td>"Hello World Test"</td>
+</tr>
+<tr>
+<td>Remove HTML tags</td>
+<td><strong>&lt;[^&gt;]+&gt;</strong></td>
+<td><strong>""</strong></td>
+<td>"<p>Hello</p>"</td>
+<td>"Hello"</td>
+</tr>
+<tr>
+<td>Format phone numbers</td>
+<td><strong>(\d{3})(\d{3})(\d{4})</strong></td>
+<td><strong>(\1) \2-\3</strong></td>
+<td>"1234567890"</td>
+<td>"(123) 456-7890"</td>
+</tr>
+<tr>
+<td>Sanitize filenames</td>
+<td><strong>[^\w.-]</strong></td>
+<td><strong>"_"</strong></td>
+<td>"my file (v2).txt"</td>
+<td>"my_file_v2_.txt"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="important-notes_1">⚠️ Important Notes</h3>
+<ul>
+<li><strong>re.sub()</strong> is <strong>case-sensitive</strong> by default; use <strong>flags=re.IGNORECASE</strong> for case-insensitive matching</li>
+<li>The original string is <strong>never modified</strong>; always assign the result to a new variable</li>
+<li>If no matches are found, the <strong>original string is returned unchanged</strong></li>
+<li>For complex replacements, consider using <strong>re.subn()</strong> which returns a tuple of <strong>(new_string, number_of_replacements)</strong></li>
+</ul>
+<hr />
+<h3 id="quick-reference-resub-vs-resubn_1">🧪 Quick Reference: re.sub() vs re.subn()</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>re.sub()</th>
+<th>re.subn()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Returns</td>
+<td>Modified string</td>
+<td>Tuple: (string, count)</td>
+</tr>
+<tr>
+<td>Replacement info</td>
+<td>Not provided</td>
+<td>Number of substitutions made</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Simple find-and-replace</td>
+<td>When you need to know how many changes were made</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="final-tip_1">💡 Final Tip</h3>
+<p>Start with simple patterns and test them on sample strings before applying to real data. The <strong>re.sub()</strong> function is incredibly versatile—whether you're cleaning logs, transforming configuration files, or masking sensitive data, mastering substitutions will save you hours of manual text editing.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>re.sub()</code> function finds all matches of a pattern in a string and replaces them with a specified replacement string.</p>
+<hr />
+<h3 id="example-1-basic-word-replacement_1">🔧 Example 1: Basic word replacement</h3>
+<p>Replace all occurrences of the word "cat" with "dog" in a simple string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The cat sat on the mat.&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>The dog sat on the mat.</strong></p>
+<hr />
+<h3 id="example-2-case-insensitive-replacement_1">🔧 Example 2: Case-insensitive replacement</h3>
+<p>Replace "python" with "Java" regardless of letter case.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;I love Python. Python is great. python rocks!&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;Java&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>I love Java. Java is great. Java rocks!</strong></p>
+<hr />
+<h3 id="example-3-limiting-the-number-of-replacements_1">🔧 Example 3: Limiting the number of replacements</h3>
+<p>Replace only the first two occurrences of "apple" with "orange".</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;apple apple apple apple&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>orange orange apple apple</strong></p>
+<hr />
+<h3 id="example-4-using-a-replacement-function_1">🔧 Example 4: Using a replacement function</h3>
+<p>Replace each number with its square value using a helper function.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">match</span><span class="p">):</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Numbers: 2, 3, 4&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="n">square</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Numbers: 4, 9, 16</strong></p>
+<hr />
+<h3 id="example-5-removing-unwanted-characters_1">🔧 Example 5: Removing unwanted characters</h3>
+<p>Remove all non-digit characters from a phone number string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">phone</span> <span class="o">=</span> <span class="s2">&quot;Call me at (555) 123-4567&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\D&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">phone</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>5551234567</strong></p>
+<hr />
+<h3 id="example-6-replacing-with-captured-groups_1">🔧 Example 6: Replacing with captured groups</h3>
+<p>Swap first and last names in a list of names.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Smith, John | Doe, Jane&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w+), (\w+)&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;\2 \1&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>John Smith | Jane Doe</strong></p>
+<hr />
+<h2 id="comparison-table_1">Comparison Table</h2>
 <table>
 <thead>
 <tr>

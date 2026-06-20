@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch04_02_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 04 | Using Parentheses to Control Precedence - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 04 | Using Parentheses to Control Precedence";
         var mkdocs_page_input_path = "Getting Started\\ch04_02_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch04_02_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -206,6 +206,30 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-engineering-calculation">🧮 Example 5: Practical Engineering Calculation</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-with-vs-without-parentheses">Comparison Table: With vs. Without Parentheses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-precedence-matters_1">⚙️ Why Precedence Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-parentheses-to-override-default-order_1">🛠️ Using Parentheses to Override Default Order</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-with-vs-without-parentheses_1">📊 Comparison: With vs. Without Parentheses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">🕵️ Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-engineers_1">✅ Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-recap_1">🧠 Quick Recap</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-precedence-override_1">🧮 Example 1: Basic Precedence Override</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-parentheses-force-addition-first_1">🧮 Example 2: Parentheses Force Addition First</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-nested-parentheses_1">🧮 Example 3: Nested Parentheses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-division-and-subtraction-with-parentheses_1">🧮 Example 4: Division and Subtraction with Parentheses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-engineering-calculation_1">🧮 Example 5: Practical Engineering Calculation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-with-vs-without-parentheses_1">Comparison Table: With vs. Without Parentheses</a>
     </li>
     </ul>
                 </li>
@@ -1072,7 +1096,7 @@
               
                 <h1 id="using-parentheses-to-control-precedence">Using Parentheses to Control Precedence</h1>
 <p><span class="category-tag">🏷️ Numbers and Mathematical Operations /  Operator Precedence</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with mathematical operations in Python, the order in which calculations are performed matters. Python follows standard mathematical rules—multiplication and division happen before addition and subtraction. However, you can use <strong>parentheses</strong> to explicitly control which operations execute first, ensuring your calculations produce the expected results.</p>
@@ -1163,8 +1187,7 @@
 <li>Use parentheses to make your code <strong>clearer</strong> and <strong>more predictable</strong>.</li>
 <li>When in doubt, <strong>add parentheses</strong>—they never hurt and always help readability.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Parentheses override Python's default operator precedence, forcing specific operations to be evaluated first.</p>
 <h3 id="example-1-basic-precedence-override">🧮 Example 1: Basic Precedence Override</h3>
 <p>Without parentheses, multiplication happens before addition. Parentheses change this.</p>
@@ -1205,6 +1228,168 @@
 <p>📤 Output: <strong>54.54545454545455</strong></p>
 <hr />
 <h3 id="comparison-table-with-vs-without-parentheses">Comparison Table: With vs. Without Parentheses</h3>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Without Parentheses</th>
+<th>With Parentheses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>5 + 3 * 2</code></td>
+<td>11</td>
+<td>16 <code>(5 + 3) * 2</code></td>
+</tr>
+<tr>
+<td><code>10 - 2 / 4</code></td>
+<td>9.5</td>
+<td>2.0 <code>(10 - 2) / 4</code></td>
+</tr>
+<tr>
+<td><code>2 + 3 * 4 - 1</code></td>
+<td>13</td>
+<td>19 <code>((2 + 3) * 4) - 1</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with mathematical operations in Python, the order in which calculations are performed matters. Python follows standard mathematical rules—multiplication and division happen before addition and subtraction. However, you can use <strong>parentheses</strong> to explicitly control which operations execute first, ensuring your calculations produce the expected results.</p>
+<hr />
+<h3 id="why-precedence-matters_1">⚙️ Why Precedence Matters</h3>
+<p>Without parentheses, Python evaluates expressions based on <strong>operator precedence</strong>:</p>
+<ul>
+<li><strong>Exponentiation</strong> (<code>**</code>) is evaluated first.</li>
+<li><strong>Multiplication</strong>, <strong>division</strong>, and <strong>modulus</strong> (<code>*</code>, <code>/</code>, <code>//</code>, <code>%</code>) come next.</li>
+<li><strong>Addition</strong> and <strong>subtraction</strong> (<code>+</code>, <code>-</code>) are evaluated last.</li>
+</ul>
+<p>This default order can lead to unexpected results if you assume left-to-right evaluation.</p>
+<hr />
+<h3 id="using-parentheses-to-override-default-order_1">🛠️ Using Parentheses to Override Default Order</h3>
+<p>Parentheses <code>( )</code> force Python to evaluate the expression inside them first, regardless of normal precedence rules.</p>
+<p><strong>Example without parentheses:</strong>
+- Expression: <strong>5 + 3 * 2</strong>
+- Python evaluates multiplication first: <strong>3 * 2 = 6</strong>
+- Then addition: <strong>5 + 6 = 11</strong></p>
+<p><strong>Example with parentheses:</strong>
+- Expression: <strong>(5 + 3) * 2</strong>
+- Python evaluates inside parentheses first: <strong>5 + 3 = 8</strong>
+- Then multiplication: <strong>8 * 2 = 16</strong></p>
+<hr />
+<h3 id="comparison-with-vs-without-parentheses_1">📊 Comparison: With vs. Without Parentheses</h3>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Without Parentheses</th>
+<th>With Parentheses</th>
+<th>Why It Differs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>8 - 2 * 3</strong></td>
+<td><strong>8 - 6 = 2</strong></td>
+<td><strong>(8 - 2) * 3 = 18</strong></td>
+<td>Multiplication normally happens first</td>
+</tr>
+<tr>
+<td><strong>10 / 2 + 3</strong></td>
+<td><strong>5.0 + 3 = 8.0</strong></td>
+<td><strong>10 / (2 + 3) = 2.0</strong></td>
+<td>Division normally happens first</td>
+</tr>
+<tr>
+<td><strong>4 ** 2 + 1</strong></td>
+<td><strong>16 + 1 = 17</strong></td>
+<td><strong>4 ** (2 + 1) = 64</strong></td>
+<td>Exponentiation normally happens first</td>
+</tr>
+<tr>
+<td><strong>12 - 4 / 2</strong></td>
+<td><strong>12 - 2.0 = 10.0</strong></td>
+<td><strong>(12 - 4) / 2 = 4.0</strong></td>
+<td>Division normally happens first</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">🕵️ Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Nesting parentheses incorrectly</strong> – Every opening parenthesis must have a matching closing one. Missing a closing parenthesis causes a syntax error.</li>
+<li><strong>Overcomplicating expressions</strong> – Using too many nested parentheses can make code hard to read. Break complex calculations into smaller steps when possible.</li>
+<li><strong>Assuming left-to-right evaluation</strong> – Without parentheses, Python follows precedence rules, not simple left-to-right order. Always use parentheses when the intended order differs from default precedence.</li>
+</ul>
+<hr />
+<h3 id="best-practices-for-engineers_1">✅ Best Practices for Engineers</h3>
+<ul>
+<li><strong>Use parentheses liberally</strong> – Even when not strictly required, parentheses make your intention clear to others reading your code.</li>
+<li><strong>Test your assumptions</strong> – When in doubt about evaluation order, add parentheses to guarantee the result you expect.</li>
+<li><strong>Keep expressions readable</strong> – If an expression requires multiple levels of nested parentheses, consider storing intermediate results in variables with descriptive names.</li>
+</ul>
+<p><strong>Example of a clear approach:</strong>
+- Instead of: <strong>(a + b) * (c - d) / (e + f)</strong>
+- Consider breaking it into steps:
+  - <strong>sum_result = a + b</strong>
+  - <strong>difference_result = c - d</strong>
+  - <strong>denominator = e + f</strong>
+  - <strong>final_result = (sum_result * difference_result) / denominator</strong></p>
+<hr />
+<h3 id="quick-recap_1">🧠 Quick Recap</h3>
+<ul>
+<li><strong>Parentheses</strong> override Python's default operator precedence.</li>
+<li>Expressions inside parentheses are evaluated <strong>first</strong>.</li>
+<li>Use parentheses to make your code <strong>clearer</strong> and <strong>more predictable</strong>.</li>
+<li>When in doubt, <strong>add parentheses</strong>—they never hurt and always help readability.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Parentheses override Python's default operator precedence, forcing specific operations to be evaluated first.</p>
+<h3 id="example-1-basic-precedence-override_1">🧮 Example 1: Basic Precedence Override</h3>
+<p>Without parentheses, multiplication happens before addition. Parentheses change this.</p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>11</strong></p>
+<hr />
+<h3 id="example-2-parentheses-force-addition-first_1">🧮 Example 2: Parentheses Force Addition First</h3>
+<p>Parentheses make addition happen before multiplication.</p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>16</strong></p>
+<hr />
+<h3 id="example-3-nested-parentheses_1">🧮 Example 3: Nested Parentheses</h3>
+<p>Inner parentheses are evaluated first, then outer parentheses.</p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="p">((</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>19</strong></p>
+<hr />
+<h3 id="example-4-division-and-subtraction-with-parentheses_1">🧮 Example 4: Division and Subtraction with Parentheses</h3>
+<p>Parentheses control which division happens first in a chain.</p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2.0</strong></p>
+<hr />
+<h3 id="example-5-practical-engineering-calculation_1">🧮 Example 5: Practical Engineering Calculation</h3>
+<p>Calculating average resistance in a parallel circuit using parentheses.</p>
+<div class="highlight"><pre><span></span><code><span class="n">r1</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">r3</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">total_resistance</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">((</span><span class="mi">1</span> <span class="o">/</span> <span class="n">r1</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">r2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">r3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total_resistance</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>54.54545454545455</strong></p>
+<hr />
+<h3 id="comparison-table-with-vs-without-parentheses_1">Comparison Table: With vs. Without Parentheses</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch15_05_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 15 | Parsing Structured Logs for Error Entries - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 15 | Parsing Structured Logs for Error Entries";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch15_05_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch15_05_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -733,6 +733,40 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-regex-patterns-for-log-parsing">📊 Comparison Table: Regex Patterns for Log Parsing</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-structured-logs_1">⚙️ Understanding Structured Logs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-1-reading-the-log-file_1">🛠️ Step 1: Reading the Log File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-2-filtering-for-error-entries_1">🕵️ Step 2: Filtering for Error Entries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-parsing-approaches-by-log-format_1">📊 Comparison Table: Parsing Approaches by Log Format</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-3-extracting-relevant-information_1">🧩 Step 3: Extracting Relevant Information</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-4-counting-and-summarizing-errors_1">📈 Step 4: Counting and Summarizing Errors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-5-writing-results-to-a-new-file_1">🎨 Step 5: Writing Results to a New File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#complete-workflow-summary_1">🔄 Complete Workflow Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways-for-engineers_1">🧠 Key Takeaways for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps-for-practice_1">🚀 Next Steps for Practice</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-finding-lines-containing-error_1">🔧 Example 1: Finding lines containing "ERROR"</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-extracting-full-error-lines-from-logs_1">🔧 Example 2: Extracting full error lines from logs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-extracting-timestamp-and-error-message-separately_1">🔧 Example 3: Extracting timestamp and error message separately</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-filtering-errors-by-error-code-pattern_1">🔧 Example 4: Filtering errors by error code pattern</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-counting-errors-by-type-in-structured-json-logs_1">🔧 Example 5: Counting errors by type in structured JSON logs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-regex-patterns-for-log-parsing_1">📊 Comparison Table: Regex Patterns for Log Parsing</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch15_05_04/">Ch 15 | Extracting Interface Names from show interface</a>
@@ -1082,7 +1116,7 @@
               
                 <h1 id="parsing-structured-logs-for-error-entries">Parsing Structured Logs for Error Entries</h1>
 <p><span class="category-tag">🏷️ Regular Expressions (Regex) /  Practical Engineering Examples</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1227,8 +1261,7 @@
 <li>Try parsing a CSV log file using the <code>csv</code> module for comparison</li>
 </ul>
 <p>By mastering structured log parsing, you'll be able to quickly pinpoint issues in production systems without manually searching through thousands of log lines.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide shows how to use regex to extract error entries from structured log files.</p>
 <hr />
 <h3 id="example-1-finding-lines-containing-error">🔧 Example 1: Finding lines containing "ERROR"</h3>
@@ -1328,6 +1361,291 @@
 <p>📤 Output: <strong>{'DB_ERROR': 2, 'AUTH_ERROR': 1, 'STARTUP': 1}</strong></p>
 <hr />
 <h3 id="comparison-table-regex-patterns-for-log-parsing">📊 Comparison Table: Regex Patterns for Log Parsing</h3>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Purpose</th>
+<th>Example Match</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ERROR</code></td>
+<td>Find any line with ERROR</td>
+<td><code>ERROR Database connection failed</code></td>
+</tr>
+<tr>
+<td><code>^.*ERROR.*$</code></td>
+<td>Capture entire error line</td>
+<td>Full line containing ERROR</td>
+</tr>
+<tr>
+<td><code>(\d{4}-\d{2}-\d{2}) ERROR (.+)</code></td>
+<td>Extract date and message</td>
+<td><code>('2024-01-15', 'Database connection failed')</code></td>
+</tr>
+<tr>
+<td><code>ERROR ERR-500 (.+)</code></td>
+<td>Filter by error code</td>
+<td><code>Database connection failed</code></td>
+</tr>
+<tr>
+<td><code>"type": "(\w+)"</code></td>
+<td>Extract error type from JSON</td>
+<td><code>DB_ERROR</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>In modern systems, logs are generated in structured formats like JSON, CSV, or key-value pairs. When something goes wrong, engineers need to quickly extract error entries from these logs to diagnose issues. Rather than manually scrolling through thousands of lines, you can use Python to parse structured logs and filter out only the error entries you care about.</p>
+<p>This guide walks through parsing a JSON-formatted log file to extract all error-level entries, using simple Python techniques that build on your regex knowledge.</p>
+<hr />
+<h3 id="understanding-structured-logs_1">⚙️ Understanding Structured Logs</h3>
+<p>Structured logs follow a predictable format, making them ideal for automated parsing. Common structured formats include:</p>
+<ul>
+<li><strong>JSON logs</strong>: Each line is a JSON object with fields like <code>timestamp</code>, <code>level</code>, <code>message</code>, <code>service</code></li>
+<li><strong>CSV logs</strong>: Fields separated by commas, often with a header row</li>
+<li><strong>Key-value logs</strong>: Pairs like <code>level=ERROR</code> and <code>message=Connection timeout</code></li>
+</ul>
+<p><strong>Why parse structured logs?</strong>
+- You can filter by severity level (ERROR, WARN, INFO)
+- You can extract specific fields for analysis
+- You can aggregate errors across multiple services
+- You can trigger alerts based on error patterns</p>
+<hr />
+<h3 id="step-1-reading-the-log-file_1">🛠️ Step 1: Reading the Log File</h3>
+<p>Before parsing, you need to read the log file into Python. The approach differs slightly depending on the log format.</p>
+<p><strong>For JSON logs (one JSON object per line):</strong>
+- Open the file using Python's built-in <code>open()</code> function
+- Read the file line by line using a <code>for</code> loop
+- Parse each line as a JSON object using the <code>json.loads()</code> method</p>
+<p><strong>For CSV logs:</strong>
+- Use Python's <code>csv</code> module with <code>csv.DictReader()</code> to read rows as dictionaries
+- Each row becomes accessible by column name</p>
+<p><strong>For key-value logs:</strong>
+- Read each line as a string
+- Split the line by spaces or delimiters to extract key-value pairs
+- Use regex patterns to match specific fields like <code>level=ERROR</code></p>
+<hr />
+<h3 id="step-2-filtering-for-error-entries_1">🕵️ Step 2: Filtering for Error Entries</h3>
+<p>Once you have the log data in a structured format (like a dictionary), filtering for errors becomes straightforward.</p>
+<p><strong>For JSON logs:</strong>
+- Check if the <code>level</code> or <code>severity</code> field equals <code>"ERROR"</code>
+- You can also check for case-insensitive matches using <code>.lower()</code></p>
+<p><strong>For CSV logs:</strong>
+- Access the column containing the log level (e.g., <code>row['level']</code>)
+- Compare the value to <code>"ERROR"</code> using an <code>if</code> statement</p>
+<p><strong>For key-value logs:</strong>
+- Extract the value after <code>level=</code> using string methods or regex
+- Compare the extracted value to <code>"ERROR"</code></p>
+<hr />
+<h3 id="comparison-table-parsing-approaches-by-log-format_1">📊 Comparison Table: Parsing Approaches by Log Format</h3>
+<table>
+<thead>
+<tr>
+<th>Log Format</th>
+<th>Parsing Method</th>
+<th>Error Detection</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JSON</td>
+<td><code>json.loads()</code> per line</td>
+<td>Check <code>level</code> field</td>
+<td>Modern applications, microservices</td>
+</tr>
+<tr>
+<td>CSV</td>
+<td><code>csv.DictReader()</code></td>
+<td>Check severity column</td>
+<td>Legacy systems, exported data</td>
+</tr>
+<tr>
+<td>Key-Value</td>
+<td>String splitting or regex</td>
+<td>Match <code>level=ERROR</code> pattern</td>
+<td>Simple custom log formats</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="step-3-extracting-relevant-information_1">🧩 Step 3: Extracting Relevant Information</h3>
+<p>After filtering for error entries, you typically want to extract specific details for further analysis or reporting.</p>
+<p><strong>Common fields to extract from error entries:</strong>
+- <strong>Timestamp</strong>: When the error occurred
+- <strong>Service name</strong>: Which component generated the error
+- <strong>Error message</strong>: The actual error description
+- <strong>Error code</strong>: HTTP status code or application error number
+- <strong>Request ID</strong>: For tracing the request that caused the error</p>
+<p><strong>How to extract fields:</strong>
+- For JSON logs, access dictionary keys directly: <code>entry['timestamp']</code>, <code>entry['message']</code>
+- For CSV logs, access by column name: <code>row['timestamp']</code>, <code>row['message']</code>
+- For key-value logs, use regex to capture values after each field name</p>
+<hr />
+<h3 id="step-4-counting-and-summarizing-errors_1">📈 Step 4: Counting and Summarizing Errors</h3>
+<p>Beyond just listing errors, you often need to understand error patterns.</p>
+<p><strong>Common summarization techniques:</strong>
+- Count total errors per service using a dictionary where service names are keys
+- Group errors by error code or message pattern
+- Find the most frequent error messages
+- Calculate error rate over time intervals</p>
+<p><strong>Example approach:</strong>
+- Create an empty dictionary called <code>error_counts</code>
+- For each error entry, increment the count for the relevant category (service, error code, etc.)
+- After processing all logs, print the summary</p>
+<hr />
+<h3 id="step-5-writing-results-to-a-new-file_1">🎨 Step 5: Writing Results to a New File</h3>
+<p>Once you've parsed and filtered the errors, you may want to save the results for further analysis or reporting.</p>
+<p><strong>Output options:</strong>
+- Write filtered errors to a new JSON file (one error per line)
+- Write a CSV summary with error counts per category
+- Write a plain text report with timestamps and messages
+- Append errors to an existing error tracking file</p>
+<p><strong>Writing JSON output:</strong>
+- Open a new file in write mode
+- For each filtered error, convert the dictionary to JSON using <code>json.dumps()</code>
+- Write each JSON string as a new line in the output file</p>
+<hr />
+<h3 id="complete-workflow-summary_1">🔄 Complete Workflow Summary</h3>
+<p>The full process for parsing structured logs for error entries follows this flow:</p>
+<ol>
+<li><strong>Open the log file</strong> using <code>open()</code> with the appropriate mode</li>
+<li><strong>Read each line</strong> using a <code>for</code> loop</li>
+<li><strong>Parse the line</strong> into a structured format (dictionary for JSON/CSV, key-value pairs for text)</li>
+<li><strong>Check the severity level</strong> using an <code>if</code> statement comparing to <code>"ERROR"</code></li>
+<li><strong>Extract relevant fields</strong> from matching entries (timestamp, message, service)</li>
+<li><strong>Store or aggregate</strong> the error information in a list or dictionary</li>
+<li><strong>Output the results</strong> to console or write to a new file</li>
+</ol>
+<hr />
+<h3 id="key-takeaways-for-engineers_1">🧠 Key Takeaways for Engineers</h3>
+<ul>
+<li><strong>Structured logs are predictable</strong>: JSON and CSV formats make parsing reliable and repeatable</li>
+<li><strong>Filtering is simple</strong>: A single <code>if</code> statement checking the level field is often all you need</li>
+<li><strong>Extract what matters</strong>: Focus on timestamp, message, and service name for most debugging scenarios</li>
+<li><strong>Summarize patterns</strong>: Counting errors by type or service reveals systemic issues</li>
+<li><strong>Save your work</strong>: Writing filtered results to a new file preserves your analysis for later review</li>
+</ul>
+<hr />
+<h3 id="next-steps-for-practice_1">🚀 Next Steps for Practice</h3>
+<ul>
+<li>Start with a small JSON log file containing a mix of INFO, WARN, and ERROR entries</li>
+<li>Write a script that reads the file and prints only the ERROR entries</li>
+<li>Add logic to count how many errors occurred per service</li>
+<li>Extend your script to write the filtered errors to a new file</li>
+<li>Try parsing a CSV log file using the <code>csv</code> module for comparison</li>
+</ul>
+<p>By mastering structured log parsing, you'll be able to quickly pinpoint issues in production systems without manually searching through thousands of log lines.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide shows how to use regex to extract error entries from structured log files.</p>
+<hr />
+<h3 id="example-1-finding-lines-containing-error_1">🔧 Example 1: Finding lines containing "ERROR"</h3>
+<p>This example finds any log line that contains the word "ERROR".</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">2024-01-15 10:30:45 INFO  Service started</span>
+<span class="s2">2024-01-15 10:31:12 ERROR Database connection failed</span>
+<span class="s2">2024-01-15 10:32:00 WARN  Memory usage high</span>
+<span class="s2">2024-01-15 10:33:21 ERROR Timeout occurred</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;ERROR&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_data</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['ERROR', 'ERROR']</strong></p>
+<hr />
+<h3 id="example-2-extracting-full-error-lines-from-logs_1">🔧 Example 2: Extracting full error lines from logs</h3>
+<p>This example captures the entire line containing an ERROR entry.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">2024-01-15 10:30:45 INFO  Service started</span>
+<span class="s2">2024-01-15 10:31:12 ERROR Database connection failed</span>
+<span class="s2">2024-01-15 10:32:00 WARN  Memory usage high</span>
+<span class="s2">2024-01-15 10:33:21 ERROR Timeout occurred</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^.*ERROR.*$&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_data</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['2024-01-15 10:31:12 ERROR Database connection failed', '2024-01-15 10:33:21 ERROR Timeout occurred']</strong></p>
+<hr />
+<h3 id="example-3-extracting-timestamp-and-error-message-separately_1">🔧 Example 3: Extracting timestamp and error message separately</h3>
+<p>This example splits each error line into timestamp and message parts.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">2024-01-15 10:31:12 ERROR Database connection failed</span>
+<span class="s2">2024-01-15 10:33:21 ERROR Timeout occurred</span>
+<span class="s2">2024-01-15 10:35:00 ERROR Disk space low</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\d</span><span class="si">{4}</span><span class="s2">-\d</span><span class="si">{2}</span><span class="s2">-\d</span><span class="si">{2}</span><span class="s2"> \d</span><span class="si">{2}</span><span class="s2">:\d</span><span class="si">{2}</span><span class="s2">:\d</span><span class="si">{2}</span><span class="s2">) ERROR (.+)&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_data</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[('2024-01-15 10:31:12', 'Database connection failed'), ('2024-01-15 10:33:21', 'Timeout occurred'), ('2024-01-15 10:35:00', 'Disk space low')]</strong></p>
+<hr />
+<h3 id="example-4-filtering-errors-by-error-code-pattern_1">🔧 Example 4: Filtering errors by error code pattern</h3>
+<p>This example extracts only errors that contain a specific error code like "ERR-500".</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">2024-01-15 10:31:12 ERROR ERR-500 Database connection failed</span>
+<span class="s2">2024-01-15 10:32:45 ERROR ERR-404 Resource not found</span>
+<span class="s2">2024-01-15 10:33:21 ERROR Timeout occurred</span>
+<span class="s2">2024-01-15 10:35:00 ERROR ERR-500 Disk space low</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;ERROR ERR-500 (.+)&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_data</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Database connection failed', 'Disk space low']</strong></p>
+<hr />
+<h3 id="example-5-counting-errors-by-type-in-structured-json-logs_1">🔧 Example 5: Counting errors by type in structured JSON logs</h3>
+<p>This example parses JSON-formatted log entries and counts errors by type.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">{&quot;timestamp&quot;: &quot;2024-01-15 10:31:12&quot;, &quot;level&quot;: &quot;ERROR&quot;, &quot;type&quot;: &quot;DB_ERROR&quot;, &quot;message&quot;: &quot;Connection failed&quot;}</span>
+<span class="s2">{&quot;timestamp&quot;: &quot;2024-01-15 10:32:45&quot;, &quot;level&quot;: &quot;ERROR&quot;, &quot;type&quot;: &quot;AUTH_ERROR&quot;, &quot;message&quot;: &quot;Invalid token&quot;}</span>
+<span class="s2">{&quot;timestamp&quot;: &quot;2024-01-15 10:33:21&quot;, &quot;level&quot;: &quot;ERROR&quot;, &quot;type&quot;: &quot;DB_ERROR&quot;, &quot;message&quot;: &quot;Timeout&quot;}</span>
+<span class="s2">{&quot;timestamp&quot;: &quot;2024-01-15 10:35:00&quot;, &quot;level&quot;: &quot;INFO&quot;, &quot;type&quot;: &quot;STARTUP&quot;, &quot;message&quot;: &quot;Service ready&quot;}</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&quot;type&quot;: &quot;(\w+)&quot;&#39;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_data</span><span class="p">)</span>
+
+<span class="n">error_types</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">error_type</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">error_type</span> <span class="ow">in</span> <span class="n">error_types</span><span class="p">:</span>
+        <span class="n">error_types</span><span class="p">[</span><span class="n">error_type</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">error_types</span><span class="p">[</span><span class="n">error_type</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">error_types</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'DB_ERROR': 2, 'AUTH_ERROR': 1, 'STARTUP': 1}</strong></p>
+<hr />
+<h3 id="comparison-table-regex-patterns-for-log-parsing_1">📊 Comparison Table: Regex Patterns for Log Parsing</h3>
 <table>
 <thead>
 <tr>

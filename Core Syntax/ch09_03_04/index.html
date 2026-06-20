@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch09_03_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 09 | Practical Example: Printing Server Inventory Statuses - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 09 | Practical Example: Printing Server Inventory Statuses";
         var mkdocs_page_input_path = "Core Syntax\\ch09_03_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch09_03_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -432,6 +432,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-printing-only-offline-servers-for-attention">🔧 Example 5: Printing only offline servers for attention</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-the-server-inventory-dictionary_1">⚙️ Building the Server Inventory Dictionary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#iterating-over-the-dictionary-to-print-statuses_1">🛠️ Iterating Over the Dictionary to Print Statuses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#printing-a-formatted-status-report_1">📊 Printing a Formatted Status Report</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-missing-or-unexpected-statuses_1">🕵️ Handling Missing or Unexpected Statuses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together_1">🧩 Putting It All Together</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-loop-through-server-names-and-statuses_1">🔧 Example 1: Basic loop through server names and statuses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-using-keys-to-list-all-server-names_1">🔧 Example 2: Using keys() to list all server names</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-values-to-list-all-statuses_1">🔧 Example 3: Using values() to list all statuses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-counting-servers-by-status_1">🔧 Example 4: Counting servers by status</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-printing-only-offline-servers-for-attention_1">🔧 Example 5: Printing only offline servers for attention</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="practical-example-printing-server-inventory-statuses">Practical Example: Printing Server Inventory Statuses</h1>
 <p><span class="category-tag">🏷️ Dictionaries /  Iterating Over Dictionaries</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1176,8 +1202,7 @@
 <li>A <strong>summary section</strong> gives a quick overview of the entire inventory.</li>
 </ul>
 <p>This practical example gives you a solid foundation for working with dictionaries in real-world scenarios, such as monitoring server fleets, tracking deployment statuses, or managing configuration states.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This section shows how to loop through a dictionary to display server inventory statuses in a readable format.</p>
 <hr />
 <h3 id="example-1-basic-loop-through-server-names-and-statuses">🔧 Example 1: Basic loop through server names and statuses</h3>
@@ -1271,6 +1296,233 @@ Offline servers: 2</strong></p>
 - monitor-server-01 is offline</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What it iterates over</th>
+<th>Use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.items()</code></td>
+<td>Both keys and values</td>
+<td>When you need server name + status together</td>
+</tr>
+<tr>
+<td><code>.keys()</code></td>
+<td>Only keys (server names)</td>
+<td>When you only need server names</td>
+</tr>
+<tr>
+<td><code>.values()</code></td>
+<td>Only values (statuses)</td>
+<td>When you only need status counts or checks</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>When managing a fleet of servers, you often need to check their current status—whether they are <strong>online</strong>, <strong>offline</strong>, <strong>maintenance</strong>, or <strong>unknown</strong>. A dictionary is a perfect way to store this information because it pairs each server name (the key) with its status (the value). In this example, we will walk through how to build, update, and print a server inventory status report using simple dictionary iteration techniques.</p>
+<hr />
+<h3 id="building-the-server-inventory-dictionary_1">⚙️ Building the Server Inventory Dictionary</h3>
+<p>Start by creating a dictionary that holds the status of several servers. Each server name is a key, and its current status is the value.</p>
+<ul>
+<li><strong>Server names</strong> (keys): <strong>"web-server-01"</strong>, <strong>"db-server-02"</strong>, <strong>"cache-node-03"</strong>, <strong>"load-balancer-04"</strong></li>
+<li><strong>Statuses</strong> (values): <strong>"online"</strong>, <strong>"offline"</strong>, <strong>"maintenance"</strong>, <strong>"unknown"</strong></li>
+</ul>
+<p>Example dictionary structure:</p>
+<ul>
+<li><strong>web-server-01</strong>: <strong>online</strong></li>
+<li><strong>db-server-02</strong>: <strong>offline</strong></li>
+<li><strong>cache-node-03</strong>: <strong>maintenance</strong></li>
+<li><strong>load-balancer-04</strong>: <strong>unknown</strong></li>
+</ul>
+<hr />
+<h3 id="iterating-over-the-dictionary-to-print-statuses_1">🛠️ Iterating Over the Dictionary to Print Statuses</h3>
+<p>To print each server's status in a clean report format, you loop through the dictionary. There are two common ways to do this:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Example Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Loop over keys</strong></td>
+<td>Use <strong>for server in inventory:</strong> to access each key, then retrieve the value with <strong>inventory[server]</strong></td>
+<td><strong>web-server-01 is online</strong></td>
+</tr>
+<tr>
+<td><strong>Loop over items</strong></td>
+<td>Use <strong>for server, status in inventory.items():</strong> to get both key and value directly</td>
+<td><strong>db-server-02 is offline</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Both methods produce the same result, but the <strong>items()</strong> approach is often cleaner because it avoids an extra lookup.</p>
+<hr />
+<h3 id="printing-a-formatted-status-report_1">📊 Printing a Formatted Status Report</h3>
+<p>Once you have the loop in place, you can print a formatted report. For example:</p>
+<ul>
+<li><strong>Server: web-server-01 — Status: online</strong></li>
+<li><strong>Server: db-server-02 — Status: offline</strong></li>
+<li><strong>Server: cache-node-03 — Status: maintenance</strong></li>
+<li><strong>Server: load-balancer-04 — Status: unknown</strong></li>
+</ul>
+<p>You can also add a summary at the end, such as:</p>
+<ul>
+<li><strong>Total servers: 4</strong></li>
+<li><strong>Online: 1</strong></li>
+<li><strong>Offline: 1</strong></li>
+<li><strong>Maintenance: 1</strong></li>
+<li><strong>Unknown: 1</strong></li>
+</ul>
+<hr />
+<h3 id="handling-missing-or-unexpected-statuses_1">🕵️ Handling Missing or Unexpected Statuses</h3>
+<p>In real-world scenarios, a server might have a status that doesn't fit the expected categories. You can add a simple check inside your loop to flag unexpected values.</p>
+<ul>
+<li>If <strong>status</strong> is <strong>"online"</strong>, <strong>"offline"</strong>, or <strong>"maintenance"</strong>, print normally.</li>
+<li>Otherwise, print a warning like <strong>"⚠️ Server cache-node-03 has an unknown status: unknown"</strong></li>
+</ul>
+<p>This keeps your report accurate and helps you spot issues quickly.</p>
+<hr />
+<h3 id="putting-it-all-together_1">🧩 Putting It All Together</h3>
+<p>Here is the complete logic flow for printing a server inventory status report:</p>
+<ol>
+<li><strong>Create the dictionary</strong> with server names and their statuses.</li>
+<li><strong>Loop through the dictionary</strong> using <strong>items()</strong> to get each server and status.</li>
+<li><strong>Print each server's status</strong> in a clear, readable format.</li>
+<li><strong>Optionally, count</strong> how many servers are in each status category.</li>
+<li><strong>Print a summary</strong> at the end showing total counts.</li>
+</ol>
+<p>Example output of the final report:</p>
+<ul>
+<li><strong>Server: web-server-01 — Status: online</strong></li>
+<li><strong>Server: db-server-02 — Status: offline</strong></li>
+<li><strong>Server: cache-node-03 — Status: maintenance</strong></li>
+<li><strong>Server: load-balancer-04 — Status: unknown</strong></li>
+<li><strong>--- Summary ---</strong></li>
+<li><strong>Total servers: 4</strong></li>
+<li><strong>Online: 1</strong></li>
+<li><strong>Offline: 1</strong></li>
+<li><strong>Maintenance: 1</strong></li>
+<li><strong>Unknown: 1</strong></li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li>Dictionaries are ideal for storing <strong>key-value pairs</strong> like server names and statuses.</li>
+<li>Use <strong>for key, value in dictionary.items():</strong> to iterate cleanly over both keys and values.</li>
+<li>You can <strong>format output</strong> to make reports easy to read.</li>
+<li>Adding <strong>status checks</strong> helps catch unexpected or missing data.</li>
+<li>A <strong>summary section</strong> gives a quick overview of the entire inventory.</li>
+</ul>
+<p>This practical example gives you a solid foundation for working with dictionaries in real-world scenarios, such as monitoring server fleets, tracking deployment statuses, or managing configuration states.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This section shows how to loop through a dictionary to display server inventory statuses in a readable format.</p>
+<hr />
+<h3 id="example-1-basic-loop-through-server-names-and-statuses_1">🔧 Example 1: Basic loop through server names and statuses</h3>
+<p>This example prints each server name with its current status using a simple for loop.</p>
+<div class="highlight"><pre><span></span><code><span class="n">server_inventory</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;web-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;db-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cache-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;offline&quot;</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">server_name</span><span class="p">,</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">server_inventory</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">server_name</span> <span class="o">+</span> <span class="s2">&quot; is &quot;</span> <span class="o">+</span> <span class="n">status</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>web-server-01 is online<br />
+db-server-01 is online<br />
+cache-server-01 is offline</strong></p>
+<hr />
+<h3 id="example-2-using-keys-to-list-all-server-names_1">🔧 Example 2: Using keys() to list all server names</h3>
+<p>This example shows how to iterate only over the server names (keys) in the dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">server_inventory</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;web-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;db-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cache-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;offline&quot;</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">server_name</span> <span class="ow">in</span> <span class="n">server_inventory</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Server name: &quot;</span> <span class="o">+</span> <span class="n">server_name</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Server name: web-server-01<br />
+Server name: db-server-01<br />
+Server name: cache-server-01</strong></p>
+<hr />
+<h3 id="example-3-using-values-to-list-all-statuses_1">🔧 Example 3: Using values() to list all statuses</h3>
+<p>This example demonstrates iterating only over the status values, ignoring server names.</p>
+<div class="highlight"><pre><span></span><code><span class="n">server_inventory</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;web-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;db-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cache-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;offline&quot;</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">server_inventory</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status: &quot;</span> <span class="o">+</span> <span class="n">status</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Status: online<br />
+Status: online<br />
+Status: offline</strong></p>
+<hr />
+<h3 id="example-4-counting-servers-by-status_1">🔧 Example 4: Counting servers by status</h3>
+<p>This example counts how many servers are online versus offline using a loop.</p>
+<div class="highlight"><pre><span></span><code><span class="n">server_inventory</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;web-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;db-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cache-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;offline&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;app-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;monitor-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;offline&quot;</span>
+<span class="p">}</span>
+
+<span class="n">online_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">offline_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">server_inventory</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;online&quot;</span><span class="p">:</span>
+        <span class="n">online_count</span> <span class="o">=</span> <span class="n">online_count</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">offline_count</span> <span class="o">=</span> <span class="n">offline_count</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Online servers: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">online_count</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Offline servers: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">offline_count</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>Online servers: 3<br />
+Offline servers: 2</strong></p>
+<hr />
+<h3 id="example-5-printing-only-offline-servers-for-attention_1">🔧 Example 5: Printing only offline servers for attention</h3>
+<p>This example filters and prints only servers that need attention (offline status).</p>
+<div class="highlight"><pre><span></span><code><span class="n">server_inventory</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;web-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;db-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cache-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;offline&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;app-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;monitor-server-01&quot;</span><span class="p">:</span> <span class="s2">&quot;offline&quot;</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Servers needing attention:&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">server_name</span><span class="p">,</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">server_inventory</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;offline&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- &quot;</span> <span class="o">+</span> <span class="n">server_name</span> <span class="o">+</span> <span class="s2">&quot; is &quot;</span> <span class="o">+</span> <span class="n">status</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Servers needing attention:<br />
+- cache-server-01 is offline<br />
+- monitor-server-01 is offline</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

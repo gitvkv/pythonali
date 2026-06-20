@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_01_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Class Blueprint Profiles vs Object Instances - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Class Blueprint Profiles vs Object Instances";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_01_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_01_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -829,6 +829,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-class-blueprint-vs-object-instance">📊 Comparison: Class Blueprint vs Object Instance</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-class-blueprint_1">⚙️ What is a Class Blueprint?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-an-object-instance_1">🛠️ What is an Object Instance?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-class-vs-object-instance_1">📊 Comparison Table: Class vs Object Instance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-they-work-together_1">🕵️ How They Work Together</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-walkthrough_1">🧪 Practical Example Walkthrough</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">🔍 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-this-matters_1">🚀 Why This Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-defining-a-simple-class-and-creating-one-object_1">🏗️ Example 1: Defining a simple class and creating one object</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-creating-multiple-objects-from-the-same-class_1">🧬 Example 2: Creating multiple objects from the same class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-class-blueprint-with-attributes-vs-object-instances-with-unique-values_1">📋 Example 3: Class blueprint with attributes vs object instances with unique values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-init-to-set-unique-data-per-object-instance_1">🎯 Example 4: Using init to set unique data per object instance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-class-methods-shared-by-all-objects-but-acting-on-instance-data_1">🔧 Example 5: Class methods shared by all objects, but acting on instance data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-class-blueprint-vs-object-instance_1">📊 Comparison: Class Blueprint vs Object Instance</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_01_02/">Ch 18 | Code Organization and Complexity Management Benefits</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="class-blueprint-profiles-vs-object-instances">Class Blueprint Profiles vs Object Instances</h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  What is OOP?</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1194,8 +1222,7 @@
 <li>Maintain consistency across similar objects while allowing each to have unique data</li>
 </ul>
 <p>This concept appears in virtually every Python program that uses OOP, from simple scripts to large-scale applications. Mastering it early makes everything else in OOP much easier to understand.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>A class is a blueprint that defines the structure and behavior, while an object is a specific instance created from that blueprint with its own data.</p>
 <hr />
 <h3 id="example-1-defining-a-simple-class-and-creating-one-object">🏗️ Example 1: Defining a simple class and creating one object</h3>
@@ -1285,6 +1312,254 @@
 📤 Output: <strong>Dave completed 15 projects</strong></p>
 <hr />
 <h3 id="comparison-class-blueprint-vs-object-instance">📊 Comparison: Class Blueprint vs Object Instance</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Class Blueprint</th>
+<th>Object Instance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Definition</td>
+<td>Template that defines structure</td>
+<td>Specific copy created from template</td>
+</tr>
+<tr>
+<td>Data storage</td>
+<td>Holds default/shared values</td>
+<td>Holds its own unique values</td>
+</tr>
+<tr>
+<td>Number</td>
+<td>One class per design</td>
+<td>Many objects can exist</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>Single definition in memory</td>
+<td>Each object gets its own memory space</td>
+</tr>
+<tr>
+<td>Modification</td>
+<td>Changing class affects new objects</td>
+<td>Changing object affects only that object</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>In Python, everything revolves around objects. But before you can create an object, you need a blueprint that defines what that object will look like and how it will behave. This blueprint is called a <strong>class</strong>, and the actual things you create from it are called <strong>object instances</strong>.</p>
+<p>Think of a class like an architectural blueprint for a house. The blueprint itself is not a house—it's just a plan. You can use that same blueprint to build many identical houses. Each house you build is an instance of that blueprint. This distinction between the blueprint (class) and the actual houses (instances) is fundamental to understanding Object-Oriented Programming.</p>
+<hr />
+<h3 id="what-is-a-class-blueprint_1">⚙️ What is a Class Blueprint?</h3>
+<p>A <strong>class</strong> is a template or blueprint that defines the structure and behavior of objects. It describes what attributes (data) and methods (functions) an object will have, but it does not contain actual data itself.</p>
+<p>Key characteristics of a class:</p>
+<ul>
+<li><strong>Defines attributes</strong> – Variables that will hold data for each instance</li>
+<li><strong>Defines methods</strong> – Functions that operate on the instance's data</li>
+<li><strong>Acts as a template</strong> – Can be used to create multiple unique objects</li>
+<li><strong>Does not hold instance data</strong> – Only describes what data will look like</li>
+</ul>
+<p>Example of a class definition:</p>
+<p>A class named <strong>Server</strong> might define attributes like <strong>hostname</strong>, <strong>ip_address</strong>, and <strong>os_type</strong>, along with methods like <strong>ping()</strong> and <strong>reboot()</strong>. The class itself does not have a specific hostname or IP address—it just says that any server object will have those attributes.</p>
+<hr />
+<h3 id="what-is-an-object-instance_1">🛠️ What is an Object Instance?</h3>
+<p>An <strong>object instance</strong> is a concrete, specific realization of a class blueprint. When you create an instance, you provide actual values for the attributes defined in the class. Each instance has its own separate copy of the data.</p>
+<p>Key characteristics of an object instance:</p>
+<ul>
+<li><strong>Created from a class</strong> – Uses the class as its template</li>
+<li><strong>Has its own data</strong> – Each instance stores its own attribute values</li>
+<li><strong>Can call methods</strong> – Can use the methods defined in the class</li>
+<li><strong>Exists in memory</strong> – Takes up space while the program runs</li>
+</ul>
+<p>Example of creating instances:</p>
+<p>From the <strong>Server</strong> class, you could create an instance called <strong>web_server_1</strong> with hostname "websrv01", IP address "192.168.1.10", and OS type "Linux". You could also create another instance called <strong>db_server_1</strong> with completely different values. Both are separate objects that follow the same blueprint.</p>
+<hr />
+<h3 id="comparison-table-class-vs-object-instance_1">📊 Comparison Table: Class vs Object Instance</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Class Blueprint</th>
+<th>Object Instance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Defines structure and behavior</td>
+<td>Holds actual data and executes actions</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>Loaded once when program starts</td>
+<td>Created each time you instantiate</td>
+</tr>
+<tr>
+<td><strong>Data</strong></td>
+<td>No instance data, only definitions</td>
+<td>Contains specific attribute values</td>
+</tr>
+<tr>
+<td><strong>Uniqueness</strong></td>
+<td>One class definition per type</td>
+<td>Many instances can exist from one class</td>
+</tr>
+<tr>
+<td><strong>Usage</strong></td>
+<td>Used to create objects</td>
+<td>Used to perform operations</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td>The idea of a "Car"</td>
+<td>Your actual red Toyota Camry</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-they-work-together_1">🕵️ How They Work Together</h3>
+<p>The relationship between a class and its instances is straightforward:</p>
+<ol>
+<li><strong>Define the class</strong> – Write the blueprint with attributes and methods</li>
+<li><strong>Create instances</strong> – Use the class to build individual objects</li>
+<li><strong>Customize each instance</strong> – Give each object its own unique data</li>
+<li><strong>Use the instances</strong> – Call methods and access attributes on each object</li>
+</ol>
+<p>When you create an instance, Python uses the class blueprint to allocate memory for that object and set up its structure. The instance then becomes an independent entity that can be modified without affecting other instances or the class itself.</p>
+<hr />
+<h3 id="practical-example-walkthrough_1">🧪 Practical Example Walkthrough</h3>
+<p>Consider a class called <strong>NetworkDevice</strong>:</p>
+<p>The class defines that every network device will have:
+- An attribute called <strong>name</strong>
+- An attribute called <strong>ip_address</strong>
+- An attribute called <strong>status</strong>
+- A method called <strong>check_connectivity()</strong></p>
+<p>Now, you create two instances:</p>
+<p><strong>Instance 1</strong> – A router named "Core-RTR-01" with IP "10.0.0.1" and status "online"</p>
+<p><strong>Instance 2</strong> – A switch named "Access-SW-05" with IP "10.0.1.5" and status "offline"</p>
+<p>Each instance has its own values for name, IP address, and status. When you call <strong>check_connectivity()</strong> on Instance 1, it checks connectivity for "10.0.0.1". When you call the same method on Instance 2, it checks connectivity for "10.0.1.5". The same method behaves differently because it uses the data stored in each specific instance.</p>
+<hr />
+<h3 id="key-takeaways_1">🔍 Key Takeaways</h3>
+<ul>
+<li>A <strong>class</strong> is a blueprint that defines what an object looks like and how it behaves</li>
+<li>An <strong>object instance</strong> is a concrete realization of that blueprint with actual data</li>
+<li>One class can create many independent instances</li>
+<li>Each instance has its own separate copy of the attribute values</li>
+<li>Methods defined in the class operate on the data stored in each specific instance</li>
+<li>Changing data in one instance does not affect other instances or the class itself</li>
+<li>The class defines the <strong>what</strong> and <strong>how</strong>, while instances represent the <strong>who</strong> with specific data</li>
+</ul>
+<hr />
+<h3 id="why-this-matters_1">🚀 Why This Matters</h3>
+<p>Understanding the difference between a class and its instances is the foundation of Object-Oriented Programming. It allows you to:</p>
+<ul>
+<li>Write reusable code by defining classes once and creating many objects</li>
+<li>Organize related data and functions together in a logical structure</li>
+<li>Model real-world entities in your code with accuracy</li>
+<li>Scale your programs by creating multiple objects that all follow the same rules</li>
+<li>Maintain consistency across similar objects while allowing each to have unique data</li>
+</ul>
+<p>This concept appears in virtually every Python program that uses OOP, from simple scripts to large-scale applications. Mastering it early makes everything else in OOP much easier to understand.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>A class is a blueprint that defines the structure and behavior, while an object is a specific instance created from that blueprint with its own data.</p>
+<hr />
+<h3 id="example-1-defining-a-simple-class-and-creating-one-object_1">🏗️ Example 1: Defining a simple class and creating one object</h3>
+<p>This example shows the most basic class definition and how to create a single object from it.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Engineer</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="n">engineer_1</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">engineer_1</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong><class '__main__.Engineer'></strong></p>
+<hr />
+<h3 id="example-2-creating-multiple-objects-from-the-same-class_1">🧬 Example 2: Creating multiple objects from the same class</h3>
+<p>This example demonstrates that each object is a separate instance with its own identity.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Engineer</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="n">engineer_1</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">()</span>
+<span class="n">engineer_2</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">()</span>
+<span class="n">engineer_3</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_3</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>&lt;<strong>main</strong>.Engineer object at 0x7f8a1b2c3d00&gt;</strong><br />
+📤 Output: <strong>&lt;<strong>main</strong>.Engineer object at 0x7f8a1b2c3d30&gt;</strong><br />
+📤 Output: <strong>&lt;<strong>main</strong>.Engineer object at 0x7f8a1b2c3d60&gt;</strong></p>
+<hr />
+<h3 id="example-3-class-blueprint-with-attributes-vs-object-instances-with-unique-values_1">📋 Example 3: Class blueprint with attributes vs object instances with unique values</h3>
+<p>This example shows how the class defines attributes, but each object stores its own values.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Engineer</span><span class="p">:</span>
+    <span class="n">specialty</span> <span class="o">=</span> <span class="s2">&quot;General&quot;</span>
+
+<span class="n">engineer_1</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">()</span>
+<span class="n">engineer_2</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">()</span>
+
+<span class="n">engineer_1</span><span class="o">.</span><span class="n">specialty</span> <span class="o">=</span> <span class="s2">&quot;Mechanical&quot;</span>
+<span class="n">engineer_2</span><span class="o">.</span><span class="n">specialty</span> <span class="o">=</span> <span class="s2">&quot;Electrical&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Engineer</span><span class="o">.</span><span class="n">specialty</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_1</span><span class="o">.</span><span class="n">specialty</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_2</span><span class="o">.</span><span class="n">specialty</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>General</strong><br />
+📤 Output: <strong>Mechanical</strong><br />
+📤 Output: <strong>Electrical</strong></p>
+<hr />
+<h3 id="example-4-using-init-to-set-unique-data-per-object-instance_1">🎯 Example 4: Using <strong>init</strong> to set unique data per object instance</h3>
+<p>This example shows how the constructor method assigns unique values to each new object.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Engineer</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">years_experience</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">years_experience</span> <span class="o">=</span> <span class="n">years_experience</span>
+
+<span class="n">engineer_1</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">engineer_2</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_1</span><span class="o">.</span><span class="n">years_experience</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_2</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_2</span><span class="o">.</span><span class="n">years_experience</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Alice</strong><br />
+📤 Output: <strong>5</strong><br />
+📤 Output: <strong>Bob</strong><br />
+📤 Output: <strong>12</strong></p>
+<hr />
+<h3 id="example-5-class-methods-shared-by-all-objects-but-acting-on-instance-data_1">🔧 Example 5: Class methods shared by all objects, but acting on instance data</h3>
+<p>This example shows how a method defined in the class works differently for each object because it uses that object's own data.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Engineer</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">projects_completed</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">projects_completed</span> <span class="o">=</span> <span class="n">projects_completed</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> completed </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">projects_completed</span><span class="si">}</span><span class="s2"> projects&quot;</span>
+
+<span class="n">engineer_1</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">(</span><span class="s2">&quot;Carol&quot;</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">engineer_2</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">(</span><span class="s2">&quot;Dave&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_1</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_2</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>Carol completed 8 projects</strong><br />
+📤 Output: <strong>Dave completed 15 projects</strong></p>
+<hr />
+<h3 id="comparison-class-blueprint-vs-object-instance_1">📊 Comparison: Class Blueprint vs Object Instance</h3>
 <table>
 <thead>
 <tr>

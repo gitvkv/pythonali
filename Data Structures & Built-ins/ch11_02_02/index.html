@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch11_02_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 11 | Importing Specific Items via From - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 11 | Importing Specific Items via From";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch11_02_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch11_02_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -518,6 +518,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-importing-specific-constants-from-a-module">🎯 Example 5: Importing Specific Constants from a Module</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-import-module-vs-from-module-import-item">📊 Comparison: import module vs from module import item</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-import-specific-items_1">🧠 Why Import Specific Items?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-syntax-for-from-import_1">⚙️ Basic Syntax for from ... import</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#importing-multiple-specific-items_1">🛠️ Importing Multiple Specific Items</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#renaming-imported-items-with-as_1">🕵️ Renaming Imported Items with as</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-full-import-vs-specific-import_1">📊 Comparison: Full Import vs. Specific Import</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">🧪 Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-engineers_1">✅ Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference_1">🚀 Quick Reference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-importing-a-single-function_1">🎯 Example 1: Importing a Single Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-importing-multiple-items_1">🎯 Example 2: Importing Multiple Items</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-importing-with-an-alias_1">🎯 Example 3: Importing with an Alias</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-importing-a-custom-function-from-a-local-module_1">🎯 Example 4: Importing a Custom Function from a Local Module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-importing-specific-constants-from-a-module_1">🎯 Example 5: Importing Specific Constants from a Module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-import-module-vs-from-module-import-item_1">📊 Comparison: import module vs from module import item</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="importing-specific-items-via-from">Importing Specific Items via From</h1>
 <p><span class="category-tag">🏷️ Modules and Imports /  Import Syntax</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When you start working with Python, you will often need to use code that other people have written. These pre-built pieces of code are stored in <strong>modules</strong> and <strong>packages</strong>. Instead of bringing in an entire module, which can be large and slow down your program, you can use the <strong>from</strong> keyword to import only the specific functions, classes, or variables you actually need. This keeps your code clean, efficient, and easier to read.</p>
@@ -1203,8 +1231,7 @@
 </table>
 <hr />
 <p>By using <strong>from ... import</strong>, you write Python code that is precise, efficient, and easy for other engineers to understand. Start small, import only what you need, and your scripts will be cleaner and faster from the very beginning.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>from</code> keyword lets you import only specific functions, classes, or variables from a module instead of importing the entire module.</p>
 <hr />
 <h3 id="example-1-importing-a-single-function">🎯 Example 1: Importing a Single Function</h3>
@@ -1259,6 +1286,213 @@
 📤 Output: *<em>Path separator: *</em> (or <code>/</code> on Linux/Mac)</p>
 <hr />
 <h3 id="comparison-import-module-vs-from-module-import-item">📊 Comparison: <code>import module</code> vs <code>from module import item</code></h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Code Example</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>import module</code></td>
+<td><code>import math</code> then <code>math.sqrt(25)</code></td>
+<td>When you need many items from the module</td>
+</tr>
+<tr>
+<td><code>from module import item</code></td>
+<td><code>from math import sqrt</code> then <code>sqrt(25)</code></td>
+<td>When you need only one or two specific items</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you start working with Python, you will often need to use code that other people have written. These pre-built pieces of code are stored in <strong>modules</strong> and <strong>packages</strong>. Instead of bringing in an entire module, which can be large and slow down your program, you can use the <strong>from</strong> keyword to import only the specific functions, classes, or variables you actually need. This keeps your code clean, efficient, and easier to read.</p>
+<hr />
+<h3 id="why-import-specific-items_1">🧠 Why Import Specific Items?</h3>
+<ul>
+<li><strong>Saves memory</strong> – You only load what you use, not the entire module.</li>
+<li><strong>Improves readability</strong> – Other engineers can see exactly which parts of a module are being used.</li>
+<li><strong>Avoids naming conflicts</strong> – If two modules have a function with the same name, importing specific items helps you control which one is used.</li>
+<li><strong>Speeds up execution</strong> – Smaller imports mean faster startup times for your scripts.</li>
+</ul>
+<hr />
+<h3 id="basic-syntax-for-from-import_1">⚙️ Basic Syntax for <code>from ... import</code></h3>
+<p>The general pattern is:</p>
+<p><strong>from module_name import item_name</strong></p>
+<p>You replace <strong>module_name</strong> with the actual module (like <strong>math</strong> or <strong>os</strong>) and <strong>item_name</strong> with the specific function, class, or variable you want.</p>
+<p><strong>Example:</strong>
+- Instead of writing <strong>import math</strong> and then using <strong>math.sqrt(25)</strong>, you can write <strong>from math import sqrt</strong> and then use <strong>sqrt(25)</strong> directly.</p>
+<p><strong>Expected behavior:</strong>
+- The function <strong>sqrt</strong> becomes available in your code without needing the <strong>math.</strong> prefix.
+- Only the <strong>sqrt</strong> function is loaded, not the entire math module.</p>
+<hr />
+<h3 id="importing-multiple-specific-items_1">🛠️ Importing Multiple Specific Items</h3>
+<p>You can import several items from the same module in one line by separating them with commas.</p>
+<p><strong>Syntax:</strong>
+<strong>from module_name import item_one, item_two, item_three</strong></p>
+<p><strong>Example:</strong>
+- <strong>from datetime import date, datetime, timedelta</strong>
+- This gives you direct access to the <strong>date</strong>, <strong>datetime</strong>, and <strong>timedelta</strong> classes without typing <strong>datetime.date</strong>, <strong>datetime.datetime</strong>, etc.</p>
+<p><strong>Expected behavior:</strong>
+- All three items are now available in your namespace.
+- You can use <strong>date.today()</strong>, <strong>datetime.now()</strong>, and <strong>timedelta(days=1)</strong> directly.</p>
+<hr />
+<h3 id="renaming-imported-items-with-as_1">🕵️ Renaming Imported Items with <code>as</code></h3>
+<p>Sometimes the imported item has a long name, or it might conflict with another name in your code. You can rename it using the <strong>as</strong> keyword.</p>
+<p><strong>Syntax:</strong>
+<strong>from module_name import item_name as new_name</strong></p>
+<p><strong>Example:</strong>
+- <strong>from statistics import mean as average</strong>
+- Now you can call <strong>average([10, 20, 30])</strong> instead of <strong>mean([10, 20, 30])</strong>.</p>
+<p><strong>Expected behavior:</strong>
+- The function <strong>mean</strong> is imported but renamed to <strong>average</strong>.
+- The original name <strong>mean</strong> is not available in your code.</p>
+<hr />
+<h3 id="comparison-full-import-vs-specific-import_1">📊 Comparison: Full Import vs. Specific Import</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Full Import (<code>import module</code>)</th>
+<th>Specific Import (<code>from module import item</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>What is loaded</strong></td>
+<td>The entire module</td>
+<td>Only the specified items</td>
+</tr>
+<tr>
+<td><strong>How to use</strong></td>
+<td>Must use <strong>module.item()</strong></td>
+<td>Use <strong>item()</strong> directly</td>
+</tr>
+<tr>
+<td><strong>Memory usage</strong></td>
+<td>Higher</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Clear where the function comes from</td>
+<td>Cleaner, but origin is less obvious</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Using many items from one module</td>
+<td>Using only one or two items</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">🧪 Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Importing too many items</strong> – If you import ten items from a module, you might as well import the whole module. Keep imports minimal.</li>
+<li><strong>Name collisions</strong> – If you import <strong>from math import sin</strong> and later define your own <strong>sin</strong> variable, the imported one gets overwritten. Use <strong>as</strong> to rename if needed.</li>
+<li><strong>Forgetting the module name</strong> – When you use <strong>from ... import</strong>, you lose the module prefix. This can make code harder to debug if someone else reads it.</li>
+</ul>
+<hr />
+<h3 id="best-practices-for-engineers_1">✅ Best Practices for Engineers</h3>
+<ul>
+<li><strong>Import only what you need</strong> – This makes your dependencies explicit and your code faster.</li>
+<li><strong>Group imports logically</strong> – Standard library imports first, then third-party, then your own modules.</li>
+<li><strong>Use meaningful aliases</strong> – If you rename an import, make sure the alias is clear to other engineers.</li>
+<li><strong>Keep imports at the top</strong> – Place all import statements at the beginning of your file for consistency.</li>
+</ul>
+<hr />
+<h3 id="quick-reference_1">🚀 Quick Reference</h3>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Import one item</td>
+<td><strong>from math import sqrt</strong></td>
+</tr>
+<tr>
+<td>Import multiple items</td>
+<td><strong>from os import path, getcwd</strong></td>
+</tr>
+<tr>
+<td>Import and rename</td>
+<td><strong>from json import dumps as serialize</strong></td>
+</tr>
+<tr>
+<td>Import everything (avoid this)</td>
+<td>**from math import ***</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>By using <strong>from ... import</strong>, you write Python code that is precise, efficient, and easy for other engineers to understand. Start small, import only what you need, and your scripts will be cleaner and faster from the very beginning.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>from</code> keyword lets you import only specific functions, classes, or variables from a module instead of importing the entire module.</p>
+<hr />
+<h3 id="example-1-importing-a-single-function_1">🎯 Example 1: Importing a Single Function</h3>
+<p>This example shows how to import just one function from a module.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>5.0</strong></p>
+<hr />
+<h3 id="example-2-importing-multiple-items_1">🎯 Example 2: Importing Multiple Items</h3>
+<p>This example shows how to import several specific items from the same module.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
+
+<span class="n">angle</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span>
+<span class="n">sine_value</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+<span class="n">cosine_value</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sine_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cosine_value</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>0.7071067811865476</strong><br />
+📤 Output: <strong>0.7071067811865476</strong></p>
+<hr />
+<h3 id="example-3-importing-with-an-alias_1">🎯 Example 3: Importing with an Alias</h3>
+<p>This example shows how to give an imported item a shorter name using <code>as</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span> <span class="k">as</span> <span class="n">dt</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2025-04-04 14:30:15.123456</strong> (example output — actual time will vary)</p>
+<hr />
+<h3 id="example-4-importing-a-custom-function-from-a-local-module_1">🎯 Example 4: Importing a Custom Function from a Local Module</h3>
+<p>This example shows how to import a specific function from a file you created.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Assume we have a file named helpers.py with a function called add_numbers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">helpers</span><span class="w"> </span><span class="kn">import</span> <span class="n">add_numbers</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="n">add_numbers</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>30</strong></p>
+<hr />
+<h3 id="example-5-importing-specific-constants-from-a-module_1">🎯 Example 5: Importing Specific Constants from a Module</h3>
+<p>This example shows how to import only the constants you need from a module.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">name</span><span class="p">,</span> <span class="n">sep</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Operating system name:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Path separator:&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Operating system name: nt</strong> (or <code>posix</code> on Linux/Mac)<br />
+📤 Output: *<em>Path separator: *</em> (or <code>/</code> on Linux/Mac)</p>
+<hr />
+<h3 id="comparison-import-module-vs-from-module-import-item_1">📊 Comparison: <code>import module</code> vs <code>from module import item</code></h3>
 <table>
 <thead>
 <tr>

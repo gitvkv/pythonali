@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_02_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Architecting Health Reporter Profiles and Requirements - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Architecting Health Reporter Profiles and Requirements";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_02_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_02_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -987,6 +987,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#defining-user-profiles_1">👤 Defining User Profiles</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-functional-requirements_1">📋 Core Functional Requirements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#non-functional-requirements_1">🧩 Non-Functional Requirements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-profiles-vs-requirements_1">🆚 Comparison: Profiles vs. Requirements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#architectural-decisions-driven-by-profiles_1">🗺️ Architectural Decisions Driven by Profiles</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#final-requirement-checklist_1">✅ Final Requirement Checklist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-step_1">🎯 Next Step</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-defining-a-basic-health-profile-with-a-single-metric_1">🧩 Example 1: Defining a basic health profile with a single metric</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-creating-a-profile-dictionary-with-multiple-requirements_1">🧩 Example 2: Creating a profile dictionary with multiple requirements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-checking-if-a-metric-value-meets-the-profile-requirement_1">🧩 Example 3: Checking if a metric value meets the profile requirement</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-building-a-list-of-health-profiles-for-multiple-engineer-components_1">🧩 Example 4: Building a list of health profiles for multiple engineer components</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-defining-a-requirement-with-multiple-thresholds-and-a-check-function_1">🧩 Example 5: Defining a requirement with multiple thresholds and a check function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_02_02/">Ch 21 | Command-Line Flag Parsing for Output File Selection</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="architecting-health-reporter-profiles-and-requirements">Architecting Health Reporter Profiles and Requirements</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Project: System Health Reporter</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1163,8 +1191,7 @@
 <hr />
 <h3 id="next-step">🎯 Next Step</h3>
 <p>With profiles defined and requirements documented, you are ready to move into the <strong>Implementation Phase</strong>, where these specifications will be translated into clean, modular Python functions. The blueprint is complete—now the build begins.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This file shows how to design profiles and requirements for a system health reporter that tracks engineer-defined metrics and thresholds.</p>
 <h3 id="example-1-defining-a-basic-health-profile-with-a-single-metric">🧩 Example 1: Defining a basic health profile with a single metric</h3>
 <p>A health profile stores one metric name and its acceptable threshold value.</p>
@@ -1230,6 +1257,199 @@
 <p>📤 Output: <strong>No output (result variable set to "CPU: WARNING (75)")</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Example</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single metric profile</td>
+<td>Example 1</td>
+<td>Store one metric and threshold</td>
+</tr>
+<tr>
+<td>Dictionary profile</td>
+<td>Example 2</td>
+<td>Group multiple requirements</td>
+</tr>
+<tr>
+<td>Threshold check</td>
+<td>Example 3</td>
+<td>Compare current value to limits</td>
+</tr>
+<tr>
+<td>List of profiles</td>
+<td>Example 4</td>
+<td>Manage multiple components</td>
+</tr>
+<tr>
+<td>Reusable check function</td>
+<td>Example 5</td>
+<td>Apply same logic across profiles</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>Before writing a single line of code, every successful automation project begins with a clear blueprint. The <strong>System Health Reporter</strong> is your capstone project—a tool that will monitor critical system metrics, detect anomalies, and generate actionable reports. This section defines the <strong>who</strong>, <strong>what</strong>, and <strong>why</strong> behind the tool by architecting user profiles and capturing functional requirements. Think of this as the architectural foundation upon which all your Python scripts will be built.</p>
+<hr />
+<h3 id="defining-user-profiles_1">👤 Defining User Profiles</h3>
+<p>Different engineers interact with a health reporter in different ways. We identify three primary user profiles to guide our design decisions:</p>
+<ul>
+<li><strong>🕵️ The Daily Operator</strong> – Needs a quick, at-a-glance dashboard of system health. Prefers summary reports with clear pass/fail indicators. Values speed and simplicity over deep detail.</li>
+<li><strong>🔧 The Troubleshooter</strong> – Requires granular data when something goes wrong. Needs historical context, trend lines, and raw metric values. Willing to dig into logs and verbose output.</li>
+<li><strong>📈 The Manager</strong> – Cares about overall system reliability and compliance. Wants scheduled reports, uptime percentages, and trend summaries. Less interested in real-time data, more focused on patterns over time.</li>
+</ul>
+<p>Each profile influences how we structure our Python script—from output formatting to logging levels and reporting frequency.</p>
+<hr />
+<h3 id="core-functional-requirements_1">📋 Core Functional Requirements</h3>
+<p>The System Health Reporter must satisfy the following essential capabilities:</p>
+<ul>
+<li><strong>⚙️ Metric Collection</strong> – Gather CPU usage, memory consumption, disk space, and network latency from the local system.</li>
+<li><strong>📊 Threshold Evaluation</strong> – Compare collected metrics against predefined healthy thresholds (e.g., CPU &gt; 80% triggers a warning).</li>
+<li><strong>🛠️ Alert Generation</strong> – Produce clear, timestamped alerts when any metric exceeds its threshold.</li>
+<li><strong>📁 Report Output</strong> – Generate both a human-readable summary (console output) and a machine-parseable log file.</li>
+<li><strong>⏱️ Scheduling Support</strong> – Allow the script to run on a timer (e.g., every 5 minutes) without manual intervention.</li>
+</ul>
+<hr />
+<h3 id="non-functional-requirements_1">🧩 Non-Functional Requirements</h3>
+<p>Beyond what the tool does, we define how it should behave:</p>
+<ul>
+<li><strong>🚀 Performance</strong> – The script must complete a full health check in under 2 seconds on standard hardware.</li>
+<li><strong>🔒 Reliability</strong> – If a single metric collection fails (e.g., network timeout), the script should continue checking remaining metrics and log the error gracefully.</li>
+<li><strong>🧹 Maintainability</strong> – All thresholds and configuration values must be stored in a separate configuration dictionary, not hardcoded throughout the script.</li>
+<li><strong>📖 Readability</strong> – Code must include inline comments and follow consistent naming conventions so any engineer can understand and modify it.</li>
+</ul>
+<hr />
+<h3 id="comparison-profiles-vs-requirements_1">🆚 Comparison: Profiles vs. Requirements</h3>
+<p>This table maps each user profile to the requirements that matter most to them:</p>
+<table>
+<thead>
+<tr>
+<th>User Profile</th>
+<th>Priority Requirement</th>
+<th>Output Preference</th>
+<th>Interaction Style</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🕵️ Daily Operator</td>
+<td>Threshold Evaluation</td>
+<td>Simple pass/fail summary</td>
+<td>Runs on demand or via cron</td>
+</tr>
+<tr>
+<td>🔧 Troubleshooter</td>
+<td>Metric Collection + Alert Generation</td>
+<td>Verbose logs with timestamps</td>
+<td>Interactive debugging sessions</td>
+</tr>
+<tr>
+<td>📈 Manager</td>
+<td>Report Output + Scheduling</td>
+<td>Scheduled email or file reports</td>
+<td>Reviews weekly summaries</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="architectural-decisions-driven-by-profiles_1">🗺️ Architectural Decisions Driven by Profiles</h3>
+<p>Each profile shapes a specific design choice in our Python implementation:</p>
+<ul>
+<li><strong>For the Daily Operator</strong> – We will implement a <strong>color-coded console output</strong> using ANSI escape sequences. Green for healthy, yellow for warning, red for critical. No extra reading required.</li>
+<li><strong>For the Troubleshooter</strong> – We will include a <strong>verbose mode flag</strong> (e.g., <code>--verbose</code>) that prints raw metric values, collection timestamps, and comparison logic step-by-step.</li>
+<li><strong>For the Manager</strong> – We will write a <strong>separate report generator function</strong> that formats the last 24 hours of data into a clean summary with uptime percentage and top warnings.</li>
+</ul>
+<hr />
+<h3 id="final-requirement-checklist_1">✅ Final Requirement Checklist</h3>
+<p>Before moving to implementation, confirm your design covers these essentials:</p>
+<ul>
+<li>[ ] <strong>Profile Identification</strong> – Have you identified who will use this tool and what they care about?</li>
+<li>[ ] <strong>Metric Scope</strong> – Have you listed exactly which system metrics will be collected?</li>
+<li>[ ] <strong>Threshold Definitions</strong> – Are healthy, warning, and critical thresholds defined for each metric?</li>
+<li>[ ] <strong>Output Formats</strong> – Have you decided on console output style and log file structure?</li>
+<li>[ ] <strong>Error Handling Strategy</strong> – Do you know how the script will behave when a metric is unavailable?</li>
+</ul>
+<hr />
+<h3 id="next-step_1">🎯 Next Step</h3>
+<p>With profiles defined and requirements documented, you are ready to move into the <strong>Implementation Phase</strong>, where these specifications will be translated into clean, modular Python functions. The blueprint is complete—now the build begins.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This file shows how to design profiles and requirements for a system health reporter that tracks engineer-defined metrics and thresholds.</p>
+<h3 id="example-1-defining-a-basic-health-profile-with-a-single-metric_1">🧩 Example 1: Defining a basic health profile with a single metric</h3>
+<p>A health profile stores one metric name and its acceptable threshold value.</p>
+<div class="highlight"><pre><span></span><code><span class="n">profile_name</span> <span class="o">=</span> <span class="s2">&quot;CPU Health&quot;</span>
+<span class="n">metric_name</span> <span class="o">=</span> <span class="s2">&quot;cpu_usage_percent&quot;</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mi">80</span>
+</code></pre></div>
+<p>📤 Output: <strong>No output (variable assignment)</strong></p>
+<hr />
+<h3 id="example-2-creating-a-profile-dictionary-with-multiple-requirements_1">🧩 Example 2: Creating a profile dictionary with multiple requirements</h3>
+<p>A dictionary groups all requirements for one engineer component into a single profile.</p>
+<div class="highlight"><pre><span></span><code><span class="n">cpu_profile</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CPU Health&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;metric&quot;</span><span class="p">:</span> <span class="s2">&quot;cpu_usage_percent&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;warning_threshold&quot;</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span>
+    <span class="s2">&quot;critical_threshold&quot;</span><span class="p">:</span> <span class="mi">90</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>📤 Output: <strong>No output (dictionary created)</strong></p>
+<hr />
+<h3 id="example-3-checking-if-a-metric-value-meets-the-profile-requirement_1">🧩 Example 3: Checking if a metric value meets the profile requirement</h3>
+<p>A simple comparison tells the engineer whether the current reading is within the acceptable range.</p>
+<div class="highlight"><pre><span></span><code><span class="n">current_cpu</span> <span class="o">=</span> <span class="mi">85</span>
+<span class="n">warning_level</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="n">critical_level</span> <span class="o">=</span> <span class="mi">90</span>
+
+<span class="k">if</span> <span class="n">current_cpu</span> <span class="o">&gt;=</span> <span class="n">critical_level</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;CRITICAL&quot;</span>
+<span class="k">elif</span> <span class="n">current_cpu</span> <span class="o">&gt;=</span> <span class="n">warning_level</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;WARNING&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span>
+</code></pre></div>
+<p>📤 Output: <strong>No output (status variable set to "WARNING")</strong></p>
+<hr />
+<h3 id="example-4-building-a-list-of-health-profiles-for-multiple-engineer-components_1">🧩 Example 4: Building a list of health profiles for multiple engineer components</h3>
+<p>A list of profiles allows the reporter to check several components in one pass.</p>
+<div class="highlight"><pre><span></span><code><span class="n">health_profiles</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;CPU&quot;</span><span class="p">,</span> <span class="s2">&quot;metric&quot;</span><span class="p">:</span> <span class="s2">&quot;usage&quot;</span><span class="p">,</span> <span class="s2">&quot;max_ok&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;Memory&quot;</span><span class="p">,</span> <span class="s2">&quot;metric&quot;</span><span class="p">:</span> <span class="s2">&quot;usage&quot;</span><span class="p">,</span> <span class="s2">&quot;max_ok&quot;</span><span class="p">:</span> <span class="mi">85</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;Disk&quot;</span><span class="p">,</span> <span class="s2">&quot;metric&quot;</span><span class="p">:</span> <span class="s2">&quot;usage&quot;</span><span class="p">,</span> <span class="s2">&quot;max_ok&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">profile</span> <span class="ow">in</span> <span class="n">health_profiles</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;component&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> max OK: </span><span class="si">{</span><span class="n">profile</span><span class="p">[</span><span class="s1">&#39;max_ok&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>CPU max OK: 80%</strong><br />
+<strong>Memory max OK: 85%</strong><br />
+<strong>Disk max OK: 90%</strong></p>
+<hr />
+<h3 id="example-5-defining-a-requirement-with-multiple-thresholds-and-a-check-function_1">🧩 Example 5: Defining a requirement with multiple thresholds and a check function</h3>
+<p>A function lets the engineer reuse the same requirement logic across different components.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">check_health</span><span class="p">(</span><span class="n">component_name</span><span class="p">,</span> <span class="n">current_value</span><span class="p">,</span> <span class="n">warning_at</span><span class="p">,</span> <span class="n">critical_at</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">current_value</span> <span class="o">&gt;=</span> <span class="n">critical_at</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">component_name</span><span class="si">}</span><span class="s2">: CRITICAL (</span><span class="si">{</span><span class="n">current_value</span><span class="si">}</span><span class="s2">)&quot;</span>
+    <span class="k">elif</span> <span class="n">current_value</span> <span class="o">&gt;=</span> <span class="n">warning_at</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">component_name</span><span class="si">}</span><span class="s2">: WARNING (</span><span class="si">{</span><span class="n">current_value</span><span class="si">}</span><span class="s2">)&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">component_name</span><span class="si">}</span><span class="s2">: OK (</span><span class="si">{</span><span class="n">current_value</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">check_health</span><span class="p">(</span><span class="s2">&quot;CPU&quot;</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>No output (result variable set to "CPU: WARNING (75)")</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

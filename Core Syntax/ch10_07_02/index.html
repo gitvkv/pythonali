@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch10_07_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 10 | Accessing Docstrings via help() and __doc__ - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 10 | Accessing Docstrings via help() and __doc__";
         var mkdocs_page_input_path = "Core Syntax\\ch10_07_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch10_07_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -500,6 +500,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-using-help-on-a-function-with-no-docstring">🧩 Example 5: Using help() on a function with no docstring</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-help-vs-__doc__">📊 Comparison Table: help() vs __doc__</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#introduction_1">🧭 Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-docstring_1">📖 What is a Docstring?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accessing-docstrings-with-help_1">🛠️ Accessing Docstrings with help()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accessing-docstrings-with-doc_1">🕵️ Accessing Docstrings with doc</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-differences-between-help-and-doc_1">⚙️ Key Differences Between help() and doc</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-each-approach_1">📊 When to Use Each Approach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-tips-for-engineers_1">🧪 Practical Tips for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-using-help-on-a-simple-function_1">🛠 Example 1: Using help() on a simple function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-using-__doc__-to-get-just-the-docstring-text_1">📄 Example 2: Using __doc__ to get just the docstring text</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-multi-line-docstring-with-help_1">📝 Example 3: Multi-line docstring with help()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-accessing-__doc__-on-a-built-in-function_1">🔍 Example 4: Accessing __doc__ on a built-in function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-using-help-on-a-function-with-no-docstring_1">🧩 Example 5: Using help() on a function with no docstring</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-help-vs-__doc___1">📊 Comparison Table: help() vs __doc__</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="accessing-docstrings-via-help-and-doc">Accessing Docstrings via help() and <strong>doc</strong></h1>
 <p><span class="category-tag">🏷️ Functions /  Docstrings</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="introduction">🧭 Introduction</h3>
@@ -1193,8 +1221,7 @@
 <li>Both methods require the function name without parentheses.</li>
 <li>Using docstrings consistently makes your code more maintainable and team-friendly.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Docstrings are documentation strings attached to functions, classes, or modules, and <code>help()</code> and <code>__doc__</code> are two ways to read that documentation.</p>
 <hr />
 <h3 id="example-1-using-help-on-a-simple-function">🛠 Example 1: Using <code>help()</code> on a simple function</h3>
@@ -1252,6 +1279,222 @@
 <p>📤 Output: <strong>Help on function no_doc in module <strong>main</strong>: no_doc()</strong></p>
 <hr />
 <h3 id="comparison-table-help-vs-__doc__">📊 Comparison Table: <code>help()</code> vs <code>__doc__</code></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>help()</code></th>
+<th><code>__doc__</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Output format</td>
+<td>Full formatted help text</td>
+<td>Raw string only</td>
+</tr>
+<tr>
+<td>Includes function signature</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Works on built-in functions</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Shows parameter details</td>
+<td>Yes</td>
+<td>Only if written in docstring</td>
+</tr>
+<tr>
+<td>Returns a string you can store</td>
+<td>No (prints directly)</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div class="tabbed-block">
+<h3 id="introduction_1">🧭 Introduction</h3>
+<p>When you write functions in Python, you can include a description of what the function does, what parameters it expects, and what it returns. This description is called a <strong>docstring</strong> (short for documentation string). Once a docstring is written, you can access it in two ways: using the built-in <strong>help()</strong> function or by reading the <strong><strong>doc</strong></strong> attribute directly. This helps you and others understand how to use a function without reading the full source code.</p>
+<hr />
+<h3 id="what-is-a-docstring_1">📖 What is a Docstring?</h3>
+<ul>
+<li>A docstring is a string literal that appears as the first statement in a function, class, or module.</li>
+<li>It is enclosed in triple quotes (either single or double).</li>
+<li>Docstrings are used to document what the code does.</li>
+<li>Python ignores the docstring during execution, but stores it as a special attribute.</li>
+</ul>
+<p>Example of a function with a docstring:</p>
+<ul>
+<li><strong>def greet(name):</strong></li>
+<li><strong>"""This function greets the person whose name is passed as input."""</strong></li>
+<li><strong>print(f"Hello, {name}!")</strong></li>
+</ul>
+<hr />
+<h3 id="accessing-docstrings-with-help_1">🛠️ Accessing Docstrings with help()</h3>
+<ul>
+<li>The <strong>help()</strong> function opens an interactive help viewer in the terminal.</li>
+<li>It displays the docstring along with other information like function signature.</li>
+<li>To use it, simply pass the function name (without parentheses) to <strong>help()</strong>.</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li><strong>help(greet)</strong></li>
+</ul>
+<p>Expected output (formatted inline):</p>
+<ul>
+<li><strong>Help on function greet in module <strong>main</strong>:</strong></li>
+<li><strong>greet(name)</strong></li>
+<li><strong>This function greets the person whose name is passed as input.</strong></li>
+</ul>
+<hr />
+<h3 id="accessing-docstrings-with-doc_1">🕵️ Accessing Docstrings with <strong>doc</strong></h3>
+<ul>
+<li>Every function in Python has a built-in attribute called <strong><strong>doc</strong></strong>.</li>
+<li>This attribute stores the docstring as a plain string.</li>
+<li>You can access it directly using dot notation.</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li><strong>print(greet.<strong>doc</strong>)</strong></li>
+</ul>
+<p>Expected output:</p>
+<ul>
+<li><strong>This function greets the person whose name is passed as input.</strong></li>
+</ul>
+<hr />
+<h3 id="key-differences-between-help-and-doc_1">⚙️ Key Differences Between help() and <strong>doc</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>help()</th>
+<th><strong>doc</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Output format</td>
+<td>Formatted with function signature and extra info</td>
+<td>Raw string only</td>
+</tr>
+<tr>
+<td>Usage</td>
+<td>Interactive exploration</td>
+<td>Programmatic access</td>
+</tr>
+<tr>
+<td>Requires function name</td>
+<td>Yes, without parentheses</td>
+<td>Yes, without parentheses</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Learning and debugging</td>
+<td>Extracting documentation in code</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="when-to-use-each-approach_1">📊 When to Use Each Approach</h3>
+<ul>
+<li>Use <strong>help()</strong> when you are exploring a new function interactively in the Python shell or a script.</li>
+<li>Use <strong><strong>doc</strong></strong> when you want to capture the docstring as a string variable for logging, testing, or generating documentation automatically.</li>
+</ul>
+<p>Example of using <strong>doc</strong> programmatically:</p>
+<ul>
+<li><strong>doc_text = greet.<strong>doc</strong></strong></li>
+<li><strong>print(f"Documentation: {doc_text}")</strong></li>
+</ul>
+<p>Expected output:</p>
+<ul>
+<li><strong>Documentation: This function greets the person whose name is passed as input.</strong></li>
+</ul>
+<hr />
+<h3 id="practical-tips-for-engineers_1">🧪 Practical Tips for Engineers</h3>
+<ul>
+<li>Always write docstrings for your functions, even simple ones. It saves time later.</li>
+<li>Follow the PEP 257 convention: use triple double quotes for docstrings.</li>
+<li>Keep docstrings concise but descriptive.</li>
+<li>Use <strong>help()</strong> to quickly recall how a function works without opening the source file.</li>
+<li>Use <strong><strong>doc</strong></strong> when you need to display documentation in a custom help menu or log file.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li>Docstrings are embedded documentation inside functions.</li>
+<li><strong>help()</strong> gives a formatted view of the docstring plus function signature.</li>
+<li><strong><strong>doc</strong></strong> returns the raw docstring as a string.</li>
+<li>Both methods require the function name without parentheses.</li>
+<li>Using docstrings consistently makes your code more maintainable and team-friendly.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Docstrings are documentation strings attached to functions, classes, or modules, and <code>help()</code> and <code>__doc__</code> are two ways to read that documentation.</p>
+<hr />
+<h3 id="example-1-using-help-on-a-simple-function_1">🛠 Example 1: Using <code>help()</code> on a simple function</h3>
+<p>This shows how to call <code>help()</code> to see the full documentation for a function you define.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints a friendly greeting message.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, engineer!&quot;</span><span class="p">)</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Help on function greet in module <strong>main</strong>: greet() Prints a friendly greeting message.</strong></p>
+<hr />
+<h3 id="example-2-using-__doc__-to-get-just-the-docstring-text_1">📄 Example 2: Using <code>__doc__</code> to get just the docstring text</h3>
+<p>This shows how to access only the docstring string directly, without the extra formatting from <code>help()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns the sum of two numbers.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Returns the sum of two numbers.</strong></p>
+<hr />
+<h3 id="example-3-multi-line-docstring-with-help_1">📝 Example 3: Multi-line docstring with <code>help()</code></h3>
+<p>This shows how <code>help()</code> displays a multi-line docstring with parameter descriptions.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">calculate_area</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates the area of a rectangle.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    length (float): The length of the rectangle.</span>
+<span class="sd">    width (float): The width of the rectangle.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    float: The area of the rectangle.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">width</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">calculate_area</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Help on function calculate_area in module <strong>main</strong>: calculate_area(length, width) Calculates the area of a rectangle. Parameters: length (float): The length of the rectangle. width (float): The width of the rectangle. Returns: float: The area of the rectangle.</strong></p>
+<hr />
+<h3 id="example-4-accessing-__doc__-on-a-built-in-function_1">🔍 Example 4: Accessing <code>__doc__</code> on a built-in function</h3>
+<p>This shows that built-in Python functions also have docstrings you can access.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Return the number of items in a container.</strong></p>
+<hr />
+<h3 id="example-5-using-help-on-a-function-with-no-docstring_1">🧩 Example 5: Using <code>help()</code> on a function with no docstring</h3>
+<p>This shows what happens when you call <code>help()</code> on a function that has no docstring defined.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">no_doc</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">no_doc</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Help on function no_doc in module <strong>main</strong>: no_doc()</strong></p>
+<hr />
+<h3 id="comparison-table-help-vs-__doc___1">📊 Comparison Table: <code>help()</code> vs <code>__doc__</code></h3>
 <table>
 <thead>
 <tr>

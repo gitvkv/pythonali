@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_03_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Return Code Evaluations and Assertions - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Return Code Evaluations and Assertions";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_03_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_03_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -671,6 +671,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-return-code_1">⚙️ What Is a Return Code?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#checking-return-codes-with-subprocess_1">📊 Checking Return Codes with subprocess</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-checktrue-for-automatic-validation_1">🛠️ Using check=True for Automatic Validation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-common-return-codes_1">🕵️ Understanding Common Return Codes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#introduction-to-assertions_1">✅ Introduction to Assertions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#combining-return-codes-with-assertions_1">🧪 Combining Return Codes with Assertions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-assertions-vs-exceptions_1">⚠️ When to Use Assertions vs. Exceptions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-return-code-evaluation_1">🔄 Best Practices for Return Code Evaluation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🧠 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-checking-a-successful-commands-return-code_1">✅ Example 1: Checking a successful command's return code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-checking-a-failed-commands-return-code_1">❌ Example 2: Checking a failed command's return code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-checktrue-to-raise-an-exception-on-failure_1">✅ Example 3: Using check=True to raise an exception on failure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-assert-to-validate-a-command-succeeded_1">✅ Example 4: Using assert to validate a command succeeded</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-pattern-run-command-and-assert-success_1">✅ Example 5: Practical pattern — run command and assert success</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_03_04/">Ch 14 | Safe Argument Arrays and Injection Mitigation</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="return-code-evaluations-and-assertions">Return Code Evaluations and Assertions</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  Shell Commands with Subprocess</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When your scripts run shell commands or external programs, the operating system always sends back a <strong>return code</strong> (also called exit code or status code). This small number tells you whether the command succeeded or failed. Learning to evaluate these codes properly is essential for building reliable automation that can react to failures, retry operations, or stop execution when something goes wrong.</p>
@@ -1248,8 +1278,7 @@
 <hr />
 <h3 id="summary">🧠 Summary</h3>
 <p>Return codes are the operating system's way of telling you whether a command worked. Python's <strong>subprocess</strong> module gives you full access to these codes, and you can evaluate them manually or automatically with <strong>check=True</strong>. Assertions provide a simple way to enforce conditions and catch problems early during development. Together, these tools help you build scripts that fail fast, fail clearly, and never silently ignore errors.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Return code evaluations and assertions check whether a shell command succeeded or failed by examining its exit status.</p>
 <hr />
 <h3 id="example-1-checking-a-successful-commands-return-code">✅ Example 1: Checking a successful command's return code</h3>
@@ -1302,6 +1331,263 @@
 <p>📤 Output: <strong>Folder created successfully</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Behavior on Success</th>
+<th>Behavior on Failure</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result.returncode</code></td>
+<td>Returns 0</td>
+<td>Returns non-zero integer</td>
+<td>Manual checking</td>
+</tr>
+<tr>
+<td><code>check=True</code></td>
+<td>Continues execution</td>
+<td>Raises <code>CalledProcessError</code></td>
+<td>Automatic error handling</td>
+</tr>
+<tr>
+<td><code>assert result.returncode == 0</code></td>
+<td>Continues execution</td>
+<td>Raises <code>AssertionError</code></td>
+<td>Validation in tests or scripts</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When your scripts run shell commands or external programs, the operating system always sends back a <strong>return code</strong> (also called exit code or status code). This small number tells you whether the command succeeded or failed. Learning to evaluate these codes properly is essential for building reliable automation that can react to failures, retry operations, or stop execution when something goes wrong.</p>
+<hr />
+<h3 id="what-is-a-return-code_1">⚙️ What Is a Return Code?</h3>
+<p>Every command or program you run finishes with a numeric exit status:</p>
+<ul>
+<li><strong>0</strong> means the command completed successfully</li>
+<li><strong>Any non-zero value</strong> (1, 2, 127, etc.) indicates an error or abnormal termination</li>
+</ul>
+<p>Python captures this return code automatically when you use the <strong>subprocess</strong> module. You can inspect it to decide what your script should do next.</p>
+<hr />
+<h3 id="checking-return-codes-with-subprocess_1">📊 Checking Return Codes with subprocess</h3>
+<p>When you run a command using <strong>subprocess.run()</strong>, the result object contains a <strong>returncode</strong> attribute:</p>
+<ul>
+<li>Access it directly as <strong>result.returncode</strong></li>
+<li>Compare it to <strong>0</strong> to check for success</li>
+<li>Use conditional logic to handle failures differently</li>
+</ul>
+<p>A typical pattern looks like this:</p>
+<ul>
+<li>Run the command and store the result</li>
+<li>Check if <strong>result.returncode != 0</strong></li>
+<li>If non-zero, log the error or exit the script with a message</li>
+<li>If zero, continue with the next step</li>
+</ul>
+<hr />
+<h3 id="using-checktrue-for-automatic-validation_1">🛠️ Using check=True for Automatic Validation</h3>
+<p>Instead of manually checking return codes every time, you can let Python do the work by passing <strong>check=True</strong> to <strong>subprocess.run()</strong>:</p>
+<ul>
+<li>With <strong>check=True</strong>, Python raises a <strong>CalledProcessError</strong> if the return code is non-zero</li>
+<li>This stops your script immediately unless you catch the exception</li>
+<li>It is ideal for commands that must succeed before proceeding</li>
+</ul>
+<p>Without <strong>check=True</strong>, your script continues running even if the command fails, which can lead to unpredictable behavior downstream.</p>
+<hr />
+<h3 id="understanding-common-return-codes_1">🕵️ Understanding Common Return Codes</h3>
+<p>Different return codes give you clues about what went wrong:</p>
+<table>
+<thead>
+<tr>
+<th>Return Code</th>
+<th>Meaning</th>
+<th>Typical Cause</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0</strong></td>
+<td>Success</td>
+<td>Command completed without errors</td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>General error</td>
+<td>Command failed for a generic reason</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Misuse of shell builtins</td>
+<td>Invalid syntax or wrong arguments</td>
+</tr>
+<tr>
+<td><strong>126</strong></td>
+<td>Command not executable</td>
+<td>Permission denied or file is not executable</td>
+</tr>
+<tr>
+<td><strong>127</strong></td>
+<td>Command not found</td>
+<td>The program does not exist in the system PATH</td>
+</tr>
+<tr>
+<td><strong>130</strong></td>
+<td>Script terminated by Ctrl+C</td>
+<td>User interrupted the process</td>
+</tr>
+<tr>
+<td><strong>137</strong></td>
+<td>Killed by SIGKILL</td>
+<td>Process was forcefully terminated</td>
+</tr>
+<tr>
+<td><strong>255</strong></td>
+<td>Exit status out of range</td>
+<td>Command returned a value outside 0–255</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="introduction-to-assertions_1">✅ Introduction to Assertions</h3>
+<p>Assertions are a lightweight way to enforce conditions in your code. The <strong>assert</strong> statement checks if a condition is <strong>True</strong>, and if it is <strong>False</strong>, it raises an <strong>AssertionError</strong> and stops execution.</p>
+<p>Use assertions for:</p>
+<ul>
+<li>Validating that a return code is zero</li>
+<li>Confirming that a file exists before reading it</li>
+<li>Checking that variables have expected values</li>
+<li>Testing assumptions during development</li>
+</ul>
+<p>The syntax is simple: <strong>assert condition, "optional error message"</strong></p>
+<hr />
+<h3 id="combining-return-codes-with-assertions_1">🧪 Combining Return Codes with Assertions</h3>
+<p>You can combine both concepts to create self-checking scripts:</p>
+<ul>
+<li>Run a command and capture the result</li>
+<li>Use <strong>assert result.returncode == 0, "Command failed with code: {result.returncode}"</strong></li>
+<li>If the command fails, the script stops with a clear message</li>
+<li>If it succeeds, execution continues normally</li>
+</ul>
+<p>This approach is especially useful for:</p>
+<ul>
+<li>Deployment scripts where every step must succeed</li>
+<li>Testing pipelines that verify system states</li>
+<li>Automation tasks that should not proceed after a failure</li>
+</ul>
+<hr />
+<h3 id="when-to-use-assertions-vs-exceptions_1">⚠️ When to Use Assertions vs. Exceptions</h3>
+<p>Both techniques help you handle failures, but they serve different purposes:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Assertions</th>
+<th>Exceptions (try/except)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary use</strong></td>
+<td>Development and debugging</td>
+<td>Production error handling</td>
+</tr>
+<tr>
+<td><strong>Can be disabled</strong></td>
+<td>Yes, with <strong>-O</strong> flag</td>
+<td>No, always active</td>
+</tr>
+<tr>
+<td><strong>Error message</strong></td>
+<td>Custom message in assert</td>
+<td>Full exception object with traceback</td>
+</tr>
+<tr>
+<td><strong>Recovery</strong></td>
+<td>Not intended for recovery</td>
+<td>Can catch and continue</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Checking invariants and assumptions</td>
+<td>Handling expected runtime errors</td>
+</tr>
+</tbody>
+</table>
+<p>Use assertions for conditions that should never happen if your code is correct. Use exceptions for errors you anticipate and want to handle gracefully.</p>
+<hr />
+<h3 id="best-practices-for-return-code-evaluation_1">🔄 Best Practices for Return Code Evaluation</h3>
+<p>Follow these guidelines to write robust scripts:</p>
+<ul>
+<li>Always check return codes after running external commands</li>
+<li>Use <strong>check=True</strong> for commands that are critical to your workflow</li>
+<li>Log the return code and command output when a failure occurs</li>
+<li>Do not assume a command succeeded just because no exception was raised</li>
+<li>Use meaningful exit codes in your own scripts (0 for success, 1 for general errors)</li>
+<li>Document what each non-zero return code means in your code comments</li>
+</ul>
+<hr />
+<h3 id="summary_1">🧠 Summary</h3>
+<p>Return codes are the operating system's way of telling you whether a command worked. Python's <strong>subprocess</strong> module gives you full access to these codes, and you can evaluate them manually or automatically with <strong>check=True</strong>. Assertions provide a simple way to enforce conditions and catch problems early during development. Together, these tools help you build scripts that fail fast, fail clearly, and never silently ignore errors.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Return code evaluations and assertions check whether a shell command succeeded or failed by examining its exit status.</p>
+<hr />
+<h3 id="example-1-checking-a-successful-commands-return-code_1">✅ Example 1: Checking a successful command's return code</h3>
+<p>This example runs a simple command and prints its return code to show that success equals zero.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;echo&quot;</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">returncode</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>0</strong></p>
+<hr />
+<h3 id="example-2-checking-a-failed-commands-return-code_1">❌ Example 2: Checking a failed command's return code</h3>
+<p>This example runs a command that does not exist and prints the non-zero return code.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;nonexistent_command&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">returncode</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>127</strong></p>
+<hr />
+<h3 id="example-3-using-checktrue-to-raise-an-exception-on-failure_1">✅ Example 3: Using check=True to raise an exception on failure</h3>
+<p>This example shows how to let Python automatically raise an error when a command fails.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;false&quot;</span><span class="p">],</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Command failed with return code:&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">.</span><span class="n">returncode</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Command failed with return code: 1</strong></p>
+<hr />
+<h3 id="example-4-using-assert-to-validate-a-command-succeeded_1">✅ Example 4: Using assert to validate a command succeeded</h3>
+<p>This example uses an assertion to verify that a command ran successfully before continuing.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;/tmp&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ls command failed&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Command succeeded&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Command succeeded</strong></p>
+<hr />
+<h3 id="example-5-practical-pattern-run-command-and-assert-success_1">✅ Example 5: Practical pattern — run command and assert success</h3>
+<p>This example runs a real-world command and uses assert to confirm it completed without errors.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;mkdir&quot;</span><span class="p">,</span> <span class="s2">&quot;-p&quot;</span><span class="p">,</span> <span class="s2">&quot;/tmp/test_folder&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;mkdir failed with code </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">returncode</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Folder created successfully&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Folder created successfully</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

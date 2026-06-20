@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch10_05_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 10 | Practical Example: Variable-Length Logging Helper - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 10 | Practical Example: Variable-Length Logging Helper";
         var mkdocs_page_input_path = "Core Syntax\\ch10_05_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch10_05_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -506,6 +506,52 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-conditional-logging-with-verbosity-control">🧪 Example 5: Conditional logging with verbosity control</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-problem-rigid-logging-functions_1">⚙️ The Problem: Rigid Logging Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-solution-variable-length-arguments_1">🛠️ The Solution: Variable-Length Arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-the-variable-length-logging-helper_1">📊 Building the Variable-Length Logging Helper</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#step-1-basic-logging-with-args_1">Step 1: Basic Logging with *args</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#step-2-adding-log-levels-with-kwargs_1">Step 2: Adding Log Levels with **kwargs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#step-3-combining-both-for-maximum-flexibility_1">Step 3: Combining Both for Maximum Flexibility</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-usage-examples_1">🕵️ Practical Usage Examples</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-simple-status-update_1">Example 1: Simple Status Update</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-error-with-multiple-details_1">Example 2: Error with Multiple Details</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-debugging-with-extra-context_1">Example 3: Debugging with Extra Context</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-warning-with-multiple-tags_1">Example 4: Warning with Multiple Tags</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-fixed-vs-variable-length-logging_1">📈 Comparison: Fixed vs Variable-Length Logging</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">🎯 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">🚀 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-variable-length-logging-with-positional-arguments_1">🧪 Example 1: Basic variable-length logging with positional arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-logging-with-a-custom-prefix-using-keyword-arguments_1">🧪 Example 2: Logging with a custom prefix using keyword arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-adding-timestamps-and-severity-levels_1">🧪 Example 3: Adding timestamps and severity levels</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-logging-with-file-output-and-multiple-severity-levels_1">🧪 Example 4: Logging with file output and multiple severity levels</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-conditional-logging-with-verbosity-control_1">🧪 Example 5: Conditional logging with verbosity control</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1094,7 +1140,7 @@
               
                 <h1 id="practical-example-variable-length-logging-helper">Practical Example: Variable-Length Logging Helper</h1>
 <p><span class="category-tag">🏷️ Functions /  Args and Kwargs</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1215,8 +1261,7 @@
 <li>Build a <strong>context manager</strong> that temporarily changes log settings</li>
 </ul>
 <p>This variable-length logging helper demonstrates how <strong><code>*args</code></strong> and <strong><code>**kwargs</code></strong> can create powerful, flexible tools that adapt to any logging need—from simple status updates to detailed debugging sessions.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This logging helper uses <code>*args</code> and <code>**kwargs</code> to accept any number of messages and optional formatting options.</p>
 <hr />
 <h3 id="example-1-basic-variable-length-logging-with-positional-arguments">🧪 Example 1: Basic variable-length logging with positional arguments</h3>
@@ -1291,6 +1336,242 @@
 <strong>[INFO] Backup complete</strong></p>
 <hr />
 <h3 id="comparison-table">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Without <code>*args</code> / <code>**kwargs</code></th>
+<th>With <code>*args</code> / <code>**kwargs</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of messages</td>
+<td>Fixed (e.g., 3 parameters)</td>
+<td>Any number (0 to many)</td>
+</tr>
+<tr>
+<td>Custom prefix</td>
+<td>Hardcoded</td>
+<td>Passed as keyword argument</td>
+</tr>
+<tr>
+<td>File output</td>
+<td>Separate function needed</td>
+<td>Single function handles both</td>
+</tr>
+<tr>
+<td>Verbosity control</td>
+<td>Requires extra parameters</td>
+<td>Clean keyword argument</td>
+</tr>
+<tr>
+<td>Code flexibility</td>
+<td>Rigid</td>
+<td>Adaptable to new needs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>When building tools or scripts, logging is essential for tracking what your code is doing. However, different situations require different amounts of detail in your log messages. Sometimes you need a simple status update, other times you need to log multiple values, error codes, or timestamps. This is where variable-length arguments become incredibly useful.</p>
+<p>In this example, we'll build a flexible logging helper that can handle any number of messages, tags, or metadata—allowing you to log as much or as little information as needed without writing separate functions for each scenario.</p>
+<hr />
+<h3 id="the-problem-rigid-logging-functions_1">⚙️ The Problem: Rigid Logging Functions</h3>
+<p>Traditional logging functions often require a fixed number of arguments, which can be limiting:</p>
+<ul>
+<li><strong>Fixed parameters</strong> mean you must always pass the same number of values</li>
+<li><strong>No flexibility</strong> to add extra context when debugging</li>
+<li><strong>Separate functions</strong> needed for different logging levels (info, warning, error)</li>
+<li><strong>Code duplication</strong> when you need to log varying amounts of data</li>
+</ul>
+<hr />
+<h3 id="the-solution-variable-length-arguments_1">🛠️ The Solution: Variable-Length Arguments</h3>
+<p>Python's <strong><code>*args</code></strong> and <strong><code>**kwargs</code></strong> allow your logging function to accept any number of positional and keyword arguments, making it adaptable to any situation.</p>
+<hr />
+<h3 id="building-the-variable-length-logging-helper_1">📊 Building the Variable-Length Logging Helper</h3>
+<h4 id="step-1-basic-logging-with-args_1">Step 1: Basic Logging with *args</h4>
+<p>The <strong><code>*args</code></strong> parameter collects all positional arguments into a tuple, allowing you to pass any number of messages:</p>
+<ul>
+<li><strong>Function definition</strong>: <strong><code>def log_message(*args):</code></strong></li>
+<li><strong>Usage</strong>: <strong><code>log_message("Starting backup")</code></strong> or <strong><code>log_message("Error", "Disk full", "Code 500")</code></strong></li>
+<li><strong>Output</strong>: Each argument is logged as a separate piece of information</li>
+</ul>
+<h4 id="step-2-adding-log-levels-with-kwargs_1">Step 2: Adding Log Levels with **kwargs</h4>
+<p>The <strong><code>**kwargs</code></strong> parameter collects keyword arguments into a dictionary, perfect for metadata like log levels, timestamps, or tags:</p>
+<ul>
+<li><strong>Function definition</strong>: <strong><code>def log_message(*args, **kwargs):</code></strong></li>
+<li><strong>Usage</strong>: <strong><code>log_message("Server started", level="INFO", timestamp="2024-01-01")</code></strong></li>
+<li><strong>Output</strong>: Positional messages are logged, and keyword metadata is formatted separately</li>
+</ul>
+<h4 id="step-3-combining-both-for-maximum-flexibility_1">Step 3: Combining Both for Maximum Flexibility</h4>
+<p>Here's how the complete helper works:</p>
+<ul>
+<li><strong>Positional arguments</strong> (<strong><code>*args</code></strong>): Main log messages or values</li>
+<li><strong>Keyword arguments</strong> (<strong><code>**kwargs</code></strong>): Metadata like log level, module name, or error codes</li>
+<li><strong>Default behavior</strong>: If no level is specified, it defaults to <strong>"INFO"</strong></li>
+<li><strong>Formatting</strong>: Messages are joined with spaces, metadata is displayed as key-value pairs</li>
+</ul>
+<hr />
+<h3 id="practical-usage-examples_1">🕵️ Practical Usage Examples</h3>
+<h4 id="example-1-simple-status-update_1">Example 1: Simple Status Update</h4>
+<ul>
+<li><strong>Code</strong>: <strong><code>log_message("Backup completed successfully")</code></strong></li>
+<li><strong>Output</strong>: <strong><code>[INFO] Backup completed successfully</code></strong></li>
+</ul>
+<h4 id="example-2-error-with-multiple-details_1">Example 2: Error with Multiple Details</h4>
+<ul>
+<li><strong>Code</strong>: <strong><code>log_message("Connection failed", "Timeout after 30s", level="ERROR", error_code=500)</code></strong></li>
+<li><strong>Output</strong>: <strong><code>[ERROR] Connection failed Timeout after 30s | error_code: 500</code></strong></li>
+</ul>
+<h4 id="example-3-debugging-with-extra-context_1">Example 3: Debugging with Extra Context</h4>
+<ul>
+<li><strong>Code</strong>: <strong><code>log_message("Processing file", filename="data.csv", rows_processed=1500, duration="2.3s")</code></strong></li>
+<li><strong>Output</strong>: <strong><code>[INFO] Processing file | filename: data.csv, rows_processed: 1500, duration: 2.3s</code></strong></li>
+</ul>
+<h4 id="example-4-warning-with-multiple-tags_1">Example 4: Warning with Multiple Tags</h4>
+<ul>
+<li><strong>Code</strong>: <strong><code>log_message("Disk space low", "75% used", level="WARNING", module="storage", threshold=80)</code></strong></li>
+<li><strong>Output</strong>: <strong><code>[WARNING] Disk space low 75% used | module: storage, threshold: 80</code></strong></li>
+</ul>
+<hr />
+<h3 id="comparison-fixed-vs-variable-length-logging_1">📈 Comparison: Fixed vs Variable-Length Logging</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Fixed-Length Logging</th>
+<th>Variable-Length Logging</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of messages</td>
+<td>Limited to defined parameters</td>
+<td>Unlimited (any number)</td>
+</tr>
+<tr>
+<td>Adding metadata</td>
+<td>Requires separate function</td>
+<td>Built-in via **kwargs</td>
+</tr>
+<tr>
+<td>Code maintenance</td>
+<td>Multiple functions needed</td>
+<td>Single flexible function</td>
+</tr>
+<tr>
+<td>Debugging context</td>
+<td>Minimal information</td>
+<td>Rich, contextual data</td>
+</tr>
+<tr>
+<td>Reusability</td>
+<td>Low (specific use cases)</td>
+<td>High (any scenario)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="key-takeaways_1">🎯 Key Takeaways</h3>
+<ul>
+<li><strong><code>*args</code></strong> allows your logging function to accept any number of messages or values</li>
+<li><strong><code>**kwargs</code></strong> enables adding metadata like log levels, timestamps, or error codes</li>
+<li><strong>Default values</strong> (like <strong>level="INFO"</strong>) make the function easy to use while remaining flexible</li>
+<li><strong>String formatting</strong> can be customized to display messages and metadata in any style</li>
+<li><strong>Single function</strong> replaces multiple specialized logging functions, reducing code duplication</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">🚀 Next Steps</h3>
+<ul>
+<li>Add <strong>timestamps</strong> automatically to every log entry</li>
+<li>Implement <strong>log file writing</strong> alongside console output</li>
+<li>Create <strong>log level filtering</strong> (e.g., only show WARNING and above)</li>
+<li>Extend with <strong>colored output</strong> for different log levels in the terminal</li>
+<li>Build a <strong>context manager</strong> that temporarily changes log settings</li>
+</ul>
+<p>This variable-length logging helper demonstrates how <strong><code>*args</code></strong> and <strong><code>**kwargs</code></strong> can create powerful, flexible tools that adapt to any logging need—from simple status updates to detailed debugging sessions.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This logging helper uses <code>*args</code> and <code>**kwargs</code> to accept any number of messages and optional formatting options.</p>
+<hr />
+<h3 id="example-1-basic-variable-length-logging-with-positional-arguments_1">🧪 Example 1: Basic variable-length logging with positional arguments</h3>
+<p>This example shows how to log multiple messages by passing them as separate arguments.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">log_messages</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[LOG] </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">log_messages</span><span class="p">(</span><span class="s2">&quot;System started&quot;</span><span class="p">,</span> <span class="s2">&quot;User logged in&quot;</span><span class="p">,</span> <span class="s2">&quot;Processing complete&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[LOG] System started</strong><br />
+<strong>[LOG] User logged in</strong><br />
+<strong>[LOG] Processing complete</strong></p>
+<hr />
+<h3 id="example-2-logging-with-a-custom-prefix-using-keyword-arguments_1">🧪 Example 2: Logging with a custom prefix using keyword arguments</h3>
+<p>This example shows how to accept optional keyword arguments to customize the log prefix.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">log_messages</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;prefix&quot;</span><span class="p">,</span> <span class="s2">&quot;LOG&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">log_messages</span><span class="p">(</span><span class="s2">&quot;Engine A online&quot;</span><span class="p">,</span> <span class="s2">&quot;Engine B online&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;STATUS&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[STATUS] Engine A online</strong><br />
+<strong>[STATUS] Engine B online</strong></p>
+<hr />
+<h3 id="example-3-adding-timestamps-and-severity-levels_1">🧪 Example 3: Adding timestamps and severity levels</h3>
+<p>This example shows how to combine positional messages with keyword arguments for metadata.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_messages</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">)</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;level&quot;</span><span class="p">,</span> <span class="s2">&quot;INFO&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">] [</span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">log_messages</span><span class="p">(</span><span class="s2">&quot;Connection established&quot;</span><span class="p">,</span> <span class="s2">&quot;Data received&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[14:32:15] [DEBUG] Connection established</strong><br />
+<strong>[14:32:15] [DEBUG] Data received</strong></p>
+<hr />
+<h3 id="example-4-logging-with-file-output-and-multiple-severity-levels_1">🧪 Example 4: Logging with file output and multiple severity levels</h3>
+<p>This example shows how to write logs to a file while also printing to console.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">log_messages</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;level&quot;</span><span class="p">,</span> <span class="s2">&quot;INFO&quot;</span><span class="p">)</span>
+    <span class="n">output_file</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;output_file&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">log_line</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">log_line</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">output_file</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">log_line</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">log_messages</span><span class="p">(</span><span class="s2">&quot;Sensor reading: 45.2°C&quot;</span><span class="p">,</span> <span class="s2">&quot;Warning: threshold exceeded&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;WARN&quot;</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s2">&quot;system.log&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[WARN] Sensor reading: 45.2°C</strong><br />
+<strong>[WARN] Warning: threshold exceeded</strong></p>
+<hr />
+<h3 id="example-5-conditional-logging-with-verbosity-control_1">🧪 Example 5: Conditional logging with verbosity control</h3>
+<p>This example shows how to use a keyword argument to control whether messages are printed.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">log_messages</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">verbose</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;verbose&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;level&quot;</span><span class="p">,</span> <span class="s2">&quot;INFO&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">log_messages</span><span class="p">(</span><span class="s2">&quot;Starting backup&quot;</span><span class="p">,</span> <span class="s2">&quot;Backup complete&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">log_messages</span><span class="p">(</span><span class="s2">&quot;This is hidden&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[INFO] Starting backup</strong><br />
+<strong>[INFO] Backup complete</strong></p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

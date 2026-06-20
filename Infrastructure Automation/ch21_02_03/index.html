@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_02_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Collecting Live Disk Space, CPU, and Process Data - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Collecting Live Disk Space, CPU, and Process Data";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_02_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_02_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -995,6 +995,38 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#quick-reference-table">📊 Quick Reference Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-collect-live-system-data_1">⚙️ Why Collect Live System Data?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-python-libraries-for-system-data_1">📊 Key Python Libraries for System Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#collecting-live-disk-space-data_1">🛠️ Collecting Live Disk Space Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#collecting-live-cpu-data_1">🕵️ Collecting Live CPU Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#collecting-live-process-data_1">🔍 Collecting Live Process Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#combining-data-into-a-health-snapshot_1">📈 Combining Data into a Health Snapshot</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-tips-for-live-data-collection_1">🧪 Practical Tips for Live Data Collection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps-for-your-capstone-project_1">🚀 Next Steps for Your Capstone Project</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-get-total-disk-space-on-the-root-drive_1">🖥️ Example 1: Get total disk space on the root drive</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-get-disk-usage-percentage_1">📊 Example 2: Get disk usage percentage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-get-current-cpu-usage-percentage_1">🔄 Example 3: Get current CPU usage percentage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-count-the-number-of-running-processes_1">📋 Example 4: Count the number of running processes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-collect-disk-cpu-and-process-data-into-a-single-report_1">🧩 Example 5: Collect disk, CPU, and process data into a single report</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference-table_1">📊 Quick Reference Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_02_04/">Ch 21 | Mapping Disparate Metrics into Uniform Data Dictionaries</a>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="collecting-live-disk-space-cpu-and-process-data">Collecting Live Disk Space, CPU, and Process Data</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Project: System Health Reporter</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1183,8 +1215,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Collecting live disk space, CPU, and process data is a foundational skill for any engineer building system monitoring tools. With <strong>psutil</strong>, you can access all major system metrics in a clean, cross-platform way. By combining these data points into a structured snapshot, you create the core logic for your final capstone health reporter project. Start small with one metric, then layer in additional data as you become comfortable with the library.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This file shows how to collect live system data about disk space, CPU usage, and running processes using Python's <code>psutil</code> library.</p>
 <hr />
 <h3 id="example-1-get-total-disk-space-on-the-root-drive">🖥️ Example 1: Get total disk space on the root drive</h3>
@@ -1242,6 +1273,202 @@
 📤 Output: <strong>Processes Running: 187</strong></p>
 <hr />
 <h3 id="quick-reference-table">📊 Quick Reference Table</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Function Used</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Disk space</td>
+<td><code>psutil.disk_usage('/')</code></td>
+<td>Usage statistics object</td>
+</tr>
+<tr>
+<td>Disk percentage</td>
+<td><code>.percent</code> on disk object</td>
+<td>Float (0–100)</td>
+</tr>
+<tr>
+<td>CPU usage</td>
+<td><code>psutil.cpu_percent(interval=1)</code></td>
+<td>Float (0–100)</td>
+</tr>
+<tr>
+<td>Process count</td>
+<td><code>len(psutil.pids())</code></td>
+<td>Integer</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>As you build toward your final capstone project, one of the most practical skills you'll need is the ability to gather live system data. Engineers often need to check disk usage, CPU load, and running processes to troubleshoot issues or monitor system health. This section teaches you how to collect that live data using Python, so you can build scripts that report on system status in real time.</p>
+<hr />
+<h3 id="why-collect-live-system-data_1">⚙️ Why Collect Live System Data?</h3>
+<ul>
+<li><strong>Disk Space Monitoring</strong> – Prevents storage outages by alerting when disks are near capacity.</li>
+<li><strong>CPU Usage Tracking</strong> – Helps identify performance bottlenecks or runaway processes.</li>
+<li><strong>Process Inspection</strong> – Allows you to see what's running, find memory hogs, or kill stuck tasks.</li>
+<li><strong>Automation Ready</strong> – Live data collection is the foundation for automated health reports and alerting systems.</li>
+</ul>
+<hr />
+<h3 id="key-python-libraries-for-system-data_1">📊 Key Python Libraries for System Data</h3>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th>Purpose</th>
+<th>Example Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>psutil</strong></td>
+<td>Cross-platform system monitoring</td>
+<td>Get CPU %, disk usage, process list</td>
+</tr>
+<tr>
+<td><strong>os</strong></td>
+<td>Operating system interface</td>
+<td>Check file paths, environment variables</td>
+</tr>
+<tr>
+<td><strong>platform</strong></td>
+<td>System information</td>
+<td>Get OS name, architecture</td>
+</tr>
+<tr>
+<td><strong>time</strong></td>
+<td>Timing and delays</td>
+<td>Add sleep intervals between checks</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="collecting-live-disk-space-data_1">🛠️ Collecting Live Disk Space Data</h3>
+<ul>
+<li>Use <strong>psutil.disk_usage('/')</strong> to get disk statistics for the root partition.</li>
+<li>The result includes <strong>total</strong>, <strong>used</strong>, <strong>free</strong>, and <strong>percent</strong> values.</li>
+<li>To check multiple mount points, loop through <strong>psutil.disk_partitions()</strong>.</li>
+<li>Convert bytes to human-readable format (GB or MB) by dividing by <strong>1024</strong> twice.</li>
+<li>Example: <strong>disk_usage = psutil.disk_usage('/')</strong> then access <strong>disk_usage.percent</strong> for usage percentage.</li>
+</ul>
+<hr />
+<h3 id="collecting-live-cpu-data_1">🕵️ Collecting Live CPU Data</h3>
+<ul>
+<li>Use <strong>psutil.cpu_percent(interval=1)</strong> to get overall CPU usage over a 1-second sample.</li>
+<li>For per-core data, use <strong>psutil.cpu_percent(interval=1, percpu=True)</strong>.</li>
+<li>To get CPU frequency, use <strong>psutil.cpu_freq()</strong> which returns current, min, and max MHz.</li>
+<li>For load averages (Unix/Linux), use <strong>psutil.getloadavg()</strong> which returns 1, 5, and 15-minute averages.</li>
+<li>Example: <strong>cpu_usage = psutil.cpu_percent(interval=1)</strong> gives a single float percentage.</li>
+</ul>
+<hr />
+<h3 id="collecting-live-process-data_1">🔍 Collecting Live Process Data</h3>
+<ul>
+<li>Use <strong>psutil.process_iter(['pid', 'name', 'cpu_percent', 'memory_percent'])</strong> to iterate over running processes.</li>
+<li>Each process object has attributes like <strong>pid</strong>, <strong>name</strong>, <strong>cpu_percent()</strong>, and <strong>memory_percent()</strong>.</li>
+<li>To find a specific process by name, loop through and check <strong>proc.info['name']</strong>.</li>
+<li>For detailed memory info on a single process, use <strong>psutil.Process(pid).memory_info()</strong>.</li>
+<li>Example: <strong>for proc in psutil.process_iter(['pid', 'name']): print(proc.info)</strong> prints all running processes.</li>
+</ul>
+<hr />
+<h3 id="combining-data-into-a-health-snapshot_1">📈 Combining Data into a Health Snapshot</h3>
+<ul>
+<li>Create a dictionary to store all collected data in one place.</li>
+<li>Structure it like: <strong>{'disk': disk_data, 'cpu': cpu_data, 'processes': top_processes}</strong></li>
+<li>Filter processes to show only the top 5 by CPU or memory usage using <strong>sorted()</strong> with a key function.</li>
+<li>Add timestamps using <strong>time.strftime('%Y-%m-%d %H:%M:%S')</strong> for each snapshot.</li>
+<li>Example: <strong>snapshot = {'timestamp': now, 'cpu_percent': cpu, 'disk_percent': disk.percent}</strong></li>
+</ul>
+<hr />
+<h3 id="practical-tips-for-live-data-collection_1">🧪 Practical Tips for Live Data Collection</h3>
+<ul>
+<li>Always use a short <strong>interval</strong> parameter (like 0.5 or 1 second) for CPU readings to get accurate results.</li>
+<li>Handle permission errors gracefully with <strong>try/except</strong> blocks when accessing process details.</li>
+<li>Use <strong>sleep()</strong> from the time module to space out data collection in monitoring loops.</li>
+<li>Store historical data in a list to track changes over time for trend analysis.</li>
+<li>Remember that <strong>psutil</strong> needs to be installed via <strong>pip install psutil</strong> before importing.</li>
+</ul>
+<hr />
+<h3 id="next-steps-for-your-capstone-project_1">🚀 Next Steps for Your Capstone Project</h3>
+<ul>
+<li>Build a function that returns a formatted string of current system health.</li>
+<li>Extend your script to log data to a file with timestamps.</li>
+<li>Add threshold alerts that print warnings when disk usage exceeds 90% or CPU stays above 80%.</li>
+<li>Experiment with filtering processes to show only those using more than 5% CPU or memory.</li>
+<li>Consider adding network I/O stats using <strong>psutil.net_io_counters()</strong> for a complete picture.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Collecting live disk space, CPU, and process data is a foundational skill for any engineer building system monitoring tools. With <strong>psutil</strong>, you can access all major system metrics in a clean, cross-platform way. By combining these data points into a structured snapshot, you create the core logic for your final capstone health reporter project. Start small with one metric, then layer in additional data as you become comfortable with the library.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This file shows how to collect live system data about disk space, CPU usage, and running processes using Python's <code>psutil</code> library.</p>
+<hr />
+<h3 id="example-1-get-total-disk-space-on-the-root-drive_1">🖥️ Example 1: Get total disk space on the root drive</h3>
+<p>Shows how to retrieve the total disk space in bytes for the root partition.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
+
+<span class="n">disk_usage</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="n">total_bytes</span> <span class="o">=</span> <span class="n">disk_usage</span><span class="o">.</span><span class="n">total</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total_bytes</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>500107862016</strong></p>
+<hr />
+<h3 id="example-2-get-disk-usage-percentage_1">📊 Example 2: Get disk usage percentage</h3>
+<p>Shows how to get the percentage of disk space currently used on the root drive.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
+
+<span class="n">disk_usage</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="n">percent_used</span> <span class="o">=</span> <span class="n">disk_usage</span><span class="o">.</span><span class="n">percent</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">percent_used</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>45.2</strong></p>
+<hr />
+<h3 id="example-3-get-current-cpu-usage-percentage_1">🔄 Example 3: Get current CPU usage percentage</h3>
+<p>Shows how to capture the current CPU usage as a percentage over a 1-second interval.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
+
+<span class="n">cpu_percent</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">cpu_percent</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cpu_percent</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>23.7</strong></p>
+<hr />
+<h3 id="example-4-count-the-number-of-running-processes_1">📋 Example 4: Count the number of running processes</h3>
+<p>Shows how to get the total count of active processes on the system.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
+
+<span class="n">process_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">psutil</span><span class="o">.</span><span class="n">pids</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">process_count</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>187</strong></p>
+<hr />
+<h3 id="example-5-collect-disk-cpu-and-process-data-into-a-single-report_1">🧩 Example 5: Collect disk, CPU, and process data into a single report</h3>
+<p>Shows how to combine all three metrics into one readable summary for an engineer.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">psutil</span>
+
+<span class="n">disk</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="n">cpu</span> <span class="o">=</span> <span class="n">psutil</span><span class="o">.</span><span class="n">cpu_percent</span><span class="p">(</span><span class="n">interval</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">processes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">psutil</span><span class="o">.</span><span class="n">pids</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Disk Used: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">disk</span><span class="o">.</span><span class="n">percent</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CPU Used: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cpu</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processes Running: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">processes</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>Disk Used: 45.2%</strong><br />
+📤 Output: <strong>CPU Used: 23.7%</strong><br />
+📤 Output: <strong>Processes Running: 187</strong></p>
+<hr />
+<h3 id="quick-reference-table_1">📊 Quick Reference Table</h3>
 <table>
 <thead>
 <tr>

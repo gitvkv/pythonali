@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch08_04_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 08 | Combining Sets via Union or Pipe - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 08 | Combining Sets via Union or Pipe";
         var mkdocs_page_input_path = "Core Syntax\\ch08_04_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch08_04_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -394,6 +394,30 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-combining-unique-tags">🧩 Example 5: Practical Use — Combining Unique Tags</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-union-vs-operator">Comparison: .union() vs | Operator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-set-union_1">⚙️ What is a Set Union?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#two-ways-to-perform-union_1">🛠️ Two Ways to Perform Union</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-union-method-vs-pipe-operator_1">📊 Comparison: .union() Method vs Pipe Operator |</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-with-multiple-sets_1">🕵️ Working with Multiple Sets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples_1">🧪 Practical Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-union-of-two-sets_1">🧩 Example 1: Basic Union of Two Sets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-using-the-pipe-operator_1">🧩 Example 2: Using the Pipe Operator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-union-with-overlapping-elements_1">🧩 Example 3: Union with Overlapping Elements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-union-of-three-sets_1">🧩 Example 4: Union of Three Sets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-combining-unique-tags_1">🧩 Example 5: Practical Use — Combining Unique Tags</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-union-vs-operator_1">Comparison: .union() vs | Operator</a>
     </li>
     </ul>
                 </li>
@@ -1072,7 +1096,7 @@
               
                 <h1 id="combining-sets-via-union-or-pipe">Combining Sets via Union or Pipe</h1>
 <p><span class="category-tag">🏷️ Tuples and Sets /  Set Operations</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with sets in Python, you often need to combine multiple sets together into one unified collection. The <strong>union</strong> operation takes all unique elements from two or more sets and creates a new set containing every item that appears in any of the original sets. This is one of the most fundamental set operations and is extremely useful for merging data sources, removing duplicates, and building comprehensive collections of unique items.</p>
@@ -1165,8 +1189,7 @@
 <li>The pipe operator <code>|</code> provides a clean, mathematical syntax for quick unions.</li>
 <li>Union is ideal for merging data sources while automatically eliminating duplicates.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The union of two sets creates a new set containing all unique elements from both sets, and the pipe operator (<code>|</code>) performs the same operation.</p>
 <hr />
 <h3 id="example-1-basic-union-of-two-sets">🧩 Example 1: Basic Union of Two Sets</h3>
@@ -1216,6 +1239,184 @@
 <p>📤 Output: <strong>{'python', 'javascript', 'html', 'java', 'sql'}</strong></p>
 <hr />
 <h3 id="comparison-union-vs-operator">Comparison: <code>.union()</code> vs <code>|</code> Operator</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>.union()</code> Method</th>
+<th><code>|</code> Operator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Syntax</td>
+<td><code>set_a.union(set_b)</code></td>
+<td><code>set_a \| set_b</code></td>
+</tr>
+<tr>
+<td>Multiple sets</td>
+<td>Yes — pass as arguments</td>
+<td>No — only two sets at a time</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>More explicit</td>
+<td>More concise</td>
+</tr>
+<tr>
+<td>Works with other iterables</td>
+<td>Yes (e.g., lists)</td>
+<td>No — only sets</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with sets in Python, you often need to combine multiple sets together into one unified collection. The <strong>union</strong> operation takes all unique elements from two or more sets and creates a new set containing every item that appears in any of the original sets. This is one of the most fundamental set operations and is extremely useful for merging data sources, removing duplicates, and building comprehensive collections of unique items.</p>
+<hr />
+<h3 id="what-is-a-set-union_1">⚙️ What is a Set Union?</h3>
+<p>A set union combines all elements from multiple sets, keeping only unique values. If an element appears in any of the sets being combined, it will appear exactly once in the resulting union set.</p>
+<ul>
+<li>The union of <strong>Set A</strong> and <strong>Set B</strong> contains every element that is in <strong>Set A</strong>, <strong>Set B</strong>, or both.</li>
+<li>Duplicates are automatically removed because sets only store unique items.</li>
+<li>The order of elements in the resulting set is not guaranteed (sets are unordered).</li>
+</ul>
+<hr />
+<h3 id="two-ways-to-perform-union_1">🛠️ Two Ways to Perform Union</h3>
+<p>Python provides two equivalent methods for combining sets:</p>
+<p><strong>Using the <code>.union()</code> method:</strong>
+- Call the method on one set and pass the other set as an argument.
+- Example: <strong>set_a.union(set_b)</strong> returns a new set with all elements from both sets.</p>
+<p><strong>Using the pipe operator <code>|</code>:</strong>
+- Place the pipe symbol between two sets.
+- Example: <strong>set_a | set_b</strong> produces the exact same result as the method version.</p>
+<p>Both approaches create a brand new set and do not modify the original sets.</p>
+<hr />
+<h3 id="comparison-union-method-vs-pipe-operator_1">📊 Comparison: <code>.union()</code> Method vs Pipe Operator <code>|</code></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>.union()</code> Method</th>
+<th>Pipe Operator <code>|</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Syntax style</td>
+<td>Method call on a set</td>
+<td>Symbol between sets</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>More explicit, reads like English</td>
+<td>More concise, mathematical style</td>
+</tr>
+<tr>
+<td>Multiple sets</td>
+<td>Can pass multiple sets as arguments: <strong>set_a.union(set_b, set_c)</strong></td>
+<td>Must chain operators: <strong>set_a | set_b | set_c</strong></td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Equivalent</td>
+<td>Equivalent</td>
+</tr>
+<tr>
+<td>Common usage</td>
+<td>When combining many sets at once</td>
+<td>When combining two sets quickly</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="working-with-multiple-sets_1">🕵️ Working with Multiple Sets</h3>
+<p>You are not limited to combining just two sets. Python allows you to union several sets together in a single operation.</p>
+<ul>
+<li>Using the method: <strong>set_a.union(set_b, set_c, set_d)</strong> combines all four sets.</li>
+<li>Using the pipe operator: <strong>set_a | set_b | set_c | set_d</strong> achieves the same result.</li>
+<li>The resulting set contains every unique element from all the original sets.</li>
+</ul>
+<hr />
+<h3 id="practical-examples_1">🧪 Practical Examples</h3>
+<p><strong>Example 1: Combining two sets of server names</strong>
+- <strong>Set A</strong> contains: <strong>web01, web02, web03</strong>
+- <strong>Set B</strong> contains: <strong>web02, web03, web04</strong>
+- The union result contains: <strong>web01, web02, web03, web04</strong></p>
+<p><strong>Example 2: Merging configuration tags</strong>
+- <strong>Set X</strong> contains: <strong>production, us-east, linux</strong>
+- <strong>Set Y</strong> contains: <strong>production, us-west, windows</strong>
+- The union result contains: <strong>production, us-east, us-west, linux, windows</strong></p>
+<p><strong>Example 3: Combining three environment lists</strong>
+- <strong>Set Dev</strong> contains: <strong>app01, app02, db01</strong>
+- <strong>Set Staging</strong> contains: <strong>app02, db01, cache01</strong>
+- <strong>Set Prod</strong> contains: <strong>app01, app03, db02</strong>
+- The union result contains: <strong>app01, app02, app03, db01, db02, cache01</strong></p>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li>Set union combines all unique elements from multiple sets into one new set.</li>
+<li>Use <strong>set_a.union(set_b)</strong> or <strong>set_a | set_b</strong> to perform a union.</li>
+<li>Both methods produce identical results and do not modify the original sets.</li>
+<li>You can combine more than two sets by chaining methods or operators.</li>
+<li>The pipe operator <code>|</code> provides a clean, mathematical syntax for quick unions.</li>
+<li>Union is ideal for merging data sources while automatically eliminating duplicates.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The union of two sets creates a new set containing all unique elements from both sets, and the pipe operator (<code>|</code>) performs the same operation.</p>
+<hr />
+<h3 id="example-1-basic-union-of-two-sets_1">🧩 Example 1: Basic Union of Two Sets</h3>
+<p>This example shows how to combine two simple sets using the <code>.union()</code> method.</p>
+<div class="highlight"><pre><span></span><code><span class="n">set_a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">set_b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">set_a</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">set_b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{1, 2, 3, 4, 5}</strong></p>
+<hr />
+<h3 id="example-2-using-the-pipe-operator_1">🧩 Example 2: Using the Pipe Operator</h3>
+<p>This example demonstrates the pipe operator (<code>|</code>) which produces the same result as <code>.union()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">set_a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">}</span>
+<span class="n">set_b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">set_a</span> <span class="o">|</span> <span class="n">set_b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{10, 20, 30, 40, 50}</strong></p>
+<hr />
+<h3 id="example-3-union-with-overlapping-elements_1">🧩 Example 3: Union with Overlapping Elements</h3>
+<p>This example shows how duplicate values are automatically removed when combining sets.</p>
+<div class="highlight"><pre><span></span><code><span class="n">set_a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">}</span>
+<span class="n">set_b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">set_a</span> <span class="o">|</span> <span class="n">set_b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{5, 10, 15, 20, 25, 30}</strong></p>
+<hr />
+<h3 id="example-4-union-of-three-sets_1">🧩 Example 4: Union of Three Sets</h3>
+<p>This example combines three different sets into one using the <code>.union()</code> method.</p>
+<div class="highlight"><pre><span></span><code><span class="n">set_a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">set_b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">set_c</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">set_a</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">set_b</span><span class="p">,</span> <span class="n">set_c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{1, 2, 3, 4}</strong></p>
+<hr />
+<h3 id="example-5-practical-use-combining-unique-tags_1">🧩 Example 5: Practical Use — Combining Unique Tags</h3>
+<p>This example merges two sets of tags from different sources to create a complete list of unique tags.</p>
+<div class="highlight"><pre><span></span><code><span class="n">tags_frontend</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;javascript&quot;</span><span class="p">,</span> <span class="s2">&quot;html&quot;</span><span class="p">}</span>
+<span class="n">tags_backend</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;java&quot;</span><span class="p">,</span> <span class="s2">&quot;sql&quot;</span><span class="p">}</span>
+<span class="n">all_tags</span> <span class="o">=</span> <span class="n">tags_frontend</span> <span class="o">|</span> <span class="n">tags_backend</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_tags</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'python', 'javascript', 'html', 'java', 'sql'}</strong></p>
+<hr />
+<h3 id="comparison-union-vs-operator_1">Comparison: <code>.union()</code> vs <code>|</code> Operator</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_03_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Capturing Command Output and Error Streams - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Capturing Command Output and Error Streams";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_03_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_03_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -667,6 +667,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-output-streams_1">⚙️ Understanding Output Streams</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#capturing-output-with-subprocessrun_1">🛠️ Capturing Output with subprocess.run</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-capturing-vs-not-capturing_1">📊 Comparison: Capturing vs. Not Capturing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-errors-and-non-zero-exit-codes_1">🕵️ Handling Errors and Non-Zero Exit Codes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#redirecting-stderr-to-stdout_1">🔄 Redirecting stderr to stdout</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-patterns-for-engineers_1">📝 Practical Patterns for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">⚠️ Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-each-approach_1">🔍 When to Use Each Approach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-capturing-standard-output-from-a-simple-command_1">📘 Example 1: Capturing standard output from a simple command</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-capturing-standard-error-from-a-failing-command_1">📘 Example 2: Capturing standard error from a failing command</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-checking-return-code-and-capturing-both-streams_1">📘 Example 3: Checking return code and capturing both streams</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-running-a-pipeline-and-capturing-output_1">📘 Example 4: Running a pipeline and capturing output</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-capturing-output-and-error-separately-with-timeout_1">📘 Example 5: Capturing output and error separately with timeout</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_03_03/">Ch 14 | Return Code Evaluations and Assertions</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="capturing-command-output-and-error-streams">Capturing Command Output and Error Streams</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  Shell Commands with Subprocess</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When running shell commands from Python, the output and error messages produced by those commands are sent to separate streams. The <strong>standard output (stdout)</strong> carries normal results, while the <strong>standard error (stderr)</strong> carries error messages, warnings, and diagnostic information. Capturing both streams properly is essential for building reliable automation scripts that can handle success and failure scenarios gracefully.</p>
@@ -1189,8 +1217,7 @@
 <li><strong>Use manual return code checking</strong> when you want to handle failures gracefully and continue with alternative logic.</li>
 </ul>
 <p>By mastering output and error stream capture, you gain full control over how command results flow through your Python scripts, enabling robust error handling and clean data processing.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how to run shell commands from Python and capture their standard output and standard error streams separately.</p>
 <h3 id="example-1-capturing-standard-output-from-a-simple-command">📘 Example 1: Capturing standard output from a simple command</h3>
 <p>This example runs <code>echo</code> and captures its printed text.</p>
@@ -1267,6 +1294,236 @@
 <p>📤 Output: <strong>"STDOUT: PING google.com (142.250.80.14) 56(84) bytes of data.\n64 bytes from ..."</strong> (truncated)</p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>result.stdout</code></th>
+<th><code>result.stderr</code></th>
+<th><code>result.returncode</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What it holds</td>
+<td>Standard output text</td>
+<td>Standard error text</td>
+<td>Exit code (0 = success)</td>
+</tr>
+<tr>
+<td>Data type</td>
+<td>String (if <code>text=True</code>)</td>
+<td>String (if <code>text=True</code>)</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Empty when</td>
+<td>Command produces no output</td>
+<td>Command runs without errors</td>
+<td>Always present</td>
+</tr>
+<tr>
+<td>Useful for</td>
+<td>Reading command results</td>
+<td>Debugging failures</td>
+<td>Checking success/failure</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When running shell commands from Python, the output and error messages produced by those commands are sent to separate streams. The <strong>standard output (stdout)</strong> carries normal results, while the <strong>standard error (stderr)</strong> carries error messages, warnings, and diagnostic information. Capturing both streams properly is essential for building reliable automation scripts that can handle success and failure scenarios gracefully.</p>
+<hr />
+<h3 id="understanding-output-streams_1">⚙️ Understanding Output Streams</h3>
+<p>Every command run in a shell produces two distinct streams of data:</p>
+<ul>
+<li><strong>Standard Output (stdout)</strong> – Contains the normal result or data produced by the command. This is what you typically see when a command runs successfully.</li>
+<li><strong>Standard Error (stderr)</strong> – Contains error messages, warnings, and debugging information. This stream is separate from stdout, even when a command succeeds.</li>
+</ul>
+<p>Capturing both streams allows you to:
+- Process successful output separately from error messages.
+- Log errors for troubleshooting without mixing them with normal results.
+- Make decisions in your script based on whether errors occurred.</p>
+<hr />
+<h3 id="capturing-output-with-subprocessrun_1">🛠️ Capturing Output with subprocess.run</h3>
+<p>The <strong>subprocess.run</strong> function provides several options for capturing output streams:</p>
+<ul>
+<li>Set <strong>capture_output=True</strong> to capture both stdout and stderr into memory.</li>
+<li>Access the captured output through the <strong>.stdout</strong> and <strong>.stderr</strong> attributes of the returned object.</li>
+<li>Use <strong>text=True</strong> to get the output as a string instead of bytes.</li>
+</ul>
+<p>A typical pattern looks like this:
+- Import the <strong>subprocess</strong> module.
+- Call <strong>subprocess.run</strong> with your command as a list of arguments.
+- Set <strong>capture_output=True</strong> and <strong>text=True</strong>.
+- Access <strong>result.stdout</strong> for normal output and <strong>result.stderr</strong> for error output.</p>
+<hr />
+<h3 id="comparison-capturing-vs-not-capturing_1">📊 Comparison: Capturing vs. Not Capturing</h3>
+<table>
+<thead>
+<tr>
+<th>Behavior</th>
+<th>Without Capture</th>
+<th>With Capture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Output visibility</td>
+<td>Printed directly to terminal</td>
+<td>Stored in memory, not shown</td>
+</tr>
+<tr>
+<td>Error handling</td>
+<td>Errors appear on screen</td>
+<td>Errors stored separately</td>
+</tr>
+<tr>
+<td>Processing results</td>
+<td>Cannot use output in code</td>
+<td>Can analyze, log, or transform output</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>Minimal</td>
+<td>Uses memory for stored output</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="handling-errors-and-non-zero-exit-codes_1">🕵️ Handling Errors and Non-Zero Exit Codes</h3>
+<p>Commands that fail typically return a non-zero exit code. Python's subprocess module can detect this:</p>
+<ul>
+<li>Check the <strong>.returncode</strong> attribute after running a command.</li>
+<li>A return code of <strong>0</strong> means success; any other value indicates an error.</li>
+<li>Use the <strong>check=True</strong> parameter to automatically raise an exception when a command fails.</li>
+<li>When using <strong>check=True</strong>, wrap the call in a <strong>try-except</strong> block to handle the <strong>subprocess.CalledProcessError</strong> exception.</li>
+</ul>
+<p>The exception object contains:
+- <strong>.returncode</strong> – The exit code from the failed command.
+- <strong>.output</strong> – The captured stdout (if capture_output was enabled).
+- <strong>.stderr</strong> – The captured stderr (if capture_output was enabled).</p>
+<hr />
+<h3 id="redirecting-stderr-to-stdout_1">🔄 Redirecting stderr to stdout</h3>
+<p>Sometimes you want to combine both streams into a single output for simpler processing:</p>
+<ul>
+<li>Use the <strong>stderr</strong> parameter with the value <strong>subprocess.STDOUT</strong>.</li>
+<li>This redirects error messages into the stdout stream.</li>
+<li>After redirection, only <strong>result.stdout</strong> contains all output, and <strong>result.stderr</strong> will be empty.</li>
+</ul>
+<p>This is useful when:
+- You want to log everything in one place.
+- Error messages contain useful diagnostic information you want to process.
+- You are building a unified output for reporting purposes.</p>
+<hr />
+<h3 id="practical-patterns-for-engineers_1">📝 Practical Patterns for Engineers</h3>
+<p>When building automation scripts, consider these common patterns:</p>
+<ul>
+<li><strong>Success-only capture</strong> – Use <strong>capture_output=True</strong> and check <strong>returncode</strong> before processing stdout. If the command failed, handle the error separately.</li>
+<li><strong>Always capture both</strong> – Use <strong>capture_output=True</strong> with <strong>text=True</strong> and always examine both <strong>.stdout</strong> and <strong>.stderr</strong> for complete information.</li>
+<li><strong>Fail-fast with exceptions</strong> – Use <strong>check=True</strong> when a command must succeed for the script to continue. Catch the exception to log details and exit gracefully.</li>
+<li><strong>Silent execution with error logging</strong> – Capture both streams but only log stderr when the return code is non-zero. Suppress normal output unless debugging.</li>
+</ul>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">⚠️ Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Forgetting text=True</strong> – Without this, output is returned as bytes, requiring manual decoding with <strong>.decode()</strong>.</li>
+<li><strong>Ignoring stderr</strong> – Even successful commands may write warnings to stderr that contain important information.</li>
+<li><strong>Not checking return codes</strong> – A command may produce output on stdout but still fail. Always verify the return code.</li>
+<li><strong>Capturing large outputs</strong> – For commands that produce massive output, consider streaming to a file instead of storing in memory.</li>
+<li><strong>Mixing stdout and stderr unintentionally</strong> – Be deliberate about whether you want them combined or separate.</li>
+</ul>
+<hr />
+<h3 id="when-to-use-each-approach_1">🔍 When to Use Each Approach</h3>
+<ul>
+<li><strong>Use separate streams</strong> when you need to distinguish between normal results and errors for different processing paths.</li>
+<li><strong>Use combined streams</strong> when building a single log entry or when error messages are part of the expected output.</li>
+<li><strong>Use check=True</strong> in critical automation steps where failure should stop the entire process.</li>
+<li><strong>Use manual return code checking</strong> when you want to handle failures gracefully and continue with alternative logic.</li>
+</ul>
+<p>By mastering output and error stream capture, you gain full control over how command results flow through your Python scripts, enabling robust error handling and clean data processing.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how to run shell commands from Python and capture their standard output and standard error streams separately.</p>
+<h3 id="example-1-capturing-standard-output-from-a-simple-command_1">📘 Example 1: Capturing standard output from a simple command</h3>
+<p>This example runs <code>echo</code> and captures its printed text.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;echo&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello, engineer&quot;</span><span class="p">],</span>
+    <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">output_text</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span>
+</code></pre></div>
+<p>📤 Output: <strong>"Hello, engineer\n"</strong></p>
+<hr />
+<h3 id="example-2-capturing-standard-error-from-a-failing-command_1">📘 Example 2: Capturing standard error from a failing command</h3>
+<p>This example runs a command that produces an error and captures the error stream.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;/nonexistent_directory&quot;</span><span class="p">],</span>
+    <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">error_text</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">stderr</span>
+</code></pre></div>
+<p>📤 Output: <strong>"ls: cannot access '/nonexistent_directory': No such file or directory\n"</strong></p>
+<hr />
+<h3 id="example-3-checking-return-code-and-capturing-both-streams_1">📘 Example 3: Checking return code and capturing both streams</h3>
+<p>This example shows how to check if a command succeeded and capture both output and error.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;/etc/hostname&quot;</span><span class="p">],</span>
+    <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>"Success: my-hostname\n"</strong> (or similar hostname)</p>
+<hr />
+<h3 id="example-4-running-a-pipeline-and-capturing-output_1">📘 Example 4: Running a pipeline and capturing output</h3>
+<p>This example runs a shell pipeline using <code>shell=True</code> and captures the final output.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="s2">&quot;ps aux | grep python | head -3&quot;</span><span class="p">,</span>
+    <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">shell</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">output_lines</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>List of first 3 Python processes (varies by system)</strong></p>
+<hr />
+<h3 id="example-5-capturing-output-and-error-separately-with-timeout_1">📘 Example 5: Capturing output and error separately with timeout</h3>
+<p>This example runs a command with a timeout and captures both streams safely.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+        <span class="p">[</span><span class="s2">&quot;ping&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="s2">&quot;google.com&quot;</span><span class="p">],</span>
+        <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;STDOUT:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;STDERR:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">TimeoutExpired</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Command timed out&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>"STDOUT: PING google.com (142.250.80.14) 56(84) bytes of data.\n64 bytes from ..."</strong> (truncated)</p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

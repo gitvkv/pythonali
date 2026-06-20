@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_03_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Ensuring Absolute Exception Handling Coverage Layers - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Ensuring Absolute Exception Handling Coverage Layers";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_03_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_03_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -1009,6 +1009,38 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-exception-handling-layers">Comparison Table: Exception Handling Layers</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-layered-exception-handling-matters_1">⚙️ Why Layered Exception Handling Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-three-essential-coverage-layers_1">🛠️ The Three Essential Coverage Layers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#layer-1-inline-local-exception-handling_1">🕵️ Layer 1 — Inline / Local Exception Handling</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#layer-2-function-module-level-exception-handling_1">📦 Layer 2 — Function / Module Level Exception Handling</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#layer-3-global-top-level-exception-handling_1">🌐 Layer 3 — Global / Top-Level Exception Handling</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-without-layers-vs-with-layers_1">📊 Comparison: Without Layers vs. With Layers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-absolute-coverage_1">✅ Best Practices for Absolute Coverage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-scenario-reading-a-configuration-file_1">🧪 Example Scenario: Reading a Configuration File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🔁 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-try-except-for-one-specific-error_1">🟢 Example 1: Basic try-except for one specific error</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-multiple-except-blocks-for-different-error-types_1">🟡 Example 2: Multiple except blocks for different error types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-adding-a-generic-except-as-the-final-safety-net_1">🟠 Example 3: Adding a generic except as the final safety net</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-full-coverage-with-else-and-finally-layers_1">🔴 Example 4: Full coverage with else and finally layers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-nested-exception-layers-for-multi-step-operations_1">🔵 Example 5: Nested exception layers for multi-step operations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-exception-handling-layers_1">Comparison Table: Exception Handling Layers</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_03_04/">Ch 21 | Securing Sensitive Credentials, Passwords, and Tokens</a>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="ensuring-absolute-exception-handling-coverage-layers">Ensuring Absolute Exception Handling Coverage Layers</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Code Review Checklist</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1228,8 +1260,7 @@
 <hr />
 <h3 id="summary">🔁 Summary</h3>
 <p>Absolute Exception Handling Coverage Layers is about building a safety net at every level of your script. Start with specific inline handlers for known risks, wrap entire functions for unexpected errors, and finish with a global handler as the ultimate fallback. This layered approach ensures that your scripts are resilient, debuggable, and production-ready — no matter what goes wrong.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide shows engineers how to build layered exception handling that catches every possible error in a Python program.</p>
 <h3 id="example-1-basic-try-except-for-one-specific-error">🟢 Example 1: Basic try-except for one specific error</h3>
 <p>This example catches a single known error type when converting user input to a number.</p>
@@ -1324,6 +1355,289 @@
 <p>📤 Output: <strong>Layer 1: Database connection failed</strong></p>
 <hr />
 <h3 id="comparison-table-exception-handling-layers">Comparison Table: Exception Handling Layers</h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Purpose</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>try</code></td>
+<td>Marks code that might fail</td>
+<td>Always required</td>
+</tr>
+<tr>
+<td><code>except SpecificError</code></td>
+<td>Catches known errors</td>
+<td>When you know what can break</td>
+</tr>
+<tr>
+<td><code>except</code></td>
+<td>Catches all remaining errors</td>
+<td>As final safety net</td>
+</tr>
+<tr>
+<td><code>else</code></td>
+<td>Runs only if no error occurred</td>
+<td>For success-only logic</td>
+</tr>
+<tr>
+<td><code>finally</code></td>
+<td>Always runs regardless of error</td>
+<td>For cleanup operations</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When building scripts that interact with systems, APIs, files, or databases, unexpected failures are inevitable. A network timeout, a missing configuration file, or a malformed input can crash your entire script if exceptions are not handled properly. <strong>Absolute Exception Handling Coverage Layers</strong> means designing your code so that every possible failure point is caught, logged, and handled gracefully — without ever letting the script silently fail or crash in an unpredictable state. This ensures your automation remains reliable, debuggable, and production-ready.</p>
+<hr />
+<h3 id="why-layered-exception-handling-matters_1">⚙️ Why Layered Exception Handling Matters</h3>
+<ul>
+<li><strong>Single try/except blocks are not enough</strong> — they only cover one scope of code.</li>
+<li><strong>Unhandled exceptions</strong> cause scripts to terminate abruptly, leaving systems in unknown states.</li>
+<li><strong>Silent failures</strong> (catching exceptions without logging) make debugging nearly impossible.</li>
+<li><strong>Layered coverage</strong> ensures that even if one handler misses an error, another layer catches it.</li>
+</ul>
+<hr />
+<h3 id="the-three-essential-coverage-layers_1">🛠️ The Three Essential Coverage Layers</h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Scope</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Layer 1: Inline / Local</strong></td>
+<td>Inside individual functions or operations</td>
+<td>Catch specific, expected errors (e.g., file not found, connection refused)</td>
+</tr>
+<tr>
+<td><strong>Layer 2: Function / Module</strong></td>
+<td>Around entire function or class method</td>
+<td>Catch unexpected errors within a unit of work</td>
+</tr>
+<tr>
+<td><strong>Layer 3: Global / Top-Level</strong></td>
+<td>Wrapping the main script execution</td>
+<td>Catch any unhandled exception before the script crashes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="layer-1-inline-local-exception-handling_1">🕵️ Layer 1 — Inline / Local Exception Handling</h3>
+<p>This is the most granular layer. Place it directly around operations that are known to be risky.</p>
+<ul>
+<li>Wrap file operations, API calls, database queries, and network requests in individual try/except blocks.</li>
+<li>Catch only the specific exception types you expect (e.g., <strong>FileNotFoundError</strong>, <strong>ConnectionError</strong>, <strong>ValueError</strong>).</li>
+<li>Always log the error with context (what operation failed, what inputs were used).</li>
+<li>Use <strong>else</strong> block to run code only when no exception occurred.</li>
+<li>Use <strong>finally</strong> block to clean up resources (close files, release connections).</li>
+</ul>
+<p><strong>Example approach:</strong>
+- Open a configuration file inside a try block.
+- Catch <strong>FileNotFoundError</strong> and log a clear message.
+- In the <strong>else</strong> block, parse the file contents.
+- In the <strong>finally</strong> block, close the file handle.</p>
+<hr />
+<h3 id="layer-2-function-module-level-exception-handling_1">📦 Layer 2 — Function / Module Level Exception Handling</h3>
+<p>This layer wraps the entire function or method to catch any error that the inline handlers might have missed.</p>
+<ul>
+<li>Place a single try/except block around the entire function body.</li>
+<li>Catch a broad exception (like <strong>Exception</strong>) but never leave it empty — always log the full traceback.</li>
+<li>Re-raise the exception if the function cannot recover, so the caller can handle it.</li>
+<li>Use this layer to perform cleanup or rollback operations if the function fails partway through.</li>
+</ul>
+<p><strong>Example approach:</strong>
+- A function that reads a file, processes data, and writes results.
+- Wrap the entire function in a try block.
+- If any step fails, log the error with the function name and input parameters.
+- Close any open resources in the <strong>finally</strong> block.
+- Re-raise the exception so the calling code knows the operation failed.</p>
+<hr />
+<h3 id="layer-3-global-top-level-exception-handling_1">🌐 Layer 3 — Global / Top-Level Exception Handling</h3>
+<p>This is your safety net. It wraps the entire script execution to catch any exception that was not handled by the lower layers.</p>
+<ul>
+<li>Place the main script logic inside a single try block.</li>
+<li>Catch <strong>Exception</strong> (or even <strong>BaseException</strong> in extreme cases) to capture everything.</li>
+<li>Log the full traceback and a human-readable error summary.</li>
+<li>Perform final cleanup (close all connections, save partial progress, send alerts).</li>
+<li>Exit the script with a non-zero exit code to indicate failure.</li>
+</ul>
+<p><strong>Example approach:</strong>
+- The <strong>main()</strong> function is called inside a try block.
+- If any unhandled exception bubbles up, log it with timestamp and script name.
+- Send a notification (email, Slack, or log entry) about the failure.
+- Exit with status code <strong>1</strong>.</p>
+<hr />
+<h3 id="comparison-without-layers-vs-with-layers_1">📊 Comparison: Without Layers vs. With Layers</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Without Layered Handling</th>
+<th>With Layered Handling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Failure point</strong></td>
+<td>Script crashes at first error</td>
+<td>Error is caught at the appropriate layer</td>
+</tr>
+<tr>
+<td><strong>Debugging</strong></td>
+<td>No context about what failed</td>
+<td>Full traceback + contextual logs</td>
+</tr>
+<tr>
+<td><strong>Resource cleanup</strong></td>
+<td>Resources may remain open</td>
+<td>Cleanup happens in finally blocks</td>
+</tr>
+<tr>
+<td><strong>Recovery</strong></td>
+<td>No chance to recover or retry</td>
+<td>Inline handlers can retry specific operations</td>
+</tr>
+<tr>
+<td><strong>User experience</strong></td>
+<td>Cryptic error message or silent crash</td>
+<td>Clear error message with guidance</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="best-practices-for-absolute-coverage_1">✅ Best Practices for Absolute Coverage</h3>
+<ul>
+<li><strong>Never use bare except:</strong> Always specify the exception type or use <strong>Exception</strong> at minimum.</li>
+<li><strong>Always log the traceback:</strong> Use <strong>logging.exception()</strong> or capture <strong>sys.exc_info()</strong>.</li>
+<li><strong>Avoid silent except blocks:</strong> If you catch an exception, do something meaningful (log, retry, or re-raise).</li>
+<li><strong>Use custom exception classes</strong> for domain-specific errors (e.g., <strong>ConfigError</strong>, <strong>ConnectionTimeoutError</strong>).</li>
+<li><strong>Test your exception handling:</strong> Intentionally trigger failures to verify each layer works.</li>
+<li><strong>Document expected exceptions</strong> in function docstrings so other engineers know what to handle.</li>
+</ul>
+<hr />
+<h3 id="example-scenario-reading-a-configuration-file_1">🧪 Example Scenario: Reading a Configuration File</h3>
+<p><strong>Without layered handling:</strong>
+- A single try/except around the entire script.
+- If the file is missing, the script crashes with a generic error.
+- No cleanup happens, and the error message is unhelpful.</p>
+<p><strong>With layered handling:</strong>
+- <strong>Layer 1:</strong> Inline try/except around <strong>open()</strong> catches <strong>FileNotFoundError</strong> and logs the missing file path.
+- <strong>Layer 2:</strong> Function-level try/except catches any parsing errors and logs the function name.
+- <strong>Layer 3:</strong> Global try/except catches any remaining unexpected errors and sends an alert.
+- The script exits gracefully with a clear error message and a non-zero exit code.</p>
+<hr />
+<h3 id="summary_1">🔁 Summary</h3>
+<p>Absolute Exception Handling Coverage Layers is about building a safety net at every level of your script. Start with specific inline handlers for known risks, wrap entire functions for unexpected errors, and finish with a global handler as the ultimate fallback. This layered approach ensures that your scripts are resilient, debuggable, and production-ready — no matter what goes wrong.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide shows engineers how to build layered exception handling that catches every possible error in a Python program.</p>
+<h3 id="example-1-basic-try-except-for-one-specific-error_1">🟢 Example 1: Basic try-except for one specific error</h3>
+<p>This example catches a single known error type when converting user input to a number.</p>
+<div class="highlight"><pre><span></span><code><span class="n">user_input</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Converted number:&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Input is not a valid number&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Error: Input is not a valid number</strong></p>
+<hr />
+<h3 id="example-2-multiple-except-blocks-for-different-error-types_1">🟡 Example 2: Multiple except blocks for different error types</h3>
+<p>This example catches two different error types separately to handle each case differently.</p>
+<div class="highlight"><pre><span></span><code><span class="n">first_number</span> <span class="o">=</span> <span class="s2">&quot;10&quot;</span>
+<span class="n">second_number</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">first_number</span><span class="p">)</span> <span class="o">/</span> <span class="n">second_number</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: First value is not a number&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Cannot divide by zero&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Error: Cannot divide by zero</strong></p>
+<hr />
+<h3 id="example-3-adding-a-generic-except-as-the-final-safety-net_1">🟠 Example 3: Adding a generic except as the final safety net</h3>
+<p>This example uses a generic except block to catch any unexpected error that the specific handlers miss.</p>
+<div class="highlight"><pre><span></span><code><span class="n">data_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">data_list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value at index:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Index is out of range&quot;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: An unexpected problem occurred&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Error: Index is out of range</strong></p>
+<hr />
+<h3 id="example-4-full-coverage-with-else-and-finally-layers_1">🔴 Example 4: Full coverage with else and finally layers</h3>
+<p>This example demonstrates the complete exception handling structure with all four layers: try, except, else, and finally.</p>
+<div class="highlight"><pre><span></span><code><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;config.txt&quot;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">file_handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file_handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: File does not exist&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">PermissionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: No permission to read file&quot;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Could not open file for an unknown reason&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File read successfully&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Content length:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleanup: File operation attempted&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Error: File does not exist</strong><br />
+<strong>Cleanup: File operation attempted</strong></p>
+<hr />
+<h3 id="example-5-nested-exception-layers-for-multi-step-operations_1">🔵 Example 5: Nested exception layers for multi-step operations</h3>
+<p>This example shows how to wrap each operation step in its own try-except layer for precise error isolation.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">load_user_data</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">database_connection</span> <span class="o">=</span> <span class="n">connect_to_db</span><span class="p">(</span><span class="s2">&quot;users.db&quot;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Layer 1: Database connection failed&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">user_record</span> <span class="o">=</span> <span class="n">database_connection</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Layer 2: User query failed&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">processed_data</span> <span class="o">=</span> <span class="n">format_user_record</span><span class="p">(</span><span class="n">user_record</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Layer 3: Data formatting failed&quot;</span>
+
+    <span class="k">return</span> <span class="n">processed_data</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">connect_to_db</span><span class="p">(</span><span class="n">db_name</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="s2">&quot;Server unreachable&quot;</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">load_user_data</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Layer 1: Database connection failed</strong></p>
+<hr />
+<h3 id="comparison-table-exception-handling-layers_1">Comparison Table: Exception Handling Layers</h3>
 <table>
 <thead>
 <tr>

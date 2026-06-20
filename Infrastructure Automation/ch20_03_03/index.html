@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch20_03_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 20 | Categorizing System Alerts Across Severity Levels - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 20 | Categorizing System Alerts Across Severity Levels";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch20_03_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch20_03_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -945,6 +945,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-severity-level-approaches">Comparison Table: Severity Level Approaches</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-severity-categorization-matters_1">⚙️ Why Severity Categorization Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-severity-levels-in-production-systems_1">📊 Common Severity Levels in Production Systems</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#structuring-alert-data-in-python_1">🛠️ Structuring Alert Data in Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-a-severity-classifier_1">🕵️ Building a Severity Classifier</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#implementing-an-alert-categorization-pipeline_1">📈 Implementing an Alert Categorization Pipeline</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-and-validation-strategies_1">🧪 Testing and Validation Strategies</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#continuous-improvement_1">🔄 Continuous Improvement</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-defining-severity-levels-as-a-dictionary_1">🔧 Example 1: Defining severity levels as a dictionary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-checking-if-an-alert-meets-a-minimum-severity-threshold_1">🔧 Example 2: Checking if an alert meets a minimum severity threshold</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-categorizing-a-list-of-alerts-by-severity-name_1">🔧 Example 3: Categorizing a list of alerts by severity name</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-counting-alerts-per-severity-level_1">🔧 Example 4: Counting alerts per severity level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-sorting-alerts-by-severity-and-printing-a-summary_1">🔧 Example 5: Sorting alerts by severity and printing a summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-severity-level-approaches_1">Comparison Table: Severity Level Approaches</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch20_03_04/">Ch 20 | Configuring Format Layouts with Timestamps and Fields</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="categorizing-system-alerts-across-severity-levels">Categorizing System Alerts Across Severity Levels</h1>
 <p><span class="category-tag">🏷️ Python Scripting Best Practices /  Structured Production Logging</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1198,8 +1228,7 @@
 <li>Consistent severity definitions improve team response times and reduce operational burden</li>
 </ul>
 <p>By implementing a structured severity categorization system, engineers can move from reactive firefighting to proactive system management, ensuring that the right alerts reach the right people at the right time.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide shows how to group system alerts by severity levels using Python, helping engineers quickly identify which issues need immediate attention.</p>
 <hr />
 <h3 id="example-1-defining-severity-levels-as-a-dictionary">🔧 Example 1: Defining severity levels as a dictionary</h3>
@@ -1291,6 +1320,258 @@
 <strong>Service restarted - Severity: 20</strong></p>
 <hr />
 <h3 id="comparison-table-severity-level-approaches">Comparison Table: Severity Level Approaches</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Best For</th>
+<th>Example Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dictionary mapping</td>
+<td>Defining fixed severity codes</td>
+<td>Map "ERROR" to 40</td>
+</tr>
+<tr>
+<td>Threshold check</td>
+<td>Filtering critical alerts</td>
+<td>Escalate if severity &gt;= 40</td>
+</tr>
+<tr>
+<td>Loop with conditions</td>
+<td>Categorizing each alert</td>
+<td>Label alerts as WARNING or CRITICAL</td>
+</tr>
+<tr>
+<td>Counting with conditions</td>
+<td>Aggregating alert volume</td>
+<td>Report how many CRITICAL alerts today</td>
+</tr>
+<tr>
+<td>Sorting with key function</td>
+<td>Prioritizing response</td>
+<td>Show most severe alerts first</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When managing production systems, alerts pour in from various sources—monitoring tools, application logs, health checks, and infrastructure components. Without a clear categorization system, teams can easily become overwhelmed, missing critical issues while chasing noise. This guide introduces a structured approach to categorizing system alerts by severity levels using Python, helping engineers build a consistent, actionable alerting framework that scales with their environment.</p>
+<hr />
+<h3 id="why-severity-categorization-matters_1">⚙️ Why Severity Categorization Matters</h3>
+<ul>
+<li><strong>Prioritization</strong> – Not all alerts require immediate action. Severity levels help teams focus on what truly matters.</li>
+<li><strong>Response Automation</strong> – Critical alerts can trigger automated remediation, while low-severity alerts may be batched for review.</li>
+<li><strong>Noise Reduction</strong> – Proper categorization filters out false positives and informational messages, reducing alert fatigue.</li>
+<li><strong>Accountability</strong> – Clear severity definitions ensure the right teams are notified at the right time.</li>
+<li><strong>Historical Analysis</strong> – Categorized alerts enable trend analysis and capacity planning over time.</li>
+</ul>
+<hr />
+<h3 id="common-severity-levels-in-production-systems_1">📊 Common Severity Levels in Production Systems</h3>
+<table>
+<thead>
+<tr>
+<th>Severity Level</th>
+<th>Description</th>
+<th>Typical Response Time</th>
+<th>Example Alert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Critical</strong></td>
+<td>System down or data loss imminent</td>
+<td>Immediate (within minutes)</td>
+<td>Database server unreachable</td>
+</tr>
+<tr>
+<td><strong>High</strong></td>
+<td>Major functionality degraded</td>
+<td>Within 1 hour</td>
+<td>API response time exceeds 5 seconds</td>
+</tr>
+<tr>
+<td><strong>Medium</strong></td>
+<td>Partial impact or potential risk</td>
+<td>Within 4 hours</td>
+<td>Disk usage at 85%</td>
+</tr>
+<tr>
+<td><strong>Low</strong></td>
+<td>Minor issue or informational</td>
+<td>Within 24 hours</td>
+<td>Certificate expiring in 30 days</td>
+</tr>
+<tr>
+<td><strong>Info</strong></td>
+<td>No action required</td>
+<td>Logged only</td>
+<td>Deployment completed successfully</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="structuring-alert-data-in-python_1">🛠️ Structuring Alert Data in Python</h3>
+<p>A well-structured alert object should contain at minimum:</p>
+<ul>
+<li><strong>alert_id</strong> – Unique identifier for tracking</li>
+<li><strong>timestamp</strong> – When the alert was generated</li>
+<li><strong>source</strong> – Which system or component triggered the alert</li>
+<li><strong>severity</strong> – The assigned severity level</li>
+<li><strong>message</strong> – Human-readable description</li>
+<li><strong>metadata</strong> – Additional context (hostname, region, error code)</li>
+</ul>
+<p>Engineers can represent alerts using Python dictionaries or dataclasses. A simple dictionary structure might look like:</p>
+<p><strong>alert = { "alert_id": "ALERT-2024-001", "timestamp": "2024-11-20T14:30:00Z", "source": "web-server-01", "severity": "high", "message": "HTTP 500 errors exceeding threshold", "metadata": {"region": "us-east-1", "error_rate": "12%"} }</strong></p>
+<p>For more robust applications, Python's <strong>dataclasses</strong> module provides type safety and readability. A dataclass-based alert definition includes fields for each attribute, with severity validation built into the initialization process.</p>
+<hr />
+<h3 id="building-a-severity-classifier_1">🕵️ Building a Severity Classifier</h3>
+<p>A severity classifier maps raw alert data to a standardized severity level. The classification logic can be rule-based or dynamic:</p>
+<p><strong>Rule-based approach</strong> – Engineers define explicit conditions for each severity level. For example, any alert containing "down" or "unreachable" in the message is automatically classified as <strong>critical</strong>. Alerts with "warning" or "threshold" are classified as <strong>medium</strong>.</p>
+<p><strong>Dynamic approach</strong> – The classifier evaluates multiple factors such as error count, affected users, or time since last successful check. A scoring system assigns points for each factor, and the total score determines the severity level.</p>
+<p>A simple Python function for rule-based classification might check the alert message against a list of keywords, then return the appropriate severity string. The function can also accept an override parameter for cases where manual classification is needed.</p>
+<hr />
+<h3 id="implementing-an-alert-categorization-pipeline_1">📈 Implementing an Alert Categorization Pipeline</h3>
+<p>A production-ready categorization pipeline typically follows these steps:</p>
+<ol>
+<li><strong>Ingest</strong> – Collect alerts from various sources (APIs, log files, message queues)</li>
+<li><strong>Parse</strong> – Extract relevant fields and normalize the data format</li>
+<li><strong>Classify</strong> – Apply severity classification logic</li>
+<li><strong>Enrich</strong> – Add additional context (team ownership, runbook links)</li>
+<li><strong>Route</strong> – Send to the appropriate notification channel (email, Slack, PagerDuty)</li>
+<li><strong>Store</strong> – Log the categorized alert for historical analysis</li>
+</ol>
+<p>Engineers can implement each step as a separate Python function, making the pipeline modular and testable. The main pipeline function orchestrates these steps in sequence, handling errors gracefully at each stage.</p>
+<hr />
+<h3 id="testing-and-validation-strategies_1">🧪 Testing and Validation Strategies</h3>
+<ul>
+<li><strong>Unit tests</strong> – Test individual classification functions with known inputs and expected outputs</li>
+<li><strong>Edge cases</strong> – Test with empty messages, missing fields, and unexpected severity values</li>
+<li><strong>Regression tests</strong> – Compare classification results against historical data to ensure consistency</li>
+<li><strong>Load testing</strong> – Simulate high-volume alert streams to verify pipeline performance</li>
+<li><strong>Validation rules</strong> – Ensure every alert has a valid severity level before routing</li>
+</ul>
+<p>A simple test function might create sample alerts for each severity level, pass them through the classifier, and assert that the output matches the expected severity. Engineers can use Python's built-in <strong>assert</strong> statement or a testing framework like <strong>pytest</strong> for more comprehensive coverage.</p>
+<hr />
+<h3 id="continuous-improvement_1">🔄 Continuous Improvement</h3>
+<ul>
+<li><strong>Feedback loop</strong> – Collect feedback from on-call engineers about misclassified alerts</li>
+<li><strong>Threshold tuning</strong> – Adjust classification rules based on real-world patterns</li>
+<li><strong>Alert deduplication</strong> – Group related alerts to reduce noise</li>
+<li><strong>Severity drift monitoring</strong> – Track if alerts are consistently escalated or downgraded over time</li>
+<li><strong>Documentation</strong> – Maintain a living document of severity definitions and classification rules</li>
+</ul>
+<p>Engineers can implement a simple feedback mechanism by logging each alert's classification along with any manual overrides. A periodic review of this data helps identify patterns where the classifier needs adjustment.</p>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li>Severity categorization transforms chaotic alert streams into actionable information</li>
+<li>Python's data structures and functions provide a clean foundation for building alert classifiers</li>
+<li>A modular pipeline approach makes the system testable and maintainable</li>
+<li>Continuous feedback and tuning ensure the categorization remains relevant as systems evolve</li>
+<li>Consistent severity definitions improve team response times and reduce operational burden</li>
+</ul>
+<p>By implementing a structured severity categorization system, engineers can move from reactive firefighting to proactive system management, ensuring that the right alerts reach the right people at the right time.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide shows how to group system alerts by severity levels using Python, helping engineers quickly identify which issues need immediate attention.</p>
+<hr />
+<h3 id="example-1-defining-severity-levels-as-a-dictionary_1">🔧 Example 1: Defining severity levels as a dictionary</h3>
+<p>This example maps severity names to numeric codes so alerts can be compared and sorted.</p>
+<div class="highlight"><pre><span></span><code><span class="n">severity_levels</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;DEBUG&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">&quot;INFO&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">&quot;WARNING&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s2">&quot;ERROR&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+    <span class="s2">&quot;CRITICAL&quot;</span><span class="p">:</span> <span class="mi">50</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">severity_levels</span><span class="p">[</span><span class="s2">&quot;ERROR&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>40</strong></p>
+<hr />
+<h3 id="example-2-checking-if-an-alert-meets-a-minimum-severity-threshold_1">🔧 Example 2: Checking if an alert meets a minimum severity threshold</h3>
+<p>This example shows how to filter alerts that are serious enough to escalate.</p>
+<div class="highlight"><pre><span></span><code><span class="n">alert_severity</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">minimum_severity</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="k">if</span> <span class="n">alert_severity</span> <span class="o">&gt;=</span> <span class="n">minimum_severity</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Escalate alert&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Log alert only&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Escalate alert</strong></p>
+<hr />
+<h3 id="example-3-categorizing-a-list-of-alerts-by-severity-name_1">🔧 Example 3: Categorizing a list of alerts by severity name</h3>
+<p>This example groups multiple alerts into categories based on their severity level.</p>
+<div class="highlight"><pre><span></span><code><span class="n">alerts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Disk space low&quot;</span><span class="p">,</span> <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Service down&quot;</span><span class="p">,</span> <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Config change detected&quot;</span><span class="p">,</span> <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">alert</span> <span class="ow">in</span> <span class="n">alerts</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">alert</span><span class="p">[</span><span class="s2">&quot;severity&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">40</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">alert</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; -&gt; CRITICAL&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">alert</span><span class="p">[</span><span class="s2">&quot;severity&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">alert</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; -&gt; WARNING&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">alert</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; -&gt; INFO&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Disk space low -&gt; WARNING</strong><br />
+<strong>Service down -&gt; CRITICAL</strong><br />
+<strong>Config change detected -&gt; INFO</strong></p>
+<hr />
+<h3 id="example-4-counting-alerts-per-severity-level_1">🔧 Example 4: Counting alerts per severity level</h3>
+<p>This example shows how to tally how many alerts fall into each severity category.</p>
+<div class="highlight"><pre><span></span><code><span class="n">alerts</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;INFO&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;WARNING&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;CRITICAL&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">severity</span> <span class="ow">in</span> <span class="n">alerts</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">severity</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">severity</span> <span class="o">==</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;INFO&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;INFO&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">severity</span> <span class="o">==</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;WARNING&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;WARNING&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">severity</span> <span class="o">==</span> <span class="mi">40</span><span class="p">:</span>
+        <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;ERROR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;ERROR&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">severity</span> <span class="o">==</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;CRITICAL&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">counts</span><span class="p">[</span><span class="s2">&quot;CRITICAL&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'DEBUG': 1, 'INFO': 1, 'WARNING': 2, 'ERROR': 2, 'CRITICAL': 3}</strong></p>
+<hr />
+<h3 id="example-5-sorting-alerts-by-severity-and-printing-a-summary_1">🔧 Example 5: Sorting alerts by severity and printing a summary</h3>
+<p>This example sorts alerts from most to least critical and prints a formatted report.</p>
+<div class="highlight"><pre><span></span><code><span class="n">alerts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;CPU overload&quot;</span><span class="p">,</span> <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Memory leak&quot;</span><span class="p">,</span> <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Disk warning&quot;</span><span class="p">,</span> <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Service restarted&quot;</span><span class="p">,</span> <span class="s2">&quot;severity&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">alerts_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">alerts</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span><span class="p">[</span><span class="s2">&quot;severity&quot;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Alert Summary (most critical first):&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">alert</span> <span class="ow">in</span> <span class="n">alerts_sorted</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">alert</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; - Severity: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">alert</span><span class="p">[</span><span class="s2">&quot;severity&quot;</span><span class="p">]))</span>
+</code></pre></div>
+<p>📤 Output: <strong>Alert Summary (most critical first):</strong><br />
+<strong>CPU overload - Severity: 50</strong><br />
+<strong>Memory leak - Severity: 40</strong><br />
+<strong>Disk warning - Severity: 30</strong><br />
+<strong>Service restarted - Severity: 20</strong></p>
+<hr />
+<h3 id="comparison-table-severity-level-approaches_1">Comparison Table: Severity Level Approaches</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_02_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Moving Files and Directories via shutil.move - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Moving Files and Directories via shutil.move";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_02_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_02_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -660,6 +660,40 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-7-moving-a-file-and-checking-the-result">📦 Example 7: Moving a file and checking the result</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-shutilmove-vs-osrename">Comparison: shutil.move vs os.rename</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">📋 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-shutilmove_1">⚙️ What is shutil.move?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#basic-usage-and-parameters_1">🛠️ Basic Usage and Parameters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#moving-files-vs-moving-directories_1">📊 Moving Files vs. Moving Directories</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-use-cases-for-shutilmove_1">🕵️ Common Use Cases for shutil.move</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-examples_1">📝 Practical Examples</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#important-considerations_1">⚠️ Important Considerations</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">🎯 Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-moving-a-single-file-to-a-different-directory_1">📦 Example 1: Moving a single file to a different directory</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-renaming-a-file-by-moving-it-within-the-same-directory_1">📦 Example 2: Renaming a file by moving it within the same directory</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-moving-an-entire-directory-into-another-directory_1">📦 Example 3: Moving an entire directory into another directory</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-overwriting-an-existing-file-at-the-destination_1">📦 Example 4: Overwriting an existing file at the destination</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-moving-a-file-to-a-directory-that-does-not-exist-yet_1">📦 Example 5: Moving a file to a directory that does not exist yet</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-6-moving-multiple-files-using-a-loop_1">📦 Example 6: Moving multiple files using a loop</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-7-moving-a-file-and-checking-the-result_1">📦 Example 7: Moving a file and checking the result</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-shutilmove-vs-osrename_1">Comparison: shutil.move vs os.rename</a>
     </li>
     </ul>
                 </li>
@@ -1080,7 +1114,7 @@
               
                 <h1 id="moving-files-and-directories-via-shutilmove">Moving Files and Directories via shutil.move</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  The shutil Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">📋 Context Introduction</h3>
@@ -1162,8 +1196,7 @@
 <hr />
 <h3 id="summary">🎯 Summary</h3>
 <p><strong>shutil.move</strong> is an essential tool for file management in Python. It simplifies the process of relocating files and directories, handles both simple and complex move operations, and integrates smoothly with other file system operations. Whether you are organizing data, archiving old content, or restructuring project directories, this function provides a clean and efficient way to move items around your file system.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>shutil.move</code> function moves a file or directory from one location to another, handling both renaming and relocation in a single operation.</p>
 <h3 id="example-1-moving-a-single-file-to-a-different-directory">📦 Example 1: Moving a single file to a different directory</h3>
 <p>This example moves a file from the current folder into a subfolder.</p>
@@ -1264,6 +1297,229 @@
 <p>📤 Output: <strong>Source exists: False, Destination exists: True</strong></p>
 <hr />
 <h2 id="comparison-shutilmove-vs-osrename">Comparison: shutil.move vs os.rename</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>shutil.move</code></th>
+<th><code>os.rename</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Works across different filesystems</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Moves directories</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Overwrites existing files</td>
+<td>✅ Yes</td>
+<td>❌ Raises error on Windows</td>
+</tr>
+<tr>
+<td>Returns destination path</td>
+<td>✅ Yes</td>
+<td>❌ Returns None</td>
+</tr>
+<tr>
+<td>Best for engineers who need</td>
+<td>Cross-device moves</td>
+<td>Simple same-disk renames</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">📋 Context Introduction</h3>
+<p>When working with files and directories in Python, you will often need to move items from one location to another. The <strong>shutil.move</strong> function provides a simple and reliable way to relocate files and entire folders within your file system. Unlike copying, which duplicates data, moving transfers the original item to a new destination, making it ideal for organizing files, archiving data, or restructuring project directories.</p>
+<hr />
+<h3 id="what-is-shutilmove_1">⚙️ What is shutil.move?</h3>
+<p><strong>shutil.move</strong> is a function from Python's built-in <strong>shutil</strong> (shell utility) module that moves a file or directory from a source path to a destination path. It handles both files and folders seamlessly, and it automatically creates parent directories if they do not exist.</p>
+<p>Key characteristics:
+- Moves a single file to a new location
+- Moves an entire directory and all its contents
+- Works across different file systems and drives
+- Returns the path to the newly moved item</p>
+<hr />
+<h3 id="basic-usage-and-parameters_1">🛠️ Basic Usage and Parameters</h3>
+<p>The <strong>shutil.move</strong> function accepts two main arguments:</p>
+<ul>
+<li><strong>source</strong>: The current path of the file or directory you want to move</li>
+<li><strong>destination</strong>: The target path where you want the item to be placed</li>
+</ul>
+<p>The function returns a string representing the actual destination path where the item was moved.</p>
+<hr />
+<h3 id="moving-files-vs-moving-directories_1">📊 Moving Files vs. Moving Directories</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Moving a File</th>
+<th>Moving a Directory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What moves</td>
+<td>A single file</td>
+<td>A folder and all its contents</td>
+</tr>
+<tr>
+<td>Destination behavior</td>
+<td>File is placed at new path</td>
+<td>Entire folder is relocated</td>
+</tr>
+<tr>
+<td>Overwrite behavior</td>
+<td>Overwrites if file exists</td>
+<td>Merges contents if directory exists</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Organizing individual files</td>
+<td>Restructuring project folders</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-use-cases-for-shutilmove_1">🕵️ Common Use Cases for shutil.move</h3>
+<ul>
+<li><strong>Organizing downloaded files</strong> into categorized folders</li>
+<li><strong>Archiving old logs</strong> into a backup directory</li>
+<li><strong>Restructuring project directories</strong> during development</li>
+<li><strong>Moving temporary files</strong> to a permanent storage location</li>
+<li><strong>Relocating configuration files</strong> between environments</li>
+</ul>
+<hr />
+<h3 id="practical-examples_1">📝 Practical Examples</h3>
+<p><strong>Example 1: Moving a Single File</strong></p>
+<p>To move a file named <strong>report.pdf</strong> from the <strong>Downloads</strong> folder to a <strong>Documents</strong> folder, you would call <strong>shutil.move</strong> with the source path set to <strong>/home/user/Downloads/report.pdf</strong> and the destination path set to <strong>/home/user/Documents/report.pdf</strong>. After execution, the file will no longer exist in the Downloads folder and will be available only in the Documents folder.</p>
+<p><strong>Example 2: Moving a Directory</strong></p>
+<p>To move an entire folder called <strong>project_alpha</strong> from your working directory into an <strong>archived_projects</strong> folder, set the source to <strong>./project_alpha</strong> and the destination to <strong>./archived_projects/project_alpha</strong>. The entire folder, including all subfolders and files inside it, will be relocated to the new location.</p>
+<p><strong>Example 3: Renaming While Moving</strong></p>
+<p>You can rename a file during the move operation by specifying a different filename in the destination path. For instance, moving <strong>data.csv</strong> to <strong>/backup/old_data.csv</strong> will both relocate the file and change its name to <strong>old_data.csv</strong> in the backup directory.</p>
+<hr />
+<h3 id="important-considerations_1">⚠️ Important Considerations</h3>
+<ul>
+<li><strong>Overwrite behavior</strong>: If a file with the same name already exists at the destination, <strong>shutil.move</strong> will overwrite it without warning. Always check for existing files if you want to avoid accidental data loss.</li>
+<li><strong>Cross-device moves</strong>: When moving between different drives or file systems, <strong>shutil.move</strong> first copies the data and then deletes the original. This may take longer for large files.</li>
+<li><strong>Permissions</strong>: The function requires write permissions for both the source and destination locations. Insufficient permissions will raise an error.</li>
+<li><strong>Symbolic links</strong>: When moving symbolic links, the link itself is moved, not the target file it points to.</li>
+</ul>
+<hr />
+<h3 id="summary_1">🎯 Summary</h3>
+<p><strong>shutil.move</strong> is an essential tool for file management in Python. It simplifies the process of relocating files and directories, handles both simple and complex move operations, and integrates smoothly with other file system operations. Whether you are organizing data, archiving old content, or restructuring project directories, this function provides a clean and efficient way to move items around your file system.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>shutil.move</code> function moves a file or directory from one location to another, handling both renaming and relocation in a single operation.</p>
+<h3 id="example-1-moving-a-single-file-to-a-different-directory_1">📦 Example 1: Moving a single file to a different directory</h3>
+<p>This example moves a file from the current folder into a subfolder.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;backup&#39;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;report.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Quarterly report data&#39;</span><span class="p">)</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s1">&#39;report.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;backup/report.txt&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>'backup/report.txt'</strong></p>
+<hr />
+<h3 id="example-2-renaming-a-file-by-moving-it-within-the-same-directory_1">📦 Example 2: Renaming a file by moving it within the same directory</h3>
+<p>This example renames a file by moving it to a new name in the same folder.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;old_name.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;id,value</span><span class="se">\n</span><span class="s1">1,100&#39;</span><span class="p">)</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s1">&#39;old_name.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;new_name.csv&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>'new_name.csv'</strong></p>
+<hr />
+<h3 id="example-3-moving-an-entire-directory-into-another-directory_1">📦 Example 3: Moving an entire directory into another directory</h3>
+<p>This example moves a whole folder (with its contents) into a parent folder.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;project/src&#39;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;project/src/main.py&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;print(&quot;hello&quot;)&#39;</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;archive&#39;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s1">&#39;project&#39;</span><span class="p">,</span> <span class="s1">&#39;archive/project&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>'archive/project'</strong></p>
+<hr />
+<h3 id="example-4-overwriting-an-existing-file-at-the-destination_1">📦 Example 4: Overwriting an existing file at the destination</h3>
+<p>This example shows that <code>shutil.move</code> will silently overwrite a file if the destination already exists.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;draft.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;version 2&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;final.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;version 1&#39;</span><span class="p">)</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s1">&#39;draft.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;final.txt&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;final.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>version 2</strong></p>
+<hr />
+<h3 id="example-5-moving-a-file-to-a-directory-that-does-not-exist-yet_1">📦 Example 5: Moving a file to a directory that does not exist yet</h3>
+<p>This example demonstrates that <code>shutil.move</code> will raise an error if the destination directory does not exist.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;temp.log&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;log entry&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s1">&#39;temp.log&#39;</span><span class="p">,</span> <span class="s1">&#39;nonexistent_folder/temp.log&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Error: [Errno 2] No such file or directory: 'nonexistent_folder/temp.log'</strong></p>
+<hr />
+<h3 id="example-6-moving-multiple-files-using-a-loop_1">📦 Example 6: Moving multiple files using a loop</h3>
+<p>This example moves several files matching a pattern into a single destination folder.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;processed&#39;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;data1.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;data2.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;data3.csv&#39;</span><span class="p">]:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;sample data&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;data*.csv&#39;</span><span class="p">):</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;processed/&#39;</span> <span class="o">+</span> <span class="n">file</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>None (files moved to processed/ folder)</strong></p>
+<hr />
+<h3 id="example-7-moving-a-file-and-checking-the-result_1">📦 Example 7: Moving a file and checking the result</h3>
+<p>This example moves a file and then verifies the source no longer exists while the destination does.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;check_me.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;move test&#39;</span><span class="p">)</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="s1">&#39;check_me.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;moved_check_me.txt&#39;</span><span class="p">)</span>
+<span class="n">source_exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;check_me.txt&#39;</span><span class="p">)</span>
+<span class="n">dest_exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;moved_check_me.txt&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Source exists: </span><span class="si">{</span><span class="n">source_exists</span><span class="si">}</span><span class="s2">, Destination exists: </span><span class="si">{</span><span class="n">dest_exists</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Source exists: False, Destination exists: True</strong></p>
+<hr />
+<h2 id="comparison-shutilmove-vs-osrename_1">Comparison: shutil.move vs os.rename</h2>
 <table>
 <thead>
 <tr>

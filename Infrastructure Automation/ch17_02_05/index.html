@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch17_02_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 17 | Asserting Success via raise_for_status() - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 17 | Asserting Success via raise_for_status()";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch17_02_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch17_02_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -797,6 +797,32 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-does-raise_for_status-do_1">🧠 What Does raise_for_status() Do?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-use-raise_for_status_1">⚙️ How to Use raise_for_status()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-not-just-check-the-status-code-manually_1">🛠️ Why Not Just Check the Status Code Manually?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-happens-when-an-error-occurs_1">🕵️ What Happens When an Error Occurs?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-status-codes-that-trigger-raise_for_status_1">📊 Common Status Codes That Trigger raise_for_status()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-engineers_1">✅ Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference_1">🧪 Quick Reference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-successful-request-with-raise_for_status_1">🟢 Example 1: Basic successful request with raise_for_status()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-detecting-a-404-error_1">🔴 Example 2: Detecting a 404 error</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-detecting-a-500-server-error_1">🛑 Example 3: Detecting a 500 server error</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-raise_for_status-before-accessing-data_1">✅ Example 4: Using raise_for_status() before accessing data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-checking-multiple-endpoints-in-a-loop_1">🔁 Example 5: Checking multiple endpoints in a loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch17_03_01/">Ch 17 | URL Query Parameters and the params Dictionary</a>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="asserting-success-via-raise_for_status">Asserting Success via raise_for_status()</h1>
 <p><span class="category-tag">🏷️ APIs and HTTP Requests /  The Requests Library</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with APIs, you send a request and get back a response. But how do you know if that response actually succeeded? A status code like <strong>200</strong> means everything went well, while <strong>404</strong> or <strong>500</strong> means something went wrong. The <strong>raise_for_status()</strong> method is a simple, built-in way to check for errors and stop your program immediately if a request fails.</p>
@@ -1166,8 +1192,7 @@
 <li><strong>try/except</strong> – Use this to catch the error and handle it without crashing your program.</li>
 </ul>
 <p>By using <strong>raise_for_status()</strong>, you write cleaner, safer code that fails fast and gives you clear feedback when something goes wrong with your API calls.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>raise_for_status()</code> method checks if an HTTP request returned an error status code and raises an exception if it did, so you can stop execution instead of working with bad data.</p>
 <hr />
 <h3 id="example-1-basic-successful-request-with-raise_for_status">🟢 Example 1: Basic successful request with raise_for_status()</h3>
@@ -1248,6 +1273,214 @@
 📤 Output: <strong>https://httpbin.org/status/500 - FAILED: 500 Server Error: INTERNAL SERVER ERROR for url: https://httpbin.org/status/500</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Without <code>raise_for_status()</code></th>
+<th>With <code>raise_for_status()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Successful request (200)</td>
+<td>Code continues normally</td>
+<td>Code continues normally</td>
+</tr>
+<tr>
+<td>Client error (404)</td>
+<td>Code continues with bad data</td>
+<td>Exception is raised, error is caught</td>
+</tr>
+<tr>
+<td>Server error (500)</td>
+<td>Code continues with bad data</td>
+<td>Exception is raised, error is caught</td>
+</tr>
+<tr>
+<td>Accessing response data</td>
+<td>May crash on invalid data</td>
+<td>Safe — only runs after success check</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with APIs, you send a request and get back a response. But how do you know if that response actually succeeded? A status code like <strong>200</strong> means everything went well, while <strong>404</strong> or <strong>500</strong> means something went wrong. The <strong>raise_for_status()</strong> method is a simple, built-in way to check for errors and stop your program immediately if a request fails.</p>
+<hr />
+<h3 id="what-does-raise_for_status-do_1">🧠 What Does raise_for_status() Do?</h3>
+<ul>
+<li>It checks the HTTP status code of a response object.</li>
+<li>If the status code indicates an error (like <strong>400</strong>, <strong>404</strong>, <strong>500</strong>, etc.), it automatically raises an exception.</li>
+<li>If the status code is successful (like <strong>200</strong>, <strong>201</strong>, <strong>204</strong>), it does nothing and your code continues running.</li>
+</ul>
+<p>This saves you from writing manual checks for every single request.</p>
+<hr />
+<h3 id="how-to-use-raise_for_status_1">⚙️ How to Use raise_for_status()</h3>
+<p>You call <strong>raise_for_status()</strong> on the response object after making a request. Here is the basic pattern:</p>
+<ul>
+<li>Make a request using <strong>requests.get()</strong> or <strong>requests.post()</strong>.</li>
+<li>Store the response in a variable.</li>
+<li>Call <strong>response.raise_for_status()</strong>.</li>
+<li>If the request failed, the program stops and shows an error message.</li>
+<li>If it succeeded, your code continues to the next step.</li>
+</ul>
+<p>Example flow:</p>
+<p><strong>Step 1:</strong> Import the requests library.<br />
+<strong>Step 2:</strong> Send a GET request to an API endpoint.<br />
+<strong>Step 3:</strong> Call <strong>response.raise_for_status()</strong> to check for errors.<br />
+<strong>Step 4:</strong> If no error, process the response data.</p>
+<hr />
+<h3 id="why-not-just-check-the-status-code-manually_1">🛠️ Why Not Just Check the Status Code Manually?</h3>
+<p>You could write an <strong>if</strong> statement to check <strong>response.status_code</strong>, but <strong>raise_for_status()</strong> is cleaner and more reliable. Here is a comparison:</p>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Code Example</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manual check</td>
+<td><strong>if response.status_code != 200: print("Error")</strong></td>
+<td>You must decide what to do for every possible error code. Easy to forget edge cases.</td>
+</tr>
+<tr>
+<td>raise_for_status()</td>
+<td><strong>response.raise_for_status()</strong></td>
+<td>Automatically raises an exception for any error status code. No manual logic needed.</td>
+</tr>
+</tbody>
+</table>
+<p>Using <strong>raise_for_status()</strong> means you handle all error codes (not just <strong>200</strong>) in one line.</p>
+<hr />
+<h3 id="what-happens-when-an-error-occurs_1">🕵️ What Happens When an Error Occurs?</h3>
+<p>When <strong>raise_for_status()</strong> detects a failed request, it raises an <strong>HTTPError</strong> exception. This stops your program and prints a clear message showing:</p>
+<ul>
+<li>The HTTP status code (e.g., <strong>404</strong>, <strong>500</strong>)</li>
+<li>A short description of the error</li>
+</ul>
+<p>You can catch this exception using a <strong>try/except</strong> block if you want to handle the error gracefully instead of crashing.</p>
+<p>Example pattern with error handling:</p>
+<p><strong>Step 1:</strong> Wrap your request inside a <strong>try</strong> block.<br />
+<strong>Step 2:</strong> Call <strong>response.raise_for_status()</strong> inside the <strong>try</strong>.<br />
+<strong>Step 3:</strong> In the <strong>except</strong> block, catch the <strong>requests.exceptions.HTTPError</strong>.<br />
+<strong>Step 4:</strong> Print a friendly error message or take alternative action.</p>
+<hr />
+<h3 id="common-status-codes-that-trigger-raise_for_status_1">📊 Common Status Codes That Trigger raise_for_status()</h3>
+<ul>
+<li><strong>400 Bad Request</strong> – The server could not understand your request.</li>
+<li><strong>401 Unauthorized</strong> – You need to provide authentication.</li>
+<li><strong>403 Forbidden</strong> – You do not have permission to access the resource.</li>
+<li><strong>404 Not Found</strong> – The requested URL does not exist.</li>
+<li><strong>500 Internal Server Error</strong> – Something went wrong on the server side.</li>
+<li><strong>502 Bad Gateway</strong> – The server received an invalid response from another server.</li>
+</ul>
+<p>Any status code in the <strong>400</strong> or <strong>500</strong> range will cause <strong>raise_for_status()</strong> to raise an error.</p>
+<hr />
+<h3 id="best-practices-for-engineers_1">✅ Best Practices for Engineers</h3>
+<ul>
+<li>Always call <strong>raise_for_status()</strong> after every request to catch failures early.</li>
+<li>Use a <strong>try/except</strong> block when you want to log errors or retry failed requests.</li>
+<li>Do not rely on checking <strong>response.ok</strong> (a boolean property) alone — <strong>raise_for_status()</strong> gives you more detailed error information.</li>
+<li>Combine <strong>raise_for_status()</strong> with timeout settings to handle slow or unresponsive APIs.</li>
+</ul>
+<hr />
+<h3 id="quick-reference_1">🧪 Quick Reference</h3>
+<ul>
+<li><strong>response.raise_for_status()</strong> – Checks if the request succeeded. Raises an error if not.</li>
+<li><strong>requests.exceptions.HTTPError</strong> – The exception type raised for failed requests.</li>
+<li><strong>try/except</strong> – Use this to catch the error and handle it without crashing your program.</li>
+</ul>
+<p>By using <strong>raise_for_status()</strong>, you write cleaner, safer code that fails fast and gives you clear feedback when something goes wrong with your API calls.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>raise_for_status()</code> method checks if an HTTP request returned an error status code and raises an exception if it did, so you can stop execution instead of working with bad data.</p>
+<hr />
+<h3 id="example-1-basic-successful-request-with-raise_for_status_1">🟢 Example 1: Basic successful request with raise_for_status()</h3>
+<p>This example shows what happens when a request succeeds — no error is raised.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/status/200&quot;</span><span class="p">)</span>
+
+<span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Request succeeded&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Request succeeded</strong></p>
+<hr />
+<h3 id="example-2-detecting-a-404-error_1">🔴 Example 2: Detecting a 404 error</h3>
+<p>This example shows <code>raise_for_status()</code> raising an exception when a page is not found.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/status/404&quot;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error caught: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Error caught: 404 Client Error: NOT FOUND for url: https://httpbin.org/status/404</strong></p>
+<hr />
+<h3 id="example-3-detecting-a-500-server-error_1">🛑 Example 3: Detecting a 500 server error</h3>
+<p>This example shows <code>raise_for_status()</code> catching a server-side error.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/status/500&quot;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Server error: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Server error: 500 Server Error: INTERNAL SERVER ERROR for url: https://httpbin.org/status/500</strong></p>
+<hr />
+<h3 id="example-4-using-raise_for_status-before-accessing-data_1">✅ Example 4: Using raise_for_status() before accessing data</h3>
+<p>This example shows how to guard your code so you only process data when the request succeeded.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/json&quot;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data received successfully&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;slideshow&quot;</span><span class="p">][</span><span class="s2">&quot;title&quot;</span><span class="p">])</span>
+<span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to get data: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Data received successfully</strong><br />
+📤 Output: <strong>Slide Show</strong></p>
+<hr />
+<h3 id="example-5-checking-multiple-endpoints-in-a-loop_1">🔁 Example 5: Checking multiple endpoints in a loop</h3>
+<p>This example shows how to use <code>raise_for_status()</code> when checking several URLs in a loop.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;https://httpbin.org/status/200&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://httpbin.org/status/404&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://httpbin.org/status/500&quot;</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2"> - OK&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2"> - FAILED: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>https://httpbin.org/status/200 - OK</strong><br />
+📤 Output: <strong>https://httpbin.org/status/404 - FAILED: 404 Client Error: NOT FOUND for url: https://httpbin.org/status/404</strong><br />
+📤 Output: <strong>https://httpbin.org/status/500 - FAILED: 500 Server Error: INTERNAL SERVER ERROR for url: https://httpbin.org/status/500</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

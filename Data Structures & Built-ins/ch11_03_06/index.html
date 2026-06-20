@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch11_03_06/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 11 | The re Module for Regex Pattern Matching - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 11 | The re Module for Regex Pattern Matching";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch11_03_06.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch11_03_06/";
       </script>
     
     <!--[if lt IE 9]>
@@ -540,6 +540,40 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-replacing-matched-patterns-with-new-text">🔧 Example 5: Replacing matched patterns with new text</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-re-functions">📊 Comparison Table: Common re Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-the-re-module_1">⚙️ What is the re Module?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-functions-in-the-re-module_1">🛠️ Key Functions in the re Module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-regex-patterns-for-engineers_1">📊 Common Regex Patterns for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-with-match-objects_1">🕵️ Working with Match Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples-for-engineers_1">💻 Practical Examples for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-raw-strings-for-patterns_1">🔧 Using Raw Strings for Patterns</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#compiling-patterns-for-performance_1">🎯 Compiling Patterns for Performance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-search-vs-match-vs-findall_1">📋 Comparison: search() vs match() vs findall()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-tips-for-engineers_1">⚡ Quick Tips for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🚀 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-checking-if-a-pattern-exists-in-a-string_1">🔧 Example 1: Checking if a pattern exists in a string</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-extracting-the-matched-text_1">🔧 Example 2: Extracting the matched text</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-finding-all-occurrences-of-a-pattern_1">🔧 Example 3: Finding all occurrences of a pattern</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-a-pattern-to-match-digits_1">🔧 Example 4: Using a pattern to match digits</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-replacing-matched-patterns-with-new-text_1">🔧 Example 5: Replacing matched patterns with new text</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-re-functions_1">📊 Comparison Table: Common re Functions</a>
     </li>
     </ul>
                 </li>
@@ -1082,7 +1116,7 @@
               
                 <h1 id="the-re-module-for-regex-pattern-matching">The re Module for Regex Pattern Matching</h1>
 <p><span class="category-tag">🏷️ Modules and Imports /  Built-in Modules for Engineers</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1269,8 +1303,7 @@
 <hr />
 <h3 id="summary">🚀 Summary</h3>
 <p>The <strong>re module</strong> is an indispensable tool for any engineer working with text data. With functions like <strong>search()</strong>, <strong>match()</strong>, <strong>findall()</strong>, <strong>sub()</strong>, and <strong>split()</strong>, you can efficiently parse logs, validate input, extract information, and transform text. Mastering regex patterns will save you countless hours when dealing with configuration files, system logs, and data processing tasks.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>re</code> module provides functions for searching, matching, and manipulating strings using regular expressions (patterns that describe text).</p>
 <hr />
 <h3 id="example-1-checking-if-a-pattern-exists-in-a-string">🔧 Example 1: Checking if a pattern exists in a string</h3>
@@ -1329,6 +1362,292 @@
 <p>📤 Output: <strong>Connection from [IP_REDACTED] failed. Retry from [IP_REDACTED]</strong></p>
 <hr />
 <h3 id="comparison-table-common-re-functions">📊 Comparison Table: Common re Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>What it does</th>
+<th>Returns when found</th>
+<th>Returns when not found</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>re.search()</code></td>
+<td>Finds first match anywhere in string</td>
+<td>Match object</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>re.match()</code></td>
+<td>Finds match only at start of string</td>
+<td>Match object</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>re.findall()</code></td>
+<td>Finds all non-overlapping matches</td>
+<td>List of strings</td>
+<td>Empty list <code>[]</code></td>
+</tr>
+<tr>
+<td><code>re.sub()</code></td>
+<td>Replaces all matches with new text</td>
+<td>Modified string</td>
+<td>Original string unchanged</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>Regular expressions (regex) are powerful patterns used to search, match, and manipulate text. The <strong>re module</strong> in Python provides all the tools you need to work with regex patterns. Whether you're validating log formats, extracting IP addresses from configuration files, or searching for specific error codes in system logs, the re module is an essential tool in your Python toolkit.</p>
+<hr />
+<h3 id="what-is-the-re-module_1">⚙️ What is the re Module?</h3>
+<p>The <strong>re module</strong> is Python's built-in library for working with regular expressions. It allows you to:</p>
+<ul>
+<li><strong>Search</strong> for patterns within strings</li>
+<li><strong>Match</strong> patterns at the beginning of strings</li>
+<li><strong>Replace</strong> text that matches patterns</li>
+<li><strong>Split</strong> strings based on patterns</li>
+<li><strong>Extract</strong> specific parts of text</li>
+</ul>
+<hr />
+<h3 id="key-functions-in-the-re-module_1">🛠️ Key Functions in the re Module</h3>
+<p>Here are the most commonly used functions from the re module:</p>
+<ul>
+<li>
+<p><strong>re.search(pattern, string)</strong> – Searches the entire string for the first occurrence of the pattern. Returns a match object if found, otherwise returns None.</p>
+</li>
+<li>
+<p><strong>re.match(pattern, string)</strong> – Checks if the pattern matches at the beginning of the string. Returns a match object or None.</p>
+</li>
+<li>
+<p><strong>re.findall(pattern, string)</strong> – Returns a list of all non-overlapping matches of the pattern in the string.</p>
+</li>
+<li>
+<p><strong>re.sub(pattern, replacement, string)</strong> – Replaces all occurrences of the pattern with the replacement string.</p>
+</li>
+<li>
+<p><strong>re.split(pattern, string)</strong> – Splits the string at every occurrence of the pattern and returns a list of substrings.</p>
+</li>
+<li>
+<p><strong>re.compile(pattern)</strong> – Compiles a regex pattern into a regex object for better performance when using the same pattern multiple times.</p>
+</li>
+</ul>
+<hr />
+<h3 id="common-regex-patterns-for-engineers_1">📊 Common Regex Patterns for Engineers</h3>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Meaning</th>
+<th>Example Match</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.</strong></td>
+<td>Matches any character except newline</td>
+<td><strong>a.c</strong> matches "abc", "a1c"</td>
+</tr>
+<tr>
+<td><strong>^</strong></td>
+<td>Matches the start of a string</td>
+<td><strong>^Hello</strong> matches "Hello world"</td>
+</tr>
+<tr>
+<td><strong>$</strong></td>
+<td>Matches the end of a string</td>
+<td><strong>world$</strong> matches "Hello world"</td>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>Matches 0 or more repetitions</td>
+<td><strong>ab*</strong> matches "a", "ab", "abb"</td>
+</tr>
+<tr>
+<td><strong>+</strong></td>
+<td>Matches 1 or more repetitions</td>
+<td><strong>ab+</strong> matches "ab", "abb"</td>
+</tr>
+<tr>
+<td><strong>?</strong></td>
+<td>Matches 0 or 1 repetition</td>
+<td><strong>ab?</strong> matches "a", "ab"</td>
+</tr>
+<tr>
+<td><strong>\d</strong></td>
+<td>Matches any digit (0-9)</td>
+<td><strong>\d{3}</strong> matches "123"</td>
+</tr>
+<tr>
+<td><strong>\w</strong></td>
+<td>Matches any word character (a-z, A-Z, 0-9, _)</td>
+<td><strong>\w+</strong> matches "hello_123"</td>
+</tr>
+<tr>
+<td><strong>\s</strong></td>
+<td>Matches any whitespace character</td>
+<td><strong>\s</strong> matches space, tab, newline</td>
+</tr>
+<tr>
+<td><strong>[abc]</strong></td>
+<td>Matches any character in the set</td>
+<td><strong>[aeiou]</strong> matches any vowel</td>
+</tr>
+<tr>
+<td><strong>[^abc]</strong></td>
+<td>Matches any character NOT in the set</td>
+<td><strong>[^0-9]</strong> matches any non-digit</td>
+</tr>
+<tr>
+<td>**</td>
+<td>**</td>
+<td>Acts as OR operator</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="working-with-match-objects_1">🕵️ Working with Match Objects</h3>
+<p>When you use <strong>re.search()</strong> or <strong>re.match()</strong>, they return a match object with useful methods:</p>
+<ul>
+<li><strong>group()</strong> – Returns the matched string</li>
+<li><strong>start()</strong> – Returns the starting position of the match</li>
+<li><strong>end()</strong> – Returns the ending position of the match</li>
+<li><strong>span()</strong> – Returns a tuple of (start, end) positions</li>
+</ul>
+<hr />
+<h3 id="practical-examples-for-engineers_1">💻 Practical Examples for Engineers</h3>
+<p><strong>Example 1: Searching for IP Addresses in Log Files</strong></p>
+<p>Use <strong>re.search()</strong> with the pattern <strong>\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}</strong> to find an IP address in a log line. If a match is found, use <strong>.group()</strong> to extract the matched IP address. If no match is found, print a "No IP found" message.</p>
+<p><strong>Example 2: Extracting All Error Codes</strong></p>
+<p>Use <strong>re.findall()</strong> with the pattern <strong>ERROR-\d{3}</strong> to find all error codes like "ERROR-404" or "ERROR-500" from a log string. The result will be a list of all matching error codes.</p>
+<p><strong>Example 3: Replacing Sensitive Data</strong></p>
+<p>Use <strong>re.sub()</strong> with the pattern <strong>\d{4}-\d{4}-\d{4}-\d{4}</strong> to replace credit card numbers in a string with the text <strong>[REDACTED]</strong>. This is useful for sanitizing logs before sharing them.</p>
+<p><strong>Example 4: Splitting Configuration Lines</strong></p>
+<p>Use <strong>re.split()</strong> with the pattern <strong>[,;]\s</strong>* to split a configuration line that uses commas or semicolons as delimiters. The result will be a list of individual configuration values.</p>
+<hr />
+<h3 id="using-raw-strings-for-patterns_1">🔧 Using Raw Strings for Patterns</h3>
+<p>When writing regex patterns, always use <strong>raw strings</strong> by prefixing the string with <strong>r</strong>. This prevents Python from interpreting backslashes as escape sequences:</p>
+<ul>
+<li>Use <strong>r"\d+"</strong> instead of <strong>"\d+"</strong></li>
+<li>Use <strong>r"\s+"</strong> instead of <strong>"\s+"</strong></li>
+</ul>
+<p>Raw strings make your patterns cleaner and easier to read.</p>
+<hr />
+<h3 id="compiling-patterns-for-performance_1">🎯 Compiling Patterns for Performance</h3>
+<p>If you're using the same regex pattern multiple times, compile it with <strong>re.compile()</strong>:</p>
+<ul>
+<li>Create a compiled pattern object: <strong>pattern = re.compile(r"\d{3}-\d{2}-\d{4}")</strong></li>
+<li>Use the compiled object's methods: <strong>pattern.search(text)</strong>, <strong>pattern.findall(text)</strong></li>
+<li>This improves performance, especially when searching through large files or running many searches</li>
+</ul>
+<hr />
+<h3 id="comparison-search-vs-match-vs-findall_1">📋 Comparison: search() vs match() vs findall()</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>What It Does</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>re.search()</strong></td>
+<td>Finds the pattern anywhere in the string</td>
+<td>When you need to find a pattern that could appear anywhere</td>
+</tr>
+<tr>
+<td><strong>re.match()</strong></td>
+<td>Checks only at the beginning of the string</td>
+<td>When you need to verify the string starts with a specific pattern</td>
+</tr>
+<tr>
+<td><strong>re.findall()</strong></td>
+<td>Returns all occurrences of the pattern</td>
+<td>When you need to extract every matching piece of text</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="quick-tips-for-engineers_1">⚡ Quick Tips for Engineers</h3>
+<ul>
+<li>Always use <strong>raw strings</strong> (r"...") for regex patterns to avoid escape sequence issues</li>
+<li>Test your regex patterns on small samples before applying them to large files</li>
+<li>Use <strong>re.IGNORECASE</strong> flag for case-insensitive matching: <strong>re.search(pattern, text, re.IGNORECASE)</strong></li>
+<li>Use <strong>re.MULTILINE</strong> flag to make <strong>^</strong> and <strong>$</strong> match at the start/end of each line, not just the string</li>
+<li>Use <strong>re.DOTALL</strong> flag to make the <strong>.</strong> character match newlines as well</li>
+<li>When in doubt, use <strong>re.search()</strong> instead of <strong>re.match()</strong> for more flexible pattern finding</li>
+</ul>
+<hr />
+<h3 id="summary_1">🚀 Summary</h3>
+<p>The <strong>re module</strong> is an indispensable tool for any engineer working with text data. With functions like <strong>search()</strong>, <strong>match()</strong>, <strong>findall()</strong>, <strong>sub()</strong>, and <strong>split()</strong>, you can efficiently parse logs, validate input, extract information, and transform text. Mastering regex patterns will save you countless hours when dealing with configuration files, system logs, and data processing tasks.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>re</code> module provides functions for searching, matching, and manipulating strings using regular expressions (patterns that describe text).</p>
+<hr />
+<h3 id="example-1-checking-if-a-pattern-exists-in-a-string_1">🔧 Example 1: Checking if a pattern exists in a string</h3>
+<p>This example shows how to search for a simple word pattern inside a larger string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The server error code is 404&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;error&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><re.Match object; span=(11, 16), match='error'></strong></p>
+<hr />
+<h3 id="example-2-extracting-the-matched-text_1">🔧 Example 2: Extracting the matched text</h3>
+<p>This example shows how to get the actual text that matched the pattern.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Connection timeout after 30 seconds&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;timeout&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>timeout</strong></p>
+<hr />
+<h3 id="example-3-finding-all-occurrences-of-a-pattern_1">🔧 Example 3: Finding all occurrences of a pattern</h3>
+<p>This example shows how to find every instance of a pattern in a string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="s2">&quot;Error at line 10, Error at line 42, Error at line 87&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;Error&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Error', 'Error', 'Error']</strong></p>
+<hr />
+<h3 id="example-4-using-a-pattern-to-match-digits_1">🔧 Example 4: Using a pattern to match digits</h3>
+<p>This example shows how to use <code>\d</code> to find all numeric values in a string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="s2">&quot;Port: 8080, Timeout: 5000, Retries: 3&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;\d+&quot;</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['8080', '5000', '3']</strong></p>
+<hr />
+<h3 id="example-5-replacing-matched-patterns-with-new-text_1">🔧 Example 5: Replacing matched patterns with new text</h3>
+<p>This example shows how to replace all IP addresses in a log with a placeholder.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_entry</span> <span class="o">=</span> <span class="s2">&quot;Connection from 192.168.1.10 failed. Retry from 10.0.0.5&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;\d+\.\d+\.\d+\.\d+&quot;</span>
+<span class="n">cleaned_log</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="s2">&quot;[IP_REDACTED]&quot;</span><span class="p">,</span> <span class="n">log_entry</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cleaned_log</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Connection from [IP_REDACTED] failed. Retry from [IP_REDACTED]</strong></p>
+<hr />
+<h3 id="comparison-table-common-re-functions_1">📊 Comparison Table: Common re Functions</h3>
 <table>
 <thead>
 <tr>

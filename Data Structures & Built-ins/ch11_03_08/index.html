@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch11_03_08/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 11 | The logging Module for Structured Logs - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 11 | The logging Module for Structured Logs";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch11_03_08.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch11_03_08/";
       </script>
     
     <!--[if lt IE 9]>
@@ -538,6 +538,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-structured-log-with-extra-context-data">🛠 Example 5: Structured log with extra context data</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-structured-logging_1">⚙️ What is Structured Logging?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-setup-for-a-simple-script_1">🛠️ Basic Setup for a Simple Script</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-print-vs-logging_1">📊 Comparison: print() vs logging</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#logging-to-a-file_1">🕵️ Logging to a File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#structured-logging-with-json-format_1">🧩 Structured Logging with JSON Format</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-for-beginners_1">🧪 Common Pitfalls for Beginners</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together_1">📝 Putting It All Together</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">🧠 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-log-message-to-console_1">🛠 Example 1: Basic log message to console</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-different-severity-levels_1">🛠 Example 2: Different severity levels</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-configure-logging-level-and-format_1">🛠 Example 3: Configure logging level and format</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-log-to-a-file-instead-of-console_1">🛠 Example 4: Log to a file instead of console</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-structured-log-with-extra-context-data_1">🛠 Example 5: Structured log with extra context data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="the-logging-module-for-structured-logs">The logging Module for Structured Logs</h1>
 <p><span class="category-tag">🏷️ Modules and Imports /  Built-in Modules for Engineers</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When you start building scripts that run for hours or handle critical tasks, simple <strong>print()</strong> statements quickly become a problem. You lose track of what happened, when it happened, and whether something went wrong. The <strong>logging module</strong> solves this by giving you a way to record events with timestamps, severity levels, and consistent formatting — all without cluttering your terminal output.</p>
@@ -1194,8 +1222,7 @@
 <li>Always set a level — otherwise DEBUG and INFO messages disappear</li>
 </ul>
 <p>Start with a simple console logger, then add file output as your script grows. Once you're comfortable, experiment with JSON formatting to prepare for production environments.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>logging</code> module provides a standardized way to record runtime events from your Python code, outputting them as structured messages with timestamps, severity levels, and context.</p>
 <h3 id="example-1-basic-log-message-to-console">🛠 Example 1: Basic log message to console</h3>
 <p>This shows the simplest way to send a single log message to the terminal.</p>
@@ -1261,6 +1288,230 @@
 📤 Output: <strong>2025-03-20 14:30:15,127 | ERROR | Pressure out of range | extra={'sensor_id': 'PT-101', 'value': 8.12, 'threshold': 5.0}</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>print()</code></th>
+<th><code>logging</code> module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Severity levels</td>
+<td>None</td>
+<td>DEBUG, INFO, WARNING, ERROR, CRITICAL</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>Manual</td>
+<td>Automatic via format string</td>
+</tr>
+<tr>
+<td>Output destination</td>
+<td>Console only</td>
+<td>Console, file, network, etc.</td>
+</tr>
+<tr>
+<td>Structured data</td>
+<td>Manual string formatting</td>
+<td>Extra dict parameter</td>
+</tr>
+<tr>
+<td>Production ready</td>
+<td>No</td>
+<td>Yes — designed for engineers</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you start building scripts that run for hours or handle critical tasks, simple <strong>print()</strong> statements quickly become a problem. You lose track of what happened, when it happened, and whether something went wrong. The <strong>logging module</strong> solves this by giving you a way to record events with timestamps, severity levels, and consistent formatting — all without cluttering your terminal output.</p>
+<hr />
+<h3 id="what-is-structured-logging_1">⚙️ What is Structured Logging?</h3>
+<p>Structured logging means your log entries follow a consistent pattern. Instead of seeing random text like <em>"user logged in"</em>, you get a clean record such as <em>"2025-04-01 14:30:00 — INFO — User 'admin' logged in from IP 192.168.1.10"</em>. This makes it easy to search, filter, and analyze logs later.</p>
+<p>The <strong>logging module</strong> is built into Python, so you don't need to install anything extra. It gives you:
+- <strong>Five standard severity levels</strong>: DEBUG, INFO, WARNING, ERROR, CRITICAL
+- <strong>Timestamps</strong> automatically added to each entry
+- <strong>Flexible output</strong> — send logs to console, files, or both
+- <strong>Custom formatting</strong> to match your team's standards</p>
+<hr />
+<h3 id="basic-setup-for-a-simple-script_1">🛠️ Basic Setup for a Simple Script</h3>
+<p>To start using logging, you configure a <strong>logger</strong> and set a <strong>minimum level</strong>. Any message below that level is ignored.</p>
+<ul>
+<li>Import the module: <strong>import logging</strong></li>
+<li>Create a logger: <strong>logger = logging.getLogger(<strong>name</strong>)</strong></li>
+<li>Set the minimum level: <strong>logger.setLevel(logging.INFO)</strong></li>
+<li>Add a handler to send output somewhere: <strong>handler = logging.StreamHandler()</strong></li>
+<li>Attach the handler: <strong>logger.addHandler(handler)</strong></li>
+</ul>
+<p>Once configured, you log messages using:
+- <strong>logger.debug("Detailed info for troubleshooting")</strong>
+- <strong>logger.info("Normal operation message")</strong>
+- <strong>logger.warning("Something unexpected but not critical")</strong>
+- <strong>logger.error("A failure occurred")</strong>
+- <strong>logger.critical("System cannot continue")</strong></p>
+<hr />
+<h3 id="comparison-print-vs-logging_1">📊 Comparison: print() vs logging</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>print()</th>
+<th>logging</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Timestamps</td>
+<td>Manual</td>
+<td>Automatic</td>
+</tr>
+<tr>
+<td>Severity levels</td>
+<td>None</td>
+<td>Five built-in levels</td>
+</tr>
+<tr>
+<td>Output control</td>
+<td>Terminal only</td>
+<td>Console, files, network</td>
+</tr>
+<tr>
+<td>Filtering</td>
+<td>Not possible</td>
+<td>Filter by level or content</td>
+</tr>
+<tr>
+<td>Production ready</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="logging-to-a-file_1">🕵️ Logging to a File</h3>
+<p>For scripts that run unattended, writing logs to a file is essential. You replace the <strong>StreamHandler</strong> with a <strong>FileHandler</strong>.</p>
+<ul>
+<li>Create a file handler: <strong>handler = logging.FileHandler("app.log")</strong></li>
+<li>Set its level: <strong>handler.setLevel(logging.INFO)</strong></li>
+<li>Define a format: <strong>formatter = logging.Formatter('%(asctime)s — %(levelname)s — %(message)s')</strong></li>
+<li>Apply the format: <strong>handler.setFormatter(formatter)</strong></li>
+<li>Add to logger: <strong>logger.addHandler(handler)</strong></li>
+</ul>
+<p>Now every log entry gets written to <strong>app.log</strong> with a timestamp and level name.</p>
+<hr />
+<h3 id="structured-logging-with-json-format_1">🧩 Structured Logging with JSON Format</h3>
+<p>Modern systems often expect logs in <strong>JSON format</strong> because it's easy for log aggregators (like Elasticsearch or Splunk) to parse. You can create a custom formatter that outputs JSON.</p>
+<p>A simple approach is to define a formatter class that extends <strong>logging.Formatter</strong> and overrides the <strong>format()</strong> method to return a JSON string containing:
+- <strong>timestamp</strong>: the current time
+- <strong>level</strong>: the severity level name
+- <strong>message</strong>: the log message
+- <strong>module</strong>: the script or module name
+- <strong>function</strong>: the function where the log was called</p>
+<p>This gives you structured, machine-readable logs without extra dependencies.</p>
+<hr />
+<h3 id="common-pitfalls-for-beginners_1">🧪 Common Pitfalls for Beginners</h3>
+<ul>
+<li><strong>Forgetting to set the level</strong>: If you don't call <strong>setLevel()</strong>, the default is WARNING, so DEBUG and INFO messages will be silently ignored.</li>
+<li><strong>Creating multiple handlers</strong>: Each handler duplicates output. If you see duplicate log lines, check if you're adding the same handler twice.</li>
+<li><strong>Using print() inside functions</strong>: Once you switch to logging, avoid mixing <strong>print()</strong> and <strong>logger</strong> calls — it creates inconsistent output.</li>
+<li><strong>Not using <strong>name</strong></strong>: Using <strong>getLogger(<strong>name</strong>)</strong> ties the logger to your module name, which helps when your project grows.</li>
+</ul>
+<hr />
+<h3 id="putting-it-all-together_1">📝 Putting It All Together</h3>
+<p>A typical structured logging setup for a script looks like this:</p>
+<ul>
+<li>Import the logging module</li>
+<li>Create a logger with <strong>getLogger(<strong>name</strong>)</strong></li>
+<li>Set the logger level to <strong>INFO</strong></li>
+<li>Create a <strong>FileHandler</strong> pointing to a log file</li>
+<li>Define a JSON-friendly formatter</li>
+<li>Add the handler to the logger</li>
+<li>Use <strong>logger.info()</strong>, <strong>logger.error()</strong>, etc. throughout your code</li>
+</ul>
+<p>When you run the script, the log file will contain clean, timestamped entries. You can tail the file with <strong>tail -f app.log</strong> to watch events in real time, or grep for specific levels like <strong>ERROR</strong> to find problems quickly.</p>
+<hr />
+<h3 id="key-takeaways_1">🧠 Key Takeaways</h3>
+<ul>
+<li>The <strong>logging module</strong> replaces <strong>print()</strong> for serious scripts</li>
+<li>Use <strong>levels</strong> to control how much detail you see</li>
+<li><strong>File handlers</strong> let you persist logs for later review</li>
+<li><strong>Structured formats</strong> like JSON make logs machine-readable</li>
+<li>Always set a level — otherwise DEBUG and INFO messages disappear</li>
+</ul>
+<p>Start with a simple console logger, then add file output as your script grows. Once you're comfortable, experiment with JSON formatting to prepare for production environments.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>logging</code> module provides a standardized way to record runtime events from your Python code, outputting them as structured messages with timestamps, severity levels, and context.</p>
+<h3 id="example-1-basic-log-message-to-console_1">🛠 Example 1: Basic log message to console</h3>
+<p>This shows the simplest way to send a single log message to the terminal.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a warning message&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>WARNING:root:This is a warning message</strong></p>
+<hr />
+<h3 id="example-2-different-severity-levels_1">🛠 Example 2: Different severity levels</h3>
+<p>This demonstrates the five standard log levels and which ones appear by default.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Debug message — detailed diagnostic info&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Info message — general operational info&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Warning message — something unexpected&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Error message — a problem occurred&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Critical message — serious failure&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>WARNING:root:Warning message — something unexpected</strong><br />
+📤 Output: <strong>ERROR:root:Error message — a problem occurred</strong><br />
+📤 Output: <strong>CRITICAL:root:Critical message — serious failure</strong></p>
+<hr />
+<h3 id="example-3-configure-logging-level-and-format_1">🛠 Example 3: Configure logging level and format</h3>
+<p>This shows how to set a minimum level and customize the output format with timestamp and level name.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> | </span><span class="si">%(levelname)-8s</span><span class="s2"> | </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Engineer started data processing&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Reading sensor values from device&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Sensor timeout — retrying&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2025-03-20 14:30:15,123 | INFO     | Engineer started data processing</strong><br />
+📤 Output: <strong>2025-03-20 14:30:15,124 | DEBUG    | Reading sensor values from device</strong><br />
+📤 Output: <strong>2025-03-20 14:30:15,125 | ERROR    | Sensor timeout — retrying</strong></p>
+<hr />
+<h3 id="example-4-log-to-a-file-instead-of-console_1">🛠 Example 4: Log to a file instead of console</h3>
+<p>This shows how to redirect all log messages into a persistent file for later review.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;engine_run.log&quot;</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> | </span><span class="si">%(levelname)s</span><span class="s2"> | </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Engine started&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Coolant temperature above threshold&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Motor stall detected — shutting down&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(no console output — all messages written to engine_run.log)</strong></p>
+<hr />
+<h3 id="example-5-structured-log-with-extra-context-data_1">🛠 Example 5: Structured log with extra context data</h3>
+<p>This shows how to attach additional key-value data to a log message for better debugging.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> | </span><span class="si">%(levelname)s</span><span class="s2"> | </span><span class="si">%(message)s</span><span class="s2"> | extra=</span><span class="si">%(extra)s</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;sensor_monitor&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Pressure reading&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;extra&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sensor_id&quot;</span><span class="p">:</span> <span class="s2">&quot;PT-101&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">2.45</span><span class="p">}})</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Pressure out of range&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;extra&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sensor_id&quot;</span><span class="p">:</span> <span class="s2">&quot;PT-101&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">8.12</span><span class="p">,</span> <span class="s2">&quot;threshold&quot;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">}})</span>
+</code></pre></div>
+<p>📤 Output: <strong>2025-03-20 14:30:15,126 | INFO | Pressure reading | extra={'sensor_id': 'PT-101', 'value': 2.45}</strong><br />
+📤 Output: <strong>2025-03-20 14:30:15,127 | ERROR | Pressure out of range | extra={'sensor_id': 'PT-101', 'value': 8.12, 'threshold': 5.0}</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

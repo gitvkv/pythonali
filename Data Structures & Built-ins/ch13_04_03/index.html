@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch13_04_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 13 | Architectural Reasons for Raising Exceptions - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 13 | Architectural Reasons for Raising Exceptions";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch13_04_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch13_04_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -641,6 +641,50 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-exception-types-for-engineers">📊 Comparison Table: Common Exception Types for Engineers</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-raise-exceptions-the-architectural-perspective_1">⚙️ Why Raise Exceptions? The Architectural Perspective</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-raise-exceptions-vs-return-error-codes_1">🛠️ When to Raise Exceptions vs. Return Error Codes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#architectural-patterns-for-raising-exceptions_1">🕵️ Architectural Patterns for Raising Exceptions</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-input-validation-at-boundaries_1">1. 📋 Input Validation at Boundaries</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-contract-enforcement-in-libraries_1">2. 🔗 Contract Enforcement in Libraries</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-fail-fast-in-pipelines_1">3. 🧩 Fail-Fast in Pipelines</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-exception-classes-why-they-matter-architecturally_1">🧠 Custom Exception Classes: Why They Matter Architecturally</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#real-world-architectural-scenarios_1">🧪 Real-World Architectural Scenarios</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#scenario-1-api-service-layer_1">Scenario 1: API Service Layer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#scenario-2-configuration-management_1">Scenario 2: Configuration Management</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#scenario-3-external-service-integration_1">Scenario 3: External Service Integration</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-raising-exceptions-architecturally_1">✅ Best Practices for Raising Exceptions Architecturally</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📌 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-rejecting-invalid-input-values_1">🛑 Example 1: Rejecting invalid input values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-enforcing-required-data-types_1">🔒 Example 2: Enforcing required data types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-preventing-division-by-zero_1">🚫 Example 3: Preventing division by zero</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-validating-data-integrity-across-multiple-fields_1">🔗 Example 4: Validating data integrity across multiple fields</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-preventing-file-operations-on-missing-resources_1">📂 Example 5: Preventing file operations on missing resources</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-exception-types-for-engineers_1">📊 Comparison Table: Common Exception Types for Engineers</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch13_05_01/">Ch 13 | Inheriting from the Base Exception Class</a>
@@ -1092,7 +1136,7 @@
               
                 <h1 id="architectural-reasons-for-raising-exceptions">Architectural Reasons for Raising Exceptions</h1>
 <p><span class="category-tag">🏷️ Error Handling and Exceptions /  Raising Exceptions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1205,8 +1249,7 @@
 <h3 id="summary">📌 Summary</h3>
 <p>Raising exceptions is an architectural decision that shapes how your system communicates failures, maintains data integrity, and supports debugging. By choosing exceptions over error codes, you create cleaner, more predictable code that fails fast and provides clear audit trails. Custom exception classes further enhance this by making your code self-documenting and enabling precise error handling strategies across your entire application.</p>
 <p>Remember: exceptions are not just error handling—they are a design tool for building resilient, maintainable systems.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Raising exceptions allows engineers to deliberately stop execution when a function receives invalid data or encounters an impossible state, preventing silent failures and making bugs easier to find.</p>
 <hr />
 <h3 id="example-1-rejecting-invalid-input-values">🛑 Example 1: Rejecting invalid input values</h3>
@@ -1274,6 +1317,227 @@
 <p>📤 Output: <strong>FileNotFoundError: Configuration file not found: /tmp/missing_config.ini</strong></p>
 <hr />
 <h3 id="comparison-table-common-exception-types-for-engineers">📊 Comparison Table: Common Exception Types for Engineers</h3>
+<table>
+<thead>
+<tr>
+<th>Exception Type</th>
+<th>When to Raise</th>
+<th>Example Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ValueError</code></td>
+<td>Invalid value or state</td>
+<td>Temperature below absolute zero</td>
+</tr>
+<tr>
+<td><code>TypeError</code></td>
+<td>Wrong data type</td>
+<td>Passing a string instead of a number</td>
+</tr>
+<tr>
+<td><code>ZeroDivisionError</code></td>
+<td>Division by zero</td>
+<td>Math operation with zero divisor</td>
+</tr>
+<tr>
+<td><code>FileNotFoundError</code></td>
+<td>Missing file or resource</td>
+<td>Reading a config file that doesn't exist</td>
+</tr>
+<tr>
+<td><code>KeyError</code></td>
+<td>Missing dictionary key</td>
+<td>Accessing a key that doesn't exist in a dictionary</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>In any software system, errors are inevitable. However, how you handle them can make the difference between a system that crashes silently and one that recovers gracefully. Raising exceptions is not just about catching errors—it's an architectural decision that shapes how your code communicates failures, maintains data integrity, and scales across distributed systems. For engineers new to Python, understanding <em>why</em> you raise exceptions is just as important as knowing <em>how</em> to raise them.</p>
+<hr />
+<h3 id="why-raise-exceptions-the-architectural-perspective_1">⚙️ Why Raise Exceptions? The Architectural Perspective</h3>
+<p>Raising exceptions is a deliberate design choice that enforces <strong>contracts</strong> between different parts of your code. Instead of returning error codes or silently failing, exceptions create a clear, predictable path for handling unexpected situations.</p>
+<p><strong>Key architectural benefits:</strong></p>
+<ul>
+<li><strong>Separation of Concerns</strong>: Error handling logic stays separate from business logic</li>
+<li><strong>Fail-Fast Behavior</strong>: Problems are detected early, preventing cascading failures</li>
+<li><strong>Explicit Contracts</strong>: Functions clearly define what they expect and what can go wrong</li>
+<li><strong>Traceability</strong>: Exception stack traces provide a clear audit trail for debugging</li>
+</ul>
+<hr />
+<h3 id="when-to-raise-exceptions-vs-return-error-codes_1">🛠️ When to Raise Exceptions vs. Return Error Codes</h3>
+<p>A common architectural decision is choosing between exceptions and return values. Here's how they compare:</p>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Raising Exceptions</th>
+<th>Returning Error Codes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Intent</strong></td>
+<td>Signals something exceptional or unexpected</td>
+<td>Returns a normal result (even if it's an error)</td>
+</tr>
+<tr>
+<td><strong>Flow Control</strong></td>
+<td>Interrupts normal execution</td>
+<td>Requires manual checking after every call</td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Cleaner main logic, error handling is separate</td>
+<td>Cluttered with if-statements checking return values</td>
+</tr>
+<tr>
+<td><strong>Forgetting to Check</strong></td>
+<td>Exception propagates up automatically</td>
+<td>Silent failure if the error code is ignored</td>
+</tr>
+<tr>
+<td><strong>Stack Trace</strong></td>
+<td>Provides full call chain for debugging</td>
+<td>No automatic trace; must be manually logged</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Slightly slower (stack unwinding)</td>
+<td>Faster, but error-prone</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rule of thumb:</strong> Use exceptions for <em>exceptional</em> situations—things that shouldn't happen during normal operation. Use return values for expected outcomes, even negative ones.</p>
+<hr />
+<h3 id="architectural-patterns-for-raising-exceptions_1">🕵️ Architectural Patterns for Raising Exceptions</h3>
+<h4 id="1-input-validation-at-boundaries_1">1. 📋 Input Validation at Boundaries</h4>
+<p>Raise exceptions at system entry points (API endpoints, file readers, user input handlers) to enforce data integrity before processing begins.</p>
+<p><strong>Example pattern:</strong>
+- A function that accepts a configuration dictionary should raise a <strong>ValueError</strong> if required keys are missing
+- This prevents downstream functions from receiving malformed data and failing in confusing ways</p>
+<h4 id="2-contract-enforcement-in-libraries_1">2. 🔗 Contract Enforcement in Libraries</h4>
+<p>When building reusable modules or libraries, raise exceptions to enforce the contract between the library and its consumers.</p>
+<p><strong>Example pattern:</strong>
+- A database connection function raises a <strong>ConnectionError</strong> if the database is unreachable
+- The caller knows exactly what went wrong and can implement retry logic or fallback behavior</p>
+<h4 id="3-fail-fast-in-pipelines_1">3. 🧩 Fail-Fast in Pipelines</h4>
+<p>In data processing pipelines, raise exceptions early to avoid wasting resources on bad data.</p>
+<p><strong>Example pattern:</strong>
+- A data validation step raises a <strong>ValidationError</strong> immediately if a record fails schema checks
+- This stops the pipeline before expensive transformations or writes occur</p>
+<hr />
+<h3 id="custom-exception-classes-why-they-matter-architecturally_1">🧠 Custom Exception Classes: Why They Matter Architecturally</h3>
+<p>Creating custom exception classes is a powerful architectural tool. Instead of using generic exceptions like <strong>Exception</strong> or <strong>RuntimeError</strong>, custom exceptions make your code self-documenting and enable precise error handling.</p>
+<p><strong>Benefits of custom exceptions:</strong></p>
+<ul>
+<li><strong>Clarity</strong>: The exception name itself explains what went wrong (e.g., <strong>ConfigurationNotFoundError</strong>)</li>
+<li><strong>Granularity</strong>: Callers can catch specific exceptions and handle them differently</li>
+<li><strong>Extensibility</strong>: You can add attributes to carry additional context (e.g., the missing key name)</li>
+<li><strong>Hierarchy</strong>: Group related exceptions under a base class for broad catches</li>
+</ul>
+<p><strong>Example hierarchy:</strong>
+- <strong>DataPipelineError</strong> (base class)
+  - <strong>ValidationError</strong> (invalid data format)
+  - <strong>TransformationError</strong> (processing failure)
+  - <strong>WriteError</strong> (storage failure)</p>
+<hr />
+<h3 id="real-world-architectural-scenarios_1">🧪 Real-World Architectural Scenarios</h3>
+<h4 id="scenario-1-api-service-layer_1">Scenario 1: API Service Layer</h4>
+<p>An API endpoint receives a request with invalid parameters. Instead of returning a generic 500 error, the service layer raises a <strong>BadRequestError</strong> with details about which parameter failed validation. The framework catches this and returns a structured 400 response with a helpful message.</p>
+<h4 id="scenario-2-configuration-management_1">Scenario 2: Configuration Management</h4>
+<p>A service starts up and reads a configuration file. If the file is missing, raising a <strong>ConfigurationNotFoundError</strong> with the file path allows the startup script to log the exact issue and exit cleanly, rather than failing later with a cryptic <strong>FileNotFoundError</strong> deep in the code.</p>
+<h4 id="scenario-3-external-service-integration_1">Scenario 3: External Service Integration</h4>
+<p>A function calls an external payment gateway. If the gateway times out, raising a <strong>PaymentGatewayTimeoutError</strong> (a custom exception) allows the caller to implement retry logic with exponential backoff, while a <strong>PaymentDeclinedError</strong> (another custom exception) would be handled differently—perhaps by notifying the user.</p>
+<hr />
+<h3 id="best-practices-for-raising-exceptions-architecturally_1">✅ Best Practices for Raising Exceptions Architecturally</h3>
+<ul>
+<li><strong>Be specific</strong>: Raise the most specific exception class available, or create your own</li>
+<li><strong>Provide context</strong>: Include a descriptive message and any relevant data (e.g., the invalid value)</li>
+<li><strong>Don't overuse</strong>: Only raise exceptions for truly exceptional conditions, not for normal control flow</li>
+<li><strong>Document exceptions</strong>: In your function's docstring, list which exceptions can be raised and under what conditions</li>
+<li><strong>Keep the stack trace clean</strong>: Avoid catching and re-raising exceptions unnecessarily, as this can obscure the original error location</li>
+</ul>
+<hr />
+<h3 id="summary_1">📌 Summary</h3>
+<p>Raising exceptions is an architectural decision that shapes how your system communicates failures, maintains data integrity, and supports debugging. By choosing exceptions over error codes, you create cleaner, more predictable code that fails fast and provides clear audit trails. Custom exception classes further enhance this by making your code self-documenting and enabling precise error handling strategies across your entire application.</p>
+<p>Remember: exceptions are not just error handling—they are a design tool for building resilient, maintainable systems.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Raising exceptions allows engineers to deliberately stop execution when a function receives invalid data or encounters an impossible state, preventing silent failures and making bugs easier to find.</p>
+<hr />
+<h3 id="example-1-rejecting-invalid-input-values_1">🛑 Example 1: Rejecting invalid input values</h3>
+<p>This example shows how to raise an exception when a function argument is outside an acceptable range.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">set_temperature</span><span class="p">(</span><span class="n">celsius</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">celsius</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">273</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Temperature cannot be below absolute zero&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">celsius</span>
+
+<span class="n">set_temperature</span><span class="p">(</span><span class="o">-</span><span class="mi">300</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ValueError: Temperature cannot be below absolute zero</strong></p>
+<hr />
+<h3 id="example-2-enforcing-required-data-types_1">🔒 Example 2: Enforcing required data types</h3>
+<p>This example shows how to raise a TypeError when the wrong data type is passed to a function.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">calculate_area</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Length must be a number&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Width must be a number&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">width</span>
+
+<span class="n">calculate_area</span><span class="p">(</span><span class="s2">&quot;five&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>TypeError: Length must be a number</strong></p>
+<hr />
+<h3 id="example-3-preventing-division-by-zero_1">🚫 Example 3: Preventing division by zero</h3>
+<p>This example shows how to raise an exception when a mathematical operation would produce an undefined result.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">divide_numbers</span><span class="p">(</span><span class="n">dividend</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">divisor</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ZeroDivisionError</span><span class="p">(</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dividend</span> <span class="o">/</span> <span class="n">divisor</span>
+
+<span class="n">divide_numbers</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ZeroDivisionError: Cannot divide by zero</strong></p>
+<hr />
+<h3 id="example-4-validating-data-integrity-across-multiple-fields_1">🔗 Example 4: Validating data integrity across multiple fields</h3>
+<p>This example shows how to raise an exception when related data fields contradict each other.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_account</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Username cannot be empty&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;@&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">email</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Email must contain @ symbol&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;User must be at least 13 years old&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Account created for </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">create_account</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="s2">&quot;alice@example.com&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ValueError: User must be at least 13 years old</strong></p>
+<hr />
+<h3 id="example-5-preventing-file-operations-on-missing-resources_1">📂 Example 5: Preventing file operations on missing resources</h3>
+<p>This example shows how to raise an exception when a required file or resource does not exist.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">read_config_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Configuration file not found: </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">read_config_file</span><span class="p">(</span><span class="s2">&quot;/tmp/missing_config.ini&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>FileNotFoundError: Configuration file not found: /tmp/missing_config.ini</strong></p>
+<hr />
+<h3 id="comparison-table-common-exception-types-for-engineers_1">📊 Comparison Table: Common Exception Types for Engineers</h3>
 <table>
 <thead>
 <tr>

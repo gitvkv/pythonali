@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch13_04_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 13 | Re-raising Caught Exceptions Patterns - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 13 | Re-raising Caught Exceptions Patterns";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch13_04_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch13_04_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -620,6 +620,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-re-raise-with-additional-context-using-a-new-exception">🟣 Example 5: Re-raise with additional context using a new exception</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-re-raise-patterns">Comparison Table: Re-raise Patterns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#why-re-raise-exceptions_1">⚙️ Why Re-raise Exceptions?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#basic-re-raising-with-raise-no-argument_1">🛠️ Basic Re-raising with raise (No Argument)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#re-raising-with-a-different-exception_1">🕵️ Re-raising with a Different Exception</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-bare-raise-vs-raising-a-new-exception_1">📊 Comparison: Bare raise vs. Raising a New Exception</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-re-raising-patterns_1">🧰 Common Re-raising Patterns</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#important-considerations_1">⚠️ Important Considerations</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-advice-for-engineers_1">🧪 Practical Advice for Engineers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-basic-re-raise-with-raise-no-argument_1">🟢 Example 1: Basic re-raise with raise (no argument)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-re-raise-the-same-exception-object-explicitly_1">🟡 Example 2: Re-raise the same exception object explicitly</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-log-the-error-and-re-raise_1">🟠 Example 3: Log the error and re-raise</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-perform-cleanup-before-re-raising_1">🔵 Example 4: Perform cleanup before re-raising</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-re-raise-with-additional-context-using-a-new-exception_1">🟣 Example 5: Re-raise with additional context using a new exception</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-re-raise-patterns_1">Comparison Table: Re-raise Patterns</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1102,7 @@
               
                 <h1 id="re-raising-caught-exceptions-patterns">Re-raising Caught Exceptions Patterns</h1>
 <p><span class="category-tag">🏷️ Error Handling and Exceptions /  Raising Exceptions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When handling exceptions in Python, there are times when you need to catch an error, perform some action (like logging or cleanup), and then let the exception continue propagating up the call stack. This is known as <strong>re-raising</strong>. It allows you to acknowledge an error occurred, do something about it, and still let the program's higher-level error handlers deal with it appropriately.</p>
@@ -1208,8 +1236,7 @@
 <li>Remember that re-raising is about <strong>observation and delegation</strong>, not about hiding errors.</li>
 </ul>
 <p>Re-raising is a powerful tool that gives you fine-grained control over error handling while maintaining the integrity of the exception chain. Used correctly, it makes your code more robust, debuggable, and maintainable.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Re-raising caught exceptions allows an engineer to catch an error, perform some action, and then let the same exception continue propagating up the call stack.</p>
 <hr />
 <h3 id="example-1-basic-re-raise-with-raise-no-argument">🟢 Example 1: Basic re-raise with <code>raise</code> (no argument)</h3>
@@ -1279,6 +1306,250 @@
 <em>(the original KeyError is shown as the cause)</em></p>
 <hr />
 <h2 id="comparison-table-re-raise-patterns">Comparison Table: Re-raise Patterns</h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Use Case</th>
+<th>Preserves Original Traceback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>raise</code> (no argument)</td>
+<td>Simple re-raise after logging or cleanup</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><code>raise exc</code></td>
+<td>Explicit re-raise of stored exception</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><code>raise NewException from exc</code></td>
+<td>Wrap exception with additional context</td>
+<td>✅ Yes (chained)</td>
+</tr>
+<tr>
+<td><code>raise</code> inside <code>except</code> block</td>
+<td>Default re-raise behavior</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td><code>raise NewException</code> (no <code>from</code>)</td>
+<td>Replace exception entirely</td>
+<td>❌ No (original lost)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When handling exceptions in Python, there are times when you need to catch an error, perform some action (like logging or cleanup), and then let the exception continue propagating up the call stack. This is known as <strong>re-raising</strong>. It allows you to acknowledge an error occurred, do something about it, and still let the program's higher-level error handlers deal with it appropriately.</p>
+<hr />
+<h3 id="why-re-raise-exceptions_1">⚙️ Why Re-raise Exceptions?</h3>
+<p>Re-raising is useful when you want to:</p>
+<ul>
+<li><strong>Log the error</strong> at a specific point in your code, but still let the caller handle it.</li>
+<li><strong>Perform cleanup</strong> (e.g., closing a file or releasing a network connection) before the exception moves up.</li>
+<li><strong>Add context</strong> to an exception without suppressing it.</li>
+<li><strong>Filter exceptions</strong> — catch only certain conditions, then re-raise others.</li>
+</ul>
+<p>The key idea is that you catch the exception not to fully handle it, but to <strong>observe or augment it</strong> before letting it continue.</p>
+<hr />
+<h3 id="basic-re-raising-with-raise-no-argument_1">🛠️ Basic Re-raising with <code>raise</code> (No Argument)</h3>
+<p>The simplest pattern is to use a bare <strong>raise</strong> statement inside an except block. This re-raises the <strong>same exception</strong> that was caught, preserving its original traceback.</p>
+<ul>
+<li>Use a <strong>try</strong> block to wrap code that might fail.</li>
+<li>In the <strong>except</strong> block, perform your action (like logging).</li>
+<li>Then call <strong>raise</strong> with no argument to re-raise the exact same exception.</li>
+</ul>
+<p>Example flow:</p>
+<ul>
+<li>You attempt to open a file that does not exist.</li>
+<li>The <strong>FileNotFoundError</strong> is caught.</li>
+<li>You log a message like "File not found, re-raising."</li>
+<li>The bare <strong>raise</strong> sends the same error upward.</li>
+<li>The program stops with the original traceback, plus your log message.</li>
+</ul>
+<p>This pattern is ideal when you want to <strong>record that an error happened</strong> but not change how the rest of the program sees it.</p>
+<hr />
+<h3 id="re-raising-with-a-different-exception_1">🕵️ Re-raising with a Different Exception</h3>
+<p>Sometimes you want to catch one type of exception and raise a <strong>different, more specific</strong> exception in its place. This is common when building libraries or APIs where you want to hide implementation details.</p>
+<ul>
+<li>Catch the original exception (e.g., <strong>ValueError</strong>).</li>
+<li>Raise a new exception (e.g., <strong>CustomAPIError</strong>) with a meaningful message.</li>
+<li>You can optionally pass the original exception as the <strong>cause</strong> using the <strong>from</strong> keyword.</li>
+</ul>
+<p>Using <strong>from</strong> links the new exception to the original, preserving the full traceback chain. This is very helpful for debugging.</p>
+<p>Example flow:</p>
+<ul>
+<li>Your function tries to parse user input as an integer.</li>
+<li>A <strong>ValueError</strong> occurs because the input is invalid.</li>
+<li>You catch it and raise a <strong>CustomValidationError</strong> with a message like "Invalid user ID format."</li>
+<li>Using <strong>from</strong> ensures the original <strong>ValueError</strong> is still visible in the traceback.</li>
+</ul>
+<p>This pattern is useful for <strong>abstraction</strong> — the caller only sees your custom exception, but you can still trace back to the root cause.</p>
+<hr />
+<h3 id="comparison-bare-raise-vs-raising-a-new-exception_1">📊 Comparison: Bare <code>raise</code> vs. Raising a New Exception</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Bare <code>raise</code> (No Argument)</th>
+<th>Raising a New Exception</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>What happens</strong></td>
+<td>Re-raises the exact same exception object</td>
+<td>Creates and raises a different exception</td>
+</tr>
+<tr>
+<td><strong>Traceback</strong></td>
+<td>Original traceback is fully preserved</td>
+<td>Original traceback is preserved if using <strong>from</strong></td>
+</tr>
+<tr>
+<td><strong>Use case</strong></td>
+<td>Logging, cleanup, monitoring</td>
+<td>Abstraction, adding context, custom error types</td>
+</tr>
+<tr>
+<td><strong>Exception type</strong></td>
+<td>Unchanged</td>
+<td>Changed to a new type</td>
+</tr>
+<tr>
+<td><strong>Message</strong></td>
+<td>Original message stays</td>
+<td>You provide a new message</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-re-raising-patterns_1">🧰 Common Re-raising Patterns</h3>
+<p><strong>Pattern 1: Log and Re-raise</strong></p>
+<ul>
+<li>Catch the exception.</li>
+<li>Write a log entry with details about the error.</li>
+<li>Use bare <strong>raise</strong> to let the exception continue.</li>
+</ul>
+<p>This is the most common pattern in production systems where you need an audit trail of failures.</p>
+<p><strong>Pattern 2: Cleanup and Re-raise</strong></p>
+<ul>
+<li>Catch the exception.</li>
+<li>Perform necessary cleanup (close files, release locks, restore state).</li>
+<li>Use bare <strong>raise</strong> to propagate the error.</li>
+</ul>
+<p>This ensures resources are freed even when an error occurs, without swallowing the exception.</p>
+<p><strong>Pattern 3: Transform and Re-raise</strong></p>
+<ul>
+<li>Catch a low-level exception.</li>
+<li>Raise a higher-level custom exception with a clearer message.</li>
+<li>Use <strong>from</strong> to link back to the original error.</li>
+</ul>
+<p>This is standard practice in library design to shield users from internal details.</p>
+<p><strong>Pattern 4: Conditional Re-raise</strong></p>
+<ul>
+<li>Catch a broad exception type.</li>
+<li>Inspect the exception (e.g., check its attributes or message).</li>
+<li>If it matches certain criteria, handle it locally.</li>
+<li>Otherwise, re-raise it with bare <strong>raise</strong>.</li>
+</ul>
+<p>This allows you to selectively handle only specific error conditions while letting others pass through.</p>
+<hr />
+<h3 id="important-considerations_1">⚠️ Important Considerations</h3>
+<ul>
+<li><strong>Never use bare <code>raise</code> outside an except block</strong> — it will raise a <strong>RuntimeError</strong> with no context.</li>
+<li><strong>Always use <code>from</code> when raising a new exception</strong> to preserve the original traceback. Without it, debugging becomes much harder.</li>
+<li><strong>Avoid silent re-raises</strong> — if you catch an exception and immediately re-raise without any action, the try-except is unnecessary.</li>
+<li><strong>Be careful with cleanup code</strong> — if your cleanup itself raises an exception, it will override the original error. Use a <strong>finally</strong> block or handle cleanup carefully.</li>
+</ul>
+<hr />
+<h3 id="practical-advice-for-engineers_1">🧪 Practical Advice for Engineers</h3>
+<ul>
+<li>Start with the <strong>log and re-raise</strong> pattern — it is simple and adds immediate value.</li>
+<li>Use <strong>transform and re-raise</strong> when building reusable functions or modules that others will call.</li>
+<li>Always test your re-raise logic to ensure the traceback is informative and complete.</li>
+<li>Remember that re-raising is about <strong>observation and delegation</strong>, not about hiding errors.</li>
+</ul>
+<p>Re-raising is a powerful tool that gives you fine-grained control over error handling while maintaining the integrity of the exception chain. Used correctly, it makes your code more robust, debuggable, and maintainable.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Re-raising caught exceptions allows an engineer to catch an error, perform some action, and then let the same exception continue propagating up the call stack.</p>
+<hr />
+<h3 id="example-1-basic-re-raise-with-raise-no-argument_1">🟢 Example 1: Basic re-raise with <code>raise</code> (no argument)</h3>
+<p>This example catches a <code>ZeroDivisionError</code>, prints a message, and re-raises the same exception.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Caught division by zero — re-raising now&quot;</span><span class="p">)</span>
+    <span class="k">raise</span>
+</code></pre></div>
+<p>📤 Output: <strong>Caught division by zero — re-raising now</strong><br />
+<em>(then the program crashes with ZeroDivisionError)</em></p>
+<hr />
+<h3 id="example-2-re-raise-the-same-exception-object-explicitly_1">🟡 Example 2: Re-raise the same exception object explicitly</h3>
+<p>This example stores the caught exception in a variable and re-raises it using <code>raise exc</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;not_a_number&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Caught ValueError: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="n">exc</span>
+</code></pre></div>
+<p>📤 Output: <strong>Caught ValueError: invalid literal for int() with base 10: 'not_a_number'</strong><br />
+<em>(then the program crashes with ValueError)</em></p>
+<hr />
+<h3 id="example-3-log-the-error-and-re-raise_1">🟠 Example 3: Log the error and re-raise</h3>
+<p>This example logs the error message to the console and then re-raises the exception for upstream handling.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index out of range: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">raise</span>
+</code></pre></div>
+<p>📤 Output: <strong>ERROR:root:Index out of range: list index out of range</strong><br />
+<em>(then the program crashes with IndexError)</em></p>
+<hr />
+<h3 id="example-4-perform-cleanup-before-re-raising_1">🔵 Example 4: Perform cleanup before re-raising</h3>
+<p>This example closes a simulated file resource before re-raising the exception.</p>
+<div class="highlight"><pre><span></span><code><span class="n">file_handle</span> <span class="o">=</span> <span class="s2">&quot;open_file.txt&quot;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Working with </span><span class="si">{</span><span class="n">file_handle</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Disk full&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Closing </span><span class="si">{</span><span class="n">file_handle</span><span class="si">}</span><span class="s2"> before re-raising&quot;</span><span class="p">)</span>
+    <span class="n">file_handle</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">raise</span>
+</code></pre></div>
+<p>📤 Output: <strong>Working with open_file.txt</strong><br />
+<strong>Closing open_file.txt before re-raising</strong><br />
+<em>(then the program crashes with RuntimeError: Disk full)</em></p>
+<hr />
+<h3 id="example-5-re-raise-with-additional-context-using-a-new-exception_1">🟣 Example 5: Re-raise with additional context using a new exception</h3>
+<p>This example catches a <code>KeyError</code>, wraps it with a more descriptive <code>ValueError</code>, and re-raises the new exception.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">}</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing required config key: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+</code></pre></div>
+<p>📤 Output: <strong>ValueError: Missing required config key: 'port'</strong><br />
+<em>(the original KeyError is shown as the cause)</em></p>
+<hr />
+<h2 id="comparison-table-re-raise-patterns_1">Comparison Table: Re-raise Patterns</h2>
 <table>
 <thead>
 <tr>

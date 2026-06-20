@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch17_06_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 17 | Uploading Files and Multipart Form Data - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 17 | Uploading Files and Multipart Form Data";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch17_06_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch17_06_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -826,6 +826,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-upload-a-file-from-memory-string-content">📤 Example 5: Upload a file from memory (string content)</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-multipart-form-data_1">⚙️ What Is Multipart Form Data?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-to-upload-a-single-file_1">🛠️ How to Upload a Single File</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#uploading-multiple-files_1">📊 Uploading Multiple Files</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#combining-files-with-form-data_1">🕵️ Combining Files with Form Data</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-json-vs-form-data-vs-multipart_1">🧪 Comparison: JSON vs. Form Data vs. Multipart</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-file-upload-scenarios_1">🧰 Common File Upload Scenarios</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#best-practices-for-file-uploads_1">✅ Best Practices for File Uploads</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#troubleshooting-common-issues_1">🔍 Troubleshooting Common Issues</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-upload-a-single-text-file_1">📤 Example 1: Upload a single text file</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-upload-a-file-with-a-custom-filename_1">📤 Example 2: Upload a file with a custom filename</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-upload-multiple-files-at-once_1">📤 Example 3: Upload multiple files at once</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-combine-file-upload-with-form-data_1">📤 Example 4: Combine file upload with form data</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-upload-a-file-from-memory-string-content_1">📤 Example 5: Upload a file from memory (string content)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1106,7 @@
               
                 <h1 id="uploading-files-and-multipart-form-data">Uploading Files and Multipart Form Data</h1>
 <p><span class="category-tag">🏷️ APIs and HTTP Requests /  Sending Data in Requests</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When you need to send files—like logs, configuration backups, or images—to a server, standard JSON or form data won't work. Files require a special encoding format called <strong>multipart form data</strong>. This is how browsers upload files from HTML forms, and it's also how your Python scripts can send files to APIs.</p>
@@ -1223,8 +1253,7 @@
 - Common types: <strong>'text/plain'</strong>, <strong>'application/json'</strong>, <strong>'application/octet-stream'</strong></p>
 <hr />
 <p>File uploads are a fundamental skill when working with APIs that manage artifacts, logs, or configuration data. Once you understand the multipart format and how to structure your requests, you can integrate file handling into any automation or data pipeline with confidence.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how to send files and form data together in a single HTTP request using Python's <code>requests</code> library.</p>
 <hr />
 <h3 id="example-1-upload-a-single-text-file">📤 Example 1: Upload a single text file</h3>
@@ -1313,6 +1342,300 @@
 <p>📤 Output: <strong>Hello, this is file content created in memory.</strong></p>
 <hr />
 <h2 id="comparison-table">Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Example 1</th>
+<th>Example 2</th>
+<th>Example 3</th>
+<th>Example 4</th>
+<th>Example 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single file upload</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Custom filename</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Multiple files</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Form data included</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>File from memory</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you need to send files—like logs, configuration backups, or images—to a server, standard JSON or form data won't work. Files require a special encoding format called <strong>multipart form data</strong>. This is how browsers upload files from HTML forms, and it's also how your Python scripts can send files to APIs.</p>
+<hr />
+<h3 id="what-is-multipart-form-data_1">⚙️ What Is Multipart Form Data?</h3>
+<p>Multipart form data is a way to send binary data (files) alongside regular text fields in a single HTTP request. Each piece of data is separated by a boundary marker, allowing the server to distinguish between different parts of the request.</p>
+<p><strong>Key characteristics:</strong>
+- Supports both text fields and file uploads in one request
+- Each part can have its own content type (e.g., image/png, text/csv)
+- The boundary string is automatically generated and included in the request headers
+- Required for any API endpoint that accepts file uploads</p>
+<hr />
+<h3 id="how-to-upload-a-single-file_1">🛠️ How to Upload a Single File</h3>
+<p>To upload a file, you need to open it in binary mode and pass it as part of a dictionary to the <strong>files</strong> parameter. The server receives the file along with its filename and content type.</p>
+<p><strong>Basic file upload pattern:</strong>
+- Open the file using <strong>open('filename', 'rb')</strong> to read it in binary mode
+- Create a dictionary with the field name as the key and the file object as the value
+- Pass this dictionary to the <strong>files</strong> parameter of your request function
+- The library handles all the multipart encoding automatically</p>
+<p><strong>Example structure for a single file upload:</strong>
+- Import the requests library
+- Open the file in binary read mode
+- Store the file object in a dictionary: <strong>{'file': open('backup.log', 'rb')}</strong>
+- Send a POST request with <strong>files=file_dict</strong>
+- Close the file after the request completes</p>
+<hr />
+<h3 id="uploading-multiple-files_1">📊 Uploading Multiple Files</h3>
+<p>When you need to send several files at once, you can include multiple entries in the files dictionary. Each file gets its own field name, and the server processes them individually.</p>
+<p><strong>Multiple file upload pattern:</strong>
+- Open each file separately in binary mode
+- Create a dictionary with multiple keys, one per file
+- Example: <strong>{'log_file': open('error.log', 'rb'), 'config_file': open('settings.ini', 'rb')}</strong>
+- Send the request with the entire dictionary as the files parameter
+- The server receives each file under its respective field name</p>
+<p><strong>Alternative approach for lists of files:</strong>
+- Use a list of tuples instead of a dictionary
+- Each tuple contains: <strong>(field_name, (filename, file_object, content_type))</strong>
+- This gives you more control over the filename sent to the server</p>
+<hr />
+<h3 id="combining-files-with-form-data_1">🕵️ Combining Files with Form Data</h3>
+<p>Many upload endpoints require additional metadata alongside the file—like a description, user ID, or timestamp. You can send both files and regular form fields in the same request.</p>
+<p><strong>Combined data pattern:</strong>
+- Use the <strong>data</strong> parameter for text fields
+- Use the <strong>files</strong> parameter for file uploads
+- Both parameters can be passed to the same request
+- The library merges them into a single multipart request</p>
+<p><strong>Example fields you might send with a file:</strong>
+- <strong>description</strong>: A text field explaining what the file contains
+- <strong>category</strong>: A dropdown selection like "log" or "backup"
+- <strong>timestamp</strong>: The current date and time as a string</p>
+<hr />
+<h3 id="comparison-json-vs-form-data-vs-multipart_1">🧪 Comparison: JSON vs. Form Data vs. Multipart</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>JSON</th>
+<th>Form Data</th>
+<th>Multipart Form Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data types supported</td>
+<td>Text, numbers, booleans</td>
+<td>Text only</td>
+<td>Text + binary files</td>
+</tr>
+<tr>
+<td>File upload support</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Content-Type header</td>
+<td>application/json</td>
+<td>application/x-www-form-urlencoded</td>
+<td>multipart/form-data</td>
+</tr>
+<tr>
+<td>Human readable</td>
+<td>Yes</td>
+<td>Partially</td>
+<td>No (binary encoded)</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>API data exchange</td>
+<td>Simple form submissions</td>
+<td>File uploads with metadata</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-file-upload-scenarios_1">🧰 Common File Upload Scenarios</h3>
+<p><strong>Uploading a configuration file:</strong>
+- Open the config file in binary mode
+- Send it with a field name like <strong>'config'</strong>
+- Include additional fields like <strong>'environment'</strong> and <strong>'version'</strong> in the data parameter</p>
+<p><strong>Uploading multiple log files:</strong>
+- Create a list of file paths to upload
+- Loop through the list and open each file
+- Build a dictionary with unique field names or use a list of tuples
+- Send all files in a single request</p>
+<p><strong>Uploading with custom filenames:</strong>
+- Use the tuple format: <strong>(field_name, (custom_name, file_object, mime_type))</strong>
+- This lets you rename the file before sending it to the server
+- Useful when the local filename doesn't match what the server expects</p>
+<hr />
+<h3 id="best-practices-for-file-uploads_1">✅ Best Practices for File Uploads</h3>
+<p><strong>Always close your files:</strong>
+- Use the <strong>with</strong> statement to automatically close files after upload
+- Example: <strong>with open('file.txt', 'rb') as f:</strong> ensures cleanup</p>
+<p><strong>Set appropriate timeouts:</strong>
+- File uploads take longer than simple requests
+- Increase the timeout value to accommodate larger files
+- A timeout of 30-60 seconds is reasonable for most uploads</p>
+<p><strong>Handle large files carefully:</strong>
+- For very large files, consider streaming uploads
+- Monitor memory usage when opening multiple files simultaneously
+- Some servers have file size limits—check the API documentation</p>
+<p><strong>Check the response status:</strong>
+- Always verify the server response after uploading
+- A 200 or 201 status means success
+- 400 or 413 errors often indicate file size or format issues</p>
+<hr />
+<h3 id="troubleshooting-common-issues_1">🔍 Troubleshooting Common Issues</h3>
+<p><strong>Server returns 400 Bad Request:</strong>
+- Verify the field name matches what the server expects
+- Check that the file format is supported
+- Ensure you're not mixing JSON and multipart incorrectly</p>
+<p><strong>File arrives corrupted or empty:</strong>
+- Confirm you opened the file in binary mode (<strong>'rb'</strong> not <strong>'r'</strong>)
+- Check that the file exists and has content before uploading
+- Verify the server isn't truncating the file</p>
+<p><strong>Upload hangs or times out:</strong>
+- Increase the request timeout value
+- Check your network connection speed
+- Consider compressing large files before upload</p>
+<p><strong>Content-Type mismatch:</strong>
+- Some servers require explicit MIME types
+- Pass the content type explicitly in the tuple format
+- Common types: <strong>'text/plain'</strong>, <strong>'application/json'</strong>, <strong>'application/octet-stream'</strong></p>
+<hr />
+<p>File uploads are a fundamental skill when working with APIs that manage artifacts, logs, or configuration data. Once you understand the multipart format and how to structure your requests, you can integrate file handling into any automation or data pipeline with confidence.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how to send files and form data together in a single HTTP request using Python's <code>requests</code> library.</p>
+<hr />
+<h3 id="example-1-upload-a-single-text-file_1">📤 Example 1: Upload a single text file</h3>
+<p>This example uploads a simple text file to a server using the <code>files</code> parameter.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/post&quot;</span>
+
+<span class="n">file_content</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="n">file_content</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>200</strong></p>
+<hr />
+<h3 id="example-2-upload-a-file-with-a-custom-filename_1">📤 Example 2: Upload a file with a custom filename</h3>
+<p>This example shows how to override the filename when sending a file to the server.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/post&quot;</span>
+
+<span class="n">file_content</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;photo.jpg&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;profile_pic.jpg&quot;</span><span class="p">,</span> <span class="n">file_content</span><span class="p">,</span> <span class="s2">&quot;image/jpeg&quot;</span><span class="p">)}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;files&quot;</span><span class="p">][</span><span class="s2">&quot;image&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>The raw file content as a string</strong></p>
+<hr />
+<h3 id="example-3-upload-multiple-files-at-once_1">📤 Example 3: Upload multiple files at once</h3>
+<p>This example sends two separate files in a single request using a dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/post&quot;</span>
+
+<span class="n">file1</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;report.pdf&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+<span class="n">file2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;summary.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+
+<span class="n">files</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;document&quot;</span><span class="p">:</span> <span class="n">file1</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">file2</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>200</strong></p>
+<hr />
+<h3 id="example-4-combine-file-upload-with-form-data_1">📤 Example 4: Combine file upload with form data</h3>
+<p>This example sends both a file and regular form fields in one multipart request.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/post&quot;</span>
+
+<span class="n">file_content</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;invoice.pdf&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;invoice&quot;</span><span class="p">:</span> <span class="n">file_content</span><span class="p">}</span>
+
+<span class="n">form_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;customer_id&quot;</span><span class="p">:</span> <span class="s2">&quot;12345&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-03-20&quot;</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">form_data</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;form&quot;</span><span class="p">][</span><span class="s2">&quot;customer_id&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>12345</strong></p>
+<hr />
+<h3 id="example-5-upload-a-file-from-memory-string-content_1">📤 Example 5: Upload a file from memory (string content)</h3>
+<p>This example sends a file created from a string without saving it to disk first.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/post&quot;</span>
+
+<span class="n">file_content</span> <span class="o">=</span> <span class="s2">&quot;Hello, this is file content created in memory.&quot;</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;upload&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;notes.txt&quot;</span><span class="p">,</span> <span class="n">file_content</span><span class="p">,</span> <span class="s2">&quot;text/plain&quot;</span><span class="p">)}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;files&quot;</span><span class="p">][</span><span class="s2">&quot;upload&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello, this is file content created in memory.</strong></p>
+<hr />
+<h2 id="comparison-table_1">Comparison Table</h2>
 <table>
 <thead>
 <tr>

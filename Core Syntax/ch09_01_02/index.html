@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch09_01_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 09 | Accessing Values by Keys - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 09 | Accessing Values by Keys";
         var mkdocs_page_input_path = "Core Syntax\\ch09_01_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch09_01_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -414,6 +414,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-accessing-nested-dictionary-values">🔧 Example 5: Accessing nested dictionary values</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-access-methods">📊 Comparison: Access Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🔍 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-keys-and-values_1">⚙️ What Are Keys and Values?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accessing-values-using-square-brackets_1">🛠️ Accessing Values Using Square Brackets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accessing-values-using-the-get-method_1">🕵️ Accessing Values Using the .get() Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-square-brackets-vs-get-method_1">📊 Comparison: Square Brackets vs .get() Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples_1">🧪 Practical Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">🎯 Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-accessing-a-value-using-a-string-key_1">🔧 Example 1: Accessing a value using a string key</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-accessing-values-with-integer-keys_1">🔧 Example 2: Accessing values with integer keys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-the-get-method-to-avoid-keyerror_1">🔧 Example 3: Using the get() method to avoid KeyError</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-providing-a-default-value-with-get_1">🔧 Example 4: Providing a default value with get()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-accessing-nested-dictionary-values_1">🔧 Example 5: Accessing nested dictionary values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-access-methods_1">📊 Comparison: Access Methods</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="accessing-values-by-keys">Accessing Values by Keys</h1>
 <p><span class="category-tag">🏷️ Dictionaries /  Creating and Accessing Dictionaries</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🔍 Context Introduction</h3>
@@ -1185,8 +1213,7 @@
 <li>Remember that keys are case-sensitive and must be immutable types.</li>
 </ul>
 <p>Mastering dictionary access is a foundational skill that will serve you well when parsing JSON data, managing configuration files, or working with any structured data in Python.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Accessing values by keys retrieves the data stored in a dictionary using its unique key identifier.</p>
 <h3 id="example-1-accessing-a-value-using-a-string-key">🔧 Example 1: Accessing a value using a string key</h3>
 <p>This example shows how to get a value from a dictionary by providing the exact key name.</p>
@@ -1230,6 +1257,193 @@
 <p>📤 Output: <strong>Bob</strong></p>
 <hr />
 <h3 id="comparison-access-methods">📊 Comparison: Access Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Syntax</th>
+<th>Returns if key missing</th>
+<th>Use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bracket access</td>
+<td><code>dict["key"]</code></td>
+<td>Raises <code>KeyError</code></td>
+<td>When key is guaranteed to exist</td>
+</tr>
+<tr>
+<td><code>get()</code> without default</td>
+<td><code>dict.get("key")</code></td>
+<td><code>None</code></td>
+<td>When key might be missing</td>
+</tr>
+<tr>
+<td><code>get()</code> with default</td>
+<td><code>dict.get("key", default)</code></td>
+<td>Default value</td>
+<td>When you need a fallback value</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🔍 Context Introduction</h3>
+<p>Dictionaries are one of the most powerful data structures in Python. Unlike lists that use numeric indices, dictionaries store data in <strong>key-value pairs</strong>. This means you can look up a value using a unique key, much like how you would look up a word in a physical dictionary to find its definition.</p>
+<p>For engineers working with configuration files, API responses, or system metadata, dictionaries are everywhere. Understanding how to access values by their keys is essential for reading and manipulating structured data efficiently.</p>
+<hr />
+<h3 id="what-are-keys-and-values_1">⚙️ What Are Keys and Values?</h3>
+<ul>
+<li>A <strong>key</strong> is a unique identifier (usually a string or number) used to store and retrieve data.</li>
+<li>A <strong>value</strong> is the data associated with that key, which can be any Python data type (string, number, list, even another dictionary).</li>
+<li>Keys must be <strong>immutable</strong> (strings, numbers, tuples) and <strong>unique</strong> within a dictionary.</li>
+</ul>
+<p>Example of a simple dictionary:</p>
+<ul>
+<li><strong>Dictionary</strong>: <strong>{"hostname": "web-server-01", "port": 443, "ssl_enabled": True}</strong></li>
+<li><strong>Keys</strong>: <strong>"hostname"</strong>, <strong>"port"</strong>, <strong>"ssl_enabled"</strong></li>
+<li><strong>Values</strong>: <strong>"web-server-01"</strong>, <strong>443</strong>, <strong>True</strong></li>
+</ul>
+<hr />
+<h3 id="accessing-values-using-square-brackets_1">🛠️ Accessing Values Using Square Brackets</h3>
+<p>The most common way to access a value is by placing the key inside square brackets, just like indexing a list.</p>
+<ul>
+<li>Syntax: <strong>dictionary_name["key_name"]</strong></li>
+<li>Example: If you have <strong>server_config = {"hostname": "db-01", "port": 3306}</strong>, then <strong>server_config["hostname"]</strong> returns <strong>"db-01"</strong></li>
+<li><strong>Important</strong>: If the key does not exist, Python will raise a <strong>KeyError</strong> and stop execution.</li>
+</ul>
+<hr />
+<h3 id="accessing-values-using-the-get-method_1">🕵️ Accessing Values Using the .get() Method</h3>
+<p>A safer way to access values is using the <strong>.get()</strong> method. This method allows you to specify a default value if the key is missing.</p>
+<ul>
+<li>Syntax: <strong>dictionary_name.get("key_name", "default_value")</strong></li>
+<li>Example: <strong>server_config.get("timeout", 30)</strong> returns <strong>30</strong> if the key <strong>"timeout"</strong> does not exist</li>
+<li>If no default is provided and the key is missing, <strong>.get()</strong> returns <strong>None</strong> instead of raising an error</li>
+</ul>
+<hr />
+<h3 id="comparison-square-brackets-vs-get-method_1">📊 Comparison: Square Brackets vs .get() Method</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Square Brackets</th>
+<th>.get() Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Syntax</td>
+<td><strong>dict["key"]</strong></td>
+<td><strong>dict.get("key")</strong></td>
+</tr>
+<tr>
+<td>Missing key behavior</td>
+<td>Raises <strong>KeyError</strong></td>
+<td>Returns <strong>None</strong> or default value</td>
+</tr>
+<tr>
+<td>Default value support</td>
+<td>Not supported</td>
+<td>Supported via second argument</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>When you are sure the key exists</td>
+<td>When key may or may not exist</td>
+</tr>
+<tr>
+<td>Code safety</td>
+<td>Less safe</td>
+<td>More safe for dynamic data</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-examples_1">🧪 Practical Examples</h3>
+<p><strong>Example 1: Accessing a known key</strong></p>
+<ul>
+<li>Dictionary: <strong>system_info = {"os": "Ubuntu 22.04", "kernel": "5.15", "uptime": "30 days"}</strong></li>
+<li>Access: <strong>system_info["os"]</strong> returns <strong>"Ubuntu 22.04"</strong></li>
+<li>Access: <strong>system_info.get("kernel")</strong> returns <strong>"5.15"</strong></li>
+</ul>
+<p><strong>Example 2: Handling a missing key safely</strong></p>
+<ul>
+<li>Dictionary: <strong>app_config = {"debug": False, "max_connections": 100}</strong></li>
+<li>Using square brackets: <strong>app_config["timeout"]</strong> would raise a <strong>KeyError</strong></li>
+<li>Using .get(): <strong>app_config.get("timeout", 60)</strong> returns <strong>60</strong> (the default value)</li>
+</ul>
+<p><strong>Example 3: Checking if a key exists before accessing</strong></p>
+<ul>
+<li>You can use the <strong>in</strong> keyword to check: <strong>"hostname" in server_config</strong> returns <strong>True</strong> or <strong>False</strong></li>
+<li>Combined approach: <strong>if "hostname" in server_config: print(server_config["hostname"])</strong></li>
+</ul>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">🎯 Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Spelling mistakes</strong>: Keys are case-sensitive. <strong>"Hostname"</strong> and <strong>"hostname"</strong> are different keys.</li>
+<li><strong>Using mutable keys</strong>: Lists or other dictionaries cannot be used as keys. Use strings, numbers, or tuples instead.</li>
+<li><strong>Assuming key order</strong>: In older Python versions, dictionaries were unordered. In Python 3.7+, insertion order is preserved, but do not rely on this for critical logic.</li>
+<li><strong>Forgetting quotes</strong>: Keys must be quoted if they are strings. <strong>server_config[hostname]</strong> will look for a variable named <strong>hostname</strong>, not the string <strong>"hostname"</strong>.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li>Use <strong>square brackets</strong> when you are confident the key exists and want immediate feedback if it does not.</li>
+<li>Use <strong>.get()</strong> when working with uncertain or dynamic data to avoid crashes and provide fallback values.</li>
+<li>Always verify key existence with the <strong>in</strong> operator before accessing if using square brackets.</li>
+<li>Remember that keys are case-sensitive and must be immutable types.</li>
+</ul>
+<p>Mastering dictionary access is a foundational skill that will serve you well when parsing JSON data, managing configuration files, or working with any structured data in Python.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Accessing values by keys retrieves the data stored in a dictionary using its unique key identifier.</p>
+<h3 id="example-1-accessing-a-value-using-a-string-key_1">🔧 Example 1: Accessing a value using a string key</h3>
+<p>This example shows how to get a value from a dictionary by providing the exact key name.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineer</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;DevOps&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>Alice</strong></p>
+<hr />
+<h3 id="example-2-accessing-values-with-integer-keys_1">🔧 Example 2: Accessing values with integer keys</h3>
+<p>This example demonstrates that dictionary keys can be integers, not just strings.</p>
+<div class="highlight"><pre><span></span><code><span class="n">scores</span> <span class="o">=</span> <span class="p">{</span><span class="mi">101</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">102</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">103</span><span class="p">:</span> <span class="mi">78</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="mi">102</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>92</strong></p>
+<hr />
+<h3 id="example-3-using-the-get-method-to-avoid-keyerror_1">🔧 Example 3: Using the get() method to avoid KeyError</h3>
+<p>This example shows how to safely access a key that might not exist in the dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">server_config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;10.0.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8080</span><span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">server_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;protocol&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>None</strong></p>
+<hr />
+<h3 id="example-4-providing-a-default-value-with-get_1">🔧 Example 4: Providing a default value with get()</h3>
+<p>This example shows how to return a custom default when a key is missing.</p>
+<div class="highlight"><pre><span></span><code><span class="n">user_prefs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;dark&quot;</span><span class="p">,</span> <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">}</span>
+<span class="n">timeout</span> <span class="o">=</span> <span class="n">user_prefs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;timeout&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>30</strong></p>
+<hr />
+<h3 id="example-5-accessing-nested-dictionary-values_1">🔧 Example 5: Accessing nested dictionary values</h3>
+<p>This example shows how to chain key lookups to reach data inside nested dictionaries.</p>
+<div class="highlight"><pre><span></span><code><span class="n">project</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Pipeline&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;team&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lead&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;members&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">lead_name</span> <span class="o">=</span> <span class="n">project</span><span class="p">[</span><span class="s2">&quot;team&quot;</span><span class="p">][</span><span class="s2">&quot;lead&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lead_name</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Bob</strong></p>
+<hr />
+<h3 id="comparison-access-methods_1">📊 Comparison: Access Methods</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch06_02_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 06 | Practical Example: Retrying Connections with a Limit - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 06 | Practical Example: Retrying Connections with a Limit";
         var mkdocs_page_input_path = "Core Syntax\\ch06_02_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch06_02_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -302,6 +302,38 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-retry-with-exponential-backoff">🔧 Example 5: Retry with exponential backoff</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-we-are-building_1">⚙️ What We Are Building</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-core-logic-explained_1">🛠️ The Core Logic Explained</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-while-loop-vs-for-loop-for-retries_1">📊 Comparison: While Loop vs. For Loop for Retries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-by-step-breakdown_1">🕵️ Step-by-Step Breakdown</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-script-flow-no-code-blocks_1">📝 Example Script Flow (No Code Blocks)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#expected-behavior_1">🧪 Expected Behavior</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways-for-engineers_1">🎯 Key Takeaways for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#real-world-applications_1">🔄 Real-World Applications</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pro-tip_1">💡 Pro Tip</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-simple-retry-counter_1">🔧 Example 1: Simple retry counter</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-retry-with-a-simulated-failure_1">🔧 Example 2: Retry with a simulated failure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-retry-with-a-delay-between-attempts_1">🔧 Example 3: Retry with a delay between attempts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-retry-with-a-random-failure-simulation_1">🔧 Example 4: Retry with a random failure simulation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-retry-with-exponential-backoff_1">🔧 Example 5: Retry with exponential backoff</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="practical-example-retrying-connections-with-a-limit">Practical Example: Retrying Connections with a Limit</h1>
 <p><span class="category-tag">🏷️ Loops and Iteration /  The While Loop</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1215,8 +1247,7 @@
 - <strong>Logging</strong> to a file for post-mortem analysis</p>
 <hr />
 <p><strong>Next in series:</strong> <em>Practical Example: Menu-Driven Scripts with While Loops</em></p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This pattern uses a while loop to repeatedly attempt an operation until it succeeds or a maximum number of tries is reached.</p>
 <h3 id="example-1-simple-retry-counter">🔧 Example 1: Simple retry counter</h3>
 <p>This shows a basic while loop that counts down attempts.</p>
@@ -1328,6 +1359,303 @@
 <p>📤 Output: <strong>Attempt 1: connecting to database... Connection failed, waiting 1 second(s)... Attempt 2: connecting to database... Connection failed, waiting 2 second(s)... Attempt 3: connecting to database... Database connected Connected on attempt 3</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Basic Counter</th>
+<th>Simulated Failure</th>
+<th>With Delay</th>
+<th>Random Failure</th>
+<th>Exponential Backoff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max attempts</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>5</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Uses time.sleep()</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Success condition</td>
+<td>Always last attempt</td>
+<td>Fixed attempt number</td>
+<td>Fixed attempt number</td>
+<td>Random chance</td>
+<td>Fixed attempt number</td>
+</tr>
+<tr>
+<td>Wait between retries</td>
+<td>None</td>
+<td>None</td>
+<td>1 second</td>
+<td>0.5 seconds</td>
+<td>Doubles each time</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>In real-world automation and system management, connections to services, databases, or APIs often fail temporarily due to network issues, service restarts, or resource contention. A <strong>while loop</strong> is perfect for retrying these connections a limited number of times before giving up. This pattern prevents your script from hanging forever and gives you control over failure handling.</p>
+<hr />
+<h3 id="what-we-are-building_1">⚙️ What We Are Building</h3>
+<p>We want to simulate connecting to a service that may be temporarily unavailable. Our script will:</p>
+<ul>
+<li>Attempt to connect up to <strong>5 times</strong></li>
+<li>Wait <strong>2 seconds</strong> between each attempt</li>
+<li>Stop early if the connection succeeds</li>
+<li>Print a clear success or failure message</li>
+</ul>
+<hr />
+<h3 id="the-core-logic-explained_1">🛠️ The Core Logic Explained</h3>
+<ul>
+<li>A <strong>counter variable</strong> tracks how many attempts have been made</li>
+<li>A <strong>while loop</strong> runs as long as attempts remain and the connection has not succeeded</li>
+<li>Inside the loop, we attempt the connection</li>
+<li>If it fails, we increment the counter and wait</li>
+<li>If it succeeds, we break out of the loop</li>
+<li>After the loop, we check whether we succeeded or exhausted all attempts</li>
+</ul>
+<hr />
+<h3 id="comparison-while-loop-vs-for-loop-for-retries_1">📊 Comparison: While Loop vs. For Loop for Retries</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>While Loop</th>
+<th>For Loop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Flexibility</strong></td>
+<td>Can stop early based on any condition</td>
+<td>Runs a fixed number of times</td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Very clear for "keep trying until" logic</td>
+<td>Good for known attempt counts</td>
+</tr>
+<tr>
+<td><strong>Control</strong></td>
+<td>Easy to add complex exit conditions</td>
+<td>Requires extra logic for early exit</td>
+</tr>
+<tr>
+<td><strong>Common Use</strong></td>
+<td>Retry with dynamic conditions</td>
+<td>Simple fixed retry counts</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="step-by-step-breakdown_1">🕵️ Step-by-Step Breakdown</h3>
+<p><strong>1. Set up your retry parameters</strong>
+- Define a <strong>max_attempts</strong> variable (e.g., 5)
+- Define a <strong>wait_time</strong> variable (e.g., 2 seconds)
+- Create a <strong>counter</strong> starting at 0
+- Create a <strong>success</strong> flag set to <strong>False</strong></p>
+<p><strong>2. Write the while loop condition</strong>
+- The loop runs while <strong>counter &lt; max_attempts</strong> AND <strong>success</strong> is <strong>False</strong></p>
+<p><strong>3. Inside the loop</strong>
+- Increment the counter by 1
+- Print the current attempt number
+- Simulate the connection attempt (this is where your real logic goes)
+- If the connection succeeds, set <strong>success = True</strong> and print a success message
+- If it fails, print a failure message and wait for the defined wait time</p>
+<p><strong>4. After the loop</strong>
+- Check the <strong>success</strong> flag
+- If <strong>True</strong>, print a final success confirmation
+- If <strong>False</strong>, print a failure message indicating all attempts were exhausted</p>
+<hr />
+<h3 id="example-script-flow-no-code-blocks_1">📝 Example Script Flow (No Code Blocks)</h3>
+<p><strong>Step 1: Define variables</strong>
+- Set <strong>max_attempts = 5</strong>
+- Set <strong>wait_time = 2</strong>
+- Set <strong>attempt = 0</strong>
+- Set <strong>connected = False</strong></p>
+<p><strong>Step 2: While loop condition</strong>
+- While <strong>attempt &lt; max_attempts</strong> and <strong>connected</strong> is <strong>False</strong></p>
+<p><strong>Step 3: Inside the loop</strong>
+- Increase <strong>attempt</strong> by 1
+- Print: <strong>"Attempt number: [attempt]"</strong>
+- Simulate connection (replace with real logic)
+- If connection succeeds:
+  - Set <strong>connected = True</strong>
+  - Print: <strong>"Connection successful on attempt [attempt]"</strong>
+- Else:
+  - Print: <strong>"Connection failed on attempt [attempt]"</strong>
+  - Wait for <strong>wait_time</strong> seconds</p>
+<p><strong>Step 4: After the loop</strong>
+- If <strong>connected</strong> is <strong>True</strong>:
+  - Print: <strong>"Successfully connected to the service."</strong>
+- Else:
+  - Print: <strong>"Failed to connect after [max_attempts] attempts."</strong></p>
+<hr />
+<h3 id="expected-behavior_1">🧪 Expected Behavior</h3>
+<ul>
+<li><strong>If the service becomes available on attempt 3</strong>: The loop will stop early, and you will see success messages for attempt 3 only</li>
+<li><strong>If the service never becomes available</strong>: The loop will run all 5 attempts, then print the failure message</li>
+<li><strong>If the service is available immediately</strong>: The loop will run only once and exit</li>
+</ul>
+<hr />
+<h3 id="key-takeaways-for-engineers_1">🎯 Key Takeaways for Engineers</h3>
+<ul>
+<li><strong>Always set a maximum retry limit</strong> to prevent infinite loops</li>
+<li><strong>Use a success flag</strong> to cleanly exit the loop when the goal is achieved</li>
+<li><strong>Add a delay between retries</strong> to avoid overwhelming the target service</li>
+<li><strong>Print clear status messages</strong> for debugging and monitoring</li>
+<li><strong>This pattern works for any resource</strong> — databases, APIs, network sockets, file locks, or cloud services</li>
+</ul>
+<hr />
+<h3 id="real-world-applications_1">🔄 Real-World Applications</h3>
+<ul>
+<li><strong>Database connection retries</strong> after a server restart</li>
+<li><strong>API calls</strong> during rate limiting or temporary outages</li>
+<li><strong>Network socket connections</strong> to unreliable services</li>
+<li><strong>File lock acquisition</strong> in shared storage systems</li>
+<li><strong>Cloud resource provisioning</strong> waiting for a resource to become active</li>
+</ul>
+<hr />
+<h3 id="pro-tip_1">💡 Pro Tip</h3>
+<p>For more advanced retry logic, consider adding:
+- <strong>Exponential backoff</strong> (increase wait time after each failure)
+- <strong>Jitter</strong> (randomize wait time slightly to avoid thundering herd)
+- <strong>Different failure handling</strong> for different error types
+- <strong>Logging</strong> to a file for post-mortem analysis</p>
+<hr />
+<p><strong>Next in series:</strong> <em>Practical Example: Menu-Driven Scripts with While Loops</em></p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This pattern uses a while loop to repeatedly attempt an operation until it succeeds or a maximum number of tries is reached.</p>
+<h3 id="example-1-simple-retry-counter_1">🔧 Example 1: Simple retry counter</h3>
+<p>This shows a basic while loop that counts down attempts.</p>
+<div class="highlight"><pre><span></span><code><span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">max_attempts</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_attempts</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempt </span><span class="si">{</span><span class="n">attempts</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">attempts</span> <span class="o">=</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done trying&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Attempt 1 Attempt 2 Attempt 3 Done trying</strong></p>
+<hr />
+<h3 id="example-2-retry-with-a-simulated-failure_1">🔧 Example 2: Retry with a simulated failure</h3>
+<p>This demonstrates a loop that keeps trying until a condition is met or attempts run out.</p>
+<div class="highlight"><pre><span></span><code><span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">max_attempts</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_attempts</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Trying connection... attempt </span><span class="si">{</span><span class="n">attempts</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">attempts</span> <span class="o">=</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">attempts</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connection established&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connection failed after all attempts&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Trying connection... attempt 1 Trying connection... attempt 2 Trying connection... attempt 3 Connection established</strong></p>
+<hr />
+<h3 id="example-3-retry-with-a-delay-between-attempts_1">🔧 Example 3: Retry with a delay between attempts</h3>
+<p>This shows how to add a small pause between retry attempts using time.sleep().</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">max_attempts</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_attempts</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+    <span class="n">attempts</span> <span class="o">=</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempt </span><span class="si">{</span><span class="n">attempts</span><span class="si">}</span><span class="s2">: connecting to server...&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">attempts</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected on attempt </span><span class="si">{</span><span class="n">attempts</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All attempts failed&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Attempt 1: connecting to server... Attempt 2: connecting to server... Connected on attempt 2</strong></p>
+<hr />
+<h3 id="example-4-retry-with-a-random-failure-simulation_1">🔧 Example 4: Retry with a random failure simulation</h3>
+<p>This demonstrates a more realistic scenario where each attempt might randomly succeed or fail.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">max_attempts</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_attempts</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+    <span class="n">attempts</span> <span class="o">=</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempt </span><span class="si">{</span><span class="n">attempts</span><span class="si">}</span><span class="s2">: sending request...&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Response received&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timeout, retrying...&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Operation succeeded on attempt </span><span class="si">{</span><span class="n">attempts</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Operation failed after 5 attempts&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Attempt 1: sending request... Timeout, retrying... Attempt 2: sending request... Response received Operation succeeded on attempt 2</strong></p>
+<hr />
+<h3 id="example-5-retry-with-exponential-backoff_1">🔧 Example 5: Retry with exponential backoff</h3>
+<p>This shows a practical pattern where wait time increases between each retry attempt.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">max_attempts</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">wait_time</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_attempts</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+    <span class="n">attempts</span> <span class="o">=</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempt </span><span class="si">{</span><span class="n">attempts</span><span class="si">}</span><span class="s2">: connecting to database...&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">attempts</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Database connected&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connection failed, waiting </span><span class="si">{</span><span class="n">wait_time</span><span class="si">}</span><span class="s2"> second(s)...&quot;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">wait_time</span><span class="p">)</span>
+        <span class="n">wait_time</span> <span class="o">=</span> <span class="n">wait_time</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected on attempt </span><span class="si">{</span><span class="n">attempts</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All retry attempts exhausted&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Attempt 1: connecting to database... Connection failed, waiting 1 second(s)... Attempt 2: connecting to database... Connection failed, waiting 2 second(s)... Attempt 3: connecting to database... Database connected Connected on attempt 3</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

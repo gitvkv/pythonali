@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch10_02_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 10 | Default Parameter Values and Optionality - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 10 | Default Parameter Values and Optionality";
         var mkdocs_page_input_path = "Core Syntax\\ch10_02_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch10_02_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -462,6 +462,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-logging-with-optional-timestamp">🎯 Example 5: Practical use — logging with optional timestamp</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-required-vs-optional-parameters">Comparison Table: Required vs. Optional Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-default-parameter-values_1">⚙️ What Are Default Parameter Values?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-define-default-parameters_1">🛠️ How to Define Default Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-required-vs-optional-parameters_1">📊 Comparison: Required vs. Optional Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-patterns-and-best-practices_1">🕵️ Common Patterns and Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-this-matters-for-engineers_1">✅ Why This Matters for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-summary_1">💡 Quick Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-simple-default-parameter-value_1">🎯 Example 1: Simple default parameter value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-overriding-a-default-parameter-value_1">🎯 Example 2: Overriding a default parameter value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-multiple-parameters-with-default-values_1">🎯 Example 3: Multiple parameters with default values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-mixing-required-and-optional-parameters_1">🎯 Example 4: Mixing required and optional parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-logging-with-optional-timestamp_1">🎯 Example 5: Practical use — logging with optional timestamp</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-required-vs-optional-parameters_1">Comparison Table: Required vs. Optional Parameters</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="default-parameter-values-and-optionality">Default Parameter Values and Optionality</h1>
 <p><span class="category-tag">🏷️ Functions /  Parameters and Arguments</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1168,8 +1194,7 @@
 <li>Defaults make your functions more flexible, easier to use, and safer to maintain.</li>
 </ul>
 <p>By mastering default parameter values, you will write functions that are both powerful and forgiving—perfect for building robust and maintainable Python code.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Default parameter values let you define fallback values for function parameters, making those parameters optional when calling the function.</p>
 <h3 id="example-1-simple-default-parameter-value">🎯 Example 1: Simple default parameter value</h3>
 <p>This example shows a function with one required parameter and one parameter with a default value.</p>
@@ -1236,6 +1261,207 @@
 📤 Output: <strong>[ERROR] 2025-04-04 10:30:00.123456: Error occurred</strong></p>
 <hr />
 <h3 id="comparison-table-required-vs-optional-parameters">Comparison Table: Required vs. Optional Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Required Parameters</th>
+<th>Optional Parameters (with defaults)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Must be provided when calling?</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Position in function definition</td>
+<td>Before optional parameters</td>
+<td>After required parameters</td>
+</tr>
+<tr>
+<td>Default value assigned</td>
+<td>Never</td>
+<td>Always</td>
+</tr>
+<tr>
+<td>Can be omitted in function call?</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Example</td>
+<td><code>def add(a, b)</code></td>
+<td><code>def add(a, b=0)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When writing functions in Python, you will often find that certain parameters don't always need a new value every time the function is called. Sometimes, a sensible fallback value works perfectly. This is where <strong>default parameter values</strong> come into play. They allow you to define a function with parameters that are <strong>optional</strong>—if the caller doesn't provide a value, the default is used automatically. This makes your functions more flexible, reduces repetitive code, and keeps your function calls clean and readable.</p>
+<hr />
+<h3 id="what-are-default-parameter-values_1">⚙️ What Are Default Parameter Values?</h3>
+<p>A default parameter value is a value assigned to a parameter in the function definition. If the caller omits that argument, Python uses the default. If the caller provides a value, the provided value overrides the default.</p>
+<ul>
+<li>Default values are specified using an equals sign (<code>=</code>) right after the parameter name in the function definition.</li>
+<li>Parameters with defaults are <strong>optional</strong>; parameters without defaults are <strong>required</strong>.</li>
+<li>All required parameters must come before any optional parameters in the function signature.</li>
+</ul>
+<p><strong>Example concept:</strong>
+- A function that greets a user. If no name is given, it defaults to "Guest".
+- A function that calculates a discount. If no discount percentage is given, it defaults to 10%.</p>
+<hr />
+<h3 id="how-to-define-default-parameters_1">🛠️ How to Define Default Parameters</h3>
+<p>When defining a function, you assign a default value to a parameter like this:</p>
+<ul>
+<li><strong>Function definition:</strong> <code>def function_name(param1, param2=default_value):</code></li>
+<li>The parameter <code>param2</code> is optional. If not provided, it takes <code>default_value</code>.</li>
+<li>The parameter <code>param1</code> is required—it must always be provided.</li>
+</ul>
+<p><strong>Simple example in practice:</strong>
+- Define a function called <code>connect_to_server</code> with a required parameter <code>host</code> and an optional parameter <code>port</code> that defaults to <code>22</code> (standard SSH port).
+- If you call <code>connect_to_server("192.168.1.10")</code>, it uses port 22.
+- If you call <code>connect_to_server("192.168.1.10", 2222)</code>, it uses port 2222.</p>
+<hr />
+<h3 id="comparison-required-vs-optional-parameters_1">📊 Comparison: Required vs. Optional Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Required Parameters</th>
+<th>Optional Parameters (with defaults)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Must be provided?</strong></td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Position in function signature</strong></td>
+<td>Come first</td>
+<td>Come after all required parameters</td>
+</tr>
+<tr>
+<td><strong>Default value</strong></td>
+<td>None</td>
+<td>Defined in the function definition</td>
+</tr>
+<tr>
+<td><strong>Flexibility</strong></td>
+<td>Less flexible—always needs a value</td>
+<td>More flexible—caller can skip it</td>
+</tr>
+<tr>
+<td><strong>Use case</strong></td>
+<td>For values that are always needed</td>
+<td>For values that have a sensible fallback</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-patterns-and-best-practices_1">🕵️ Common Patterns and Best Practices</h3>
+<ul>
+<li><strong>Use defaults for configuration values:</strong> For example, a function that reads a log file might default to reading the last 10 lines, but allow the caller to specify a different number.</li>
+<li><strong>Avoid mutable default values like lists or dictionaries:</strong> If you use a list as a default, it gets created once when the function is defined, not each time the function is called. This can lead to unexpected behavior. Instead, use <code>None</code> as the default and create the mutable object inside the function.</li>
+<li><strong>Keep defaults simple:</strong> Use strings, numbers, booleans, or <code>None</code> as default values. These are immutable and safe.</li>
+<li><strong>Document your defaults:</strong> When writing a function, make it clear in the docstring what the default value is and what it does.</li>
+</ul>
+<p><strong>Example of a safe pattern with mutable defaults:</strong>
+- Instead of <code>def add_item(item, cart=[]):</code>, use <code>def add_item(item, cart=None):</code> and then inside the function, set <code>if cart is None: cart = []</code>.</p>
+<hr />
+<h3 id="why-this-matters-for-engineers_1">✅ Why This Matters for Engineers</h3>
+<ul>
+<li><strong>Cleaner code:</strong> You don't need to write multiple versions of the same function just to handle different numbers of arguments.</li>
+<li><strong>Backward compatibility:</strong> When updating a function, adding a new parameter with a default value won't break existing code that calls the function without that parameter.</li>
+<li><strong>Readable function calls:</strong> Callers only need to specify the values that differ from the defaults, making the intent of the code clearer.</li>
+<li><strong>Less error-prone:</strong> Defaults reduce the chance of forgetting to pass a common value, like a timeout or a retry count.</li>
+</ul>
+<hr />
+<h3 id="quick-summary_1">💡 Quick Summary</h3>
+<ul>
+<li>Default parameter values make function parameters <strong>optional</strong>.</li>
+<li>They are defined with an equals sign in the function signature.</li>
+<li>Required parameters must come before optional ones.</li>
+<li>Use immutable defaults (like <code>None</code>, numbers, or strings) to avoid bugs.</li>
+<li>Defaults make your functions more flexible, easier to use, and safer to maintain.</li>
+</ul>
+<p>By mastering default parameter values, you will write functions that are both powerful and forgiving—perfect for building robust and maintainable Python code.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Default parameter values let you define fallback values for function parameters, making those parameters optional when calling the function.</p>
+<h3 id="example-1-simple-default-parameter-value_1">🎯 Example 1: Simple default parameter value</h3>
+<p>This example shows a function with one required parameter and one parameter with a default value.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">):</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span>
+    <span class="k">return</span> <span class="n">message</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello, Alice!</strong></p>
+<hr />
+<h3 id="example-2-overriding-a-default-parameter-value_1">🎯 Example 2: Overriding a default parameter value</h3>
+<p>This example shows how to pass a different value to override the default.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">):</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span>
+    <span class="k">return</span> <span class="n">message</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Good morning&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Good morning, Bob!</strong></p>
+<hr />
+<h3 id="example-3-multiple-parameters-with-default-values_1">🎯 Example 3: Multiple parameters with default values</h3>
+<p>This example shows a function with several optional parameters, each having a default value.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_profile</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="s2">&quot;Unknown&quot;</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">profile</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, Age: </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">, City: </span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s2">, Active: </span><span class="si">{</span><span class="n">active</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="n">profile</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">create_profile</span><span class="p">(</span><span class="s2">&quot;Carol&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Name: Carol, Age: 30, City: Unknown, Active: True</strong></p>
+<hr />
+<h3 id="example-4-mixing-required-and-optional-parameters_1">🎯 Example 4: Mixing required and optional parameters</h3>
+<p>This example shows required parameters must come before any parameters with default values.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">calculate_cost</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">tax_rate</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">discount</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+    <span class="n">subtotal</span> <span class="o">=</span> <span class="n">price</span> <span class="o">*</span> <span class="n">quantity</span>
+    <span class="n">tax</span> <span class="o">=</span> <span class="n">subtotal</span> <span class="o">*</span> <span class="n">tax_rate</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">subtotal</span> <span class="o">+</span> <span class="n">tax</span> <span class="o">-</span> <span class="n">discount</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">calculate_cost</span><span class="p">(</span><span class="mf">25.00</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>81.0</strong></p>
+<hr />
+<h3 id="example-5-practical-use-logging-with-optional-timestamp_1">🎯 Example 5: Practical use — logging with optional timestamp</h3>
+<p>This example shows a real-world pattern where default values make functions flexible for engineers.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_message</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span> <span class="n">timestamp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">timestamp</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="n">log_entry</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="n">log_entry</span>
+
+<span class="n">result1</span> <span class="o">=</span> <span class="n">log_message</span><span class="p">(</span><span class="s2">&quot;System started&quot;</span><span class="p">)</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">log_message</span><span class="p">(</span><span class="s2">&quot;Error occurred&quot;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s2">&quot;ERROR&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[INFO] 2025-04-04 10:30:00.123456: System started</strong><br />
+📤 Output: <strong>[ERROR] 2025-04-04 10:30:00.123456: Error occurred</strong></p>
+<hr />
+<h3 id="comparison-table-required-vs-optional-parameters_1">Comparison Table: Required vs. Optional Parameters</h3>
 <table>
 <thead>
 <tr>

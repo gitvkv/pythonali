@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch07_02_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 07 | Inserting at Specific Positions - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 07 | Inserting at Specific Positions";
         var mkdocs_page_input_path = "Core Syntax\\ch07_02_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch07_02_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -334,6 +334,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-inserting-values-from-a-loop-into-a-list">📌 Example 5: Inserting Values from a Loop into a List</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-insert-vs-append-vs-extend">Comparison Table: insert() vs append() vs extend()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🌱 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-insert-method_1">⚙️ The insert() Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-insertion-works_1">📊 How Insertion Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples_1">🛠️ Practical Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-behavior-to-understand_1">🕵️ Important Behavior to Understand</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-use-cases-for-engineers_1">🧪 Common Use Cases for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#performance-note_1">⚡ Performance Note</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-recap_1">✅ Quick Recap</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practice-idea_1">📝 Practice Idea</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-inserting-at-the-beginning-of-a-list_1">📌 Example 1: Inserting at the Beginning of a List</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-inserting-in-the-middle-of-a-list_1">📌 Example 2: Inserting in the Middle of a List</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-inserting-at-the-end-using-the-list-length_1">📌 Example 3: Inserting at the End Using the List Length</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-inserting-with-a-negative-index_1">📌 Example 4: Inserting with a Negative Index</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-inserting-values-from-a-loop-into-a-list_1">📌 Example 5: Inserting Values from a Loop into a List</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-insert-vs-append-vs-extend_1">Comparison Table: insert() vs append() vs extend()</a>
     </li>
     </ul>
                 </li>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="inserting-at-specific-positions">Inserting at Specific Positions</h1>
 <p><span class="category-tag">🏷️ Lists and List Operations /  Modifying Lists</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1167,8 +1197,7 @@ Now <strong>configs</strong> becomes <strong>["nginx.conf", "app.conf", "db.conf
 <hr />
 <h3 id="practice-idea">📝 Practice Idea</h3>
 <p>Try creating a list of environment names: <strong>["dev", "staging", "prod"]</strong>. Then insert <strong>"qa"</strong> between <strong>"dev"</strong> and <strong>"staging"</strong>. Check the result to confirm the order is now <strong>["dev", "qa", "staging", "prod"]</strong>.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>insert()</code> method adds an element at any chosen index position in a list, shifting existing elements to the right.</p>
 <hr />
 <h3 id="example-1-inserting-at-the-beginning-of-a-list">📌 Example 1: Inserting at the Beginning of a List</h3>
@@ -1217,6 +1246,174 @@ Now <strong>configs</strong> becomes <strong>["nginx.conf", "app.conf", "db.conf
 <p>📤 Output: <strong>[30, 55, 70]</strong></p>
 <hr />
 <h3 id="comparison-table-insert-vs-append-vs-extend">Comparison Table: <code>insert()</code> vs <code>append()</code> vs <code>extend()</code></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What It Does</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>insert()</code></td>
+<td>Adds one element at a specific index</td>
+<td><code>my_list.insert(2, "new")</code></td>
+</tr>
+<tr>
+<td><code>append()</code></td>
+<td>Adds one element to the end of the list</td>
+<td><code>my_list.append("new")</code></td>
+</tr>
+<tr>
+<td><code>extend()</code></td>
+<td>Adds all elements from another list to the end</td>
+<td><code>my_list.extend(["a", "b"])</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🌱 Context Introduction</h3>
+<p>When working with lists in Python, you'll often need to add items not just at the end, but at a precise location within the list. Whether you're maintaining a sorted configuration list, inserting a new server into a deployment order, or adding a step in the middle of a workflow, knowing how to insert at specific positions gives you fine-grained control over your data structures.</p>
+<hr />
+<h3 id="the-insert-method_1">⚙️ The <strong>insert()</strong> Method</h3>
+<p>The primary tool for inserting at a specific position is the <strong>insert()</strong> method. It takes two arguments:</p>
+<ul>
+<li><strong>Index</strong> – The position where you want to insert the new item (0-based indexing)</li>
+<li><strong>Value</strong> – The item you want to add</li>
+</ul>
+<p><strong>Syntax example:</strong><br />
+<strong>my_list.insert(2, "new_item")</strong> – This inserts "new_item" at index 2, shifting all existing elements from that position onward to the right.</p>
+<hr />
+<h3 id="how-insertion-works_1">📊 How Insertion Works</h3>
+<table>
+<thead>
+<tr>
+<th>Position Concept</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Beginning</strong></td>
+<td>Use index <strong>0</strong> to insert at the very start</td>
+</tr>
+<tr>
+<td><strong>Middle</strong></td>
+<td>Use any index between <strong>0</strong> and <strong>len(list)</strong> to insert in between</td>
+</tr>
+<tr>
+<td><strong>End</strong></td>
+<td>Use <strong>len(list)</strong> as the index to insert at the very end (same as <strong>append()</strong>)</td>
+</tr>
+<tr>
+<td><strong>Beyond end</strong></td>
+<td>If index is larger than list length, Python inserts at the end</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-examples_1">🛠️ Practical Examples</h3>
+<p><strong>Inserting at the beginning of a list:</strong><br />
+<strong>servers = ["web02", "web03", "web04"]</strong><br />
+<strong>servers.insert(0, "web01")</strong><br />
+Now <strong>servers</strong> becomes <strong>["web01", "web02", "web03", "web04"]</strong></p>
+<p><strong>Inserting in the middle of a list:</strong><br />
+<strong>deploy_steps = ["build", "test", "deploy", "monitor"]</strong><br />
+<strong>deploy_steps.insert(2, "security_scan")</strong><br />
+Now <strong>deploy_steps</strong> becomes <strong>["build", "test", "security_scan", "deploy", "monitor"]</strong></p>
+<p><strong>Inserting at the end using index:</strong><br />
+<strong>configs = ["nginx.conf", "app.conf"]</strong><br />
+<strong>configs.insert(len(configs), "db.conf")</strong><br />
+Now <strong>configs</strong> becomes <strong>["nginx.conf", "app.conf", "db.conf"]</strong></p>
+<hr />
+<h3 id="important-behavior-to-understand_1">🕵️ Important Behavior to Understand</h3>
+<ul>
+<li><strong>Inserting does not replace</strong> – The existing element at that index is shifted right, not overwritten</li>
+<li><strong>Negative indices work too</strong> – Using <strong>-1</strong> inserts before the last element, not at the very end</li>
+<li><strong>The list grows by one</strong> – Every insertion increases the list length by 1</li>
+<li><strong>Inserting at index 0</strong> is like <strong>prepend</strong> in other languages</li>
+</ul>
+<hr />
+<h3 id="common-use-cases-for-engineers_1">🧪 Common Use Cases for Engineers</h3>
+<ul>
+<li>Adding a new configuration entry at a specific priority position</li>
+<li>Inserting a maintenance window into a scheduled task list</li>
+<li>Placing a new service endpoint in the correct order within a routing table</li>
+<li>Adding a validation step between existing pipeline stages</li>
+<li>Inserting a fallback server into a load balancer rotation list</li>
+</ul>
+<hr />
+<h3 id="performance-note_1">⚡ Performance Note</h3>
+<p>Inserting at the beginning or middle of a list is an <strong>O(n)</strong> operation because all elements after the insertion point must be shifted. For very large lists where you frequently insert at the front, consider using <strong>collections.deque</strong> for better performance.</p>
+<hr />
+<h3 id="quick-recap_1">✅ Quick Recap</h3>
+<ul>
+<li>Use <strong>insert(index, value)</strong> to add items at any position</li>
+<li>Index <strong>0</strong> inserts at the beginning</li>
+<li>Index <strong>len(list)</strong> inserts at the end</li>
+<li>Existing elements shift right automatically</li>
+<li>The list grows by one element after each insertion</li>
+</ul>
+<hr />
+<h3 id="practice-idea_1">📝 Practice Idea</h3>
+<p>Try creating a list of environment names: <strong>["dev", "staging", "prod"]</strong>. Then insert <strong>"qa"</strong> between <strong>"dev"</strong> and <strong>"staging"</strong>. Check the result to confirm the order is now <strong>["dev", "qa", "staging", "prod"]</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>insert()</code> method adds an element at any chosen index position in a list, shifting existing elements to the right.</p>
+<hr />
+<h3 id="example-1-inserting-at-the-beginning-of-a-list_1">📌 Example 1: Inserting at the Beginning of a List</h3>
+<p>Insert a value at index 0 to place it at the very front of the list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;wrench&quot;</span><span class="p">,</span> <span class="s2">&quot;hammer&quot;</span><span class="p">,</span> <span class="s2">&quot;screwdriver&quot;</span><span class="p">]</span>
+<span class="n">tools</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;pliers&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tools</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['pliers', 'wrench', 'hammer', 'screwdriver']</strong></p>
+<hr />
+<h3 id="example-2-inserting-in-the-middle-of-a-list_1">📌 Example 2: Inserting in the Middle of a List</h3>
+<p>Insert a value at index 2 to place it between the second and third elements.</p>
+<div class="highlight"><pre><span></span><code><span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="n">measurements</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[10, 20, 30, 40, 50]</strong></p>
+<hr />
+<h3 id="example-3-inserting-at-the-end-using-the-list-length_1">📌 Example 3: Inserting at the End Using the List Length</h3>
+<p>Use the length of the list as the index to insert at the very end.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;temp&quot;</span><span class="p">,</span> <span class="s2">&quot;pressure&quot;</span><span class="p">,</span> <span class="s2">&quot;humidity&quot;</span><span class="p">]</span>
+<span class="n">sensors</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sensors</span><span class="p">),</span> <span class="s2">&quot;flow&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensors</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['temp', 'pressure', 'humidity', 'flow']</strong></p>
+<hr />
+<h3 id="example-4-inserting-with-a-negative-index_1">📌 Example 4: Inserting with a Negative Index</h3>
+<p>Use a negative index to insert relative to the end of the list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ports</span> <span class="o">=</span> <span class="p">[</span><span class="mi">80</span><span class="p">,</span> <span class="mi">443</span><span class="p">,</span> <span class="mi">8080</span><span class="p">]</span>
+<span class="n">ports</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ports</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[80, 443, 22, 8080]</strong></p>
+<hr />
+<h3 id="example-5-inserting-values-from-a-loop-into-a-list_1">📌 Example 5: Inserting Values from a Loop into a List</h3>
+<p>Build a sorted list by inserting values at their correct positions during iteration.</p>
+<div class="highlight"><pre><span></span><code><span class="n">readings</span> <span class="o">=</span> <span class="p">[</span><span class="mi">55</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
+<span class="n">sorted_readings</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">readings</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="n">sorted_readings</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sorted_readings</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sorted_readings</span><span class="p">),</span> <span class="n">value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_readings</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[30, 55, 70]</strong></p>
+<hr />
+<h3 id="comparison-table-insert-vs-append-vs-extend_1">Comparison Table: <code>insert()</code> vs <code>append()</code> vs <code>extend()</code></h3>
 <table>
 <thead>
 <tr>

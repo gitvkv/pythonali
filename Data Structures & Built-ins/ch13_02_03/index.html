@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch13_02_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 13 | Multiple Except Blocks Handling - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 13 | Multiple Except Blocks Handling";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch13_02_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch13_02_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -613,6 +613,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-multiple-except-blocks">📊 Comparison Table: Multiple Except Blocks</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-use-multiple-except-blocks_1">⚙️ Why Use Multiple Except Blocks?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-structure_1">🛠️ Basic Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-exception-types-for-engineers_1">🕵️ Common Exception Types for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-single-except-vs-multiple-except-blocks_1">📊 Comparison: Single Except vs. Multiple Except Blocks</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-walkthrough_1">🛠️ Practical Example Walkthrough</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#order-matters_1">⚠️ Order Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices_1">🧠 Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#combining-with-else-and-finally_1">🔁 Combining with Else and Finally</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-catching-two-different-exception-types_1">🧪 Example 1: Catching two different exception types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-catching-built-in-exceptions-with-specific-messages_1">🧪 Example 2: Catching built-in exceptions with specific messages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-multiple-except-blocks-with-different-variable-names_1">🧪 Example 3: Multiple except blocks with different variable names</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-multiple-except-blocks-with-a-list-operation_1">🧪 Example 4: Using multiple except blocks with a list operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-data-validation-with-multiple-exceptions_1">🧪 Example 5: Practical data validation with multiple exceptions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-multiple-except-blocks_1">📊 Comparison Table: Multiple Except Blocks</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch13_02_04/">Ch 13 | Capturing Messages via except Exception as e</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="multiple-except-blocks-handling">Multiple Except Blocks Handling</h1>
 <p><span class="category-tag">🏷️ Error Handling and Exceptions /  Try-Except Blocks</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When writing Python code, different errors can occur at different times. A single <strong>try</strong> block might encounter various types of problems—a file might not exist, a value might be invalid, or a network connection might fail. Instead of writing separate <strong>try</strong> blocks for each possible error, Python allows you to attach multiple <strong>except</strong> blocks to one <strong>try</strong> block. This keeps your code clean and lets you handle each error type with its own specific response.</p>
@@ -1221,8 +1251,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Multiple <strong>except</strong> blocks give you the power to anticipate different failure modes and respond to each one appropriately. By structuring your error handling this way, you write more resilient code that is easier to debug and maintain. Start by identifying the specific errors your code might trigger, then write a dedicated <strong>except</strong> block for each one, ordered from most specific to most general.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Multiple except blocks allow you to catch different types of errors separately within a single try block.</p>
 <hr />
 <h3 id="example-1-catching-two-different-exception-types">🧪 Example 1: Catching two different exception types</h3>
@@ -1306,6 +1335,273 @@
 <p>📤 Output: <strong>Please enter valid numbers</strong> (if user enters text) or <strong>Cannot divide by zero</strong> (if user enters 0 for second number and chooses division)</p>
 <hr />
 <h3 id="comparison-table-multiple-except-blocks">📊 Comparison Table: Multiple Except Blocks</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Single Except Block</th>
+<th>Multiple Except Blocks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of exceptions caught</td>
+<td>One per block</td>
+<td>Multiple, one per block</td>
+</tr>
+<tr>
+<td>Error messages</td>
+<td>Same for all errors</td>
+<td>Different for each error</td>
+</tr>
+<tr>
+<td>Code organization</td>
+<td>Less specific</td>
+<td>More specific and clear</td>
+</tr>
+<tr>
+<td>Debugging ease</td>
+<td>Harder to identify error type</td>
+<td>Easier to identify error type</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Simple error handling</td>
+<td>Complex error handling with different responses</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When writing Python code, different errors can occur at different times. A single <strong>try</strong> block might encounter various types of problems—a file might not exist, a value might be invalid, or a network connection might fail. Instead of writing separate <strong>try</strong> blocks for each possible error, Python allows you to attach multiple <strong>except</strong> blocks to one <strong>try</strong> block. This keeps your code clean and lets you handle each error type with its own specific response.</p>
+<hr />
+<h3 id="why-use-multiple-except-blocks_1">⚙️ Why Use Multiple Except Blocks?</h3>
+<ul>
+<li><strong>Granular Control</strong> – Each error type gets its own handling logic, so you can respond appropriately to a missing file versus a wrong data type.</li>
+<li><strong>Readable Code</strong> – Grouping related error handling in one place makes it easier for others (and your future self) to understand what could go wrong.</li>
+<li><strong>Avoids Generic Catching</strong> – Instead of catching all errors with a blanket <strong>except</strong>, you can be precise and only handle the errors you expect.</li>
+</ul>
+<hr />
+<h3 id="basic-structure_1">🛠️ Basic Structure</h3>
+<p>The pattern looks like this:</p>
+<ul>
+<li>Start with a <strong>try</strong> block containing the code that might fail.</li>
+<li>Follow with multiple <strong>except</strong> blocks, each specifying a different exception type.</li>
+<li>Each <strong>except</strong> block contains the code to run if that specific error occurs.</li>
+</ul>
+<p><strong>Example structure:</strong></p>
+<ul>
+<li><strong>try:</strong> Attempt to open a file and read a number from it.</li>
+<li><strong>except FileNotFoundError:</strong> Print a message that the file is missing.</li>
+<li><strong>except ValueError:</strong> Print a message that the content is not a valid number.</li>
+<li><strong>except PermissionError:</strong> Print a message that you don't have access.</li>
+</ul>
+<p>Only one <strong>except</strong> block will execute—the first one that matches the error that actually occurred.</p>
+<hr />
+<h3 id="common-exception-types-for-engineers_1">🕵️ Common Exception Types for Engineers</h3>
+<table>
+<thead>
+<tr>
+<th>Exception Type</th>
+<th>When It Occurs</th>
+<th>Typical Scenario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FileNotFoundError</strong></td>
+<td>A file or directory does not exist</td>
+<td>Reading a config file that was deleted</td>
+</tr>
+<tr>
+<td><strong>ValueError</strong></td>
+<td>A function receives an argument with the right type but wrong value</td>
+<td>Converting a string like "abc" to an integer</td>
+</tr>
+<tr>
+<td><strong>TypeError</strong></td>
+<td>An operation is applied to an object of inappropriate type</td>
+<td>Adding a string to an integer</td>
+</tr>
+<tr>
+<td><strong>KeyError</strong></td>
+<td>A dictionary key is not found</td>
+<td>Accessing a missing key in a JSON response</td>
+</tr>
+<tr>
+<td><strong>IndexError</strong></td>
+<td>A list index is out of range</td>
+<td>Iterating past the end of a list</td>
+</tr>
+<tr>
+<td><strong>PermissionError</strong></td>
+<td>Insufficient access rights</td>
+<td>Writing to a protected log directory</td>
+</tr>
+<tr>
+<td><strong>ConnectionError</strong></td>
+<td>A network connection fails</td>
+<td>Reaching a downed API endpoint</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="comparison-single-except-vs-multiple-except-blocks_1">📊 Comparison: Single Except vs. Multiple Except Blocks</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Single Except Block</th>
+<th>Multiple Except Blocks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Error specificity</strong></td>
+<td>Catches all exceptions (or one type)</td>
+<td>Catches different types individually</td>
+</tr>
+<tr>
+<td><strong>Code clarity</strong></td>
+<td>Can hide unexpected bugs</td>
+<td>Clearly shows which errors are expected</td>
+</tr>
+<tr>
+<td><strong>Maintenance</strong></td>
+<td>Harder to update error responses</td>
+<td>Easy to add or remove error handlers</td>
+</tr>
+<tr>
+<td><strong>Best use case</strong></td>
+<td>Quick prototyping or cleanup</td>
+<td>Production code with known failure modes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-walkthrough_1">🛠️ Practical Example Walkthrough</h3>
+<p>Imagine you are writing a script that reads a server's port number from a configuration file.</p>
+<p><strong>Step 1 – The try block:</strong> You attempt to open the file and convert its content to an integer.</p>
+<p><strong>Step 2 – First except block:</strong> If the file does not exist, you log a warning and use a default port.</p>
+<p><strong>Step 3 – Second except block:</strong> If the file exists but contains text like "eight" instead of "8", you catch the <strong>ValueError</strong> and prompt the user to fix the file.</p>
+<p><strong>Step 4 – Third except block:</strong> If you lack read permissions, you catch <strong>PermissionError</strong> and escalate the issue.</p>
+<p>Each error leads to a different, meaningful response instead of a generic failure message.</p>
+<hr />
+<h3 id="order-matters_1">⚠️ Order Matters</h3>
+<p>Python checks <strong>except</strong> blocks in the order you write them. Always place more specific exceptions before more general ones.</p>
+<ul>
+<li><strong>Correct order:</strong> <strong>FileNotFoundError</strong> then <strong>Exception</strong>.</li>
+<li><strong>Wrong order:</strong> <strong>Exception</strong> then <strong>FileNotFoundError</strong> (the first block catches everything, so the second never runs).</li>
+</ul>
+<p>A good rule of thumb: list exceptions from most specific to least specific.</p>
+<hr />
+<h3 id="best-practices_1">🧠 Best Practices</h3>
+<ul>
+<li><strong>Only catch what you can handle</strong> – If you don't know how to recover from an error, let it propagate up.</li>
+<li><strong>Use the exception object</strong> – You can capture the error message by writing <strong>except SomeError as e:</strong> and then using <strong>e</strong> in your response.</li>
+<li><strong>Avoid bare except blocks</strong> – Using <strong>except:</strong> without a type catches system-exiting errors like <strong>KeyboardInterrupt</strong>, which can make your script impossible to stop.</li>
+<li><strong>Keep each except block focused</strong> – Each handler should do one thing: log, retry, use a default, or notify.</li>
+</ul>
+<hr />
+<h3 id="combining-with-else-and-finally_1">🔁 Combining with Else and Finally</h3>
+<p>Multiple <strong>except</strong> blocks work seamlessly with <strong>else</strong> and <strong>finally</strong>:</p>
+<ul>
+<li><strong>else:</strong> Runs only if no exception occurred in the <strong>try</strong> block.</li>
+<li><strong>finally:</strong> Always runs, whether an exception happened or not (great for closing files or releasing resources).</li>
+</ul>
+<p>This combination gives you full control over the flow of your error handling logic.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Multiple <strong>except</strong> blocks give you the power to anticipate different failure modes and respond to each one appropriately. By structuring your error handling this way, you write more resilient code that is easier to debug and maintain. Start by identifying the specific errors your code might trigger, then write a dedicated <strong>except</strong> block for each one, ordered from most specific to most general.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Multiple except blocks allow you to catch different types of errors separately within a single try block.</p>
+<hr />
+<h3 id="example-1-catching-two-different-exception-types_1">🧪 Example 1: Catching two different exception types</h3>
+<p>This example shows how to handle a <code>ZeroDivisionError</code> and a <code>ValueError</code> with separate except blocks.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number: &quot;</span><span class="p">))</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="n">number</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please enter a valid number&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Cannot divide by zero</strong> (if user enters 0) or <strong>Please enter a valid number</strong> (if user enters text)</p>
+<hr />
+<h3 id="example-2-catching-built-in-exceptions-with-specific-messages_1">🧪 Example 2: Catching built-in exceptions with specific messages</h3>
+<p>This example demonstrates catching <code>FileNotFoundError</code> and <code>PermissionError</code> separately when reading a file.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The file does not exist&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">PermissionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You do not have permission to read this file&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>The file does not exist</strong> (if data.txt is missing)</p>
+<hr />
+<h3 id="example-3-multiple-except-blocks-with-different-variable-names_1">🧪 Example 3: Multiple except blocks with different variable names</h3>
+<p>This example shows how to access the exception object in each except block.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your age: &quot;</span><span class="p">))</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">/</span> <span class="n">age</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">ve</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value error:&quot;</span><span class="p">,</span> <span class="n">ve</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">zde</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Division error:&quot;</span><span class="p">,</span> <span class="n">zde</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Value error: invalid literal for int() with base 10: 'abc'</strong> (if user enters "abc")</p>
+<hr />
+<h3 id="example-4-using-multiple-except-blocks-with-a-list-operation_1">🧪 Example 4: Using multiple except blocks with a list operation</h3>
+<p>This example handles <code>IndexError</code> and <code>TypeError</code> when working with a list.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter index: &quot;</span><span class="p">))</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">value</span> <span class="o">+</span> <span class="s2">&quot;extra&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Index is out of range&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cannot add string to number&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Index is out of range</strong> (if user enters 5) or <strong>Cannot add string to number</strong> (if user enters 0)</p>
+<hr />
+<h3 id="example-5-practical-data-validation-with-multiple-exceptions_1">🧪 Example 5: Practical data validation with multiple exceptions</h3>
+<p>This example validates user input for a simple calculator using multiple except blocks.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">num1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter first number: &quot;</span><span class="p">))</span>
+    <span class="n">num2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter second number: &quot;</span><span class="p">))</span>
+    <span class="n">operation</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter operation (+, -, *, /): &quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s2">&quot;+&quot;</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
+    <span class="k">elif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span>
+    <span class="k">elif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s2">&quot;*&quot;</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span>
+    <span class="k">elif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s2">&quot;/&quot;</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid operation&quot;</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Result:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please enter valid numbers&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Please enter valid numbers</strong> (if user enters text) or <strong>Cannot divide by zero</strong> (if user enters 0 for second number and chooses division)</p>
+<hr />
+<h3 id="comparison-table-multiple-except-blocks_1">📊 Comparison Table: Multiple Except Blocks</h3>
 <table>
 <thead>
 <tr>

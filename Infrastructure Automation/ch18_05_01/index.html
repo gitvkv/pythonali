@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_05_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Extending Parent Classes Templates into Child Models - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Extending Parent Classes Templates into Child Models";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_05_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_05_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -855,6 +855,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-inheritance_1">⚙️ What is Inheritance?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-a-parent-class-template_1">🛠️ Creating a Parent Class Template</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#extending-with-child-models_1">📊 Extending with Child Models</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-child-models-inherit-and-extend_1">🕵️ How Child Models Inherit and Extend</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-breakdown_1">📈 Practical Example Breakdown</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-extending-parent-classes_1">🧩 Best Practices for Extending Parent Classes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-parent-class-with-a-simple-child_1">🔧 Example 1: Basic Parent Class with a Simple Child</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-child-class-adding-its-own-method_1">🔧 Example 2: Child Class Adding Its Own Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-overriding-a-parent-method-in-the-child_1">🔧 Example 3: Overriding a Parent Method in the Child</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-calling-the-parent-method-from-inside-the-child_1">🔧 Example 4: Calling the Parent Method from Inside the Child</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-engineering-example-sensor-base-class_1">🔧 Example 5: Practical Engineering Example — Sensor Base Class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_05_02/">Ch 18 | Calling Parent Constructors via the super Mechanism</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="extending-parent-classes-templates-into-child-models">Extending Parent Classes Templates into Child Models</h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Inheritance</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1184,8 +1212,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Extending parent class templates into child models is a powerful way to build scalable and maintainable code. By starting with a solid parent template and creating specialized children, you can model real-world relationships cleanly. Remember: parent classes provide the foundation, child classes add the details. This approach keeps your code DRY (Don't Repeat Yourself) and makes future changes easier to manage.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Extending parent classes templates into child models lets engineers create specialized versions of a base class that inherit its attributes and methods while adding new features.</p>
 <hr />
 <h3 id="example-1-basic-parent-class-with-a-simple-child">🔧 Example 1: Basic Parent Class with a Simple Child</h3>
@@ -1277,6 +1304,246 @@
 📤 Output: <strong>101.3</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Parent Class</th>
+<th>Child Class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inherits methods</td>
+<td>Provides base methods</td>
+<td>Receives all parent methods</td>
+</tr>
+<tr>
+<td>Adds new methods</td>
+<td>No new methods added</td>
+<td>Can add its own methods</td>
+</tr>
+<tr>
+<td>Overrides methods</td>
+<td>Original method stays</td>
+<td>Can replace parent method</td>
+</tr>
+<tr>
+<td>Calls parent method</td>
+<td>Not applicable</td>
+<td>Uses <code>super()</code> to call parent</td>
+</tr>
+<tr>
+<td>Practical use</td>
+<td>General template</td>
+<td>Specialized version for specific needs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>In object-oriented programming, inheritance allows us to create new classes (child models) that reuse, extend, and modify the behavior of existing classes (parent templates). Think of it like a blueprint: you have a basic house design (parent class), and you create specialized versions like a house with a garage or a house with a sunroom (child classes). This approach saves time, reduces code duplication, and makes your code more organized and maintainable.</p>
+<hr />
+<h3 id="what-is-inheritance_1">⚙️ What is Inheritance?</h3>
+<ul>
+<li><strong>Parent Class (Base Class):</strong> The original template that contains common attributes and methods.</li>
+<li><strong>Child Class (Derived Class):</strong> A new class that inherits everything from the parent and can add or override features.</li>
+<li><strong>Key Benefit:</strong> Write once, reuse many times. Changes to the parent automatically reflect in all children.</li>
+</ul>
+<hr />
+<h3 id="creating-a-parent-class-template_1">🛠️ Creating a Parent Class Template</h3>
+<p>A parent class serves as the foundation. It defines the shared characteristics that all child classes will inherit.</p>
+<ul>
+<li>Define a class with common attributes and methods.</li>
+<li>Use the <strong><strong>init</strong></strong> method to initialize shared properties.</li>
+<li>Example structure for a parent class:</li>
+<li><strong>Class Name:</strong> <em>NetworkDevice</em></li>
+<li><strong>Attributes:</strong> <em>hostname</em>, <em>ip_address</em>, <em>status</em></li>
+<li><strong>Methods:</strong> <em>connect()</em>, <em>disconnect()</em>, <em>get_info()</em></li>
+</ul>
+<hr />
+<h3 id="extending-with-child-models_1">📊 Extending with Child Models</h3>
+<p>Child classes inherit everything from the parent and can:</p>
+<ul>
+<li><strong>Add new attributes</strong> specific to the child.</li>
+<li><strong>Add new methods</strong> unique to the child.</li>
+<li><strong>Override parent methods</strong> to change behavior.</li>
+<li><strong>Call parent methods</strong> using the <strong>super()</strong> function.</li>
+</ul>
+<p><strong>Comparison: Parent vs Child Class</strong></p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Parent Class</th>
+<th>Child Class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attributes</td>
+<td>Common ones only</td>
+<td>Inherited + new ones</td>
+</tr>
+<tr>
+<td>Methods</td>
+<td>General purpose</td>
+<td>Inherited + specialized</td>
+</tr>
+<tr>
+<td>Flexibility</td>
+<td>Fixed template</td>
+<td>Can be customized</td>
+</tr>
+<tr>
+<td>Code Reuse</td>
+<td>Foundation</td>
+<td>Extends foundation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-child-models-inherit-and-extend_1">🕵️ How Child Models Inherit and Extend</h3>
+<p>When creating a child model:</p>
+<ul>
+<li>The child class name is followed by the parent class name in parentheses.</li>
+<li>The child's <strong><strong>init</strong></strong> method calls the parent's <strong><strong>init</strong></strong> using <strong>super()</strong> to initialize inherited attributes.</li>
+<li>New attributes are added after the super() call.</li>
+<li>New methods are defined just like in any class.</li>
+<li>To override a method, define it with the same name in the child class.</li>
+</ul>
+<p><strong>Key points to remember:</strong>
+- A child class can access all non-private parent methods and attributes.
+- Multiple children can inherit from the same parent.
+- A child can become a parent for further inheritance (multi-level).</p>
+<hr />
+<h3 id="practical-example-breakdown_1">📈 Practical Example Breakdown</h3>
+<p>Consider a parent class called <em>Server</em> with:
+- <strong>Attributes:</strong> <em>name</em>, <em>os</em>, <em>ram_gb</em>
+- <strong>Methods:</strong> <em>start()</em>, <em>stop()</em>, <em>restart()</em></p>
+<p>Now create a child class called <em>WebServer</em> that extends <em>Server</em>:
+- <strong>Inherited attributes:</strong> <em>name</em>, <em>os</em>, <em>ram_gb</em>
+- <strong>New attributes:</strong> <em>port</em>, <em>domain</em>
+- <strong>Inherited methods:</strong> <em>start()</em>, <em>stop()</em>, <em>restart()</em>
+- <strong>New method:</strong> <em>serve_page()</em>
+- <strong>Overridden method:</strong> <em>start()</em> (to also check port availability)</p>
+<p>Another child class called <em>DatabaseServer</em> that extends <em>Server</em>:
+- <strong>Inherited attributes:</strong> <em>name</em>, <em>os</em>, <em>ram_gb</em>
+- <strong>New attributes:</strong> <em>db_type</em>, <em>max_connections</em>
+- <strong>Inherited methods:</strong> <em>start()</em>, <em>stop()</em>, <em>restart()</em>
+- <strong>New method:</strong> <em>run_query()</em>
+- <strong>Overridden method:</strong> <em>stop()</em> (to flush data before shutdown)</p>
+<hr />
+<h3 id="best-practices-for-extending-parent-classes_1">🧩 Best Practices for Extending Parent Classes</h3>
+<ul>
+<li><strong>Keep parent classes generic</strong> – They should represent common functionality.</li>
+<li><strong>Keep child classes specific</strong> – Add only what is unique to that model.</li>
+<li><strong>Use super() consistently</strong> – Always initialize parent attributes properly.</li>
+<li><strong>Avoid deep inheritance chains</strong> – More than 2-3 levels can become confusing.</li>
+<li><strong>Override methods with care</strong> – Ensure the overridden method still fulfills the parent's contract.</li>
+<li><strong>Document your extensions</strong> – Explain why a child class exists and what it adds.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Extending parent class templates into child models is a powerful way to build scalable and maintainable code. By starting with a solid parent template and creating specialized children, you can model real-world relationships cleanly. Remember: parent classes provide the foundation, child classes add the details. This approach keeps your code DRY (Don't Repeat Yourself) and makes future changes easier to manage.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Extending parent classes templates into child models lets engineers create specialized versions of a base class that inherit its attributes and methods while adding new features.</p>
+<hr />
+<h3 id="example-1-basic-parent-class-with-a-simple-child_1">🔧 Example 1: Basic Parent Class with a Simple Child</h3>
+<p>This example shows how a child class inherits a method from its parent class without any changes.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Vehicle is moving&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">(</span><span class="n">Vehicle</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="n">my_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">my_car</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Vehicle is moving</strong></p>
+<hr />
+<h3 id="example-2-child-class-adding-its-own-method_1">🔧 Example 2: Child Class Adding Its Own Method</h3>
+<p>This example demonstrates a child class that inherits a parent method and adds a brand-new method of its own.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Vehicle is moving&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">(</span><span class="n">Vehicle</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">honk</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Beep beep!&quot;</span>
+
+<span class="n">my_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">move_result</span> <span class="o">=</span> <span class="n">my_car</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+<span class="n">honk_result</span> <span class="o">=</span> <span class="n">my_car</span><span class="o">.</span><span class="n">honk</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Vehicle is moving</strong><br />
+📤 Output: <strong>Beep beep!</strong></p>
+<hr />
+<h3 id="example-3-overriding-a-parent-method-in-the-child_1">🔧 Example 3: Overriding a Parent Method in the Child</h3>
+<p>This example shows how a child class can replace a parent method with its own version.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Vehicle is moving&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Bicycle</span><span class="p">(</span><span class="n">Vehicle</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Bicycle is pedaling&quot;</span>
+
+<span class="n">my_bike</span> <span class="o">=</span> <span class="n">Bicycle</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">my_bike</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Bicycle is pedaling</strong></p>
+<hr />
+<h3 id="example-4-calling-the-parent-method-from-inside-the-child_1">🔧 Example 4: Calling the Parent Method from Inside the Child</h3>
+<p>This example demonstrates how a child class can extend a parent method by calling the parent version first, then adding extra behavior.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Vehicle is moving&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ElectricCar</span><span class="p">(</span><span class="n">Vehicle</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">parent_move</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">parent_move</span> <span class="o">+</span> <span class="s2">&quot; silently&quot;</span>
+
+<span class="n">my_ev</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">my_ev</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Vehicle is moving silently</strong></p>
+<hr />
+<h3 id="example-5-practical-engineering-example-sensor-base-class_1">🔧 Example 5: Practical Engineering Example — Sensor Base Class</h3>
+<p>This example shows a practical pattern where engineers create a base sensor class and extend it for different sensor types.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Sensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">location</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TemperatureSensor</span><span class="p">(</span><span class="n">Sensor</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">25.5</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PressureSensor</span><span class="p">(</span><span class="n">Sensor</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mf">101.3</span>
+
+<span class="n">temp_sensor</span> <span class="o">=</span> <span class="n">TemperatureSensor</span><span class="p">(</span><span class="s2">&quot;Engine Room&quot;</span><span class="p">)</span>
+<span class="n">pressure_sensor</span> <span class="o">=</span> <span class="n">PressureSensor</span><span class="p">(</span><span class="s2">&quot;Boiler&quot;</span><span class="p">)</span>
+
+<span class="n">temp_reading</span> <span class="o">=</span> <span class="n">temp_sensor</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">pressure_reading</span> <span class="o">=</span> <span class="n">pressure_sensor</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>25.5</strong><br />
+📤 Output: <strong>101.3</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

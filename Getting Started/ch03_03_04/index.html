@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch03_03_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 03 | Practical Example: Building Dynamic Log Messages - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 03 | Practical Example: Building Dynamic Log Messages";
         var mkdocs_page_input_path = "Getting Started\\ch03_03_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch03_03_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -190,6 +190,38 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-building-a-multi-line-log-entry-with-dictionary-data">📘 Example 5: Building a Multi-Line Log Entry with Dictionary Data</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-string-formatting-methods-for-log-messages">Comparison Table: String Formatting Methods for Log Messages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-problem-static-vs-dynamic-logging_1">⚙️ The Problem: Static vs. Dynamic Logging</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-your-first-dynamic-log-message_1">🛠️ Building Your First Dynamic Log Message</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-different-string-formatting-methods_1">📊 Comparison: Different String Formatting Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#real-world-scenario-multi-level-logging_1">🕵️ Real-World Scenario: Multi-Level Logging</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-conditional-logic-to-log-messages_1">🧩 Adding Conditional Logic to Log Messages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#formatting-numbers-and-alignments-in-logs_1">🔄 Formatting Numbers and Alignments in Logs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together-a-reusable-log-builder_1">🧰 Putting It All Together: A Reusable Log Builder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">📚 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-simple-variable-insertion-with-f-strings_1">📘 Example 1: Simple Variable Insertion with f-strings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-inserting-multiple-variables-into-a-log-message_1">📘 Example 2: Inserting Multiple Variables into a Log Message</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-including-timestamps-in-log-messages_1">📘 Example 3: Including Timestamps in Log Messages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-conditional-log-messages-with-f-strings_1">📘 Example 4: Conditional Log Messages with f-strings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-building-a-multi-line-log-entry-with-dictionary-data_1">📘 Example 5: Building a Multi-Line Log Entry with Dictionary Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-string-formatting-methods-for-log-messages_1">Comparison Table: String Formatting Methods for Log Messages</a>
     </li>
     </ul>
                 </li>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="practical-example-building-dynamic-log-messages">Practical Example: Building Dynamic Log Messages</h1>
 <p><span class="category-tag">🏷️ Working with Strings In-Depth /  String Formatting</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1234,8 +1266,7 @@
 <li>Try combining string formatting with <strong>exception handling</strong> to log errors with full tracebacks.</li>
 <li>Explore Python's built-in <strong>logging module</strong> for production-grade logging—it uses the same formatting principles under the hood.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example shows how to build log messages that change based on variable values using Python string formatting.</p>
 <h3 id="example-1-simple-variable-insertion-with-f-strings">📘 Example 1: Simple Variable Insertion with f-strings</h3>
 <p>This example inserts a single variable into a log message using an f-string.</p>
@@ -1307,6 +1338,272 @@
 <p>📤 Output: <strong>\n--- Deployment Log ---\nUser:     engineer_bob\nAction:   rollback\nService:  payment-service\nDuration: 12.5s\nStatus:   FAILED\n--- End Log ---\n</strong></p>
 <hr />
 <h3 id="comparison-table-string-formatting-methods-for-log-messages">Comparison Table: String Formatting Methods for Log Messages</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Syntax</th>
+<th>Best For</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>f-string</td>
+<td><code>f"..."</code></td>
+<td>Simple variable insertion</td>
+<td><code>f"User {name}"</code></td>
+</tr>
+<tr>
+<td><code>.format()</code></td>
+<td><code>"{}".format()</code></td>
+<td>Reusing placeholders</td>
+<td><code>"{} {}".format(a, b)</code></td>
+</tr>
+<tr>
+<td><code>%</code>-formatting</td>
+<td><code>"%s" % var</code></td>
+<td>Legacy code compatibility</td>
+<td><code>"Error %d" % code</code></td>
+</tr>
+<tr>
+<td>Template strings</td>
+<td><code>Template("$var")</code></td>
+<td>User-supplied format strings</td>
+<td><code>Template("$name")</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>Logging is one of the most common tasks in any system. Whether you're monitoring servers, debugging applications, or tracking deployment pipelines, you'll constantly need to generate log messages that change based on runtime conditions. Hardcoding every log message is impractical and messy. Instead, you can build <strong>dynamic log messages</strong> using Python's string formatting techniques. This example will show you how to create flexible, readable, and reusable log messages that adapt to different scenarios.</p>
+<hr />
+<h3 id="the-problem-static-vs-dynamic-logging_1">⚙️ The Problem: Static vs. Dynamic Logging</h3>
+<p>Imagine you have a script that checks the status of multiple services. Without dynamic formatting, you'd write something like:</p>
+<ul>
+<li>
+<p><strong>Static approach:</strong> Print "Service database is running" and "Service web_server is down". This works but becomes repetitive and error-prone when you have dozens of services.</p>
+</li>
+<li>
+<p><strong>Dynamic approach:</strong> Use a template like "Service {name} is {status}" and fill in the blanks. One line of code handles all services.</p>
+</li>
+</ul>
+<hr />
+<h3 id="building-your-first-dynamic-log-message_1">🛠️ Building Your First Dynamic Log Message</h3>
+<p>Let's start with a simple example using <strong>f-strings</strong> (the most modern and readable method in Python 3.6+).</p>
+<p><strong>Step 1: Define your variables</strong></p>
+<ul>
+<li><strong>service_name</strong> = "nginx"</li>
+<li><strong>status_code</strong> = 200</li>
+<li><strong>message</strong> = "OK"</li>
+</ul>
+<p><strong>Step 2: Create the log template</strong></p>
+<ul>
+<li>Use an f-string: <strong>f"Service: {service_name} | Status: {status_code} | Message: {message}"</strong></li>
+</ul>
+<p><strong>Step 3: See the result</strong></p>
+<ul>
+<li>The output becomes: <strong>Service: nginx | Status: 200 | Message: OK</strong></li>
+</ul>
+<p>Now, if you change the variables to <strong>service_name</strong> = "postgresql", <strong>status_code</strong> = 500, <strong>message</strong> = "Connection timeout", the same line produces: <strong>Service: postgresql | Status: 500 | Message: Connection timeout</strong></p>
+<hr />
+<h3 id="comparison-different-string-formatting-methods_1">📊 Comparison: Different String Formatting Methods</h3>
+<p>All three methods below produce the same output. Choose the one that fits your style and Python version.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Syntax Example</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>f-strings (Python 3.6+)</strong></td>
+<td><strong>f"User {user} logged in at {time}"</strong></td>
+<td>Readability and speed</td>
+</tr>
+<tr>
+<td><strong>.format() method</strong></td>
+<td><strong>"User {} logged in at {}".format(user, time)</strong></td>
+<td>Older codebases or dynamic templates</td>
+</tr>
+<tr>
+<td><strong>% formatting (old style)</strong></td>
+<td><strong>"User %s logged in at %s" % (user, time)</strong></td>
+<td>Legacy systems or simple substitutions</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="real-world-scenario-multi-level-logging_1">🕵️ Real-World Scenario: Multi-Level Logging</h3>
+<p>Let's build a practical logging function that handles different severity levels and includes timestamps.</p>
+<p><strong>Define a log template:</strong></p>
+<ul>
+<li><strong>"[{timestamp}] [{level}] {service}: {action} - {details}"</strong></li>
+</ul>
+<p><strong>Create variables for each log entry:</strong></p>
+<ul>
+<li><strong>timestamp</strong> = "2025-04-07 10:30:00"</li>
+<li><strong>level</strong> = "INFO"</li>
+<li><strong>service</strong> = "api-gateway"</li>
+<li><strong>action</strong> = "Request received"</li>
+<li><strong>details</strong> = "GET /users from IP 192.168.1.1"</li>
+</ul>
+<p><strong>Generate the log message:</strong></p>
+<ul>
+<li>Using an f-string: <strong>f"[{timestamp}] [{level}] {service}: {action} - {details}"</strong></li>
+<li>Output: <strong>[2025-04-07 10:30:00] [INFO] api-gateway: Request received - GET /users from IP 192.168.1.1</strong></li>
+</ul>
+<p>Now, for an error scenario, simply change the variables:</p>
+<ul>
+<li><strong>level</strong> = "ERROR"</li>
+<li><strong>action</strong> = "Connection failed"</li>
+<li><strong>details</strong> = "Timeout after 30s"</li>
+<li>Output: <strong>[2025-04-07 10:30:00] [ERROR] api-gateway: Connection failed - Timeout after 30s</strong></li>
+</ul>
+<hr />
+<h3 id="adding-conditional-logic-to-log-messages_1">🧩 Adding Conditional Logic to Log Messages</h3>
+<p>Sometimes you need to include extra information only when certain conditions are met. You can embed expressions directly inside f-strings.</p>
+<p><strong>Example: Include a warning flag only if status is critical</strong></p>
+<ul>
+<li><strong>status</strong> = "critical"</li>
+<li><strong>log_message</strong> = <strong>f"Disk usage at 95% {'⚠️ ACTION REQUIRED' if status == 'critical' else ''}"</strong></li>
+<li>Output: <strong>Disk usage at 95% ⚠️ ACTION REQUIRED</strong></li>
+</ul>
+<p>If <strong>status</strong> were "normal", the output would simply be: <strong>Disk usage at 95%</strong></p>
+<hr />
+<h3 id="formatting-numbers-and-alignments-in-logs_1">🔄 Formatting Numbers and Alignments in Logs</h3>
+<p>Logs often contain numbers that need consistent formatting (e.g., memory usage, response times).</p>
+<p><strong>Format a float to two decimal places:</strong></p>
+<ul>
+<li><strong>response_time</strong> = 0.34567</li>
+<li><strong>f"Response time: {response_time:.2f} seconds"</strong></li>
+<li>Output: <strong>Response time: 0.35 seconds</strong></li>
+</ul>
+<p><strong>Align text for readable columns:</strong></p>
+<ul>
+<li><strong>f"{'Service':&lt;15} {'Status':&lt;10} {'Uptime':&lt;10}"</strong></li>
+<li><strong>f"{'nginx':&lt;15} {'Running':&lt;10} {'72h':&lt;10}"</strong></li>
+<li>Output (aligned):</li>
+<li><strong>Service        Status     Uptime</strong></li>
+<li><strong>nginx          Running    72h</strong></li>
+</ul>
+<hr />
+<h3 id="putting-it-all-together-a-reusable-log-builder_1">🧰 Putting It All Together: A Reusable Log Builder</h3>
+<p>Here's a complete pattern you can use in your scripts. No code blocks—just the logic explained.</p>
+<p><strong>Define a function that accepts parameters:</strong></p>
+<ul>
+<li><strong>function build_log(level, service, action, details, timestamp=None)</strong></li>
+<li>Inside, set <strong>timestamp</strong> to current time if not provided.</li>
+<li>Return <strong>f"[{timestamp}] [{level.upper()}] {service}: {action} - {details}"</strong></li>
+</ul>
+<p><strong>Usage examples:</strong></p>
+<ul>
+<li><strong>build_log("info", "database", "Query executed", "SELECT * FROM users, 42 rows returned")</strong></li>
+<li>
+<p>Output: <strong>[2025-04-07 10:30:00] [INFO] database: Query executed - SELECT * FROM users, 42 rows returned</strong></p>
+</li>
+<li>
+<p><strong>build_log("error", "web_server", "SSL handshake failed", "Certificate expired on 2025-03-01")</strong></p>
+</li>
+<li>Output: <strong>[2025-04-07 10:30:00] [ERROR] web_server: SSL handshake failed - Certificate expired on 2025-03-01</strong></li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li><strong>Dynamic log messages</strong> save time and reduce errors by reusing templates.</li>
+<li><strong>f-strings</strong> are the most readable and efficient method for modern Python.</li>
+<li>You can embed <strong>expressions, conditionals, and formatting</strong> directly inside f-strings.</li>
+<li><strong>Consistent formatting</strong> (timestamps, alignment, number precision) makes logs easier to parse.</li>
+<li>A <strong>reusable log builder function</strong> keeps your code clean and maintainable.</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">📚 Next Steps</h3>
+<ul>
+<li>Experiment with adding <strong>log rotation</strong> or <strong>file output</strong> to your dynamic logger.</li>
+<li>Try combining string formatting with <strong>exception handling</strong> to log errors with full tracebacks.</li>
+<li>Explore Python's built-in <strong>logging module</strong> for production-grade logging—it uses the same formatting principles under the hood.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example shows how to build log messages that change based on variable values using Python string formatting.</p>
+<h3 id="example-1-simple-variable-insertion-with-f-strings_1">📘 Example 1: Simple Variable Insertion with f-strings</h3>
+<p>This example inserts a single variable into a log message using an f-string.</p>
+<div class="highlight"><pre><span></span><code><span class="n">error_code</span> <span class="o">=</span> <span class="mi">404</span>
+<span class="n">log_message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Error: HTTP </span><span class="si">{</span><span class="n">error_code</span><span class="si">}</span><span class="s2"> - Page not found&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">log_message</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Error: HTTP 404 - Page not found</strong></p>
+<hr />
+<h3 id="example-2-inserting-multiple-variables-into-a-log-message_1">📘 Example 2: Inserting Multiple Variables into a Log Message</h3>
+<p>This example inserts multiple variables into a single log message.</p>
+<div class="highlight"><pre><span></span><code><span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;engineer_jane&quot;</span>
+<span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;deployed&quot;</span>
+<span class="n">service</span> <span class="o">=</span> <span class="s2">&quot;api-gateway&quot;</span>
+<span class="n">log_message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;User </span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">service</span><span class="si">}</span><span class="s2"> successfully&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">log_message</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>User engineer_jane deployed api-gateway successfully</strong></p>
+<hr />
+<h3 id="example-3-including-timestamps-in-log-messages_1">📘 Example 3: Including Timestamps in Log Messages</h3>
+<p>This example adds a formatted timestamp to a log message for tracking when events occur.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="n">event</span> <span class="o">=</span> <span class="s2">&quot;database connection established&quot;</span>
+<span class="n">log_message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">] INFO: </span><span class="si">{</span><span class="n">event</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">log_message</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[2025-03-20 14:30:45] INFO: database connection established</strong></p>
+<hr />
+<h3 id="example-4-conditional-log-messages-with-f-strings_1">📘 Example 4: Conditional Log Messages with f-strings</h3>
+<p>This example builds a log message that changes based on a condition check.</p>
+<div class="highlight"><pre><span></span><code><span class="n">response_time_ms</span> <span class="o">=</span> <span class="mi">2500</span>
+<span class="n">threshold_ms</span> <span class="o">=</span> <span class="mi">2000</span>
+
+<span class="k">if</span> <span class="n">response_time_ms</span> <span class="o">&gt;</span> <span class="n">threshold_ms</span><span class="p">:</span>
+    <span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;WARNING&quot;</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Response time </span><span class="si">{</span><span class="n">response_time_ms</span><span class="si">}</span><span class="s2">ms exceeds threshold </span><span class="si">{</span><span class="n">threshold_ms</span><span class="si">}</span><span class="s2">ms&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">severity</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Response time </span><span class="si">{</span><span class="n">response_time_ms</span><span class="si">}</span><span class="s2">ms within limits&quot;</span>
+
+<span class="n">log_message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">severity</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">log_message</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[WARNING] Response time 2500ms exceeds threshold 2000ms</strong></p>
+<hr />
+<h3 id="example-5-building-a-multi-line-log-entry-with-dictionary-data_1">📘 Example 5: Building a Multi-Line Log Entry with Dictionary Data</h3>
+<p>This example formats a structured log entry containing multiple fields from a dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">log_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;engineer_bob&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;rollback&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;payment-service&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;duration_sec&quot;</span><span class="p">:</span> <span class="mf">12.5</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="kc">False</span>
+<span class="p">}</span>
+
+<span class="n">log_entry</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">--- Deployment Log ---</span>
+<span class="s2">User:     </span><span class="si">{</span><span class="n">log_data</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span><span class="si">}</span>
+<span class="s2">Action:   </span><span class="si">{</span><span class="n">log_data</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span><span class="si">}</span>
+<span class="s2">Service:  </span><span class="si">{</span><span class="n">log_data</span><span class="p">[</span><span class="s1">&#39;service&#39;</span><span class="p">]</span><span class="si">}</span>
+<span class="s2">Duration: </span><span class="si">{</span><span class="n">log_data</span><span class="p">[</span><span class="s1">&#39;duration_sec&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">s</span>
+<span class="s2">Status:   </span><span class="si">{</span><span class="s1">&#39;FAILED&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">log_data</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;SUCCESS&#39;</span><span class="si">}</span>
+<span class="s2">--- End Log ---</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">log_entry</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>\n--- Deployment Log ---\nUser:     engineer_bob\nAction:   rollback\nService:  payment-service\nDuration: 12.5s\nStatus:   FAILED\n--- End Log ---\n</strong></p>
+<hr />
+<h3 id="comparison-table-string-formatting-methods-for-log-messages_1">Comparison Table: String Formatting Methods for Log Messages</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch20_07_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 20 | Decoupling Logic Statements into Testable Functions - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 20 | Decoupling Logic Statements into Testable Functions";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch20_07_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch20_07_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -978,6 +978,40 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-using-a-decoupled-function-inside-a-main-script">🔧 Example 5: Using a decoupled function inside a main script</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-does-decoupling-logic-mean_1">⚙️ What Does "Decoupling Logic" Mean?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-core-principle-one-function-one-responsibility_1">🛠️ The Core Principle: One Function, One Responsibility</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-to-identify-coupled-logic-in-your-scripts_1">🕵️ How to Identify Coupled Logic in Your Scripts</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-coupled-vs-decoupled-scripts_1">📊 Comparison: Coupled vs. Decoupled Scripts</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-example-transforming-a-coupled-script_1">🧩 Practical Example: Transforming a Coupled Script</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#best-practices-for-writing-decoupled-functions_1">✅ Best Practices for Writing Decoupled Functions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-script-entry-point-pattern-with-decoupled-functions_1">🔄 The Script Entry Point Pattern with Decoupled Functions</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#key-takeaways_1">🎯 Key Takeaways</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">📘 Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-moving-a-simple-condition-into-a-function_1">🔧 Example 1: Moving a simple condition into a function</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-returning-a-value-instead-of-printing-inside-logic_1">🔧 Example 2: Returning a value instead of printing inside logic</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-testing-a-function-with-multiple-inputs_1">🔧 Example 3: Testing a function with multiple inputs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-decoupling-a-validation-check-from-the-main-script_1">🔧 Example 4: Decoupling a validation check from the main script</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-using-a-decoupled-function-inside-a-main-script_1">🔧 Example 5: Using a decoupled function inside a main script</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1080,7 +1114,7 @@
               
                 <h1 id="decoupling-logic-statements-into-testable-functions">Decoupling Logic Statements into Testable Functions</h1>
 <p><span class="category-tag">🏷️ Python Scripting Best Practices /  The Script Entry Point Pattern</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1195,8 +1229,7 @@
 <hr />
 <h3 id="summary">📘 Summary</h3>
 <p>Decoupling logic into testable functions is one of the most important habits you can develop as a Python programmer. It transforms your scripts from fragile, one-off tools into robust, reusable components. Start by identifying the natural steps in your script's workflow, then create a function for each step. Your future self — and anyone else who reads your code — will thank you.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This pattern separates decision-making code into small, reusable functions that can be tested independently from the main script.</p>
 <hr />
 <h3 id="example-1-moving-a-simple-condition-into-a-function">🔧 Example 1: Moving a simple condition into a function</h3>
@@ -1275,6 +1308,229 @@
 <p>📤 Output: <strong>180.0</strong></p>
 <hr />
 <h2 id="comparison-table">📊 Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Logic Location</th>
+<th>Testable Without Main Script</th>
+<th>Reusable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inline logic in main script</td>
+<td>Inside <code>main()</code></td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Decoupled function</td>
+<td>Separate function</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When you first start writing Python scripts, it's tempting to put all your logic in one long sequence of statements that runs from top to bottom. While this works for simple tasks, it quickly becomes difficult to test, debug, and reuse. The key insight is that <strong>every piece of logic you write should be a function</strong> — not a loose statement floating in your script. This practice, called <em>decoupling</em>, makes your code modular, testable, and much easier to maintain as your scripts grow in complexity.</p>
+<hr />
+<h3 id="what-does-decoupling-logic-mean_1">⚙️ What Does "Decoupling Logic" Mean?</h3>
+<p>Decoupling means separating your code into small, independent functions that each do one thing. Instead of having a script that reads a file, processes data, and writes output all in one block, you create separate functions for each step.</p>
+<p><strong>Before (coupled logic):</strong>
+- Your script reads a configuration file directly.
+- It then processes the data immediately.
+- It writes results to a file right after.
+- There is no way to test the processing step without also reading and writing files.</p>
+<p><strong>After (decoupled logic):</strong>
+- You have a function called <strong>load_config()</strong> that only reads and returns configuration data.
+- You have a function called <strong>process_data()</strong> that takes data as input and returns processed data.
+- You have a function called <strong>save_results()</strong> that takes data and writes it to a file.
+- Each function can be tested independently with sample inputs.</p>
+<hr />
+<h3 id="the-core-principle-one-function-one-responsibility_1">🛠️ The Core Principle: One Function, One Responsibility</h3>
+<p>Every function should do exactly one thing and do it well. This is known as the <em>Single Responsibility Principle</em>. When you follow this rule, your functions become:</p>
+<ul>
+<li><strong>Testable</strong> — You can call them with known inputs and verify the outputs.</li>
+<li><strong>Reusable</strong> — You can use the same function in different scripts or contexts.</li>
+<li><strong>Readable</strong> — Each function name clearly describes what it does.</li>
+<li><strong>Debuggable</strong> — When something breaks, you know exactly which function to inspect.</li>
+</ul>
+<hr />
+<h3 id="how-to-identify-coupled-logic-in-your-scripts_1">🕵️ How to Identify Coupled Logic in Your Scripts</h3>
+<p>Look for these warning signs that your logic is too tightly coupled:</p>
+<ul>
+<li>You see blocks of code that are commented out because you want to skip a step during testing.</li>
+<li>You have to run the entire script just to see if one small piece works.</li>
+<li>You find yourself copying and pasting the same logic into multiple scripts.</li>
+<li>Your script has no functions at all — just a long list of statements.</li>
+<li>You cannot easily swap out one part of the logic (like changing a file format) without rewriting everything.</li>
+</ul>
+<hr />
+<h3 id="comparison-coupled-vs-decoupled-scripts_1">📊 Comparison: Coupled vs. Decoupled Scripts</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Coupled Script</th>
+<th>Decoupled Script</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Structure</strong></td>
+<td>One long block of statements</td>
+<td>Multiple small functions</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>Must run entire script</td>
+<td>Can test each function individually</td>
+</tr>
+<tr>
+<td><strong>Reusability</strong></td>
+<td>Logic is stuck in one script</td>
+<td>Functions can be imported elsewhere</td>
+</tr>
+<tr>
+<td><strong>Debugging</strong></td>
+<td>Hard to isolate the problem</td>
+<td>Easy to pinpoint which function fails</td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Difficult to follow the flow</td>
+<td>Clear separation of concerns</td>
+</tr>
+<tr>
+<td><strong>Maintenance</strong></td>
+<td>Changing one part risks breaking everything</td>
+<td>Changes are isolated to specific functions</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-transforming-a-coupled-script_1">🧩 Practical Example: Transforming a Coupled Script</h3>
+<p>Imagine you have a script that reads server names from a file, checks if each server is reachable, and logs the results. In a coupled version, all of this happens in one block. In a decoupled version, you break it into three functions:</p>
+<ul>
+<li><strong>read_server_list()</strong> — Takes a file path and returns a list of server names.</li>
+<li><strong>check_server_reachability()</strong> — Takes a server name and returns whether it is reachable.</li>
+<li><strong>log_results()</strong> — Takes a list of results and writes them to a log file.</li>
+</ul>
+<p>Now, you can test <strong>check_server_reachability()</strong> by passing it a fake server name and verifying the return value. You do not need a real file or a real log. This is the power of decoupling.</p>
+<hr />
+<h3 id="best-practices-for-writing-decoupled-functions_1">✅ Best Practices for Writing Decoupled Functions</h3>
+<ul>
+<li><strong>Use descriptive function names</strong> — A function called <strong>validate_ip()</strong> is much clearer than <strong>check()</strong>.</li>
+<li><strong>Pass data as arguments, return data as results</strong> — Avoid using global variables inside your functions.</li>
+<li><strong>Keep functions short</strong> — If a function is longer than 20 lines, consider breaking it into smaller functions.</li>
+<li><strong>Write functions that accept inputs and produce outputs</strong> — This makes them pure and easy to test.</li>
+<li><strong>Avoid side effects</strong> — A function should not modify external state unless that is its explicit purpose.</li>
+<li><strong>Use default parameter values</strong> — This makes your functions flexible without requiring extra arguments every time.</li>
+</ul>
+<hr />
+<h3 id="the-script-entry-point-pattern-with-decoupled-functions_1">🔄 The Script Entry Point Pattern with Decoupled Functions</h3>
+<p>When you combine decoupled functions with the script entry point pattern (using <strong>if <strong>name</strong> == "<strong>main</strong>"</strong> ), you get the best of both worlds. Your functions are importable and testable from other scripts, and your main execution logic is clearly separated.</p>
+<p>The entry point block becomes a simple orchestration layer that calls your decoupled functions in the right order. This means you can test each function individually without ever running the entry point.</p>
+<hr />
+<h3 id="key-takeaways_1">🎯 Key Takeaways</h3>
+<ul>
+<li>Every piece of logic in your script should live inside a function, not as a loose statement.</li>
+<li>Decoupled functions are easier to test, debug, reuse, and maintain.</li>
+<li>Look for signs of coupling: long scripts with no functions, commented-out blocks, and repeated logic.</li>
+<li>The single responsibility principle is your guide — one function, one job.</li>
+<li>Combine decoupled functions with the script entry point pattern for maximum flexibility.</li>
+</ul>
+<hr />
+<h3 id="summary_1">📘 Summary</h3>
+<p>Decoupling logic into testable functions is one of the most important habits you can develop as a Python programmer. It transforms your scripts from fragile, one-off tools into robust, reusable components. Start by identifying the natural steps in your script's workflow, then create a function for each step. Your future self — and anyone else who reads your code — will thank you.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This pattern separates decision-making code into small, reusable functions that can be tested independently from the main script.</p>
+<hr />
+<h3 id="example-1-moving-a-simple-condition-into-a-function_1">🔧 Example 1: Moving a simple condition into a function</h3>
+<p>This example takes a basic temperature check and wraps it in a function that returns a boolean.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">is_hot</span><span class="p">(</span><span class="n">temperature</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">is_hot</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-2-returning-a-value-instead-of-printing-inside-logic_1">🔧 Example 2: Returning a value instead of printing inside logic</h3>
+<p>This example shows how to let a function return a string decision rather than printing it directly.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">weather_advice</span><span class="p">(</span><span class="n">temperature</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Stay indoors&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Go outside&quot;</span>
+
+<span class="n">advice</span> <span class="o">=</span> <span class="n">weather_advice</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">advice</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Go outside</strong></p>
+<hr />
+<h3 id="example-3-testing-a-function-with-multiple-inputs_1">🔧 Example 3: Testing a function with multiple inputs</h3>
+<p>This example demonstrates how a single function can handle different inputs and return different results.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">can_drive</span><span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">has_license</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="ow">and</span> <span class="n">has_license</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">result_1</span> <span class="o">=</span> <span class="n">can_drive</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">result_2</span> <span class="o">=</span> <span class="n">can_drive</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_2</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong><br />
+📤 Output: <strong>False</strong></p>
+<hr />
+<h3 id="example-4-decoupling-a-validation-check-from-the-main-script_1">🔧 Example 4: Decoupling a validation check from the main script</h3>
+<p>This example separates a password strength check into its own function so it can be tested without running the whole program.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">is_password_strong</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">password</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="n">test_1</span> <span class="o">=</span> <span class="n">is_password_strong</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="n">test_2</span> <span class="o">=</span> <span class="n">is_password_strong</span><span class="p">(</span><span class="s2">&quot;Hello123&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_2</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>False</strong><br />
+📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-5-using-a-decoupled-function-inside-a-main-script_1">🔧 Example 5: Using a decoupled function inside a main script</h3>
+<p>This example shows how a main script calls a separate function, keeping the logic testable and the script clean.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">calculate_discount</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">is_member</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">is_member</span> <span class="ow">and</span> <span class="n">price</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">price</span> <span class="o">*</span> <span class="mf">0.9</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">price</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">final_price</span> <span class="o">=</span> <span class="n">calculate_discount</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">final_price</span><span class="p">)</span>
+
+<span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>180.0</strong></p>
+<hr />
+<h2 id="comparison-table_1">📊 Comparison Table</h2>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_05_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Exploring Parallel Tracks (Threading and Asyncio Engines) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Exploring Parallel Tracks (Threading and Asyncio Engines)";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_05_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_05_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -1031,6 +1031,38 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-threading-vs-asyncio">Comparison Table: Threading vs Asyncio</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-threading_1">⚙️ What is Threading?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-asyncio_1">🌀 What is Asyncio?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-differences-between-threading-and-asyncio_1">🛠️ Core Differences Between Threading and Asyncio</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simple-example-threading-in-action_1">🧪 Simple Example: Threading in Action</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simple-example-asyncio-in-action_1">🌊 Simple Example: Asyncio in Action</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#choosing-the-right-engine_1">🎯 Choosing the Right Engine</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">🕵️ Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-advice-for-engineers_1">📈 Practical Advice for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">🔗 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-running-two-functions-with-threading_1">🧵 Example 1: Running two functions with threading</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-waiting-for-threads-to-finish-with-join_1">⏳ Example 2: Waiting for threads to finish with join</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-basic-asyncio-with-async-and-await_1">🔄 Example 3: Basic asyncio with async and await</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-running-multiple-asyncio-tasks-concurrently_1">🚀 Example 4: Running multiple asyncio tasks concurrently</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-comparing-threading-and-asyncio-for-network-requests_1">📡 Example 5: Comparing threading and asyncio for network requests</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-threading-vs-asyncio_1">Comparison Table: Threading vs Asyncio</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_05_04/">Ch 21 | Validating Script Automation Actions Using Pytest</a>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="exploring-parallel-tracks-threading-and-asyncio-engines">Exploring Parallel Tracks (Threading and Asyncio Engines)</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Next Steps After This Curriculum</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1225,8 +1257,7 @@
 <li>Explore the <strong>concurrent.futures</strong> module for a higher-level threading interface</li>
 </ul>
 <p>Both threading and asyncio are powerful tools in your Python toolkit. Mastering them will allow you to write scripts that are faster, more responsive, and better suited for real-world engineering challenges.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This section shows two ways to run multiple tasks at the same time in Python — threading for I/O-bound work and asyncio for cooperative multitasking.</p>
 <hr />
 <h3 id="example-1-running-two-functions-with-threading">🧵 Example 1: Running two functions with threading</h3>
@@ -1356,6 +1387,326 @@
 <p>📤 Output: <strong>Threading approach: Thread fetching URL 0 Thread fetching URL 1 Thread fetching URL 2 (2 second pause) Thread got URL 0 Thread got URL 1 Thread got URL 2 Asyncio approach: Async fetching URL 0 Async fetching URL 1 Async fetching URL 2 (2 second pause) Async got URL 0 Async got URL 1 Async got URL 2</strong></p>
 <hr />
 <h3 id="comparison-table-threading-vs-asyncio">Comparison Table: Threading vs Asyncio</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Threading</th>
+<th>Asyncio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Best for</td>
+<td>I/O-bound tasks (file reads, network)</td>
+<td>I/O-bound tasks with many connections</td>
+</tr>
+<tr>
+<td>How it runs</td>
+<td>True parallel (OS manages threads)</td>
+<td>Single-threaded cooperative multitasking</td>
+</tr>
+<tr>
+<td>Overhead</td>
+<td>Higher (each thread uses system resources)</td>
+<td>Lower (runs in one thread)</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Simpler to understand</td>
+<td>Requires async/await syntax</td>
+</tr>
+<tr>
+<td>CPU-bound work</td>
+<td>Can use multiple CPU cores</td>
+<td>Cannot use multiple CPU cores</td>
+</tr>
+<tr>
+<td>Common use case</td>
+<td>Web scraping, file processing</td>
+<td>Web servers, API clients</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>As you move beyond the basics of Python scripting, you'll encounter situations where your scripts need to do multiple things at once. Imagine downloading several files from a server, processing multiple log files simultaneously, or handling many network connections at the same time. This is where parallel execution comes into play.</p>
+<p>Python offers two main engines for running tasks concurrently: <strong>Threading</strong> and <strong>Asyncio</strong>. While they both help you achieve parallelism, they work in fundamentally different ways. Understanding when to use each will make your scripts faster, more efficient, and more responsive.</p>
+<hr />
+<h3 id="what-is-threading_1">⚙️ What is Threading?</h3>
+<p>Threading allows your script to run multiple operations at the same time by splitting work into separate threads. Each thread runs independently but shares the same memory space.</p>
+<p><strong>Key characteristics:</strong>
+- Threads run in parallel but are limited by Python's Global Interpreter Lock (GIL) for CPU-bound tasks
+- Best suited for <strong>I/O-bound tasks</strong> like reading files, making network requests, or waiting for database queries
+- Threads can share data easily, but you need to be careful with race conditions
+- Threading is built into Python's standard library with the <strong>threading</strong> module</p>
+<p><strong>When to use threading:</strong>
+- Downloading multiple files from the internet
+- Reading and writing many small files at once
+- Handling multiple user connections in a server
+- Making several API calls simultaneously</p>
+<hr />
+<h3 id="what-is-asyncio_1">🌀 What is Asyncio?</h3>
+<p>Asyncio is a newer approach that uses a single thread to manage multiple tasks by switching between them when they are waiting. Think of it as a chef who starts cooking one dish, then while it simmers, starts chopping vegetables for another dish, then returns to the first dish.</p>
+<p><strong>Key characteristics:</strong>
+- Runs everything on a single thread using cooperative multitasking
+- Tasks voluntarily yield control when they are waiting (I/O operations)
+- Extremely efficient for handling thousands of concurrent connections
+- Uses the <strong>asyncio</strong> module and the <strong>async/await</strong> syntax</p>
+<p><strong>When to use asyncio:</strong>
+- Building web servers or API clients
+- Handling many network connections simultaneously
+- Running tasks that spend most of their time waiting
+- Creating responsive command-line tools</p>
+<hr />
+<h3 id="core-differences-between-threading-and-asyncio_1">🛠️ Core Differences Between Threading and Asyncio</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Threading</th>
+<th>Asyncio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Execution model</strong></td>
+<td>Multiple threads running in parallel</td>
+<td>Single thread with cooperative switching</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>I/O-bound tasks with blocking operations</td>
+<td>I/O-bound tasks with many concurrent operations</td>
+</tr>
+<tr>
+<td><strong>CPU-bound tasks</strong></td>
+<td>Limited by GIL (not ideal)</td>
+<td>Not suitable (single thread)</td>
+</tr>
+<tr>
+<td><strong>Complexity</strong></td>
+<td>Moderate (need locks and synchronization)</td>
+<td>Lower (no race conditions on shared data)</td>
+</tr>
+<tr>
+<td><strong>Memory usage</strong></td>
+<td>Higher (each thread has its own stack)</td>
+<td>Lower (single stack for all tasks)</td>
+</tr>
+<tr>
+<td><strong>Learning curve</strong></td>
+<td>Easier to understand initially</td>
+<td>Requires understanding async/await pattern</td>
+</tr>
+<tr>
+<td><strong>Library support</strong></td>
+<td>Works with most Python libraries</td>
+<td>Requires async-compatible libraries</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="simple-example-threading-in-action_1">🧪 Simple Example: Threading in Action</h3>
+<p>Imagine you need to check if five different servers are online. With threading, you can check all five at once instead of waiting for each one sequentially.</p>
+<p><strong>How it works:</strong>
+- You create a <strong>Thread</strong> object for each server check
+- Each thread runs the check function independently
+- The main script waits for all threads to finish using <strong>join()</strong>
+- Results are collected in a shared list</p>
+<p><strong>Basic pattern:</strong>
+- Import the <strong>threading</strong> module
+- Define a function that does the work
+- Create thread objects with <strong>Thread(target=your_function, args=(...))</strong>
+- Start each thread with <strong>start()</strong>
+- Wait for completion with <strong>join()</strong></p>
+<hr />
+<h3 id="simple-example-asyncio-in-action_1">🌊 Simple Example: Asyncio in Action</h3>
+<p>Now consider the same server-checking task using asyncio. Instead of creating threads, you create coroutines that can pause and resume.</p>
+<p><strong>How it works:</strong>
+- You define an <strong>async function</strong> (coroutine) for each server check
+- You gather all coroutines using <strong>asyncio.gather()</strong>
+- The event loop switches between coroutines when they are waiting
+- Everything runs on a single thread</p>
+<p><strong>Basic pattern:</strong>
+- Import the <strong>asyncio</strong> module
+- Define an async function with <strong>async def</strong>
+- Use <strong>await</strong> inside the function for I/O operations
+- Run the main coroutine with <strong>asyncio.run()</strong></p>
+<hr />
+<h3 id="choosing-the-right-engine_1">🎯 Choosing the Right Engine</h3>
+<p><strong>Choose Threading when:</strong>
+- You are working with existing libraries that are not async-compatible
+- You need to run blocking operations like file I/O or database queries
+- Your tasks are relatively few (tens to hundreds)
+- You want simpler error handling and debugging</p>
+<p><strong>Choose Asyncio when:</strong>
+- You are building applications with many concurrent connections (hundreds to thousands)
+- You are using async-compatible libraries like <strong>aiohttp</strong> or <strong>asyncpg</strong>
+- You want better performance with lower memory overhead
+- You are writing new code from scratch and can design for async</p>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">🕵️ Common Pitfalls to Avoid</h3>
+<p><strong>With Threading:</strong>
+- Forgetting to use locks when multiple threads modify shared data
+- Creating too many threads (each thread consumes memory)
+- Assuming threads speed up CPU-heavy calculations
+- Not handling exceptions within threads properly</p>
+<p><strong>With Asyncio:</strong>
+- Using blocking functions inside async code (this blocks the entire event loop)
+- Forgetting to use <strong>await</strong> when calling async functions
+- Mixing threading and asyncio without understanding the implications
+- Creating too many coroutines without proper resource management</p>
+<hr />
+<h3 id="practical-advice-for-engineers_1">📈 Practical Advice for Engineers</h3>
+<p>Start with threading if you are new to parallel programming. It is more intuitive and works with almost any Python library you already know. Once you are comfortable with threading, explore asyncio for scenarios where you need to handle many concurrent operations efficiently.</p>
+<p>A good rule of thumb: if your script spends most of its time waiting (network calls, disk I/O, API requests), both threading and asyncio can help. If you need to handle thousands of connections, asyncio is the better choice. If you are working with existing blocking libraries, threading is more practical.</p>
+<p>Remember that neither threading nor asyncio will speed up pure CPU calculations in Python. For CPU-bound tasks, you would need to explore multiprocessing, which is a separate topic beyond this curriculum.</p>
+<hr />
+<h3 id="next-steps_1">🔗 Next Steps</h3>
+<ul>
+<li>Practice converting a sequential script that makes multiple API calls into a threaded version</li>
+<li>Try rewriting the same script using asyncio with an async HTTP library</li>
+<li>Experiment with mixing both approaches in a single script (advanced)</li>
+<li>Explore the <strong>concurrent.futures</strong> module for a higher-level threading interface</li>
+</ul>
+<p>Both threading and asyncio are powerful tools in your Python toolkit. Mastering them will allow you to write scripts that are faster, more responsive, and better suited for real-world engineering challenges.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This section shows two ways to run multiple tasks at the same time in Python — threading for I/O-bound work and asyncio for cooperative multitasking.</p>
+<hr />
+<h3 id="example-1-running-two-functions-with-threading_1">🧵 Example 1: Running two functions with threading</h3>
+<p>This example shows how to run two separate functions at the same time using threads.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">task_one</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task 1 started&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task 1 finished&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">task_two</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task 2 started&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task 2 finished&quot;</span><span class="p">)</span>
+
+<span class="n">thread1</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">task_one</span><span class="p">)</span>
+<span class="n">thread2</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">task_two</span><span class="p">)</span>
+
+<span class="n">thread1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">thread2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">thread1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+<span class="n">thread2</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Both tasks done&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Task 1 started Task 2 started (2 second pause) Task 1 finished Task 2 finished Both tasks done</strong></p>
+<hr />
+<h3 id="example-2-waiting-for-threads-to-finish-with-join_1">⏳ Example 2: Waiting for threads to finish with join</h3>
+<p>This example shows how <code>join()</code> makes the main program wait until each thread completes.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">slow_calculation</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Calculating...&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Calculation complete&quot;</span><span class="p">)</span>
+
+<span class="n">worker</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">slow_calculation</span><span class="p">)</span>
+<span class="n">worker</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Main program continues while thread runs&quot;</span><span class="p">)</span>
+<span class="n">worker</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Main program waited for thread to finish&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Calculating... Main program continues while thread runs (3 second pause) Calculation complete Main program waited for thread to finish</strong></p>
+<hr />
+<h3 id="example-3-basic-asyncio-with-async-and-await_1">🔄 Example 3: Basic asyncio with async and await</h3>
+<p>This example shows how to run two asynchronous tasks that yield control to each other.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">fetch_data</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fetching data...&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data received&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&quot;result&quot;</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting async work&quot;</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">fetch_data</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Got: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>Starting async work Fetching data... (2 second pause) Data received Got: result</strong></p>
+<hr />
+<h3 id="example-4-running-multiple-asyncio-tasks-concurrently_1">🚀 Example 4: Running multiple asyncio tasks concurrently</h3>
+<p>This example shows how to run several async tasks at the same time using <code>gather</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">download_file</span><span class="p">(</span><span class="n">file_id</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading file </span><span class="si">{</span><span class="n">file_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">file_id</span><span class="si">}</span><span class="s2"> downloaded&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;file_</span><span class="si">{</span><span class="n">file_id</span><span class="si">}</span><span class="s2">.txt&quot;</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+        <span class="n">download_file</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+        <span class="n">download_file</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+        <span class="n">download_file</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;All files: </span><span class="si">{</span><span class="n">results</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>Downloading file 1 Downloading file 2 Downloading file 3 (1 second pause) File 1 downloaded File 2 downloaded File 3 downloaded All files: ['file_1.txt', 'file_2.txt', 'file_3.txt']</strong></p>
+<hr />
+<h3 id="example-5-comparing-threading-and-asyncio-for-network-requests_1">📡 Example 5: Comparing threading and asyncio for network requests</h3>
+<p>This example shows both approaches for making multiple web requests.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="c1"># Threading version</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fetch_url_thread</span><span class="p">(</span><span class="n">url_id</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Thread fetching URL </span><span class="si">{</span><span class="n">url_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Thread got URL </span><span class="si">{</span><span class="n">url_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_threads</span><span class="p">():</span>
+    <span class="n">threads</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">fetch_url_thread</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="p">,))</span>
+        <span class="n">threads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">threads</span><span class="p">:</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+<span class="c1"># Asyncio version</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">fetch_url_async</span><span class="p">(</span><span class="n">url_id</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Async fetching URL </span><span class="si">{</span><span class="n">url_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Async got URL </span><span class="si">{</span><span class="n">url_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run_async</span><span class="p">():</span>
+    <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">fetch_url_async</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Threading approach:&quot;</span><span class="p">)</span>
+<span class="n">run_threads</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Asyncio approach:&quot;</span><span class="p">)</span>
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">run_async</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>Threading approach: Thread fetching URL 0 Thread fetching URL 1 Thread fetching URL 2 (2 second pause) Thread got URL 0 Thread got URL 1 Thread got URL 2 Asyncio approach: Async fetching URL 0 Async fetching URL 1 Async fetching URL 2 (2 second pause) Async got URL 0 Async got URL 1 Async got URL 2</strong></p>
+<hr />
+<h3 id="comparison-table-threading-vs-asyncio_1">Comparison Table: Threading vs Asyncio</h3>
 <table>
 <thead>
 <tr>

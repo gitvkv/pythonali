@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_03_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Emitting Structured Data Rows into Files via DictWriter - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Emitting Structured Data Rows into Files via DictWriter";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_03_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_03_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -905,6 +905,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-dictwriter-methods">Comparison Table: DictWriter Methods</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-dictwriter_1">⚙️ What is DictWriter?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-setup-and-usage_1">🛠️ Basic Setup and Usage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-writerow-vs-writerows_1">📊 Comparison: writerow vs writerows</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-parameters-and-options_1">🕵️ Key Parameters and Options</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-missing-or-extra-keys_1">🔄 Handling Missing or Extra Keys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#writing-with-different-delimiters_1">📁 Writing with Different Delimiters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-tips-for-engineers_1">🧪 Practical Tips for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-writing-a-single-row-with-dictwriter_1">📘 Example 1: Writing a Single Row with DictWriter</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-writing-multiple-rows-from-a-list-of-dictionaries_1">📘 Example 2: Writing Multiple Rows from a List of Dictionaries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-adding-rows-to-an-existing-csv-file_1">📘 Example 3: Adding Rows to an Existing CSV File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-handling-missing-keys-with-default-values_1">📘 Example 4: Handling Missing Keys with Default Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-writing-filtered-data-from-a-larger-dataset_1">📘 Example 5: Writing Filtered Data from a Larger Dataset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-dictwriter-methods_1">Comparison Table: DictWriter Methods</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_03_05/">Ch 19 | Handling Non-Standard Delimiters (Semicolons, Pipes)</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="emitting-structured-data-rows-into-files-via-dictwriter">Emitting Structured Data Rows into Files via DictWriter</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  CSV In-Depth</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1182,8 +1212,7 @@
 <li>Customize delimiters and quoting behavior</li>
 </ul>
 <p>By mastering DictWriter, you gain a reliable method for exporting structured data that can be consumed by spreadsheets, databases, and other tools in your workflow.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>DictWriter writes dictionaries as rows into a CSV file, using dictionary keys as column headers and values as cell data.</p>
 <hr />
 <h3 id="example-1-writing-a-single-row-with-dictwriter">📘 Example 1: Writing a Single Row with DictWriter</h3>
@@ -1272,6 +1301,234 @@
 <p>📤 Output: <strong>team.csv with only name and years columns, excluding role and salary</strong></p>
 <hr />
 <h3 id="comparison-table-dictwriter-methods">Comparison Table: DictWriter Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>writeheader()</code></td>
+<td>Writes field names as the first row</td>
+<td>Always needed for new files</td>
+</tr>
+<tr>
+<td><code>writerow()</code></td>
+<td>Writes one dictionary as a row</td>
+<td>Adding single records</td>
+</tr>
+<tr>
+<td><code>writerows()</code></td>
+<td>Writes multiple dictionaries as rows</td>
+<td>Adding batches of data</td>
+</tr>
+<tr>
+<td><code>restval</code> parameter</td>
+<td>Sets default for missing keys</td>
+<td>When dictionaries have incomplete data</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>When working with structured data, you'll often need to write rows of information into CSV files. Python's <strong>DictWriter</strong> class makes this process clean and intuitive by allowing you to write dictionary-based data directly into CSV format. This approach is especially useful when you have data organized as key-value pairs and want to maintain readability and structure in your output files.</p>
+<hr />
+<h3 id="what-is-dictwriter_1">⚙️ What is DictWriter?</h3>
+<ul>
+<li><strong>DictWriter</strong> is a class from Python's built-in <strong>csv</strong> module</li>
+<li>It writes rows to a CSV file where each row is represented as a dictionary</li>
+<li>The dictionary keys become the column headers in the CSV file</li>
+<li>It automatically handles formatting, quoting, and delimiter placement</li>
+</ul>
+<hr />
+<h3 id="basic-setup-and-usage_1">🛠️ Basic Setup and Usage</h3>
+<p>To start using DictWriter, you need to:</p>
+<ul>
+<li>Import the <strong>csv</strong> module</li>
+<li>Open a file in write mode (using <strong>'w'</strong> or <strong>'w', newline=''</strong> for proper line endings)</li>
+<li>Create a DictWriter object by passing the file object and a list of fieldnames</li>
+<li>Use <strong>writeheader()</strong> to write the column headers as the first row</li>
+<li>Use <strong>writerow()</strong> to write a single dictionary as a row</li>
+<li>Use <strong>writerows()</strong> to write multiple dictionaries at once</li>
+</ul>
+<p>Example of a simple setup:</p>
+<ul>
+<li><strong>fieldnames</strong> = a list defining the column order and names</li>
+<li><strong>DictWriter(file, fieldnames=fieldnames)</strong> creates the writer</li>
+<li><strong>writer.writeheader()</strong> writes the header row</li>
+<li><strong>writer.writerow({'name': 'Alice', 'role': 'Engineer'})</strong> writes one row</li>
+</ul>
+<hr />
+<h3 id="comparison-writerow-vs-writerows_1">📊 Comparison: writerow vs writerows</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>writerow()</strong></td>
+<td>Writes a single dictionary row</td>
+<td>When adding one record at a time</td>
+</tr>
+<tr>
+<td><strong>writerows()</strong></td>
+<td>Writes multiple dictionary rows at once</td>
+<td>When you have a list of dictionaries ready</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="key-parameters-and-options_1">🕵️ Key Parameters and Options</h3>
+<ul>
+<li><strong>fieldnames</strong> – Required parameter that defines the column headers and their order</li>
+<li><strong>delimiter</strong> – Default is comma (','), but you can change it to tab or other characters</li>
+<li><strong>quotechar</strong> – Default is double quote ('"'), used to wrap fields containing special characters</li>
+<li><strong>quoting</strong> – Controls when quotes are added (e.g., <strong>csv.QUOTE_ALL</strong>, <strong>csv.QUOTE_MINIMAL</strong>, <strong>csv.QUOTE_NONNUMERIC</strong>)</li>
+<li><strong>extrasaction</strong> – Controls behavior when a dictionary has keys not in fieldnames (default is <strong>'raise'</strong>, can be set to <strong>'ignore'</strong>)</li>
+</ul>
+<hr />
+<h3 id="handling-missing-or-extra-keys_1">🔄 Handling Missing or Extra Keys</h3>
+<p>DictWriter provides flexibility when your dictionaries don't perfectly match the fieldnames:</p>
+<ul>
+<li>If a dictionary is <strong>missing a key</strong>, DictWriter writes an empty string for that field</li>
+<li>If a dictionary has <strong>extra keys</strong> not in fieldnames, it raises an error by default</li>
+<li>You can set <strong>extrasaction='ignore'</strong> to silently skip extra keys</li>
+</ul>
+<p>Example behavior:</p>
+<ul>
+<li><strong>fieldnames = ['name', 'role', 'department']</strong></li>
+<li><strong>{'name': 'Bob', 'role': 'Developer'}</strong> – writes empty string for 'department'</li>
+<li><strong>{'name': 'Carol', 'role': 'Designer', 'location': 'NYC'}</strong> – raises error unless extrasaction='ignore'</li>
+</ul>
+<hr />
+<h3 id="writing-with-different-delimiters_1">📁 Writing with Different Delimiters</h3>
+<p>You can easily change the delimiter to suit different file formats:</p>
+<ul>
+<li><strong>csv.DictWriter(file, fieldnames=fieldnames, delimiter='\t')</strong> creates a tab-separated file</li>
+<li><strong>csv.DictWriter(file, fieldnames=fieldnames, delimiter='|')</strong> creates a pipe-separated file</li>
+<li><strong>csv.DictWriter(file, fieldnames=fieldnames, delimiter=';')</strong> creates a semicolon-separated file</li>
+</ul>
+<hr />
+<h3 id="practical-tips-for-engineers_1">🧪 Practical Tips for Engineers</h3>
+<ul>
+<li>Always open CSV files with <strong>newline=''</strong> to avoid extra blank lines on Windows</li>
+<li>Use <strong>with open()</strong> context manager to ensure files are properly closed</li>
+<li>Test your fieldnames order carefully – it determines the column order in the output</li>
+<li>For large datasets, use <strong>writerows()</strong> instead of looping with <strong>writerow()</strong> for better performance</li>
+<li>Consider using <strong>csv.QUOTE_NONNUMERIC</strong> when you want to preserve numeric types in the output</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>DictWriter is a powerful tool for emitting structured data rows into CSV files. It bridges the gap between Python dictionaries and tabular data formats, making it easy to:</p>
+<ul>
+<li>Write clean, well-structured CSV files from dictionary data</li>
+<li>Control column order and naming through fieldnames</li>
+<li>Handle missing or extra data gracefully</li>
+<li>Customize delimiters and quoting behavior</li>
+</ul>
+<p>By mastering DictWriter, you gain a reliable method for exporting structured data that can be consumed by spreadsheets, databases, and other tools in your workflow.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>DictWriter writes dictionaries as rows into a CSV file, using dictionary keys as column headers and values as cell data.</p>
+<hr />
+<h3 id="example-1-writing-a-single-row-with-dictwriter_1">📘 Example 1: Writing a Single Row with DictWriter</h3>
+<p>This example shows how to write one dictionary row into a new CSV file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">]</span>
+<span class="n">row_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;team.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">field_names</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row_data</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>team.csv file created with header "name,role,years" and row "Alice,Engineer,5"</strong></p>
+<hr />
+<h3 id="example-2-writing-multiple-rows-from-a-list-of-dictionaries_1">📘 Example 2: Writing Multiple Rows from a List of Dictionaries</h3>
+<p>This example demonstrates writing several dictionary rows at once using writerows.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">]</span>
+<span class="n">team_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Carol&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Manager&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Dave&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;team.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">field_names</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">team_data</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>team.csv file with header and three data rows</strong></p>
+<hr />
+<h3 id="example-3-adding-rows-to-an-existing-csv-file_1">📘 Example 3: Adding Rows to an Existing CSV File</h3>
+<p>This example shows how to append new rows to a CSV file that already has data.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">]</span>
+<span class="n">new_member</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Eve&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;team.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">field_names</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">new_member</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>team.csv now has a fourth row with Eve's data appended</strong></p>
+<hr />
+<h3 id="example-4-handling-missing-keys-with-default-values_1">📘 Example 4: Handling Missing Keys with Default Values</h3>
+<p>This example shows how to fill missing dictionary keys with a default value when writing rows.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">]</span>
+<span class="n">team_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Frank&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Grace&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;QA&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;team.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">field_names</span><span class="p">,</span> <span class="n">restval</span><span class="o">=</span><span class="s2">&quot;Unknown&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">team_data</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>team.csv with Frank's department set to "Unknown" and Grace's department set to "QA"</strong></p>
+<hr />
+<h3 id="example-5-writing-filtered-data-from-a-larger-dataset_1">📘 Example 5: Writing Filtered Data from a Larger Dataset</h3>
+<p>This example demonstrates selecting specific fields from a larger dictionary before writing to CSV.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">]</span>
+<span class="n">full_records</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Hank&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;salary&quot;</span><span class="p">:</span> <span class="mi">85000</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Iris&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Manager&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;salary&quot;</span><span class="p">:</span> <span class="mi">95000</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jack&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;years&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;salary&quot;</span><span class="p">:</span> <span class="mi">72000</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">filtered_rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">full_records</span><span class="p">:</span>
+    <span class="n">filtered_row</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="s2">&quot;years&quot;</span><span class="p">:</span> <span class="n">record</span><span class="p">[</span><span class="s2">&quot;years&quot;</span><span class="p">]}</span>
+    <span class="n">filtered_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">filtered_row</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;team.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">field_names</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">filtered_rows</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>team.csv with only name and years columns, excluding role and salary</strong></p>
+<hr />
+<h3 id="comparison-table-dictwriter-methods_1">Comparison Table: DictWriter Methods</h3>
 <table>
 <thead>
 <tr>

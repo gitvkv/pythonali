@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch07_06_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 07 | Performance Trade-offs (Lists vs Sets) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 07 | Performance Trade-offs (Lists vs Sets)";
         var mkdocs_page_input_path = "Core Syntax\\ch07_06_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch07_06_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -366,6 +366,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-filter-removing-duplicates-with-set-membership">🔧 Example 5: Practical filter — removing duplicates with set membership</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-lists-vs-sets-for-membership-checking">📊 Comparison Table: Lists vs Sets for Membership Checking</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">📝 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-membership-checking-works_1">⚙️ How Membership Checking Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#performance-comparison-table_1">📊 Performance Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-each-structure_1">🕵️ When to Use Each Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-guidance-for-engineers_1">🛠️ Practical Guidance for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#real-world-scenario_1">⚡ Real-World Scenario</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-membership-check-in-a-small-list_1">🔧 Example 1: Membership check in a small list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-membership-check-in-a-small-set_1">🔧 Example 2: Membership check in a small set</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-performance-difference-with-many-items_1">🔧 Example 3: Performance difference with many items</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-checking-for-a-missing-item-list-vs-set_1">🔧 Example 4: Checking for a missing item — list vs set</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-filter-removing-duplicates-with-set-membership_1">🔧 Example 5: Practical filter — removing duplicates with set membership</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-lists-vs-sets-for-membership-checking_1">📊 Comparison Table: Lists vs Sets for Membership Checking</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="performance-trade-offs-lists-vs-sets">Performance Trade-offs (Lists vs Sets)</h1>
 <p><span class="category-tag">🏷️ Lists and List Operations /  Checking Membership</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">📝 Context Introduction</h3>
@@ -1149,8 +1175,7 @@
 <li>Choose based on your primary need: order and duplicates (list) or speed and uniqueness (set)</li>
 <li>For most infrastructure automation tasks involving large datasets, sets are the clear winner for lookup operations</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide demonstrates how membership checking (using <code>in</code>) performs differently between lists and sets, and when to choose each.</p>
 <h3 id="example-1-membership-check-in-a-small-list">🔧 Example 1: Membership check in a small list</h3>
 <p>Checking if an item exists in a list with only a few elements.</p>
@@ -1235,6 +1260,202 @@
 <p>📤 Output: <strong>['Alice', 'Bob', 'Charlie', 'Diana']</strong></p>
 <hr />
 <h3 id="comparison-table-lists-vs-sets-for-membership-checking">📊 Comparison Table: Lists vs Sets for Membership Checking</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>List</th>
+<th>Set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Membership check speed</td>
+<td>Slow (O(n)) — checks each item one by one</td>
+<td>Fast (O(1)) — uses hash lookup</td>
+</tr>
+<tr>
+<td>Order preserved</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Allows duplicates</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Storing ordered data with duplicates</td>
+<td>Fast membership checks and unique items</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rule of thumb:</strong> If you only need to check if something exists, use a set. If you need to keep order or allow duplicates, use a list.</p>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">📝 Context Introduction</h3>
+<p>When working with collections of data in Python, engineers often need to check whether a specific item exists within a collection. Two common data structures for this task are <strong>lists</strong> and <strong>sets</strong>. While both can store multiple items, they behave very differently when it comes to performance — especially for membership checks. Understanding these trade-offs helps you write faster and more efficient code, particularly when dealing with large datasets.</p>
+<hr />
+<h3 id="how-membership-checking-works_1">⚙️ How Membership Checking Works</h3>
+<p><strong>Lists</strong> store items in an ordered sequence. When you check if an item exists in a list using the <strong>in</strong> keyword, Python must scan through each element one by one until it finds a match (or reaches the end). This is called a <strong>linear search</strong>.</p>
+<p><strong>Sets</strong> store items in an unordered structure using a technique called <strong>hashing</strong>. Each item is assigned a unique hash value, which allows Python to check membership almost instantly — regardless of how many items are in the set.</p>
+<hr />
+<h3 id="performance-comparison-table_1">📊 Performance Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>List</th>
+<th>Set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Membership check speed</td>
+<td>Slow for large collections</td>
+<td>Very fast (constant time)</td>
+</tr>
+<tr>
+<td>Order of items</td>
+<td>Maintains insertion order</td>
+<td>No guaranteed order</td>
+</tr>
+<tr>
+<td>Duplicate items</td>
+<td>Allows duplicates</td>
+<td>Automatically removes duplicates</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>Lower per item</td>
+<td>Higher per item (due to hashing)</td>
+</tr>
+<tr>
+<td>Best use case</td>
+<td>When order matters or duplicates are needed</td>
+<td>When fast lookups are critical</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="when-to-use-each-structure_1">🕵️ When to Use Each Structure</h3>
+<p><strong>Use a list when:</strong>
+- You need to preserve the order of items
+- Duplicate values are allowed and meaningful
+- You are working with a small collection (under a few hundred items)
+- You need to access items by their index position</p>
+<p><strong>Use a set when:</strong>
+- You only need to check if an item exists (membership testing)
+- Duplicate values are not needed
+- You are working with a large collection (thousands or millions of items)
+- You want to perform set operations like union, intersection, or difference</p>
+<hr />
+<h3 id="practical-guidance-for-engineers_1">🛠️ Practical Guidance for Engineers</h3>
+<p><strong>For small collections</strong> (fewer than 100 items), the performance difference between lists and sets is negligible. You can safely use whichever structure makes your code more readable.</p>
+<p><strong>For large collections</strong> (thousands of items or more), always prefer sets for membership checks. A list lookup might take milliseconds per check, while a set lookup takes microseconds — a difference that becomes dramatic when performing millions of checks.</p>
+<p><strong>When converting between structures</strong>, keep in mind that converting a list to a set removes duplicates and loses ordering. If you need both fast lookups and ordered data, consider using a dictionary or maintaining a separate set alongside your list.</p>
+<hr />
+<h3 id="real-world-scenario_1">⚡ Real-World Scenario</h3>
+<p>Imagine you have a log file with 100,000 IP addresses and you need to check if a new IP has already been seen. Using a list would require scanning through potentially all 100,000 entries for each check. Using a set would return the answer in a single operation — making your code hundreds of thousands of times faster for repeated checks.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li><strong>Lists</strong> are great for ordered data with duplicates, but slow for membership checks on large collections</li>
+<li><strong>Sets</strong> are optimized for lightning-fast membership checks, but sacrifice ordering and allow no duplicates</li>
+<li>Choose based on your primary need: order and duplicates (list) or speed and uniqueness (set)</li>
+<li>For most infrastructure automation tasks involving large datasets, sets are the clear winner for lookup operations</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide demonstrates how membership checking (using <code>in</code>) performs differently between lists and sets, and when to choose each.</p>
+<h3 id="example-1-membership-check-in-a-small-list_1">🔧 Example 1: Membership check in a small list</h3>
+<p>Checking if an item exists in a list with only a few elements.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;Bob&quot;</span> <span class="ow">in</span> <span class="n">engineers</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-2-membership-check-in-a-small-set_1">🔧 Example 2: Membership check in a small set</h3>
+<p>Checking if an item exists in a set with the same elements.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;Bob&quot;</span> <span class="ow">in</span> <span class="n">engineers</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-3-performance-difference-with-many-items_1">🔧 Example 3: Performance difference with many items</h3>
+<p>Creating a large list and a large set, then timing how long each takes to check membership for an item at the end.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="c1"># Create a list of 1,000,000 items</span>
+<span class="n">big_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">))</span>
+
+<span class="c1"># Create a set of the same 1,000,000 items</span>
+<span class="n">big_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">))</span>
+
+<span class="c1"># Check membership in list</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">result_list</span> <span class="o">=</span> <span class="mi">999_999</span> <span class="ow">in</span> <span class="n">big_list</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">list_time</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="c1"># Check membership in set</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">result_set</span> <span class="o">=</span> <span class="mi">999_999</span> <span class="ow">in</span> <span class="n">big_set</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">set_time</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List membership time:&quot;</span><span class="p">,</span> <span class="n">list_time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Set membership time:&quot;</span><span class="p">,</span> <span class="n">set_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>List membership time: 0.012 (approx) — Set membership time: 0.000001 (approx)</strong></p>
+<hr />
+<h3 id="example-4-checking-for-a-missing-item-list-vs-set_1">🔧 Example 4: Checking for a missing item — list vs set</h3>
+<p>Verifying that a value does NOT exist in either structure, and seeing the speed difference.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">big_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">))</span>
+<span class="n">big_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">))</span>
+
+<span class="c1"># Check for missing item in list</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">missing_list</span> <span class="o">=</span> <span class="mi">2_000_000</span> <span class="ow">in</span> <span class="n">big_list</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">list_time</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="c1"># Check for missing item in set</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">missing_set</span> <span class="o">=</span> <span class="mi">2_000_000</span> <span class="ow">in</span> <span class="n">big_set</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">set_time</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;List missing check time:&quot;</span><span class="p">,</span> <span class="n">list_time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Set missing check time:&quot;</span><span class="p">,</span> <span class="n">set_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>List missing check time: 0.012 (approx) — Set missing check time: 0.000001 (approx)</strong></p>
+<hr />
+<h3 id="example-5-practical-filter-removing-duplicates-with-set-membership_1">🔧 Example 5: Practical filter — removing duplicates with set membership</h3>
+<p>Using a set to quickly check if an engineer has already been added to a list, avoiding duplicates.</p>
+<div class="highlight"><pre><span></span><code><span class="n">new_engineers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Diana&quot;</span><span class="p">]</span>
+<span class="n">unique_engineers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">new_engineers</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+        <span class="n">unique_engineers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">seen</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_engineers</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Alice', 'Bob', 'Charlie', 'Diana']</strong></p>
+<hr />
+<h3 id="comparison-table-lists-vs-sets-for-membership-checking_1">📊 Comparison Table: Lists vs Sets for Membership Checking</h3>
 <table>
 <thead>
 <tr>

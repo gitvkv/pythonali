@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_02_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Processing Streaming Multi-Document YAML Inputs - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Processing Streaming Multi-Document YAML Inputs";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_02_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_02_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -893,6 +893,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-loading-single-vs-multi-document-yaml">📊 Comparison: Loading Single vs. Multi-Document YAML</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-what-are-multi-document-yaml-files_1">🧠 Context: What Are Multi-Document YAML Files?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-core-challenge-streaming-vs-loading_1">⚙️ The Core Challenge: Streaming vs. Loading</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-process-multi-document-yaml-inputs_1">🛠️ How to Process Multi-Document YAML Inputs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-single-document-vs-multi-document-processing_1">📊 Comparison: Single Document vs. Multi-Document Processing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-patterns-for-streaming-multi-document-yaml_1">🕵️ Common Patterns for Streaming Multi-Document YAML</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-tips-for-engineers_1">🧪 Practical Tips for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-multi-document-yaml-processing_1">🚦 When to Use Multi-Document YAML Processing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary-checklist_1">✅ Summary Checklist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-reading-two-simple-yaml-documents-from-a-string_1">🟢 Example 1: Reading two simple YAML documents from a string</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-iterating-through-documents-without-loading-all-into-memory_1">🟢 Example 2: Iterating through documents without loading all into memory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-handling-documents-with-different-structures_1">🟢 Example 3: Handling documents with different structures</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-reading-multi-document-yaml-from-a-file_1">🟢 Example 4: Reading multi-document YAML from a file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-filtering-documents-during-streaming_1">🟢 Example 5: Filtering documents during streaming</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-loading-single-vs-multi-document-yaml_1">📊 Comparison: Loading Single vs. Multi-Document YAML</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_02_06/">Ch 19 | Practical Example: Reading Ansible Inventory YAMLs</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="processing-streaming-multi-document-yaml-inputs">Processing Streaming Multi-Document YAML Inputs</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  YAML Processing</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with YAML in real-world systems, you will often encounter files that contain <strong>multiple YAML documents</strong> separated by the <code>---</code> delimiter. This is common in configuration management tools, CI/CD pipelines, and Kubernetes manifests where a single file defines multiple resources. Processing these streaming multi-document inputs requires a different approach than reading a single YAML document.</p>
@@ -1195,8 +1223,7 @@
 <li>Check for empty files or zero-document scenarios</li>
 </ul>
 <p>Multi-document YAML processing is a fundamental skill for working with modern infrastructure tooling. By mastering the streaming approach, you can handle complex configuration files with confidence and build robust data pipelines that gracefully handle any number of documents.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This technique reads multiple YAML documents separated by <code>---</code> from a single stream or file.</p>
 <h3 id="example-1-reading-two-simple-yaml-documents-from-a-string">🟢 Example 1: Reading two simple YAML documents from a string</h3>
 <p>This shows how to load multiple YAML documents from a single string using <code>yaml.safe_load_all</code>.</p>
@@ -1289,6 +1316,253 @@
 <p>📤 Output: <strong>Active: alpha Active: gamma</strong></p>
 <hr />
 <h3 id="comparison-loading-single-vs-multi-document-yaml">📊 Comparison: Loading Single vs. Multi-Document YAML</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Single Document (<code>yaml.safe_load</code>)</th>
+<th>Multi-Document (<code>yaml.safe_load_all</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input format</td>
+<td>One YAML document</td>
+<td>Multiple documents separated by <code>---</code></td>
+</tr>
+<tr>
+<td>Return type</td>
+<td>Single Python object</td>
+<td>Generator yielding multiple objects</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>Loads entire document at once</td>
+<td>Processes one document at a time</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Simple config files</td>
+<td>Log files, batch records, stream data</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with YAML in real-world systems, you will often encounter files that contain <strong>multiple YAML documents</strong> separated by the <code>---</code> delimiter. This is common in configuration management tools, CI/CD pipelines, and Kubernetes manifests where a single file defines multiple resources. Processing these streaming multi-document inputs requires a different approach than reading a single YAML document.</p>
+<hr />
+<h3 id="context-what-are-multi-document-yaml-files_1">🧠 Context: What Are Multi-Document YAML Files?</h3>
+<p>A multi-document YAML file contains several independent YAML documents within a single file, each separated by a line containing three dashes (<code>---</code>). An optional trailing <code>...</code> can mark the end of a document.</p>
+<p><strong>Example of a multi-document YAML structure:</strong></p>
+<ul>
+<li><strong>Document 1:</strong> A server configuration</li>
+<li><strong>Document 2:</strong> A database configuration</li>
+<li><strong>Document 3:</strong> A load balancer configuration</li>
+</ul>
+<p>Each document is processed independently, and they do not share any context or references unless explicitly linked through external logic.</p>
+<hr />
+<h3 id="the-core-challenge-streaming-vs-loading_1">⚙️ The Core Challenge: Streaming vs. Loading</h3>
+<p>The standard <strong>yaml.safe_load()</strong> function can only read a single document. If you try to use it on a multi-document file, it will only return the first document and ignore the rest.</p>
+<p><strong>What happens with standard loading:</strong></p>
+<ul>
+<li><strong>yaml.safe_load(file)</strong> → Returns only the first document as a Python dictionary</li>
+<li><strong>yaml.safe_load_all(file)</strong> → Returns a generator that yields each document one at a time</li>
+</ul>
+<p>The <strong>safe_load_all()</strong> function is the key tool for processing streaming multi-document inputs. It treats the file as a stream of documents rather than a single block of data.</p>
+<hr />
+<h3 id="how-to-process-multi-document-yaml-inputs_1">🛠️ How to Process Multi-Document YAML Inputs</h3>
+<p><strong>Step 1: Open the YAML file normally</strong></p>
+<p>Open the file using Python's built-in <strong>open()</strong> function in read mode. This gives you a file object that can be passed to the YAML parser.</p>
+<p><strong>Step 2: Use safe_load_all() instead of safe_load()</strong></p>
+<p>Pass the file object to <strong>yaml.safe_load_all()</strong>. This returns a generator object, not a list. Each iteration of the generator yields one complete YAML document as a Python dictionary.</p>
+<p><strong>Step 3: Iterate through the documents</strong></p>
+<p>Use a <strong>for loop</strong> to process each document individually. Inside the loop, you can inspect, transform, or validate each document as needed.</p>
+<p><strong>Step 4: Handle the end of stream</strong></p>
+<p>The generator will automatically stop when there are no more documents. You do not need to check for a termination marker.</p>
+<hr />
+<h3 id="comparison-single-document-vs-multi-document-processing_1">📊 Comparison: Single Document vs. Multi-Document Processing</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Single Document</th>
+<th>Multi-Document</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Function used</td>
+<td><strong>yaml.safe_load()</strong></td>
+<td><strong>yaml.safe_load_all()</strong></td>
+</tr>
+<tr>
+<td>Return type</td>
+<td>Single dictionary</td>
+<td>Generator of dictionaries</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>Loads everything at once</td>
+<td>Processes one at a time</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Simple config files</td>
+<td>Kubernetes manifests, CI pipelines</td>
+</tr>
+<tr>
+<td>Error handling</td>
+<td>Fails on first issue</td>
+<td>Can handle each document separately</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-patterns-for-streaming-multi-document-yaml_1">🕵️ Common Patterns for Streaming Multi-Document YAML</h3>
+<p><strong>Pattern 1: Counting documents</strong></p>
+<p>You can count how many documents are in a file by iterating through the generator and incrementing a counter. This is useful for validation or reporting.</p>
+<p><strong>Pattern 2: Filtering documents by type</strong></p>
+<p>Each document often contains a key like <strong>kind</strong> or <strong>type</strong> that identifies what it represents. You can check this key inside the loop and only process documents that match your criteria.</p>
+<p><strong>Pattern 3: Collecting all documents into a list</strong></p>
+<p>If you need to access all documents later, you can convert the generator to a list using <strong>list(yaml.safe_load_all(file))</strong>. Be cautious with large files as this loads everything into memory.</p>
+<p><strong>Pattern 4: Processing documents with error isolation</strong></p>
+<p>Since each document is independent, you can wrap the processing of each document in a <strong>try-except</strong> block. This way, a malformed document does not crash the entire pipeline.</p>
+<hr />
+<h3 id="practical-tips-for-engineers_1">🧪 Practical Tips for Engineers</h3>
+<p><strong>Always use safe_load_all() for multi-document files</strong></p>
+<p>Never assume a YAML file contains only one document. Using <strong>safe_load_all()</strong> as a default practice ensures your code works with both single and multi-document inputs.</p>
+<p><strong>Be aware of the generator behavior</strong></p>
+<p>The generator from <strong>safe_load_all()</strong> can only be iterated once. If you need to process the documents multiple times, convert to a list first or restructure your logic.</p>
+<p><strong>Handle empty files gracefully</strong></p>
+<p>If the YAML file is empty or contains no documents, the generator will yield nothing. Your loop will simply not execute, which may be unexpected. Add a check to handle this case.</p>
+<p><strong>Use context managers for file handling</strong></p>
+<p>Always use the <strong>with open()</strong> statement to ensure the file is properly closed after reading, even if an error occurs during processing.</p>
+<hr />
+<h3 id="when-to-use-multi-document-yaml-processing_1">🚦 When to Use Multi-Document YAML Processing</h3>
+<p><strong>Use this approach when:</strong></p>
+<ul>
+<li>Reading Kubernetes manifest files that define multiple resources</li>
+<li>Processing CI/CD pipeline definitions with multiple stages</li>
+<li>Handling configuration bundles where each document is a separate component</li>
+<li>Working with Ansible playbooks that contain multiple plays</li>
+<li>Parsing log or event streams formatted as YAML documents</li>
+</ul>
+<p><strong>Avoid this approach when:</strong></p>
+<ul>
+<li>The YAML file is extremely large and you need random access to documents</li>
+<li>Documents are interdependent and must be validated together</li>
+<li>You need to preserve comments or formatting from the original file</li>
+<li>The input is a single document that does not use the <strong>---</strong> separator</li>
+</ul>
+<hr />
+<h3 id="summary-checklist_1">✅ Summary Checklist</h3>
+<ul>
+<li>Use <strong>yaml.safe_load_all()</strong> for any file that may contain multiple YAML documents</li>
+<li>Iterate through the generator with a <strong>for loop</strong> to process each document</li>
+<li>Handle each document independently to isolate errors</li>
+<li>Convert to a list only when you need multiple passes over the data</li>
+<li>Always use <strong>with open()</strong> for safe file handling</li>
+<li>Check for empty files or zero-document scenarios</li>
+</ul>
+<p>Multi-document YAML processing is a fundamental skill for working with modern infrastructure tooling. By mastering the streaming approach, you can handle complex configuration files with confidence and build robust data pipelines that gracefully handle any number of documents.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This technique reads multiple YAML documents separated by <code>---</code> from a single stream or file.</p>
+<h3 id="example-1-reading-two-simple-yaml-documents-from-a-string_1">🟢 Example 1: Reading two simple YAML documents from a string</h3>
+<p>This shows how to load multiple YAML documents from a single string using <code>yaml.safe_load_all</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">name: Alice</span>
+<span class="s2">age: 30</span>
+<span class="s2">---</span>
+<span class="s2">name: Bob</span>
+<span class="s2">age: 25</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">documents</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">safe_load_all</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[{'name': 'Alice', 'age': 30}, {'name': 'Bob', 'age': 25}]</strong></p>
+<hr />
+<h3 id="example-2-iterating-through-documents-without-loading-all-into-memory_1">🟢 Example 2: Iterating through documents without loading all into memory</h3>
+<p>This demonstrates processing each document one at a time using a generator.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">item: apple</span>
+<span class="s2">quantity: 5</span>
+<span class="s2">---</span>
+<span class="s2">item: banana</span>
+<span class="s2">quantity: 3</span>
+<span class="s2">---</span>
+<span class="s2">item: cherry</span>
+<span class="s2">quantity: 8</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load_all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">],</span> <span class="s2">&quot;-&gt;&quot;</span><span class="p">,</span> <span class="n">doc</span><span class="p">[</span><span class="s2">&quot;quantity&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>apple -&gt; 5 banana -&gt; 3 cherry -&gt; 8</strong></p>
+<hr />
+<h3 id="example-3-handling-documents-with-different-structures_1">🟢 Example 3: Handling documents with different structures</h3>
+<p>This shows that each document in a stream can have a completely different schema.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">server: web01</span>
+<span class="s2">port: 8080</span>
+<span class="s2">---</span>
+<span class="s2">database:</span>
+<span class="s2">  host: localhost</span>
+<span class="s2">  name: prod</span>
+<span class="s2">---</span>
+<span class="s2">enabled: true</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">docs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">safe_load_all</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">docs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;server&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">docs</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="s2">&quot;database&quot;</span><span class="p">][</span><span class="s2">&quot;host&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">docs</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="s2">&quot;enabled&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>web01 localhost True</strong></p>
+<hr />
+<h3 id="example-4-reading-multi-document-yaml-from-a-file_1">🟢 Example 4: Reading multi-document YAML from a file</h3>
+<p>This demonstrates loading documents from an external <code>.yaml</code> file using a context manager.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;configs.yaml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load_all</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'env': 'staging', 'debug': False} {'env': 'production', 'debug': False}</strong></p>
+<hr />
+<h3 id="example-5-filtering-documents-during-streaming_1">🟢 Example 5: Filtering documents during streaming</h3>
+<p>This shows how to process only documents that match a condition while streaming.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">name: alpha</span>
+<span class="s2">status: active</span>
+<span class="s2">---</span>
+<span class="s2">name: beta</span>
+<span class="s2">status: inactive</span>
+<span class="s2">---</span>
+<span class="s2">name: gamma</span>
+<span class="s2">status: active</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load_all</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">doc</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;active&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Active: </span><span class="si">{</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Active: alpha Active: gamma</strong></p>
+<hr />
+<h3 id="comparison-loading-single-vs-multi-document-yaml_1">📊 Comparison: Loading Single vs. Multi-Document YAML</h3>
 <table>
 <thead>
 <tr>

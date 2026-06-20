@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch03_02_06/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 03 | Checking Prefixes and Suffixes (startswith, endswith) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 03 | Checking Prefixes and Suffixes (startswith, endswith)";
         var mkdocs_page_input_path = "Getting Started\\ch03_02_06.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch03_02_06/";
       </script>
     
     <!--[if lt IE 9]>
@@ -174,6 +174,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-validating-log-file-names">🔧 Example 5: Practical use — validating log file names</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-startswith-vs-endswith">📊 Comparison Table: startswith() vs endswith()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-prefix-and-suffix-checks_1">⚙️ What Are Prefix and Suffix Checks?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-startswith_1">🛠️ Using startswith()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-endswith_1">🛠️ Using endswith()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#checking-multiple-options_1">📊 Checking Multiple Options</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples_1">🕵️ Practical Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-use-cases_1">⚡ Common Use Cases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">🧠 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-prefix-check-with-startswith_1">🔧 Example 1: Basic prefix check with startswith()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-basic-suffix-check-with-endswith_1">🔧 Example 2: Basic suffix check with endswith()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-case-sensitivity-matters_1">🔧 Example 3: Case sensitivity matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-checking-multiple-possible-prefixes-at-once_1">🔧 Example 4: Checking multiple possible prefixes at once</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-validating-log-file-names_1">🔧 Example 5: Practical use — validating log file names</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-startswith-vs-endswith_1">📊 Comparison Table: startswith() vs endswith()</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="checking-prefixes-and-suffixes-startswith-endswith">Checking Prefixes and Suffixes (startswith, endswith)</h1>
 <p><span class="category-tag">🏷️ Working with Strings In-Depth /  Common String Methods</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with text data, you often need to check whether a string begins or ends with a specific sequence of characters. Python provides two simple methods for this: <strong>startswith()</strong> and <strong>endswith()</strong>. These are incredibly useful when validating file extensions, checking URL protocols, or parsing log entries.</p>
@@ -1171,8 +1197,7 @@
 <li>These methods return <strong>True</strong> or <strong>False</strong>, making them perfect for conditional statements</li>
 <li>They are efficient and readable alternatives to using slicing or regular expressions for simple prefix/suffix checks</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>startswith()</code> and <code>endswith()</code> methods check whether a string begins or ends with a specified substring, returning <code>True</code> or <code>False</code>.</p>
 <hr />
 <h3 id="example-1-basic-prefix-check-with-startswith">🔧 Example 1: Basic prefix check with <code>startswith()</code></h3>
@@ -1222,6 +1247,181 @@
 📤 Output: <strong>True</strong></p>
 <hr />
 <h3 id="comparison-table-startswith-vs-endswith">📊 Comparison Table: <code>startswith()</code> vs <code>endswith()</code></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Checks</th>
+<th>Returns <code>True</code> when string…</th>
+<th>Common use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>startswith()</code></td>
+<td>Beginning of string</td>
+<td>Starts with given substring</td>
+<td>Validating prefixes (URLs, codes)</td>
+</tr>
+<tr>
+<td><code>endswith()</code></td>
+<td>End of string</td>
+<td>Ends with given substring</td>
+<td>Validating file extensions, suffixes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with text data, you often need to check whether a string begins or ends with a specific sequence of characters. Python provides two simple methods for this: <strong>startswith()</strong> and <strong>endswith()</strong>. These are incredibly useful when validating file extensions, checking URL protocols, or parsing log entries.</p>
+<hr />
+<h3 id="what-are-prefix-and-suffix-checks_1">⚙️ What Are Prefix and Suffix Checks?</h3>
+<ul>
+<li>A <strong>prefix</strong> is the beginning portion of a string. For example, in the string <strong>"hello_world.txt"</strong>, the prefix <strong>"hello"</strong> appears at the start.</li>
+<li>A <strong>suffix</strong> is the ending portion of a string. In the same example, the suffix <strong>".txt"</strong> appears at the end.</li>
+<li>The <strong>startswith()</strong> method checks if a string starts with a given prefix.</li>
+<li>The <strong>endswith()</strong> method checks if a string ends with a given suffix.</li>
+<li>Both methods return a boolean value: <strong>True</strong> if the condition is met, <strong>False</strong> otherwise.</li>
+</ul>
+<hr />
+<h3 id="using-startswith_1">🛠️ Using startswith()</h3>
+<ul>
+<li>The basic syntax is: <strong>string.startswith(prefix)</strong></li>
+<li>It returns <strong>True</strong> if the string begins with the specified prefix.</li>
+<li>Example: <strong>"report_final.pdf".startswith("report")</strong> returns <strong>True</strong></li>
+<li>Example: <strong>"data_2024.csv".startswith("log")</strong> returns <strong>False</strong></li>
+<li>You can also specify a starting position: <strong>string.startswith(prefix, start)</strong></li>
+<li>Example: <strong>"error_log.txt".startswith("log", 6)</strong> returns <strong>True</strong> (starts checking from index 6)</li>
+</ul>
+<hr />
+<h3 id="using-endswith_1">🛠️ Using endswith()</h3>
+<ul>
+<li>The basic syntax is: <strong>string.endswith(suffix)</strong></li>
+<li>It returns <strong>True</strong> if the string ends with the specified suffix.</li>
+<li>Example: <strong>"image.png".endswith(".png")</strong> returns <strong>True</strong></li>
+<li>Example: <strong>"document.pdf".endswith(".docx")</strong> returns <strong>False</strong></li>
+<li>You can also check within a range: <strong>string.endswith(suffix, start, end)</strong></li>
+<li>Example: <strong>"backup_2024_old.zip".endswith("old", 0, 14)</strong> returns <strong>True</strong> (only checks characters from index 0 to 13)</li>
+</ul>
+<hr />
+<h3 id="checking-multiple-options_1">📊 Checking Multiple Options</h3>
+<p>Both methods accept a <strong>tuple</strong> of prefixes or suffixes to check against:</p>
+<ul>
+<li><strong>startswith()</strong> with a tuple: <strong>string.startswith(("http", "https", "ftp"))</strong> returns <strong>True</strong> if the string starts with any of those protocols</li>
+<li><strong>endswith()</strong> with a tuple: <strong>filename.endswith((".jpg", ".png", ".gif"))</strong> returns <strong>True</strong> if the file has any of those image extensions</li>
+<li>This is much cleaner than writing multiple <strong>or</strong> conditions</li>
+</ul>
+<hr />
+<h3 id="practical-examples_1">🕵️ Practical Examples</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Code Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Check if URL uses HTTPS</td>
+<td><strong>url.startswith("https")</strong></td>
+<td>True for "https://example.com"</td>
+</tr>
+<tr>
+<td>Validate file extension</td>
+<td><strong>file.endswith(".log")</strong></td>
+<td>True for "server.log"</td>
+</tr>
+<tr>
+<td>Check multiple protocols</td>
+<td><strong>url.startswith(("http", "https"))</strong></td>
+<td>True for both HTTP and HTTPS URLs</td>
+</tr>
+<tr>
+<td>Filter image files</td>
+<td><strong>name.endswith((".jpg", ".jpeg", ".png"))</strong></td>
+<td>True for "photo.jpg" or "icon.png"</td>
+</tr>
+<tr>
+<td>Parse log severity</td>
+<td><strong>line.startswith("ERROR")</strong></td>
+<td>True for "ERROR: Connection timeout"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-use-cases_1">⚡ Common Use Cases</h3>
+<ul>
+<li><strong>File processing</strong>: Check file extensions before reading or writing files</li>
+<li><strong>URL validation</strong>: Verify that a URL uses the expected protocol</li>
+<li><strong>Log parsing</strong>: Identify log entries by their starting keywords (INFO, WARNING, ERROR)</li>
+<li><strong>Data cleaning</strong>: Remove or process strings that begin or end with specific characters</li>
+<li><strong>Configuration checks</strong>: Validate that configuration keys follow naming conventions</li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">🧠 Key Takeaways</h3>
+<ul>
+<li><strong>startswith()</strong> and <strong>endswith()</strong> are case-sensitive by default</li>
+<li>Both methods accept a <strong>tuple</strong> for checking multiple prefixes or suffixes at once</li>
+<li>You can specify <strong>start</strong> and <strong>end</strong> indices to limit the search range</li>
+<li>These methods return <strong>True</strong> or <strong>False</strong>, making them perfect for conditional statements</li>
+<li>They are efficient and readable alternatives to using slicing or regular expressions for simple prefix/suffix checks</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>startswith()</code> and <code>endswith()</code> methods check whether a string begins or ends with a specified substring, returning <code>True</code> or <code>False</code>.</p>
+<hr />
+<h3 id="example-1-basic-prefix-check-with-startswith_1">🔧 Example 1: Basic prefix check with <code>startswith()</code></h3>
+<p>Check if a simple word starts with a given letter.</p>
+<div class="highlight"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;engineer&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;eng&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-2-basic-suffix-check-with-endswith_1">🔧 Example 2: Basic suffix check with <code>endswith()</code></h3>
+<p>Check if a filename ends with a specific file extension.</p>
+<div class="highlight"><pre><span></span><code><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;report.pdf&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.pdf&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-3-case-sensitivity-matters_1">🔧 Example 3: Case sensitivity matters</h3>
+<p>Both methods are case-sensitive — uppercase and lowercase are treated as different.</p>
+<div class="highlight"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+<span class="n">result_start</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">)</span>
+<span class="n">result_end</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;ON&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_start</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_end</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>False</strong><br />
+📤 Output: <strong>False</strong></p>
+<hr />
+<h3 id="example-4-checking-multiple-possible-prefixes-at-once_1">🔧 Example 4: Checking multiple possible prefixes at once</h3>
+<p>Pass a tuple of strings to check if the string starts with any of them.</p>
+<div class="highlight"><pre><span></span><code><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://docs.python.org&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">&quot;http://&quot;</span><span class="p">,</span> <span class="s2">&quot;https://&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-5-practical-use-validating-log-file-names_1">🔧 Example 5: Practical use — validating log file names</h3>
+<p>Engineers often need to verify file naming conventions before processing.</p>
+<div class="highlight"><pre><span></span><code><span class="n">log_file</span> <span class="o">=</span> <span class="s2">&quot;error_2024_01_15.log&quot;</span>
+<span class="n">starts_correctly</span> <span class="o">=</span> <span class="n">log_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;error_&quot;</span><span class="p">)</span>
+<span class="n">ends_correctly</span> <span class="o">=</span> <span class="n">log_file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.log&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">starts_correctly</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ends_correctly</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong><br />
+📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="comparison-table-startswith-vs-endswith_1">📊 Comparison Table: <code>startswith()</code> vs <code>endswith()</code></h3>
 <table>
 <thead>
 <tr>

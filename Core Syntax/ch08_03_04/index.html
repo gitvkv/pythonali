@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch08_03_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 08 | Practical Example: Deduplicating IP Lists - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 08 | Practical Example: Deduplicating IP Lists";
         var mkdocs_page_input_path = "Core Syntax\\ch08_03_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch08_03_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -394,6 +394,38 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-deduplicating-ips-from-a-log-file-line-by-line">🔹 Example 5: Deduplicating IPs from a log file line by line</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-problem-duplicate-ip-addresses_1">⚙️ The Problem: Duplicate IP Addresses</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-solution-using-sets-for-deduplication_1">🛠️ The Solution: Using Sets for Deduplication</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-list-vs-set-for-deduplication_1">📊 Comparison: List vs Set for Deduplication</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-walkthrough-deduplicating-ip-lists_1">🕵️ Practical Walkthrough: Deduplicating IP Lists</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#key-takeaways_1">📋 Key Takeaways</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#when-to-use-this-technique_1">🧪 When to Use This Technique</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pro-tip_1">💡 Pro Tip</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-creating-a-set-from-a-list-of-ips_1">🔹 Example 1: Creating a set from a list of IPs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-converting-a-set-back-to-a-list_1">🔹 Example 2: Converting a set back to a list</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-counting-unique-ips-in-a-list_1">🔹 Example 3: Counting unique IPs in a list</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-checking-if-an-ip-already-exists-in-a-set_1">🔹 Example 4: Checking if an IP already exists in a set</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-deduplicating-ips-from-a-log-file-line-by-line_1">🔹 Example 5: Deduplicating IPs from a log file line by line</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1078,7 +1110,7 @@
               
                 <h1 id="practical-example-deduplicating-ip-lists">Practical Example: Deduplicating IP Lists</h1>
 <p><span class="category-tag">🏷️ Tuples and Sets /  Sets: Unique Collections</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1191,8 +1223,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Deduplicating IP lists is a common task that becomes trivial with Python sets. By converting your list to a set and back, you instantly remove all duplicate entries. This technique saves time, reduces code complexity, and scales well for large datasets. As you work with network data, configuration files, or any collection where uniqueness matters, remember that <strong>sets are your go-to tool for deduplication</strong>.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example shows how to use Python sets to remove duplicate IP addresses from a list.</p>
 <hr />
 <h3 id="example-1-creating-a-set-from-a-list-of-ips">🔹 Example 1: Creating a set from a list of IPs</h3>
@@ -1247,6 +1278,210 @@
 <p>📤 Output: <strong>{'10.0.0.1', '192.168.1.1', '10.0.0.2'}</strong></p>
 <hr />
 <h2 id="comparison-table">Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>List</th>
+<th>Set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keeps duplicates</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Order preserved</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Fast membership check</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Add new item</td>
+<td><code>.append()</code></td>
+<td><code>.add()</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When working with network logs, firewall rules, or monitoring data, you'll often encounter lists of IP addresses that contain duplicates. A single device might appear multiple times in connection logs, or a configuration file might have repeated entries. Keeping only the unique IPs is essential for accurate analysis, reporting, and rule generation. Python's <strong>set</strong> data type makes this task incredibly simple and efficient.</p>
+<hr />
+<h3 id="the-problem-duplicate-ip-addresses_1">⚙️ The Problem: Duplicate IP Addresses</h3>
+<p>Imagine you have a list of IP addresses collected from server logs:</p>
+<ul>
+<li><strong>192.168.1.10</strong></li>
+<li><strong>10.0.0.5</strong></li>
+<li><strong>192.168.1.10</strong></li>
+<li><strong>172.16.0.1</strong></li>
+<li><strong>10.0.0.5</strong></li>
+<li><strong>192.168.1.20</strong></li>
+</ul>
+<p>Your goal is to produce a clean list where each IP appears only once. Manually scanning and removing duplicates is error-prone and impractical for large datasets.</p>
+<hr />
+<h3 id="the-solution-using-sets-for-deduplication_1">🛠️ The Solution: Using Sets for Deduplication</h3>
+<p>A <strong>set</strong> automatically removes duplicate values. Converting a list to a set and then back to a list gives you a deduplicated result in just two lines of code.</p>
+<p><strong>Step 1:</strong> Start with your original list of IPs.</p>
+<p><strong>Step 2:</strong> Convert the list to a set using the <strong>set()</strong> function.</p>
+<p><strong>Step 3:</strong> Convert the set back to a list using the <strong>list()</strong> function.</p>
+<p><strong>Example flow:</strong></p>
+<ul>
+<li>Original list: <strong>["192.168.1.10", "10.0.0.5", "192.168.1.10", "172.16.0.1", "10.0.0.5", "192.168.1.20"]</strong></li>
+<li>Convert to set: <strong>{"192.168.1.10", "10.0.0.5", "172.16.0.1", "192.168.1.20"}</strong></li>
+<li>Convert back to list: <strong>["192.168.1.10", "10.0.0.5", "172.16.0.1", "192.168.1.20"]</strong></li>
+</ul>
+<hr />
+<h3 id="comparison-list-vs-set-for-deduplication_1">📊 Comparison: List vs Set for Deduplication</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>List</th>
+<th>Set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Allows duplicates</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Maintains order</td>
+<td>✅ Yes</td>
+<td>❌ No (unordered)</td>
+</tr>
+<tr>
+<td>Deduplication method</td>
+<td>Manual loop required</td>
+<td>Automatic on conversion</td>
+</tr>
+<tr>
+<td>Performance for large data</td>
+<td>Slower (O(n²) with loops)</td>
+<td>Fast (O(n) average)</td>
+</tr>
+<tr>
+<td>Code complexity</td>
+<td>High (multiple lines)</td>
+<td>Low (one line)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-walkthrough-deduplicating-ip-lists_1">🕵️ Practical Walkthrough: Deduplicating IP Lists</h3>
+<p><strong>Step 1: Create your IP list</strong></p>
+<p>Start with a variable holding your IP addresses as a list of strings.</p>
+<p><strong>Step 2: Apply deduplication</strong></p>
+<p>Use the <strong>set()</strong> function to remove duplicates, then wrap it with <strong>list()</strong> to get back a list format.</p>
+<p><strong>Step 3: Verify the result</strong></p>
+<p>Print or inspect the new list to confirm all duplicates are removed.</p>
+<p><strong>Example breakdown:</strong></p>
+<ul>
+<li>Input list contains <strong>6 items</strong> with <strong>3 duplicates</strong></li>
+<li>After deduplication, the output list contains <strong>4 unique items</strong></li>
+<li>The order of items may change because sets are unordered</li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">📋 Key Takeaways</h3>
+<ul>
+<li>✅ <strong>Sets are the ideal tool</strong> for removing duplicates from any collection</li>
+<li>✅ The conversion is <strong>simple and readable</strong>: <strong>list(set(your_list))</strong></li>
+<li>✅ This method works for <strong>any hashable data type</strong>, not just IPs</li>
+<li>✅ Sets are <strong>highly performant</strong> even with thousands of entries</li>
+<li>⚠️ Remember that <strong>order is not preserved</strong> when converting to a set</li>
+</ul>
+<hr />
+<h3 id="when-to-use-this-technique_1">🧪 When to Use This Technique</h3>
+<ul>
+<li>Cleaning up <strong>log files</strong> with repeated IP entries</li>
+<li>Preparing <strong>unique IP lists</strong> for firewall rules or allowlists</li>
+<li>Removing duplicate <strong>hostnames, MAC addresses, or domain names</strong></li>
+<li>Generating <strong>reports</strong> that require distinct values</li>
+<li>Preprocessing data before <strong>analysis or visualization</strong></li>
+</ul>
+<hr />
+<h3 id="pro-tip_1">💡 Pro Tip</h3>
+<p>If you need to preserve the original order while removing duplicates, you can use a loop with a set for tracking seen items:</p>
+<ul>
+<li>Create an empty list for results</li>
+<li>Create an empty set for tracking</li>
+<li>Loop through the original list</li>
+<li>If an IP is not in the tracking set, add it to both the result list and the tracking set</li>
+</ul>
+<p>This approach gives you <strong>deduplication with order preservation</strong>, though it requires a few more lines of code than the simple set conversion.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Deduplicating IP lists is a common task that becomes trivial with Python sets. By converting your list to a set and back, you instantly remove all duplicate entries. This technique saves time, reduces code complexity, and scales well for large datasets. As you work with network data, configuration files, or any collection where uniqueness matters, remember that <strong>sets are your go-to tool for deduplication</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example shows how to use Python sets to remove duplicate IP addresses from a list.</p>
+<hr />
+<h3 id="example-1-creating-a-set-from-a-list-of-ips_1">🔹 Example 1: Creating a set from a list of IPs</h3>
+<p>This example demonstrates the most basic way to remove duplicates by converting a list to a set.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ip_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.2&quot;</span><span class="p">]</span>
+<span class="n">unique_ips</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">ip_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_ips</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'10.0.0.1', '192.168.1.1', '10.0.0.2'}</strong></p>
+<hr />
+<h3 id="example-2-converting-a-set-back-to-a-list_1">🔹 Example 2: Converting a set back to a list</h3>
+<p>This example shows how to get a list of unique IPs after deduplication.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ip_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.2&quot;</span><span class="p">]</span>
+<span class="n">unique_ips</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">ip_list</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_ips</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['10.0.0.1', '192.168.1.1', '10.0.0.2']</strong></p>
+<hr />
+<h3 id="example-3-counting-unique-ips-in-a-list_1">🔹 Example 3: Counting unique IPs in a list</h3>
+<p>This example demonstrates how to find the number of distinct IP addresses.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ip_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.2&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.1&quot;</span><span class="p">]</span>
+<span class="n">unique_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">ip_list</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_count</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>3</strong></p>
+<hr />
+<h3 id="example-4-checking-if-an-ip-already-exists-in-a-set_1">🔹 Example 4: Checking if an IP already exists in a set</h3>
+<p>This example shows how to test membership before adding a new IP.</p>
+<div class="highlight"><pre><span></span><code><span class="n">known_ips</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.1&quot;</span><span class="p">}</span>
+<span class="n">new_ip</span> <span class="o">=</span> <span class="s2">&quot;192.168.1.1&quot;</span>
+<span class="k">if</span> <span class="n">new_ip</span> <span class="ow">in</span> <span class="n">known_ips</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Duplicate found&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New IP&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Duplicate found</strong></p>
+<hr />
+<h3 id="example-5-deduplicating-ips-from-a-log-file-line-by-line_1">🔹 Example 5: Deduplicating IPs from a log file line by line</h3>
+<p>This example demonstrates a practical scenario where IPs are read from a log and deduplicated.</p>
+<div class="highlight"><pre><span></span><code><span class="n">log_entries</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;192.168.1.1 - user1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;10.0.0.1 - user2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;192.168.1.1 - user1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;10.0.0.2 - user3&quot;</span>
+<span class="p">]</span>
+<span class="n">unique_ips</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">log_entries</span><span class="p">:</span>
+    <span class="n">ip</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; - &quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">unique_ips</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_ips</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'10.0.0.1', '192.168.1.1', '10.0.0.2'}</strong></p>
+<hr />
+<h2 id="comparison-table_1">Comparison Table</h2>
 <table>
 <thead>
 <tr>

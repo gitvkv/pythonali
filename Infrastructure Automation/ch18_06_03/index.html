@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_06_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Customizing Sizes and Sorting via __len__, __eq__, __lt__ - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Customizing Sizes and Sorting via __len__, __eq__, __lt__";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_06_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_06_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -867,6 +867,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#quick-comparison-table">📊 Quick Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-dunder-methods_1">⚙️ What Are Dunder Methods?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-len-to-define-object-size_1">📊 Using len to Define Object Size</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-eq-for-equality-comparison_1">🛠️ Using eq for Equality Comparison</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-lt-for-sorting-and-ordering_1">🕵️ Using lt for Sorting and Ordering</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-dunder-methods-for-sizes-and-sorting_1">📋 Comparison Table: Dunder Methods for Sizes and Sorting</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together-a-complete-example_1">🔄 Putting It All Together: A Complete Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-engineers_1">⚡ Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">🎯 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-using-len-to-return-a-custom-size_1">🔧 Example 1: Using len to return a custom size</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-using-eq-to-compare-objects-by-value_1">🔧 Example 2: Using eq to compare objects by value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-lt-to-enable-sorting-by-a-custom-field_1">🔧 Example 3: Using lt to enable sorting by a custom field</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-combining-len-eq-and-lt-in-one-class_1">🔧 Example 4: Combining len, eq, and lt in one class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-sorting-of-custom-objects-by-multiple-criteria_1">🔧 Example 5: Practical sorting of custom objects by multiple criteria</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-comparison-table_1">📊 Quick Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_06_04/">Ch 18 | Why Implementing Dunder Signatures Makes Objects Feel Native</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="customizing-sizes-and-sorting-via-len-eq-lt">Customizing Sizes and Sorting via <strong>len</strong>, <strong>eq</strong>, <strong>lt</strong></h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Special Dunder Methods</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with custom objects in Python, you often need them to behave like built-in types. For example, you might want to check how many items are in a custom collection, compare two objects for equality, or sort a list of objects. This is where special dunder methods come in—they let you define how your objects respond to Python's built-in functions and operators.</p>
@@ -1206,8 +1234,7 @@
 <li>Implementing these dunder methods is essential for creating intuitive, Pythonic classes that engineers can use without learning special APIs</li>
 </ul>
 <p>By mastering these three dunder methods, you give your custom objects the same capabilities as Python's built-in types, making your code more readable and your objects more powerful.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>These dunder methods let engineers define how objects report their size and how they compare with each other for sorting.</p>
 <hr />
 <h3 id="example-1-using-len-to-return-a-custom-size">🔧 Example 1: Using <strong>len</strong> to return a custom size</h3>
@@ -1326,6 +1353,285 @@
 <p>📤 Output: <strong>[Mike (Grade: 92, Age: 21), Omar (Grade: 92, Age: 23), Lena (Grade: 85, Age: 20), Zara (Grade: 85, Age: 22)]</strong></p>
 <hr />
 <h3 id="quick-comparison-table">📊 Quick Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th>Example Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__len__</code></td>
+<td>Returns size when <code>len(obj)</code> is called</td>
+<td>Count items in a collection</td>
+</tr>
+<tr>
+<td><code>__eq__</code></td>
+<td>Defines equality between two objects</td>
+<td>Compare objects by value</td>
+</tr>
+<tr>
+<td><code>__lt__</code></td>
+<td>Defines "less than" for sorting</td>
+<td>Sort objects by a custom field</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with custom objects in Python, you often need them to behave like built-in types. For example, you might want to check how many items are in a custom collection, compare two objects for equality, or sort a list of objects. This is where special dunder methods come in—they let you define how your objects respond to Python's built-in functions and operators.</p>
+<hr />
+<h3 id="what-are-dunder-methods_1">⚙️ What Are Dunder Methods?</h3>
+<p>Dunder methods (short for "double underscore") are special methods that Python looks for when you use certain operations. They allow your custom objects to integrate seamlessly with Python's syntax and built-in functions.</p>
+<ul>
+<li><strong><strong>len</strong></strong>: Called when you use the <strong>len()</strong> function on your object</li>
+<li><strong><strong>eq</strong></strong>: Called when you use the <strong>==</strong> operator to compare two objects</li>
+<li><strong><strong>lt</strong></strong>: Called when you use the <strong>&lt;</strong> operator to compare two objects</li>
+</ul>
+<p>These three methods together enable two powerful features: determining the size of your object and enabling sorting behavior.</p>
+<hr />
+<h3 id="using-len-to-define-object-size_1">📊 Using <strong>len</strong> to Define Object Size</h3>
+<p>The <strong><strong>len</strong></strong> method should return an integer representing the "size" or "length" of your object. This is commonly used for custom collection-like classes.</p>
+<p>Consider a simple <strong>TaskList</strong> class that holds a collection of tasks:</p>
+<ul>
+<li>Define a class <strong>TaskList</strong> with an internal list to store tasks</li>
+<li>Implement <strong><strong>len</strong></strong> to return the number of tasks in the list</li>
+<li>When you call <strong>len(task_list)</strong>, Python automatically invokes your <strong><strong>len</strong></strong> method</li>
+</ul>
+<p>Example implementation:</p>
+<ul>
+<li><strong>class TaskList:</strong> with an <strong><strong>init</strong></strong> method that creates <strong>self.tasks = []</strong></li>
+<li><strong>def <strong>len</strong>(self):</strong> returns <strong>len(self.tasks)</strong></li>
+<li>After adding three tasks, <strong>len(task_list)</strong> returns <strong>3</strong></li>
+</ul>
+<p>This makes your custom object behave just like a list or dictionary when checking its size.</p>
+<hr />
+<h3 id="using-eq-for-equality-comparison_1">🛠️ Using <strong>eq</strong> for Equality Comparison</h3>
+<p>The <strong><strong>eq</strong></strong> method defines what it means for two objects to be equal. Without it, Python compares objects by their memory address, meaning two objects with identical data would be considered different.</p>
+<p>When implementing <strong><strong>eq</strong></strong>:</p>
+<ul>
+<li>Accept two parameters: <strong>self</strong> and <strong>other</strong> (the object to compare against)</li>
+<li>Return <strong>True</strong> if the objects should be considered equal, <strong>False</strong> otherwise</li>
+<li>Always check if <strong>other</strong> is an instance of the same class to avoid errors</li>
+</ul>
+<p>Example for a <strong>Server</strong> class:</p>
+<ul>
+<li><strong>class Server:</strong> with attributes like <strong>hostname</strong> and <strong>ip_address</strong></li>
+<li><strong>def <strong>eq</strong>(self, other):</strong> checks if <strong>isinstance(other, Server)</strong> and then compares <strong>self.hostname == other.hostname</strong></li>
+<li>Two server objects with the same hostname are now considered equal</li>
+</ul>
+<p>This is especially useful when you need to check for duplicate objects or compare configurations.</p>
+<hr />
+<h3 id="using-lt-for-sorting-and-ordering_1">🕵️ Using <strong>lt</strong> for Sorting and Ordering</h3>
+<p>The <strong><strong>lt</strong></strong> method (less than) is the key to making your objects sortable. Python's sorting algorithms use this method to determine the order of items.</p>
+<p>When implementing <strong><strong>lt</strong></strong>:</p>
+<ul>
+<li>Accept two parameters: <strong>self</strong> and <strong>other</strong></li>
+<li>Return <strong>True</strong> if <strong>self</strong> should come before <strong>other</strong> in sorted order</li>
+<li>Return <strong>False</strong> otherwise</li>
+<li>Include proper error handling for incompatible types</li>
+</ul>
+<p>Example for a <strong>Process</strong> class:</p>
+<ul>
+<li><strong>class Process:</strong> with attributes like <strong>priority</strong> and <strong>name</strong></li>
+<li><strong>def <strong>lt</strong>(self, other):</strong> returns <strong>self.priority &lt; other.priority</strong></li>
+<li>When you call <strong>sorted(list_of_processes)</strong>, Python uses <strong><strong>lt</strong></strong> to determine the order</li>
+</ul>
+<p>You can also combine <strong><strong>eq</strong></strong> and <strong><strong>lt</strong></strong> to create a complete ordering system.</p>
+<hr />
+<h3 id="comparison-table-dunder-methods-for-sizes-and-sorting_1">📋 Comparison Table: Dunder Methods for Sizes and Sorting</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Triggered By</th>
+<th>Purpose</th>
+<th>Return Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><strong>len</strong></strong></td>
+<td><strong>len(object)</strong></td>
+<td>Returns the size or count</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td><strong><strong>eq</strong></strong></td>
+<td><strong>object1 == object2</strong></td>
+<td>Checks if objects are equal</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td><strong><strong>lt</strong></strong></td>
+<td><strong>object1 &lt; object2</strong></td>
+<td>Determines sorting order</td>
+<td>Boolean</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="putting-it-all-together-a-complete-example_1">🔄 Putting It All Together: A Complete Example</h3>
+<p>Here is how you might combine all three methods in a single class:</p>
+<p><strong>Class: Document</strong></p>
+<ul>
+<li><strong>Attributes</strong>: <strong>title</strong>, <strong>word_count</strong>, <strong>author</strong></li>
+<li><strong><strong>len</strong></strong>: Returns the <strong>word_count</strong> value</li>
+<li><strong><strong>eq</strong></strong>: Two documents are equal if they have the same <strong>title</strong> and <strong>author</strong></li>
+<li><strong><strong>lt</strong></strong>: Documents are sorted by <strong>word_count</strong> (smaller first)</li>
+</ul>
+<p>When you create a list of <strong>Document</strong> objects:</p>
+<ul>
+<li><strong>len(doc)</strong> gives you the word count</li>
+<li><strong>doc1 == doc2</strong> checks if they have the same title and author</li>
+<li><strong>sorted(documents)</strong> arranges them from shortest to longest</li>
+</ul>
+<p>This makes your custom objects feel like native Python types.</p>
+<hr />
+<h3 id="best-practices-for-engineers_1">⚡ Best Practices for Engineers</h3>
+<ul>
+<li>Always implement <strong><strong>eq</strong></strong> when you implement <strong><strong>lt</strong></strong> to maintain consistency</li>
+<li>Use <strong>isinstance()</strong> checks in <strong><strong>eq</strong></strong> and <strong><strong>lt</strong></strong> to handle comparisons with different types gracefully</li>
+<li>For complex sorting, consider implementing <strong><strong>gt</strong></strong> (greater than) as well, though <strong><strong>lt</strong></strong> alone is sufficient for sorting</li>
+<li>Remember that <strong><strong>len</strong></strong> should return a non-negative integer; returning <strong>0</strong> means the object is empty</li>
+<li>When sorting objects, Python's <strong>sorted()</strong> function and <strong>list.sort()</strong> method both rely on <strong><strong>lt</strong></strong> by default</li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">🎯 Key Takeaways</h3>
+<ul>
+<li><strong><strong>len</strong></strong> customizes what <strong>len()</strong> returns for your objects</li>
+<li><strong><strong>eq</strong></strong> defines equality logic for the <strong>==</strong> operator</li>
+<li><strong><strong>lt</strong></strong> enables sorting by defining the "less than" relationship</li>
+<li>These methods make your custom objects work seamlessly with Python's built-in functions and operators</li>
+<li>Implementing these dunder methods is essential for creating intuitive, Pythonic classes that engineers can use without learning special APIs</li>
+</ul>
+<p>By mastering these three dunder methods, you give your custom objects the same capabilities as Python's built-in types, making your code more readable and your objects more powerful.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>These dunder methods let engineers define how objects report their size and how they compare with each other for sorting.</p>
+<hr />
+<h3 id="example-1-using-len-to-return-a-custom-size_1">🔧 Example 1: Using <strong>len</strong> to return a custom size</h3>
+<p>This example shows how to make an object respond to the <code>len()</code> function with a custom value.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Backpack</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="n">items</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+
+<span class="n">my_bag</span> <span class="o">=</span> <span class="n">Backpack</span><span class="p">([</span><span class="s2">&quot;laptop&quot;</span><span class="p">,</span> <span class="s2">&quot;notebook&quot;</span><span class="p">,</span> <span class="s2">&quot;pen&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_bag</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>3</strong></p>
+<hr />
+<h3 id="example-2-using-eq-to-compare-objects-by-value_1">🔧 Example 2: Using <strong>eq</strong> to compare objects by value</h3>
+<p>This example shows how to make two objects equal when their internal data matches.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Book</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">pages</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pages</span> <span class="o">=</span> <span class="n">pages</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pages</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">pages</span>
+
+<span class="n">book_a</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;Python 101&quot;</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">book_b</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;Data Science&quot;</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">book_c</span> <span class="o">=</span> <span class="n">Book</span><span class="p">(</span><span class="s2">&quot;Web Dev&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">book_a</span> <span class="o">==</span> <span class="n">book_b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">book_a</span> <span class="o">==</span> <span class="n">book_c</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong><br />
+📤 Output: <strong>False</strong></p>
+<hr />
+<h3 id="example-3-using-lt-to-enable-sorting-by-a-custom-field_1">🔧 Example 3: Using <strong>lt</strong> to enable sorting by a custom field</h3>
+<p>This example shows how to make objects sortable by one of their attributes.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Employee</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">salary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">salary</span> <span class="o">=</span> <span class="n">salary</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">salary</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">salary</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: $</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">salary</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">emp1</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">75000</span><span class="p">)</span>
+<span class="n">emp2</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">60000</span><span class="p">)</span>
+<span class="n">emp3</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&quot;Carol&quot;</span><span class="p">,</span> <span class="mi">90000</span><span class="p">)</span>
+<span class="n">employees</span> <span class="o">=</span> <span class="p">[</span><span class="n">emp1</span><span class="p">,</span> <span class="n">emp2</span><span class="p">,</span> <span class="n">emp3</span><span class="p">]</span>
+<span class="n">employees</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">employees</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[Bob: $60000, Alice: $75000, Carol: $90000]</strong></p>
+<hr />
+<h3 id="example-4-combining-len-eq-and-lt-in-one-class_1">🔧 Example 4: Combining <strong>len</strong>, <strong>eq</strong>, and <strong>lt</strong> in one class</h3>
+<p>This example shows how all three methods work together in a single class for full size and sorting control.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Warehouse</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="n">items</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="si">}</span><span class="s2"> items)&quot;</span>
+
+<span class="n">wh_a</span> <span class="o">=</span> <span class="n">Warehouse</span><span class="p">(</span><span class="s2">&quot;East&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;boxes&quot;</span><span class="p">,</span> <span class="s2">&quot;tools&quot;</span><span class="p">])</span>
+<span class="n">wh_b</span> <span class="o">=</span> <span class="n">Warehouse</span><span class="p">(</span><span class="s2">&quot;West&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;boxes&quot;</span><span class="p">,</span> <span class="s2">&quot;tools&quot;</span><span class="p">,</span> <span class="s2">&quot;machines&quot;</span><span class="p">])</span>
+<span class="n">wh_c</span> <span class="o">=</span> <span class="n">Warehouse</span><span class="p">(</span><span class="s2">&quot;North&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;boxes&quot;</span><span class="p">,</span> <span class="s2">&quot;tools&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">wh_a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wh_a</span> <span class="o">==</span> <span class="n">wh_c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wh_a</span> <span class="o">&lt;</span> <span class="n">wh_b</span><span class="p">)</span>
+<span class="n">warehouses</span> <span class="o">=</span> <span class="p">[</span><span class="n">wh_b</span><span class="p">,</span> <span class="n">wh_a</span><span class="p">,</span> <span class="n">wh_c</span><span class="p">]</span>
+<span class="n">warehouses</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">warehouses</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2</strong><br />
+📤 Output: <strong>True</strong><br />
+📤 Output: <strong>True</strong><br />
+📤 Output: <strong>[East (2 items), North (2 items), West (3 items)]</strong></p>
+<hr />
+<h3 id="example-5-practical-sorting-of-custom-objects-by-multiple-criteria_1">🔧 Example 5: Practical sorting of custom objects by multiple criteria</h3>
+<p>This example shows how engineers can sort a list of custom objects using <strong>lt</strong> with tie-breaking logic.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">grade</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grade</span> <span class="o">=</span> <span class="n">grade</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">grade</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">grade</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">grade</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">grade</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">age</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (Grade: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">grade</span><span class="si">}</span><span class="s2">, Age: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+<span class="n">s1</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Zara&quot;</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Mike&quot;</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Lena&quot;</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">s4</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s2">&quot;Omar&quot;</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">23</span><span class="p">)</span>
+<span class="n">students</span> <span class="o">=</span> <span class="p">[</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s3</span><span class="p">,</span> <span class="n">s4</span><span class="p">]</span>
+<span class="n">students</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[Mike (Grade: 92, Age: 21), Omar (Grade: 92, Age: 23), Lena (Grade: 85, Age: 20), Zara (Grade: 85, Age: 22)]</strong></p>
+<hr />
+<h3 id="quick-comparison-table_1">📊 Quick Comparison Table</h3>
 <table>
 <thead>
 <tr>

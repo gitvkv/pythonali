@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch16_02_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 16 | Parsing Strings into Datetime via strptime - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 16 | Parsing Strings into Datetime via strptime";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch16_02_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch16_02_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -745,6 +745,32 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#common-strptime-format-codes">📊 Common strptime Format Codes</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-strptime_1">⚙️ What is strptime?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-format-codes_1">🕵️ Common Format Codes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples_1">🛠️ Practical Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">📊 Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-your-parsing_1">🧪 Testing Your Parsing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference-workflow_1">💡 Quick Reference Workflow</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-parsing-a-simple-date-string_1">📘 Example 1: Parsing a Simple Date String</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-parsing-a-date-with-month-name_1">📘 Example 2: Parsing a Date with Month Name</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-parsing-date-and-time-together_1">📘 Example 3: Parsing Date and Time Together</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-parsing-a-12-hour-time-with-ampm_1">📘 Example 4: Parsing a 12-Hour Time with AM/PM</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-parsing-a-log-timestamp-with-timezone-offset_1">📘 Example 5: Parsing a Log Timestamp with Timezone Offset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-strptime-format-codes_1">📊 Common strptime Format Codes</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch16_02_03/">Ch 16 | Common Format Codes Reference Catalog</a>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="parsing-strings-into-datetime-via-strptime">Parsing Strings into Datetime via strptime</h1>
 <p><span class="category-tag">🏷️ Working with Dates and Time /  Formatting and Parsing Dates</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1207,8 +1233,7 @@
 <li>Use the object for comparisons, arithmetic, or reformatting</li>
 </ol>
 <p>Remember: The format string must match the input string character by character, including spaces, commas, and punctuation. When in doubt, test with a single example before processing large datasets.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>strptime</code> method converts a string representation of a date/time into a Python datetime object using a specified format pattern.</p>
 <hr />
 <h3 id="example-1-parsing-a-simple-date-string">📘 Example 1: Parsing a Simple Date String</h3>
@@ -1262,6 +1287,263 @@
 <p>📤 Output: <strong>2024-11-03 08:15:30+00:00</strong></p>
 <hr />
 <h3 id="common-strptime-format-codes">📊 Common strptime Format Codes</h3>
+<table>
+<thead>
+<tr>
+<th>Format Code</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%Y</code></td>
+<td>4-digit year</td>
+<td>2024</td>
+</tr>
+<tr>
+<td><code>%m</code></td>
+<td>2-digit month (01-12)</td>
+<td>03</td>
+</tr>
+<tr>
+<td><code>%d</code></td>
+<td>2-digit day (01-31)</td>
+<td>15</td>
+</tr>
+<tr>
+<td><code>%H</code></td>
+<td>24-hour hour (00-23)</td>
+<td>14</td>
+</tr>
+<tr>
+<td><code>%I</code></td>
+<td>12-hour hour (01-12)</td>
+<td>09</td>
+</tr>
+<tr>
+<td><code>%M</code></td>
+<td>2-digit minute (00-59)</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>%S</code></td>
+<td>2-digit second (00-59)</td>
+<td>45</td>
+</tr>
+<tr>
+<td><code>%p</code></td>
+<td>AM or PM</td>
+<td>AM</td>
+</tr>
+<tr>
+<td><code>%B</code></td>
+<td>Full month name</td>
+<td>March</td>
+</tr>
+<tr>
+<td><code>%b</code></td>
+<td>Abbreviated month name</td>
+<td>Mar</td>
+</tr>
+<tr>
+<td><code>%z</code></td>
+<td>Timezone offset (+HHMM)</td>
+<td>+0000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>When working with logs, configuration files, or API responses, dates and times often arrive as plain text strings. For example, a log entry might contain <strong>"2024-01-15 14:30:00"</strong> or <strong>"Jan 15, 2024 2:30 PM"</strong>. To perform calculations, comparisons, or formatting changes, you need to convert these strings into Python's <strong>datetime</strong> objects. The <strong>strptime</strong> method (string parse time) is the tool that makes this conversion possible.</p>
+<hr />
+<h3 id="what-is-strptime_1">⚙️ What is strptime?</h3>
+<p><strong>strptime</strong> stands for <strong>"string parse time"</strong>. It is a method available on the <strong>datetime</strong> class that takes a string and a format code, then returns a <strong>datetime</strong> object.</p>
+<ul>
+<li><strong>Input</strong>: A date/time string (e.g., <strong>"2024-03-10"</strong>)</li>
+<li><strong>Format</strong>: A pattern describing the string's structure (e.g., <strong>"%Y-%m-%d"</strong>)</li>
+<li><strong>Output</strong>: A <strong>datetime</strong> object you can work with programmatically</li>
+</ul>
+<p>The basic syntax looks like this:</p>
+<p><strong>from datetime import datetime</strong></p>
+<p><strong>datetime.strptime("2024-03-10", "%Y-%m-%d")</strong></p>
+<hr />
+<h3 id="common-format-codes_1">🕵️ Common Format Codes</h3>
+<p>Format codes tell Python exactly how to interpret each part of your date string. Here are the most frequently used codes:</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>%Y</strong></td>
+<td>4-digit year</td>
+<td>2024</td>
+</tr>
+<tr>
+<td><strong>%m</strong></td>
+<td>2-digit month</td>
+<td>03</td>
+</tr>
+<tr>
+<td><strong>%d</strong></td>
+<td>2-digit day</td>
+<td>10</td>
+</tr>
+<tr>
+<td><strong>%H</strong></td>
+<td>24-hour hour</td>
+<td>14</td>
+</tr>
+<tr>
+<td><strong>%M</strong></td>
+<td>Minute</td>
+<td>30</td>
+</tr>
+<tr>
+<td><strong>%S</strong></td>
+<td>Second</td>
+<td>45</td>
+</tr>
+<tr>
+<td><strong>%I</strong></td>
+<td>12-hour hour</td>
+<td>02</td>
+</tr>
+<tr>
+<td><strong>%p</strong></td>
+<td>AM or PM</td>
+<td>PM</td>
+</tr>
+<tr>
+<td><strong>%b</strong></td>
+<td>Abbreviated month name</td>
+<td>Jan</td>
+</tr>
+<tr>
+<td><strong>%B</strong></td>
+<td>Full month name</td>
+<td>January</td>
+</tr>
+<tr>
+<td><strong>%A</strong></td>
+<td>Full weekday name</td>
+<td>Monday</td>
+</tr>
+<tr>
+<td><strong>%a</strong></td>
+<td>Abbreviated weekday</td>
+<td>Mon</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-examples_1">🛠️ Practical Examples</h3>
+<p><strong>Example 1: Standard Date Format</strong></p>
+<p>If you have a string like <strong>"2024-03-10"</strong>, you parse it with:</p>
+<p><strong>parsed_date = datetime.strptime("2024-03-10", "%Y-%m-%d")</strong></p>
+<p>The result is a <strong>datetime</strong> object representing March 10, 2024 at midnight (default time).</p>
+<p><strong>Example 2: Date and Time Together</strong></p>
+<p>For a string like <strong>"2024-03-10 14:30:00"</strong>, use:</p>
+<p><strong>parsed_datetime = datetime.strptime("2024-03-10 14:30:00", "%Y-%m-%d %H:%M:%S")</strong></p>
+<p>This gives you a full <strong>datetime</strong> object with both date and time.</p>
+<p><strong>Example 3: Month Names and 12-Hour Clock</strong></p>
+<p>For a string like <strong>"Jan 15, 2024 2:30 PM"</strong>, use:</p>
+<p><strong>parsed_datetime = datetime.strptime("Jan 15, 2024 2:30 PM", "%b %d, %Y %I:%M %p")</strong></p>
+<p>Notice how the format string mirrors the exact structure of the input, including commas and spaces.</p>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">📊 Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Mismatched format codes</strong>: If your format string doesn't match the input string exactly, Python raises a <strong>ValueError</strong>. For example, using <strong>%Y</strong> for a two-digit year like <strong>"24"</strong> will fail.</li>
+<li><strong>Missing leading zeros</strong>: The format <strong>%m</strong> expects <strong>"03"</strong> not <strong>"3"</strong>. For single-digit months or days without leading zeros, use <strong>%-m</strong> or <strong>%-d</strong> (on some systems) or pad the input manually.</li>
+<li><strong>Case sensitivity</strong>: Month names must match exactly. <strong>"Jan"</strong> works with <strong>%b</strong>, but <strong>"JAN"</strong> does not.</li>
+<li><strong>Time zone awareness</strong>: Basic <strong>strptime</strong> does not handle time zones. For time zone strings like <strong>"2024-03-10 14:30:00 UTC"</strong>, you need additional handling.</li>
+</ul>
+<hr />
+<h3 id="testing-your-parsing_1">🧪 Testing Your Parsing</h3>
+<p>After parsing, you can verify the result by checking the object's attributes:</p>
+<ul>
+<li><strong>parsed_date.year</strong> returns the year (e.g., 2024)</li>
+<li><strong>parsed_date.month</strong> returns the month (e.g., 3)</li>
+<li><strong>parsed_date.day</strong> returns the day (e.g., 10)</li>
+<li><strong>parsed_date.hour</strong> returns the hour (e.g., 14)</li>
+<li><strong>parsed_date.weekday()</strong> returns the day of week (Monday=0)</li>
+</ul>
+<p>This allows you to confirm that your format string correctly interpreted the input.</p>
+<hr />
+<h3 id="quick-reference-workflow_1">💡 Quick Reference Workflow</h3>
+<ol>
+<li>Identify the exact format of your date string</li>
+<li>Choose the appropriate format codes for each component</li>
+<li>Call <strong>datetime.strptime(your_string, your_format)</strong></li>
+<li>Store the result as a <strong>datetime</strong> object</li>
+<li>Use the object for comparisons, arithmetic, or reformatting</li>
+</ol>
+<p>Remember: The format string must match the input string character by character, including spaces, commas, and punctuation. When in doubt, test with a single example before processing large datasets.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>strptime</code> method converts a string representation of a date/time into a Python datetime object using a specified format pattern.</p>
+<hr />
+<h3 id="example-1-parsing-a-simple-date-string_1">📘 Example 1: Parsing a Simple Date String</h3>
+<p>This example converts a date string in "YYYY-MM-DD" format into a datetime object.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;2024-12-25&quot;</span>
+<span class="n">date_object</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date_object</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-12-25 00:00:00</strong></p>
+<hr />
+<h3 id="example-2-parsing-a-date-with-month-name_1">📘 Example 2: Parsing a Date with Month Name</h3>
+<p>This example converts a date string that uses a full month name into a datetime object.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;March 15, 2023&quot;</span>
+<span class="n">date_object</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="s2">&quot;%B </span><span class="si">%d</span><span class="s2">, %Y&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date_object</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2023-03-15 00:00:00</strong></p>
+<hr />
+<h3 id="example-3-parsing-date-and-time-together_1">📘 Example 3: Parsing Date and Time Together</h3>
+<p>This example converts a string containing both date and time components into a datetime object.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;2024-01-10 14:30:00&quot;</span>
+<span class="n">date_object</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date_object</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-01-10 14:30:00</strong></p>
+<hr />
+<h3 id="example-4-parsing-a-12-hour-time-with-ampm_1">📘 Example 4: Parsing a 12-Hour Time with AM/PM</h3>
+<p>This example converts a string with a 12-hour clock and AM/PM indicator into a datetime object.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;07/25/2024 09:45 PM&quot;</span>
+<span class="n">date_object</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="s2">&quot;%m/</span><span class="si">%d</span><span class="s2">/%Y %I:%M %p&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date_object</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-07-25 21:45:00</strong></p>
+<hr />
+<h3 id="example-5-parsing-a-log-timestamp-with-timezone-offset_1">📘 Example 5: Parsing a Log Timestamp with Timezone Offset</h3>
+<p>This example converts a common log format timestamp with timezone offset into a datetime object.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;2024-11-03T08:15:30+0000&quot;</span>
+<span class="n">date_object</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S%z&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date_object</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-11-03 08:15:30+00:00</strong></p>
+<hr />
+<h3 id="common-strptime-format-codes_1">📊 Common strptime Format Codes</h3>
 <table>
 <thead>
 <tr>

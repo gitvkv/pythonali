@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch20_04_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 20 | Mitigating Hardcoded Value Pitfalls via Terminal Inputs - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 20 | Mitigating Hardcoded Value Pitfalls via Terminal Inputs";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch20_04_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch20_04_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -951,6 +951,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-hardcoded-values-vs-terminal-inputs">Comparison: Hardcoded Values vs. Terminal Inputs</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-problem-with-hardcoded-values_1">⚙️ The Problem with Hardcoded Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-terminal-input-solution_1">🛠️ The Terminal Input Solution</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-hardcoded-vs-terminal-inputs_1">📊 Comparison: Hardcoded vs. Terminal Inputs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-it-works-in-practice_1">🕵️ How It Works in Practice</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-benefits-for-engineers_1">🧩 Key Benefits for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getting-started-mindset_1">🚀 Getting Started Mindset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-flow_1">💡 Practical Example Flow</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-reading-a-single-string-from-terminal-input_1">🛠️ Example 1: Reading a single string from terminal input</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-reading-a-number-and-performing-a-calculation_1">🔢 Example 2: Reading a number and performing a calculation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-reading-multiple-inputs-for-a-file-processing-task_1">📂 Example 3: Reading multiple inputs for a file processing task</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-argparse-for-named-command-line-arguments_1">⚙️ Example 4: Using argparse for named command-line arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-combining-positional-and-optional-arguments-for-a-real-world-pipeline_1">🚀 Example 5: Combining positional and optional arguments for a real-world pipeline</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-hardcoded-values-vs-terminal-inputs_1">Comparison: Hardcoded Values vs. Terminal Inputs</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch20_04_02/">Ch 20 | Declaring Interfaces via the Standard argparse Library</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="mitigating-hardcoded-value-pitfalls-via-terminal-inputs">Mitigating Hardcoded Value Pitfalls via Terminal Inputs</h1>
 <p><span class="category-tag">🏷️ Python Scripting Best Practices /  Command-Line Arguments via Argparse</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1186,8 +1216,7 @@ The same script accepts the database name, username, and host as arguments when 
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Moving from hardcoded values to terminal inputs transforms rigid scripts into flexible tools. Engineers gain the ability to run the same logic against different targets, share code safely across teams, and integrate scripts into automated workflows without modification. This practice is foundational to writing professional, production-ready Python code that serves real-world needs beyond a single use case.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This approach replaces hardcoded values in scripts with user-provided terminal inputs, making your Python tools reusable without editing code.</p>
 <h3 id="example-1-reading-a-single-string-from-terminal-input">🛠️ Example 1: Reading a single string from terminal input</h3>
 <p>This example shows how to ask the user for a filename directly in the terminal.</p>
@@ -1250,6 +1279,217 @@ The same script accepts the database name, username, and host as arguments when 
 <p>📤 Output: <strong>Source: /data/raw Destination: /data/processed Verbose mode: True Batch size: 500 Starting pipeline with detailed logging enabled</strong></p>
 <hr />
 <h3 id="comparison-hardcoded-values-vs-terminal-inputs">Comparison: Hardcoded Values vs. Terminal Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Hardcoded Values</th>
+<th>Terminal Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code changes needed per run</td>
+<td>Edit script manually</td>
+<td>None — pass values at launch</td>
+</tr>
+<tr>
+<td>Reusability across engineers</td>
+<td>Requires sharing modified files</td>
+<td>One script works for all</td>
+</tr>
+<tr>
+<td>Error risk</td>
+<td>Typos in code break execution</td>
+<td>Validation can catch bad inputs</td>
+</tr>
+<tr>
+<td>Automation support</td>
+<td>Difficult to script multiple runs</td>
+<td>Easy to chain with shell scripts</td>
+</tr>
+<tr>
+<td>Audit trail</td>
+<td>No record of values used</td>
+<td>Command history shows all inputs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>Hardcoded values in scripts—such as file paths, server names, or configuration settings—create brittle code that breaks when environments change. Engineers often find themselves editing script source files just to run the same logic against different targets. This practice is error-prone, difficult to maintain, and introduces security risks when sensitive values are embedded directly in code.</p>
+<p>The solution lies in accepting inputs at runtime via the terminal. By moving values from inside the script to command-line arguments, you create flexible, reusable, and safer tools that adapt to different scenarios without modification.</p>
+<hr />
+<h3 id="the-problem-with-hardcoded-values_1">⚙️ The Problem with Hardcoded Values</h3>
+<p>Hardcoded values create several challenges:</p>
+<ul>
+<li><strong>Brittle scripts</strong> – Changing a server name or file path requires editing the source code</li>
+<li><strong>Version control noise</strong> – Every environment change creates unnecessary commits</li>
+<li><strong>Security risks</strong> – Passwords, API keys, or internal paths become visible in code repositories</li>
+<li><strong>Limited reuse</strong> – The same script cannot serve different teams or environments without duplication</li>
+<li><strong>Debugging difficulty</strong> – Errors become tied to specific values rather than logic</li>
+</ul>
+<hr />
+<h3 id="the-terminal-input-solution_1">🛠️ The Terminal Input Solution</h3>
+<p>Instead of writing values inside the script, you pass them when executing the program. This approach offers:</p>
+<ul>
+<li><strong>No code changes</strong> – The script remains identical across environments</li>
+<li><strong>Clear intent</strong> – Each run explicitly shows what values are being used</li>
+<li><strong>Automation friendly</strong> – Other scripts or CI/CD pipelines can pass values programmatically</li>
+<li><strong>Safer sharing</strong> – Sensitive data stays out of version control</li>
+<li><strong>Self-documenting</strong> – The script's requirements are visible in its argument definitions</li>
+</ul>
+<hr />
+<h3 id="comparison-hardcoded-vs-terminal-inputs_1">📊 Comparison: Hardcoded vs. Terminal Inputs</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Hardcoded Values</th>
+<th>Terminal Inputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Flexibility</strong></td>
+<td>Requires editing code for each change</td>
+<td>Accepts different values per run</td>
+</tr>
+<tr>
+<td><strong>Reusability</strong></td>
+<td>One environment per script version</td>
+<td>Infinite environments, one script</td>
+</tr>
+<tr>
+<td><strong>Security</strong></td>
+<td>Secrets exposed in source code</td>
+<td>Secrets passed at runtime only</td>
+</tr>
+<tr>
+<td><strong>Maintainability</strong></td>
+<td>Multiple script versions to track</td>
+<td>Single script, multiple use cases</td>
+</tr>
+<tr>
+<td><strong>Error risk</strong></td>
+<td>Easy to accidentally commit wrong values</td>
+<td>Values visible and verifiable at execution</td>
+</tr>
+<tr>
+<td><strong>Automation</strong></td>
+<td>Difficult to integrate with pipelines</td>
+<td>Simple to call with dynamic arguments</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-it-works-in-practice_1">🕵️ How It Works in Practice</h3>
+<p>The core idea is simple: your script defines what inputs it expects, and the user provides those inputs when running the script from the terminal.</p>
+<p><strong>Before (hardcoded approach):</strong>
+A script that connects to a database using values written directly inside the code. Changing the database name means opening the file and editing a string.</p>
+<p><strong>After (terminal input approach):</strong>
+The same script accepts the database name, username, and host as arguments when called. The script logic remains untouched; only the provided values change per execution.</p>
+<hr />
+<h3 id="key-benefits-for-engineers_1">🧩 Key Benefits for Engineers</h3>
+<ul>
+<li><strong>One script, many uses</strong> – Share the same script across development, staging, and production environments</li>
+<li><strong>Clear execution history</strong> – Terminal history or logs show exactly what values were used</li>
+<li><strong>Easier collaboration</strong> – Team members run the same script with their own parameters</li>
+<li><strong>Simpler testing</strong> – Test different scenarios by passing different values without modifying code</li>
+<li><strong>Reduced errors</strong> – No accidental commits of test values to production code</li>
+</ul>
+<hr />
+<h3 id="getting-started-mindset_1">🚀 Getting Started Mindset</h3>
+<p>When writing any new script, ask yourself:</p>
+<ul>
+<li>Which values might change between environments or runs?</li>
+<li>Which values should not be visible in the source code?</li>
+<li>Which parameters would make this script useful for others?</li>
+</ul>
+<p>If the answer to any of these questions is positive, those values belong as terminal inputs rather than hardcoded constants.</p>
+<hr />
+<h3 id="practical-example-flow_1">💡 Practical Example Flow</h3>
+<p>A typical workflow looks like this:</p>
+<ol>
+<li>Define the expected inputs at the beginning of your script</li>
+<li>Use descriptive names so the purpose of each input is clear</li>
+<li>Provide helpful error messages when required inputs are missing</li>
+<li>Access the provided values throughout your script logic</li>
+<li>Run the script by passing values after the script name in the terminal</li>
+</ol>
+<p>The result is a script that adapts to its environment rather than forcing the environment to adapt to the script.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Moving from hardcoded values to terminal inputs transforms rigid scripts into flexible tools. Engineers gain the ability to run the same logic against different targets, share code safely across teams, and integrate scripts into automated workflows without modification. This practice is foundational to writing professional, production-ready Python code that serves real-world needs beyond a single use case.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This approach replaces hardcoded values in scripts with user-provided terminal inputs, making your Python tools reusable without editing code.</p>
+<h3 id="example-1-reading-a-single-string-from-terminal-input_1">🛠️ Example 1: Reading a single string from terminal input</h3>
+<p>This example shows how to ask the user for a filename directly in the terminal.</p>
+<div class="highlight"><pre><span></span><code><span class="n">filename</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the filename to process: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing file: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Enter the filename to process: data.csv Processing file: data.csv</strong></p>
+<hr />
+<h3 id="example-2-reading-a-number-and-performing-a-calculation_1">🔢 Example 2: Reading a number and performing a calculation</h3>
+<p>This example demonstrates how to convert terminal input from text to a number for math operations.</p>
+<div class="highlight"><pre><span></span><code><span class="n">radius</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the circle radius in meters: &quot;</span><span class="p">)</span>
+<span class="n">radius_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span>
+<span class="n">area</span> <span class="o">=</span> <span class="mf">3.14159</span> <span class="o">*</span> <span class="n">radius_float</span> <span class="o">*</span> <span class="n">radius_float</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Circle area: </span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s2"> square meters&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Enter the circle radius in meters: 5 Circle area: 78.53975 square meters</strong></p>
+<hr />
+<h3 id="example-3-reading-multiple-inputs-for-a-file-processing-task_1">📂 Example 3: Reading multiple inputs for a file processing task</h3>
+<p>This example shows how to collect several values from the terminal to avoid hardcoding file paths and thresholds.</p>
+<div class="highlight"><pre><span></span><code><span class="n">input_file</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter input file path: &quot;</span><span class="p">)</span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter output file path: &quot;</span><span class="p">)</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter threshold value: &quot;</span><span class="p">)</span>
+<span class="n">threshold_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reading from </span><span class="si">{</span><span class="n">input_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Writing results to </span><span class="si">{</span><span class="n">output_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using threshold: </span><span class="si">{</span><span class="n">threshold_float</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Enter input file path: /home/user/data.csv Enter output file path: /home/user/results.txt Enter threshold value: 0.85 Reading from /home/user/data.csv Writing results to /home/user/results.txt Using threshold: 0.85</strong></p>
+<hr />
+<h3 id="example-4-using-argparse-for-named-command-line-arguments_1">⚙️ Example 4: Using argparse for named command-line arguments</h3>
+<p>This example introduces the argparse library so engineers can pass arguments when launching the script.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Process sensor data&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--input&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to input CSV file&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--output&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to output file&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--limit&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Max records to process&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input file: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">input</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Output file: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">output</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Record limit: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Input file: sensor_data.csv Output file: cleaned_data.csv Record limit: 100</strong></p>
+<hr />
+<h3 id="example-5-combining-positional-and-optional-arguments-for-a-real-world-pipeline_1">🚀 Example 5: Combining positional and optional arguments for a real-world pipeline</h3>
+<p>This example shows a practical data pipeline where engineers pass required and optional parameters at launch.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Data pipeline for temperature readings&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Source directory containing raw data&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;destination&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Destination directory for processed data&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--verbose&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;store_true&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Enable detailed logging&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--batch-size&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Records per batch&quot;</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Source: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">source</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Destination: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">destination</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Verbose mode: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Batch size: </span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting pipeline with detailed logging enabled&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Source: /data/raw Destination: /data/processed Verbose mode: True Batch size: 500 Starting pipeline with detailed logging enabled</strong></p>
+<hr />
+<h3 id="comparison-hardcoded-values-vs-terminal-inputs_1">Comparison: Hardcoded Values vs. Terminal Inputs</h3>
 <table>
 <thead>
 <tr>

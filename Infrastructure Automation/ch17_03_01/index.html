@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch17_03_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 17 | URL Query Parameters and the params Dictionary - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 17 | URL Query Parameters and the params Dictionary";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch17_03_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch17_03_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -805,6 +805,38 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-url-query-parameters_1">⚙️ What Are URL Query Parameters?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-params-dictionary-in-python_1">🛠️ The params Dictionary in Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-manual-vs-using-params-dictionary_1">📊 Comparison: Manual vs. Using params Dictionary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-filtering-api-data_1">🕵️ Practical Example: Filtering API Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-with-multiple-values_1">🧪 Working with Multiple Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-none-or-empty-values_1">🔍 Handling None or Empty Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-engineers_1">✅ Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-recap_1">🧠 Quick Recap</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">📚 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-sending-a-single-query-parameter_1">🧩 Example 1: Sending a single query parameter</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-sending-multiple-query-parameters_1">🧩 Example 2: Sending multiple query parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-passing-a-parameter-with-no-value-flag_1">🧩 Example 3: Passing a parameter with no value (flag)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-a-list-as-a-parameter-value_1">🧩 Example 4: Using a list as a parameter value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-combining-params-with-a-base-url-that-already-has-parameters_1">🧩 Example 5: Combining params with a base URL that already has parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch17_03_02/">Ch 17 | Setting Operational Fields in Request Headers</a>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="url-query-parameters-and-the-params-dictionary">URL Query Parameters and the params Dictionary</h1>
 <p><span class="category-tag">🏷️ APIs and HTTP Requests /  Passing Parameters and Headers</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1197,8 +1229,7 @@
 <hr />
 <h3 id="next-steps">📚 Next Steps</h3>
 <p>Now that you understand how to pass query parameters using the <code>params</code> dictionary, you are ready to explore <strong>request headers</strong> — another essential part of API communication that allows you to send metadata like authentication tokens, content types, and user-agent information.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>URL query parameters let you send key-value data to an API by appending them to the URL, and the <code>params</code> dictionary in Python's <code>requests</code> library builds that URL string automatically.</p>
 <hr />
 <h3 id="example-1-sending-a-single-query-parameter">🧩 Example 1: Sending a single query parameter</h3>
@@ -1262,6 +1293,227 @@
 <p>📤 Output: <strong>https://api.example.com/data?version=2&amp;token=abc123&amp;format=csv</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Manual URL Building</th>
+<th>Using <code>params</code> Dictionary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Readability</td>
+<td>Poor — long strings</td>
+<td>Excellent — clear key-value pairs</td>
+</tr>
+<tr>
+<td>Handling special characters</td>
+<td>Must encode manually</td>
+<td>Automatic encoding</td>
+</tr>
+<tr>
+<td>Multiple values for same key</td>
+<td>Hard to format</td>
+<td>Easy — use a list</td>
+</tr>
+<tr>
+<td>Combining with existing URL params</td>
+<td>Error-prone</td>
+<td>Safe — appends correctly</td>
+</tr>
+<tr>
+<td>Code maintenance</td>
+<td>Fragile</td>
+<td>Clean and easy to update</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>When working with APIs, you often need to send additional information along with your request. Think of it like asking a librarian for a book — you need to specify the title, author, or genre to narrow down the search. In the world of HTTP requests, this extra information is often passed through <strong>URL query parameters</strong>. Python's <code>requests</code> library makes this incredibly easy with the <code>params</code> dictionary, allowing you to cleanly and dynamically build URLs without messy string concatenation.</p>
+<hr />
+<h3 id="what-are-url-query-parameters_1">⚙️ What Are URL Query Parameters?</h3>
+<ul>
+<li>URL query parameters are key-value pairs appended to the end of a URL after a question mark (<code>?</code>).</li>
+<li>Multiple parameters are separated by an ampersand (<code>&amp;</code>).</li>
+<li>They are commonly used to filter, sort, or paginate API responses.</li>
+</ul>
+<p><strong>Example of a URL with query parameters:</strong>
+- <strong>Base URL:</strong> <code>https://api.example.com/users</code>
+- <strong>With parameters:</strong> <code>https://api.example.com/users?role=admin&amp;status=active&amp;page=2</code></p>
+<p>In this example, we are asking for users who are admins, with an active status, on page 2 of the results.</p>
+<hr />
+<h3 id="the-params-dictionary-in-python_1">🛠️ The <code>params</code> Dictionary in Python</h3>
+<p>Instead of manually constructing the URL string, Python's <code>requests</code> library allows you to pass a dictionary to the <code>params</code> parameter. The library automatically encodes and appends the parameters to the URL.</p>
+<p><strong>Basic syntax:</strong>
+- <strong>Import the library:</strong> <code>import requests</code>
+- <strong>Define your parameters as a dictionary:</strong> <code>my_params = {"key1": "value1", "key2": "value2"}</code>
+- <strong>Make the request:</strong> <code>response = requests.get("https://api.example.com/data", params=my_params)</code></p>
+<p><strong>What happens behind the scenes:</strong>
+- The <code>requests</code> library takes your dictionary and converts it into a properly formatted query string.
+- It handles special characters (like spaces or symbols) by URL-encoding them automatically.
+- The final URL becomes something like: <code>https://api.example.com/data?key1=value1&amp;key2=value2</code></p>
+<hr />
+<h3 id="comparison-manual-vs-using-params-dictionary_1">📊 Comparison: Manual vs. Using <code>params</code> Dictionary</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Manual String Concatenation</th>
+<th>Using <code>params</code> Dictionary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Difficult to read and maintain</td>
+<td>Clean and easy to understand</td>
+</tr>
+<tr>
+<td><strong>Error Handling</strong></td>
+<td>Prone to missing <code>?</code> or <code>&amp;</code></td>
+<td>Automatically handled</td>
+</tr>
+<tr>
+<td><strong>Special Characters</strong></td>
+<td>Must manually URL-encode</td>
+<td>Automatically encoded</td>
+</tr>
+<tr>
+<td><strong>Dynamic Values</strong></td>
+<td>Requires complex string formatting</td>
+<td>Simply update the dictionary</td>
+</tr>
+<tr>
+<td><strong>Code Reusability</strong></td>
+<td>Low — hard to modify</td>
+<td>High — easy to add/remove parameters</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-filtering-api-data_1">🕵️ Practical Example: Filtering API Data</h3>
+<p>Imagine you are querying a weather API that provides historical data. You want to filter by city and date range.</p>
+<p><strong>Without <code>params</code> (messy approach):</strong>
+- Build the URL manually: <code>url = "https://api.weather.com/history?city=London&amp;start=2023-01-01&amp;end=2023-01-31"</code>
+- If you need to change the city or dates, you must edit the string directly.</p>
+<p><strong>With <code>params</code> (clean approach):</strong>
+- Define your parameters as a dictionary:
+  - <code>query_params = {"city": "London", "start": "2023-01-01", "end": "2023-01-31"}</code>
+- Make the request:
+  - <code>response = requests.get("https://api.weather.com/history", params=query_params)</code>
+- To change the city, simply update the dictionary:
+  - <code>query_params["city"] = "Paris"</code></p>
+<p><strong>Key takeaway:</strong> The <code>params</code> dictionary makes your code flexible, readable, and maintainable.</p>
+<hr />
+<h3 id="working-with-multiple-values_1">🧪 Working with Multiple Values</h3>
+<p>Sometimes an API expects multiple values for the same parameter (e.g., filtering by multiple categories). You can pass a list as the value in your dictionary.</p>
+<p><strong>Example:</strong>
+- <strong>Parameter:</strong> <code>category</code> with values <code>tech</code>, <code>science</code>, <code>health</code>
+- <strong>Dictionary:</strong> <code>filter_params = {"category": ["tech", "science", "health"]}</code>
+- <strong>Resulting URL:</strong> <code>https://api.example.com/articles?category=tech&amp;category=science&amp;category=health</code></p>
+<p>The <code>requests</code> library automatically repeats the parameter key for each value in the list.</p>
+<hr />
+<h3 id="handling-none-or-empty-values_1">🔍 Handling None or Empty Values</h3>
+<ul>
+<li>If a parameter value is <code>None</code>, the <code>requests</code> library will <strong>omit</strong> that parameter entirely from the URL.</li>
+<li>If a value is an empty string, it will still be included as <code>key=</code> (empty value).</li>
+</ul>
+<p><strong>Example:</strong>
+- <code>params = {"status": "active", "page": None, "sort": ""}</code>
+- <strong>Resulting URL:</strong> <code>https://api.example.com/items?status=active&amp;sort=</code></p>
+<p>This behavior is useful when you conditionally include parameters based on user input or logic.</p>
+<hr />
+<h3 id="best-practices-for-engineers_1">✅ Best Practices for Engineers</h3>
+<ul>
+<li><strong>Always use the <code>params</code> dictionary</strong> instead of manual URL construction — it prevents encoding errors and improves code clarity.</li>
+<li><strong>Keep your parameters dictionary separate</strong> from the base URL for better organization.</li>
+<li><strong>Use descriptive key names</strong> that match the API documentation (e.g., <code>page_size</code> instead of <code>ps</code>).</li>
+<li><strong>Validate parameters before passing them</strong> to avoid sending unexpected data to the API.</li>
+<li><strong>Log the final URL</strong> during debugging to verify that parameters are correctly applied.</li>
+</ul>
+<hr />
+<h3 id="quick-recap_1">🧠 Quick Recap</h3>
+<ul>
+<li>URL query parameters are key-value pairs added to a URL after <code>?</code> and separated by <code>&amp;</code>.</li>
+<li>Python's <code>requests</code> library provides the <code>params</code> parameter to pass a dictionary of query parameters.</li>
+<li>The library handles encoding, special characters, and multiple values automatically.</li>
+<li>Using <code>params</code> makes your code cleaner, more maintainable, and less error-prone compared to manual string concatenation.</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">📚 Next Steps</h3>
+<p>Now that you understand how to pass query parameters using the <code>params</code> dictionary, you are ready to explore <strong>request headers</strong> — another essential part of API communication that allows you to send metadata like authentication tokens, content types, and user-agent information.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>URL query parameters let you send key-value data to an API by appending them to the URL, and the <code>params</code> dictionary in Python's <code>requests</code> library builds that URL string automatically.</p>
+<hr />
+<h3 id="example-1-sending-a-single-query-parameter_1">🧩 Example 1: Sending a single query parameter</h3>
+<p>This shows how to send one key-value pair as a query parameter using the <code>params</code> dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.example.com/search&quot;</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>https://api.example.com/search?q=python</strong></p>
+<hr />
+<h3 id="example-2-sending-multiple-query-parameters_1">🧩 Example 2: Sending multiple query parameters</h3>
+<p>This demonstrates how to send several key-value pairs in one request.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.example.com/users&quot;</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;sort&quot;</span><span class="p">:</span> <span class="s2">&quot;name&quot;</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>https://api.example.com/users?page=2&amp;limit=10&amp;sort=name</strong></p>
+<hr />
+<h3 id="example-3-passing-a-parameter-with-no-value-flag_1">🧩 Example 3: Passing a parameter with no value (flag)</h3>
+<p>This shows how to send a boolean-like flag parameter that has no value assigned.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.example.com/reports&quot;</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span> <span class="s2">&quot;include_drafts&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>https://api.example.com/reports?format=json&amp;include_drafts=</strong></p>
+<hr />
+<h3 id="example-4-using-a-list-as-a-parameter-value_1">🧩 Example 4: Using a list as a parameter value</h3>
+<p>This demonstrates how to send multiple values for the same query key using a list.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.example.com/filter&quot;</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;electronics&quot;</span><span class="p">,</span> <span class="s2">&quot;books&quot;</span><span class="p">,</span> <span class="s2">&quot;clothing&quot;</span><span class="p">]}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>https://api.example.com/filter?category=electronics&amp;category=books&amp;category=clothing</strong></p>
+<hr />
+<h3 id="example-5-combining-params-with-a-base-url-that-already-has-parameters_1">🧩 Example 5: Combining params with a base URL that already has parameters</h3>
+<p>This shows how the <code>params</code> dictionary safely appends to a URL that already contains query parameters.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.example.com/data?version=2&quot;</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;abc123&quot;</span><span class="p">,</span> <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;csv&quot;</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>https://api.example.com/data?version=2&amp;token=abc123&amp;format=csv</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_05_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Type Checking Parsed Parameter Values in Configurations - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Type Checking Parsed Parameter Values in Configurations";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_05_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_05_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -925,6 +925,42 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#type-checking-comparison-table">📊 Type Checking Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-type-checking-matters_1">🧠 Why Type Checking Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-data-types-in-configuration-files_1">⚙️ Common Data Types in Configuration Files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-type-checking-with-pythons-built-in-functions_1">🕵️ Basic Type Checking with Python's Built-in Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-isinstance-for-more-flexible-checks_1">🛠️ Using isinstance() for More Flexible Checks</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-type-vs-isinstance_1">📊 Comparison: type() vs isinstance()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-boolean-values-carefully_1">🧪 Handling Boolean Values Carefully</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#type-checking-for-lists-and-dictionaries_1">🧩 Type Checking for Lists and Dictionaries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-a-simple-type-validation-function_1">🚨 Creating a Simple Type Validation Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-type-conversion-gracefully_1">🔄 Handling Type Conversion Gracefully</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-type-checking-workflow_1">📝 Practical Type Checking Workflow</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">🎯 Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-checking-if-a-value-is-an-integer_1">🔧 Example 1: Checking if a value is an integer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-checking-if-a-value-is-a-float_1">🔧 Example 2: Checking if a value is a float</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-checking-if-a-value-is-a-string_1">🔧 Example 3: Checking if a value is a string</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-checking-if-a-value-is-a-list_1">🔧 Example 4: Checking if a value is a list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-checking-multiple-parameter-types-after-parsing-a-yaml-config_1">🔧 Example 5: Checking multiple parameter types after parsing a YAML config</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#type-checking-comparison-table_1">📊 Type Checking Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_05_03/">Ch 19 | Writing Custom Assertion Diagnostic Functions</a>
@@ -1084,7 +1120,7 @@
               
                 <h1 id="type-checking-parsed-parameter-values-in-configurations">Type Checking Parsed Parameter Values in Configurations</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  Data Validation Basics</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with configuration files in JSON, YAML, or CSV formats, one of the most common issues engineers face is receiving unexpected data types. A parameter you expect to be an integer might arrive as a string, or a boolean value could be misinterpreted. Type checking ensures that the values parsed from your configuration files match the expected data types before your application uses them.</p>
@@ -1229,8 +1265,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Type checking parsed parameter values is a fundamental validation step that prevents subtle bugs and configuration-related failures. By using Python's <strong>isinstance()</strong> function, creating reusable validation functions, and handling boolean values carefully, you can build robust configuration processing pipelines. Remember to validate both the outer container types and the inner element types for nested structures, and always provide clear error messages that help engineers quickly identify and fix configuration issues.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Type checking ensures that parsed configuration values match the expected data types before using them in your engineering calculations.</p>
 <hr />
 <h3 id="example-1-checking-if-a-value-is-an-integer">🔧 Example 1: Checking if a value is an integer</h3>
@@ -1307,6 +1342,274 @@
 <strong>Enabled is a boolean: OK</strong></p>
 <hr />
 <h3 id="type-checking-comparison-table">📊 Type Checking Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Type Check Function</th>
+<th>Checks For</th>
+<th>Example Value</th>
+<th>Returns True</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>isinstance(value, int)</code></td>
+<td>Integer number</td>
+<td><code>42</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>isinstance(value, float)</code></td>
+<td>Decimal number</td>
+<td><code>3.14</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>isinstance(value, str)</code></td>
+<td>Text string</td>
+<td><code>"hello"</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>isinstance(value, list)</code></td>
+<td>Ordered collection</td>
+<td><code>[1, 2, 3]</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>isinstance(value, bool)</code></td>
+<td>True/False value</td>
+<td><code>True</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with configuration files in JSON, YAML, or CSV formats, one of the most common issues engineers face is receiving unexpected data types. A parameter you expect to be an integer might arrive as a string, or a boolean value could be misinterpreted. Type checking ensures that the values parsed from your configuration files match the expected data types before your application uses them.</p>
+<hr />
+<h3 id="why-type-checking-matters_1">🧠 Why Type Checking Matters</h3>
+<p>Configuration files are often edited manually or generated by different tools, making them prone to type inconsistencies. Without proper type checking, your code might silently fail or produce confusing errors. For example, a port number stored as the string <strong>"8080"</strong> instead of the integer <strong>8080</strong> could break network connections, or a timeout value stored as <strong>"30.5"</strong> instead of a float might cause calculation errors.</p>
+<p>Type checking acts as a safety net, catching these mismatches early and providing clear, actionable error messages instead of cryptic runtime failures.</p>
+<hr />
+<h3 id="common-data-types-in-configuration-files_1">⚙️ Common Data Types in Configuration Files</h3>
+<p>When parsing configuration values, you typically work with these fundamental types:</p>
+<ul>
+<li><strong>String</strong> – Text values like <strong>"production"</strong> or <strong>"192.168.1.1"</strong></li>
+<li><strong>Integer</strong> – Whole numbers like <strong>8080</strong> or <strong>-1</strong></li>
+<li><strong>Float</strong> – Decimal numbers like <strong>3.14</strong> or <strong>0.001</strong></li>
+<li><strong>Boolean</strong> – True/False values, often represented as <strong>true/false</strong> or <strong>yes/no</strong></li>
+<li><strong>List</strong> – Ordered collections like <strong>["us-east-1", "us-west-2"]</strong></li>
+<li><strong>Dictionary</strong> – Key-value pairs like <strong>{"host": "localhost", "port": 5432}</strong></li>
+</ul>
+<hr />
+<h3 id="basic-type-checking-with-pythons-built-in-functions_1">🕵️ Basic Type Checking with Python's Built-in Functions</h3>
+<p>Python provides simple built-in functions to verify the type of any parsed value. The most common approach is using the <strong>type()</strong> function combined with comparison operators.</p>
+<p><strong>Example approach for checking a parsed port number:</strong></p>
+<ul>
+<li>Parse the configuration value and store it in a variable, for example <strong>parsed_port</strong></li>
+<li>Use <strong>type(parsed_port) is int</strong> to verify it's an integer</li>
+<li>If the check fails, raise a clear error message like <strong>"Port must be an integer, got {type(parsed_port).<strong>name</strong>}"</strong></li>
+</ul>
+<p><strong>Example approach for checking a timeout value:</strong></p>
+<ul>
+<li>Parse the configuration value and store it in a variable, for example <strong>parsed_timeout</strong></li>
+<li>Use <strong>type(parsed_timeout) is float</strong> to verify it's a float</li>
+<li>If the check fails, attempt to convert using <strong>float(parsed_timeout)</strong> and catch any <strong>ValueError</strong></li>
+</ul>
+<hr />
+<h3 id="using-isinstance-for-more-flexible-checks_1">🛠️ Using isinstance() for More Flexible Checks</h3>
+<p>The <strong>isinstance()</strong> function is more flexible than <strong>type()</strong> because it supports inheritance and multiple type checks at once. This is especially useful when your configuration might accept multiple valid types.</p>
+<p><strong>Practical usage examples:</strong></p>
+<ul>
+<li><strong>isinstance(parsed_value, int)</strong> – Checks if the value is an integer</li>
+<li><strong>isinstance(parsed_value, (int, float))</strong> – Checks if the value is either an integer or a float</li>
+<li><strong>isinstance(parsed_value, str)</strong> – Checks if the value is a string</li>
+<li><strong>isinstance(parsed_value, bool)</strong> – Checks if the value is a boolean (note: bool is a subclass of int in Python)</li>
+</ul>
+<hr />
+<h3 id="comparison-type-vs-isinstance_1">📊 Comparison: type() vs isinstance()</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>type()</th>
+<th>isinstance()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Checks exact type</td>
+<td>✅ Yes</td>
+<td>❌ No (allows subclasses)</td>
+</tr>
+<tr>
+<td>Supports multiple types</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Handles inheritance</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Recommended for config validation</td>
+<td>⚠️ Sometimes</td>
+<td>✅ Usually</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="handling-boolean-values-carefully_1">🧪 Handling Boolean Values Carefully</h3>
+<p>Boolean values in configuration files can be tricky. YAML and JSON represent booleans as <strong>true/false</strong>, but CSV files often store them as strings like <strong>"yes"</strong>, <strong>"no"</strong>, <strong>"1"</strong>, or <strong>"0"</strong>. When parsing, you need to handle these variations explicitly.</p>
+<p><strong>Recommended approach for boolean type checking:</strong></p>
+<ul>
+<li>First check if the value is already a boolean using <strong>isinstance(parsed_value, bool)</strong></li>
+<li>If it's a string, normalize it to lowercase and compare against known true values like <strong>"true"</strong>, <strong>"yes"</strong>, <strong>"1"</strong></li>
+<li>If it's an integer, treat <strong>1</strong> as True and <strong>0</strong> as False</li>
+<li>Raise an error for any unrecognized value</li>
+</ul>
+<hr />
+<h3 id="type-checking-for-lists-and-dictionaries_1">🧩 Type Checking for Lists and Dictionaries</h3>
+<p>Configuration parameters often contain nested structures like lists of servers or dictionaries of connection settings. Type checking these structures requires verifying both the outer container type and the types of individual elements.</p>
+<p><strong>For list-type parameters:</strong></p>
+<ul>
+<li>Verify the outer type using <strong>isinstance(parsed_value, list)</strong></li>
+<li>Iterate through each element and check its type individually</li>
+<li>For example, a list of IP addresses should contain only strings</li>
+</ul>
+<p><strong>For dictionary-type parameters:</strong></p>
+<ul>
+<li>Verify the outer type using <strong>isinstance(parsed_value, dict)</strong></li>
+<li>Check that required keys exist using the <strong>in</strong> operator</li>
+<li>Validate the type of each key's value separately</li>
+</ul>
+<hr />
+<h3 id="creating-a-simple-type-validation-function_1">🚨 Creating a Simple Type Validation Function</h3>
+<p>A reusable validation function helps keep your code clean and consistent. The function should accept the parsed value, the expected type, and an optional parameter name for clear error messages.</p>
+<p><strong>Structure of a basic type validation function:</strong></p>
+<ul>
+<li>Accept three parameters: <strong>value</strong>, <strong>expected_type</strong>, and <strong>param_name</strong></li>
+<li>Use <strong>isinstance(value, expected_type)</strong> for the core check</li>
+<li>If the check fails, raise a <strong>TypeError</strong> with a descriptive message like <strong>f"Parameter '{param_name}' must be of type {expected_type.<strong>name</strong>}, got {type(value).<strong>name</strong>}"</strong></li>
+<li>If the check passes, return the value unchanged for further processing</li>
+</ul>
+<hr />
+<h3 id="handling-type-conversion-gracefully_1">🔄 Handling Type Conversion Gracefully</h3>
+<p>Sometimes configuration files contain values that are technically the wrong type but can be safely converted. For example, a port number stored as the string <strong>"8080"</strong> can be converted to an integer. However, automatic conversion can hide real configuration errors.</p>
+<p><strong>Recommended strategy for type conversion:</strong></p>
+<ul>
+<li>First attempt to use the value as-is if it matches the expected type</li>
+<li>If the type doesn't match, attempt a conversion using the appropriate constructor like <strong>int()</strong>, <strong>float()</strong>, or <strong>str()</strong></li>
+<li>Wrap the conversion in a try-except block to catch <strong>ValueError</strong> or <strong>TypeError</strong></li>
+<li>Log a warning when conversion occurs so engineers can fix the source configuration</li>
+<li>Raise an error only if conversion fails completely</li>
+</ul>
+<hr />
+<h3 id="practical-type-checking-workflow_1">📝 Practical Type Checking Workflow</h3>
+<p>When processing a configuration file, follow this systematic approach for each parameter:</p>
+<ol>
+<li><strong>Parse the value</strong> from the configuration file using your chosen parser (json.load, yaml.safe_load, csv.reader)</li>
+<li><strong>Check for None</strong> – Ensure the parameter exists and is not missing</li>
+<li><strong>Verify the type</strong> using isinstance() or a custom validation function</li>
+<li><strong>Convert if needed</strong> – Attempt safe conversion with clear warnings</li>
+<li><strong>Validate the value</strong> – Check ranges, formats, or allowed values after type is confirmed</li>
+<li><strong>Use the value</strong> – Pass the validated and typed value to your application logic</li>
+</ol>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">🎯 Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Forgetting that bool is a subclass of int</strong> – Using <strong>isinstance(value, int)</strong> will return True for boolean values, which can cause subtle bugs</li>
+<li><strong>Assuming all configuration formats handle types the same way</strong> – JSON supports null, YAML supports more types like dates, and CSV treats everything as strings by default</li>
+<li><strong>Skipping type checks for nested structures</strong> – A list of dictionaries might have the correct outer type but contain invalid inner types</li>
+<li><strong>Over-relying on automatic conversion</strong> – Silently converting types can mask configuration errors that should be fixed at the source</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Type checking parsed parameter values is a fundamental validation step that prevents subtle bugs and configuration-related failures. By using Python's <strong>isinstance()</strong> function, creating reusable validation functions, and handling boolean values carefully, you can build robust configuration processing pipelines. Remember to validate both the outer container types and the inner element types for nested structures, and always provide clear error messages that help engineers quickly identify and fix configuration issues.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Type checking ensures that parsed configuration values match the expected data types before using them in your engineering calculations.</p>
+<hr />
+<h3 id="example-1-checking-if-a-value-is-an-integer_1">🔧 Example 1: Checking if a value is an integer</h3>
+<p>This example shows how to verify that a parsed configuration value is an integer type.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config_value</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config_value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is an integer&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is not an integer&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Value is an integer</strong></p>
+<hr />
+<h3 id="example-2-checking-if-a-value-is-a-float_1">🔧 Example 2: Checking if a value is a float</h3>
+<p>This example demonstrates checking that a parsed configuration value is a floating-point number.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config_value</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config_value</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is a float&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is not a float&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Value is a float</strong></p>
+<hr />
+<h3 id="example-3-checking-if-a-value-is-a-string_1">🔧 Example 3: Checking if a value is a string</h3>
+<p>This example shows how to confirm that a parsed configuration value is a text string.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config_value</span> <span class="o">=</span> <span class="s2">&quot;192.168.1.1&quot;</span>
+<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config_value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is a string&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is not a string&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Value is a string</strong></p>
+<hr />
+<h3 id="example-4-checking-if-a-value-is-a-list_1">🔧 Example 4: Checking if a value is a list</h3>
+<p>This example demonstrates verifying that a parsed configuration value is a list of items.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config_value</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config_value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is a list&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value is not a list&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Value is a list</strong></p>
+<hr />
+<h3 id="example-5-checking-multiple-parameter-types-after-parsing-a-yaml-config_1">🔧 Example 5: Checking multiple parameter types after parsing a YAML config</h3>
+<p>This example shows how to validate the types of several parsed configuration values from a YAML file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="n">config_yaml</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">server:</span>
+<span class="s2">  host: &quot;10.0.0.1&quot;</span>
+<span class="s2">  port: 8080</span>
+<span class="s2">  timeout: 30.5</span>
+<span class="s2">  enabled: true</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">parsed_config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">config_yaml</span><span class="p">)</span>
+
+<span class="n">server_config</span> <span class="o">=</span> <span class="n">parsed_config</span><span class="p">[</span><span class="s2">&quot;server&quot;</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">server_config</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Host is a string: OK&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">server_config</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">],</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Port is an integer: OK&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">server_config</span><span class="p">[</span><span class="s2">&quot;timeout&quot;</span><span class="p">],</span> <span class="nb">float</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timeout is a float: OK&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">server_config</span><span class="p">[</span><span class="s2">&quot;enabled&quot;</span><span class="p">],</span> <span class="nb">bool</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enabled is a boolean: OK&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Host is a string: OK</strong><br />
+<strong>Port is an integer: OK</strong><br />
+<strong>Timeout is a float: OK</strong><br />
+<strong>Enabled is a boolean: OK</strong></p>
+<hr />
+<h3 id="type-checking-comparison-table_1">📊 Type Checking Comparison Table</h3>
 <table>
 <thead>
 <tr>

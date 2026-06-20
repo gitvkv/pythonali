@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_01_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Creating Directories (mkdir, File Structures) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Creating Directories (mkdir, File Structures)";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_01_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_01_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -647,6 +647,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-create-directories-in-python_1">⚙️ Why Create Directories in Python?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-osmkdir-function_1">🛠️ The os.mkdir() Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-osmkdir-vs-osmakedirs_1">📊 Comparison: os.mkdir() vs os.makedirs()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-nested-directories-with-osmakedirs_1">🕵️ Creating Nested Directories with os.makedirs()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#checking-if-a-directory-exists-before-creating_1">✅ Checking If a Directory Exists Before Creating</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-a-complete-file-structure_1">🧱 Building a Complete File Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-and-how-to-avoid-them_1">⚠️ Common Pitfalls and How to Avoid Them</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-engineers_1">📝 Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together_1">🚀 Putting It All Together</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-creating-a-single-directory_1">🛠 Example 1: Creating a single directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-checking-if-a-directory-exists-before-creating-it_1">🛠 Example 2: Checking if a directory exists before creating it</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-creating-a-directory-with-a-specific-path_1">🛠 Example 3: Creating a directory with a specific path</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-creating-nested-directories-with-osmakedirs_1">🛠 Example 4: Creating nested directories with os.makedirs()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-creating-a-project-file-structure_1">🛠 Example 5: Creating a project file structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_01_04/">Ch 14 | Deleting Files and Directories (remove, rmdir)</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="creating-directories-mkdir-file-structures">Creating Directories (mkdir, File Structures)</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  The os Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with files and automation, one of the most common tasks is creating directories to organize data, logs, or configuration files. Python's <strong>os</strong> module provides a straightforward way to create directories programmatically, saving you from manual folder creation and ensuring consistent file structures across different environments.</p>
@@ -1200,8 +1230,7 @@
 <li>Handle potential exceptions like <strong>PermissionError</strong> or <strong>OSError</strong> with try-except blocks for production scripts.</li>
 </ul>
 <p>This approach ensures your scripts are reliable, portable, and ready for automation in any environment.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>os.mkdir()</code> function creates a single directory, while <code>os.makedirs()</code> creates nested directory structures in one call.</p>
 <h3 id="example-1-creating-a-single-directory">🛠 Example 1: Creating a single directory</h3>
 <p>This example creates one new folder in the current working directory.</p>
@@ -1271,6 +1300,226 @@
 <p>📤 Output: <strong>Project structure created at: /home/engineer/data_pipeline</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Creates single folder</th>
+<th>Creates nested folders</th>
+<th>Raises error if exists</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>os.mkdir()</code></td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>os.makedirs()</code></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes (unless <code>exist_ok=True</code>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with files and automation, one of the most common tasks is creating directories to organize data, logs, or configuration files. Python's <strong>os</strong> module provides a straightforward way to create directories programmatically, saving you from manual folder creation and ensuring consistent file structures across different environments.</p>
+<hr />
+<h3 id="why-create-directories-in-python_1">⚙️ Why Create Directories in Python?</h3>
+<ul>
+<li><strong>Automation</strong>: Scripts can set up entire folder structures without manual intervention.</li>
+<li><strong>Consistency</strong>: Every run of your script produces the same directory layout.</li>
+<li><strong>Error Handling</strong>: You can check if a folder exists before creating it, avoiding crashes.</li>
+<li><strong>Portability</strong>: Python handles path separators automatically across Windows, Linux, and macOS.</li>
+</ul>
+<hr />
+<h3 id="the-osmkdir-function_1">🛠️ The <code>os.mkdir()</code> Function</h3>
+<p>The most basic way to create a single directory is using <strong>os.mkdir()</strong>. This function creates one directory at a time.</p>
+<p><strong>How it works:</strong>
+- You provide a path (relative or absolute) as a string.
+- The directory is created at that location.
+- If the directory already exists, Python raises a <strong>FileExistsError</strong>.</p>
+<p><strong>Example usage:</strong>
+- Import the os module with <strong>import os</strong>.
+- Call <strong>os.mkdir("new_folder")</strong> to create a folder named "new_folder" in the current working directory.
+- Call <strong>os.mkdir("/home/user/projects/logs")</strong> to create a folder at an absolute path.</p>
+<p><strong>Important behavior:</strong>
+- Only creates the final directory in the path.
+- All parent directories must already exist.
+- Raises an error if the directory already exists.</p>
+<hr />
+<h3 id="comparison-osmkdir-vs-osmakedirs_1">📊 Comparison: <code>os.mkdir()</code> vs <code>os.makedirs()</code></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>os.mkdir()</th>
+<th>os.makedirs()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Creates parent directories</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Creates nested paths</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Error if directory exists</td>
+<td>Yes</td>
+<td>Yes (by default)</td>
+</tr>
+<tr>
+<td>Best use case</td>
+<td>Single folder creation</td>
+<td>Full directory trees</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="creating-nested-directories-with-osmakedirs_1">🕵️ Creating Nested Directories with <code>os.makedirs()</code></h3>
+<p>When you need to create a full folder structure (like <strong>project/data/raw</strong> and <strong>project/data/processed</strong>), use <strong>os.makedirs()</strong>. This function creates all intermediate directories automatically.</p>
+<p><strong>How it works:</strong>
+- Provide the full path you want to create.
+- Python creates every missing folder along the path.
+- If the entire path already exists, no error is raised by default.</p>
+<p><strong>Example usage:</strong>
+- Call <strong>os.makedirs("project/data/raw")</strong> to create three nested folders at once.
+- Call <strong>os.makedirs("logs/2024/01")</strong> to create a date-based folder structure.</p>
+<p><strong>Key parameter:</strong>
+- The <strong>exist_ok</strong> parameter controls error behavior. Set <strong>exist_ok=True</strong> to suppress errors if the directory already exists.</p>
+<hr />
+<h3 id="checking-if-a-directory-exists-before-creating_1">✅ Checking If a Directory Exists Before Creating</h3>
+<p>A common pattern is to check if a directory exists before attempting to create it. This prevents unnecessary errors and makes your scripts more robust.</p>
+<p><strong>How to check:</strong>
+- Use <strong>os.path.exists("folder_name")</strong> which returns <strong>True</strong> or <strong>False</strong>.
+- Combine with an <strong>if</strong> statement to decide whether to create the directory.</p>
+<p><strong>Example logic:</strong>
+- Check <strong>if not os.path.exists("backups")</strong> then call <strong>os.mkdir("backups")</strong>.
+- This ensures you only create the directory when it is missing.</p>
+<p><strong>Alternative approach:</strong>
+- Use <strong>os.makedirs("folder", exist_ok=True)</strong> to skip the check entirely. This is cleaner and preferred for most use cases.</p>
+<hr />
+<h3 id="building-a-complete-file-structure_1">🧱 Building a Complete File Structure</h3>
+<p>For larger projects, you often need to create multiple directories at once. You can define the structure as a list or dictionary and loop through it.</p>
+<p><strong>Example approach:</strong>
+- Define a list of paths: <strong>folders = ["data/raw", "data/processed", "logs", "config"]</strong>.
+- Loop through each folder: <strong>for folder in folders: os.makedirs(folder, exist_ok=True)</strong>.
+- This creates all folders in one clean block of code.</p>
+<p><strong>Common file structure patterns:</strong>
+- <strong>Project root</strong> with subfolders for data, logs, output, and config.
+- <strong>Date-based structures</strong> like <strong>logs/2024/01/15</strong> for daily log files.
+- <strong>Environment-based structures</strong> like <strong>config/dev</strong>, <strong>config/prod</strong>, <strong>config/staging</strong>.</p>
+<hr />
+<h3 id="common-pitfalls-and-how-to-avoid-them_1">⚠️ Common Pitfalls and How to Avoid Them</h3>
+<ul>
+<li><strong>Forgetting to import os</strong>: Always start with <strong>import os</strong> at the top of your script.</li>
+<li><strong>Using wrong path separators</strong>: On Windows, use raw strings like <strong>r"C:\Users\name\folder"</strong> or use forward slashes which Python handles automatically.</li>
+<li><strong>Not handling permissions</strong>: If you don't have write permission to a directory, Python raises a <strong>PermissionError</strong>. Always ensure your script runs with appropriate access.</li>
+<li><strong>Creating directories in wrong location</strong>: Use <strong>os.getcwd()</strong> to check your current working directory, or always use absolute paths for critical operations.</li>
+</ul>
+<hr />
+<h3 id="best-practices-for-engineers_1">📝 Best Practices for Engineers</h3>
+<ul>
+<li><strong>Always use os.makedirs() with exist_ok=True</strong> for creating directories. It handles both single and nested paths gracefully.</li>
+<li><strong>Define directory paths as variables</strong> at the top of your script for easy maintenance.</li>
+<li><strong>Use pathlib for modern Python</strong> (3.4+). The <strong>pathlib.Path.mkdir()</strong> method offers a more object-oriented approach with the same functionality.</li>
+<li><strong>Add logging</strong> when creating directories in production scripts so you can track what was created and when.</li>
+<li><strong>Clean up temporary directories</strong> after your script finishes to avoid cluttering the filesystem.</li>
+</ul>
+<hr />
+<h3 id="putting-it-all-together_1">🚀 Putting It All Together</h3>
+<p>A typical directory creation workflow in Python follows this pattern:</p>
+<ul>
+<li>Import the os module.</li>
+<li>Define the base path for your project.</li>
+<li>Use <strong>os.makedirs()</strong> with <strong>exist_ok=True</strong> for each folder you need.</li>
+<li>Optionally, verify creation by checking <strong>os.path.exists()</strong> after the operation.</li>
+<li>Handle potential exceptions like <strong>PermissionError</strong> or <strong>OSError</strong> with try-except blocks for production scripts.</li>
+</ul>
+<p>This approach ensures your scripts are reliable, portable, and ready for automation in any environment.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>os.mkdir()</code> function creates a single directory, while <code>os.makedirs()</code> creates nested directory structures in one call.</p>
+<h3 id="example-1-creating-a-single-directory_1">🛠 Example 1: Creating a single directory</h3>
+<p>This example creates one new folder in the current working directory.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;new_folder&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(no output — directory "new_folder" is created)</strong></p>
+<hr />
+<h3 id="example-2-checking-if-a-directory-exists-before-creating-it_1">🛠 Example 2: Checking if a directory exists before creating it</h3>
+<p>This example prevents errors by verifying a directory does not already exist.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">directory_name</span> <span class="o">=</span> <span class="s2">&quot;data_folder&quot;</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory_name</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">directory_name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory created successfully&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory already exists&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Directory created successfully</strong></p>
+<hr />
+<h3 id="example-3-creating-a-directory-with-a-specific-path_1">🛠 Example 3: Creating a directory with a specific path</h3>
+<p>This example creates a new folder inside an existing parent directory.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">parent_path</span> <span class="o">=</span> <span class="s2">&quot;/home/engineer/projects&quot;</span>
+<span class="n">new_folder_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parent_path</span><span class="p">,</span> <span class="s2">&quot;logs&quot;</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">new_folder_path</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(no output — directory "logs" is created inside "projects")</strong></p>
+<hr />
+<h3 id="example-4-creating-nested-directories-with-osmakedirs_1">🛠 Example 4: Creating nested directories with os.makedirs()</h3>
+<p>This example creates multiple levels of folders in a single command.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">nested_path</span> <span class="o">=</span> <span class="s2">&quot;reports/2024/january/sales&quot;</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">nested_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nested directories created&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Nested directories created</strong></p>
+<hr />
+<h3 id="example-5-creating-a-project-file-structure_1">🛠 Example 5: Creating a project file structure</h3>
+<p>This example builds a standard project folder layout for engineers.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">project_name</span> <span class="o">=</span> <span class="s2">&quot;data_pipeline&quot;</span>
+<span class="n">base_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="n">project_name</span><span class="p">)</span>
+
+<span class="n">folders</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;src&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tests&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;data/raw&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;data/processed&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;outputs&quot;</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">folders</span><span class="p">:</span>
+    <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Project structure created at: </span><span class="si">{</span><span class="n">base_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Project structure created at: /home/engineer/data_pipeline</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch17_06_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 17 | Sending Standard URL-Encoded Form Data - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 17 | Sending Standard URL-Encoded Form Data";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch17_06_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch17_06_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -823,6 +823,32 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-url-encoded-form-data_1">🌐 What Is URL-Encoded Form Data?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-url-encoded-form-data_1">⚙️ When to Use URL-Encoded Form Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-send-url-encoded-form-data-in-python_1">🛠️ How to Send URL-Encoded Form Data in Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-url-encoded-form-data-vs-json_1">📊 Comparison: URL-Encoded Form Data vs. JSON</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#checking-what-you-sent_1">🕵️ Checking What You Sent</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">🧪 Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-sending-a-single-key-value-pair_1">📦 Example 1: Sending a single key-value pair</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-sending-multiple-fields_1">📦 Example 2: Sending multiple fields</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-sending-numeric-and-boolean-values_1">📦 Example 3: Sending numeric and boolean values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-sending-form-data-with-special-characters_1">📦 Example 4: Sending form data with special characters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-sending-form-data-and-checking-the-response-status_1">📦 Example 5: Sending form data and checking the response status</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch17_06_03/">Ch 17 | Uploading Files and Multipart Form Data</a>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="sending-standard-url-encoded-form-data">Sending Standard URL-Encoded Form Data</h1>
 <p><span class="category-tag">🏷️ APIs and HTTP Requests /  Sending Data in Requests</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When interacting with web APIs, you'll often need to send data to a server—for example, submitting a login form, posting a configuration update, or sending monitoring alerts. One of the most common and simplest formats for this is <strong>URL-encoded form data</strong>. This is the same format your browser uses when you submit a standard HTML form.</p>
@@ -1163,8 +1189,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Sending standard URL-encoded form data in Python is a simple and essential skill for working with web APIs. By passing a Python dictionary to the <strong>data</strong> parameter of the <strong>requests</strong> library, you can easily submit forms, authenticate, or send configuration data. This format is lightweight, widely supported, and perfect for simple key-value submissions. Always check the API documentation to confirm the expected format, and use the <strong>data</strong> parameter for form data and the <strong>json</strong> parameter for JSON payloads.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This technique sends data to a web server in the same format that a web browser uses when submitting an HTML form.</p>
 <hr />
 <h3 id="example-1-sending-a-single-key-value-pair">📦 Example 1: Sending a single key-value pair</h3>
@@ -1226,6 +1251,207 @@
 <p>📤 Output: <strong>Login data sent successfully</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Single field</th>
+<th>Multiple fields</th>
+<th>Mixed types</th>
+<th>Special characters</th>
+<th>Status check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of keys</td>
+<td>1</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Data types</td>
+<td>string</td>
+<td>string</td>
+<td>int, bool, float</td>
+<td>string</td>
+<td>string</td>
+</tr>
+<tr>
+<td>Encoding handled</td>
+<td>automatic</td>
+<td>automatic</td>
+<td>automatic</td>
+<td>automatic</td>
+<td>automatic</td>
+</tr>
+<tr>
+<td>Response parsed</td>
+<td>status code</td>
+<td>form dict</td>
+<td>form dict</td>
+<td>form dict</td>
+<td>conditional check</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When interacting with web APIs, you'll often need to send data to a server—for example, submitting a login form, posting a configuration update, or sending monitoring alerts. One of the most common and simplest formats for this is <strong>URL-encoded form data</strong>. This is the same format your browser uses when you submit a standard HTML form.</p>
+<hr />
+<h3 id="what-is-url-encoded-form-data_1">🌐 What Is URL-Encoded Form Data?</h3>
+<p>URL-encoded form data is a way of structuring key-value pairs into a string that can be sent in the body of an HTTP request. The data is formatted like a query string, where each key and value is separated by an equals sign (<code>=</code>), and multiple pairs are joined by an ampersand (<code>&amp;</code>).</p>
+<p><strong>Example of a URL-encoded string:</strong>
+- <strong>username=johndoe&amp;password=secret123&amp;role=admin</strong></p>
+<p>Spaces and special characters are automatically encoded (e.g., a space becomes <code>%20</code>). This ensures the data is safe to transmit over HTTP.</p>
+<hr />
+<h3 id="when-to-use-url-encoded-form-data_1">⚙️ When to Use URL-Encoded Form Data</h3>
+<p>This format is typically used when:</p>
+<ul>
+<li><strong>Submitting HTML forms</strong> (e.g., login pages, search forms)</li>
+<li><strong>Interacting with REST APIs</strong> that expect form data</li>
+<li><strong>Sending simple key-value configuration</strong> to a server</li>
+<li><strong>Authenticating</strong> with OAuth or token endpoints</li>
+</ul>
+<p>Most APIs will specify in their documentation whether they expect <strong>JSON</strong>, <strong>form data</strong>, or <strong>multipart data</strong>.</p>
+<hr />
+<h3 id="how-to-send-url-encoded-form-data-in-python_1">🛠️ How to Send URL-Encoded Form Data in Python</h3>
+<p>Python's <strong>requests</strong> library makes sending URL-encoded form data very straightforward. You simply pass a Python dictionary to the <strong>data</strong> parameter of a request method (like <strong>POST</strong> or <strong>PUT</strong>). The library automatically encodes the dictionary into the correct format and sets the appropriate <strong>Content-Type</strong> header.</p>
+<p><strong>Basic example of sending form data:</strong>
+- Import the <strong>requests</strong> library.
+- Define your data as a Python dictionary: <strong>payload = {"username": "admin", "password": "s3cret"}</strong>
+- Send a POST request: <strong>response = requests.post("https://example.com/api/login", data=payload)</strong>
+- The library automatically encodes the dictionary and sets <strong>Content-Type: application/x-www-form-urlencoded</strong>.</p>
+<hr />
+<h3 id="comparison-url-encoded-form-data-vs-json_1">📊 Comparison: URL-Encoded Form Data vs. JSON</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>URL-Encoded Form Data</th>
+<th>JSON</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Format</strong></td>
+<td>Key-value pairs (key=value&amp;key2=value2)</td>
+<td>Structured text with brackets and quotes</td>
+</tr>
+<tr>
+<td><strong>Content-Type header</strong></td>
+<td>application/x-www-form-urlencoded</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td><strong>Data nesting</strong></td>
+<td>Not supported (flat structure only)</td>
+<td>Supports nested objects and arrays</td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Simple and compact</td>
+<td>More verbose but human-readable</td>
+</tr>
+<tr>
+<td><strong>Use case</strong></td>
+<td>HTML forms, simple submissions</td>
+<td>Complex data, modern REST APIs</td>
+</tr>
+<tr>
+<td><strong>Python parameter</strong></td>
+<td><strong>data</strong></td>
+<td><strong>json</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="checking-what-you-sent_1">🕵️ Checking What You Sent</h3>
+<p>It's good practice to verify that your data was sent correctly. You can inspect the request that was prepared by the <strong>requests</strong> library before it is sent.</p>
+<p><strong>How to inspect your request:</strong>
+- After preparing the request, you can check <strong>response.request.body</strong> to see the encoded string.
+- You can also check <strong>response.request.headers</strong> to confirm the <strong>Content-Type</strong> is set correctly.
+- For debugging, print the prepared request: <strong>prepared = req.prepare()</strong> then <strong>print(prepared.body)</strong></p>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">🧪 Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Forgetting to use the data parameter:</strong> If you pass your dictionary to the <strong>json</strong> parameter instead of <strong>data</strong>, the server will receive JSON, not form data.</li>
+<li><strong>Sending nested data:</strong> URL-encoded form data does not support nested structures. If you need to send a list or dictionary, consider using JSON instead.</li>
+<li><strong>Not checking the API documentation:</strong> Some APIs expect form data, others expect JSON. Always verify which format the endpoint requires.</li>
+<li><strong>Ignoring encoding:</strong> The <strong>requests</strong> library handles encoding automatically, but if you manually build the string, remember to encode special characters.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Sending standard URL-encoded form data in Python is a simple and essential skill for working with web APIs. By passing a Python dictionary to the <strong>data</strong> parameter of the <strong>requests</strong> library, you can easily submit forms, authenticate, or send configuration data. This format is lightweight, widely supported, and perfect for simple key-value submissions. Always check the API documentation to confirm the expected format, and use the <strong>data</strong> parameter for form data and the <strong>json</strong> parameter for JSON payloads.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This technique sends data to a web server in the same format that a web browser uses when submitting an HTML form.</p>
+<hr />
+<h3 id="example-1-sending-a-single-key-value-pair_1">📦 Example 1: Sending a single key-value pair</h3>
+<p>This example sends one piece of form data to a test server.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/post&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;engineer42&quot;</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>200</strong></p>
+<hr />
+<h3 id="example-2-sending-multiple-fields_1">📦 Example 2: Sending multiple fields</h3>
+<p>This example sends several form fields in a single request.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/post&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;department&quot;</span><span class="p">:</span> <span class="s2">&quot;systems&quot;</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;form&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'name': 'Alice', 'role': 'engineer', 'department': 'systems'}</strong></p>
+<hr />
+<h3 id="example-3-sending-numeric-and-boolean-values_1">📦 Example 3: Sending numeric and boolean values</h3>
+<p>This example shows how Python types are automatically converted to strings in form data.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/post&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span> <span class="s2">&quot;is_active&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;years_experience&quot;</span><span class="p">:</span> <span class="mf">7.5</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;form&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'age': '34', 'is_active': 'True', 'years_experience': '7.5'}</strong></p>
+<hr />
+<h3 id="example-4-sending-form-data-with-special-characters_1">📦 Example 4: Sending form data with special characters</h3>
+<p>This example demonstrates how URL-encoding handles spaces, symbols, and non-ASCII characters.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/post&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;Python 3.12 release notes&quot;</span><span class="p">,</span> <span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="s2">&quot;high/urgent&quot;</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;form&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'query': 'Python 3.12 release notes', 'priority': 'high/urgent'}</strong></p>
+<hr />
+<h3 id="example-5-sending-form-data-and-checking-the-response-status_1">📦 Example 5: Sending form data and checking the response status</h3>
+<p>This example sends credentials and verifies the server accepted the data.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/post&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;engineer99&quot;</span><span class="p">,</span> <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;securePass123&quot;</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Login data sent successfully&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Request failed&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Login data sent successfully</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

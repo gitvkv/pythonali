@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch20_05_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 20 | Isolating Secrets and Keys Inside Environment Variables - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 20 | Isolating Secrets and Keys Inside Environment Variables";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch20_05_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch20_05_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -963,6 +963,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-hardcoding-secrets-is-dangerous_1">⚙️ Why Hardcoding Secrets Is Dangerous</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-environment-variables-solve-the-problem_1">🛠️ How Environment Variables Solve the Problem</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accessing-environment-variables-in-python_1">🕵️ Accessing Environment Variables in Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-hardcoded-vs-environment-variable-approach_1">📊 Comparison: Hardcoded vs. Environment Variable Approach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#recommended-project-structure_1">🗂️ Recommended Project Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-workflow-for-engineers_1">🧪 Practical Workflow for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#checklist-for-secure-secret-handling_1">✅ Checklist for Secure Secret Handling</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#final-takeaway_1">🚀 Final Takeaway</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-reading-a-single-environment-variable_1">🔧 Example 1: Reading a single environment variable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-setting-a-default-value-when-variable-is-missing_1">🔧 Example 2: Setting a default value when variable is missing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-checking-if-an-environment-variable-exists_1">🔧 Example 3: Checking if an environment variable exists</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-loading-variables-from-a-env-file_1">🔧 Example 4: Loading variables from a .env file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-using-environment-variables-in-a-real-request_1">🔧 Example 5: Using environment variables in a real request</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch20_05_03/">Ch 20 | Ingesting Parameters Out of Separate JSON or YAML Files</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="isolating-secrets-and-keys-inside-environment-variables">Isolating Secrets and Keys Inside Environment Variables</h1>
 <p><span class="category-tag">🏷️ Python Scripting Best Practices /  Configuration Management</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1179,8 +1209,7 @@
 <hr />
 <h3 id="final-takeaway">🚀 Final Takeaway</h3>
 <p>Isolating secrets inside environment variables is a fundamental security practice that every engineer should adopt. It protects your credentials, makes your code portable across environments, and ensures that sharing your code does not compromise your infrastructure. Start using <strong>os.getenv</strong> and a <strong>.env</strong> file today—it takes minutes to implement and saves hours of potential security headaches.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Environment variables store sensitive values like API keys and passwords outside your code so they never get exposed in version control.</p>
 <hr />
 <h3 id="example-1-reading-a-single-environment-variable">🔧 Example 1: Reading a single environment variable</h3>
@@ -1245,6 +1274,212 @@
 <p>📤 Output: <strong>Status code: 200</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Where secret lives</th>
+<th>Risk of exposure</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardcoded in code</td>
+<td>Inside Python file</td>
+<td>High — visible in source control</td>
+<td>Never use</td>
+</tr>
+<tr>
+<td><code>os.getenv()</code> in script</td>
+<td>System environment</td>
+<td>Low — not in code files</td>
+<td>Quick local testing</td>
+</tr>
+<tr>
+<td><code>.env</code> file with <code>python-dotenv</code></td>
+<td>Separate file (gitignored)</td>
+<td>Low — stays on your machine</td>
+<td>Local development</td>
+</tr>
+<tr>
+<td>CI/CD pipeline variables</td>
+<td>Platform dashboard</td>
+<td>Very low — never on disk</td>
+<td>Production deployment</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When writing Python scripts that interact with APIs, databases, or cloud services, you will inevitably need to use sensitive information like API keys, database passwords, or secret tokens. A common mistake is hardcoding these values directly into your script. This creates a serious security risk—especially when sharing code via version control systems like Git. The industry-standard solution is to isolate secrets and keys inside <strong>environment variables</strong>, keeping your code clean, portable, and secure.</p>
+<hr />
+<h3 id="why-hardcoding-secrets-is-dangerous_1">⚙️ Why Hardcoding Secrets Is Dangerous</h3>
+<ul>
+<li><strong>Version Control Exposure</strong> – If you commit a script with a hardcoded API key to a public repository, that key is compromised immediately.</li>
+<li><strong>Difficult Rotation</strong> – Changing a hardcoded secret means editing every script that uses it, increasing the chance of errors.</li>
+<li><strong>No Environment Separation</strong> – You cannot easily use different credentials for development, testing, and production environments.</li>
+<li><strong>Accidental Sharing</strong> – Sharing a script via email or chat leaks your secrets to unintended recipients.</li>
+</ul>
+<hr />
+<h3 id="how-environment-variables-solve-the-problem_1">🛠️ How Environment Variables Solve the Problem</h3>
+<p>Environment variables are key-value pairs stored outside your Python script, typically set in your operating system shell or a dedicated configuration file. Your script reads them at runtime, never storing the actual secret value in the source code.</p>
+<p><strong>Key Benefits:</strong>
+- Secrets stay out of your codebase and version control.
+- You can use different values per environment without modifying code.
+- Rotating a secret only requires updating the environment variable, not your script.
+- Your code remains shareable and reviewable without exposing sensitive data.</p>
+<hr />
+<h3 id="accessing-environment-variables-in-python_1">🕵️ Accessing Environment Variables in Python</h3>
+<p>Python provides a built-in module called <strong>os</strong> that allows you to read environment variables. The standard approach is:</p>
+<ul>
+<li>Import the <strong>os</strong> module at the top of your script.</li>
+<li>Use <strong>os.getenv("VARIABLE_NAME")</strong> to retrieve the value.</li>
+<li>If the variable is missing, <strong>os.getenv</strong> returns <strong>None</strong> by default, or you can provide a fallback value.</li>
+</ul>
+<p><strong>Best Practice Pattern:</strong>
+- Store the retrieved value in a variable with a descriptive name.
+- Add a check to handle missing variables gracefully, such as raising an error or using a default for development.</p>
+<hr />
+<h3 id="comparison-hardcoded-vs-environment-variable-approach_1">📊 Comparison: Hardcoded vs. Environment Variable Approach</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Hardcoded Secrets ❌</th>
+<th>Environment Variables ✅</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code Security</td>
+<td>Secret visible in source code</td>
+<td>Secret never stored in code</td>
+</tr>
+<tr>
+<td>Git Safety</td>
+<td>Exposed in commits</td>
+<td>Can be safely committed</td>
+</tr>
+<tr>
+<td>Environment Flexibility</td>
+<td>Requires code changes per environment</td>
+<td>Same code works everywhere</td>
+</tr>
+<tr>
+<td>Secret Rotation</td>
+<td>Edit and redeploy script</td>
+<td>Update variable, no code change</td>
+</tr>
+<tr>
+<td>Collaboration Risk</td>
+<td>High – secret shared with code</td>
+<td>Low – only variable name shared</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="recommended-project-structure_1">🗂️ Recommended Project Structure</h3>
+<p>To keep your environment variables organized, use a <strong>.env</strong> file (pronounced "dot env") that is never committed to version control. This file sits in your project root and contains all your secrets in a simple format:</p>
+<ul>
+<li>Each line contains a key-value pair separated by an equals sign.</li>
+<li>No spaces around the equals sign.</li>
+<li>Values can be quoted if they contain special characters.</li>
+</ul>
+<p><strong>Important:</strong> Add <strong>.env</strong> to your <strong>.gitignore</strong> file immediately to prevent accidental commits.</p>
+<hr />
+<h3 id="practical-workflow-for-engineers_1">🧪 Practical Workflow for Engineers</h3>
+<ol>
+<li><strong>Create a .env file</strong> in your project root with your secrets.</li>
+<li><strong>Add .env to .gitignore</strong> so it never enters version control.</li>
+<li><strong>Use a library like python-dotenv</strong> to load the .env file into your environment at the start of your script. This is a one-time setup step.</li>
+<li><strong>Access secrets via os.getenv</strong> throughout your script.</li>
+<li><strong>Share a .env.example file</strong> (without real values) in your repository so other engineers know which variables are needed.</li>
+</ol>
+<hr />
+<h3 id="checklist-for-secure-secret-handling_1">✅ Checklist for Secure Secret Handling</h3>
+<ul>
+<li>[ ] No hardcoded API keys, passwords, or tokens in any Python file.</li>
+<li>[ ] A <strong>.env</strong> file exists locally but is listed in <strong>.gitignore</strong>.</li>
+<li>[ ] A <strong>.env.example</strong> file is committed showing required variable names.</li>
+<li>[ ] Your script uses <strong>os.getenv</strong> to read all secrets.</li>
+<li>[ ] Missing environment variables are handled with clear error messages.</li>
+<li>[ ] Secrets are never printed to logs or console output.</li>
+</ul>
+<hr />
+<h3 id="final-takeaway_1">🚀 Final Takeaway</h3>
+<p>Isolating secrets inside environment variables is a fundamental security practice that every engineer should adopt. It protects your credentials, makes your code portable across environments, and ensures that sharing your code does not compromise your infrastructure. Start using <strong>os.getenv</strong> and a <strong>.env</strong> file today—it takes minutes to implement and saves hours of potential security headaches.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Environment variables store sensitive values like API keys and passwords outside your code so they never get exposed in version control.</p>
+<hr />
+<h3 id="example-1-reading-a-single-environment-variable_1">🔧 Example 1: Reading a single environment variable</h3>
+<p>This example shows how to access a value stored in an environment variable using <code>os.getenv()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;MY_API_KEY&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>None</strong></p>
+<hr />
+<h3 id="example-2-setting-a-default-value-when-variable-is-missing_1">🔧 Example 2: Setting a default value when variable is missing</h3>
+<p>This example shows how to provide a fallback value if the environment variable does not exist.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">database_url</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DATABASE_URL&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost:5432&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">database_url</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>localhost:5432</strong></p>
+<hr />
+<h3 id="example-3-checking-if-an-environment-variable-exists_1">🔧 Example 3: Checking if an environment variable exists</h3>
+<p>This example shows how to test whether a required secret has been set before using it.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="k">if</span> <span class="s2">&quot;SECRET_KEY&quot;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Secret key is set&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Secret key is missing — stopping&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Secret key is missing — stopping</strong></p>
+<hr />
+<h3 id="example-4-loading-variables-from-a-env-file_1">🔧 Example 4: Loading variables from a .env file</h3>
+<p>This example shows how to read multiple secrets from a separate configuration file using <code>python-dotenv</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="n">db_password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DB_PASSWORD&quot;</span><span class="p">)</span>
+<span class="n">api_endpoint</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;API_ENDPOINT&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Database password:&quot;</span><span class="p">,</span> <span class="n">db_password</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;API endpoint:&quot;</span><span class="p">,</span> <span class="n">api_endpoint</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Database password: s3cr3t_pass</strong>
+<strong>API endpoint: https://api.example.com</strong></p>
+<hr />
+<h3 id="example-5-using-environment-variables-in-a-real-request_1">🔧 Example 5: Using environment variables in a real request</h3>
+<p>This example shows how to pass a stored API key into an HTTP request header.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;WEATHER_API_KEY&quot;</span><span class="p">)</span>
+<span class="n">city</span> <span class="o">=</span> <span class="s2">&quot;London&quot;</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://api.weather.com/v1/</span><span class="si">{</span><span class="n">city</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status code:&quot;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Status code: 200</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

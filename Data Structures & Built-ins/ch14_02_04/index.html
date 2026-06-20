@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_02_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Checking Physical Disk Space Layouts - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Checking Physical Disk Space Layouts";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_02_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_02_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -661,6 +661,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#quick-reference-table">📊 Quick Reference Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-check-disk-space_1">⚙️ Why Check Disk Space?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-key-function-shutildisk_usage_1">📊 The Key Function: shutil.disk_usage()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-use-it-in-a-script_1">🛠️ How to Use It in a Script</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-bytes-vs-human-readable-format_1">📋 Comparison: Bytes vs. Human-Readable Format</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#checking-multiple-drives-or-mount-points_1">🕵️ Checking Multiple Drives or Mount Points</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-notes-for-engineers_1">⚠️ Important Notes for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-use-case-alerting-on-low-disk-space_1">🧪 Practical Use Case: Alerting on Low Disk Space</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-check-disk-space-for-current-directory_1">📦 Example 1: Check disk space for current directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-extract-total-disk-space-in-gigabytes_1">📦 Example 2: Extract total disk space in gigabytes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-calculate-percentage-of-disk-space-used_1">📦 Example 3: Calculate percentage of disk space used</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-check-free-space-on-a-specific-drive-or-mount-point_1">📦 Example 4: Check free space on a specific drive or mount point</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-alert-if-free-space-is-below-a-threshold_1">📦 Example 5: Alert if free space is below a threshold</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference-table_1">📊 Quick Reference Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_02_05/">Ch 14 | Practical Example: Archiving Old Log Files</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="checking-physical-disk-space-layouts">Checking Physical Disk Space Layouts</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  The shutil Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Understanding how much disk space is available on a system is a fundamental task for any engineer working with servers or applications. Before you can move files, create backups, or deploy new software, you need to know how much room you have to work with. Python provides a simple and reliable way to check disk space using the <strong>shutil</strong> module, which gives you detailed information about the physical storage layout of your system.</p>
@@ -1172,8 +1200,7 @@
 <li>Build automated alerts to catch low disk space conditions early.</li>
 </ul>
 <p>With just a few lines of Python, you can replace manual disk checks with a reliable, scriptable solution that fits right into your existing automation workflows.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>shutil.disk_usage()</code> function returns disk space statistics for a given path, showing total, used, and free space in bytes.</p>
 <hr />
 <h3 id="example-1-check-disk-space-for-current-directory">📦 Example 1: Check disk space for current directory</h3>
@@ -1231,6 +1258,190 @@
 <p>📤 Output: <strong>Disk space OK</strong></p>
 <hr />
 <h3 id="quick-reference-table">📊 Quick Reference Table</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>total</code></td>
+<td>Total disk space in bytes</td>
+<td>500107862016</td>
+</tr>
+<tr>
+<td><code>used</code></td>
+<td>Used disk space in bytes</td>
+<td>320456789012</td>
+</tr>
+<tr>
+<td><code>free</code></td>
+<td>Free disk space in bytes</td>
+<td>179651073004</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>Understanding how much disk space is available on a system is a fundamental task for any engineer working with servers or applications. Before you can move files, create backups, or deploy new software, you need to know how much room you have to work with. Python provides a simple and reliable way to check disk space using the <strong>shutil</strong> module, which gives you detailed information about the physical storage layout of your system.</p>
+<hr />
+<h3 id="why-check-disk-space_1">⚙️ Why Check Disk Space?</h3>
+<ul>
+<li><strong>Prevent failures</strong> – Running out of disk space can crash applications or prevent log files from being written.</li>
+<li><strong>Plan capacity</strong> – Knowing current usage helps you decide when to add more storage or clean up old files.</li>
+<li><strong>Automate monitoring</strong> – You can write scripts that alert you when disk usage crosses a threshold.</li>
+<li><strong>Verify mounts</strong> – Ensure external drives, network shares, or cloud volumes are properly attached and accessible.</li>
+</ul>
+<hr />
+<h3 id="the-key-function-shutildisk_usage_1">📊 The Key Function: <code>shutil.disk_usage()</code></h3>
+<p>The <strong>shutil</strong> module includes a function called <strong>disk_usage()</strong> that takes a path as input and returns a named tuple with three important values:</p>
+<ul>
+<li><strong>total</strong> – The total disk space on the drive or partition, in bytes.</li>
+<li><strong>used</strong> – The amount of space currently in use, in bytes.</li>
+<li><strong>free</strong> – The amount of space still available, in bytes.</li>
+</ul>
+<p>You call it by passing a path string to the function, like <strong>shutil.disk_usage("/")</strong> for the root drive on Linux or <strong>shutil.disk_usage("C:\")</strong> on Windows.</p>
+<hr />
+<h3 id="how-to-use-it-in-a-script_1">🛠️ How to Use It in a Script</h3>
+<p>Here is a simple example of how you might check disk space in a Python script:</p>
+<ul>
+<li>First, import the <strong>shutil</strong> module.</li>
+<li>Then, call <strong>shutil.disk_usage()</strong> with the path you want to inspect.</li>
+<li>Store the result in a variable, such as <strong>usage</strong>.</li>
+<li>Access the values using <strong>usage.total</strong>, <strong>usage.used</strong>, and <strong>usage.free</strong>.</li>
+</ul>
+<p>To make the output human-readable, you can convert bytes to gigabytes by dividing by <strong>1024</strong> three times (bytes to kilobytes, kilobytes to megabytes, megabytes to gigabytes). A common approach is to define a helper function that does this conversion automatically.</p>
+<hr />
+<h3 id="comparison-bytes-vs-human-readable-format_1">📋 Comparison: Bytes vs. Human-Readable Format</h3>
+<table>
+<thead>
+<tr>
+<th>Raw Value (Bytes)</th>
+<th>Human-Readable (GB)</th>
+<th>What It Represents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>500,000,000,000</td>
+<td>~465 GB</td>
+<td>Total capacity of a typical SSD</td>
+</tr>
+<tr>
+<td>250,000,000,000</td>
+<td>~232 GB</td>
+<td>Used space after several months of use</td>
+</tr>
+<tr>
+<td>250,000,000,000</td>
+<td>~232 GB</td>
+<td>Free space remaining</td>
+</tr>
+</tbody>
+</table>
+<p>Engineers almost always work with human-readable formats because raw byte values are too large to interpret quickly.</p>
+<hr />
+<h3 id="checking-multiple-drives-or-mount-points_1">🕵️ Checking Multiple Drives or Mount Points</h3>
+<p>In many environments, you will have multiple drives or partitions. You can check each one by calling <strong>disk_usage()</strong> with different paths:</p>
+<ul>
+<li>For the root drive: <strong>shutil.disk_usage("/")</strong></li>
+<li>For a data drive mounted at <strong>/data</strong>: <strong>shutil.disk_usage("/data")</strong></li>
+<li>For a backup drive at <strong>/mnt/backup</strong>: <strong>shutil.disk_usage("/mnt/backup")</strong></li>
+</ul>
+<p>You can loop through a list of paths and print the disk usage for each one, making it easy to monitor an entire server with a single script.</p>
+<hr />
+<h3 id="important-notes-for-engineers_1">⚠️ Important Notes for Engineers</h3>
+<ul>
+<li><strong>Path must exist</strong> – If the path you pass to <strong>disk_usage()</strong> does not exist, Python will raise a <strong>FileNotFoundError</strong>. Always verify the path first.</li>
+<li><strong>Permissions matter</strong> – On some systems, you may need elevated privileges to query certain drives or partitions.</li>
+<li><strong>Cross-platform</strong> – The <strong>shutil.disk_usage()</strong> function works on Windows, macOS, and Linux, making it a reliable choice for scripts that run on multiple operating systems.</li>
+<li><strong>Real-time values</strong> – The values returned are a snapshot at the moment the function is called. Disk usage can change rapidly on busy systems.</li>
+</ul>
+<hr />
+<h3 id="practical-use-case-alerting-on-low-disk-space_1">🧪 Practical Use Case: Alerting on Low Disk Space</h3>
+<p>A common pattern is to check disk space and send an alert if free space drops below a certain threshold. For example:</p>
+<ul>
+<li>Define a threshold, such as <strong>10 GB</strong>.</li>
+<li>Call <strong>shutil.disk_usage()</strong> for the root drive.</li>
+<li>Compare <strong>usage.free</strong> to your threshold.</li>
+<li>If free space is below the threshold, print a warning or log the event.</li>
+</ul>
+<p>This kind of check can be scheduled to run every hour using a cron job or task scheduler, giving you early warning before disk space becomes a critical issue.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li>Use <strong>shutil.disk_usage()</strong> to get total, used, and free disk space for any path.</li>
+<li>Convert bytes to gigabytes for easier reading.</li>
+<li>Check multiple mount points to get a complete picture of your storage layout.</li>
+<li>Build automated alerts to catch low disk space conditions early.</li>
+</ul>
+<p>With just a few lines of Python, you can replace manual disk checks with a reliable, scriptable solution that fits right into your existing automation workflows.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>shutil.disk_usage()</code> function returns disk space statistics for a given path, showing total, used, and free space in bytes.</p>
+<hr />
+<h3 id="example-1-check-disk-space-for-current-directory_1">📦 Example 1: Check disk space for current directory</h3>
+<p>Get basic disk usage statistics for the folder you are currently working in.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">usage</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>usage(total=500107862016, used=320456789012, free=179651073004)</strong></p>
+<hr />
+<h3 id="example-2-extract-total-disk-space-in-gigabytes_1">📦 Example 2: Extract total disk space in gigabytes</h3>
+<p>Convert the total bytes returned by <code>disk_usage()</code> into gigabytes for easier reading.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">usage</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="n">total_gb</span> <span class="o">=</span> <span class="n">usage</span><span class="o">.</span><span class="n">total</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1024</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total_gb</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>465.76</strong></p>
+<hr />
+<h3 id="example-3-calculate-percentage-of-disk-space-used_1">📦 Example 3: Calculate percentage of disk space used</h3>
+<p>Compute the percentage of disk space currently in use on the root drive.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">usage</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="n">percent_used</span> <span class="o">=</span> <span class="p">(</span><span class="n">usage</span><span class="o">.</span><span class="n">used</span> <span class="o">/</span> <span class="n">usage</span><span class="o">.</span><span class="n">total</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">percent_used</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>64.08</strong></p>
+<hr />
+<h3 id="example-4-check-free-space-on-a-specific-drive-or-mount-point_1">📦 Example 4: Check free space on a specific drive or mount point</h3>
+<p>Verify how much free space is available on a specific drive path like <code>/mnt/data</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">usage</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="s2">&quot;/mnt/data&quot;</span><span class="p">)</span>
+<span class="n">free_gb</span> <span class="o">=</span> <span class="n">usage</span><span class="o">.</span><span class="n">free</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1024</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">free_gb</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>120.45</strong></p>
+<hr />
+<h3 id="example-5-alert-if-free-space-is-below-a-threshold_1">📦 Example 5: Alert if free space is below a threshold</h3>
+<p>Check if free space on the root drive is less than 10 GB and print a warning for engineers.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">usage</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="n">free_gb</span> <span class="o">=</span> <span class="n">usage</span><span class="o">.</span><span class="n">free</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1024</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">threshold_gb</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">if</span> <span class="n">free_gb</span> <span class="o">&lt;</span> <span class="n">threshold_gb</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: Low disk space&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Disk space OK&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Disk space OK</strong></p>
+<hr />
+<h3 id="quick-reference-table_1">📊 Quick Reference Table</h3>
 <table>
 <thead>
 <tr>

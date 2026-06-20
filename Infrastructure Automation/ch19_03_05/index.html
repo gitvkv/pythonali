@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_03_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Handling Non-Standard Delimiters (Semicolons, Pipes) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Handling Non-Standard Delimiters (Semicolons, Pipes)";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_03_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_03_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -908,6 +908,40 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-7-handling-mixed-delimiters-in-a-single-file">📘 Example 7: Handling mixed delimiters in a single file</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-delimiter-types_1">Comparison Table: Delimiter Types</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#why-non-standard-delimiters-exist_1">⚙️ Why Non-Standard Delimiters Exist</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#reading-files-with-custom-delimiters_1">🛠️ Reading Files with Custom Delimiters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-table-delimiter-types_2">📊 Comparison Table: Delimiter Types</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#detecting-delimiters-automatically_1">🕵️ Detecting Delimiters Automatically</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#writing-files-with-custom-delimiters_1">✍️ Writing Files with Custom Delimiters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-tips-for-delimiter-handling_1">🧪 Practical Tips for Delimiter Handling</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-pitfalls-to-avoid_1">⚠️ Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">🎯 Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-reading-a-csv-file-with-semicolon-delimiter_1">📘 Example 1: Reading a CSV file with semicolon delimiter</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-reading-a-csv-file-with-pipe-delimiter_1">📘 Example 2: Reading a CSV file with pipe delimiter</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-writing-a-csv-file-with-semicolon-delimiter_1">📘 Example 3: Writing a CSV file with semicolon delimiter</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-reading-a-semicolon-delimited-file-with-header-row_1">📘 Example 4: Reading a semicolon-delimited file with header row</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-converting-a-pipe-delimited-file-to-a-list-of-dictionaries_1">📘 Example 5: Converting a pipe-delimited file to a list of dictionaries</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-6-writing-a-pipe-delimited-file-from-a-list-of-dictionaries_1">📘 Example 6: Writing a pipe-delimited file from a list of dictionaries</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-7-handling-mixed-delimiters-in-a-single-file_1">📘 Example 7: Handling mixed delimiters in a single file</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-delimiter-types_3">Comparison Table: Delimiter Types</a>
     </li>
     </ul>
                 </li>
@@ -1080,7 +1114,7 @@
               
                 <h1 id="handling-non-standard-delimiters-semicolons-pipes">Handling Non-Standard Delimiters (Semicolons, Pipes)</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  CSV In-Depth</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with CSV files in real-world scenarios, you'll often encounter files that don't use commas as delimiters. Many systems export data using semicolons (<strong>;</strong>) or pipes (<strong>|</strong>) instead. This is especially common in European locales where commas are used as decimal separators, or in legacy systems that prefer pipe-delimited formats. Python's <strong>csv</strong> module handles these non-standard delimiters gracefully with just a small configuration change.</p>
@@ -1178,8 +1212,7 @@
 <hr />
 <h3 id="summary">🎯 Summary</h3>
 <p>Handling non-standard delimiters in Python is straightforward once you understand the <strong>delimiter</strong> parameter. Whether you're working with semicolons, pipes, tabs, or any other character, the <strong>csv.reader</strong> and <strong>csv.writer</strong> functions adapt seamlessly. For unknown formats, the <strong>csv.Sniffer</strong> provides automatic detection, making your code robust enough to handle diverse data sources. Always test with sample data and verify your delimiter choice before processing large files.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how to read and write CSV files that use semicolons (<code>;</code>) or pipes (<code>|</code>) instead of commas as delimiters.</p>
 <hr />
 <h3 id="example-1-reading-a-csv-file-with-semicolon-delimiter">📘 Example 1: Reading a CSV file with semicolon delimiter</h3>
@@ -1292,6 +1325,257 @@
 <p>📤 Output: <strong>['Name', 'Age', 'City'] ['Grace', '32', 'Boston'] ['Henry', '28', 'Dallas'] ['Iris', '35', 'Miami']</strong></p>
 <hr />
 <h2 id="comparison-table-delimiter-types_1">Comparison Table: Delimiter Types</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Comma (<code>,</code>)</th>
+<th>Semicolon (<code>;</code>)</th>
+<th>Pipe (<code>|</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Common use</td>
+<td>Standard CSV</td>
+<td>European locale data</td>
+<td>Log files, system exports</td>
+</tr>
+<tr>
+<td>Risk of conflict</td>
+<td>High (data may contain commas)</td>
+<td>Low</td>
+<td>Very low</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>Good for simple data</td>
+<td>Good when commas are in data</td>
+<td>Excellent for complex data</td>
+</tr>
+<tr>
+<td>Python parameter</td>
+<td><code>delimiter=","</code> (default)</td>
+<td><code>delimiter=";"</code></td>
+<td><code>delimiter="\|"</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with CSV files in real-world scenarios, you'll often encounter files that don't use commas as delimiters. Many systems export data using semicolons (<strong>;</strong>) or pipes (<strong>|</strong>) instead. This is especially common in European locales where commas are used as decimal separators, or in legacy systems that prefer pipe-delimited formats. Python's <strong>csv</strong> module handles these non-standard delimiters gracefully with just a small configuration change.</p>
+<hr />
+<h3 id="why-non-standard-delimiters-exist_1">⚙️ Why Non-Standard Delimiters Exist</h3>
+<ul>
+<li><strong>Semicolons</strong> are commonly used when data contains commas (e.g., addresses like "New York, NY" or numbers like "1,234.56").</li>
+<li><strong>Pipes</strong> are preferred when data may contain both commas and semicolons, as pipes rarely appear in normal text.</li>
+<li>Some enterprise systems use <strong>tabs</strong> or <strong>spaces</strong> as delimiters for specific export formats.</li>
+</ul>
+<hr />
+<h3 id="reading-files-with-custom-delimiters_1">🛠️ Reading Files with Custom Delimiters</h3>
+<p>The key to handling non-standard delimiters is the <strong>delimiter</strong> parameter in the <strong>csv.reader</strong> function. Instead of the default comma, you specify the character that separates your fields.</p>
+<p><strong>For a semicolon-delimited file:</strong>
+- Create a reader object with <strong>csv.reader(file, delimiter=';')</strong>
+- Each row will be split at every semicolon, returning a list of fields
+- This works exactly like a comma-delimited file, just with a different separator</p>
+<p><strong>For a pipe-delimited file:</strong>
+- Use <strong>csv.reader(file, delimiter='|')</strong>
+- The pipe character acts as the field separator
+- All other CSV rules (quoting, escaping) still apply</p>
+<hr />
+<h3 id="comparison-table-delimiter-types_2">📊 Comparison Table: Delimiter Types</h3>
+<table>
+<thead>
+<tr>
+<th>Delimiter</th>
+<th>Python Parameter</th>
+<th>Common Use Case</th>
+<th>Example Row</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comma</td>
+<td><strong>delimiter=','</strong></td>
+<td>Standard CSV format</td>
+<td><strong>Name,Age,City</strong></td>
+</tr>
+<tr>
+<td>Semicolon</td>
+<td><strong>delimiter=';'</strong></td>
+<td>European locales, comma-heavy data</td>
+<td><strong>Name;Age;City</strong></td>
+</tr>
+<tr>
+<td>Pipe</td>
+<td>**delimiter='</td>
+<td>'**</td>
+<td>Legacy systems, safe separator</td>
+</tr>
+<tr>
+<td>Tab</td>
+<td><strong>delimiter='\t'</strong></td>
+<td>TSV files, spreadsheet exports</td>
+<td><strong>Name\tAge\tCity</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="detecting-delimiters-automatically_1">🕵️ Detecting Delimiters Automatically</h3>
+<p>When you don't know the delimiter in advance, you can use Python's <strong>csv.Sniffer</strong> class to detect it automatically:</p>
+<ul>
+<li>The <strong>Sniffer</strong> analyzes a sample of your file to determine the delimiter, quote character, and other formatting details</li>
+<li>Use <strong>sniffer.sniff(sample)</strong> where <strong>sample</strong> is a string of your file's content</li>
+<li>The returned <strong>dialect</strong> object contains a <strong>delimiter</strong> attribute that reveals the detected character</li>
+<li>This is extremely useful when processing files from unknown sources or when the delimiter may vary</li>
+</ul>
+<hr />
+<h3 id="writing-files-with-custom-delimiters_1">✍️ Writing Files with Custom Delimiters</h3>
+<p>Writing files with non-standard delimiters follows the same pattern as reading:</p>
+<ul>
+<li>Create a <strong>csv.writer</strong> object with the desired <strong>delimiter</strong> parameter</li>
+<li>Use <strong>writer.writerow()</strong> to write each row as a list of values</li>
+<li>The writer will automatically insert your chosen delimiter between fields</li>
+<li>You can also specify a <strong>lineterminator</strong> if you need non-standard line endings</li>
+</ul>
+<hr />
+<h3 id="practical-tips-for-delimiter-handling_1">🧪 Practical Tips for Delimiter Handling</h3>
+<ul>
+<li>Always check the first few lines of a file manually to confirm the delimiter before writing code</li>
+<li>When using semicolons, be aware that some European CSV files also use commas as decimal separators within numbers</li>
+<li>For pipe-delimited files, ensure your data doesn't contain pipe characters, or use quoting to escape them</li>
+<li>The <strong>csv.Sniffer</strong> works best with a representative sample of at least a few hundred characters</li>
+<li>If your data contains the delimiter character within fields, wrap those fields in quotes (the csv module handles this automatically)</li>
+</ul>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">⚠️ Common Pitfalls to Avoid</h3>
+<ul>
+<li>Forgetting to specify the delimiter when reading a non-standard file will result in a single field per row (since no commas are found)</li>
+<li>Using the wrong delimiter character (e.g., a lowercase L instead of a pipe) will split data incorrectly</li>
+<li>Assuming all files from a system use the same delimiter — always verify with a sample</li>
+<li>Mixing delimiters within the same file (e.g., some rows using commas, others using semicolons) will cause parsing errors</li>
+</ul>
+<hr />
+<h3 id="summary_1">🎯 Summary</h3>
+<p>Handling non-standard delimiters in Python is straightforward once you understand the <strong>delimiter</strong> parameter. Whether you're working with semicolons, pipes, tabs, or any other character, the <strong>csv.reader</strong> and <strong>csv.writer</strong> functions adapt seamlessly. For unknown formats, the <strong>csv.Sniffer</strong> provides automatic detection, making your code robust enough to handle diverse data sources. Always test with sample data and verify your delimiter choice before processing large files.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how to read and write CSV files that use semicolons (<code>;</code>) or pipes (<code>|</code>) instead of commas as delimiters.</p>
+<hr />
+<h3 id="example-1-reading-a-csv-file-with-semicolon-delimiter_1">📘 Example 1: Reading a CSV file with semicolon delimiter</h3>
+<p>This example reads a simple CSV file where columns are separated by semicolons.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;employees.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Alice', 'Engineer', '60000'] ['Bob', 'Technician', '45000'] ['Carol', 'Analyst', '52000']</strong></p>
+<hr />
+<h3 id="example-2-reading-a-csv-file-with-pipe-delimiter_1">📘 Example 2: Reading a CSV file with pipe delimiter</h3>
+<p>This example reads a CSV file where columns are separated by pipe symbols.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;inventory.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Item', 'Quantity', 'Price'] ['Widget', '150', '2.50'] ['Gadget', '75', '8.00'] ['Doodad', '200', '1.20']</strong></p>
+<hr />
+<h3 id="example-3-writing-a-csv-file-with-semicolon-delimiter_1">📘 Example 3: Writing a CSV file with semicolon delimiter</h3>
+<p>This example writes data to a CSV file using semicolons as the delimiter.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Department&quot;</span><span class="p">,</span> <span class="s2">&quot;Salary&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Dave&quot;</span><span class="p">,</span> <span class="s2">&quot;Engineering&quot;</span><span class="p">,</span> <span class="mi">72000</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Eve&quot;</span><span class="p">,</span> <span class="s2">&quot;Marketing&quot;</span><span class="p">,</span> <span class="mi">58000</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Frank&quot;</span><span class="p">,</span> <span class="s2">&quot;Sales&quot;</span><span class="p">,</span> <span class="mi">63000</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;departments.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>File 'departments.csv' created with semicolon-separated values</strong></p>
+<hr />
+<h3 id="example-4-reading-a-semicolon-delimited-file-with-header-row_1">📘 Example 4: Reading a semicolon-delimited file with header row</h3>
+<p>This example reads a semicolon-delimited file and accesses data by column name using DictReader.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;employees.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">],</span> <span class="s2">&quot;works as&quot;</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Role&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>Alice works as Engineer Bob works as Technician Carol works as Analyst</strong></p>
+<hr />
+<h3 id="example-5-converting-a-pipe-delimited-file-to-a-list-of-dictionaries_1">📘 Example 5: Converting a pipe-delimited file to a list of dictionaries</h3>
+<p>This example reads a pipe-delimited file and stores each row as a dictionary for easier data access.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;inventory.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">records</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;Item&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> units at $</span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> each&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Widget: 150 units at $2.50 each Gadget: 75 units at $8.00 each Doodad: 200 units at $1.20 each</strong></p>
+<hr />
+<h3 id="example-6-writing-a-pipe-delimited-file-from-a-list-of-dictionaries_1">📘 Example 6: Writing a pipe-delimited file from a list of dictionaries</h3>
+<p>This example writes data from a list of dictionaries to a pipe-delimited CSV file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;Product&quot;</span><span class="p">:</span> <span class="s2">&quot;Laptop&quot;</span><span class="p">,</span> <span class="s2">&quot;Stock&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Price&quot;</span><span class="p">:</span> <span class="mf">899.99</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;Product&quot;</span><span class="p">:</span> <span class="s2">&quot;Mouse&quot;</span><span class="p">,</span> <span class="s2">&quot;Stock&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s2">&quot;Price&quot;</span><span class="p">:</span> <span class="mf">24.99</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;Product&quot;</span><span class="p">:</span> <span class="s2">&quot;Keyboard&quot;</span><span class="p">,</span> <span class="s2">&quot;Stock&quot;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s2">&quot;Price&quot;</span><span class="p">:</span> <span class="mf">49.99</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;products.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Product&quot;</span><span class="p">,</span> <span class="s2">&quot;Stock&quot;</span><span class="p">,</span> <span class="s2">&quot;Price&quot;</span><span class="p">]</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;|&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>File 'products.csv' created with pipe-delimited columns</strong></p>
+<hr />
+<h3 id="example-7-handling-mixed-delimiters-in-a-single-file_1">📘 Example 7: Handling mixed delimiters in a single file</h3>
+<p>This example reads a file that uses both semicolons and pipes in different sections by processing each line separately.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">lines</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Name;Age;City&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Grace|32|Boston&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Henry;28|Dallas&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Iris|35;Miami&quot;</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s2">&quot;;&quot;</span> <span class="ow">in</span> <span class="n">line</span> <span class="ow">and</span> <span class="s2">&quot;|&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="c1"># Handle mixed delimiter line</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="p">,</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s2">&quot;;&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="s2">&quot;|&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;|&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Name', 'Age', 'City'] ['Grace', '32', 'Boston'] ['Henry', '28', 'Dallas'] ['Iris', '35', 'Miami']</strong></p>
+<hr />
+<h2 id="comparison-table-delimiter-types_3">Comparison Table: Delimiter Types</h2>
 <table>
 <thead>
 <tr>

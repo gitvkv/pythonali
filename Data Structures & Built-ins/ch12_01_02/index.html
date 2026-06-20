@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch12_01_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 12 | File Modes (Read, Write, Append, Binary) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 12 | File Modes (Read, Write, Append, Binary)";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch12_01_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch12_01_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -566,6 +566,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-writing-binary-data-with-wb-mode">🛠️ Example 5: Writing binary data with 'wb' mode</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#file-mode-comparison-table">📊 File Mode Comparison Table</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-are-file-modes_1">⚙️ What Are File Modes?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-of-common-file-modes_1">📊 Comparison of Common File Modes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#detailed-breakdown-of-each-mode_1">🕵️ Detailed Breakdown of Each Mode</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#binary-modes-b_1">🛠️ Binary Modes ('b')</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-tips-for-engineers_1">🧪 Practical Tips for Engineers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-reading-a-file-with-r-mode_1">📖 Example 1: Reading a file with 'r' mode</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-writing-to-a-file-with-w-mode_1">✏️ Example 2: Writing to a file with 'w' mode</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-appending-to-a-file-with-a-mode_1">➕ Example 3: Appending to a file with 'a' mode</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-reading-a-binary-file-with-rb-mode_1">🔢 Example 4: Reading a binary file with 'rb' mode</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-writing-binary-data-with-wb-mode_1">🛠️ Example 5: Writing binary data with 'wb' mode</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#file-mode-comparison-table_1">📊 File Mode Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1088,7 +1116,7 @@
               
                 <h1 id="file-modes-read-write-append-binary">File Modes (Read, Write, Append, Binary)</h1>
 <p><span class="category-tag">🏷️ File Handling /  Opening and Closing Files</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1260,8 +1288,7 @@
 <li><strong>'b'</strong> for binary data (always combine with another mode)</li>
 </ul>
 <p>By understanding these modes, you can confidently read, write, and manage files in your automation scripts, data pipelines, and system tools without accidentally losing data or corrupting files.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>File modes tell Python how you intend to use a file — whether to read it, write to it, add to it, or work with binary data.</p>
 <hr />
 <h3 id="example-1-reading-a-file-with-r-mode">📖 Example 1: Reading a file with 'r' mode</h3>
@@ -1322,6 +1349,303 @@
 <p>📤 Output: <strong>b'\x89PNG\r\n\x1a\n'</strong></p>
 <hr />
 <h2 id="file-mode-comparison-table">📊 File Mode Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Name</th>
+<th>Creates file if missing</th>
+<th>Overwrites existing content</th>
+<th>Starts at end of file</th>
+<th>Works with text</th>
+<th>Works with binary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code></td>
+<td>Read</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>Write</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>Append</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>rb</code></td>
+<td>Read Binary</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>wb</code></td>
+<td>Write Binary</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When working with files in Python, you need to tell the program <strong>how</strong> you want to interact with the file. Do you want to read its contents? Write new data? Add to existing content? Work with images or binary data? This is where <strong>file modes</strong> come in. A file mode is a simple string you pass when opening a file, and it determines exactly what operations are allowed. Understanding these modes is essential for safely and effectively handling files in any automation or data processing task.</p>
+<hr />
+<h3 id="what-are-file-modes_1">⚙️ What Are File Modes?</h3>
+<p>A file mode is a <strong>character or combination of characters</strong> that defines the purpose of opening a file. The mode is passed as the second argument to the <strong>open()</strong> function. The most common modes are:</p>
+<ul>
+<li><strong>'r'</strong> — Read mode (default)</li>
+<li><strong>'w'</strong> — Write mode</li>
+<li><strong>'a'</strong> — Append mode</li>
+<li><strong>'b'</strong> — Binary mode (used with other modes)</li>
+</ul>
+<p>You can also combine modes, such as <strong>'rb'</strong> (read binary) or <strong>'w+'</strong> (write and read).</p>
+<hr />
+<h3 id="comparison-of-common-file-modes_1">📊 Comparison of Common File Modes</h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Name</th>
+<th>What It Does</th>
+<th>File Must Exist?</th>
+<th>Overwrites Content?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>'r'</strong></td>
+<td>Read</td>
+<td>Opens file for reading only</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>'w'</strong></td>
+<td>Write</td>
+<td>Opens file for writing (creates new or truncates existing)</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>'a'</strong></td>
+<td>Append</td>
+<td>Opens file for writing at the end (creates if missing)</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>'r+'</strong></td>
+<td>Read + Write</td>
+<td>Opens file for both reading and writing</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>'w+'</strong></td>
+<td>Write + Read</td>
+<td>Opens file for writing and reading (truncates)</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>'a+'</strong></td>
+<td>Append + Read</td>
+<td>Opens file for appending and reading</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>'rb'</strong></td>
+<td>Read Binary</td>
+<td>Opens binary file for reading</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>'wb'</strong></td>
+<td>Write Binary</td>
+<td>Opens binary file for writing</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>'ab'</strong></td>
+<td>Append Binary</td>
+<td>Opens binary file for appending</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="detailed-breakdown-of-each-mode_1">🕵️ Detailed Breakdown of Each Mode</h3>
+<h4 id="read-mode-r_1">📖 Read Mode ('r')</h4>
+<p>This is the <strong>default mode</strong>. Use it when you only need to look at file contents without making changes.</p>
+<ul>
+<li>The file <strong>must already exist</strong> or Python will raise an error.</li>
+<li>The file pointer starts at the <strong>beginning</strong> of the file.</li>
+<li>You cannot write or modify the file in this mode.</li>
+</ul>
+<p><strong>Example usage:</strong> Opening a configuration file to read its settings, or reading a log file to check for errors.</p>
+<h4 id="write-mode-w_1">✍️ Write Mode ('w')</h4>
+<p>Use this when you want to <strong>create a new file</strong> or <strong>completely replace</strong> an existing file's contents.</p>
+<ul>
+<li>If the file does not exist, Python <strong>creates</strong> it.</li>
+<li>If the file exists, Python <strong>truncates</strong> it (deletes all existing content) before writing.</li>
+<li>The file pointer starts at the <strong>beginning</strong> of the file.</li>
+<li><strong>Caution:</strong> Any existing data is lost immediately when you open the file.</li>
+</ul>
+<p><strong>Example usage:</strong> Writing a fresh report every day, or saving output from a script to a new file.</p>
+<h4 id="append-mode-a_1">➕ Append Mode ('a')</h4>
+<p>Use this when you want to <strong>add new data</strong> to the end of an existing file without removing what is already there.</p>
+<ul>
+<li>If the file does not exist, Python <strong>creates</strong> it.</li>
+<li>If the file exists, the original content is <strong>preserved</strong>.</li>
+<li>The file pointer starts at the <strong>end</strong> of the file.</li>
+<li>You cannot read from the file in this mode (unless combined with <strong>'+'</strong>).</li>
+</ul>
+<p><strong>Example usage:</strong> Adding new log entries to a log file, or recording timestamps to a history file.</p>
+<h4 id="read-write-mode-r_1">🔄 Read + Write Mode ('r+')</h4>
+<p>This mode allows you to both <strong>read and write</strong> to the same file without destroying existing content.</p>
+<ul>
+<li>The file <strong>must already exist</strong>.</li>
+<li>The file pointer starts at the <strong>beginning</strong>.</li>
+<li>Writing will <strong>overwrite</strong> characters at the current pointer position, not the entire file.</li>
+<li>Useful when you need to update specific parts of a file.</li>
+</ul>
+<h4 id="write-read-mode-w_1">🔁 Write + Read Mode ('w+')</h4>
+<p>Similar to <strong>'w'</strong>, but also allows reading after writing.</p>
+<ul>
+<li>The file is <strong>truncated</strong> (emptied) when opened.</li>
+<li>You can write data and then read it back within the same file object.</li>
+<li>Useful for temporary files or when you need to verify what was written.</li>
+</ul>
+<h4 id="append-read-mode-a_1">🔗 Append + Read Mode ('a+')</h4>
+<p>Combines append and read capabilities.</p>
+<ul>
+<li>The file pointer starts at the <strong>end</strong> for writing.</li>
+<li>You can <strong>seek</strong> back to the beginning to read the entire file.</li>
+<li>Existing content is never deleted.</li>
+</ul>
+<hr />
+<h3 id="binary-modes-b_1">🛠️ Binary Modes ('b')</h3>
+<p>Binary modes are used for <strong>non-text files</strong> such as images, videos, executables, or any file that contains raw bytes instead of human-readable text.</p>
+<ul>
+<li>Add <strong>'b'</strong> to any text mode: <strong>'rb'</strong>, <strong>'wb'</strong>, <strong>'ab'</strong>, <strong>'rb+'</strong>, etc.</li>
+<li>Data is read and written as <strong>bytes objects</strong>, not strings.</li>
+<li>No encoding or decoding happens — the raw bytes are preserved exactly.</li>
+<li><strong>Critical for engineers:</strong> Always use binary mode when working with files that are not plain text, or you may corrupt the data.</li>
+</ul>
+<p><strong>Examples of binary files:</strong> PNG images, ZIP archives, PDF documents, compiled programs.</p>
+<hr />
+<h3 id="practical-tips-for-engineers_1">🧪 Practical Tips for Engineers</h3>
+<ul>
+<li><strong>Always close files</strong> after you finish working with them. Use the <strong>with</strong> statement to automatically handle closing: <strong>with open('file.txt', 'r') as f:</strong> — this ensures the file is closed even if an error occurs.</li>
+<li><strong>Use 'w' carefully.</strong> A single typo in your code can accidentally wipe out an important file. Consider using <strong>'a'</strong> or <strong>'r+'</strong> if you need to preserve existing data.</li>
+<li><strong>Binary mode is mandatory for non-text files.</strong> If you try to open a binary file in text mode, you may get encoding errors or corrupted output.</li>
+<li><strong>Test your mode choice.</strong> Before running a script that modifies files, test it on a copy of the data first.</li>
+<li><strong>Combine modes only when necessary.</strong> Using <strong>'r+'</strong> or <strong>'w+'</strong> adds complexity. Stick to simple modes unless you truly need both read and write access.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Choosing the correct file mode is a fundamental skill in Python file handling. Each mode serves a specific purpose:</p>
+<ul>
+<li><strong>'r'</strong> for safe reading</li>
+<li><strong>'w'</strong> for creating or replacing files</li>
+<li><strong>'a'</strong> for adding to existing content</li>
+<li><strong>'b'</strong> for binary data (always combine with another mode)</li>
+</ul>
+<p>By understanding these modes, you can confidently read, write, and manage files in your automation scripts, data pipelines, and system tools without accidentally losing data or corrupting files.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>File modes tell Python how you intend to use a file — whether to read it, write to it, add to it, or work with binary data.</p>
+<hr />
+<h3 id="example-1-reading-a-file-with-r-mode_1">📖 Example 1: Reading a file with 'r' mode</h3>
+<p>This example opens a text file for reading only and displays its content.</p>
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;sample.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello, this is sample text.</strong></p>
+<hr />
+<h3 id="example-2-writing-to-a-file-with-w-mode_1">✏️ Example 2: Writing to a file with 'w' mode</h3>
+<p>This example creates a new file (or overwrites an existing one) with the text you provide.</p>
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;This is new content.&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>This is new content.</strong></p>
+<hr />
+<h3 id="example-3-appending-to-a-file-with-a-mode_1">➕ Example 3: Appending to a file with 'a' mode</h3>
+<p>This example adds new text to the end of an existing file without removing what was already there.</p>
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">This line was appended.&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>This is new content.\nThis line was appended.</strong></p>
+<hr />
+<h3 id="example-4-reading-a-binary-file-with-rb-mode_1">🔢 Example 4: Reading a binary file with 'rb' mode</h3>
+<p>This example reads a binary file (like an image) as bytes instead of text.</p>
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;image.png&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="n">binary_data</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">binary_data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">binary_data</span><span class="p">))</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong><class 'bytes'></strong><br />
+📤 Output: <strong>1024</strong> (or whatever the file size is in bytes)</p>
+<hr />
+<h3 id="example-5-writing-binary-data-with-wb-mode_1">🛠️ Example 5: Writing binary data with 'wb' mode</h3>
+<p>This example writes raw bytes to a file, useful for saving images or other non-text data.</p>
+<div class="highlight"><pre><span></span><code><span class="n">binary_content</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x89</span><span class="s1">PNG</span><span class="se">\r\n\x1a\n</span><span class="s1">&#39;</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;new_image.png&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">binary_content</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;new_image.png&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="n">first_bytes</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_bytes</span><span class="p">)</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>b'\x89PNG\r\n\x1a\n'</strong></p>
+<hr />
+<h2 id="file-mode-comparison-table_1">📊 File Mode Comparison Table</h2>
 <table>
 <thead>
 <tr>

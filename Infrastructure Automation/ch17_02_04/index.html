@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch17_02_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 17 | Evaluating Response Attributes (Status, Body, Headers) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 17 | Evaluating Response Attributes (Status, Body, Headers)";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch17_02_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch17_02_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -796,6 +796,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-checking-status-body-length-and-server-header-together">✅ Example 5: Checking status, body length, and server header together</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#why-evaluate-response-attributes_1">🕵️ Why Evaluate Response Attributes?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-response-object_1">⚙️ The Response Object</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#response-status-code_1">📊 Response Status Code</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#response-body_1">📄 Response Body</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#response-headers_1">🏷️ Response Headers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#putting-it-all-together-a-typical-workflow_1">🛠️ Putting It All Together: A Typical Workflow</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#best-practices-for-engineers_1">✅ Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#quick-reference_1">📌 Quick Reference</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-checking-the-status-code-of-a-successful-request_1">✅ Example 1: Checking the status code of a successful request</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-reading-the-response-body-as-text_1">✅ Example 2: Reading the response body as text</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-parsing-the-response-body-as-json_1">✅ Example 3: Parsing the response body as JSON</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-inspecting-a-specific-response-header_1">✅ Example 4: Inspecting a specific response header</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-checking-status-body-length-and-server-header-together_1">✅ Example 5: Checking status, body length, and server header together</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1106,7 @@
               
                 <h1 id="evaluating-response-attributes-status-body-headers">Evaluating Response Attributes (Status, Body, Headers)</h1>
 <p><span class="category-tag">🏷️ APIs and HTTP Requests /  The Requests Library</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When you send a request to an API using Python's Requests library, the server sends back a <strong>response object</strong>. This response contains everything you need to understand what happened: whether the request succeeded, what data was returned, and additional metadata about the server's reply. Learning to evaluate these three core attributes—<strong>status</strong>, <strong>body</strong>, and <strong>headers</strong>—is essential for building reliable integrations.</p>
@@ -1240,8 +1270,7 @@
 </tbody>
 </table>
 <p>By mastering these three response attributes, you gain full visibility into every API interaction your code makes. This is the foundation for building robust, debuggable, and reliable integrations.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide shows how to inspect the three key parts of an HTTP response — status code, body content, and headers — using the Python Requests library.</p>
 <hr />
 <h3 id="example-1-checking-the-status-code-of-a-successful-request">✅ Example 1: Checking the status code of a successful request</h3>
@@ -1297,6 +1326,261 @@
 <p>📤 Output: <strong>True 408 nginx</strong></p>
 <hr />
 <h2 id="comparison-table">Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>How to Access</th>
+<th>Typical Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Status Code</td>
+<td><code>response.status_code</code></td>
+<td>Check if request succeeded (200) or failed (404)</td>
+</tr>
+<tr>
+<td>Body (text)</td>
+<td><code>response.text</code></td>
+<td>Read raw string content</td>
+</tr>
+<tr>
+<td>Body (JSON)</td>
+<td><code>response.json()</code></td>
+<td>Parse structured data into Python dict</td>
+</tr>
+<tr>
+<td>Headers</td>
+<td><code>response.headers</code></td>
+<td>Inspect metadata like Content-Type, Server, Date</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you send a request to an API using Python's Requests library, the server sends back a <strong>response object</strong>. This response contains everything you need to understand what happened: whether the request succeeded, what data was returned, and additional metadata about the server's reply. Learning to evaluate these three core attributes—<strong>status</strong>, <strong>body</strong>, and <strong>headers</strong>—is essential for building reliable integrations.</p>
+<hr />
+<h3 id="why-evaluate-response-attributes_1">🕵️ Why Evaluate Response Attributes?</h3>
+<p>Every time your script talks to an external service, the response tells you the story of that interaction:</p>
+<ul>
+<li><strong>Status</strong> tells you if the request worked or failed (and why).</li>
+<li><strong>Body</strong> contains the actual data or error message.</li>
+<li><strong>Headers</strong> provide metadata like content type, caching rules, and server info.</li>
+</ul>
+<p>Without checking these, your code is flying blind—it won't know if it received valid data, hit a rate limit, or encountered an authentication error.</p>
+<hr />
+<h3 id="the-response-object_1">⚙️ The Response Object</h3>
+<p>When you call a method like <strong>requests.get()</strong>, the library returns a <strong>Response</strong> object. This object holds all three attributes as properties you can access directly.</p>
+<p><strong>Example of storing a response:</strong>
+- <strong>response = requests.get('https://api.example.com/users')</strong>
+- Now <strong>response</strong> is a Response object containing status, body, and headers.</p>
+<hr />
+<h3 id="response-status-code_1">📊 Response Status Code</h3>
+<p>The status code is a three-digit number that indicates the outcome of your request. It's the first thing you should check.</p>
+<p><strong>How to access it:</strong>
+- <strong>response.status_code</strong> returns an integer (e.g., 200, 404, 500)</p>
+<p><strong>Common status code categories:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code Range</th>
+<th>Meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200–299</td>
+<td>Success</td>
+<td>200 OK, 201 Created</td>
+</tr>
+<tr>
+<td>300–399</td>
+<td>Redirection</td>
+<td>301 Moved Permanently</td>
+</tr>
+<tr>
+<td>400–499</td>
+<td>Client Error</td>
+<td>404 Not Found, 401 Unauthorized</td>
+</tr>
+<tr>
+<td>500–599</td>
+<td>Server Error</td>
+<td>500 Internal Server Error</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Quick check methods:</strong>
+- <strong>response.ok</strong> returns <strong>True</strong> if status code is less than 400, <strong>False</strong> otherwise
+- <strong>response.raise_for_status()</strong> raises an exception if the request failed (useful for stopping execution on errors)</p>
+<p><strong>Example pattern for checking status:</strong>
+- If <strong>response.status_code == 200</strong>: proceed to process the body
+- Else: log the error or handle the failure</p>
+<hr />
+<h3 id="response-body_1">📄 Response Body</h3>
+<p>The body contains the actual content returned by the server. This is usually where your data lives.</p>
+<p><strong>How to access it:</strong>
+- <strong>response.text</strong> returns the body as a string (raw text)
+- <strong>response.content</strong> returns the body as bytes (useful for binary data like images)
+- <strong>response.json()</strong> parses the body as JSON and returns a Python dictionary or list</p>
+<p><strong>Most common scenario:</strong>
+- You expect JSON data, so you use <strong>response.json()</strong> to get a Python dictionary
+- If the body isn't valid JSON, <strong>response.json()</strong> will raise an error</p>
+<p><strong>Example of accessing body:</strong>
+- <strong>data = response.json()</strong> gives you a dictionary you can work with
+- <strong>response.text</strong> shows you the raw string if you need to debug</p>
+<p><strong>Important note:</strong>
+- <strong>response.json()</strong> can only be called once on a response object (it reads the body stream)
+- Always check the status code first before trying to parse the body</p>
+<hr />
+<h3 id="response-headers_1">🏷️ Response Headers</h3>
+<p>Headers provide metadata about the response. They are stored as a dictionary-like object.</p>
+<p><strong>How to access them:</strong>
+- <strong>response.headers</strong> returns a dictionary of all headers
+- <strong>response.headers['Content-Type']</strong> gets a specific header value
+- <strong>response.headers.get('Content-Type')</strong> safely gets a header (returns None if missing)</p>
+<p><strong>Common headers you'll check:</strong>
+- <strong>Content-Type</strong>: tells you the format of the body (e.g., application/json, text/html)
+- <strong>Content-Length</strong>: size of the response body in bytes
+- <strong>Set-Cookie</strong>: cookies the server wants you to store
+- <strong>RateLimit-Remaining</strong>: how many requests you have left (common in APIs)
+- <strong>X-Request-Id</strong>: unique identifier for debugging</p>
+<p><strong>Why headers matter:</strong>
+- They tell you how to interpret the body (JSON vs XML vs plain text)
+- They reveal rate limits and authentication requirements
+- They help with debugging when something goes wrong</p>
+<hr />
+<h3 id="putting-it-all-together-a-typical-workflow_1">🛠️ Putting It All Together: A Typical Workflow</h3>
+<p>Here's the logical flow you should follow when evaluating a response:</p>
+<ol>
+<li><strong>Send the request</strong> using <strong>requests.get()</strong> or another method</li>
+<li><strong>Check the status code</strong> using <strong>response.status_code</strong> or <strong>response.ok</strong></li>
+<li><strong>If successful</strong> (200–299): parse the body with <strong>response.json()</strong> or <strong>response.text</strong></li>
+<li><strong>If failed</strong> (400+): read the error message from the body and check headers for details</li>
+<li><strong>Always inspect headers</strong> for rate limits, content type, and debugging info</li>
+</ol>
+<p><strong>Example decision flow:</strong>
+- Store response in a variable
+- Check <strong>response.ok</strong> — if True, proceed; if False, log the status and body
+- Use <strong>response.headers.get('Content-Type')</strong> to confirm the format
+- Call <strong>response.json()</strong> to get the data</p>
+<hr />
+<h3 id="best-practices-for-engineers_1">✅ Best Practices for Engineers</h3>
+<ul>
+<li><strong>Always check the status code first</strong> — never assume a request succeeded</li>
+<li><strong>Use response.raise_for_status()</strong> in scripts where failures should stop execution</li>
+<li><strong>Inspect response.text</strong> when debugging unexpected behavior (it often contains error details)</li>
+<li><strong>Check Content-Type header</strong> before calling <strong>response.json()</strong> to avoid parsing errors</li>
+<li><strong>Log response headers</strong> during development to understand API behavior and limits</li>
+<li><strong>Store response objects in variables</strong> so you can inspect all three attributes without re-requesting</li>
+</ul>
+<hr />
+<h3 id="quick-reference_1">📌 Quick Reference</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Access Method</th>
+<th>What It Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Status Code</td>
+<td><strong>response.status_code</strong></td>
+<td>Integer (200, 404, etc.)</td>
+</tr>
+<tr>
+<td>Success Check</td>
+<td><strong>response.ok</strong></td>
+<td>Boolean (True/False)</td>
+</tr>
+<tr>
+<td>Raw Body</td>
+<td><strong>response.text</strong></td>
+<td>String</td>
+</tr>
+<tr>
+<td>JSON Body</td>
+<td><strong>response.json()</strong></td>
+<td>Dictionary or List</td>
+</tr>
+<tr>
+<td>All Headers</td>
+<td><strong>response.headers</strong></td>
+<td>Dictionary-like object</td>
+</tr>
+<tr>
+<td>Specific Header</td>
+<td><strong>response.headers['Key']</strong></td>
+<td>String value</td>
+</tr>
+</tbody>
+</table>
+<p>By mastering these three response attributes, you gain full visibility into every API interaction your code makes. This is the foundation for building robust, debuggable, and reliable integrations.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide shows how to inspect the three key parts of an HTTP response — status code, body content, and headers — using the Python Requests library.</p>
+<hr />
+<h3 id="example-1-checking-the-status-code-of-a-successful-request_1">✅ Example 1: Checking the status code of a successful request</h3>
+<p>This example shows how to retrieve the HTTP status code from a response object.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/status/200&quot;</span><span class="p">)</span>
+<span class="n">status</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>200</strong></p>
+<hr />
+<h3 id="example-2-reading-the-response-body-as-text_1">✅ Example 2: Reading the response body as text</h3>
+<p>This example shows how to access the body of a response as a plain text string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/get&quot;</span><span class="p">)</span>
+<span class="n">body_text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">body_text</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>{ "args": {}, "headers": { "Accept": "<em>/</em>", "Accept-Encoding": "gzip, deflate", "Host": "httpbin.org", "User-Agent": "python-requests/2.31.0", "X-Amzn-Trace-Id": "Root=1-..." }, "origin": "...", "url": "https://httpbin.org/get" }</strong></p>
+<hr />
+<h3 id="example-3-parsing-the-response-body-as-json_1">✅ Example 3: Parsing the response body as JSON</h3>
+<p>This example shows how to convert a JSON response body into a Python dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/get&quot;</span><span class="p">)</span>
+<span class="n">body_json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">body_json</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>https://httpbin.org/get</strong></p>
+<hr />
+<h3 id="example-4-inspecting-a-specific-response-header_1">✅ Example 4: Inspecting a specific response header</h3>
+<p>This example shows how to retrieve a single header value from the response headers dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/response-headers?Content-Type=application/json&quot;</span><span class="p">)</span>
+<span class="n">content_type</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content_type</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>application/json</strong></p>
+<hr />
+<h3 id="example-5-checking-status-body-length-and-server-header-together_1">✅ Example 5: Checking status, body length, and server header together</h3>
+<p>This example shows a practical check: verify success, count body size, and read the server header.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/get&quot;</span><span class="p">)</span>
+<span class="n">status_ok</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+<span class="n">body_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="n">server_header</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Server&quot;</span><span class="p">,</span> <span class="s2">&quot;unknown&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">status_ok</span><span class="p">,</span> <span class="n">body_length</span><span class="p">,</span> <span class="n">server_header</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True 408 nginx</strong></p>
+<hr />
+<h2 id="comparison-table_1">Comparison Table</h2>
 <table>
 <thead>
 <tr>

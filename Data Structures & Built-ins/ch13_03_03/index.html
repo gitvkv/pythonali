@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch13_03_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 13 | Practical Example: Closing Connections and Files - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 13 | Practical Example: Closing Connections and Files";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch13_03_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch13_03_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -618,6 +618,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-network-socket-cleanup">🔧 Example 5: Practical network socket cleanup</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-try-except-else-finally">Comparison Table: try-except-else-finally</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🔍 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#why-closing-resources-matters_1">⚙️ Why Closing Resources Matters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#basic-pattern-try-except-finally_1">🛠️ Basic Pattern: Try-Except-Finally</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-with-vs-without-finally_1">📊 Comparison: With vs. Without Finally</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-example-reading-a-configuration-file_1">🕵️ Practical Example: Reading a Configuration File</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-example-database-connection-management_1">🧪 Practical Example: Database Connection Management</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#best-practices-for-engineers_1">✅ Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">📝 Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-basic-file-closing-with-finally_1">🔧 Example 1: Basic file closing with finally</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-handling-an-error-while-still-closing-the-file_1">🔧 Example 2: Handling an error while still closing the file</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-closing-a-database-connection-after-query_1">🔧 Example 3: Closing a database connection after query</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-using-else-with-finally-for-clean-separation_1">🔧 Example 4: Using else with finally for clean separation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-practical-network-socket-cleanup_1">🔧 Example 5: Practical network socket cleanup</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-try-except-else-finally_1">Comparison Table: try-except-else-finally</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1106,7 @@
               
                 <h1 id="practical-example-closing-connections-and-files">Practical Example: Closing Connections and Files</h1>
 <p><span class="category-tag">🏷️ Error Handling and Exceptions /  Else and Finally Clauses</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1183,8 +1213,7 @@
 <hr />
 <h3 id="summary">📝 Summary</h3>
 <p>The <strong>finally</strong> clause is a powerful tool for ensuring that resources are properly released, regardless of whether an exception occurs. By combining <strong>try</strong>, <strong>except</strong>, <strong>else</strong>, and <strong>finally</strong>, engineers can write code that is both robust and maintainable. This pattern is especially important in production environments where resource leaks can lead to system instability and downtime. Mastering this pattern is a fundamental step toward writing professional-grade Python code.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>finally</code> clause ensures that cleanup code — like closing files or database connections — always runs, whether an error occurred or not.</p>
 <hr />
 <h3 id="example-1-basic-file-closing-with-finally">🔧 Example 1: Basic file closing with finally</h3>
@@ -1269,6 +1298,233 @@
 <strong>Socket closed.</strong></p>
 <hr />
 <h2 id="comparison-table-try-except-else-finally">Comparison Table: try-except-else-finally</h2>
+<table>
+<thead>
+<tr>
+<th>Clause</th>
+<th>When it runs</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>try</code></td>
+<td>Always first</td>
+<td>Code that might raise an error</td>
+</tr>
+<tr>
+<td><code>except</code></td>
+<td>Only if an error occurs</td>
+<td>Handle specific errors</td>
+</tr>
+<tr>
+<td><code>else</code></td>
+<td>Only if no error occurs</td>
+<td>Code that depends on success</td>
+</tr>
+<tr>
+<td><code>finally</code></td>
+<td>Always, after everything else</td>
+<td>Cleanup (close files, connections)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🔍 Context Introduction</h3>
+<p>When working with external resources like files, database connections, or network sockets, it is critical to ensure they are properly closed after use—even if an error occurs. Leaving connections or files open can lead to resource leaks, corrupted data, or system instability. Python's <strong>finally</strong> clause provides a reliable way to execute cleanup code regardless of whether an exception was raised, making it an essential tool for writing robust and production-ready code.</p>
+<hr />
+<h3 id="why-closing-resources-matters_1">⚙️ Why Closing Resources Matters</h3>
+<ul>
+<li><strong>File handles</strong> are limited system resources. Leaving files open can exhaust the available handles and cause other parts of your application to fail.</li>
+<li><strong>Database connections</strong> left open can lock tables, consume memory, and prevent other users from accessing data.</li>
+<li><strong>Network sockets</strong> that are not closed properly can lead to connection timeouts and unpredictable behavior.</li>
+<li><strong>The finally clause</strong> guarantees that your cleanup code runs, whether the code block succeeds or fails with an exception.</li>
+</ul>
+<hr />
+<h3 id="basic-pattern-try-except-finally_1">🛠️ Basic Pattern: Try-Except-Finally</h3>
+<p>The standard pattern for safely managing resources follows this flow:</p>
+<ul>
+<li><strong>try block</strong>: Contains the code that might raise an exception (e.g., opening a file or connecting to a database).</li>
+<li><strong>except block</strong>: Handles any exceptions that occur, allowing you to log the error or take corrective action.</li>
+<li><strong>finally block</strong>: Always executes, providing a safe place to close files, release connections, or free other resources.</li>
+</ul>
+<p><strong>Example structure:</strong>
+- Open a file for reading inside the <strong>try</strong> block.
+- If the file does not exist, the <strong>except</strong> block catches the <strong>FileNotFoundError</strong> and prints a meaningful message.
+- The <strong>finally</strong> block checks if the file object was created and closes it, preventing a resource leak.</p>
+<hr />
+<h3 id="comparison-with-vs-without-finally_1">📊 Comparison: With vs. Without Finally</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Without Finally</th>
+<th>With Finally</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Resource cleanup</strong></td>
+<td>Must be manually repeated in both try and except blocks</td>
+<td>Written once in the finally block</td>
+</tr>
+<tr>
+<td><strong>Risk of forgetting</strong></td>
+<td>High—easy to miss cleanup in one code path</td>
+<td>Low—cleanup is guaranteed</td>
+</tr>
+<tr>
+<td><strong>Code duplication</strong></td>
+<td>High—same close logic appears multiple times</td>
+<td>Low—single cleanup location</td>
+</tr>
+<tr>
+<td><strong>Handling unexpected exceptions</strong></td>
+<td>Cleanup is skipped if an unhandled exception occurs</td>
+<td>Cleanup always runs, even for unhandled exceptions</td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>More cluttered and error-prone</td>
+<td>Cleaner and easier to maintain</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-reading-a-configuration-file_1">🕵️ Practical Example: Reading a Configuration File</h3>
+<p>Consider a scenario where an engineer needs to read a configuration file to load application settings. The file might be missing, corrupted, or temporarily locked. Using <strong>try-except-finally</strong> ensures the file is always closed properly.</p>
+<p><strong>Step-by-step breakdown:</strong></p>
+<ul>
+<li><strong>try block</strong>: Attempt to open the configuration file and read its contents.</li>
+<li><strong>except FileNotFoundError</strong>: Handle the case where the file does not exist by printing a user-friendly message.</li>
+<li><strong>except PermissionError</strong>: Handle the case where the file exists but cannot be accessed due to permissions.</li>
+<li><strong>except Exception</strong>: Catch any other unexpected errors and log them.</li>
+<li><strong>else block</strong>: Executes only if no exception occurred—useful for processing the data successfully.</li>
+<li><strong>finally block</strong>: Check if the file object exists and close it. This runs no matter what happened in the try or except blocks.</li>
+</ul>
+<p><strong>Key points to remember:</strong>
+- The <strong>else</strong> clause runs only when the try block completes without raising an exception.
+- The <strong>finally</strong> clause runs regardless of whether an exception was raised or caught.
+- Always check that the resource variable exists before attempting to close it in the finally block.</p>
+<hr />
+<h3 id="practical-example-database-connection-management_1">🧪 Practical Example: Database Connection Management</h3>
+<p>Another common use case is managing database connections. A database connection left open can cause serious issues in production environments.</p>
+<p><strong>Typical workflow:</strong></p>
+<ul>
+<li><strong>try block</strong>: Establish a connection to the database and execute a query.</li>
+<li><strong>except ConnectionError</strong>: Handle network or authentication failures.</li>
+<li><strong>except DatabaseError</strong>: Handle query-specific errors like invalid SQL syntax.</li>
+<li><strong>else block</strong>: Process the query results if everything succeeded.</li>
+<li><strong>finally block</strong>: Close the database connection to free up server resources.</li>
+</ul>
+<p><strong>Why this matters:</strong>
+- Database servers have a limited number of concurrent connections.
+- Unclosed connections can lead to connection pool exhaustion.
+- The finally block ensures cleanup even if the query itself fails.</p>
+<hr />
+<h3 id="best-practices-for-engineers_1">✅ Best Practices for Engineers</h3>
+<ul>
+<li><strong>Always use finally for cleanup</strong> when working with files, sockets, or database connections.</li>
+<li><strong>Consider using the with statement</strong> (context managers) for simpler cases—it automatically handles cleanup and is the preferred approach in modern Python.</li>
+<li><strong>Keep cleanup code minimal</strong> in the finally block—only include essential release operations.</li>
+<li><strong>Avoid returning from finally</strong> as it can suppress exceptions or override return values from the try block.</li>
+<li><strong>Log errors in except blocks</strong> but perform cleanup in finally to separate concerns.</li>
+</ul>
+<hr />
+<h3 id="summary_1">📝 Summary</h3>
+<p>The <strong>finally</strong> clause is a powerful tool for ensuring that resources are properly released, regardless of whether an exception occurs. By combining <strong>try</strong>, <strong>except</strong>, <strong>else</strong>, and <strong>finally</strong>, engineers can write code that is both robust and maintainable. This pattern is especially important in production environments where resource leaks can lead to system instability and downtime. Mastering this pattern is a fundamental step toward writing professional-grade Python code.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>finally</code> clause ensures that cleanup code — like closing files or database connections — always runs, whether an error occurred or not.</p>
+<hr />
+<h3 id="example-1-basic-file-closing-with-finally_1">🔧 Example 1: Basic file closing with finally</h3>
+<p>This example shows how to guarantee a file is closed after reading, even if an error happens.</p>
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;sample.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File closed.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Contents of sample.txt</strong><br />
+<strong>File closed.</strong></p>
+<hr />
+<h3 id="example-2-handling-an-error-while-still-closing-the-file_1">🔧 Example 2: Handling an error while still closing the file</h3>
+<p>This example demonstrates that <code>finally</code> runs even when an exception occurs during file operations.</p>
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;missing.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found.&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File closed.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>File not found.</strong><br />
+<strong>File closed.</strong></p>
+<hr />
+<h3 id="example-3-closing-a-database-connection-after-query_1">🔧 Example 3: Closing a database connection after query</h3>
+<p>This example shows how to ensure a database connection is closed after a query, regardless of success or failure.</p>
+<div class="highlight"><pre><span></span><code><span class="n">connection</span> <span class="o">=</span> <span class="n">connect_to_database</span><span class="p">(</span><span class="s2">&quot;my_db&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM users&quot;</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Query failed.&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connection closed.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[(1, 'Alice'), (2, 'Bob')]</strong><br />
+<strong>Connection closed.</strong></p>
+<hr />
+<h3 id="example-4-using-else-with-finally-for-clean-separation_1">🔧 Example 4: Using else with finally for clean separation</h3>
+<p>This example shows how <code>else</code> runs only on success, while <code>finally</code> always runs for cleanup.</p>
+<div class="highlight"><pre><span></span><code><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File read successfully.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File closed.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>File read successfully.</strong><br />
+<strong>Contents of data.txt</strong><br />
+<strong>File closed.</strong></p>
+<hr />
+<h3 id="example-5-practical-network-socket-cleanup_1">🔧 Example 5: Practical network socket cleanup</h3>
+<p>This example demonstrates closing a network socket connection after sending data, with error handling.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+<span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s2">&quot;example.com&quot;</span><span class="p">,</span> <span class="mi">80</span><span class="p">))</span>
+    <span class="n">sock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;GET / HTTP/1.1</span><span class="se">\r\n</span><span class="s2">Host: example.com</span><span class="se">\r\n\r\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">4096</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">[:</span><span class="mi">100</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connection failed.&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Socket closed.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>b'HTTP/1.1 200 OK\r\n...'</strong><br />
+<strong>Socket closed.</strong></p>
+<hr />
+<h2 id="comparison-table-try-except-else-finally_1">Comparison Table: try-except-else-finally</h2>
 <table>
 <thead>
 <tr>

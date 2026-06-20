@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch06_06_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 06 | Parallel Iteration with zip() - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 06 | Parallel Iteration with zip()";
         var mkdocs_page_input_path = "Core Syntax\\ch06_06_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch06_06_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -322,6 +322,38 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-building-a-dictionary-from-two-lists">🟢 Example 5: Building a dictionary from two lists</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-zip-vs-manual-index-looping">📊 Comparison: zip() vs manual index looping</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-zip_1">⚙️ What is zip()?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-parallel-iteration-works_1">📊 How Parallel Iteration Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-usage-of-zip_1">🛠️ Basic Usage of zip()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-behavior-shortest-list-wins_1">🕵️ Important Behavior: Shortest List Wins</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-without-zip-vs-with-zip_1">📋 Comparison Table: Without zip() vs With zip()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-for-engineers_1">🧪 Practical Example for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-with-more-than-two-lists_1">🧩 Working with More Than Two Lists</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#unzipping-with-zip_1">🔁 Unzipping with zip()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-zipping-two-lists-of-equal-length_1">🟢 Example 1: Zipping two lists of equal length</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-zipping-three-lists-together_1">🟢 Example 2: Zipping three lists together</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-zipping-lists-of-different-lengths_1">🟢 Example 3: Zipping lists of different lengths</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-unzipping-a-list-of-tuples_1">🟢 Example 4: Unzipping a list of tuples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-building-a-dictionary-from-two-lists_1">🟢 Example 5: Building a dictionary from two lists</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-zip-vs-manual-index-looping_1">📊 Comparison: zip() vs manual index looping</a>
     </li>
     </ul>
                 </li>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="parallel-iteration-with-zip">Parallel Iteration with zip()</h1>
 <p><span class="category-tag">🏷️ Loops and Iteration /  Iterating Over Multiple Lists via Zip</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1206,8 +1238,7 @@
 <li>You can use zip() with two or more iterables, and you can also unzip using the unpacking operator.</li>
 <li>This is a fundamental tool for any engineer working with related data stored across multiple sequences.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p><code>zip()</code> combines multiple iterables (like lists) into pairs or tuples, allowing you to loop through them in parallel.</p>
 <h3 id="example-1-zipping-two-lists-of-equal-length">🟢 Example 1: Zipping two lists of equal length</h3>
 <p>This example shows how to pair elements from two lists at the same index position.</p>
@@ -1261,6 +1292,221 @@
 <p>📤 Output: <strong>{'Alice': 'Frontend', 'Bob': 'Backend', 'Charlie': 'DevOps'}</strong></p>
 <hr />
 <h3 id="comparison-zip-vs-manual-index-looping">📊 Comparison: <code>zip()</code> vs manual index looping</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>zip()</code></th>
+<th>Manual index loop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code readability</td>
+<td>Clean and concise</td>
+<td>More verbose</td>
+</tr>
+<tr>
+<td>Handles different lengths</td>
+<td>Stops at shortest</td>
+<td>May cause index errors</td>
+</tr>
+<tr>
+<td>Works with any iterables</td>
+<td>Yes</td>
+<td>Only with indexable types</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>Returns iterator (efficient)</td>
+<td>Creates full list</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When working with multiple lists that are related to each other, you often need to loop through them at the same time. For example, you might have a list of server names and a corresponding list of IP addresses. Instead of using index numbers to access elements from each list separately, Python provides a cleaner way: the <strong>zip()</strong> function. It allows you to iterate over multiple sequences in parallel, pairing up elements by their position.</p>
+<hr />
+<h3 id="what-is-zip_1">⚙️ What is zip()?</h3>
+<p>The <strong>zip()</strong> function takes two or more iterables (like lists, tuples, or strings) and returns an iterator of tuples. Each tuple contains the i-th element from each of the input iterables.</p>
+<ul>
+<li><strong>Basic idea</strong>: Combine elements from multiple lists into pairs or groups.</li>
+<li><strong>Output</strong>: An iterator of tuples, where the first tuple contains the first elements of all input lists, the second tuple contains the second elements, and so on.</li>
+<li><strong>Stopping rule</strong>: zip() stops when the shortest input list is exhausted.</li>
+</ul>
+<hr />
+<h3 id="how-parallel-iteration-works_1">📊 How Parallel Iteration Works</h3>
+<p>Without zip(), you would typically use a loop with an index counter to access elements from multiple lists. With zip(), you can directly get paired elements in each iteration.</p>
+<p><strong>Example scenario</strong>: You have a list of server names and a list of their IP addresses.</p>
+<ul>
+<li><strong>Without zip()</strong>: You would write a loop like <strong>for i in range(len(servers)):</strong> and then access <strong>servers[i]</strong> and <strong>ips[i]</strong> separately.</li>
+<li><strong>With zip()</strong>: You write <strong>for server, ip in zip(servers, ips):</strong> and both values are available directly in each loop iteration.</li>
+</ul>
+<p>This makes your code shorter, more readable, and less prone to index errors.</p>
+<hr />
+<h3 id="basic-usage-of-zip_1">🛠️ Basic Usage of zip()</h3>
+<p>Here is how you use zip() in a simple loop:</p>
+<ul>
+<li>Create two lists of equal length, for example: <strong>servers = ["web01", "db01", "app01"]</strong> and <strong>ips = ["10.0.1.10", "10.0.1.20", "10.0.1.30"]</strong>.</li>
+<li>Write a for loop: <strong>for server, ip in zip(servers, ips):</strong></li>
+<li>Inside the loop, you can use <strong>server</strong> and <strong>ip</strong> directly, like <strong>print(f"{server} is at {ip}")</strong>.</li>
+</ul>
+<p><strong>Expected output from the loop</strong>:
+- web01 is at 10.0.1.10
+- db01 is at 10.0.1.20
+- app01 is at 10.0.1.30</p>
+<hr />
+<h3 id="important-behavior-shortest-list-wins_1">🕵️ Important Behavior: Shortest List Wins</h3>
+<p>One key detail about zip() is that it stops iterating as soon as the shortest input list is exhausted. This means if your lists have different lengths, some elements from the longer list will be ignored.</p>
+<p><strong>Example with uneven lists</strong>:
+- <strong>names = ["alpha", "beta", "gamma"]</strong> (3 elements)
+- <strong>codes = ["A", "B"]</strong> (2 elements)
+- Loop: <strong>for name, code in zip(names, codes): print(name, code)</strong></p>
+<p><strong>Expected output</strong>:
+- alpha A
+- beta B</p>
+<p>Notice that <strong>gamma</strong> is never paired because <strong>codes</strong> ran out of elements first. This behavior is intentional and can be useful, but you must be aware of it to avoid losing data unintentionally.</p>
+<hr />
+<h3 id="comparison-table-without-zip-vs-with-zip_1">📋 Comparison Table: Without zip() vs With zip()</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Without zip()</th>
+<th>With zip()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code readability</td>
+<td>Uses index variable, harder to read at a glance</td>
+<td>Directly names paired variables, very clear</td>
+</tr>
+<tr>
+<td>Risk of errors</td>
+<td>Easy to make off-by-one or index mistakes</td>
+<td>No index management needed</td>
+</tr>
+<tr>
+<td>Handling uneven lists</td>
+<td>You control the logic manually</td>
+<td>Automatically stops at shortest list</td>
+</tr>
+<tr>
+<td>Lines of code</td>
+<td>More verbose, requires range() and len()</td>
+<td>Compact and expressive</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-for-engineers_1">🧪 Practical Example for Engineers</h3>
+<p>Imagine you are managing a deployment where you have a list of environment names and a list of corresponding configuration files.</p>
+<ul>
+<li><strong>environments = ["dev", "staging", "prod"]</strong></li>
+<li><strong>config_files = ["config_dev.yaml", "config_staging.yaml", "config_prod.yaml"]</strong></li>
+</ul>
+<p>Using zip(), you can iterate and process each pair:</p>
+<ul>
+<li><strong>for env, config in zip(environments, config_files):</strong></li>
+<li><strong>print(f"Deploying {config} to {env} environment")</strong></li>
+</ul>
+<p><strong>Expected output</strong>:
+- Deploying config_dev.yaml to dev environment
+- Deploying config_staging.yaml to staging environment
+- Deploying config_prod.yaml to prod environment</p>
+<p>This pattern is extremely useful when you need to map related data that is stored in separate lists.</p>
+<hr />
+<h3 id="working-with-more-than-two-lists_1">🧩 Working with More Than Two Lists</h3>
+<p>zip() is not limited to just two lists. You can pass three or more iterables, and each iteration will give you a tuple with that many elements.</p>
+<p><strong>Example with three lists</strong>:
+- <strong>hosts = ["host1", "host2", "host3"]</strong>
+- <strong>ports = [8080, 443, 22]</strong>
+- <strong>status = ["active", "active", "inactive"]</strong></p>
+<p>Loop: <strong>for host, port, stat in zip(hosts, ports, status): print(host, port, stat)</strong></p>
+<p><strong>Expected output</strong>:
+- host1 8080 active
+- host2 443 active
+- host3 22 inactive</p>
+<p>This allows you to combine multiple related data streams into a single clean loop.</p>
+<hr />
+<h3 id="unzipping-with-zip_1">🔁 Unzipping with zip()</h3>
+<p>You can also reverse the process. If you have a list of tuples, you can use zip() with the unpacking operator (*) to separate them back into individual lists.</p>
+<ul>
+<li><strong>paired = [("web01", "10.0.1.10"), ("db01", "10.0.1.20")]</strong></li>
+<li><strong>servers, ips = zip(*paired)</strong></li>
+</ul>
+<p>After this, <strong>servers</strong> becomes a tuple containing <strong>("web01", "db01")</strong> and <strong>ips</strong> becomes <strong>("10.0.1.10", "10.0.1.20")</strong>.</p>
+<p>This is useful when you receive data as paired tuples and need to split them for separate processing.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li><strong>zip()</strong> lets you iterate over multiple lists in parallel, pairing elements by their position.</li>
+<li>It stops automatically at the shortest list, so be mindful of uneven lengths.</li>
+<li>It makes your code cleaner, more readable, and less error-prone compared to using index counters.</li>
+<li>You can use zip() with two or more iterables, and you can also unzip using the unpacking operator.</li>
+<li>This is a fundamental tool for any engineer working with related data stored across multiple sequences.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><code>zip()</code> combines multiple iterables (like lists) into pairs or tuples, allowing you to loop through them in parallel.</p>
+<h3 id="example-1-zipping-two-lists-of-equal-length_1">🟢 Example 1: Zipping two lists of equal length</h3>
+<p>This example shows how to pair elements from two lists at the same index position.</p>
+<div class="highlight"><pre><span></span><code><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">78</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">scores</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Alice 85 Bob 92 Charlie 78</strong></p>
+<hr />
+<h3 id="example-2-zipping-three-lists-together_1">🟢 Example 2: Zipping three lists together</h3>
+<p>This example demonstrates that <code>zip()</code> works with more than two lists.</p>
+<div class="highlight"><pre><span></span><code><span class="n">cities</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;New York&quot;</span><span class="p">,</span> <span class="s2">&quot;London&quot;</span><span class="p">,</span> <span class="s2">&quot;Tokyo&quot;</span><span class="p">]</span>
+<span class="n">temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="mi">72</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+<span class="n">humidity</span> <span class="o">=</span> <span class="p">[</span><span class="mi">55</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">city</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">hum</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">cities</span><span class="p">,</span> <span class="n">temperatures</span><span class="p">,</span> <span class="n">humidity</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">hum</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>New York 72 55 London 65 70 Tokyo 80 60</strong></p>
+<hr />
+<h3 id="example-3-zipping-lists-of-different-lengths_1">🟢 Example 3: Zipping lists of different lengths</h3>
+<p>This example shows that <code>zip()</code> stops at the shortest list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">101</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">104</span><span class="p">]</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">id_num</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">id_num</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>101 Alice 102 Bob 103 Charlie</strong></p>
+<hr />
+<h3 id="example-4-unzipping-a-list-of-tuples_1">🟢 Example 4: Unzipping a list of tuples</h3>
+<p>This example shows how to reverse a <code>zip()</code> operation to get separate lists back.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)]</span>
+<span class="n">numbers</span><span class="p">,</span> <span class="n">letters</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">pairs</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(1, 2, 3) ('a', 'b', 'c')</strong></p>
+<hr />
+<h3 id="example-5-building-a-dictionary-from-two-lists_1">🟢 Example 5: Building a dictionary from two lists</h3>
+<p>This example shows a practical use of <code>zip()</code> to create a dictionary mapping keys to values.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
+<span class="n">roles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Frontend&quot;</span><span class="p">,</span> <span class="s2">&quot;Backend&quot;</span><span class="p">,</span> <span class="s2">&quot;DevOps&quot;</span><span class="p">]</span>
+
+<span class="n">team</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">engineers</span><span class="p">,</span> <span class="n">roles</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">team</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'Alice': 'Frontend', 'Bob': 'Backend', 'Charlie': 'DevOps'}</strong></p>
+<hr />
+<h3 id="comparison-zip-vs-manual-index-looping_1">📊 Comparison: <code>zip()</code> vs manual index looping</h3>
 <table>
 <thead>
 <tr>

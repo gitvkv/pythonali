@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_06_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Developer-Facing Evaluations via __repr__ - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Developer-Facing Evaluations via __repr__";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_06_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_06_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -869,6 +869,38 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-repr_1">🎯 What is repr?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-syntax-and-behavior_1">⚙️ Basic Syntax and Behavior</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#implementing-repr_1">🛠️ Implementing repr</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#repr-vs-str-key-differences_1">📊 repr vs str: Key Differences</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-repr_1">🕵️ When to Use repr</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples-for-engineers_1">💡 Practical Examples for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">🔍 Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary-checklist_1">✅ Summary Checklist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#final-thoughts_1">🚀 Final Thoughts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-default-__repr__-behavior_1">🛠 Example 1: Default __repr__ behavior</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-basic-__repr__-returning-a-simple-string_1">🔧 Example 2: Basic __repr__ returning a simple string</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-__repr__-that-shows-object-creation-code_1">⚙️ Example 3: __repr__ that shows object creation code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-__repr__-with-multiple-attributes_1">🔩 Example 4: __repr__ with multiple attributes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-debugging-a-list-of-objects_1">🛞 Example 5: Practical use — debugging a list of objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_06_03/">Ch 18 | Customizing Sizes and Sorting via __len__, __eq__, __lt__</a>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="developer-facing-evaluations-via-repr">Developer-Facing Evaluations via <strong>repr</strong></h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Special Dunder Methods</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1199,8 +1231,7 @@
 <hr />
 <h3 id="final-thoughts">🚀 Final Thoughts</h3>
 <p>The <strong><strong>repr</strong></strong> method is one of the most valuable tools for making your Python code more maintainable and debuggable. By providing clear, unambiguous representations of your objects, you save yourself and your team hours of debugging time. Make it a habit to always implement <strong><strong>repr</strong></strong>—your future self (and your colleagues) will thank you.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>__repr__</code> method defines how an object appears when engineers inspect it in the console or debugger, returning a string that ideally recreates the object.</p>
 <hr />
 <h3 id="example-1-default-__repr__-behavior">🛠 Example 1: Default <code>__repr__</code> behavior</h3>
@@ -1279,6 +1310,239 @@
 <p>📤 Output: <strong><code>[Sensor('temperature', 72.5), Sensor('pressure', 101.3), Sensor('humidity', 45.0)]</code></strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Without <code>__repr__</code></th>
+<th>With <code>__repr__</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Console output</td>
+<td><code>&lt;__main__.Engine object at 0x...&gt;</code></td>
+<td><code>Engine(300)</code></td>
+</tr>
+<tr>
+<td>Debugging clarity</td>
+<td>Low — memory address only</td>
+<td>High — shows object state</td>
+</tr>
+<tr>
+<td>Code recreation</td>
+<td>Not possible</td>
+<td>Possible via returned string</td>
+</tr>
+<tr>
+<td>Engineer usefulness</td>
+<td>Minimal</td>
+<td>Essential for inspection</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When you're building Python classes, you'll often need to inspect objects during development or debugging. The default string representation of an object (like <strong>&lt;<strong>main</strong>.MyObject object at 0x7f8c1a2b3c4d&gt;</strong>) isn't very helpful. This is where the <strong><strong>repr</strong></strong> method comes in. It gives you a developer-friendly, unambiguous representation of your object—perfect for logging, debugging, and interactive sessions.</p>
+<hr />
+<h3 id="what-is-repr_1">🎯 What is <strong>repr</strong>?</h3>
+<p>The <strong><strong>repr</strong></strong> method is a special dunder method that defines how your object appears when:</p>
+<ul>
+<li>You print the object directly</li>
+<li>You inspect it in a Python REPL (interactive shell)</li>
+<li>You use it in debugging tools or loggers</li>
+</ul>
+<p>The goal of <strong><strong>repr</strong></strong> is to return a string that, ideally, could be used to recreate the object. It's meant for other developers, not end users.</p>
+<hr />
+<h3 id="basic-syntax-and-behavior_1">⚙️ Basic Syntax and Behavior</h3>
+<ul>
+<li><strong><strong>repr</strong></strong> is defined inside your class as <strong>def <strong>repr</strong>(self):</strong></li>
+<li>It must return a string</li>
+<li>It takes only <strong>self</strong> as an argument</li>
+<li>It's automatically called when you use <strong>repr()</strong> on an object or when the object is displayed in the REPL</li>
+</ul>
+<p>Example of default behavior without <strong><strong>repr</strong></strong>:
+- Creating a simple class like <strong>class Server:</strong> with <strong>def <strong>init</strong>(self, name, ip):</strong> and <strong>self.name = name</strong> and <strong>self.ip = ip</strong>
+- Instantiating with <strong>s = Server("web01", "10.0.0.1")</strong>
+- Typing <strong>s</strong> in the REPL shows something like <strong>&lt;<strong>main</strong>.Server object at 0x7f8c1a2b3c4d&gt;</strong> — not useful at all</p>
+<hr />
+<h3 id="implementing-repr_1">🛠️ Implementing <strong>repr</strong></h3>
+<p>To make your objects more developer-friendly, you define <strong><strong>repr</strong></strong> to return a meaningful string. The convention is to return a string that looks like a valid Python expression to recreate the object.</p>
+<p>Example implementation:
+- <strong>def <strong>repr</strong>(self):</strong> inside your class
+- <strong>return f"Server('{self.name}', '{self.ip}')"</strong>
+- Now typing <strong>s</strong> in the REPL shows <strong>Server('web01', '10.0.0.1')</strong></p>
+<p>This tells you exactly what the object contains and how to recreate it.</p>
+<hr />
+<h3 id="repr-vs-str-key-differences_1">📊 <strong>repr</strong> vs <strong>str</strong>: Key Differences</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><strong>repr</strong></th>
+<th><strong>str</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary Audience</strong></td>
+<td>Developers</td>
+<td>End users</td>
+</tr>
+<tr>
+<td><strong>Goal</strong></td>
+<td>Unambiguous, detailed representation</td>
+<td>Readable, user-friendly output</td>
+</tr>
+<tr>
+<td><strong>Called by</strong></td>
+<td><strong>repr()</strong>, REPL display, debugging</td>
+<td><strong>print()</strong>, <strong>str()</strong>, <strong>f-strings</strong></td>
+</tr>
+<tr>
+<td><strong>Fallback behavior</strong></td>
+<td>If <strong><strong>str</strong></strong> is missing, <strong><strong>repr</strong></strong> is used</td>
+<td>If <strong><strong>repr</strong></strong> is missing, default object representation is used</td>
+</tr>
+<tr>
+<td><strong>Convention</strong></td>
+<td>Should look like a valid Python expression</td>
+<td>Can be any readable string</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="when-to-use-repr_1">🕵️ When to Use <strong>repr</strong></h3>
+<p>Use <strong><strong>repr</strong></strong> when you need to:</p>
+<ul>
+<li>Debug your code and inspect object state</li>
+<li>Log object details in error messages or logs</li>
+<li>Work in interactive Python sessions (REPL, Jupyter notebooks)</li>
+<li>Create meaningful test assertions</li>
+<li>Document what an object contains for other developers</li>
+</ul>
+<p>Best practice: Always define <strong><strong>repr</strong></strong> for your classes, even if you also define <strong><strong>str</strong></strong>. This ensures developers always get useful information.</p>
+<hr />
+<h3 id="practical-examples-for-engineers_1">💡 Practical Examples for Engineers</h3>
+<p><strong>Example 1: Simple Server Class</strong>
+- Class <strong>Server</strong> with attributes <strong>name</strong>, <strong>ip</strong>, <strong>status</strong>
+- <strong><strong>repr</strong></strong> returns <strong>f"Server(name='{self.name}', ip='{self.ip}', status='{self.status}')"</strong>
+- When debugging, you see <strong>Server(name='web01', ip='10.0.0.1', status='active')</strong> instead of a memory address</p>
+<p><strong>Example 2: Configuration Object</strong>
+- Class <strong>Config</strong> with attributes <strong>host</strong>, <strong>port</strong>, <strong>timeout</strong>
+- <strong><strong>repr</strong></strong> returns <strong>f"Config(host='{self.host}', port={self.port}, timeout={self.timeout})"</strong>
+- This makes it easy to copy-paste the output back into code for testing</p>
+<p><strong>Example 3: Database Connection</strong>
+- Class <strong>DatabaseConnection</strong> with attributes <strong>host</strong>, <strong>database</strong>, <strong>user</strong>
+- <strong><strong>repr</strong></strong> returns <strong>f"DatabaseConnection(host='{self.host}', db='{self.database}', user='{self.user}')"</strong>
+- Helps quickly identify which connection you're working with in logs</p>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">🔍 Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Returning non-string types</strong>: <strong><strong>repr</strong></strong> must return a string, not a number or list</li>
+<li><strong>Forgetting to include key attributes</strong>: Your representation should show the most important state</li>
+<li><strong>Making it too verbose</strong>: Include enough to identify the object, but don't dump every internal detail</li>
+<li><strong>Using it for user-facing output</strong>: That's what <strong><strong>str</strong></strong> is for</li>
+<li><strong>Not handling edge cases</strong>: If attributes can be <strong>None</strong> or empty, make sure your representation still works</li>
+</ul>
+<hr />
+<h3 id="summary-checklist_1">✅ Summary Checklist</h3>
+<ul>
+<li>[ ] Define <strong><strong>repr</strong></strong> in every class you create</li>
+<li>[ ] Return a string that looks like a valid Python expression</li>
+<li>[ ] Include the most important attributes for identification</li>
+<li>[ ] Use <strong>f-strings</strong> for clean, readable formatting</li>
+<li>[ ] Remember that <strong><strong>repr</strong></strong> is for developers, not end users</li>
+<li>[ ] Test your <strong><strong>repr</strong></strong> output in the REPL to ensure it's helpful</li>
+</ul>
+<hr />
+<h3 id="final-thoughts_1">🚀 Final Thoughts</h3>
+<p>The <strong><strong>repr</strong></strong> method is one of the most valuable tools for making your Python code more maintainable and debuggable. By providing clear, unambiguous representations of your objects, you save yourself and your team hours of debugging time. Make it a habit to always implement <strong><strong>repr</strong></strong>—your future self (and your colleagues) will thank you.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>__repr__</code> method defines how an object appears when engineers inspect it in the console or debugger, returning a string that ideally recreates the object.</p>
+<hr />
+<h3 id="example-1-default-__repr__-behavior_1">🛠 Example 1: Default <code>__repr__</code> behavior</h3>
+<p>Shows what Python outputs when no <code>__repr__</code> is defined — a generic memory address.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Engine</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">horsepower</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">horsepower</span> <span class="o">=</span> <span class="n">horsepower</span>
+
+<span class="n">motor</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">motor</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>&lt;__main__.Engine object at 0x7f8b1c0b4a90&gt;</code></strong></p>
+<hr />
+<h3 id="example-2-basic-__repr__-returning-a-simple-string_1">🔧 Example 2: Basic <code>__repr__</code> returning a simple string</h3>
+<p>Demonstrates overriding <code>__repr__</code> to return a custom string instead of the default.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Engine</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">horsepower</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">horsepower</span> <span class="o">=</span> <span class="n">horsepower</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Engine with </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">horsepower</span><span class="si">}</span><span class="s2"> HP&quot;</span>
+
+<span class="n">motor</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">motor</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>Engine with 300 HP</code></strong></p>
+<hr />
+<h3 id="example-3-__repr__-that-shows-object-creation-code_1">⚙️ Example 3: <code>__repr__</code> that shows object creation code</h3>
+<p>Shows the standard convention — <code>__repr__</code> returns a string that could recreate the object.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Engine</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">horsepower</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">horsepower</span> <span class="o">=</span> <span class="n">horsepower</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Engine(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">horsepower</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+<span class="n">motor</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">motor</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>Engine(300)</code></strong></p>
+<hr />
+<h3 id="example-4-__repr__-with-multiple-attributes_1">🔩 Example 4: <code>__repr__</code> with multiple attributes</h3>
+<p>Demonstrates how to include all relevant fields so engineers see the full object state.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">make</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">make</span> <span class="o">=</span> <span class="n">make</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Car(&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">make</span><span class="si">}</span><span class="s2">&#39;, &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="si">}</span><span class="s2">&#39;, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+<span class="n">my_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s2">&quot;Toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;Camry&quot;</span><span class="p">,</span> <span class="mi">2022</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">my_car</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>Car('Toyota', 'Camry', 2022)</code></strong></p>
+<hr />
+<h3 id="example-5-practical-use-debugging-a-list-of-objects_1">🛞 Example 5: Practical use — debugging a list of objects</h3>
+<p>Shows how <code>__repr__</code> helps engineers inspect collections of objects at a glance.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Sensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Sensor(&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+<span class="n">sensors</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Sensor</span><span class="p">(</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="mf">72.5</span><span class="p">),</span>
+    <span class="n">Sensor</span><span class="p">(</span><span class="s2">&quot;pressure&quot;</span><span class="p">,</span> <span class="mf">101.3</span><span class="p">),</span>
+    <span class="n">Sensor</span><span class="p">(</span><span class="s2">&quot;humidity&quot;</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sensors</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>[Sensor('temperature', 72.5), Sensor('pressure', 101.3), Sensor('humidity', 45.0)]</code></strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

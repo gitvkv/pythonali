@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_05_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Overriding Parent Actions in Specialized Child Classes - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Overriding Parent Actions in Specialized Child Classes";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_05_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_05_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -861,6 +861,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-parent-method-vs-overridden-method">📊 Comparison: Parent Method vs Overridden Method</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-method-overriding_1">⚙️ What Is Method Overriding?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-overriding-example_1">🛠️ Basic Overriding Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-override-methods_1">🕵️ Why Override Methods?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parent-vs-child-method-behavior_1">📊 Parent vs. Child Method Behavior</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#extending-parent-methods-with-super_1">🔄 Extending Parent Methods with super()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">🧩 Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-use-cases_1">🎯 Practical Use Cases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-method-override_1">🧱 Example 1: Basic Method Override</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-calling-parent-method-inside-override_1">🔄 Example 2: Calling Parent Method Inside Override</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-overriding-with-different-parameters_1">🎯 Example 3: Overriding with Different Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-overriding-in-a-multi-level-hierarchy_1">🏭 Example 4: Overriding in a Multi-Level Hierarchy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-override-for-different-behaviors_1">🛠️ Example 5: Practical Override for Different Behaviors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-parent-method-vs-overridden-method_1">📊 Comparison: Parent Method vs Overridden Method</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_05_04/">Ch 18 | Practical Example: Device Class Extended by Router/Switch</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="overriding-parent-actions-in-specialized-child-classes">Overriding Parent Actions in Specialized Child Classes</h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Inheritance</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1185,8 +1215,7 @@
 <li>Always keep the method signature identical between parent and child for proper overriding.</li>
 <li>Think of overriding as a way to say: <em>"I inherit this behavior, but I do it my own way."</em></li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Overriding lets a child class replace a parent method with its own version to change behavior for that specific type.</p>
 <hr />
 <h3 id="example-1-basic-method-override">🧱 Example 1: Basic Method Override</h3>
@@ -1283,6 +1312,250 @@
 📤 Output: <strong>PayPal: $100 + $5.00 fee</strong></p>
 <hr />
 <h3 id="comparison-parent-method-vs-overridden-method">📊 Comparison: Parent Method vs Overridden Method</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Parent Method</th>
+<th>Overridden Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Who defines it</td>
+<td>Base class</td>
+<td>Child class</td>
+</tr>
+<tr>
+<td>When it runs</td>
+<td>When child has no override</td>
+<td>When child defines same method name</td>
+</tr>
+<tr>
+<td>Can call parent</td>
+<td>No</td>
+<td>Yes, using <code>super()</code></td>
+</tr>
+<tr>
+<td>Parameters</td>
+<td>Original signature</td>
+<td>Can be different</td>
+</tr>
+<tr>
+<td>Purpose</td>
+<td>General behavior</td>
+<td>Specialized behavior for that child type</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When you build a parent class, you define default behaviors that all child classes will inherit. But what happens when a child class needs to perform the same action differently? This is where <strong>method overriding</strong> comes in. Overriding allows a child class to replace or extend a method inherited from its parent, giving you the flexibility to create specialized versions of common actions without modifying the original parent code.</p>
+<hr />
+<h3 id="what-is-method-overriding_1">⚙️ What Is Method Overriding?</h3>
+<ul>
+<li><strong>Method overriding</strong> occurs when a child class defines a method that has the same name, parameters, and return type as a method in its parent class.</li>
+<li>The child's version of the method <strong>replaces</strong> the parent's version when called on an instance of the child class.</li>
+<li>This is a core principle of <strong>polymorphism</strong> — the ability of different classes to respond to the same method call in their own unique way.</li>
+</ul>
+<hr />
+<h3 id="basic-overriding-example_1">🛠️ Basic Overriding Example</h3>
+<p>Consider a parent class called <strong>Device</strong> that has a method <strong>start()</strong>. Every device starts, but different devices start differently.</p>
+<ul>
+<li>The parent <strong>Device</strong> class defines a generic <strong>start()</strong> method that prints: <strong>"Device is starting..."</strong></li>
+<li>A child class <strong>Server</strong> overrides <strong>start()</strong> to print: <strong>"Server is booting up..."</strong></li>
+<li>Another child class <strong>Router</strong> overrides <strong>start()</strong> to print: <strong>"Router is initializing network interfaces..."</strong></li>
+</ul>
+<p>When you call <strong>start()</strong> on a <strong>Server</strong> instance, you get the server-specific message. When you call it on a <strong>Router</strong> instance, you get the router-specific message. The parent's generic version is never used for these specialized children.</p>
+<hr />
+<h3 id="why-override-methods_1">🕵️ Why Override Methods?</h3>
+<ul>
+<li><strong>Customize behavior</strong> — Each child class can perform the same action in a way that makes sense for its specific type.</li>
+<li><strong>Maintain consistency</strong> — You keep the same method name across all classes, making your code easier to read and use.</li>
+<li><strong>Avoid code duplication</strong> — Common logic stays in the parent, while unique logic lives in the child.</li>
+<li><strong>Enable future flexibility</strong> — New child classes can be added later with their own overrides without changing existing code.</li>
+</ul>
+<hr />
+<h3 id="parent-vs-child-method-behavior_1">📊 Parent vs. Child Method Behavior</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Parent Class Method</th>
+<th>Child Class Override</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Defines default or generic behavior</td>
+<td>Defines specialized behavior</td>
+</tr>
+<tr>
+<td><strong>When called</strong></td>
+<td>Used when no override exists</td>
+<td>Used when child defines its own version</td>
+</tr>
+<tr>
+<td><strong>Flexibility</strong></td>
+<td>Fixed for all children</td>
+<td>Can vary per child class</td>
+</tr>
+<tr>
+<td><strong>Code reuse</strong></td>
+<td>Shared logic lives here</td>
+<td>Unique logic lives here</td>
+</tr>
+<tr>
+<td><strong>Impact of change</strong></td>
+<td>Affects all children</td>
+<td>Affects only that child</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="extending-parent-methods-with-super_1">🔄 Extending Parent Methods with super()</h3>
+<p>Sometimes you don't want to completely replace the parent's method — you want to <strong>add</strong> to it. This is where <strong>super()</strong> comes in.</p>
+<ul>
+<li><strong>super()</strong> allows a child class to call the parent's version of a method from within the child's override.</li>
+<li>This is useful when the child needs to perform the parent's action <strong>plus</strong> additional steps.</li>
+</ul>
+<p>Example flow:
+1. The child's overridden method runs.
+2. Inside that method, <strong>super().method_name()</strong> calls the parent's version.
+3. The parent's logic executes.
+4. The child then continues with its own additional logic.</p>
+<p>This pattern is commonly used for:
+- Adding logging or monitoring around existing functionality
+- Performing validation before or after the parent's action
+- Extending setup or cleanup routines</p>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">🧩 Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Forgetting to call super()</strong> — If the parent's logic is essential, omitting super() means that logic is lost.</li>
+<li><strong>Changing method signatures</strong> — Overriding requires the same method name and parameters. Changing parameters breaks the override relationship.</li>
+<li><strong>Overriding non-method attributes</strong> — You can also override class attributes, but this can lead to confusion. Use method overrides for behavior changes.</li>
+<li><strong>Overriding private methods</strong> — Methods starting with double underscores (__) are name-mangled and harder to override intentionally. Stick to public methods.</li>
+</ul>
+<hr />
+<h3 id="practical-use-cases_1">🎯 Practical Use Cases</h3>
+<ul>
+<li><strong>Monitoring systems</strong> — A base <strong>Monitor</strong> class has a <strong>check_health()</strong> method. A <strong>DatabaseMonitor</strong> child overrides it to run database-specific queries, while a <strong>NetworkMonitor</strong> child overrides it to ping endpoints.</li>
+<li><strong>Configuration loaders</strong> — A base <strong>ConfigLoader</strong> class has a <strong>load()</strong> method. A <strong>JSONConfigLoader</strong> child overrides it to parse JSON files, while a <strong>YAMLConfigLoader</strong> child overrides it to parse YAML files.</li>
+<li><strong>Notification senders</strong> — A base <strong>Notifier</strong> class has a <strong>send()</strong> method. An <strong>EmailNotifier</strong> child overrides it to send emails, while a <strong>SlackNotifier</strong> child overrides it to post messages to a channel.</li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li><strong>Method overriding</strong> lets child classes redefine inherited methods to provide specialized behavior.</li>
+<li>Use <strong>super()</strong> when you want to extend the parent's method rather than replace it entirely.</li>
+<li>Overriding promotes <strong>code reuse</strong> and <strong>polymorphism</strong>, making your class hierarchy flexible and maintainable.</li>
+<li>Always keep the method signature identical between parent and child for proper overriding.</li>
+<li>Think of overriding as a way to say: <em>"I inherit this behavior, but I do it my own way."</em></li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Overriding lets a child class replace a parent method with its own version to change behavior for that specific type.</p>
+<hr />
+<h3 id="example-1-basic-method-override_1">🧱 Example 1: Basic Method Override</h3>
+<p>A child class defines a method with the same name as the parent, replacing the parent's version entirely.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Vehicle moves forward&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">(</span><span class="n">Vehicle</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Car drives on roads&quot;</span>
+
+<span class="n">my_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">my_car</span><span class="o">.</span><span class="n">move</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Car drives on roads</strong></p>
+<hr />
+<h3 id="example-2-calling-parent-method-inside-override_1">🔄 Example 2: Calling Parent Method Inside Override</h3>
+<p>The child overrides a method but still uses the parent's logic by calling <code>super()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Employee</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_role</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;General employee&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Engineer</span><span class="p">(</span><span class="n">Employee</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_role</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">parent_role</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_role</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">parent_role</span> <span class="o">+</span> <span class="s2">&quot; specialized in building systems&quot;</span>
+
+<span class="n">eng</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">eng</span><span class="o">.</span><span class="n">get_role</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>General employee specialized in building systems</strong></p>
+<hr />
+<h3 id="example-3-overriding-with-different-parameters_1">🎯 Example 3: Overriding with Different Parameters</h3>
+<p>The child override accepts different arguments than the parent method.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Logger</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;LOG: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TimestampLogger</span><span class="p">(</span><span class="n">Logger</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">] LOG: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">TimestampLogger</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;System started&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-01-15 09:00&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[2024-01-15 09:00] LOG: System started</strong></p>
+<hr />
+<h3 id="example-4-overriding-in-a-multi-level-hierarchy_1">🏭 Example 4: Overriding in a Multi-Level Hierarchy</h3>
+<p>A grandchild class overrides a method that was already overridden by its parent.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Machine</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">operate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Machine operates&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Robot</span><span class="p">(</span><span class="n">Machine</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">operate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Robot moves arm&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">WeldingRobot</span><span class="p">(</span><span class="n">Robot</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">operate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;WeldingRobot performs precision welding&quot;</span>
+
+<span class="n">unit</span> <span class="o">=</span> <span class="n">WeldingRobot</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">unit</span><span class="o">.</span><span class="n">operate</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>WeldingRobot performs precision welding</strong></p>
+<hr />
+<h3 id="example-5-practical-override-for-different-behaviors_1">🛠️ Example 5: Practical Override for Different Behaviors</h3>
+<p>Multiple child classes override the same parent method to produce different results.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">PaymentProcessor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Processing $</span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CreditCardPayment</span><span class="p">(</span><span class="n">PaymentProcessor</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="n">fee</span> <span class="o">=</span> <span class="n">amount</span> <span class="o">*</span> <span class="mf">0.03</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Credit card: $</span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2"> + $</span><span class="si">{</span><span class="n">fee</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> fee&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PayPalPayment</span><span class="p">(</span><span class="n">PaymentProcessor</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="n">fee</span> <span class="o">=</span> <span class="n">amount</span> <span class="o">*</span> <span class="mf">0.05</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;PayPal: $</span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2"> + $</span><span class="si">{</span><span class="n">fee</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> fee&quot;</span>
+
+<span class="n">card</span> <span class="o">=</span> <span class="n">CreditCardPayment</span><span class="p">()</span>
+<span class="n">paypal</span> <span class="o">=</span> <span class="n">PayPalPayment</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">card</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">paypal</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>Credit card: $100 + $3.00 fee</strong><br />
+📤 Output: <strong>PayPal: $100 + $5.00 fee</strong></p>
+<hr />
+<h3 id="comparison-parent-method-vs-overridden-method_1">📊 Comparison: Parent Method vs Overridden Method</h3>
 <table>
 <thead>
 <tr>

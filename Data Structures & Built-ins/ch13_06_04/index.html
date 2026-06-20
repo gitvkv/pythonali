@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch13_06_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 13 | Architectural Fail-Fast vs Graceful Degradation - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 13 | Architectural Fail-Fast vs Graceful Degradation";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch13_06_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch13_06_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -641,6 +641,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-fail-fast_1">⚙️ What is Fail-Fast?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-graceful-degradation_1">🛠️ What is Graceful Degradation?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-fail-fast-vs-graceful-degradation_1">📊 Comparison Table: Fail-Fast vs Graceful Degradation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-each-approach_1">🕵️ When to Use Each Approach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples-in-python_1">🧩 Practical Examples in Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-engineers_1">🧠 Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🎯 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-fail-fast-with-a-simple-assertion_1">🛑 Example 1: Fail-fast with a simple assertion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-graceful-degradation-with-a-fallback-value_1">🔄 Example 2: Graceful degradation with a fallback value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-fail-fast-with-early-validation_1">🛑 Example 3: Fail-fast with early validation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-graceful-degradation-with-degraded-service_1">🔄 Example 4: Graceful degradation with degraded service</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-fail-fast-in-a-critical-safety-system_1">🛑 Example 5: Fail-fast in a critical safety system</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-6-graceful-degradation-with-feature-toggling_1">🔄 Example 6: Graceful degradation with feature toggling</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_01_01/">Ch 14 | Directory Retrieval and Navigation (getcwd, chdir)</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="architectural-fail-fast-vs-graceful-degradation">Architectural Fail-Fast vs Graceful Degradation</h1>
 <p><span class="category-tag">🏷️ Error Handling and Exceptions /  Error Handling Best Practices</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1215,8 +1245,7 @@
 <h3 id="summary">🎯 Summary</h3>
 <p>Fail-Fast and Graceful Degradation are not mutually exclusive – they are complementary strategies that serve different purposes at different stages of your system's lifecycle. Use Fail-Fast to catch problems early and maintain data integrity. Use Graceful Degradation to keep your system available and provide a reasonable user experience when things go wrong.</p>
 <p>The best systems combine both approaches: they fail fast during development and testing to surface issues quickly, then degrade gracefully in production to maintain availability. Understanding when and how to apply each pattern is a key skill for building resilient, maintainable software.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Architectural fail-fast and graceful degradation are two strategies for how an engineer's program responds when something goes wrong — either stopping immediately or continuing with reduced capability.</p>
 <h3 id="example-1-fail-fast-with-a-simple-assertion">🛑 Example 1: Fail-fast with a simple assertion</h3>
 <p>This example shows how fail-fast stops the program immediately when a condition is not met.</p>
@@ -1326,6 +1355,293 @@
 📤 Output: <strong>Basic report: All systems nominal</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Fail-Fast</th>
+<th>Graceful Degradation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>When error occurs</td>
+<td>Stops immediately</td>
+<td>Continues with reduced capability</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Safety-critical operations</td>
+<td>Non-critical user-facing features</td>
+</tr>
+<tr>
+<td>Error visibility</td>
+<td>Very clear — program crashes</td>
+<td>May go unnoticed</td>
+</tr>
+<tr>
+<td>User experience</td>
+<td>Abrupt stop</td>
+<td>Continued but limited service</td>
+</tr>
+<tr>
+<td>Debugging ease</td>
+<td>Easy — exact failure point</td>
+<td>Harder — error may be hidden</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When building software systems, one of the most important architectural decisions you'll face is how your application behaves when something goes wrong. Two dominant philosophies guide this decision: <strong>Fail-Fast</strong> and <strong>Graceful Degradation</strong>. Each approach has its strengths and trade-offs, and choosing the right one depends on your system's requirements, user expectations, and operational context.</p>
+<p>Fail-Fast systems prioritize immediate failure detection and reporting, while Graceful Degradation systems aim to keep running with reduced functionality. Understanding when to apply each pattern is essential for building robust, maintainable applications.</p>
+<hr />
+<h3 id="what-is-fail-fast_1">⚙️ What is Fail-Fast?</h3>
+<p>Fail-Fast is an architectural approach where a system immediately stops execution and raises an error when it encounters an unexpected condition. The philosophy is simple: <strong>fail early, fail loudly, and fail clearly</strong>.</p>
+<p>Key characteristics of Fail-Fast:</p>
+<ul>
+<li><strong>Immediate error detection</strong> – Problems are caught at the earliest possible moment</li>
+<li><strong>Clear error messages</strong> – The system provides specific, actionable information about what went wrong</li>
+<li><strong>No silent failures</strong> – Every issue is surfaced, never hidden or ignored</li>
+<li><strong>Simpler debugging</strong> – Because failures happen close to the root cause, tracing issues is easier</li>
+</ul>
+<p>Common examples of Fail-Fast in practice:</p>
+<ul>
+<li>A configuration validation that crashes the application if a required setting is missing</li>
+<li>A database connection check that throws an exception immediately if the database is unreachable</li>
+<li>A type check that raises an error when an unexpected data type is passed to a function</li>
+</ul>
+<hr />
+<h3 id="what-is-graceful-degradation_1">🛠️ What is Graceful Degradation?</h3>
+<p>Graceful Degradation is an architectural approach where a system continues to operate, but with reduced functionality, when parts of it fail. The philosophy is: <strong>keep running, even if imperfectly</strong>.</p>
+<p>Key characteristics of Graceful Degradation:</p>
+<ul>
+<li><strong>Continued operation</strong> – The system stays available even when components fail</li>
+<li><strong>Reduced functionality</strong> – Some features may be disabled or simplified</li>
+<li><strong>User communication</strong> – Users are informed about limitations without being blocked entirely</li>
+<li><strong>Fallback mechanisms</strong> – Alternative paths are used when primary paths fail</li>
+</ul>
+<p>Common examples of Graceful Degradation in practice:</p>
+<ul>
+<li>A web application that shows cached data when the database is unavailable</li>
+<li>A payment system that falls back to a secondary payment provider when the primary one fails</li>
+<li>A video streaming service that reduces video quality when network bandwidth drops</li>
+</ul>
+<hr />
+<h3 id="comparison-table-fail-fast-vs-graceful-degradation_1">📊 Comparison Table: Fail-Fast vs Graceful Degradation</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Fail-Fast</th>
+<th>Graceful Degradation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary goal</strong></td>
+<td>Detect and report errors immediately</td>
+<td>Maintain availability with reduced functionality</td>
+</tr>
+<tr>
+<td><strong>User experience</strong></td>
+<td>Users see errors or crashes</td>
+<td>Users see degraded but working features</td>
+</tr>
+<tr>
+<td><strong>Debugging complexity</strong></td>
+<td>Easier – errors occur near the root cause</td>
+<td>Harder – errors may be masked by fallbacks</td>
+</tr>
+<tr>
+<td><strong>System availability</strong></td>
+<td>Lower during failures</td>
+<td>Higher during failures</td>
+</tr>
+<tr>
+<td><strong>Code complexity</strong></td>
+<td>Simpler – fewer fallback paths</td>
+<td>More complex – multiple fallback scenarios</td>
+</tr>
+<tr>
+<td><strong>Data integrity</strong></td>
+<td>Higher – prevents partial or corrupt operations</td>
+<td>Lower risk – may operate with incomplete data</td>
+</tr>
+<tr>
+<td><strong>Operational visibility</strong></td>
+<td>High – every failure is visible</td>
+<td>Lower – some failures may go unnoticed</td>
+</tr>
+<tr>
+<td><strong>Best suited for</strong></td>
+<td>Development, testing, critical validations</td>
+<td>Production, user-facing systems, high-availability services</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="when-to-use-each-approach_1">🕵️ When to Use Each Approach</h3>
+<p><strong>Choose Fail-Fast when:</strong></p>
+<ul>
+<li>You are in development or testing phases and want to catch bugs early</li>
+<li>The operation is critical and cannot proceed safely with partial data</li>
+<li>Data integrity is more important than availability</li>
+<li>The cost of a silent failure is higher than the cost of a crash</li>
+<li>You need clear, immediate feedback for debugging</li>
+</ul>
+<p><strong>Choose Graceful Degradation when:</strong></p>
+<ul>
+<li>You are running in production and need high availability</li>
+<li>User experience is a priority and partial functionality is acceptable</li>
+<li>The system has multiple independent components that can fail separately</li>
+<li>You have fallback mechanisms or alternative paths available</li>
+<li>The cost of downtime exceeds the cost of reduced functionality</li>
+</ul>
+<hr />
+<h3 id="practical-examples-in-python_1">🧩 Practical Examples in Python</h3>
+<p><strong>Fail-Fast Example – Configuration Validation</strong></p>
+<p>A configuration loader that crashes immediately if required settings are missing:</p>
+<ul>
+<li><strong>Approach</strong>: Validate all required configuration keys at startup. If any key is missing, raise a clear exception with the name of the missing key and stop execution.</li>
+<li><strong>Why it works</strong>: This prevents the application from running with incomplete or incorrect settings, which could cause unpredictable behavior later.</li>
+</ul>
+<p><strong>Graceful Degradation Example – External API Call</strong></p>
+<p>A service that calls an external API but falls back to cached data when the API is unavailable:</p>
+<ul>
+<li><strong>Approach</strong>: Wrap the API call in a try-except block. If the API fails, log the error and return cached data instead. Inform the user that data may be slightly outdated.</li>
+<li><strong>Why it works</strong>: The system remains functional even when the external dependency is down, providing a better user experience than a complete failure.</li>
+</ul>
+<hr />
+<h3 id="best-practices-for-engineers_1">🧠 Best Practices for Engineers</h3>
+<ul>
+<li><strong>Start with Fail-Fast during development</strong> – Catch bugs early when they are easiest to fix</li>
+<li><strong>Layer Graceful Degradation for production</strong> – Add fallback mechanisms for critical paths before releasing to users</li>
+<li><strong>Log everything</strong> – Whether you fail fast or degrade gracefully, always log the original error for debugging</li>
+<li><strong>Communicate with users</strong> – When degrading, tell users what happened and what to expect</li>
+<li><strong>Monitor fallback usage</strong> – Track how often your graceful degradation paths are triggered to identify systemic issues</li>
+<li><strong>Test both paths</strong> – Ensure your fallback mechanisms work correctly under real failure conditions</li>
+</ul>
+<hr />
+<h3 id="summary_1">🎯 Summary</h3>
+<p>Fail-Fast and Graceful Degradation are not mutually exclusive – they are complementary strategies that serve different purposes at different stages of your system's lifecycle. Use Fail-Fast to catch problems early and maintain data integrity. Use Graceful Degradation to keep your system available and provide a reasonable user experience when things go wrong.</p>
+<p>The best systems combine both approaches: they fail fast during development and testing to surface issues quickly, then degrade gracefully in production to maintain availability. Understanding when and how to apply each pattern is a key skill for building resilient, maintainable software.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Architectural fail-fast and graceful degradation are two strategies for how an engineer's program responds when something goes wrong — either stopping immediately or continuing with reduced capability.</p>
+<h3 id="example-1-fail-fast-with-a-simple-assertion_1">🛑 Example 1: Fail-fast with a simple assertion</h3>
+<p>This example shows how fail-fast stops the program immediately when a condition is not met.</p>
+<div class="highlight"><pre><span></span><code><span class="n">temperature</span> <span class="o">=</span> <span class="mi">150</span>
+
+<span class="k">assert</span> <span class="n">temperature</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;Temperature exceeds safe limit&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;System running normally&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>AssertionError: Temperature exceeds safe limit</strong></p>
+<hr />
+<h3 id="example-2-graceful-degradation-with-a-fallback-value_1">🔄 Example 2: Graceful degradation with a fallback value</h3>
+<p>This example shows how graceful degradation continues by using a default value when a calculation fails.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_sensor_reading</span><span class="p">(</span><span class="n">sensor_id</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">sensor_id</span> <span class="o">==</span> <span class="s2">&quot;broken&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="mi">75</span>
+
+<span class="n">reading</span> <span class="o">=</span> <span class="n">get_sensor_reading</span><span class="p">(</span><span class="s2">&quot;broken&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">reading</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">reading</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using sensor value: </span><span class="si">{</span><span class="n">reading</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Using sensor value: 0</strong></p>
+<hr />
+<h3 id="example-3-fail-fast-with-early-validation_1">🛑 Example 3: Fail-fast with early validation</h3>
+<p>This example shows how fail-fast checks all inputs before starting any work.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">process_order</span><span class="p">(</span><span class="n">order_id</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">order_id</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Order ID must be an integer&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">quantity</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Quantity must be positive&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">price</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Price must be positive&quot;</span><span class="p">)</span>
+
+    <span class="n">total</span> <span class="o">=</span> <span class="n">quantity</span> <span class="o">*</span> <span class="n">price</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Order </span><span class="si">{</span><span class="n">order_id</span><span class="si">}</span><span class="s2"> processed: $</span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">process_order</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>TypeError: Order ID must be an integer</strong></p>
+<hr />
+<h3 id="example-4-graceful-degradation-with-degraded-service_1">🔄 Example 4: Graceful degradation with degraded service</h3>
+<p>This example shows how graceful degradation keeps the system running by disabling a non-critical feature.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">fetch_weather_data</span><span class="p">(</span><span class="n">city</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;API timeout&quot;</span><span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;error&quot;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="s2">&quot;Weather service unavailable&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;temperature&quot;</span><span class="p">]</span>
+
+    <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Weather service degraded — using cached data&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">22</span>
+
+<span class="n">temperature</span> <span class="o">=</span> <span class="n">fetch_weather_data</span><span class="p">(</span><span class="s2">&quot;London&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current temperature: </span><span class="si">{</span><span class="n">temperature</span><span class="si">}</span><span class="s2">°C&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Weather service degraded — using cached data</strong><br />
+📤 Output: <strong>Current temperature: 22°C</strong></p>
+<hr />
+<h3 id="example-5-fail-fast-in-a-critical-safety-system_1">🛑 Example 5: Fail-fast in a critical safety system</h3>
+<p>This example shows how fail-fast prevents dangerous operations by stopping immediately on any error.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">activate_emergency_brakes</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span> <span class="n">pressure</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">speed</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Speed cannot be negative&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">pressure</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Hydraulic pressure too low for safe braking&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">pressure</span> <span class="o">&gt;</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Hydraulic pressure dangerously high&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Brakes applied at speed </span><span class="si">{</span><span class="n">speed</span><span class="si">}</span><span class="s2"> km/h&quot;</span><span class="p">)</span>
+
+<span class="n">activate_emergency_brakes</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ValueError: Hydraulic pressure too low for safe braking</strong></p>
+<hr />
+<h3 id="example-6-graceful-degradation-with-feature-toggling_1">🔄 Example 6: Graceful degradation with feature toggling</h3>
+<p>This example shows how graceful degradation disables a feature while keeping the rest of the system operational.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">generate_report</span><span class="p">(</span><span class="n">report_type</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">report_type</span> <span class="o">==</span> <span class="s2">&quot;advanced&quot;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;analysis&quot;</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Advanced report: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Advanced analytics unavailable — generating basic report&quot;</span><span class="p">)</span>
+            <span class="n">report_type</span> <span class="o">=</span> <span class="s2">&quot;basic&quot;</span>
+
+    <span class="k">if</span> <span class="n">report_type</span> <span class="o">==</span> <span class="s2">&quot;basic&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Basic report: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;summary&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">report_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="s2">&quot;All systems nominal&quot;</span><span class="p">}</span>
+
+<span class="n">generate_report</span><span class="p">(</span><span class="s2">&quot;advanced&quot;</span><span class="p">,</span> <span class="n">report_data</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Advanced analytics unavailable — generating basic report</strong><br />
+📤 Output: <strong>Basic report: All systems nominal</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

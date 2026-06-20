@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_02_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Recursive Directory Tree Deletion (rmtree) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Recursive Directory Tree Deletion (rmtree)";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_02_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_02_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -659,6 +659,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-recursive-directory-deletion_1">⚙️ What is Recursive Directory Deletion?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-shutilrmtree-function_1">🛠️ The shutil.rmtree() Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-rmtree-vs-manual-deletion_1">📊 Comparison: rmtree vs Manual Deletion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-use-cases_1">🕵️ Common Use Cases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#safety-best-practices_1">⚠️ Safety Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-structure_1">🧪 Practical Example Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#alternative-approaches_1">🔄 Alternative Approaches</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">💡 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-delete-a-simple-directory-tree_1">🔧 Example 1: Delete a simple directory tree</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-handle-non-existent-directory-gracefully_1">🔧 Example 2: Handle non-existent directory gracefully</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-ignore-errors-with-ignore_errorstrue_1">🔧 Example 3: Ignore errors with ignore_errors=True</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-use-onerror-callback-to-log-failures_1">🔧 Example 4: Use onerror callback to log failures</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-clean-up-temporary-test-directories-after-tests_1">🔧 Example 5: Clean up temporary test directories after tests</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_02_04/">Ch 14 | Checking Physical Disk Space Layouts</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="recursive-directory-tree-deletion-rmtree">Recursive Directory Tree Deletion (rmtree)</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  The shutil Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with file systems, you'll often need to remove entire directory structures—folders containing files, subfolders, and more nested content. Python's <strong>shutil.rmtree()</strong> function provides a safe and efficient way to delete directory trees recursively, handling all nested contents in one clean operation.</p>
@@ -1205,8 +1233,7 @@
 <li>Test deletion logic in non-production environments first</li>
 <li>Remember that deleted data is permanently removed—no recycle bin recovery</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p><code>shutil.rmtree()</code> deletes an entire directory tree — all files, subdirectories, and the top-level folder itself — in one command.</p>
 <h3 id="example-1-delete-a-simple-directory-tree">🔧 Example 1: Delete a simple directory tree</h3>
 <p>This example removes a folder that contains one file and one subfolder.</p>
@@ -1293,6 +1320,268 @@
 <p>📤 Output: <strong>Test dir exists: True / Cleaned up: True</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>shutil.rmtree()</code></th>
+<th><code>os.remove()</code></th>
+<th><code>os.rmdir()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deletes files</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Deletes subdirectories</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Deletes empty directories</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Handles errors gracefully</td>
+<td>✅ <code>ignore_errors</code> / <code>onerror</code></td>
+<td>❌ Raises exception</td>
+<td>❌ Raises exception</td>
+</tr>
+<tr>
+<td>Single call for entire tree</td>
+<td>✅ Yes</td>
+<td>❌ Requires loop</td>
+<td>❌ Requires loop</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with file systems, you'll often need to remove entire directory structures—folders containing files, subfolders, and more nested content. Python's <strong>shutil.rmtree()</strong> function provides a safe and efficient way to delete directory trees recursively, handling all nested contents in one clean operation.</p>
+<hr />
+<h3 id="what-is-recursive-directory-deletion_1">⚙️ What is Recursive Directory Deletion?</h3>
+<p>Recursive directory deletion means removing a folder along with <strong>everything inside it</strong>—all files, subdirectories, and their contents. Unlike deleting a single file, this operation walks through the entire directory tree and removes each item systematically.</p>
+<p><strong>Key characteristics:</strong>
+- Deletes the top-level directory and all its contents
+- Works on any depth of nested folders
+- Cannot be undone (use with extreme caution)
+- Handles permission errors gracefully with optional error handling</p>
+<hr />
+<h3 id="the-shutilrmtree-function_1">🛠️ The shutil.rmtree() Function</h3>
+<p>The <strong>shutil.rmtree()</strong> function is the go-to method for recursive deletion. It takes a path to a directory and removes everything inside it.</p>
+<p><strong>Basic usage pattern:</strong>
+- Import the <strong>shutil</strong> module
+- Call <strong>shutil.rmtree(path)</strong> where <strong>path</strong> is the directory to delete
+- The function returns <strong>None</strong> on success
+- Raises an exception if the path doesn't exist or permissions are insufficient</p>
+<p><strong>Important considerations:</strong>
+- The deleted data cannot be recovered from the recycle bin
+- Always verify the path before deletion
+- Consider using <strong>ignore_errors=True</strong> for non-critical deletions
+- Use <strong>onerror</strong> parameter for custom error handling</p>
+<hr />
+<h3 id="comparison-rmtree-vs-manual-deletion_1">📊 Comparison: rmtree vs Manual Deletion</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>shutil.rmtree()</th>
+<th>Manual os.remove() + os.rmdir()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ease of use</strong></td>
+<td>Single function call</td>
+<td>Multiple loops and checks</td>
+</tr>
+<tr>
+<td><strong>Error handling</strong></td>
+<td>Built-in options</td>
+<td>Must implement manually</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Optimized C implementation</td>
+<td>Python-level iteration</td>
+</tr>
+<tr>
+<td><strong>Cross-platform</strong></td>
+<td>Works on Windows, macOS, Linux</td>
+<td>Requires platform-specific logic</td>
+</tr>
+<tr>
+<td><strong>Safety</strong></td>
+<td>Can be destructive</td>
+<td>More control per item</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-use-cases_1">🕵️ Common Use Cases</h3>
+<p><strong>Temporary directory cleanup:</strong>
+- Remove temporary build folders after compilation
+- Delete cache directories in automated workflows
+- Clean up test artifacts in CI/CD pipelines</p>
+<p><strong>Data management:</strong>
+- Remove old backup directories
+- Delete user-uploaded content in web applications
+- Clear out expired session data</p>
+<p><strong>Development workflows:</strong>
+- Reset project environments by removing <strong>node_modules</strong> or <strong>venv</strong> folders
+- Clean up generated documentation directories
+- Remove extracted archive contents after processing</p>
+<hr />
+<h3 id="safety-best-practices_1">⚠️ Safety Best Practices</h3>
+<p><strong>Always validate before deletion:</strong>
+- Check that the path exists using <strong>os.path.exists()</strong>
+- Confirm the path is a directory with <strong>os.path.isdir()</strong>
+- Print or log the path being deleted for audit trails</p>
+<p><strong>Use error handling:</strong>
+- Wrap the call in a <strong>try-except</strong> block
+- Handle <strong>FileNotFoundError</strong> for missing paths
+- Catch <strong>PermissionError</strong> for access issues
+- Log errors for debugging and monitoring</p>
+<p><strong>Consider dry-run mode:</strong>
+- Print what would be deleted without actually removing
+- Use <strong>os.walk()</strong> to list contents before deletion
+- Implement confirmation prompts for interactive scripts</p>
+<hr />
+<h3 id="practical-example-structure_1">🧪 Practical Example Structure</h3>
+<p>A typical safe deletion pattern includes:
+1. <strong>Import</strong> the <strong>shutil</strong> and <strong>os</strong> modules
+2. <strong>Define</strong> the target directory path
+3. <strong>Check</strong> if the path exists and is a directory
+4. <strong>Log</strong> the action for traceability
+5. <strong>Call</strong> <strong>shutil.rmtree()</strong> with error handling
+6. <strong>Verify</strong> the directory no longer exists after deletion</p>
+<p><strong>Error handling approach:</strong>
+- Use <strong>ignore_errors=True</strong> when minor errors are acceptable
+- Provide a custom <strong>onerror</strong> function for granular control
+- Log specific error messages for troubleshooting</p>
+<hr />
+<h3 id="alternative-approaches_1">🔄 Alternative Approaches</h3>
+<p><strong>Pathlib integration:</strong>
+- Use <strong>pathlib.Path</strong> objects for modern path handling
+- Call <strong>rmdir()</strong> on Path objects (only works on empty directories)
+- Combine with <strong>glob()</strong> for selective deletion patterns</p>
+<p><strong>Third-party libraries:</strong>
+- <strong>send2trash</strong> for moving to recycle bin instead of permanent deletion
+- <strong>path.py</strong> for enhanced path manipulation
+- <strong>pyfilesystem</strong> for abstract filesystem operations</p>
+<p><strong>System commands:</strong>
+- <strong>os.system("rm -rf /path")</strong> on Unix systems (not recommended)
+- <strong>subprocess.run()</strong> for controlled system command execution
+- Avoid shell commands for cross-platform compatibility</p>
+<hr />
+<h3 id="key-takeaways_1">💡 Key Takeaways</h3>
+<ul>
+<li><strong>shutil.rmtree()</strong> is the standard Python method for recursive directory deletion</li>
+<li>Always validate paths and use error handling to prevent data loss</li>
+<li>Log all deletion operations for audit and recovery purposes</li>
+<li>Consider safety measures like confirmation prompts in interactive scripts</li>
+<li>Test deletion logic in non-production environments first</li>
+<li>Remember that deleted data is permanently removed—no recycle bin recovery</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><code>shutil.rmtree()</code> deletes an entire directory tree — all files, subdirectories, and the top-level folder itself — in one command.</p>
+<h3 id="example-1-delete-a-simple-directory-tree_1">🔧 Example 1: Delete a simple directory tree</h3>
+<p>This example removes a folder that contains one file and one subfolder.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;project/data&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;project/data/settings.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;version=1.0&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;project/logs&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;project/logs/run.log&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;startup complete&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;project&quot;</span><span class="p">))</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">&quot;project&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;project&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>Before: True / After: False</strong></p>
+<hr />
+<h3 id="example-2-handle-non-existent-directory-gracefully_1">🔧 Example 2: Handle non-existent directory gracefully</h3>
+<p>This example shows that <code>rmtree</code> raises an error if the target does not exist.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exists before:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;missing_folder&quot;</span><span class="p">))</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">&quot;missing_folder&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error caught:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Exists before: False / Error caught: [Errno 2] No such file or directory: 'missing_folder'</strong></p>
+<hr />
+<h3 id="example-3-ignore-errors-with-ignore_errorstrue_1">🔧 Example 3: Ignore errors with <code>ignore_errors=True</code></h3>
+<p>This example deletes a tree even when some files are read-only or locked.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;temp_build/cache&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;temp_build/cache/lock.file&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;locked&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span><span class="s2">&quot;temp_build/cache/lock.file&quot;</span><span class="p">,</span> <span class="mo">0o444</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;temp_build&quot;</span><span class="p">))</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">&quot;temp_build&quot;</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;temp_build&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>Before: True / After: False</strong></p>
+<hr />
+<h3 id="example-4-use-onerror-callback-to-log-failures_1">🔧 Example 4: Use <code>onerror</code> callback to log failures</h3>
+<p>This example logs which files could not be deleted instead of crashing.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_error</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">exc_info</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;protected_dir/sub&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;protected_dir/sub/secret.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;do not delete&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chmod</span><span class="p">(</span><span class="s2">&quot;protected_dir/sub/secret.txt&quot;</span><span class="p">,</span> <span class="mo">0o000</span><span class="p">)</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">&quot;protected_dir&quot;</span><span class="p">,</span> <span class="n">onerror</span><span class="o">=</span><span class="n">log_error</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory still exists:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;protected_dir&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>Failed to os.unlink protected_dir/sub/secret.txt: [Errno 13] Permission denied: 'protected_dir/sub/secret.txt' / Directory still exists: True</strong></p>
+<hr />
+<h3 id="example-5-clean-up-temporary-test-directories-after-tests_1">🔧 Example 5: Clean up temporary test directories after tests</h3>
+<p>This example deletes a test workspace that was created during automated testing.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">test_dir</span> <span class="o">=</span> <span class="s2">&quot;test_workspace&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">test_dir</span><span class="si">}</span><span class="s2">/tests/unit&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">test_dir</span><span class="si">}</span><span class="s2">/tests/integration&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">test_dir</span><span class="si">}</span><span class="s2">/tests/__init__.py&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">test_dir</span><span class="si">}</span><span class="s2">/tests/unit/test_math.py&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;def test_add(): assert 1+1 == 2&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Test dir exists:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">test_dir</span><span class="p">))</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">test_dir</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleaned up:&quot;</span><span class="p">,</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">test_dir</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>Test dir exists: True / Cleaned up: True</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

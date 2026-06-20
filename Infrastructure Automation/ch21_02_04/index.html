@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_02_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Mapping Disparate Metrics into Uniform Data Dictionaries - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Mapping Disparate Metrics into Uniform Data Dictionaries";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_02_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_02_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -993,6 +993,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-raw-metrics-vs-uniform-data-dictionaries">Comparison Table: Raw Metrics vs. Uniform Data Dictionaries</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-disparate-metrics_1">⚙️ What Are Disparate Metrics?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-uniform-data-dictionary-pattern_1">📊 The Uniform Data Dictionary Pattern</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-a-metric-normalizer_1">🛠️ Building a Metric Normalizer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-raw-vs-uniform-data_1">🕵️ Comparison: Raw vs. Uniform Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#combining-multiple-normalizers_1">🧩 Combining Multiple Normalizers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-this-matters-for-your-project_1">🎯 Why This Matters for Your Project</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#final-thoughts_1">📝 Final Thoughts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-creating-a-single-uniform-metric-dictionary_1">🧩 Example 1: Creating a Single Uniform Metric Dictionary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-mapping-a-raw-memory-metric-into-uniform-format_1">🧩 Example 2: Mapping a Raw Memory Metric into Uniform Format</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-mapping-a-disk-metric-with-conditional-status_1">🧩 Example 3: Mapping a Disk Metric with Conditional Status</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-mapping-multiple-metrics-into-a-list-of-uniform-dictionaries_1">🧩 Example 4: Mapping Multiple Metrics into a List of Uniform Dictionaries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-mapping-disparate-raw-data-into-uniform-dictionaries-with-a-function_1">🧩 Example 5: Mapping Disparate Raw Data into Uniform Dictionaries with a Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-raw-metrics-vs-uniform-data-dictionaries_1">Comparison Table: Raw Metrics vs. Uniform Data Dictionaries</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_02_05/">Ch 21 | Handling Permission Blocks and Missing Utilities Errors</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="mapping-disparate-metrics-into-uniform-data-dictionaries">Mapping Disparate Metrics into Uniform Data Dictionaries</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Project: System Health Reporter</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1182,8 +1210,7 @@
 <hr />
 <h3 id="final-thoughts">📝 Final Thoughts</h3>
 <p>Mapping disparate metrics into uniform data dictionaries is a foundational pattern in system monitoring and automation. It transforms chaos into order, making your code cleaner, more maintainable, and easier to extend. As you build your System Health Reporter, remember that every normalizer you write is an investment in consistency—and consistency is what separates a fragile script from a robust engineering tool.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This technique converts metrics from different sources (CPU, memory, disk) into a consistent dictionary format so engineers can process them uniformly.</p>
 <hr />
 <h3 id="example-1-creating-a-single-uniform-metric-dictionary">🧩 Example 1: Creating a Single Uniform Metric Dictionary</h3>
@@ -1266,6 +1293,230 @@
 📤 Output: <strong>{'source': 'disk', 'value': 96.0, 'unit': 'percent', 'status': 'critical'}</strong></p>
 <hr />
 <h3 id="comparison-table-raw-metrics-vs-uniform-data-dictionaries">Comparison Table: Raw Metrics vs. Uniform Data Dictionaries</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Raw Metrics</th>
+<th>Uniform Data Dictionaries</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Format</td>
+<td>Varies per source (number, string, tuple)</td>
+<td>Always a dictionary with 4 keys</td>
+</tr>
+<tr>
+<td>Keys</td>
+<td>Inconsistent names</td>
+<td><code>source</code>, <code>value</code>, <code>unit</code>, <code>status</code></td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Not present or different logic</td>
+<td>Standardized: <code>ok</code>, <code>warning</code>, <code>critical</code></td>
+</tr>
+<tr>
+<td>Processing</td>
+<td>Requires custom logic per source</td>
+<td>One loop works for all metrics</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When monitoring system health, engineers often pull metrics from many different sources—CPU usage, memory consumption, disk I/O, network latency, and application-specific counters. Each source may return data in a different format: some use lists, others use nested dictionaries, and some return plain text. To make sense of all this information, we need a way to <strong>normalize</strong> these disparate metrics into a single, consistent structure. This is where <strong>uniform data dictionaries</strong> come in—they act as a common language that all your monitoring code can understand and process.</p>
+<hr />
+<h3 id="what-are-disparate-metrics_1">⚙️ What Are Disparate Metrics?</h3>
+<p>Disparate metrics are measurements that come from different parts of your system, each with its own format and naming conventions. For example:</p>
+<ul>
+<li><strong>CPU metrics</strong> might come as a simple percentage value</li>
+<li><strong>Memory metrics</strong> could be a dictionary with total, used, and free values</li>
+<li><strong>Disk metrics</strong> might be a list of dictionaries, one for each mounted volume</li>
+<li><strong>Network metrics</strong> could be a nested structure with per-interface statistics</li>
+</ul>
+<p>Without a uniform structure, your code becomes messy with special cases for every metric type. A uniform data dictionary solves this by defining a standard shape that every metric must follow.</p>
+<hr />
+<h3 id="the-uniform-data-dictionary-pattern_1">📊 The Uniform Data Dictionary Pattern</h3>
+<p>A uniform data dictionary is a Python dictionary that always has the same set of keys, regardless of the original metric source. This makes it predictable and easy to process.</p>
+<p><strong>Standard structure for a single metric entry:</strong></p>
+<ul>
+<li><strong>metric_name</strong> → A string identifying what was measured (e.g., "cpu_percent", "memory_used_gb")</li>
+<li><strong>value</strong> → The numeric measurement</li>
+<li><strong>unit</strong> → The unit of measurement (e.g., "%", "GB", "ms")</li>
+<li><strong>timestamp</strong> → When the measurement was taken (ISO format string)</li>
+<li><strong>source</strong> → Where the metric came from (e.g., "psutil", "custom_sensor")</li>
+<li><strong>tags</strong> → A dictionary of additional labels (e.g., {"host": "web-01", "region": "us-east"})</li>
+</ul>
+<hr />
+<h3 id="building-a-metric-normalizer_1">🛠️ Building a Metric Normalizer</h3>
+<p>To map disparate metrics into this uniform structure, we create a <strong>normalizer function</strong> for each metric source. Each normalizer takes raw data and returns a list of uniform dictionaries.</p>
+<p><strong>Example approach for CPU metrics:</strong></p>
+<ul>
+<li>Raw input from psutil might be a single float like <strong>75.3</strong></li>
+<li>The CPU normalizer transforms this into: <strong>{"metric_name": "cpu_percent", "value": 75.3, "unit": "%", "timestamp": "2024-01-15T10:30:00Z", "source": "psutil", "tags": {"host": "localhost"}}</strong></li>
+</ul>
+<p><strong>Example approach for memory metrics:</strong></p>
+<ul>
+<li>Raw input might be a dictionary like <strong>{"total": 16000, "used": 12000, "free": 4000}</strong></li>
+<li>The memory normalizer produces multiple uniform entries:</li>
+<li><strong>{"metric_name": "memory_total_mb", "value": 16000, "unit": "MB", ...}</strong></li>
+<li><strong>{"metric_name": "memory_used_mb", "value": 12000, "unit": "MB", ...}</strong></li>
+<li><strong>{"metric_name": "memory_free_mb", "value": 4000, "unit": "MB", ...}</strong></li>
+</ul>
+<hr />
+<h3 id="comparison-raw-vs-uniform-data_1">🕵️ Comparison: Raw vs. Uniform Data</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Raw Disparate Metrics</th>
+<th>Uniform Data Dictionaries</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Structure</td>
+<td>Varies per source</td>
+<td>Always the same keys</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>Hard to parse generically</td>
+<td>Easy to process with loops</td>
+</tr>
+<tr>
+<td>Extensibility</td>
+<td>Adding new sources breaks code</td>
+<td>New sources just need a normalizer</td>
+</tr>
+<tr>
+<td>Aggregation</td>
+<td>Requires custom logic per metric</td>
+<td>Works with standard aggregation functions</td>
+</tr>
+<tr>
+<td>Debugging</td>
+<td>Confusing output</td>
+<td>Predictable and self-documenting</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="combining-multiple-normalizers_1">🧩 Combining Multiple Normalizers</h3>
+<p>Once you have individual normalizers for CPU, memory, disk, and network, you can combine them into a single collection function. This function calls each normalizer and merges all the uniform dictionaries into one big list.</p>
+<p><strong>Workflow for a system health snapshot:</strong></p>
+<ul>
+<li>Call the CPU normalizer → returns a list of uniform dictionaries</li>
+<li>Call the memory normalizer → returns another list</li>
+<li>Call the disk normalizer → returns another list</li>
+<li>Call the network normalizer → returns another list</li>
+<li>Combine all lists into a single list of uniform dictionaries</li>
+<li>This combined list is your <strong>system health report</strong> in a consistent format</li>
+</ul>
+<hr />
+<h3 id="why-this-matters-for-your-project_1">🎯 Why This Matters for Your Project</h3>
+<p>In the <strong>System Health Reporter</strong> project, you will be collecting metrics from multiple sources. By mapping everything into uniform data dictionaries early on, you achieve several benefits:</p>
+<ul>
+<li><strong>Simplified reporting</strong> → Your report generator only needs to understand one data shape</li>
+<li><strong>Easier filtering</strong> → You can filter by metric_name, source, or tags using simple dictionary lookups</li>
+<li><strong>Consistent output</strong> → Whether you write to a file, a database, or a dashboard, the data is always the same</li>
+<li><strong>Future-proofing</strong> → Adding a new metric source later only requires writing one new normalizer function</li>
+</ul>
+<hr />
+<h3 id="final-thoughts_1">📝 Final Thoughts</h3>
+<p>Mapping disparate metrics into uniform data dictionaries is a foundational pattern in system monitoring and automation. It transforms chaos into order, making your code cleaner, more maintainable, and easier to extend. As you build your System Health Reporter, remember that every normalizer you write is an investment in consistency—and consistency is what separates a fragile script from a robust engineering tool.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This technique converts metrics from different sources (CPU, memory, disk) into a consistent dictionary format so engineers can process them uniformly.</p>
+<hr />
+<h3 id="example-1-creating-a-single-uniform-metric-dictionary_1">🧩 Example 1: Creating a Single Uniform Metric Dictionary</h3>
+<p>This shows the basic structure of a uniform data dictionary with standard keys.</p>
+<div class="highlight"><pre><span></span><code><span class="n">cpu_metric</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;cpu&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">78.5</span><span class="p">,</span>
+    <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;percent&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;warning&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'source': 'cpu', 'value': 78.5, 'unit': 'percent', 'status': 'warning'}</strong></p>
+<hr />
+<h3 id="example-2-mapping-a-raw-memory-metric-into-uniform-format_1">🧩 Example 2: Mapping a Raw Memory Metric into Uniform Format</h3>
+<p>This takes a raw memory reading and wraps it into the standard dictionary structure.</p>
+<div class="highlight"><pre><span></span><code><span class="n">raw_memory_gb</span> <span class="o">=</span> <span class="mf">6.2</span>
+
+<span class="n">memory_metric</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;memory&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">raw_memory_gb</span><span class="p">,</span>
+    <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;GB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'source': 'memory', 'value': 6.2, 'unit': 'GB', 'status': 'ok'}</strong></p>
+<hr />
+<h3 id="example-3-mapping-a-disk-metric-with-conditional-status_1">🧩 Example 3: Mapping a Disk Metric with Conditional Status</h3>
+<p>This converts a disk usage percentage and assigns a status based on a threshold.</p>
+<div class="highlight"><pre><span></span><code><span class="n">disk_usage_percent</span> <span class="o">=</span> <span class="mf">92.0</span>
+
+<span class="k">if</span> <span class="n">disk_usage_percent</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;critical&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;ok&quot;</span>
+
+<span class="n">disk_metric</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;disk&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">disk_usage_percent</span><span class="p">,</span>
+    <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;percent&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">status</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'source': 'disk', 'value': 92.0, 'unit': 'percent', 'status': 'critical'}</strong></p>
+<hr />
+<h3 id="example-4-mapping-multiple-metrics-into-a-list-of-uniform-dictionaries_1">🧩 Example 4: Mapping Multiple Metrics into a List of Uniform Dictionaries</h3>
+<p>This collects three different metrics into a single list, each in the same dictionary format.</p>
+<div class="highlight"><pre><span></span><code><span class="n">cpu_metric</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;cpu&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">45.0</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;percent&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">}</span>
+<span class="n">memory_metric</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;memory&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">3.8</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;GB&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">}</span>
+<span class="n">disk_metric</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;disk&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">67.0</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;percent&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">}</span>
+
+<span class="n">all_metrics</span> <span class="o">=</span> <span class="p">[</span><span class="n">cpu_metric</span><span class="p">,</span> <span class="n">memory_metric</span><span class="p">,</span> <span class="n">disk_metric</span><span class="p">]</span>
+</code></pre></div>
+<p>📤 Output: <strong>[{'source': 'cpu', 'value': 45.0, 'unit': 'percent', 'status': 'ok'}, {'source': 'memory', 'value': 3.8, 'unit': 'GB', 'status': 'ok'}, {'source': 'disk', 'value': 67.0, 'unit': 'percent', 'status': 'ok'}]</strong></p>
+<hr />
+<h3 id="example-5-mapping-disparate-raw-data-into-uniform-dictionaries-with-a-function_1">🧩 Example 5: Mapping Disparate Raw Data into Uniform Dictionaries with a Function</h3>
+<p>This uses a function to convert raw metrics from different sources into the same dictionary format, handling each source type.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">map_to_uniform</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">raw_value</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="s2">&quot;cpu&quot;</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;critical&quot;</span> <span class="k">if</span> <span class="n">raw_value</span> <span class="o">&gt;</span> <span class="mi">90</span> <span class="k">else</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="k">elif</span> <span class="n">source</span> <span class="o">==</span> <span class="s2">&quot;memory&quot;</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;warning&quot;</span> <span class="k">if</span> <span class="n">raw_value</span> <span class="o">&gt;</span> <span class="mf">7.0</span> <span class="k">else</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="k">elif</span> <span class="n">source</span> <span class="o">==</span> <span class="s2">&quot;disk&quot;</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;critical&quot;</span> <span class="k">if</span> <span class="n">raw_value</span> <span class="o">&gt;</span> <span class="mi">95</span> <span class="k">else</span> <span class="s2">&quot;ok&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;unknown&quot;</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="n">source</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">raw_value</span><span class="p">,</span>
+        <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="n">unit</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">status</span>
+    <span class="p">}</span>
+
+<span class="n">metric1</span> <span class="o">=</span> <span class="n">map_to_uniform</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">,</span> <span class="mf">88.0</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">)</span>
+<span class="n">metric2</span> <span class="o">=</span> <span class="n">map_to_uniform</span><span class="p">(</span><span class="s2">&quot;memory&quot;</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">,</span> <span class="s2">&quot;GB&quot;</span><span class="p">)</span>
+<span class="n">metric3</span> <span class="o">=</span> <span class="n">map_to_uniform</span><span class="p">(</span><span class="s2">&quot;disk&quot;</span><span class="p">,</span> <span class="mf">96.0</span><span class="p">,</span> <span class="s2">&quot;percent&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'source': 'cpu', 'value': 88.0, 'unit': 'percent', 'status': 'ok'}</strong><br />
+📤 Output: <strong>{'source': 'memory', 'value': 7.5, 'unit': 'GB', 'status': 'warning'}</strong><br />
+📤 Output: <strong>{'source': 'disk', 'value': 96.0, 'unit': 'percent', 'status': 'critical'}</strong></p>
+<hr />
+<h3 id="comparison-table-raw-metrics-vs-uniform-data-dictionaries_1">Comparison Table: Raw Metrics vs. Uniform Data Dictionaries</h3>
 <table>
 <thead>
 <tr>

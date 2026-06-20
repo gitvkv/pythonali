@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch12_03_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 12 | Practical Example: Writing Script Execution Logs - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 12 | Practical Example: Writing Script Execution Logs";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch12_03_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch12_03_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -573,6 +573,32 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-log-script-execution_1">⚙️ Why Log Script Execution?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-logging-approach_1">🛠️ Basic Logging Approach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#writing-a-simple-execution-log_1">📊 Writing a Simple Execution Log</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-error-handling-to-logs_1">🕵️ Adding Error Handling to Logs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-print-vs-file-logging_1">📈 Comparison: Print vs. File Logging</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-script-structure_1">🧪 Practical Script Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">🎯 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-writing-a-single-log-entry_1">📝 Example 1: Writing a single log entry</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-appending-multiple-log-entries_1">📝 Example 2: Appending multiple log entries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-logging-with-automatic-file-closing_1">📝 Example 3: Logging with automatic file closing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-logging-script-start-and-end-times_1">📝 Example 4: Logging script start and end times</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-logging-with-error-tracking_1">📝 Example 5: Logging with error tracking</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch12_04_01/">Ch 12 | Path Operations with os.path Utilities</a>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="practical-example-writing-script-execution-logs">Practical Example: Writing Script Execution Logs</h1>
 <p><span class="category-tag">🏷️ File Handling /  Writing to Files</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When you run scripts in production or during testing, it's essential to keep a record of what happened. Writing execution logs helps you track errors, monitor performance, and debug issues later. Instead of relying on print statements that disappear after the terminal closes, you can save all that information directly into a file.</p>
@@ -1189,8 +1215,7 @@ Use <strong>file.close()</strong> or the <strong>with</strong> statement to ensu
 <li>A simple <strong>with open()</strong> block ensures files close properly</li>
 </ul>
 <p>Logging turns your scripts from black boxes into transparent, debuggable tools. Start with a basic file write pattern, and you can always upgrade to more advanced logging libraries later.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example shows how to record what a Python script does by writing timestamped messages to a log file.</p>
 <h3 id="example-1-writing-a-single-log-entry">📝 Example 1: Writing a single log entry</h3>
 <p>Opens a log file and writes one message with a timestamp.</p>
@@ -1267,6 +1292,256 @@ Use <strong>file.close()</strong> or the <strong>with</strong> statement to ensu
 <p>📤 Output: <strong>script.log contains 4 lines: start, success, error message, finish</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Example 1</th>
+<th>Example 2</th>
+<th>Example 3</th>
+<th>Example 4</th>
+<th>Example 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File mode</td>
+<td>write (w)</td>
+<td>append (a)</td>
+<td>append (a)</td>
+<td>write (w)</td>
+<td>write (w)</td>
+</tr>
+<tr>
+<td>Auto-close</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Timestamps</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Error handling</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Number of entries</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you run scripts in production or during testing, it's essential to keep a record of what happened. Writing execution logs helps you track errors, monitor performance, and debug issues later. Instead of relying on print statements that disappear after the terminal closes, you can save all that information directly into a file.</p>
+<hr />
+<h3 id="why-log-script-execution_1">⚙️ Why Log Script Execution?</h3>
+<p>Logging provides a permanent record of your script's activity. Here are the key benefits:</p>
+<ul>
+<li><strong>Troubleshooting</strong>: Review past runs to find where things went wrong</li>
+<li><strong>Audit Trail</strong>: Know who ran what and when</li>
+<li><strong>Performance Monitoring</strong>: Track how long operations take</li>
+<li><strong>Error Tracking</strong>: Capture exceptions with full context</li>
+<li><strong>Automation Support</strong>: Let other systems read your logs for alerts</li>
+</ul>
+<hr />
+<h3 id="basic-logging-approach_1">🛠️ Basic Logging Approach</h3>
+<p>The simplest way to write execution logs is to open a file and write messages as your script runs. You can use different log levels to categorize the importance of each message:</p>
+<p><strong>Log Level Hierarchy:</strong>
+- <strong>INFO</strong> – General progress updates (e.g., "Processing file X")
+- <strong>WARNING</strong> – Something unexpected but not critical (e.g., "Disk space low")
+- <strong>ERROR</strong> – A failure occurred (e.g., "Could not connect to database")
+- <strong>CRITICAL</strong> – Script cannot continue (e.g., "Missing configuration file")</p>
+<p><strong>Example Log Entry Format:</strong>
+<strong>2025-03-15 14:30:22 | INFO | Starting data import process</strong>
+<strong>2025-03-15 14:30:25 | WARNING | File 'data.csv' has 3 missing values</strong>
+<strong>2025-03-15 14:30:30 | ERROR | Failed to write to output directory</strong></p>
+<hr />
+<h3 id="writing-a-simple-execution-log_1">📊 Writing a Simple Execution Log</h3>
+<p>Here is a practical pattern for writing logs manually without any external libraries:</p>
+<p><strong>Step 1: Open the log file in append mode</strong>
+Use <strong>open("script.log", "a")</strong> so each run adds new entries without deleting previous logs.</p>
+<p><strong>Step 2: Write a timestamped entry</strong>
+Combine the current time with your message using <strong>f-strings</strong> for clean formatting.</p>
+<p><strong>Step 3: Close the file after each write</strong>
+Use <strong>file.close()</strong> or the <strong>with</strong> statement to ensure data is saved immediately.</p>
+<p><strong>Example Workflow:</strong>
+- Open <strong>"execution.log"</strong> in append mode
+- Write <strong>"2025-03-15 14:30:22 | INFO | Script started"</strong>
+- Perform your main task
+- Write <strong>"2025-03-15 14:30:25 | INFO | Task completed successfully"</strong>
+- Close the file</p>
+<hr />
+<h3 id="adding-error-handling-to-logs_1">🕵️ Adding Error Handling to Logs</h3>
+<p>When your script encounters an error, you want to capture the full details. Wrap risky operations in a <strong>try-except</strong> block and write the error message to your log:</p>
+<p><strong>Pattern:</strong>
+- <strong>try</strong>: Run the operation that might fail
+- <strong>except Exception as e</strong>: Write <strong>"ERROR | {str(e)}"</strong> to the log file
+- <strong>else</strong>: Write <strong>"INFO | Operation succeeded"</strong> if no error occurred
+- <strong>finally</strong>: Close the log file or ensure cleanup happens</p>
+<p><strong>Example Scenario:</strong>
+- Attempt to read a configuration file
+- If file is missing, log <strong>"ERROR | Config file not found: config.ini"</strong>
+- If file exists, log <strong>"INFO | Config file loaded successfully"</strong></p>
+<hr />
+<h3 id="comparison-print-vs-file-logging_1">📈 Comparison: Print vs. File Logging</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Print Statements</th>
+<th>File Logging</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Persistence</td>
+<td>Lost after terminal closes</td>
+<td>Saved permanently</td>
+</tr>
+<tr>
+<td>Searchability</td>
+<td>Manual scrolling</td>
+<td>Can grep or search</td>
+</tr>
+<tr>
+<td>Multiple Runs</td>
+<td>No history</td>
+<td>Append to same file</td>
+</tr>
+<tr>
+<td>Error Context</td>
+<td>Limited to screen output</td>
+<td>Full traceback possible</td>
+</tr>
+<tr>
+<td>Automation</td>
+<td>Requires human watching</td>
+<td>Can trigger alerts</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-script-structure_1">🧪 Practical Script Structure</h3>
+<p>Here is a recommended structure for any script that needs logging:</p>
+<p><strong>1. Setup Phase</strong>
+- Define the log file path (e.g., <strong>"logs/script_20250315.log"</strong>)
+- Open the file in append mode
+- Write an initial entry: <strong>"INFO | Script started at {current_time}"</strong></p>
+<p><strong>2. Execution Phase</strong>
+- Perform your main logic
+- After each major step, write an INFO entry
+- If something goes wrong, write an ERROR entry with details</p>
+<p><strong>3. Cleanup Phase</strong>
+- Write a final entry: <strong>"INFO | Script completed at {current_time}"</strong>
+- Close the log file</p>
+<hr />
+<h3 id="key-takeaways_1">🎯 Key Takeaways</h3>
+<ul>
+<li>Writing logs to a file gives you a permanent record of script activity</li>
+<li>Use timestamps and log levels to make entries meaningful</li>
+<li>Append mode (<strong>"a"</strong>) preserves history across multiple runs</li>
+<li>Always handle errors and log them with full context</li>
+<li>A simple <strong>with open()</strong> block ensures files close properly</li>
+</ul>
+<p>Logging turns your scripts from black boxes into transparent, debuggable tools. Start with a basic file write pattern, and you can always upgrade to more advanced logging libraries later.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example shows how to record what a Python script does by writing timestamped messages to a log file.</p>
+<h3 id="example-1-writing-a-single-log-entry_1">📝 Example 1: Writing a single log entry</h3>
+<p>Opens a log file and writes one message with a timestamp.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="n">log_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;script.log&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">timestamp</span> <span class="o">+</span> <span class="s2">&quot; - Script started</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">log_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>script.log contains: 2025-04-08 14:30:00.123456 - Script started</strong></p>
+<hr />
+<h3 id="example-2-appending-multiple-log-entries_1">📝 Example 2: Appending multiple log entries</h3>
+<p>Adds new log messages to an existing log file without erasing previous entries.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="n">log_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;script.log&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+<span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">timestamp</span> <span class="o">+</span> <span class="s2">&quot; - Processing data</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">timestamp</span> <span class="o">+</span> <span class="s2">&quot; - Validation passed</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">log_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>script.log now contains 3 lines, each with a timestamp and message</strong></p>
+<hr />
+<h3 id="example-3-logging-with-automatic-file-closing_1">📝 Example 3: Logging with automatic file closing</h3>
+<p>Uses the <code>with</code> statement so the log file closes automatically after writing.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;script.log&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">log_file</span><span class="p">:</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+    <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">timestamp</span> <span class="o">+</span> <span class="s2">&quot; - Step 1 complete</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">timestamp</span> <span class="o">+</span> <span class="s2">&quot; - Step 2 complete</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>script.log has 2 new lines added, file closed automatically</strong></p>
+<hr />
+<h3 id="example-4-logging-script-start-and-end-times_1">📝 Example 4: Logging script start and end times</h3>
+<p>Records when a script begins and finishes, with a simple calculation in between.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;script.log&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">log_file</span><span class="p">:</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+    <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;START: &quot;</span> <span class="o">+</span> <span class="n">start_time</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">3</span>
+    <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Calculation result: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">end_time</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+    <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;END: &quot;</span> <span class="o">+</span> <span class="n">end_time</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>script.log contains 3 lines: start time, calculation result, end time</strong></p>
+<hr />
+<h3 id="example-5-logging-with-error-tracking_1">📝 Example 5: Logging with error tracking</h3>
+<p>Writes success and error messages to the log, showing which steps passed or failed.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;script.log&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">log_file</span><span class="p">:</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+    <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">timestamp</span> <span class="o">+</span> <span class="s2">&quot; - Script execution started</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;42&quot;</span><span class="p">)</span>
+        <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">timestamp</span> <span class="o">+</span> <span class="s2">&quot; - Conversion successful: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">timestamp</span> <span class="o">+</span> <span class="s2">&quot; - ERROR: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+        <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">timestamp</span> <span class="o">+</span> <span class="s2">&quot; - Conversion successful: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">timestamp</span> <span class="o">+</span> <span class="s2">&quot; - ERROR: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">timestamp</span> <span class="o">+</span> <span class="s2">&quot; - Script execution finished</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>script.log contains 4 lines: start, success, error message, finish</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch04_04_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 04 | Unlimited Precision Integers - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 04 | Unlimited Precision Integers";
         var mkdocs_page_input_path = "Getting Started\\ch04_04_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch04_04_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -224,6 +224,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-factorial-calculation">🧩 Example 5: Practical use — factorial calculation</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-python-vs-other-languages_1">Comparison: Python vs Other Languages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-unlimited-precision-integers_1">⚙️ What Are Unlimited Precision Integers?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-it-works-under-the-hood_1">📊 How It Works Under the Hood</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-operations-with-large-integers_1">🛠️ Common Operations with Large Integers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples_1">🕵️ Practical Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-python-vs-other-languages_2">📋 Comparison: Python vs Other Languages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tips-for-working-with-large-integers_1">🧪 Tips for Working with Large Integers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-large-integer-assignment_1">🧮 Example 1: Basic large integer assignment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-arithmetic-with-large-integers_1">🔢 Example 2: Arithmetic with large integers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-multiplication-producing-a-huge-result_1">✖️ Example 3: Multiplication producing a huge result</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-large-integer-exponentiation_1">🔄 Example 4: Large integer exponentiation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-factorial-calculation_1">🧩 Example 5: Practical use — factorial calculation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-python-vs-other-languages_3">Comparison: Python vs Other Languages</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="unlimited-precision-integers">Unlimited Precision Integers</h1>
 <p><span class="category-tag">🏷️ Numbers and Mathematical Operations /  Large Numbers and Precision</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1168,8 +1196,7 @@
 <li>This capability is essential for fields like cryptography, scientific computing, and data analysis.</li>
 <li>While performance can be a concern for extremely large numbers, Python handles the complexity automatically, letting you focus on your logic.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Python integers can grow to any size limited only by your computer's memory, unlike in many other languages where integers overflow.</p>
 <h3 id="example-1-basic-large-integer-assignment">🧮 Example 1: Basic large integer assignment</h3>
 <p>This shows that Python handles very large integers without any special syntax.</p>
@@ -1219,6 +1246,183 @@
 <p>📤 Output: <strong>30414093201713378043612608166064768844377641568960512000000000000</strong></p>
 <hr />
 <h3 id="comparison-python-vs-other-languages_1">Comparison: Python vs Other Languages</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Python (Unlimited Precision)</th>
+<th>C / Java (Fixed Precision)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max integer size</td>
+<td>Only limited by memory</td>
+<td>2³¹-1 or 2⁶³-1</td>
+</tr>
+<tr>
+<td>Overflow errors</td>
+<td>Never occur</td>
+<td>Can crash or wrap around</td>
+</tr>
+<tr>
+<td>Exact arithmetic</td>
+<td>Always exact</td>
+<td>May lose precision</td>
+</tr>
+<tr>
+<td>Special syntax needed</td>
+<td>None</td>
+<td>Must use <code>BigInteger</code> or libraries</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>In many programming languages, integers have a fixed size limit—once you exceed that limit, the number wraps around or causes an error. Python, however, handles integers differently. It supports <strong>unlimited precision integers</strong>, meaning you can work with numbers as large as your system's memory allows. This feature is incredibly useful for tasks like cryptography, scientific computing, or any situation where you need exact arithmetic with very large numbers.</p>
+<hr />
+<h3 id="what-are-unlimited-precision-integers_1">⚙️ What Are Unlimited Precision Integers?</h3>
+<ul>
+<li>Python integers can grow arbitrarily large—there is no fixed maximum size.</li>
+<li>Unlike languages like C or Java, Python does not have separate types for short, int, or long integers. There is just one type: <strong>int</strong>.</li>
+<li>This is possible because Python dynamically allocates memory for integers as needed.</li>
+<li>Operations like addition, subtraction, multiplication, and division work seamlessly on numbers of any size.</li>
+</ul>
+<hr />
+<h3 id="how-it-works-under-the-hood_1">📊 How It Works Under the Hood</h3>
+<ul>
+<li>Python stores integers as arrays of digits in base 2³⁰ or 2¹⁵ (depending on the platform).</li>
+<li>When you perform arithmetic, Python automatically handles the memory allocation and deallocation.</li>
+<li>You never need to worry about overflow errors—Python will simply use more memory if required.</li>
+<li>The only practical limit is your system's available RAM.</li>
+</ul>
+<hr />
+<h3 id="common-operations-with-large-integers_1">🛠️ Common Operations with Large Integers</h3>
+<ul>
+<li><strong>Addition and Subtraction</strong>: Work exactly as you'd expect, even with numbers that have hundreds of digits.</li>
+<li><strong>Multiplication</strong>: Python uses efficient algorithms like Karatsuba multiplication for very large numbers.</li>
+<li><strong>Division</strong>: Use the <code>/</code> operator for float division (returns a float) or <code>//</code> for integer division (returns an integer).</li>
+<li><strong>Exponentiation</strong>: The <code>**</code> operator handles extremely large exponents gracefully.</li>
+<li><strong>Modulo</strong>: The <code>%</code> operator works perfectly with large integers.</li>
+</ul>
+<hr />
+<h3 id="practical-examples_1">🕵️ Practical Examples</h3>
+<ul>
+<li><strong>Creating a large integer</strong>: Simply assign a number with many digits, like <strong>123456789012345678901234567890</strong>.</li>
+<li><strong>Checking the size</strong>: Use the <strong>bit_length()</strong> method to see how many bits are needed to represent the number.</li>
+<li><strong>Converting to string</strong>: Use <strong>str()</strong> to convert a large integer to a string for display or storage.</li>
+<li><strong>Comparing large numbers</strong>: Comparison operators like <strong>&gt;</strong>, <strong>&lt;</strong>, <strong>==</strong> work exactly as expected.</li>
+</ul>
+<hr />
+<h3 id="comparison-python-vs-other-languages_2">📋 Comparison: Python vs Other Languages</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Python</th>
+<th>C / Java</th>
+<th>JavaScript</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integer size limit</td>
+<td>Unlimited (memory-bound)</td>
+<td>Fixed (e.g., 32-bit or 64-bit)</td>
+<td>64-bit floating point (with BigInt for large numbers)</td>
+</tr>
+<tr>
+<td>Overflow behavior</td>
+<td>No overflow</td>
+<td>Wraps around or throws error</td>
+<td>Loses precision for very large integers</td>
+</tr>
+<tr>
+<td>Memory management</td>
+<td>Automatic</td>
+<td>Manual or garbage-collected</td>
+<td>Automatic</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Cryptography, big data, scientific computing</td>
+<td>System programming, embedded systems</td>
+<td>Web development</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="tips-for-working-with-large-integers_1">🧪 Tips for Working with Large Integers</h3>
+<ul>
+<li><strong>Be mindful of performance</strong>: Operations on very large integers (thousands of digits) can be slow. Use them only when necessary.</li>
+<li><strong>Use integer division carefully</strong>: If you need an exact integer result, use <strong>//</strong> instead of <strong>/</strong>.</li>
+<li><strong>Convert to string for output</strong>: Large numbers can be hard to read. Use <strong>f"{number:,}"</strong> to add commas for readability.</li>
+<li><strong>Avoid unnecessary conversions</strong>: Converting a huge integer to a float can lose precision. Stick with integers for exact arithmetic.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li>Python's unlimited precision integers are a powerful feature that sets it apart from many other languages.</li>
+<li>You can perform exact arithmetic on numbers of any size without worrying about overflow.</li>
+<li>This capability is essential for fields like cryptography, scientific computing, and data analysis.</li>
+<li>While performance can be a concern for extremely large numbers, Python handles the complexity automatically, letting you focus on your logic.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Python integers can grow to any size limited only by your computer's memory, unlike in many other languages where integers overflow.</p>
+<h3 id="example-1-basic-large-integer-assignment_1">🧮 Example 1: Basic large integer assignment</h3>
+<p>This shows that Python handles very large integers without any special syntax.</p>
+<div class="highlight"><pre><span></span><code><span class="n">big_number</span> <span class="o">=</span> <span class="mi">123456789012345678901234567890</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">big_number</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>123456789012345678901234567890</strong></p>
+<hr />
+<h3 id="example-2-arithmetic-with-large-integers_1">🔢 Example 2: Arithmetic with large integers</h3>
+<p>This demonstrates that all standard math operations work on unlimited precision integers.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">30</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">**</span> <span class="mi">25</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>1000000000000000000000000000000</strong></p>
+<hr />
+<h3 id="example-3-multiplication-producing-a-huge-result_1">✖️ Example 3: Multiplication producing a huge result</h3>
+<p>This shows that multiplying two large integers produces an exact result with no rounding.</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">99999999999999999999</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">88888888888888888888</span>
+<span class="n">product</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>8888888888888888888801111111111111111112</strong></p>
+<hr />
+<h3 id="example-4-large-integer-exponentiation_1">🔄 Example 4: Large integer exponentiation</h3>
+<p>This demonstrates that even massive powers are computed exactly.</p>
+<div class="highlight"><pre><span></span><code><span class="n">base</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">exponent</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">base</span> <span class="o">**</span> <span class="n">exponent</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>1267650600228229401496703205376</strong></p>
+<hr />
+<h3 id="example-5-practical-use-factorial-calculation_1">🧩 Example 5: Practical use — factorial calculation</h3>
+<p>This shows how unlimited precision enables exact factorial calculations for engineers.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">*</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">fact_50</span> <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fact_50</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>30414093201713378043612608166064768844377641568960512000000000000</strong></p>
+<hr />
+<h3 id="comparison-python-vs-other-languages_3">Comparison: Python vs Other Languages</h3>
 <table>
 <thead>
 <tr>

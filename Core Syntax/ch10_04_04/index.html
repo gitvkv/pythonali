@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch10_04_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 10 | Nonlocal Keyword in Nested Functions - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 10 | Nonlocal Keyword in Nested Functions";
         var mkdocs_page_input_path = "Core Syntax\\ch10_04_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch10_04_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -484,6 +484,38 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-counter-using-nonlocal">🔧 Example 5: Practical counter using nonlocal</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-local-vs-nonlocal-vs-global">📊 Comparison Table: local vs nonlocal vs global</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🔍 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-the-nonlocal-keyword_1">⚙️ What is the Nonlocal Keyword?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-syntax-and-usage_1">🛠️ Basic Syntax and Usage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-with-and-without-nonlocal_1">📊 Comparison: With and Without Nonlocal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-use-cases_1">🕵️ Common Use Cases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-rules-to-remember_1">💡 Important Rules to Remember</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#nested-functions-with-multiple-levels_1">🔄 Nested Functions with Multiple Levels</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-mistakes-to-avoid_1">⚠️ Common Mistakes to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-walkthrough_1">🎯 Practical Example Walkthrough</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">📝 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-variable-access-without-nonlocal_1">🔧 Example 1: Basic variable access without nonlocal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-trying-to-modify-without-nonlocal_1">🔧 Example 2: Trying to modify without nonlocal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-nonlocal-to-modify-the-enclosing-variable_1">🔧 Example 3: Using nonlocal to modify the enclosing variable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-multiple-levels-of-nesting-with-nonlocal_1">🔧 Example 4: Multiple levels of nesting with nonlocal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-counter-using-nonlocal_1">🔧 Example 5: Practical counter using nonlocal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-local-vs-nonlocal-vs-global_1">📊 Comparison Table: local vs nonlocal vs global</a>
     </li>
     </ul>
                 </li>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="nonlocal-keyword-in-nested-functions">Nonlocal Keyword in Nested Functions</h1>
 <p><span class="category-tag">🏷️ Functions /  Variable Scope</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🔍 Context Introduction</h3>
@@ -1203,8 +1235,7 @@
 <li>Always declare <strong>nonlocal</strong> before any assignment to the variable</li>
 <li>Use it when you need to update outer function variables from within nested functions</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>nonlocal</code> keyword allows a nested function to modify a variable from its enclosing function's scope.</p>
 <hr />
 <h3 id="example-1-basic-variable-access-without-nonlocal">🔧 Example 1: Basic variable access without nonlocal</h3>
@@ -1299,6 +1330,258 @@
 <strong>3</strong></p>
 <hr />
 <h3 id="comparison-table-local-vs-nonlocal-vs-global">📊 Comparison Table: local vs nonlocal vs global</h3>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Keyword</th>
+<th>Where variable is found</th>
+<th>Can modify?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Local</td>
+<td>(none)</td>
+<td>Inside current function</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Enclosing</td>
+<td><code>nonlocal</code></td>
+<td>In a function that contains this one</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Global</td>
+<td><code>global</code></td>
+<td>At the top level of the module</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🔍 Context Introduction</h3>
+<p>When you create functions inside other functions (nested functions), you might want to modify variables from the outer function. Python's scoping rules normally prevent this, but the <strong>nonlocal</strong> keyword gives you a way to work with variables from enclosing (but not global) scopes. This is especially useful when building closures or maintaining state across multiple function calls.</p>
+<hr />
+<h3 id="what-is-the-nonlocal-keyword_1">⚙️ What is the Nonlocal Keyword?</h3>
+<ul>
+<li><strong>nonlocal</strong> allows a nested function to assign values to variables defined in its enclosing function</li>
+<li>It works for variables that are <strong>not global</strong> and <strong>not local</strong> to the current function</li>
+<li>Without <strong>nonlocal</strong>, assigning to a variable inside a nested function creates a new local variable instead</li>
+<li>The keyword must be used <strong>before</strong> you assign to the variable in the nested function</li>
+</ul>
+<hr />
+<h3 id="basic-syntax-and-usage_1">🛠️ Basic Syntax and Usage</h3>
+<p><strong>Declaring a nonlocal variable inside a nested function:</strong></p>
+<ul>
+<li>Write <strong>nonlocal variable_name</strong> as the first line inside the nested function</li>
+<li>Then you can assign new values to that variable</li>
+<li>The change affects the variable in the outer function</li>
+</ul>
+<p><strong>Simple example structure:</strong></p>
+<ul>
+<li>Outer function defines a variable called <strong>counter</strong></li>
+<li>Inner function uses <strong>nonlocal counter</strong> to modify it</li>
+<li>Each call to the inner function updates the outer variable</li>
+</ul>
+<hr />
+<h3 id="comparison-with-and-without-nonlocal_1">📊 Comparison: With and Without Nonlocal</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Behavior</th>
+<th>Variable Affected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Without <strong>nonlocal</strong></td>
+<td>Creates a new local variable inside the nested function</td>
+<td>Only the inner function's local scope</td>
+</tr>
+<tr>
+<td>With <strong>nonlocal</strong></td>
+<td>Modifies the variable from the enclosing function</td>
+<td>The outer function's scope</td>
+</tr>
+<tr>
+<td>With <strong>global</strong></td>
+<td>Modifies a module-level variable</td>
+<td>The global scope</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-use-cases_1">🕵️ Common Use Cases</h3>
+<p><strong>Tracking state across multiple calls:</strong></p>
+<ul>
+<li>Use a counter variable in the outer function</li>
+<li>Increment it inside the nested function using <strong>nonlocal</strong></li>
+<li>Each call remembers the previous count</li>
+</ul>
+<p><strong>Building configuration helpers:</strong></p>
+<ul>
+<li>Outer function stores a configuration dictionary</li>
+<li>Nested functions modify specific keys using <strong>nonlocal</strong></li>
+<li>Changes persist for the lifetime of the outer function</li>
+</ul>
+<p><strong>Implementing simple decorators:</strong></p>
+<ul>
+<li>Outer function holds a reference count or cache</li>
+<li>Inner function updates these values with <strong>nonlocal</strong></li>
+<li>Maintains state between decorated function calls</li>
+</ul>
+<hr />
+<h3 id="important-rules-to-remember_1">💡 Important Rules to Remember</h3>
+<ul>
+<li><strong>nonlocal</strong> only works with variables from <strong>enclosing function scopes</strong>, not global scope</li>
+<li>The variable must already exist in the enclosing scope before you use <strong>nonlocal</strong></li>
+<li>You cannot use <strong>nonlocal</strong> for variables defined in the same function (those are local)</li>
+<li>You can use <strong>nonlocal</strong> for multiple variables in one statement: <strong>nonlocal x, y, z</strong></li>
+<li>Python searches outward through enclosing scopes until it finds the variable</li>
+</ul>
+<hr />
+<h3 id="nested-functions-with-multiple-levels_1">🔄 Nested Functions with Multiple Levels</h3>
+<ul>
+<li>If you have three levels of nested functions, <strong>nonlocal</strong> can reach variables from any enclosing function</li>
+<li>Python starts from the immediate outer function and works outward</li>
+<li>The variable must exist in at least one enclosing scope (not global)</li>
+</ul>
+<hr />
+<h3 id="common-mistakes-to-avoid_1">⚠️ Common Mistakes to Avoid</h3>
+<ul>
+<li>Forgetting to declare <strong>nonlocal</strong> before assigning to the variable</li>
+<li>Trying to use <strong>nonlocal</strong> for a variable that doesn't exist in any enclosing scope</li>
+<li>Confusing <strong>nonlocal</strong> with <strong>global</strong> (they work at different levels)</li>
+<li>Using <strong>nonlocal</strong> for variables that are only read (not assigned) — it's unnecessary</li>
+</ul>
+<hr />
+<h3 id="practical-example-walkthrough_1">🎯 Practical Example Walkthrough</h3>
+<p><strong>Scenario: Building a simple counter function</strong></p>
+<ul>
+<li>Outer function <strong>make_counter</strong> defines a variable <strong>count = 0</strong></li>
+<li>Inner function <strong>increment</strong> uses <strong>nonlocal count</strong> to modify it</li>
+<li>Each call to <strong>increment</strong> increases <strong>count</strong> by 1</li>
+<li>The outer function returns the inner function</li>
+</ul>
+<p><strong>What happens step by step:</strong></p>
+<ol>
+<li>Call <strong>make_counter()</strong> — creates <strong>count = 0</strong> and returns the inner function</li>
+<li>Call the returned function — <strong>nonlocal count</strong> allows incrementing</li>
+<li>The <strong>count</strong> variable persists between calls because it's in the enclosing scope</li>
+</ol>
+<hr />
+<h3 id="key-takeaways_1">📝 Key Takeaways</h3>
+<ul>
+<li><strong>nonlocal</strong> bridges the gap between local and global variable scopes</li>
+<li>It enables nested functions to modify state from their enclosing functions</li>
+<li>Essential for creating closures and maintaining persistent state</li>
+<li>Always declare <strong>nonlocal</strong> before any assignment to the variable</li>
+<li>Use it when you need to update outer function variables from within nested functions</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>nonlocal</code> keyword allows a nested function to modify a variable from its enclosing function's scope.</p>
+<hr />
+<h3 id="example-1-basic-variable-access-without-nonlocal_1">🔧 Example 1: Basic variable access without nonlocal</h3>
+<p>This example shows that a nested function can read, but not modify, a variable from the enclosing function.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="n">inner</span><span class="p">()</span>
+
+<span class="n">outer</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>10</strong></p>
+<hr />
+<h3 id="example-2-trying-to-modify-without-nonlocal_1">🔧 Example 2: Trying to modify without nonlocal</h3>
+<p>This example shows what happens when you try to assign to a variable from the enclosing scope without using <code>nonlocal</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside inner:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="n">inner</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside outer:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="n">outer</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Inside inner: 20</strong><br />
+<strong>Inside outer: 10</strong></p>
+<hr />
+<h3 id="example-3-using-nonlocal-to-modify-the-enclosing-variable_1">🔧 Example 3: Using nonlocal to modify the enclosing variable</h3>
+<p>This example demonstrates how <code>nonlocal</code> allows a nested function to change a variable from its enclosing function.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">value</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside inner:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="n">inner</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside outer:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="n">outer</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Inside inner: 20</strong><br />
+<strong>Inside outer: 20</strong></p>
+<hr />
+<h3 id="example-4-multiple-levels-of-nesting-with-nonlocal_1">🔧 Example 4: Multiple levels of nesting with nonlocal</h3>
+<p>This example shows how <code>nonlocal</code> works across two levels of nested functions to modify a variable from the outermost function.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">middle</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">count</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+            <span class="k">nonlocal</span> <span class="n">count</span>
+            <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="n">inner</span><span class="p">()</span>
+
+    <span class="n">middle</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Final count:&quot;</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+
+<span class="n">outer</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Final count: 1</strong></p>
+<hr />
+<h3 id="example-5-practical-counter-using-nonlocal_1">🔧 Example 5: Practical counter using nonlocal</h3>
+<p>This example shows a practical use of <code>nonlocal</code> to create a counter that remembers its state between calls.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_counter</span><span class="p">():</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">count</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">count</span>
+
+    <span class="k">return</span> <span class="n">increment</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="n">make_counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>1</strong><br />
+<strong>2</strong><br />
+<strong>3</strong></p>
+<hr />
+<h3 id="comparison-table-local-vs-nonlocal-vs-global_1">📊 Comparison Table: local vs nonlocal vs global</h3>
 <table>
 <thead>
 <tr>

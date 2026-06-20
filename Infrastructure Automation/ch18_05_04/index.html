@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_05_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Practical Example: Device Class Extended by Router/Switch - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Practical Example: Device Class Extended by Router/Switch";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_05_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_05_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -861,6 +861,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-parent-class-device_1">⚙️ The Parent Class: Device</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-child-classes-router-and-switch_1">🛠️ The Child Classes: Router and Switch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-device-vs-router-vs-switch_1">📊 Comparison: Device vs. Router vs. Switch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-inheritance-works-in-practice_1">🕵️ How Inheritance Works in Practice</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#real-world-scenario_1">🧪 Real-World Scenario</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">📚 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-creating-a-basic-device-class_1">💻 Example 1: Creating a Basic Device Class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-adding-a-method-to-the-device-class_1">💻 Example 2: Adding a Method to the Device Class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-creating-a-router-subclass-that-inherits-from-device_1">💻 Example 3: Creating a Router Subclass That Inherits from Device</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-creating-a-switch-subclass-with-port-count_1">💻 Example 4: Creating a Switch Subclass with Port Count</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-using-both-subclasses-together-in-a-network_1">💻 Example 5: Using Both Subclasses Together in a Network</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_06_01/">Ch 18 | User-Facing String Representations via __str__</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="practical-example-device-class-extended-by-routerswitch">Practical Example: Device Class Extended by Router/Switch</h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Inheritance</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1211,8 +1239,7 @@
 <li>Experiment with method overriding – what happens if the Router class defines its own <strong>connect()</strong> method?</li>
 <li>Explore multiple levels of inheritance, such as a <strong>CoreRouter</strong> class that inherits from <strong>Router</strong></li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This demonstrates how a base Device class can be extended by Router and Switch subclasses to share common attributes while adding specialized behavior.</p>
 <hr />
 <h3 id="example-1-creating-a-basic-device-class">💻 Example 1: Creating a Basic Device Class</h3>
@@ -1322,6 +1349,297 @@
 📤 Output: <strong>Device: Lab-Switch, IP: 192.168.2.1</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Device (Base)</th>
+<th>Router (Subclass)</th>
+<th>Switch (Subclass)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Has name</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Has IP address</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Has show_info()</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Has routing_protocol</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Has port_count</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>In network automation and infrastructure management, we often work with different types of devices that share common characteristics. A <strong>Router</strong> and a <strong>Switch</strong> both have an IP address, hostname, and vendor, but each has unique features. This is where <strong>inheritance</strong> shines. By creating a parent <strong>Device</strong> class and extending it into <strong>Router</strong> and <strong>Switch</strong> subclasses, we can reuse common code while adding specialized behavior for each device type.</p>
+<hr />
+<h3 id="the-parent-class-device_1">⚙️ The Parent Class: Device</h3>
+<p>The <strong>Device</strong> class serves as the base for all network devices. It contains attributes and methods that are common across routers, switches, firewalls, and more.</p>
+<p><strong>Key attributes of the Device class:</strong>
+- <strong>hostname</strong> – The name of the device (e.g., core-router-01)
+- <strong>ip_address</strong> – The management IP address
+- <strong>vendor</strong> – The manufacturer (e.g., Cisco, Juniper, Arista)</p>
+<p><strong>Common methods in the Device class:</strong>
+- <strong>connect()</strong> – Establishes a connection to the device
+- <strong>disconnect()</strong> – Closes the connection
+- <strong>get_info()</strong> – Returns basic device information</p>
+<hr />
+<h3 id="the-child-classes-router-and-switch_1">🛠️ The Child Classes: Router and Switch</h3>
+<p>Both <strong>Router</strong> and <strong>Switch</strong> inherit everything from the <strong>Device</strong> class, then add or override functionality specific to their device type.</p>
+<p><strong>Router-specific additions:</strong>
+- <strong>routing_protocol</strong> – Attribute for the routing protocol in use (e.g., OSPF, BGP)
+- <strong>add_route()</strong> – Method to add a new route
+- <strong>remove_route()</strong> – Method to remove an existing route</p>
+<p><strong>Switch-specific additions:</strong>
+- <strong>vlan_count</strong> – Attribute for the number of VLANs configured
+- <strong>add_vlan()</strong> – Method to create a new VLAN
+- <strong>remove_vlan()</strong> – Method to delete a VLAN</p>
+<hr />
+<h3 id="comparison-device-vs-router-vs-switch_1">📊 Comparison: Device vs. Router vs. Switch</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Device (Parent)</th>
+<th>Router (Child)</th>
+<th>Switch (Child)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>hostname</strong></td>
+<td>✅ Inherited</td>
+<td>✅ Inherited</td>
+<td>✅ Inherited</td>
+</tr>
+<tr>
+<td><strong>ip_address</strong></td>
+<td>✅ Inherited</td>
+<td>✅ Inherited</td>
+<td>✅ Inherited</td>
+</tr>
+<tr>
+<td><strong>vendor</strong></td>
+<td>✅ Inherited</td>
+<td>✅ Inherited</td>
+<td>✅ Inherited</td>
+</tr>
+<tr>
+<td><strong>connect()</strong></td>
+<td>✅ Inherited</td>
+<td>✅ Inherited</td>
+<td>✅ Inherited</td>
+</tr>
+<tr>
+<td><strong>disconnect()</strong></td>
+<td>✅ Inherited</td>
+<td>✅ Inherited</td>
+<td>✅ Inherited</td>
+</tr>
+<tr>
+<td><strong>get_info()</strong></td>
+<td>✅ Inherited</td>
+<td>✅ Inherited</td>
+<td>✅ Inherited</td>
+</tr>
+<tr>
+<td><strong>routing_protocol</strong></td>
+<td>❌ Not present</td>
+<td>✅ Added</td>
+<td>❌ Not present</td>
+</tr>
+<tr>
+<td><strong>add_route()</strong></td>
+<td>❌ Not present</td>
+<td>✅ Added</td>
+<td>❌ Not present</td>
+</tr>
+<tr>
+<td><strong>vlan_count</strong></td>
+<td>❌ Not present</td>
+<td>❌ Not present</td>
+<td>✅ Added</td>
+</tr>
+<tr>
+<td><strong>add_vlan()</strong></td>
+<td>❌ Not present</td>
+<td>❌ Not present</td>
+<td>✅ Added</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-inheritance-works-in-practice_1">🕵️ How Inheritance Works in Practice</h3>
+<p>When you create a <strong>Router</strong> object, it automatically has access to all the methods and attributes defined in the <strong>Device</strong> class. You do not need to rewrite the <strong>connect()</strong> or <strong>get_info()</strong> methods for the Router class. They are inherited.</p>
+<p><strong>Example flow for creating a Router object:</strong>
+1. You define the <strong>Device</strong> class with <strong>hostname</strong>, <strong>ip_address</strong>, <strong>vendor</strong>, <strong>connect()</strong>, <strong>disconnect()</strong>, and <strong>get_info()</strong>
+2. You define the <strong>Router</strong> class that inherits from <strong>Device</strong> and adds <strong>routing_protocol</strong>, <strong>add_route()</strong>, and <strong>remove_route()</strong>
+3. You create a Router instance with the hostname <strong>core-router-01</strong>, IP <strong>192.168.1.1</strong>, vendor <strong>Cisco</strong>, and routing protocol <strong>OSPF</strong>
+4. You call <strong>connect()</strong> on the Router object – this method comes from the Device class
+5. You call <strong>add_route()</strong> on the Router object – this method is unique to the Router class</p>
+<hr />
+<h3 id="real-world-scenario_1">🧪 Real-World Scenario</h3>
+<p>Imagine you are managing a small data center with 5 routers and 10 switches. Without inheritance, you would need to write separate classes with duplicated code for common features like connecting and disconnecting. With inheritance:</p>
+<ul>
+<li>The <strong>Device</strong> class handles all shared functionality</li>
+<li>The <strong>Router</strong> class only contains routing-specific code</li>
+<li>The <strong>Switch</strong> class only contains switching-specific code</li>
+</ul>
+<p>This approach reduces code duplication by approximately 60-70% and makes maintenance much easier. If you need to change how connections work, you update only the <strong>Device</strong> class, and both Router and Switch automatically receive the update.</p>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li><strong>Inheritance</strong> allows a child class to reuse attributes and methods from a parent class</li>
+<li>The <strong>Device</strong> class acts as a blueprint for all network devices</li>
+<li><strong>Router</strong> and <strong>Switch</strong> extend Device with their own specialized features</li>
+<li>This pattern reduces code duplication and improves maintainability</li>
+<li>Engineers can focus on device-specific logic without rewriting common functionality</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">📚 Next Steps</h3>
+<ul>
+<li>Try creating a <strong>Firewall</strong> class that inherits from Device and adds attributes like <strong>security_policy</strong> and <strong>allowed_ports</strong></li>
+<li>Experiment with method overriding – what happens if the Router class defines its own <strong>connect()</strong> method?</li>
+<li>Explore multiple levels of inheritance, such as a <strong>CoreRouter</strong> class that inherits from <strong>Router</strong></li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This demonstrates how a base Device class can be extended by Router and Switch subclasses to share common attributes while adding specialized behavior.</p>
+<hr />
+<h3 id="example-1-creating-a-basic-device-class_1">💻 Example 1: Creating a Basic Device Class</h3>
+<p>This shows how to define a simple Device class with a name and IP address.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Device</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ip_address</span> <span class="o">=</span> <span class="n">ip_address</span>
+
+<span class="n">device1</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s2">&quot;Core-Router-01&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">device1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">device1</span><span class="o">.</span><span class="n">ip_address</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Core-Router-01</strong><br />
+📤 Output: <strong>192.168.1.1</strong></p>
+<hr />
+<h3 id="example-2-adding-a-method-to-the-device-class_1">💻 Example 2: Adding a Method to the Device Class</h3>
+<p>This shows how to add a method that displays device information.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Device</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ip_address</span> <span class="o">=</span> <span class="n">ip_address</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">show_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Device: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, IP: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ip_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">device1</span> <span class="o">=</span> <span class="n">Device</span><span class="p">(</span><span class="s2">&quot;Core-Router-01&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.1&quot;</span><span class="p">)</span>
+<span class="n">device1</span><span class="o">.</span><span class="n">show_info</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Device: Core-Router-01, IP: 192.168.1.1</strong></p>
+<hr />
+<h3 id="example-3-creating-a-router-subclass-that-inherits-from-device_1">💻 Example 3: Creating a Router Subclass That Inherits from Device</h3>
+<p>This shows how a Router subclass inherits Device attributes and adds a routing protocol attribute.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Device</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ip_address</span> <span class="o">=</span> <span class="n">ip_address</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">show_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Device: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, IP: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ip_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Router</span><span class="p">(</span><span class="n">Device</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">,</span> <span class="n">routing_protocol</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">routing_protocol</span> <span class="o">=</span> <span class="n">routing_protocol</span>
+
+<span class="n">router1</span> <span class="o">=</span> <span class="n">Router</span><span class="p">(</span><span class="s2">&quot;Edge-Router&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;OSPF&quot;</span><span class="p">)</span>
+<span class="n">router1</span><span class="o">.</span><span class="n">show_info</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">router1</span><span class="o">.</span><span class="n">routing_protocol</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Device: Edge-Router, IP: 10.0.0.1</strong><br />
+📤 Output: <strong>OSPF</strong></p>
+<hr />
+<h3 id="example-4-creating-a-switch-subclass-with-port-count_1">💻 Example 4: Creating a Switch Subclass with Port Count</h3>
+<p>This shows how a Switch subclass inherits Device and adds a port count attribute.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Device</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ip_address</span> <span class="o">=</span> <span class="n">ip_address</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">show_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Device: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, IP: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ip_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Switch</span><span class="p">(</span><span class="n">Device</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">,</span> <span class="n">port_count</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port_count</span> <span class="o">=</span> <span class="n">port_count</span>
+
+<span class="n">switch1</span> <span class="o">=</span> <span class="n">Switch</span><span class="p">(</span><span class="s2">&quot;Access-Switch-01&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.10.2&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+<span class="n">switch1</span><span class="o">.</span><span class="n">show_info</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ports: </span><span class="si">{</span><span class="n">switch1</span><span class="o">.</span><span class="n">port_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Device: Access-Switch-01, IP: 192.168.10.2</strong><br />
+📤 Output: <strong>Ports: 24</strong></p>
+<hr />
+<h3 id="example-5-using-both-subclasses-together-in-a-network_1">💻 Example 5: Using Both Subclasses Together in a Network</h3>
+<p>This shows how Router and Switch objects can be used together in a list to represent a small network.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Device</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ip_address</span> <span class="o">=</span> <span class="n">ip_address</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">show_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Device: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, IP: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ip_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Router</span><span class="p">(</span><span class="n">Device</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">,</span> <span class="n">routing_protocol</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">routing_protocol</span> <span class="o">=</span> <span class="n">routing_protocol</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Switch</span><span class="p">(</span><span class="n">Device</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">,</span> <span class="n">port_count</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port_count</span> <span class="o">=</span> <span class="n">port_count</span>
+
+<span class="n">router1</span> <span class="o">=</span> <span class="n">Router</span><span class="p">(</span><span class="s2">&quot;Core-Router&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;BGP&quot;</span><span class="p">)</span>
+<span class="n">switch1</span> <span class="o">=</span> <span class="n">Switch</span><span class="p">(</span><span class="s2">&quot;Floor-Switch&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span> <span class="mi">48</span><span class="p">)</span>
+<span class="n">switch2</span> <span class="o">=</span> <span class="n">Switch</span><span class="p">(</span><span class="s2">&quot;Lab-Switch&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.2.1&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+
+<span class="n">network_devices</span> <span class="o">=</span> <span class="p">[</span><span class="n">router1</span><span class="p">,</span> <span class="n">switch1</span><span class="p">,</span> <span class="n">switch2</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">device</span> <span class="ow">in</span> <span class="n">network_devices</span><span class="p">:</span>
+    <span class="n">device</span><span class="o">.</span><span class="n">show_info</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Device: Core-Router, IP: 10.0.0.1</strong><br />
+📤 Output: <strong>Device: Floor-Switch, IP: 192.168.1.1</strong><br />
+📤 Output: <strong>Device: Lab-Switch, IP: 192.168.2.1</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>
