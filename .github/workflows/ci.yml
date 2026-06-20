@@ -1,4 +1,4 @@
-name: ci 
+name: ci
 on:
   push:
     branches:
@@ -11,16 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Configure Python
-        uses: actions/setup-python@v5
+      - name: Deploy site folder to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          python-version: 3.x
-      - name: Install dependencies
-        run: |
-          pip install mkdocs pymdown-extensions pyyaml
-      - name: Generate docs structure
-        run: |
-          python generate.py
-      - name: Deploy to GitHub Pages
-        run: |
-          mkdocs gh-deploy --force
+          folder: site
+          branch: gh-pages
