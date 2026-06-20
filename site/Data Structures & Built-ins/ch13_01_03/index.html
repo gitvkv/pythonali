@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Ch 13 | Syntax Errors vs Runtime Exceptions - Python Ali</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../stylesheets/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Ch 13 | Syntax Errors vs Runtime Exceptions";
+        var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch13_01_03.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Python Ali
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Python for Infrastructure</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >Getting Started</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/">Getting Started Roadmap</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_01_01/">Ch 01 | What is Python and History of Python</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_01_02/">Ch 01 | How to Install Python on Linux, macOS, and Windows</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_01_03/">Ch 01 | Understanding Python Versions (Python 3.x vs Legacy Python 2)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_01_04/">Ch 01 | How to Verify Python is Installed Using the Terminal</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_02_01/">Ch 01 | Compiled vs Interpreted Languages</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_02_02/">Ch 01 | Running Python Interactively Using the REPL</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_02_03/">Ch 01 | Running Python Scripts from the Command Line</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_03_01/">Ch 01 | What a Code Editor is and Why it Matters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_03_02/">Ch 01 | Installing and Configuring VS Code for Python</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_03_03/">Ch 01 | Key Extensions (Python, Pylint, autopep8)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_04_01/">Ch 01 | What a Virtual Environment is and Dependency Isolation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_04_02/">Ch 01 | Creating a Virtual Environment Using the venv Module</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_04_03/">Ch 01 | Activating and Deactivating Virtual Environments</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_04_04/">Ch 01 | Similarity to Infrastructure Containerization</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_05_01/">Ch 01 | What pip is and How it Works</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_05_02/">Ch 01 | Installing, Upgrading, and Uninstalling Packages</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_05_03/">Ch 01 | Using requirements.txt to Declare Dependencies</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch01_05_04/">Ch 01 | Checking Installed Packages with List and Freeze</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_01_01/">Ch 02 | How Python Uses Indentation Instead of Curly Braces</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_01_02/">Ch 02 | Writing Your First Script (Hello World)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_01_03/">Ch 02 | Writing Single-Line and Multi-Line Comments</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_01_04/">Ch 02 | Python Case-Sensitivity Rules</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_02_01/">Ch 02 | Declaring Variables and Naming Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_02_02/">Ch 02 | Dynamic Typing and No Type Declaration</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_02_03/">Ch 02 | Reassigning and Deleting Variables with del</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_03_01/">Ch 02 | Integer (int) for Port Numbers and Counts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_03_02/">Ch 02 | Float (float) for CPU Percentages</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_03_03/">Ch 02 | String (str) for Hostnames and Configs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_03_04/">Ch 02 | Boolean (bool) for Active States</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_03_05/">Ch 02 | NoneType (None) for the Absence of a Value</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_04_01/">Ch 02 | Type Checking with the type() Function</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_04_02/">Ch 02 | Converting Between Types (int, float, str, bool)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_04_03/">Ch 02 | Understanding Implicit vs Explicit Conversion</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_04_04/">Ch 02 | Common Pitfalls When Mixing Types</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_05_01/">Ch 02 | Creating Strings with Quotes Variations</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_05_02/">Ch 02 | String Concatenation Using Plus</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_05_03/">Ch 02 | String Repetition Using Asterisk</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_05_04/">Ch 02 | Getting String Length with len()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch02_05_05/">Ch 02 | Accessing Characters Using Indexing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_01_01/">Ch 03 | Zero-Based and Negative Indexing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_01_02/">Ch 03 | Slicing Substrings (Start, End, Step)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_01_03/">Ch 03 | Practical Example: Extracting a Subnet from an IP String</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_02_01/">Ch 03 | Case Cleaning and Modification (upper, lower, strip)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_02_02/">Ch 03 | Splitting Strings into a List by Delimiter</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_02_03/">Ch 03 | Combining Lists into Strings via Join</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_02_04/">Ch 03 | Substituting Characters via Replace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_02_05/">Ch 03 | Locating Substrings via Find and Index</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_02_06/">Ch 03 | Checking Prefixes and Suffixes (startswith, endswith)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_02_07/">Ch 03 | Counting Occurrences of a Substring</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_03_01/">Ch 03 | Old-Style Formatting Using the Percent Sign</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_03_02/">Ch 03 | The Format Method for Templating</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_03_03/">Ch 03 | Modern F-Strings Approach</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_03_04/">Ch 03 | Practical Example: Building Dynamic Log Messages</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_04_01/">Ch 03 | Using Triple Quotes for Multiline Strings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_04_02/">Ch 03 | Raw Strings for Regex and File Paths</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_04_03/">Ch 03 | How Escape Characters Work</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_05_01/">Ch 03 | Content Validation (isdigit, isalpha, isalnum)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_05_02/">Ch 03 | Membership Testing with the in Keyword</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch03_05_03/">Ch 03 | Case-Insensitive Comparison Workflows</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_01_01/">Ch 04 | Basic Arithmetic Operations (Addition, Subtraction, Multiplication, Division)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_01_02/">Ch 04 | Integer Floor Division</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_01_03/">Ch 04 | Modulus and Remainder Operations</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_01_04/">Ch 04 | Exponentiation and Powers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_02_01/">Ch 04 | PEMDAS and BODMAS Execution Ordering Rules</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_02_02/">Ch 04 | Using Parentheses to Control Precedence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_02_03/">Ch 04 | Common Precedence Mistakes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_03_01/">Ch 04 | Importing Modules Syntax</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_03_02/">Ch 04 | Rounding Functions (ceil, floor)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_03_03/">Ch 04 | Square Root and Powers (sqrt, pow)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_03_04/">Ch 04 | Mathematical Constants (pi, e)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_03_05/">Ch 04 | Practical Example: Rounding Up Storage Allocations</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_04_01/">Ch 04 | Unlimited Precision Integers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_04_02/">Ch 04 | Floating Point Precision Limitations</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_04_03/">Ch 04 | Rounding Numbers Safely with round()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_04_04/">Ch 04 | The Decimal Module for Precision-Critical Work</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_05_01/">Ch 04 | Absolute Value Tracking with abs()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_05_02/">Ch 04 | Bounds Detection with min() and max()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_05_03/">Ch 04 | Summing Collections with sum()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch04_05_04/">Ch 04 | Simultaneous Quotient and Remainder via divmod()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_01_01/">Ch 05 | Equality and Inequality Testing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_01_02/">Ch 05 | Relative Bounds Checking (Greater, Less)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_01_03/">Ch 05 | Difference Between Assignment (=) and Comparison (==)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_02_01/">Ch 05 | Logical Conjunction (and)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_02_02/">Ch 05 | Logical Disjunction (or)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_02_03/">Ch 05 | Logical Inversion (not)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_02_04/">Ch 05 | Combining Multiple Logical Conditions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_03_01/">Ch 05 | Basic If Statement Structure and Indentation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_03_02/">Ch 05 | Alternative Conditions with Elif Statements</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_03_03/">Ch 05 | Fallback Execution Paths with Else</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_03_04/">Ch 05 | Nested Conditionals and Avoiding Deep Nesting</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_04_01/">Ch 05 | Falsy Objects Evaluation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_04_02/">Ch 05 | Truthy Objects Evaluation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_04_03/">Ch 05 | Implicit Truthiness Checks in Conditions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_05_01/">Ch 05 | Writing Single-Line Conditionals</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_05_02/">Ch 05 | Readability Trade-offs of Ternary Expressions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_06_01/">Ch 05 | Structural Pattern Matching Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_06_02/">Ch 05 | Basic Match and Case Block Syntax</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/ch05_06_03/">Ch 05 | Practical Example: Matching HTTP Status Codes</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Core Syntax</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/">Core Syntax Roadmap</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_01_01/">Ch 06 | Iterating Over Lists, Strings, and Ranges</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_01_02/">Ch 06 | Generating Sequences with range()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_01_03/">Ch 06 | Loop Variable Mutation and States</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_01_04/">Ch 06 | Practical Example: Iterating Over Server Hostnames</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_02_01/">Ch 06 | Structure of While Loops</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_02_02/">Ch 06 | Operational Choices (While vs For Loops)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_02_03/">Ch 06 | Infinite Loop Dangers and Mitigations</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_02_04/">Ch 06 | Practical Example: Retrying Connections with a Limit</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_03_01/">Ch 06 | Immediate Loop Exit via break</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_03_02/">Ch 06 | Skipping Iterations via continue</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_03_03/">Ch 06 | Do-Nothing Placeholder via pass</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_03_04/">Ch 06 | Using Break with Loop Else Clauses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_04_01/">Ch 06 | Loops Inside Loops Execution</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_04_02/">Ch 06 | Inner Loop Completion and Outer Loop Advancement</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_04_03/">Ch 06 | Practical Example: Scanning IP and Port Combinations</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_05_01/">Ch 06 | Simultaneous Index and Value Tracking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_05_02/">Ch 06 | Enumerate Advantages Over Manual Counters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_06_01/">Ch 06 | Parallel Iteration with zip()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch06_06_02/">Ch 06 | Practical Example: Pairing Hostnames with IPs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_01_01/">Ch 07 | Defining Lists with Square Brackets</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_01_02/">Ch 07 | Zero-Based Indexing Access</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_01_03/">Ch 07 | Negative Indexing from the End</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_01_04/">Ch 07 | Mixed Data Types Containment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_02_01/">Ch 07 | Appending Items to the End</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_02_02/">Ch 07 | Inserting at Specific Positions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_02_03/">Ch 07 | Extending and Merging Lists</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_02_04/">Ch 07 | Removing by Matching Value</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_02_05/">Ch 07 | Removing and Returning by Index via pop()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_02_06/">Ch 07 | Direct Index Assignment Updates</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_03_01/">Ch 07 | Extracting Subsets (Start, End, Step)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_03_02/">Ch 07 | Copying Lists via Slicing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_03_03/">Ch 07 | Reversing Lists via Slicing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_04_01/">Ch 07 | In-Place Sorting vs the sorted() Function</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_04_02/">Ch 07 | In-Place List Reversal</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_04_03/">Ch 07 | Counting Value Occurrences</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_04_04/">Ch 07 | Finding Value Index Positions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_04_05/">Ch 07 | Aggregations (len, min, max, sum)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_05_01/">Ch 07 | Concise List Building Concepts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_05_02/">Ch 07 | Syntax Expressions and For Loops</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_05_03/">Ch 07 | Filtering Comprehensions with Conditions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_05_04/">Ch 07 | Practical Example: Filtering High CPU Servers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_06_01/">Ch 07 | Membership Testing (in, not in)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch07_06_02/">Ch 07 | Performance Trade-offs (Lists vs Sets)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_01_01/">Ch 08 | Creating Tuples with Parentheses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_01_02/">Ch 08 | Index-Based Access Mechanics</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_01_03/">Ch 08 | Immutability Benefits for Fixed Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_01_04/">Ch 08 | Packing and Unpacking Tuples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_01_05/">Ch 08 | Returning Multiple Values from Functions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_02_01/">Ch 08 | Structural Modification Trade-offs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_02_02/">Ch 08 | Tuples as Dictionary Keys</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_02_03/">Ch 08 | Performance and Allocation Efficiency</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_03_01/">Ch 08 | Creating Sets with Braces or Constructor</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_03_02/">Ch 08 | Uniqueness Property and Duplicate Elimination</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_03_03/">Ch 08 | Unordered Nature and No Indexing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_03_04/">Ch 08 | Practical Example: Deduplicating IP Lists</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_04_01/">Ch 08 | Adding Elements with add()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_04_02/">Ch 08 | Removing Elements (remove vs discard)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_04_03/">Ch 08 | Combining Sets via Union or Pipe</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_04_04/">Ch 08 | Shared Elements via Intersection and Ampersand</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_04_05/">Ch 08 | Exclusion Testing via Difference (Minus)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_04_06/">Ch 08 | Non-Overlapping Testing via Symmetric Difference</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_04_07/">Ch 08 | Practical Example: Comparing Environment Server Sets</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_05_01/">Ch 08 | Frozenset Definition (Immutable Sets)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch08_05_02/">Ch 08 | Use Cases: Frozen Sets as Dictionary Keys</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_01_01/">Ch 09 | Defining Dictionaries (Key-Value Braces)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_01_02/">Ch 09 | Accessing Values by Keys</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_01_03/">Ch 09 | Safe Access with the get() Method</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_01_04/">Ch 09 | Key Existence Checking with in</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_02_01/">Ch 09 | Adding New Key-Value Pairs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_02_02/">Ch 09 | Updating Existing Key-Values</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_02_03/">Ch 09 | Deleting Keys (del vs pop)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_02_04/">Ch 09 | Merging Dictionaries with Update</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_03_01/">Ch 09 | Iterating Over Keys by Default</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_03_02/">Ch 09 | Iterating Over Values Explicitly</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_03_03/">Ch 09 | Iterating Over Key-Value Pairs (items)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_03_04/">Ch 09 | Practical Example: Printing Server Inventory Statuses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_04_01/">Ch 09 | Dictionaries Inside Dictionaries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_04_02/">Ch 09 | Accessing Deeply Nested Values</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_04_03/">Ch 09 | Practical Example: Nested Network Device Configs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_05_01/">Ch 09 | Syntax Key-Value Expressions and Loops</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_05_02/">Ch 09 | Practical Example: Inverting Dictionaries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_06_01/">Ch 09 | Content Views (keys, values, items)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_06_02/">Ch 09 | Conditional Assignment via setdefault()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch09_06_03/">Ch 09 | Bulk Initialization via fromkeys()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_01_01/">Ch 10 | The def Keyword and Syntax</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_01_02/">Ch 10 | Calling Functions by Name</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_01_03/">Ch 10 | Modular Code and Readability Benefits</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_01_04/">Ch 10 | Practical Example: Host Reachability Check Function</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_02_01/">Ch 10 | Positional Parameters and Ordering</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_02_02/">Ch 10 | Keyword Arguments Passed by Name</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_02_03/">Ch 10 | Default Parameter Values and Optionality</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_02_04/">Ch 10 | Definitions: Parameters vs Arguments</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_03_01/">Ch 10 | Returning Results with return</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_03_02/">Ch 10 | Returning Multiple Values via Tuples</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_03_03/">Ch 10 | Implicit None Returns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_04_01/">Ch 10 | Local Scope Inside Functions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_04_02/">Ch 10 | Global Scope Outside Functions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_04_03/">Ch 10 | Global Keyword Usage Boundaries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_04_04/">Ch 10 | Nonlocal Keyword in Nested Functions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_05_01/">Ch 10 | Variable Positional Arguments (args)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_05_02/">Ch 10 | Variable Keyword Arguments (kwargs)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_05_03/">Ch 10 | Use Case Scenarios and Operational Benefits</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_05_04/">Ch 10 | Practical Example: Variable-Length Logging Helper</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_06_01/">Ch 10 | Anonymous Function Concepts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_06_02/">Ch 10 | Lambda Syntax (Arguments and Expression)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_06_03/">Ch 10 | Throwaway Inline Use Cases</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_06_04/">Ch 10 | Lambdas with sorted, map, and filter</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_07_01/">Ch 10 | Inline Documentation with Triple Quotes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_07_02/">Ch 10 | Accessing Docstrings via help() and __doc__</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Core%20Syntax/ch10_07_03/">Ch 10 | Professional Documentation Practices</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Data Structures & Built-ins</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../">Data Structures & Built-ins Roadmap</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_01_01/">Ch 11 | Python File as an Isolated Module</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_01_02/">Ch 11 | Module Search Path Mechanics</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_01_03/">Ch 11 | Built-in vs Third-Party vs Custom Modules</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_02_01/">Ch 11 | Importing a Whole Module Namespace</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_02_02/">Ch 11 | Importing Specific Items via From</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_02_03/">Ch 11 | Importing with a Shorter Alias</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_02_04/">Ch 11 | Wildcard Star Imports Dangers and Avoidance</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_03_01/">Ch 11 | The os Module for System Interactions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_03_02/">Ch 11 | The sys Module for Interpreter Parameters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_03_03/">Ch 11 | The subprocess Module for Shell Execution</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_03_04/">Ch 11 | The socket Module for Low-Level Networking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_03_05/">Ch 11 | The time and datetime Modules for Tracking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_03_06/">Ch 11 | The re Module for Regex Pattern Matching</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_03_07/">Ch 11 | The json Module for Data Serialization</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_03_08/">Ch 11 | The logging Module for Structured Logs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_04_01/">Ch 11 | The name == main Pattern Execution Mechanics</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_04_01/">Ch 11 | The name == main Pattern Execution Mechanics</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_04_02/">Ch 11 | Importing Custom Modules Locally</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_05_01/">Ch 11 | The Batteries Included Philosophy</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_05_02/">Ch 11 | Navigating the Official Python Documentation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch11_05_03/">Ch 11 | Important Library Categories Summary</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_01_01/">Ch 12 | File Opening with the open() Function</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_01_02/">Ch 12 | File Modes (Read, Write, Append, Binary)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_01_03/">Ch 12 | Manual File Closing Dangers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_01_04/">Ch 12 | Context Managers and with open Standard</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_02_01/">Ch 12 | Reading Entire File as a String</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_02_02/">Ch 12 | Reading Single Line-by-Line Sequences</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_02_03/">Ch 12 | Reading All Lines into a List Array</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_02_04/">Ch 12 | Memory Efficient Line Iteration Loops</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_03_01/">Ch 12 | Writing Strings with write()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_03_02/">Ch 12 | Writing Lists of Strings via writelines()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_03_03/">Ch 12 | Appending Without Overwriting Targets</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_03_04/">Ch 12 | Practical Example: Writing Script Execution Logs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_04_01/">Ch 12 | Path Operations with os.path Utilities</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_04_02/">Ch 12 | Cross-Platform Path Building via join</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_04_03/">Ch 12 | Existence Checks and File/Directory Validation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_04_04/">Ch 12 | Modern Path Management with pathlib</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_05_01/">Ch 12 | The csv Module for Reading and Writing Lists</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_05_02/">Ch 12 | Using csv.reader and csv.writer</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_05_03/">Ch 12 | Dictionary Mapping with csv.DictReader</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_05_04/">Ch 12 | Practical Example: Reading Server Inventory CSVs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_06_01/">Ch 12 | File Deserialization via json.load()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_06_02/">Ch 12 | File Serialization via json.dump()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_06_03/">Ch 12 | String Serialization via loads and dumps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch12_06_04/">Ch 12 | Practical Example: Reading JSON Configurations</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_01_01/">Ch 13 | Interpreter Error Raising Concepts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_01_02/">Ch 13 | Common Built-in Exceptions Catalog</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Ch 13 | Syntax Errors vs Runtime Exceptions</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-syntax-errors">⚙️ What Are Syntax Errors?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-runtime-exceptions">🛠️ What Are Runtime Exceptions?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-syntax-errors-vs-runtime-exceptions">📊 Comparison Table: Syntax Errors vs Runtime Exceptions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-identify-which-one-you-are-facing">🕵️ How to Identify Which One You Are Facing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-tips-for-engineers">✅ Quick Tips for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#final-thought">📝 Final Thought</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-missing-colon-after-a-function-definition">🚫 Example 1: Missing colon after a function definition</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-missing-closing-parenthesis">🚫 Example 2: Missing closing parenthesis</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-dividing-by-zero-runtime-exception">⚡ Example 3: Dividing by zero (runtime exception)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-accessing-an-undefined-variable-runtime-exception">⚡ Example 4: Accessing an undefined variable (runtime exception)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-converting-invalid-input-to-integer-runtime-exception">⚡ Example 5: Converting invalid input to integer (runtime exception)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-syntax-errors-vs-runtime-exceptions_1">📊 Comparison Table: Syntax Errors vs Runtime Exceptions</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_02_01/">Ch 13 | Basic Try-Except Structures</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_02_02/">Ch 13 | Catching Specific Exception Types</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_02_03/">Ch 13 | Multiple Except Blocks Handling</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_02_04/">Ch 13 | Capturing Messages via except Exception as e</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_03_01/">Ch 13 | Successful Execution Blocks with else</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_03_02/">Ch 13 | Guaranteed Cleanup Execution via finally</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_03_03/">Ch 13 | Practical Example: Closing Connections and Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_04_01/">Ch 13 | Intentional Error Triggering via raise</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_04_02/">Ch 13 | Re-raising Caught Exceptions Patterns</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_04_03/">Ch 13 | Architectural Reasons for Raising Exceptions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_05_01/">Ch 13 | Inheriting from the Base Exception Class</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_05_02/">Ch 13 | Code Clarity Improvements via Custom Errors</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_05_03/">Ch 13 | Practical Example: ConnectionFailedError Definition</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_06_01/">Ch 13 | Bare Except Pitfalls and Avoidance</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_06_02/">Ch 13 | Exception Silencing Dangers and Logging Needs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_06_03/">Ch 13 | Logging Module Integration vs Print Statements</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch13_06_04/">Ch 13 | Architectural Fail-Fast vs Graceful Degradation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_01_01/">Ch 14 | Directory Retrieval and Navigation (getcwd, chdir)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_01_02/">Ch 14 | Listing Directory Contents via listdir</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_01_03/">Ch 14 | Creating Directories (mkdir, File Structures)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_01_04/">Ch 14 | Deleting Files and Directories (remove, rmdir)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_01_05/">Ch 14 | Renaming Files and Targets with os.rename</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_01_06/">Ch 14 | Reading Active Shell Environment Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_01_07/">Ch 14 | Safe Environment Variable Retrieval via getenv</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_02_01/">Ch 14 | Copying Files (shutil.copy vs copy2)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_02_02/">Ch 14 | Moving Files and Directories via shutil.move</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_02_03/">Ch 14 | Recursive Directory Tree Deletion (rmtree)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_02_04/">Ch 14 | Checking Physical Disk Space Layouts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_02_05/">Ch 14 | Practical Example: Archiving Old Log Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_03_01/">Ch 14 | Recommended Execution with subprocess.run()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_03_02/">Ch 14 | Capturing Command Output and Error Streams</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_03_03/">Ch 14 | Return Code Evaluations and Assertions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_03_04/">Ch 14 | Safe Argument Arrays and Injection Mitigation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_03_05/">Ch 14 | Advanced Process Management via Popen</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_03_06/">Ch 14 | Practical Example: Running ping, df, and systemctl</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_04_01/">Ch 14 | Reading Command-Line Arguments via argv</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_04_02/">Ch 14 | Script Termination with System Exit Codes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_04_03/">Ch 14 | Host Operating System Detection via platform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_04_04/">Ch 14 | Module Lookup Paths and the sys.path Array</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_05_01/">Ch 14 | Getting the Current Process ID via getpid</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_05_02/">Ch 14 | Signal Module Introduction and Concepts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch14_05_03/">Ch 14 | Handling SIGINT (Ctrl+C) Gracefully</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_01_01/">Ch 15 | Text Pattern Matching and Bound Concepts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_01_02/">Ch 15 | Regex Power and Advantages Over String Methods</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_01_03/">Ch 15 | The re Module Initialization in Python</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_02_01/">Ch 15 | Wildcards and Quantifiers (dot, star, plus, ?)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_02_02/">Ch 15 | Boundary Anchors (Caret and Dollar Sign)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_02_03/">Ch 15 | Character Classes (Digits, Words, Whitespace)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_02_04/">Ch 15 | Matching Character Sets Using Brackets</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_02_05/">Ch 15 | Negated Character Sets (Caret in Brackets)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_03_01/">Ch 15 | Match at Start vs Search Anywhere</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_03_02/">Ch 15 | Finding All Matches (findall vs finditer)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_03_03/">Ch 15 | Substitutions and Replacing Patterns via sub()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_03_04/">Ch 15 | Compiling Reusable Patterns via re.compile()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_04_01/">Ch 15 | Creating Capture Groups Using Parentheses</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_04_02/">Ch 15 | Accessing Positional Groups by Group Index</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_04_03/">Ch 15 | Named Capture Groups Syntax Layouts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_04_04/">Ch 15 | Practical Example: Extracting Fields from Logs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_05_01/">Ch 15 | Validating IPv4 Address String Formats</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_05_02/">Ch 15 | Extracting All IPs from Unstructured Text</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_05_03/">Ch 15 | Parsing Structured Logs for Error Entries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../ch15_05_04/">Ch 15 | Extracting Interface Names from show interface</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Infrastructure Automation</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/">Infrastructure Automation Roadmap</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_01_01/">Ch 16 | Importing Datetime Core Components Safely</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_01_02/">Ch 16 | Local System Time Retrieved via now()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_01_03/">Ch 16 | Standard Reference Clocks via utcnow()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_01_04/">Ch 16 | Instantiating Specific Explicit Datetime Objects</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_02_01/">Ch 16 | Converting Datetime to String via strftime</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_02_02/">Ch 16 | Parsing Strings into Datetime via strptime</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_02_03/">Ch 16 | Common Format Codes Reference Catalog</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_02_04/">Ch 16 | Practical Example: Parsing Log Timestamps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_03_01/">Ch 16 | Creating Timedeltas and Measurement Offsets</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_03_02/">Ch 16 | Adding and Subtracting Offsets from Datetime</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_03_03/">Ch 16 | Calculating Intervals Between Two Datetimes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_03_04/">Ch 16 | Practical Example: SSL Certificate Expiry Alerts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_04_01/">Ch 16 | Understanding Epoch Timelines and Seconds Tracking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_04_02/">Ch 16 | Converting Python Datetime to Timestamp Floats</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_04_03/">Ch 16 | Converting Timestamps Back to Datetime Objects</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_04_04/">Ch 16 | Use Cases for Timestamps in APIs and Logs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_05_01/">Ch 16 | Naive vs Timezone-Aware Objects Pitfalls</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_05_02/">Ch 16 | Modern Timezone Management via zoneinfo</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_05_03/">Ch 16 | Converting Timestamps Between Regional Zones</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_05_04/">Ch 16 | Architectural Standardization on UTC References</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_06_01/">Ch 16 | Pausing Script Paths Temporarily via sleep()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_06_02/">Ch 16 | Current Epoch Time as a Raw Float Directly</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch16_06_03/">Ch 16 | Profiling and Measuring Execution Durations</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_01_01/">Ch 17 | REST API Request-Response Framework Models</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_01_02/">Ch 17 | HTTP Methods (GET, POST, PUT, DELETE)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_01_03/">Ch 17 | HTTP Status Codes Classification and Meanings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_01_04/">Ch 17 | JSON as the Standard Transmission Payload Format</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_02_01/">Ch 17 | Installing Third-Party Packages via pip Systems</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_02_02/">Ch 17 | Executing Data Retrievals via requests.get()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_02_03/">Ch 17 | Executing Data Submissions via requests.post()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_02_04/">Ch 17 | Evaluating Response Attributes (Status, Body, Headers)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_02_05/">Ch 17 | Asserting Success via raise_for_status()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_03_01/">Ch 17 | URL Query Parameters and the params Dictionary</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_03_02/">Ch 17 | Setting Operational Fields in Request Headers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_03_03/">Ch 17 | Bearer Token Authentication Headers Rules</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_03_04/">Ch 17 | API Key Authentication Patterns and Logic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_04_01/">Ch 17 | Enforcing Limits on Calls with Timeout Arguments</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_04_02/">Ch 17 | Catching Failures via requests.exceptions.Timeout</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_04_03/">Ch 17 | Catching Anomalies via requests.exceptions.ConnectionError</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_04_04/">Ch 17 | Implementing Manual Retry Backoff Loops</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_05_01/">Ch 17 | Parsing Payload Content into Native Objects via .json()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_05_02/">Ch 17 | Navigating Deep Nested Responses and Arrays</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_05_03/">Ch 17 | Practical Example: Querying Real-Time Monitoring Alerts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_06_01/">Ch 17 | Sending JSON Payloads in POST Requests</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_06_02/">Ch 17 | Sending Standard URL-Encoded Form Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch17_06_03/">Ch 17 | Uploading Files and Multipart Form Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_01_01/">Ch 18 | Class Blueprint Profiles vs Object Instances</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_01_02/">Ch 18 | Code Organization and Complexity Management Benefits</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_01_03/">Ch 18 | Architectural Comparison (Procedural vs OOP)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_02_01/">Ch 18 | The class Keyword and Base Code Block Syntax</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_02_02/">Ch 18 | The Constructor Initialization (__init__) Method</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_02_03/">Ch 18 | Instance Variables and Tracking Object State</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_02_04/">Ch 18 | The self Parameter Reference Mechanics</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_03_01/">Ch 18 | Defining Internal Business Logic Methods Inside Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_03_02/">Ch 18 | Method Bindings vs Regular Function Structures</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_03_03/">Ch 18 | Practical Example: Server Class with check_status()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_04_01/">Ch 18 | Binding Data and Behavior Within Scopes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_04_02/">Ch 18 | Public, Protected, and Private Naming Conventions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_04_03/">Ch 18 | Getters and Setters Interfaces via Property Decorators</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_05_01/">Ch 18 | Extending Parent Classes Templates into Child Models</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_05_02/">Ch 18 | Calling Parent Constructors via the super Mechanism</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_05_03/">Ch 18 | Overriding Parent Actions in Specialized Child Classes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_05_04/">Ch 18 | Practical Example: Device Class Extended by Router/Switch</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_06_01/">Ch 18 | User-Facing String Representations via __str__</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_06_02/">Ch 18 | Developer-Facing Evaluations via __repr__</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_06_03/">Ch 18 | Customizing Sizes and Sorting via __len__, __eq__, __lt__</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_06_04/">Ch 18 | Why Implementing Dunder Signatures Makes Objects Feel Native</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_07_01/">Ch 18 | Shared Class Variables Across Active Instances</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch18_07_02/">Ch 18 | Method Specializations (classmethod and staticmethod)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_01_01/">Ch 19 | Tracing JSON Types Mapping to Python Equivalents</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_01_02/">Ch 19 | Processing Variables Payloads via loads and dumps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_01_03/">Ch 19 | Streaming Configuration Files via load and dump</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_01_04/">Ch 19 | Beautifying Layout Files via Indent Parameters</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_01_05/">Ch 19 | Handling Non-Serializable Types like Datetimes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_02_01/">Ch 19 | YAML Benefits in Infrastructure Tools like K8s</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_02_02/">Ch 19 | Installing and Importing PyYAML Packages via pip</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_02_03/">Ch 19 | Safe Parsing Workflows via yaml.safe_load</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_02_04/">Ch 19 | Serializing Dictionaries Back into YAML Blocks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_02_05/">Ch 19 | Processing Streaming Multi-Document YAML Inputs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_02_06/">Ch 19 | Practical Example: Reading Ansible Inventory YAMLs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_03_01/">Ch 19 | Extracting Tabular Data Rows as List Objects</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_03_02/">Ch 19 | Extracting Row Cells as Dictionary Keys via DictReader</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_03_03/">Ch 19 | Emitting Flat Array Records into Files via csv.writer</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_03_04/">Ch 19 | Emitting Structured Data Rows into Files via DictWriter</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_03_05/">Ch 19 | Handling Non-Standard Delimiters (Semicolons, Pipes)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_03_06/">Ch 19 | Practical Example: Reading Firewall Rule Matrix Exports</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_04_01/">Ch 19 | Context Analysis and Format Selection Frameworks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_04_02/">Ch 19 | Building Conversion Pipelines (JSON Sets to YAML Strings)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_04_03/">Ch 19 | Weighing Human Legibility Against Machine Parsing Speeds</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_05_01/">Ch 19 | Checking for Mandatory Schema Configuration Key Markers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_05_02/">Ch 19 | Type Checking Parsed Parameter Values in Configurations</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_05_03/">Ch 19 | Writing Custom Assertion Diagnostic Functions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch19_05_04/">Ch 19 | Formal Advanced Schema Enforcement via jsonschema</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_01_01/">Ch 20 | Following Official PEP 8 Specification Philosophies</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_01_02/">Ch 20 | Naming Standards (Snake Case vs Pascal Case Forms)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_01_03/">Ch 20 | Line Length Limitations and Blank Line Separation Rules</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_01_04/">Ch 20 | Automated Reformatting via autopep8 and Black</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_02_01/">Ch 20 | Commenting the Why Instead of the What</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_02_02/">Ch 20 | Writing Function and Class Level Docstring Profiles</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_02_03/">Ch 20 | Declaring Top Level Script Architectural Docstrings</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_02_04/">Ch 20 | Verifying Documentation Layouts in Interactive Help</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_03_01/">Ch 20 | Print Statement Unsuitability for Production Setups</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_03_02/">Ch 20 | Logging Module Architecture and Visibility Advantages</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_03_03/">Ch 20 | Categorizing System Alerts Across Severity Levels</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_03_04/">Ch 20 | Configuring Format Layouts with Timestamps and Fields</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_03_05/">Ch 20 | Routing Active Logs to Files vs Console Streams</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_04_01/">Ch 20 | Mitigating Hardcoded Value Pitfalls via Terminal Inputs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_04_02/">Ch 20 | Declaring Interfaces via the Standard argparse Library</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_04_03/">Ch 20 | Required Positional Flags vs Optional Parameter Fields</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_04_04/">Ch 20 | Adding Descriptive Instructions and Fallback Defaults</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_04_05/">Ch 20 | Practical Example: Accepts Host, Port, and Timeout</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_05_01/">Ch 20 | Decoupling Dynamic System Variables from Logic Code</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_05_02/">Ch 20 | Isolating Secrets and Keys Inside Environment Variables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_05_03/">Ch 20 | Ingesting Parameters Out of Separate JSON or YAML Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_05_04/">Ch 20 | Anti-Pattern Warning: Hardcoding Passwords and IPs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_06_01/">Ch 20 | Idempotency Laws and Automation Safety Value</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_06_02/">Ch 20 | Pre-Execution Checks and Target State Assertions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_06_03/">Ch 20 | Ensuring Multiple Passes Yield Consistent States</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_07_01/">Ch 20 | The name == main Pattern Execution Mechanics</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_07_02/">Ch 20 | Decoupling Logic Statements into Testable Functions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch20_07_03/">Ch 20 | Standard Script Topography (Imports down to Main Loop)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_01_01/">Ch 21 | Problem Definition and Input-Output Mapping Profiles</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_01_02/">Ch 21 | Identifying Module Dependencies and Requirements Sets</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_01_03/">Ch 21 | Tracing High-Level Information Flow and Error Catching</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_01_04/">Ch 21 | Fleshing Out Milestones Using Functional Pseudo-Code</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_02_01/">Ch 21 | Architecting Health Reporter Profiles and Requirements</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_02_02/">Ch 21 | Command-Line Flag Parsing for Output File Selection</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_02_03/">Ch 21 | Collecting Live Disk Space, CPU, and Process Data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_02_04/">Ch 21 | Mapping Disparate Metrics into Uniform Data Dictionaries</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_02_05/">Ch 21 | Handling Permission Blocks and Missing Utilities Errors</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_02_06/">Ch 21 | Serialization of Reports into JSON or Text Files</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_02_07/">Ch 21 | Routing Script Operation Metrics to Tracking Logs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_03_01/">Ch 21 | Auditing Documentation Completeness Across Blocks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_03_02/">Ch 21 | Asserting Compliance with Styling and Layout Guides</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_03_03/">Ch 21 | Ensuring Absolute Exception Handling Coverage Layers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_03_04/">Ch 21 | Securing Sensitive Credentials, Passwords, and Tokens</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_03_05/">Ch 21 | Testing Execution Idempotency Across Multiple Passes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_03_06/">Ch 21 | Verifying Interface Help Clarity with Custom Arguments</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_04_01/">Ch 21 | Strategic Print Placement During Script Development</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_04_02/">Ch 21 | Halting Code Paths to Inspect via pdb.set_trace()</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_04_03/">Ch 21 | Deconstructing Traceback Reports to Locate Failure Roots</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_04_04/">Ch 21 | Dropping Breakpoints via the Built-in Primitives Hook</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_04_05/">Ch 21 | Cataloging Common Integration Mistakes and Fixes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_05_01/">Ch 21 | Advanced Concepts (Decorators and Custom Context Managers)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_05_02/">Ch 21 | Optimizing Iteration Pipelines via Generator Yields</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_05_03/">Ch 21 | Exploring Parallel Tracks (Threading and Asyncio Engines)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_05_04/">Ch 21 | Validating Script Automation Actions Using Pytest</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_05_05/">Ch 21 | Binding Scripts to Database Endpoints via Native Drivers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_05_06/">Ch 21 | Connecting to Infrastructure Packages (Netmiko, Boto3, K8s)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Infrastructure%20Automation/ch21_05_07/">Ch 21 | Practice Targets Review (Backup Automation, Scan Tools)</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Java for Infrastructure</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >Getting Ready</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Java%20for%20Infrastructure/coming_soon/">Coming Soon</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Python Ali</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Python for Infrastructure</li>
+          <li class="breadcrumb-item">Data Structures & Built-ins</li>
+      <li class="breadcrumb-item active">Ch 13 | Syntax Errors vs Runtime Exceptions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="syntax-errors-vs-runtime-exceptions">Syntax Errors vs Runtime Exceptions</h1>
+<p><span class="category-tag">🏷️ Error Handling and Exceptions /  What are Exceptions?</span></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<h3 id="context-introduction">🧠 Context Introduction</h3>
+<p>When you start writing Python scripts, you will inevitably encounter errors. For engineers new to Python, understanding the two main categories of errors is essential. The first category is <strong>syntax errors</strong>, which prevent your code from running at all. The second category is <strong>runtime exceptions</strong>, which occur while your program is executing. Knowing the difference helps you debug faster and write more reliable code.</p>
+<hr />
+<h3 id="what-are-syntax-errors">⚙️ What Are Syntax Errors?</h3>
+<p>Syntax errors are mistakes in the structure of your code. Python's interpreter cannot understand what you are trying to say because the code violates the rules of the language.</p>
+<ul>
+<li><strong>When do they occur?</strong> At the moment you try to run the script, before any code executes.</li>
+<li><strong>How do you spot them?</strong> Python will point to the exact line and often show a caret (^) indicating where the problem is.</li>
+<li><strong>Common causes:</strong></li>
+<li>Missing colons at the end of a <strong>def</strong>, <strong>if</strong>, <strong>for</strong>, or <strong>while</strong> statement.</li>
+<li>Unmatched parentheses, brackets, or quotes.</li>
+<li>Misspelled keywords (e.g., writing <strong>def</strong> as <strong>df</strong>).</li>
+<li>Incorrect indentation (mixing tabs and spaces).</li>
+</ul>
+<p><strong>Example scenario:</strong> You write <strong>if x &gt; 5</strong> without a colon at the end. Python will immediately stop and tell you there is a syntax error on that line.</p>
+<hr />
+<h3 id="what-are-runtime-exceptions">🛠️ What Are Runtime Exceptions?</h3>
+<p>Runtime exceptions (also called runtime errors) happen while your program is running. The syntax is correct, but something goes wrong during execution.</p>
+<ul>
+<li><strong>When do they occur?</strong> After the script starts running, when a specific operation fails.</li>
+<li><strong>How do you spot them?</strong> Python will print a traceback showing the sequence of function calls that led to the error.</li>
+<li><strong>Common causes:</strong></li>
+<li>Dividing by zero (<strong>ZeroDivisionError</strong>).</li>
+<li>Trying to access a list index that does not exist (<strong>IndexError</strong>).</li>
+<li>Using a variable that has not been defined (<strong>NameError</strong>).</li>
+<li>Converting a string like <strong>"abc"</strong> to an integer (<strong>ValueError</strong>).</li>
+</ul>
+<p><strong>Example scenario:</strong> You have a list with three items, but your code tries to access the fifth item. The syntax is fine, but when the program runs, it crashes with an <strong>IndexError</strong>.</p>
+<hr />
+<h3 id="comparison-table-syntax-errors-vs-runtime-exceptions">📊 Comparison Table: Syntax Errors vs Runtime Exceptions</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Syntax Error</th>
+<th>Runtime Exception</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>When detected</strong></td>
+<td>Before execution (compile time)</td>
+<td>During execution (runtime)</td>
+</tr>
+<tr>
+<td><strong>Does the program run?</strong></td>
+<td>No, it never starts</td>
+<td>Yes, until the error occurs</td>
+</tr>
+<tr>
+<td><strong>Error message style</strong></td>
+<td>Points to exact line with caret</td>
+<td>Shows traceback with line numbers</td>
+</tr>
+<tr>
+<td><strong>Common fix</strong></td>
+<td>Correct the structure or punctuation</td>
+<td>Add checks, handle edge cases, or fix logic</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td>Missing colon after <strong>if</strong> statement</td>
+<td>Dividing by zero inside a loop</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-to-identify-which-one-you-are-facing">🕵️ How to Identify Which One You Are Facing</h3>
+<ul>
+<li>If you see an error message immediately after pressing <strong>Run</strong> and the script does nothing else, it is likely a <strong>syntax error</strong>.</li>
+<li>If your script starts running, prints some output, and then crashes with a traceback, you are dealing with a <strong>runtime exception</strong>.</li>
+<li>Syntax errors are usually easier to fix because the interpreter tells you exactly where the problem is.</li>
+<li>Runtime exceptions require you to think about the state of your data and the flow of your program.</li>
+</ul>
+<hr />
+<h3 id="quick-tips-for-engineers">✅ Quick Tips for Engineers</h3>
+<ul>
+<li><strong>Read the error message carefully.</strong> Python is very descriptive. The first line often tells you the type of error.</li>
+<li><strong>For syntax errors:</strong> Look at the line indicated and the line immediately before it. Sometimes the mistake is on the previous line.</li>
+<li><strong>For runtime exceptions:</strong> Look at the last line of the traceback first. That is where the error actually happened.</li>
+<li><strong>Use a linter</strong> (like <strong>pylint</strong> or <strong>flake8</strong>) to catch syntax errors before you even run your code.</li>
+<li><strong>Use try-except blocks</strong> to handle runtime exceptions gracefully when you expect something might go wrong.</li>
+</ul>
+<hr />
+<h3 id="final-thought">📝 Final Thought</h3>
+<p>As you write more Python scripts, you will encounter both types of errors regularly. Syntax errors are like grammar mistakes in a sentence — the reader cannot understand you. Runtime exceptions are like unexpected events during a conversation — the sentence was correct, but something went wrong in the delivery. Mastering the difference will make you a more confident and efficient Python programmer.</p>
+</div>
+<div class="tabbed-block">
+<p>Syntax errors are mistakes in code structure that Python catches before running your program, while runtime exceptions occur during execution when something goes wrong.</p>
+<hr />
+<h3 id="example-1-missing-colon-after-a-function-definition">🚫 Example 1: Missing colon after a function definition</h3>
+<p>This shows a syntax error where Python cannot parse the code because a required colon is missing.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>SyntaxError: invalid syntax</strong></p>
+<hr />
+<h3 id="example-2-missing-closing-parenthesis">🚫 Example 2: Missing closing parenthesis</h3>
+<p>This demonstrates a syntax error caused by an unclosed parenthesis in a print statement.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Welcome to Python&quot;</span>
+</code></pre></div>
+<p>📤 Output: <strong>SyntaxError: unexpected EOF while parsing</strong></p>
+<hr />
+<h3 id="example-3-dividing-by-zero-runtime-exception">⚡ Example 3: Dividing by zero (runtime exception)</h3>
+<p>This shows a runtime exception that occurs when the program tries to divide a number by zero during execution.</p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ZeroDivisionError: division by zero</strong></p>
+<hr />
+<h3 id="example-4-accessing-an-undefined-variable-runtime-exception">⚡ Example 4: Accessing an undefined variable (runtime exception)</h3>
+<p>This demonstrates a runtime exception that happens when the code references a variable that has not been assigned a value.</p>
+<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="n">price</span> <span class="o">+</span> <span class="n">tax</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>NameError: name 'price' is not defined</strong></p>
+<hr />
+<h3 id="example-5-converting-invalid-input-to-integer-runtime-exception">⚡ Example 5: Converting invalid input to integer (runtime exception)</h3>
+<p>This shows a practical runtime exception that occurs when a user provides text that cannot be converted to a number.</p>
+<div class="highlight"><pre><span></span><code><span class="n">user_input</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Your number is:&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ValueError: invalid literal for int() with base 10: 'hello'</strong></p>
+<hr />
+<h3 id="comparison-table-syntax-errors-vs-runtime-exceptions_1">📊 Comparison Table: Syntax Errors vs Runtime Exceptions</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Syntax Error</th>
+<th>Runtime Exception</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>When detected</td>
+<td>Before program runs (at parse time)</td>
+<td>While program is executing</td>
+</tr>
+<tr>
+<td>Code runs?</td>
+<td>No, Python refuses to start</td>
+<td>Yes, until the error occurs</td>
+</tr>
+<tr>
+<td>Common causes</td>
+<td>Missing colons, parentheses, quotes</td>
+<td>Division by zero, invalid input, missing variables</td>
+</tr>
+<tr>
+<td>Fix approach</td>
+<td>Correct the code structure</td>
+<td>Add error handling or fix the logic</td>
+</tr>
+<tr>
+<td>Example message</td>
+<td><code>SyntaxError: invalid syntax</code></td>
+<td><code>ZeroDivisionError: division by zero</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ch13_01_02/" class="btn btn-neutral float-left" title="Ch 13 | Common Built-in Exceptions Catalog"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ch13_02_01/" class="btn btn-neutral float-right" title="Ch 13 | Basic Try-Except Structures">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ch13_01_02/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ch13_02_01/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

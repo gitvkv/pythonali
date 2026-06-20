@@ -1,0 +1,574 @@
+site_name: Python Ali
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+  - python
+  - yaml
+  - bash
+extra_css:
+- stylesheets/extra.css
+markdown_extensions:
+- admonition
+- pymdownx.superfences
+- pymdownx.tabbed:
+    alternate_style: true
+nav:
+- Home: index.md
+- Python for Infrastructure:
+  - Getting Started:
+    - Getting Started Roadmap: Getting Started/index.md
+    - Ch 01 | What is Python and History of Python: Getting Started/ch01_01_01.md
+    - Ch 01 | How to Install Python on Linux, macOS, and Windows: Getting Started/ch01_01_02.md
+    - Ch 01 | Understanding Python Versions (Python 3.x vs Legacy Python 2): Getting
+        Started/ch01_01_03.md
+    - Ch 01 | How to Verify Python is Installed Using the Terminal: Getting Started/ch01_01_04.md
+    - Ch 01 | Compiled vs Interpreted Languages: Getting Started/ch01_02_01.md
+    - Ch 01 | Running Python Interactively Using the REPL: Getting Started/ch01_02_02.md
+    - Ch 01 | Running Python Scripts from the Command Line: Getting Started/ch01_02_03.md
+    - Ch 01 | What a Code Editor is and Why it Matters: Getting Started/ch01_03_01.md
+    - Ch 01 | Installing and Configuring VS Code for Python: Getting Started/ch01_03_02.md
+    - Ch 01 | Key Extensions (Python, Pylint, autopep8): Getting Started/ch01_03_03.md
+    - Ch 01 | What a Virtual Environment is and Dependency Isolation: Getting Started/ch01_04_01.md
+    - Ch 01 | Creating a Virtual Environment Using the venv Module: Getting Started/ch01_04_02.md
+    - Ch 01 | Activating and Deactivating Virtual Environments: Getting Started/ch01_04_03.md
+    - Ch 01 | Similarity to Infrastructure Containerization: Getting Started/ch01_04_04.md
+    - Ch 01 | What pip is and How it Works: Getting Started/ch01_05_01.md
+    - Ch 01 | Installing, Upgrading, and Uninstalling Packages: Getting Started/ch01_05_02.md
+    - Ch 01 | Using requirements.txt to Declare Dependencies: Getting Started/ch01_05_03.md
+    - Ch 01 | Checking Installed Packages with List and Freeze: Getting Started/ch01_05_04.md
+    - Ch 02 | How Python Uses Indentation Instead of Curly Braces: Getting Started/ch02_01_01.md
+    - Ch 02 | Writing Your First Script (Hello World): Getting Started/ch02_01_02.md
+    - Ch 02 | Writing Single-Line and Multi-Line Comments: Getting Started/ch02_01_03.md
+    - Ch 02 | Python Case-Sensitivity Rules: Getting Started/ch02_01_04.md
+    - Ch 02 | Declaring Variables and Naming Conventions: Getting Started/ch02_02_01.md
+    - Ch 02 | Dynamic Typing and No Type Declaration: Getting Started/ch02_02_02.md
+    - Ch 02 | Reassigning and Deleting Variables with del: Getting Started/ch02_02_03.md
+    - Ch 02 | Integer (int) for Port Numbers and Counts: Getting Started/ch02_03_01.md
+    - Ch 02 | Float (float) for CPU Percentages: Getting Started/ch02_03_02.md
+    - Ch 02 | String (str) for Hostnames and Configs: Getting Started/ch02_03_03.md
+    - Ch 02 | Boolean (bool) for Active States: Getting Started/ch02_03_04.md
+    - Ch 02 | NoneType (None) for the Absence of a Value: Getting Started/ch02_03_05.md
+    - Ch 02 | Type Checking with the type() Function: Getting Started/ch02_04_01.md
+    - Ch 02 | Converting Between Types (int, float, str, bool): Getting Started/ch02_04_02.md
+    - Ch 02 | Understanding Implicit vs Explicit Conversion: Getting Started/ch02_04_03.md
+    - Ch 02 | Common Pitfalls When Mixing Types: Getting Started/ch02_04_04.md
+    - Ch 02 | Creating Strings with Quotes Variations: Getting Started/ch02_05_01.md
+    - Ch 02 | String Concatenation Using Plus: Getting Started/ch02_05_02.md
+    - Ch 02 | String Repetition Using Asterisk: Getting Started/ch02_05_03.md
+    - Ch 02 | Getting String Length with len(): Getting Started/ch02_05_04.md
+    - Ch 02 | Accessing Characters Using Indexing: Getting Started/ch02_05_05.md
+    - Ch 03 | Zero-Based and Negative Indexing: Getting Started/ch03_01_01.md
+    - Ch 03 | Slicing Substrings (Start, End, Step): Getting Started/ch03_01_02.md
+    - 'Ch 03 | Practical Example: Extracting a Subnet from an IP String': Getting
+        Started/ch03_01_03.md
+    - Ch 03 | Case Cleaning and Modification (upper, lower, strip): Getting Started/ch03_02_01.md
+    - Ch 03 | Splitting Strings into a List by Delimiter: Getting Started/ch03_02_02.md
+    - Ch 03 | Combining Lists into Strings via Join: Getting Started/ch03_02_03.md
+    - Ch 03 | Substituting Characters via Replace: Getting Started/ch03_02_04.md
+    - Ch 03 | Locating Substrings via Find and Index: Getting Started/ch03_02_05.md
+    - Ch 03 | Checking Prefixes and Suffixes (startswith, endswith): Getting Started/ch03_02_06.md
+    - Ch 03 | Counting Occurrences of a Substring: Getting Started/ch03_02_07.md
+    - Ch 03 | Old-Style Formatting Using the Percent Sign: Getting Started/ch03_03_01.md
+    - Ch 03 | The Format Method for Templating: Getting Started/ch03_03_02.md
+    - Ch 03 | Modern F-Strings Approach: Getting Started/ch03_03_03.md
+    - 'Ch 03 | Practical Example: Building Dynamic Log Messages': Getting Started/ch03_03_04.md
+    - Ch 03 | Using Triple Quotes for Multiline Strings: Getting Started/ch03_04_01.md
+    - Ch 03 | Raw Strings for Regex and File Paths: Getting Started/ch03_04_02.md
+    - Ch 03 | How Escape Characters Work: Getting Started/ch03_04_03.md
+    - Ch 03 | Content Validation (isdigit, isalpha, isalnum): Getting Started/ch03_05_01.md
+    - Ch 03 | Membership Testing with the in Keyword: Getting Started/ch03_05_02.md
+    - Ch 03 | Case-Insensitive Comparison Workflows: Getting Started/ch03_05_03.md
+    - Ch 04 | Basic Arithmetic Operations (Addition, Subtraction, Multiplication, Division): Getting
+        Started/ch04_01_01.md
+    - Ch 04 | Integer Floor Division: Getting Started/ch04_01_02.md
+    - Ch 04 | Modulus and Remainder Operations: Getting Started/ch04_01_03.md
+    - Ch 04 | Exponentiation and Powers: Getting Started/ch04_01_04.md
+    - Ch 04 | PEMDAS and BODMAS Execution Ordering Rules: Getting Started/ch04_02_01.md
+    - Ch 04 | Using Parentheses to Control Precedence: Getting Started/ch04_02_02.md
+    - Ch 04 | Common Precedence Mistakes: Getting Started/ch04_02_03.md
+    - Ch 04 | Importing Modules Syntax: Getting Started/ch04_03_01.md
+    - Ch 04 | Rounding Functions (ceil, floor): Getting Started/ch04_03_02.md
+    - Ch 04 | Square Root and Powers (sqrt, pow): Getting Started/ch04_03_03.md
+    - Ch 04 | Mathematical Constants (pi, e): Getting Started/ch04_03_04.md
+    - 'Ch 04 | Practical Example: Rounding Up Storage Allocations': Getting Started/ch04_03_05.md
+    - Ch 04 | Unlimited Precision Integers: Getting Started/ch04_04_01.md
+    - Ch 04 | Floating Point Precision Limitations: Getting Started/ch04_04_02.md
+    - Ch 04 | Rounding Numbers Safely with round(): Getting Started/ch04_04_03.md
+    - Ch 04 | The Decimal Module for Precision-Critical Work: Getting Started/ch04_04_04.md
+    - Ch 04 | Absolute Value Tracking with abs(): Getting Started/ch04_05_01.md
+    - Ch 04 | Bounds Detection with min() and max(): Getting Started/ch04_05_02.md
+    - Ch 04 | Summing Collections with sum(): Getting Started/ch04_05_03.md
+    - Ch 04 | Simultaneous Quotient and Remainder via divmod(): Getting Started/ch04_05_04.md
+    - Ch 05 | Equality and Inequality Testing: Getting Started/ch05_01_01.md
+    - Ch 05 | Relative Bounds Checking (Greater, Less): Getting Started/ch05_01_02.md
+    - Ch 05 | Difference Between Assignment (=) and Comparison (==): Getting Started/ch05_01_03.md
+    - Ch 05 | Logical Conjunction (and): Getting Started/ch05_02_01.md
+    - Ch 05 | Logical Disjunction (or): Getting Started/ch05_02_02.md
+    - Ch 05 | Logical Inversion (not): Getting Started/ch05_02_03.md
+    - Ch 05 | Combining Multiple Logical Conditions: Getting Started/ch05_02_04.md
+    - Ch 05 | Basic If Statement Structure and Indentation: Getting Started/ch05_03_01.md
+    - Ch 05 | Alternative Conditions with Elif Statements: Getting Started/ch05_03_02.md
+    - Ch 05 | Fallback Execution Paths with Else: Getting Started/ch05_03_03.md
+    - Ch 05 | Nested Conditionals and Avoiding Deep Nesting: Getting Started/ch05_03_04.md
+    - Ch 05 | Falsy Objects Evaluation: Getting Started/ch05_04_01.md
+    - Ch 05 | Truthy Objects Evaluation: Getting Started/ch05_04_02.md
+    - Ch 05 | Implicit Truthiness Checks in Conditions: Getting Started/ch05_04_03.md
+    - Ch 05 | Writing Single-Line Conditionals: Getting Started/ch05_05_01.md
+    - Ch 05 | Readability Trade-offs of Ternary Expressions: Getting Started/ch05_05_02.md
+    - Ch 05 | Structural Pattern Matching Overview: Getting Started/ch05_06_01.md
+    - Ch 05 | Basic Match and Case Block Syntax: Getting Started/ch05_06_02.md
+    - 'Ch 05 | Practical Example: Matching HTTP Status Codes': Getting Started/ch05_06_03.md
+  - Core Syntax:
+    - Core Syntax Roadmap: Core Syntax/index.md
+    - Ch 06 | Iterating Over Lists, Strings, and Ranges: Core Syntax/ch06_01_01.md
+    - Ch 06 | Generating Sequences with range(): Core Syntax/ch06_01_02.md
+    - Ch 06 | Loop Variable Mutation and States: Core Syntax/ch06_01_03.md
+    - 'Ch 06 | Practical Example: Iterating Over Server Hostnames': Core Syntax/ch06_01_04.md
+    - Ch 06 | Structure of While Loops: Core Syntax/ch06_02_01.md
+    - Ch 06 | Operational Choices (While vs For Loops): Core Syntax/ch06_02_02.md
+    - Ch 06 | Infinite Loop Dangers and Mitigations: Core Syntax/ch06_02_03.md
+    - 'Ch 06 | Practical Example: Retrying Connections with a Limit': Core Syntax/ch06_02_04.md
+    - Ch 06 | Immediate Loop Exit via break: Core Syntax/ch06_03_01.md
+    - Ch 06 | Skipping Iterations via continue: Core Syntax/ch06_03_02.md
+    - Ch 06 | Do-Nothing Placeholder via pass: Core Syntax/ch06_03_03.md
+    - Ch 06 | Using Break with Loop Else Clauses: Core Syntax/ch06_03_04.md
+    - Ch 06 | Loops Inside Loops Execution: Core Syntax/ch06_04_01.md
+    - Ch 06 | Inner Loop Completion and Outer Loop Advancement: Core Syntax/ch06_04_02.md
+    - 'Ch 06 | Practical Example: Scanning IP and Port Combinations': Core Syntax/ch06_04_03.md
+    - Ch 06 | Simultaneous Index and Value Tracking: Core Syntax/ch06_05_01.md
+    - Ch 06 | Enumerate Advantages Over Manual Counters: Core Syntax/ch06_05_02.md
+    - Ch 06 | Parallel Iteration with zip(): Core Syntax/ch06_06_01.md
+    - 'Ch 06 | Practical Example: Pairing Hostnames with IPs': Core Syntax/ch06_06_02.md
+    - Ch 07 | Defining Lists with Square Brackets: Core Syntax/ch07_01_01.md
+    - Ch 07 | Zero-Based Indexing Access: Core Syntax/ch07_01_02.md
+    - Ch 07 | Negative Indexing from the End: Core Syntax/ch07_01_03.md
+    - Ch 07 | Mixed Data Types Containment: Core Syntax/ch07_01_04.md
+    - Ch 07 | Appending Items to the End: Core Syntax/ch07_02_01.md
+    - Ch 07 | Inserting at Specific Positions: Core Syntax/ch07_02_02.md
+    - Ch 07 | Extending and Merging Lists: Core Syntax/ch07_02_03.md
+    - Ch 07 | Removing by Matching Value: Core Syntax/ch07_02_04.md
+    - Ch 07 | Removing and Returning by Index via pop(): Core Syntax/ch07_02_05.md
+    - Ch 07 | Direct Index Assignment Updates: Core Syntax/ch07_02_06.md
+    - Ch 07 | Extracting Subsets (Start, End, Step): Core Syntax/ch07_03_01.md
+    - Ch 07 | Copying Lists via Slicing: Core Syntax/ch07_03_02.md
+    - Ch 07 | Reversing Lists via Slicing: Core Syntax/ch07_03_03.md
+    - Ch 07 | In-Place Sorting vs the sorted() Function: Core Syntax/ch07_04_01.md
+    - Ch 07 | In-Place List Reversal: Core Syntax/ch07_04_02.md
+    - Ch 07 | Counting Value Occurrences: Core Syntax/ch07_04_03.md
+    - Ch 07 | Finding Value Index Positions: Core Syntax/ch07_04_04.md
+    - Ch 07 | Aggregations (len, min, max, sum): Core Syntax/ch07_04_05.md
+    - Ch 07 | Concise List Building Concepts: Core Syntax/ch07_05_01.md
+    - Ch 07 | Syntax Expressions and For Loops: Core Syntax/ch07_05_02.md
+    - Ch 07 | Filtering Comprehensions with Conditions: Core Syntax/ch07_05_03.md
+    - 'Ch 07 | Practical Example: Filtering High CPU Servers': Core Syntax/ch07_05_04.md
+    - Ch 07 | Membership Testing (in, not in): Core Syntax/ch07_06_01.md
+    - Ch 07 | Performance Trade-offs (Lists vs Sets): Core Syntax/ch07_06_02.md
+    - Ch 08 | Creating Tuples with Parentheses: Core Syntax/ch08_01_01.md
+    - Ch 08 | Index-Based Access Mechanics: Core Syntax/ch08_01_02.md
+    - Ch 08 | Immutability Benefits for Fixed Data: Core Syntax/ch08_01_03.md
+    - Ch 08 | Packing and Unpacking Tuples: Core Syntax/ch08_01_04.md
+    - Ch 08 | Returning Multiple Values from Functions: Core Syntax/ch08_01_05.md
+    - Ch 08 | Structural Modification Trade-offs: Core Syntax/ch08_02_01.md
+    - Ch 08 | Tuples as Dictionary Keys: Core Syntax/ch08_02_02.md
+    - Ch 08 | Performance and Allocation Efficiency: Core Syntax/ch08_02_03.md
+    - Ch 08 | Creating Sets with Braces or Constructor: Core Syntax/ch08_03_01.md
+    - Ch 08 | Uniqueness Property and Duplicate Elimination: Core Syntax/ch08_03_02.md
+    - Ch 08 | Unordered Nature and No Indexing: Core Syntax/ch08_03_03.md
+    - 'Ch 08 | Practical Example: Deduplicating IP Lists': Core Syntax/ch08_03_04.md
+    - Ch 08 | Adding Elements with add(): Core Syntax/ch08_04_01.md
+    - Ch 08 | Removing Elements (remove vs discard): Core Syntax/ch08_04_02.md
+    - Ch 08 | Combining Sets via Union or Pipe: Core Syntax/ch08_04_03.md
+    - Ch 08 | Shared Elements via Intersection and Ampersand: Core Syntax/ch08_04_04.md
+    - Ch 08 | Exclusion Testing via Difference (Minus): Core Syntax/ch08_04_05.md
+    - Ch 08 | Non-Overlapping Testing via Symmetric Difference: Core Syntax/ch08_04_06.md
+    - 'Ch 08 | Practical Example: Comparing Environment Server Sets': Core Syntax/ch08_04_07.md
+    - Ch 08 | Frozenset Definition (Immutable Sets): Core Syntax/ch08_05_01.md
+    - 'Ch 08 | Use Cases: Frozen Sets as Dictionary Keys': Core Syntax/ch08_05_02.md
+    - Ch 09 | Defining Dictionaries (Key-Value Braces): Core Syntax/ch09_01_01.md
+    - Ch 09 | Accessing Values by Keys: Core Syntax/ch09_01_02.md
+    - Ch 09 | Safe Access with the get() Method: Core Syntax/ch09_01_03.md
+    - Ch 09 | Key Existence Checking with in: Core Syntax/ch09_01_04.md
+    - Ch 09 | Adding New Key-Value Pairs: Core Syntax/ch09_02_01.md
+    - Ch 09 | Updating Existing Key-Values: Core Syntax/ch09_02_02.md
+    - Ch 09 | Deleting Keys (del vs pop): Core Syntax/ch09_02_03.md
+    - Ch 09 | Merging Dictionaries with Update: Core Syntax/ch09_02_04.md
+    - Ch 09 | Iterating Over Keys by Default: Core Syntax/ch09_03_01.md
+    - Ch 09 | Iterating Over Values Explicitly: Core Syntax/ch09_03_02.md
+    - Ch 09 | Iterating Over Key-Value Pairs (items): Core Syntax/ch09_03_03.md
+    - 'Ch 09 | Practical Example: Printing Server Inventory Statuses': Core Syntax/ch09_03_04.md
+    - Ch 09 | Dictionaries Inside Dictionaries: Core Syntax/ch09_04_01.md
+    - Ch 09 | Accessing Deeply Nested Values: Core Syntax/ch09_04_02.md
+    - 'Ch 09 | Practical Example: Nested Network Device Configs': Core Syntax/ch09_04_03.md
+    - Ch 09 | Syntax Key-Value Expressions and Loops: Core Syntax/ch09_05_01.md
+    - 'Ch 09 | Practical Example: Inverting Dictionaries': Core Syntax/ch09_05_02.md
+    - Ch 09 | Content Views (keys, values, items): Core Syntax/ch09_06_01.md
+    - Ch 09 | Conditional Assignment via setdefault(): Core Syntax/ch09_06_02.md
+    - Ch 09 | Bulk Initialization via fromkeys(): Core Syntax/ch09_06_03.md
+    - Ch 10 | The def Keyword and Syntax: Core Syntax/ch10_01_01.md
+    - Ch 10 | Calling Functions by Name: Core Syntax/ch10_01_02.md
+    - Ch 10 | Modular Code and Readability Benefits: Core Syntax/ch10_01_03.md
+    - 'Ch 10 | Practical Example: Host Reachability Check Function': Core Syntax/ch10_01_04.md
+    - Ch 10 | Positional Parameters and Ordering: Core Syntax/ch10_02_01.md
+    - Ch 10 | Keyword Arguments Passed by Name: Core Syntax/ch10_02_02.md
+    - Ch 10 | Default Parameter Values and Optionality: Core Syntax/ch10_02_03.md
+    - 'Ch 10 | Definitions: Parameters vs Arguments': Core Syntax/ch10_02_04.md
+    - Ch 10 | Returning Results with return: Core Syntax/ch10_03_01.md
+    - Ch 10 | Returning Multiple Values via Tuples: Core Syntax/ch10_03_02.md
+    - Ch 10 | Implicit None Returns: Core Syntax/ch10_03_03.md
+    - Ch 10 | Local Scope Inside Functions: Core Syntax/ch10_04_01.md
+    - Ch 10 | Global Scope Outside Functions: Core Syntax/ch10_04_02.md
+    - Ch 10 | Global Keyword Usage Boundaries: Core Syntax/ch10_04_03.md
+    - Ch 10 | Nonlocal Keyword in Nested Functions: Core Syntax/ch10_04_04.md
+    - Ch 10 | Variable Positional Arguments (args): Core Syntax/ch10_05_01.md
+    - Ch 10 | Variable Keyword Arguments (kwargs): Core Syntax/ch10_05_02.md
+    - Ch 10 | Use Case Scenarios and Operational Benefits: Core Syntax/ch10_05_03.md
+    - 'Ch 10 | Practical Example: Variable-Length Logging Helper': Core Syntax/ch10_05_04.md
+    - Ch 10 | Anonymous Function Concepts: Core Syntax/ch10_06_01.md
+    - Ch 10 | Lambda Syntax (Arguments and Expression): Core Syntax/ch10_06_02.md
+    - Ch 10 | Throwaway Inline Use Cases: Core Syntax/ch10_06_03.md
+    - Ch 10 | Lambdas with sorted, map, and filter: Core Syntax/ch10_06_04.md
+    - Ch 10 | Inline Documentation with Triple Quotes: Core Syntax/ch10_07_01.md
+    - Ch 10 | Accessing Docstrings via help() and __doc__: Core Syntax/ch10_07_02.md
+    - Ch 10 | Professional Documentation Practices: Core Syntax/ch10_07_03.md
+  - Data Structures & Built-ins:
+    - Data Structures & Built-ins Roadmap: Data Structures & Built-ins/index.md
+    - Ch 11 | Python File as an Isolated Module: Data Structures & Built-ins/ch11_01_01.md
+    - Ch 11 | Module Search Path Mechanics: Data Structures & Built-ins/ch11_01_02.md
+    - Ch 11 | Built-in vs Third-Party vs Custom Modules: Data Structures & Built-ins/ch11_01_03.md
+    - Ch 11 | Importing a Whole Module Namespace: Data Structures & Built-ins/ch11_02_01.md
+    - Ch 11 | Importing Specific Items via From: Data Structures & Built-ins/ch11_02_02.md
+    - Ch 11 | Importing with a Shorter Alias: Data Structures & Built-ins/ch11_02_03.md
+    - Ch 11 | Wildcard Star Imports Dangers and Avoidance: Data Structures & Built-ins/ch11_02_04.md
+    - Ch 11 | The os Module for System Interactions: Data Structures & Built-ins/ch11_03_01.md
+    - Ch 11 | The sys Module for Interpreter Parameters: Data Structures & Built-ins/ch11_03_02.md
+    - Ch 11 | The subprocess Module for Shell Execution: Data Structures & Built-ins/ch11_03_03.md
+    - Ch 11 | The socket Module for Low-Level Networking: Data Structures & Built-ins/ch11_03_04.md
+    - Ch 11 | The time and datetime Modules for Tracking: Data Structures & Built-ins/ch11_03_05.md
+    - Ch 11 | The re Module for Regex Pattern Matching: Data Structures & Built-ins/ch11_03_06.md
+    - Ch 11 | The json Module for Data Serialization: Data Structures & Built-ins/ch11_03_07.md
+    - Ch 11 | The logging Module for Structured Logs: Data Structures & Built-ins/ch11_03_08.md
+    - Ch 11 | The name == main Pattern Execution Mechanics: Data Structures & Built-ins/ch11_04_01.md
+    - Ch 11 | Writing Reusable Module Files: Data Structures & Built-ins/ch11_04_01.md
+    - Ch 11 | Importing Custom Modules Locally: Data Structures & Built-ins/ch11_04_02.md
+    - Ch 11 | The Batteries Included Philosophy: Data Structures & Built-ins/ch11_05_01.md
+    - Ch 11 | Navigating the Official Python Documentation: Data Structures & Built-ins/ch11_05_02.md
+    - Ch 11 | Important Library Categories Summary: Data Structures & Built-ins/ch11_05_03.md
+    - Ch 12 | File Opening with the open() Function: Data Structures & Built-ins/ch12_01_01.md
+    - Ch 12 | File Modes (Read, Write, Append, Binary): Data Structures & Built-ins/ch12_01_02.md
+    - Ch 12 | Manual File Closing Dangers: Data Structures & Built-ins/ch12_01_03.md
+    - Ch 12 | Context Managers and with open Standard: Data Structures & Built-ins/ch12_01_04.md
+    - Ch 12 | Reading Entire File as a String: Data Structures & Built-ins/ch12_02_01.md
+    - Ch 12 | Reading Single Line-by-Line Sequences: Data Structures & Built-ins/ch12_02_02.md
+    - Ch 12 | Reading All Lines into a List Array: Data Structures & Built-ins/ch12_02_03.md
+    - Ch 12 | Memory Efficient Line Iteration Loops: Data Structures & Built-ins/ch12_02_04.md
+    - Ch 12 | Writing Strings with write(): Data Structures & Built-ins/ch12_03_01.md
+    - Ch 12 | Writing Lists of Strings via writelines(): Data Structures & Built-ins/ch12_03_02.md
+    - Ch 12 | Appending Without Overwriting Targets: Data Structures & Built-ins/ch12_03_03.md
+    - 'Ch 12 | Practical Example: Writing Script Execution Logs': Data Structures
+        & Built-ins/ch12_03_04.md
+    - Ch 12 | Path Operations with os.path Utilities: Data Structures & Built-ins/ch12_04_01.md
+    - Ch 12 | Cross-Platform Path Building via join: Data Structures & Built-ins/ch12_04_02.md
+    - Ch 12 | Existence Checks and File/Directory Validation: Data Structures & Built-ins/ch12_04_03.md
+    - Ch 12 | Modern Path Management with pathlib: Data Structures & Built-ins/ch12_04_04.md
+    - Ch 12 | The csv Module for Reading and Writing Lists: Data Structures & Built-ins/ch12_05_01.md
+    - Ch 12 | Using csv.reader and csv.writer: Data Structures & Built-ins/ch12_05_02.md
+    - Ch 12 | Dictionary Mapping with csv.DictReader: Data Structures & Built-ins/ch12_05_03.md
+    - 'Ch 12 | Practical Example: Reading Server Inventory CSVs': Data Structures
+        & Built-ins/ch12_05_04.md
+    - Ch 12 | File Deserialization via json.load(): Data Structures & Built-ins/ch12_06_01.md
+    - Ch 12 | File Serialization via json.dump(): Data Structures & Built-ins/ch12_06_02.md
+    - Ch 12 | String Serialization via loads and dumps: Data Structures & Built-ins/ch12_06_03.md
+    - 'Ch 12 | Practical Example: Reading JSON Configurations': Data Structures &
+        Built-ins/ch12_06_04.md
+    - Ch 13 | Interpreter Error Raising Concepts: Data Structures & Built-ins/ch13_01_01.md
+    - Ch 13 | Common Built-in Exceptions Catalog: Data Structures & Built-ins/ch13_01_02.md
+    - Ch 13 | Syntax Errors vs Runtime Exceptions: Data Structures & Built-ins/ch13_01_03.md
+    - Ch 13 | Basic Try-Except Structures: Data Structures & Built-ins/ch13_02_01.md
+    - Ch 13 | Catching Specific Exception Types: Data Structures & Built-ins/ch13_02_02.md
+    - Ch 13 | Multiple Except Blocks Handling: Data Structures & Built-ins/ch13_02_03.md
+    - Ch 13 | Capturing Messages via except Exception as e: Data Structures & Built-ins/ch13_02_04.md
+    - Ch 13 | Successful Execution Blocks with else: Data Structures & Built-ins/ch13_03_01.md
+    - Ch 13 | Guaranteed Cleanup Execution via finally: Data Structures & Built-ins/ch13_03_02.md
+    - 'Ch 13 | Practical Example: Closing Connections and Files': Data Structures
+        & Built-ins/ch13_03_03.md
+    - Ch 13 | Intentional Error Triggering via raise: Data Structures & Built-ins/ch13_04_01.md
+    - Ch 13 | Re-raising Caught Exceptions Patterns: Data Structures & Built-ins/ch13_04_02.md
+    - Ch 13 | Architectural Reasons for Raising Exceptions: Data Structures & Built-ins/ch13_04_03.md
+    - Ch 13 | Inheriting from the Base Exception Class: Data Structures & Built-ins/ch13_05_01.md
+    - Ch 13 | Code Clarity Improvements via Custom Errors: Data Structures & Built-ins/ch13_05_02.md
+    - 'Ch 13 | Practical Example: ConnectionFailedError Definition': Data Structures
+        & Built-ins/ch13_05_03.md
+    - Ch 13 | Bare Except Pitfalls and Avoidance: Data Structures & Built-ins/ch13_06_01.md
+    - Ch 13 | Exception Silencing Dangers and Logging Needs: Data Structures & Built-ins/ch13_06_02.md
+    - Ch 13 | Logging Module Integration vs Print Statements: Data Structures & Built-ins/ch13_06_03.md
+    - Ch 13 | Architectural Fail-Fast vs Graceful Degradation: Data Structures & Built-ins/ch13_06_04.md
+    - Ch 14 | Directory Retrieval and Navigation (getcwd, chdir): Data Structures
+        & Built-ins/ch14_01_01.md
+    - Ch 14 | Listing Directory Contents via listdir: Data Structures & Built-ins/ch14_01_02.md
+    - Ch 14 | Creating Directories (mkdir, File Structures): Data Structures & Built-ins/ch14_01_03.md
+    - Ch 14 | Deleting Files and Directories (remove, rmdir): Data Structures & Built-ins/ch14_01_04.md
+    - Ch 14 | Renaming Files and Targets with os.rename: Data Structures & Built-ins/ch14_01_05.md
+    - Ch 14 | Reading Active Shell Environment Variables: Data Structures & Built-ins/ch14_01_06.md
+    - Ch 14 | Safe Environment Variable Retrieval via getenv: Data Structures & Built-ins/ch14_01_07.md
+    - Ch 14 | Copying Files (shutil.copy vs copy2): Data Structures & Built-ins/ch14_02_01.md
+    - Ch 14 | Moving Files and Directories via shutil.move: Data Structures & Built-ins/ch14_02_02.md
+    - Ch 14 | Recursive Directory Tree Deletion (rmtree): Data Structures & Built-ins/ch14_02_03.md
+    - Ch 14 | Checking Physical Disk Space Layouts: Data Structures & Built-ins/ch14_02_04.md
+    - 'Ch 14 | Practical Example: Archiving Old Log Files': Data Structures & Built-ins/ch14_02_05.md
+    - Ch 14 | Recommended Execution with subprocess.run(): Data Structures & Built-ins/ch14_03_01.md
+    - Ch 14 | Capturing Command Output and Error Streams: Data Structures & Built-ins/ch14_03_02.md
+    - Ch 14 | Return Code Evaluations and Assertions: Data Structures & Built-ins/ch14_03_03.md
+    - Ch 14 | Safe Argument Arrays and Injection Mitigation: Data Structures & Built-ins/ch14_03_04.md
+    - Ch 14 | Advanced Process Management via Popen: Data Structures & Built-ins/ch14_03_05.md
+    - 'Ch 14 | Practical Example: Running ping, df, and systemctl': Data Structures
+        & Built-ins/ch14_03_06.md
+    - Ch 14 | Reading Command-Line Arguments via argv: Data Structures & Built-ins/ch14_04_01.md
+    - Ch 14 | Script Termination with System Exit Codes: Data Structures & Built-ins/ch14_04_02.md
+    - Ch 14 | Host Operating System Detection via platform: Data Structures & Built-ins/ch14_04_03.md
+    - Ch 14 | Module Lookup Paths and the sys.path Array: Data Structures & Built-ins/ch14_04_04.md
+    - Ch 14 | Getting the Current Process ID via getpid: Data Structures & Built-ins/ch14_05_01.md
+    - Ch 14 | Signal Module Introduction and Concepts: Data Structures & Built-ins/ch14_05_02.md
+    - Ch 14 | Handling SIGINT (Ctrl+C) Gracefully: Data Structures & Built-ins/ch14_05_03.md
+    - Ch 15 | Text Pattern Matching and Bound Concepts: Data Structures & Built-ins/ch15_01_01.md
+    - Ch 15 | Regex Power and Advantages Over String Methods: Data Structures & Built-ins/ch15_01_02.md
+    - Ch 15 | The re Module Initialization in Python: Data Structures & Built-ins/ch15_01_03.md
+    - Ch 15 | Wildcards and Quantifiers (dot, star, plus, ?): Data Structures & Built-ins/ch15_02_01.md
+    - Ch 15 | Boundary Anchors (Caret and Dollar Sign): Data Structures & Built-ins/ch15_02_02.md
+    - Ch 15 | Character Classes (Digits, Words, Whitespace): Data Structures & Built-ins/ch15_02_03.md
+    - Ch 15 | Matching Character Sets Using Brackets: Data Structures & Built-ins/ch15_02_04.md
+    - Ch 15 | Negated Character Sets (Caret in Brackets): Data Structures & Built-ins/ch15_02_05.md
+    - Ch 15 | Match at Start vs Search Anywhere: Data Structures & Built-ins/ch15_03_01.md
+    - Ch 15 | Finding All Matches (findall vs finditer): Data Structures & Built-ins/ch15_03_02.md
+    - Ch 15 | Substitutions and Replacing Patterns via sub(): Data Structures & Built-ins/ch15_03_03.md
+    - Ch 15 | Compiling Reusable Patterns via re.compile(): Data Structures & Built-ins/ch15_03_04.md
+    - Ch 15 | Creating Capture Groups Using Parentheses: Data Structures & Built-ins/ch15_04_01.md
+    - Ch 15 | Accessing Positional Groups by Group Index: Data Structures & Built-ins/ch15_04_02.md
+    - Ch 15 | Named Capture Groups Syntax Layouts: Data Structures & Built-ins/ch15_04_03.md
+    - 'Ch 15 | Practical Example: Extracting Fields from Logs': Data Structures &
+        Built-ins/ch15_04_04.md
+    - Ch 15 | Validating IPv4 Address String Formats: Data Structures & Built-ins/ch15_05_01.md
+    - Ch 15 | Extracting All IPs from Unstructured Text: Data Structures & Built-ins/ch15_05_02.md
+    - Ch 15 | Parsing Structured Logs for Error Entries: Data Structures & Built-ins/ch15_05_03.md
+    - Ch 15 | Extracting Interface Names from show interface: Data Structures & Built-ins/ch15_05_04.md
+  - Infrastructure Automation:
+    - Infrastructure Automation Roadmap: Infrastructure Automation/index.md
+    - Ch 16 | Importing Datetime Core Components Safely: Infrastructure Automation/ch16_01_01.md
+    - Ch 16 | Local System Time Retrieved via now(): Infrastructure Automation/ch16_01_02.md
+    - Ch 16 | Standard Reference Clocks via utcnow(): Infrastructure Automation/ch16_01_03.md
+    - Ch 16 | Instantiating Specific Explicit Datetime Objects: Infrastructure Automation/ch16_01_04.md
+    - Ch 16 | Converting Datetime to String via strftime: Infrastructure Automation/ch16_02_01.md
+    - Ch 16 | Parsing Strings into Datetime via strptime: Infrastructure Automation/ch16_02_02.md
+    - Ch 16 | Common Format Codes Reference Catalog: Infrastructure Automation/ch16_02_03.md
+    - 'Ch 16 | Practical Example: Parsing Log Timestamps': Infrastructure Automation/ch16_02_04.md
+    - Ch 16 | Creating Timedeltas and Measurement Offsets: Infrastructure Automation/ch16_03_01.md
+    - Ch 16 | Adding and Subtracting Offsets from Datetime: Infrastructure Automation/ch16_03_02.md
+    - Ch 16 | Calculating Intervals Between Two Datetimes: Infrastructure Automation/ch16_03_03.md
+    - 'Ch 16 | Practical Example: SSL Certificate Expiry Alerts': Infrastructure Automation/ch16_03_04.md
+    - Ch 16 | Understanding Epoch Timelines and Seconds Tracking: Infrastructure Automation/ch16_04_01.md
+    - Ch 16 | Converting Python Datetime to Timestamp Floats: Infrastructure Automation/ch16_04_02.md
+    - Ch 16 | Converting Timestamps Back to Datetime Objects: Infrastructure Automation/ch16_04_03.md
+    - Ch 16 | Use Cases for Timestamps in APIs and Logs: Infrastructure Automation/ch16_04_04.md
+    - Ch 16 | Naive vs Timezone-Aware Objects Pitfalls: Infrastructure Automation/ch16_05_01.md
+    - Ch 16 | Modern Timezone Management via zoneinfo: Infrastructure Automation/ch16_05_02.md
+    - Ch 16 | Converting Timestamps Between Regional Zones: Infrastructure Automation/ch16_05_03.md
+    - Ch 16 | Architectural Standardization on UTC References: Infrastructure Automation/ch16_05_04.md
+    - Ch 16 | Pausing Script Paths Temporarily via sleep(): Infrastructure Automation/ch16_06_01.md
+    - Ch 16 | Current Epoch Time as a Raw Float Directly: Infrastructure Automation/ch16_06_02.md
+    - Ch 16 | Profiling and Measuring Execution Durations: Infrastructure Automation/ch16_06_03.md
+    - Ch 17 | REST API Request-Response Framework Models: Infrastructure Automation/ch17_01_01.md
+    - Ch 17 | HTTP Methods (GET, POST, PUT, DELETE): Infrastructure Automation/ch17_01_02.md
+    - Ch 17 | HTTP Status Codes Classification and Meanings: Infrastructure Automation/ch17_01_03.md
+    - Ch 17 | JSON as the Standard Transmission Payload Format: Infrastructure Automation/ch17_01_04.md
+    - Ch 17 | Installing Third-Party Packages via pip Systems: Infrastructure Automation/ch17_02_01.md
+    - Ch 17 | Executing Data Retrievals via requests.get(): Infrastructure Automation/ch17_02_02.md
+    - Ch 17 | Executing Data Submissions via requests.post(): Infrastructure Automation/ch17_02_03.md
+    - Ch 17 | Evaluating Response Attributes (Status, Body, Headers): Infrastructure
+        Automation/ch17_02_04.md
+    - Ch 17 | Asserting Success via raise_for_status(): Infrastructure Automation/ch17_02_05.md
+    - Ch 17 | URL Query Parameters and the params Dictionary: Infrastructure Automation/ch17_03_01.md
+    - Ch 17 | Setting Operational Fields in Request Headers: Infrastructure Automation/ch17_03_02.md
+    - Ch 17 | Bearer Token Authentication Headers Rules: Infrastructure Automation/ch17_03_03.md
+    - Ch 17 | API Key Authentication Patterns and Logic: Infrastructure Automation/ch17_03_04.md
+    - Ch 17 | Enforcing Limits on Calls with Timeout Arguments: Infrastructure Automation/ch17_04_01.md
+    - Ch 17 | Catching Failures via requests.exceptions.Timeout: Infrastructure Automation/ch17_04_02.md
+    - Ch 17 | Catching Anomalies via requests.exceptions.ConnectionError: Infrastructure
+        Automation/ch17_04_03.md
+    - Ch 17 | Implementing Manual Retry Backoff Loops: Infrastructure Automation/ch17_04_04.md
+    - Ch 17 | Parsing Payload Content into Native Objects via .json(): Infrastructure
+        Automation/ch17_05_01.md
+    - Ch 17 | Navigating Deep Nested Responses and Arrays: Infrastructure Automation/ch17_05_02.md
+    - 'Ch 17 | Practical Example: Querying Real-Time Monitoring Alerts': Infrastructure
+        Automation/ch17_05_03.md
+    - Ch 17 | Sending JSON Payloads in POST Requests: Infrastructure Automation/ch17_06_01.md
+    - Ch 17 | Sending Standard URL-Encoded Form Data: Infrastructure Automation/ch17_06_02.md
+    - Ch 17 | Uploading Files and Multipart Form Data: Infrastructure Automation/ch17_06_03.md
+    - Ch 18 | Class Blueprint Profiles vs Object Instances: Infrastructure Automation/ch18_01_01.md
+    - Ch 18 | Code Organization and Complexity Management Benefits: Infrastructure
+        Automation/ch18_01_02.md
+    - Ch 18 | Architectural Comparison (Procedural vs OOP): Infrastructure Automation/ch18_01_03.md
+    - Ch 18 | The class Keyword and Base Code Block Syntax: Infrastructure Automation/ch18_02_01.md
+    - Ch 18 | The Constructor Initialization (__init__) Method: Infrastructure Automation/ch18_02_02.md
+    - Ch 18 | Instance Variables and Tracking Object State: Infrastructure Automation/ch18_02_03.md
+    - Ch 18 | The self Parameter Reference Mechanics: Infrastructure Automation/ch18_02_04.md
+    - Ch 18 | Defining Internal Business Logic Methods Inside Classes: Infrastructure
+        Automation/ch18_03_01.md
+    - Ch 18 | Method Bindings vs Regular Function Structures: Infrastructure Automation/ch18_03_02.md
+    - 'Ch 18 | Practical Example: Server Class with check_status()': Infrastructure
+        Automation/ch18_03_03.md
+    - Ch 18 | Binding Data and Behavior Within Scopes: Infrastructure Automation/ch18_04_01.md
+    - Ch 18 | Public, Protected, and Private Naming Conventions: Infrastructure Automation/ch18_04_02.md
+    - Ch 18 | Getters and Setters Interfaces via Property Decorators: Infrastructure
+        Automation/ch18_04_03.md
+    - Ch 18 | Extending Parent Classes Templates into Child Models: Infrastructure
+        Automation/ch18_05_01.md
+    - Ch 18 | Calling Parent Constructors via the super Mechanism: Infrastructure
+        Automation/ch18_05_02.md
+    - Ch 18 | Overriding Parent Actions in Specialized Child Classes: Infrastructure
+        Automation/ch18_05_03.md
+    - 'Ch 18 | Practical Example: Device Class Extended by Router/Switch': Infrastructure
+        Automation/ch18_05_04.md
+    - Ch 18 | User-Facing String Representations via __str__: Infrastructure Automation/ch18_06_01.md
+    - Ch 18 | Developer-Facing Evaluations via __repr__: Infrastructure Automation/ch18_06_02.md
+    - Ch 18 | Customizing Sizes and Sorting via __len__, __eq__, __lt__: Infrastructure
+        Automation/ch18_06_03.md
+    - Ch 18 | Why Implementing Dunder Signatures Makes Objects Feel Native: Infrastructure
+        Automation/ch18_06_04.md
+    - Ch 18 | Shared Class Variables Across Active Instances: Infrastructure Automation/ch18_07_01.md
+    - Ch 18 | Method Specializations (classmethod and staticmethod): Infrastructure
+        Automation/ch18_07_02.md
+    - Ch 19 | Tracing JSON Types Mapping to Python Equivalents: Infrastructure Automation/ch19_01_01.md
+    - Ch 19 | Processing Variables Payloads via loads and dumps: Infrastructure Automation/ch19_01_02.md
+    - Ch 19 | Streaming Configuration Files via load and dump: Infrastructure Automation/ch19_01_03.md
+    - Ch 19 | Beautifying Layout Files via Indent Parameters: Infrastructure Automation/ch19_01_04.md
+    - Ch 19 | Handling Non-Serializable Types like Datetimes: Infrastructure Automation/ch19_01_05.md
+    - Ch 19 | YAML Benefits in Infrastructure Tools like K8s: Infrastructure Automation/ch19_02_01.md
+    - Ch 19 | Installing and Importing PyYAML Packages via pip: Infrastructure Automation/ch19_02_02.md
+    - Ch 19 | Safe Parsing Workflows via yaml.safe_load: Infrastructure Automation/ch19_02_03.md
+    - Ch 19 | Serializing Dictionaries Back into YAML Blocks: Infrastructure Automation/ch19_02_04.md
+    - Ch 19 | Processing Streaming Multi-Document YAML Inputs: Infrastructure Automation/ch19_02_05.md
+    - 'Ch 19 | Practical Example: Reading Ansible Inventory YAMLs': Infrastructure
+        Automation/ch19_02_06.md
+    - Ch 19 | Extracting Tabular Data Rows as List Objects: Infrastructure Automation/ch19_03_01.md
+    - Ch 19 | Extracting Row Cells as Dictionary Keys via DictReader: Infrastructure
+        Automation/ch19_03_02.md
+    - Ch 19 | Emitting Flat Array Records into Files via csv.writer: Infrastructure
+        Automation/ch19_03_03.md
+    - Ch 19 | Emitting Structured Data Rows into Files via DictWriter: Infrastructure
+        Automation/ch19_03_04.md
+    - Ch 19 | Handling Non-Standard Delimiters (Semicolons, Pipes): Infrastructure
+        Automation/ch19_03_05.md
+    - 'Ch 19 | Practical Example: Reading Firewall Rule Matrix Exports': Infrastructure
+        Automation/ch19_03_06.md
+    - Ch 19 | Context Analysis and Format Selection Frameworks: Infrastructure Automation/ch19_04_01.md
+    - Ch 19 | Building Conversion Pipelines (JSON Sets to YAML Strings): Infrastructure
+        Automation/ch19_04_02.md
+    - Ch 19 | Weighing Human Legibility Against Machine Parsing Speeds: Infrastructure
+        Automation/ch19_04_03.md
+    - Ch 19 | Checking for Mandatory Schema Configuration Key Markers: Infrastructure
+        Automation/ch19_05_01.md
+    - Ch 19 | Type Checking Parsed Parameter Values in Configurations: Infrastructure
+        Automation/ch19_05_02.md
+    - Ch 19 | Writing Custom Assertion Diagnostic Functions: Infrastructure Automation/ch19_05_03.md
+    - Ch 19 | Formal Advanced Schema Enforcement via jsonschema: Infrastructure Automation/ch19_05_04.md
+    - Ch 20 | Following Official PEP 8 Specification Philosophies: Infrastructure
+        Automation/ch20_01_01.md
+    - Ch 20 | Naming Standards (Snake Case vs Pascal Case Forms): Infrastructure Automation/ch20_01_02.md
+    - Ch 20 | Line Length Limitations and Blank Line Separation Rules: Infrastructure
+        Automation/ch20_01_03.md
+    - Ch 20 | Automated Reformatting via autopep8 and Black: Infrastructure Automation/ch20_01_04.md
+    - Ch 20 | Commenting the Why Instead of the What: Infrastructure Automation/ch20_02_01.md
+    - Ch 20 | Writing Function and Class Level Docstring Profiles: Infrastructure
+        Automation/ch20_02_02.md
+    - Ch 20 | Declaring Top Level Script Architectural Docstrings: Infrastructure
+        Automation/ch20_02_03.md
+    - Ch 20 | Verifying Documentation Layouts in Interactive Help: Infrastructure
+        Automation/ch20_02_04.md
+    - Ch 20 | Print Statement Unsuitability for Production Setups: Infrastructure
+        Automation/ch20_03_01.md
+    - Ch 20 | Logging Module Architecture and Visibility Advantages: Infrastructure
+        Automation/ch20_03_02.md
+    - Ch 20 | Categorizing System Alerts Across Severity Levels: Infrastructure Automation/ch20_03_03.md
+    - Ch 20 | Configuring Format Layouts with Timestamps and Fields: Infrastructure
+        Automation/ch20_03_04.md
+    - Ch 20 | Routing Active Logs to Files vs Console Streams: Infrastructure Automation/ch20_03_05.md
+    - Ch 20 | Mitigating Hardcoded Value Pitfalls via Terminal Inputs: Infrastructure
+        Automation/ch20_04_01.md
+    - Ch 20 | Declaring Interfaces via the Standard argparse Library: Infrastructure
+        Automation/ch20_04_02.md
+    - Ch 20 | Required Positional Flags vs Optional Parameter Fields: Infrastructure
+        Automation/ch20_04_03.md
+    - Ch 20 | Adding Descriptive Instructions and Fallback Defaults: Infrastructure
+        Automation/ch20_04_04.md
+    - 'Ch 20 | Practical Example: Accepts Host, Port, and Timeout': Infrastructure
+        Automation/ch20_04_05.md
+    - Ch 20 | Decoupling Dynamic System Variables from Logic Code: Infrastructure
+        Automation/ch20_05_01.md
+    - Ch 20 | Isolating Secrets and Keys Inside Environment Variables: Infrastructure
+        Automation/ch20_05_02.md
+    - Ch 20 | Ingesting Parameters Out of Separate JSON or YAML Files: Infrastructure
+        Automation/ch20_05_03.md
+    - 'Ch 20 | Anti-Pattern Warning: Hardcoding Passwords and IPs': Infrastructure
+        Automation/ch20_05_04.md
+    - Ch 20 | Idempotency Laws and Automation Safety Value: Infrastructure Automation/ch20_06_01.md
+    - Ch 20 | Pre-Execution Checks and Target State Assertions: Infrastructure Automation/ch20_06_02.md
+    - Ch 20 | Ensuring Multiple Passes Yield Consistent States: Infrastructure Automation/ch20_06_03.md
+    - Ch 20 | The name == main Pattern Execution Mechanics: Infrastructure Automation/ch20_07_01.md
+    - Ch 20 | Decoupling Logic Statements into Testable Functions: Infrastructure
+        Automation/ch20_07_02.md
+    - Ch 20 | Standard Script Topography (Imports down to Main Loop): Infrastructure
+        Automation/ch20_07_03.md
+    - Ch 21 | Problem Definition and Input-Output Mapping Profiles: Infrastructure
+        Automation/ch21_01_01.md
+    - Ch 21 | Identifying Module Dependencies and Requirements Sets: Infrastructure
+        Automation/ch21_01_02.md
+    - Ch 21 | Tracing High-Level Information Flow and Error Catching: Infrastructure
+        Automation/ch21_01_03.md
+    - Ch 21 | Fleshing Out Milestones Using Functional Pseudo-Code: Infrastructure
+        Automation/ch21_01_04.md
+    - Ch 21 | Architecting Health Reporter Profiles and Requirements: Infrastructure
+        Automation/ch21_02_01.md
+    - Ch 21 | Command-Line Flag Parsing for Output File Selection: Infrastructure
+        Automation/ch21_02_02.md
+    - Ch 21 | Collecting Live Disk Space, CPU, and Process Data: Infrastructure Automation/ch21_02_03.md
+    - Ch 21 | Mapping Disparate Metrics into Uniform Data Dictionaries: Infrastructure
+        Automation/ch21_02_04.md
+    - Ch 21 | Handling Permission Blocks and Missing Utilities Errors: Infrastructure
+        Automation/ch21_02_05.md
+    - Ch 21 | Serialization of Reports into JSON or Text Files: Infrastructure Automation/ch21_02_06.md
+    - Ch 21 | Routing Script Operation Metrics to Tracking Logs: Infrastructure Automation/ch21_02_07.md
+    - Ch 21 | Auditing Documentation Completeness Across Blocks: Infrastructure Automation/ch21_03_01.md
+    - Ch 21 | Asserting Compliance with Styling and Layout Guides: Infrastructure
+        Automation/ch21_03_02.md
+    - Ch 21 | Ensuring Absolute Exception Handling Coverage Layers: Infrastructure
+        Automation/ch21_03_03.md
+    - Ch 21 | Securing Sensitive Credentials, Passwords, and Tokens: Infrastructure
+        Automation/ch21_03_04.md
+    - Ch 21 | Testing Execution Idempotency Across Multiple Passes: Infrastructure
+        Automation/ch21_03_05.md
+    - Ch 21 | Verifying Interface Help Clarity with Custom Arguments: Infrastructure
+        Automation/ch21_03_06.md
+    - Ch 21 | Strategic Print Placement During Script Development: Infrastructure
+        Automation/ch21_04_01.md
+    - Ch 21 | Halting Code Paths to Inspect via pdb.set_trace(): Infrastructure Automation/ch21_04_02.md
+    - Ch 21 | Deconstructing Traceback Reports to Locate Failure Roots: Infrastructure
+        Automation/ch21_04_03.md
+    - Ch 21 | Dropping Breakpoints via the Built-in Primitives Hook: Infrastructure
+        Automation/ch21_04_04.md
+    - Ch 21 | Cataloging Common Integration Mistakes and Fixes: Infrastructure Automation/ch21_04_05.md
+    - Ch 21 | Advanced Concepts (Decorators and Custom Context Managers): Infrastructure
+        Automation/ch21_05_01.md
+    - Ch 21 | Optimizing Iteration Pipelines via Generator Yields: Infrastructure
+        Automation/ch21_05_02.md
+    - Ch 21 | Exploring Parallel Tracks (Threading and Asyncio Engines): Infrastructure
+        Automation/ch21_05_03.md
+    - Ch 21 | Validating Script Automation Actions Using Pytest: Infrastructure Automation/ch21_05_04.md
+    - Ch 21 | Binding Scripts to Database Endpoints via Native Drivers: Infrastructure
+        Automation/ch21_05_05.md
+    - Ch 21 | Connecting to Infrastructure Packages (Netmiko, Boto3, K8s): Infrastructure
+        Automation/ch21_05_06.md
+    - Ch 21 | Practice Targets Review (Backup Automation, Scan Tools): Infrastructure
+        Automation/ch21_05_07.md
+- Java for Infrastructure:
+  - Getting Ready:
+    - Coming Soon: Java for Infrastructure/coming_soon.md
