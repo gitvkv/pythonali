@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch16_02_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 16 | Practical Example: Parsing Log Timestamps - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 16 | Practical Example: Parsing Log Timestamps";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch16_02_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch16_02_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -757,6 +757,40 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-log-timestamp-formats">📊 Comparison Table: Common Log Timestamp Formats</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-log-timestamp-formats_1">🕵️ Understanding Log Timestamp Formats</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-core-concept-strptime-and-strftime_1">⚙️ The Core Concept: strptime and strftime</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-format-codes-reference_1">📊 Common Format Codes Reference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-1-parsing-a-standard-log-timestamp_1">🛠️ Practical Example 1: Parsing a Standard Log Timestamp</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-2-parsing-web-server-log-format_1">🛠️ Practical Example 2: Parsing Web Server Log Format</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-3-parsing-syslog-format_1">🛠️ Practical Example 3: Parsing Syslog Format</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-edge-cases-and-common-pitfalls_1">🧩 Handling Edge Cases and Common Pitfalls</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#converting-between-timezones_1">🔄 Converting Between Timezones</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-workflow-for-log-parsing_1">📋 Practical Workflow for Log Parsing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🎯 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-parsing-a-simple-iso-8601-timestamp_1">📘 Example 1: Parsing a Simple ISO 8601 Timestamp</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-parsing-a-timestamp-with-milliseconds_1">📘 Example 2: Parsing a Timestamp with Milliseconds</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-parsing-a-timestamp-with-timezone-offset_1">📘 Example 3: Parsing a Timestamp with Timezone Offset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-parsing-a-common-apache-log-timestamp_1">📘 Example 4: Parsing a Common Apache Log Timestamp</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-parsing-multiple-log-timestamps-in-a-loop_1">📘 Example 5: Parsing Multiple Log Timestamps in a Loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-log-timestamp-formats_1">📊 Comparison Table: Common Log Timestamp Formats</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch16_03_01/">Ch 16 | Creating Timedeltas and Measurement Offsets</a>
@@ -1082,7 +1116,7 @@
               
                 <h1 id="practical-example-parsing-log-timestamps">Practical Example: Parsing Log Timestamps</h1>
 <p><span class="category-tag">🏷️ Working with Dates and Time /  Formatting and Parsing Dates</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1260,8 +1294,7 @@
 <li><strong>Account for edge cases</strong> like missing years, varying precision, and different timezone formats</li>
 </ul>
 <p>With these techniques, you can confidently extract and manipulate timestamp data from any log file format you encounter.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide shows how to convert log file timestamps into Python datetime objects for analysis and processing.</p>
 <hr />
 <h3 id="example-1-parsing-a-simple-iso-8601-timestamp">📘 Example 1: Parsing a Simple ISO 8601 Timestamp</h3>
@@ -1324,6 +1357,287 @@
 <strong>Parsed: 2024-01-15 08:15:30 | Message: WARN High latency detected</strong></p>
 <hr />
 <h3 id="comparison-table-common-log-timestamp-formats">📊 Comparison Table: Common Log Timestamp Formats</h3>
+<table>
+<thead>
+<tr>
+<th>Format Pattern</th>
+<th>Example Input</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%Y-%m-%d %H:%M:%S</code></td>
+<td>2024-01-15 14:30:00</td>
+<td>Standard system logs</td>
+</tr>
+<tr>
+<td><code>%Y-%m-%d %H:%M:%S.%f</code></td>
+<td>2024-01-15 14:30:00.123456</td>
+<td>High-precision logs</td>
+</tr>
+<tr>
+<td>ISO 8601 (fromisoformat)</td>
+<td>2024-01-15T14:30:00+05:30</td>
+<td>Modern APIs and services</td>
+</tr>
+<tr>
+<td><code>%d/%b/%Y:%H:%M:%S %z</code></td>
+<td>15/Jan/2024:14:30:00 +0000</td>
+<td>Apache web server logs</td>
+</tr>
+<tr>
+<td><code>%Y-%m-%dT%H:%M:%SZ</code></td>
+<td>2024-01-15T14:30:00Z</td>
+<td>Cloud and container logs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>Log files are everywhere in our daily work. Whether you're checking application logs, system logs, or monitoring outputs, timestamps are a critical piece of information. However, log timestamps come in many different formats, and extracting meaningful data from them requires careful parsing. This practical example will show you how to read, interpret, and manipulate timestamps from log files using Python's built-in date and time capabilities.</p>
+<hr />
+<h3 id="understanding-log-timestamp-formats_1">🕵️ Understanding Log Timestamp Formats</h3>
+<p>Log files can contain timestamps in various styles. Here are some common formats you might encounter:</p>
+<ul>
+<li><strong>Standard ISO format</strong>: <strong>2024-01-15 14:30:22</strong> (most common in modern applications)</li>
+<li><strong>Apache/Nginx web server format</strong>: <strong>15/Jan/2024:14:30:22 +0000</strong></li>
+<li><strong>Syslog format</strong>: <strong>Jan 15 14:30:22</strong></li>
+<li><strong>Custom application format</strong>: <strong>2024-01-15T14:30:22.123456Z</strong></li>
+<li><strong>Legacy format</strong>: <strong>01/15/24 02:30:22 PM</strong></li>
+</ul>
+<p>Each format requires a specific parsing strategy to extract the date and time components correctly.</p>
+<hr />
+<h3 id="the-core-concept-strptime-and-strftime_1">⚙️ The Core Concept: strptime and strftime</h3>
+<p>Python provides two essential functions for working with timestamps:</p>
+<ul>
+<li><strong>strptime</strong> (string parse time): Converts a string timestamp into a Python datetime object</li>
+<li><strong>strftime</strong> (string format time): Converts a Python datetime object back into a formatted string</li>
+</ul>
+<p>The key to successful parsing is providing the correct <strong>format codes</strong> that match your log timestamp structure.</p>
+<hr />
+<h3 id="common-format-codes-reference_1">📊 Common Format Codes Reference</h3>
+<table>
+<thead>
+<tr>
+<th>Format Code</th>
+<th>Meaning</th>
+<th>Example Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>%Y</strong></td>
+<td>Year with century</td>
+<td>2024</td>
+</tr>
+<tr>
+<td><strong>%m</strong></td>
+<td>Month as zero-padded number</td>
+<td>01 to 12</td>
+</tr>
+<tr>
+<td><strong>%d</strong></td>
+<td>Day of month as zero-padded number</td>
+<td>01 to 31</td>
+</tr>
+<tr>
+<td><strong>%H</strong></td>
+<td>Hour (24-hour clock)</td>
+<td>00 to 23</td>
+</tr>
+<tr>
+<td><strong>%M</strong></td>
+<td>Minute</td>
+<td>00 to 59</td>
+</tr>
+<tr>
+<td><strong>%S</strong></td>
+<td>Second</td>
+<td>00 to 59</td>
+</tr>
+<tr>
+<td><strong>%b</strong></td>
+<td>Abbreviated month name</td>
+<td>Jan, Feb, Mar</td>
+</tr>
+<tr>
+<td><strong>%B</strong></td>
+<td>Full month name</td>
+<td>January, February</td>
+</tr>
+<tr>
+<td><strong>%p</strong></td>
+<td>AM or PM</td>
+<td>AM, PM</td>
+</tr>
+<tr>
+<td><strong>%z</strong></td>
+<td>UTC offset</td>
+<td>+0000, -0500</td>
+</tr>
+<tr>
+<td><strong>%f</strong></td>
+<td>Microsecond (6 digits)</td>
+<td>123456</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-1-parsing-a-standard-log-timestamp_1">🛠️ Practical Example 1: Parsing a Standard Log Timestamp</h3>
+<p>Let's say you have a log entry with this timestamp: <strong>2024-01-15 14:30:22</strong></p>
+<p>The parsing approach would be:</p>
+<ul>
+<li><strong>Step 1</strong>: Identify the format pattern: <strong>Year-Month-Day Hour:Minute:Second</strong></li>
+<li><strong>Step 2</strong>: Create the format string: <strong>%Y-%m-%d %H:%M:%S</strong></li>
+<li><strong>Step 3</strong>: Use strptime to parse: <strong>datetime.strptime("2024-01-15 14:30:22", "%Y-%m-%d %H:%M:%S")</strong></li>
+<li><strong>Step 4</strong>: The result is a datetime object you can now manipulate</li>
+</ul>
+<p>After parsing, you can extract individual components like:
+- <strong>Year</strong>: 2024
+- <strong>Month</strong>: 1
+- <strong>Day</strong>: 15
+- <strong>Hour</strong>: 14
+- <strong>Minute</strong>: 30
+- <strong>Second</strong>: 22</p>
+<hr />
+<h3 id="practical-example-2-parsing-web-server-log-format_1">🛠️ Practical Example 2: Parsing Web Server Log Format</h3>
+<p>Web server logs often use a format like: <strong>15/Jan/2024:14:30:22 +0000</strong></p>
+<p>The parsing approach would be:</p>
+<ul>
+<li><strong>Step 1</strong>: Identify the format pattern: <strong>Day/Month/Year:Hour:Minute:Second Timezone</strong></li>
+<li><strong>Step 2</strong>: Create the format string: <strong>%d/%b/%Y:%H:%M:%S %z</strong></li>
+<li><strong>Step 3</strong>: Use strptime to parse: <strong>datetime.strptime("15/Jan/2024:14:30:22 +0000", "%d/%b/%Y:%H:%M:%S %z")</strong></li>
+<li><strong>Step 4</strong>: The result includes timezone-aware datetime object</li>
+</ul>
+<p>Key differences from the first example:
+- <strong>%d</strong> for day (no leading zero required)
+- <strong>%b</strong> for abbreviated month name (Jan, Feb, etc.)
+- <strong>%z</strong> for timezone offset</p>
+<hr />
+<h3 id="practical-example-3-parsing-syslog-format_1">🛠️ Practical Example 3: Parsing Syslog Format</h3>
+<p>Syslog timestamps look like: <strong>Jan 15 14:30:22</strong></p>
+<p>The parsing approach would be:</p>
+<ul>
+<li><strong>Step 1</strong>: Identify the format pattern: <strong>Month Day Hour:Minute:Second</strong></li>
+<li><strong>Step 2</strong>: Create the format string: <strong>%b %d %H:%M:%S</strong></li>
+<li><strong>Step 3</strong>: Use strptime to parse: <strong>datetime.strptime("Jan 15 14:30:22", "%b %d %H:%M:%S")</strong></li>
+<li><strong>Step 4</strong>: Note that the year is missing - you'll need to add it manually</li>
+</ul>
+<p>Important consideration: Syslog timestamps don't include the year. You would need to:
+- <strong>Assume the current year</strong>: Use <strong>datetime.now().year</strong>
+- <strong>Or extract the year from the log file name</strong>: Many log files include the year in their filename</p>
+<hr />
+<h3 id="handling-edge-cases-and-common-pitfalls_1">🧩 Handling Edge Cases and Common Pitfalls</h3>
+<p>When parsing log timestamps, watch out for these common issues:</p>
+<ul>
+<li><strong>Missing leading zeros</strong>: Some logs write <strong>"Jan  5"</strong> instead of <strong>"Jan 05"</strong> (note the double space). The <strong>%d</strong> format code handles this automatically.</li>
+<li><strong>Different timezone formats</strong>: Some logs use <strong>+0000</strong>, others use <strong>+00:00</strong>, and some use <strong>UTC</strong> or <strong>GMT</strong> text. Each requires a different approach.</li>
+<li><strong>Microsecond precision</strong>: Logs with timestamps like <strong>2024-01-15T14:30:22.123456Z</strong> need <strong>%f</strong> for microseconds and careful handling of the trailing <strong>Z</strong> (which indicates UTC).</li>
+<li><strong>12-hour vs 24-hour format</strong>: Always check if your log uses <strong>%H</strong> (24-hour) or <strong>%I</strong> (12-hour with <strong>%p</strong> for AM/PM).</li>
+</ul>
+<hr />
+<h3 id="converting-between-timezones_1">🔄 Converting Between Timezones</h3>
+<p>After parsing a timestamp, you might need to convert it to a different timezone:</p>
+<ul>
+<li><strong>Parse the original timestamp</strong> with timezone information using <strong>%z</strong></li>
+<li><strong>Convert to UTC</strong> using the <strong>astimezone</strong> method with <strong>timezone.utc</strong></li>
+<li><strong>Convert to local time</strong> using the <strong>astimezone</strong> method with your local timezone</li>
+<li><strong>Convert to any other timezone</strong> by specifying the target timezone</li>
+</ul>
+<p>This is especially useful when aggregating logs from servers in different geographic regions.</p>
+<hr />
+<h3 id="practical-workflow-for-log-parsing_1">📋 Practical Workflow for Log Parsing</h3>
+<p>When working with real log files, follow this workflow:</p>
+<ol>
+<li><strong>Examine a sample log line</strong> to identify the timestamp format</li>
+<li><strong>Create the appropriate format string</strong> using the format codes</li>
+<li><strong>Test parsing on a single line</strong> to verify correctness</li>
+<li><strong>Handle exceptions</strong> with try-except blocks for malformed timestamps</li>
+<li><strong>Extract the parsed datetime</strong> and perform your analysis (filtering by date range, calculating time differences, etc.)</li>
+<li><strong>Reformat if needed</strong> using strftime for consistent output</li>
+</ol>
+<hr />
+<h3 id="summary_1">🎯 Summary</h3>
+<p>Parsing log timestamps is a fundamental skill when working with log data. The key takeaways are:</p>
+<ul>
+<li><strong>Always identify the exact format</strong> of your log timestamp before attempting to parse it</li>
+<li><strong>Use strptime</strong> to convert string timestamps into Python datetime objects</li>
+<li><strong>Use strftime</strong> to format datetime objects back into strings when needed</li>
+<li><strong>Handle timezone information</strong> carefully, especially when aggregating logs from multiple sources</li>
+<li><strong>Account for edge cases</strong> like missing years, varying precision, and different timezone formats</li>
+</ul>
+<p>With these techniques, you can confidently extract and manipulate timestamp data from any log file format you encounter.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide shows how to convert log file timestamps into Python datetime objects for analysis and processing.</p>
+<hr />
+<h3 id="example-1-parsing-a-simple-iso-8601-timestamp_1">📘 Example 1: Parsing a Simple ISO 8601 Timestamp</h3>
+<p>This example demonstrates parsing a standard timestamp format commonly found in system logs.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">log_timestamp</span> <span class="o">=</span> <span class="s2">&quot;2024-01-15 14:30:00&quot;</span>
+<span class="n">parsed_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">log_timestamp</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-01-15 14:30:00</strong></p>
+<hr />
+<h3 id="example-2-parsing-a-timestamp-with-milliseconds_1">📘 Example 2: Parsing a Timestamp with Milliseconds</h3>
+<p>This example shows how to handle log timestamps that include fractional seconds.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">log_timestamp</span> <span class="o">=</span> <span class="s2">&quot;2024-01-15 14:30:00.123456&quot;</span>
+<span class="n">parsed_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">log_timestamp</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S.</span><span class="si">%f</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-01-15 14:30:00.123456</strong></p>
+<hr />
+<h3 id="example-3-parsing-a-timestamp-with-timezone-offset_1">📘 Example 3: Parsing a Timestamp with Timezone Offset</h3>
+<p>This example demonstrates parsing a log timestamp that includes a UTC offset.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">log_timestamp</span> <span class="o">=</span> <span class="s2">&quot;2024-01-15T14:30:00+05:30&quot;</span>
+<span class="n">parsed_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="n">log_timestamp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-01-15 14:30:00+05:30</strong></p>
+<hr />
+<h3 id="example-4-parsing-a-common-apache-log-timestamp_1">📘 Example 4: Parsing a Common Apache Log Timestamp</h3>
+<p>This example shows how to parse the date format used in Apache web server access logs.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">log_timestamp</span> <span class="o">=</span> <span class="s2">&quot;15/Jan/2024:14:30:00 +0000&quot;</span>
+<span class="n">parsed_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">log_timestamp</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">/%b/%Y:%H:%M:%S %z&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-01-15 14:30:00+00:00</strong></p>
+<hr />
+<h3 id="example-5-parsing-multiple-log-timestamps-in-a-loop_1">📘 Example 5: Parsing Multiple Log Timestamps in a Loop</h3>
+<p>This example demonstrates processing a list of log timestamps from a real-world log file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">log_entries</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;2024-01-15 08:15:22 ERROR Connection timeout&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;2024-01-15 08:15:25 INFO Retrying connection&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;2024-01-15 08:15:30 WARN High latency detected&quot;</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">log_entries</span><span class="p">:</span>
+    <span class="n">timestamp_str</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[:</span><span class="mi">19</span><span class="p">]</span>
+    <span class="n">parsed_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">timestamp_str</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parsed: </span><span class="si">{</span><span class="n">parsed_time</span><span class="si">}</span><span class="s2"> | Message: </span><span class="si">{</span><span class="n">entry</span><span class="p">[</span><span class="mi">20</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Parsed: 2024-01-15 08:15:22 | Message: ERROR Connection timeout</strong><br />
+<strong>Parsed: 2024-01-15 08:15:25 | Message: INFO Retrying connection</strong><br />
+<strong>Parsed: 2024-01-15 08:15:30 | Message: WARN High latency detected</strong></p>
+<hr />
+<h3 id="comparison-table-common-log-timestamp-formats_1">📊 Comparison Table: Common Log Timestamp Formats</h3>
 <table>
 <thead>
 <tr>

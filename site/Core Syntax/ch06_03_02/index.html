@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch06_03_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 06 | Skipping Iterations via continue - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 06 | Skipping Iterations via continue";
         var mkdocs_page_input_path = "Core Syntax\\ch06_03_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch06_03_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -302,6 +302,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-skipping-invalid-user-input-in-a-while-loop">🟢 Example 5: Skipping invalid user input in a while loop</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-break-vs-continue">📊 Comparison: break vs continue</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-continue-works_1">⚙️ How continue Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simple-example-skipping-even-numbers_1">🕵️ Simple Example: Skipping Even Numbers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-skipping-invalid-data_1">🛠️ Practical Example: Skipping Invalid Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-continue-vs-break_1">📊 Comparison: continue vs break</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-continue-in-a-while-loop_1">🧪 Using continue in a while Loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfall-infinite-loop-with-continue_1">⚠️ Common Pitfall: Infinite Loop with continue</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-skipping-a-single-number_1">🟢 Example 1: Skipping a single number</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-skipping-even-numbers_1">🟢 Example 2: Skipping even numbers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-skipping-items-in-a-list_1">🟢 Example 3: Skipping items in a list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-skipping-negative-values-in-calculations_1">🟢 Example 4: Skipping negative values in calculations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-skipping-invalid-user-input-in-a-while-loop_1">🟢 Example 5: Skipping invalid user input in a while loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-break-vs-continue_1">📊 Comparison: break vs continue</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="skipping-iterations-via-continue">Skipping Iterations via continue</h1>
 <p><span class="category-tag">🏷️ Loops and Iteration /  Loop Control Statements</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1173,8 +1201,7 @@ cache-01  </p>
 <li>Be careful with <strong>while</strong> loops to avoid infinite loops by updating variables before <strong>continue</strong>.</li>
 <li>Combine <strong>continue</strong> with <strong>if</strong> statements for clean, readable skipping logic.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>continue</code> statement skips the current iteration of a loop and moves directly to the next iteration.</p>
 <hr />
 <h3 id="example-1-skipping-a-single-number">🟢 Example 1: Skipping a single number</h3>
@@ -1231,6 +1258,185 @@ cache-01  </p>
 <p>📤 Output: <strong>(depends on user input, but will only accept 3 non-empty names)</strong></p>
 <hr />
 <h3 id="comparison-break-vs-continue">📊 Comparison: <code>break</code> vs <code>continue</code></h3>
+<table>
+<thead>
+<tr>
+<th>Statement</th>
+<th>Action</th>
+<th>Effect on Loop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>break</code></td>
+<td>Exits the loop entirely</td>
+<td>Loop stops immediately</td>
+</tr>
+<tr>
+<td><code>continue</code></td>
+<td>Skips the current iteration</td>
+<td>Loop continues with next iteration</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When working with loops, there are times when you want to <strong>skip the current iteration</strong> and move directly to the next one—without breaking out of the loop entirely. This is where the <strong>continue</strong> statement comes in. It tells Python: <em>"Stop here for this round, ignore everything after me, and jump to the next iteration."</em></p>
+<p>This is especially useful when you need to filter out certain values, skip errors, or avoid processing unwanted data without stopping the loop.</p>
+<hr />
+<h3 id="how-continue-works_1">⚙️ How <code>continue</code> Works</h3>
+<ul>
+<li>The <strong>continue</strong> statement is used inside <strong>for</strong> or <strong>while</strong> loops.</li>
+<li>When Python encounters <strong>continue</strong>, it immediately skips the rest of the code in the current iteration.</li>
+<li>The loop then moves to the next iteration (next item in a <strong>for</strong> loop, or next condition check in a <strong>while</strong> loop).</li>
+<li><strong>continue</strong> does not exit the loop—it only skips one round.</li>
+</ul>
+<hr />
+<h3 id="simple-example-skipping-even-numbers_1">🕵️ Simple Example: Skipping Even Numbers</h3>
+<p>Imagine you want to print only odd numbers from 1 to 5.</p>
+<ul>
+<li>You loop through numbers <strong>1, 2, 3, 4, 5</strong>.</li>
+<li>If the number is even, you use <strong>continue</strong> to skip printing it.</li>
+<li>Only odd numbers get printed.</li>
+</ul>
+<p><strong>Code example:</strong></p>
+<p>Loop through numbers 1 to 5. Inside the loop, check if the number is even using <strong>number % 2 == 0</strong>. If true, execute <strong>continue</strong> to skip the rest of the iteration. Otherwise, print the number.</p>
+<p><strong>Expected output:</strong></p>
+<p>1<br />
+3<br />
+5  </p>
+<hr />
+<h3 id="practical-example-skipping-invalid-data_1">🛠️ Practical Example: Skipping Invalid Data</h3>
+<p>When processing a list of data, you might encounter empty or invalid entries. Use <strong>continue</strong> to skip them.</p>
+<p><strong>Scenario:</strong> You have a list of server names, but some entries are empty strings. You want to print only the valid server names.</p>
+<p><strong>Code example:</strong></p>
+<p>Create a list of server names: <strong>["web-01", "", "db-01", "", "cache-01"]</strong>. Loop through each server. Inside the loop, check if the server name is an empty string using <strong>if server == ""</strong>. If it is empty, use <strong>continue</strong> to skip it. Otherwise, print the server name.</p>
+<p><strong>Expected output:</strong></p>
+<p>web-01<br />
+db-01<br />
+cache-01  </p>
+<hr />
+<h3 id="comparison-continue-vs-break_1">📊 Comparison: <code>continue</code> vs <code>break</code></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>continue</th>
+<th>break</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Action</td>
+<td>Skips the current iteration</td>
+<td>Exits the loop entirely</td>
+</tr>
+<tr>
+<td>Loop continues?</td>
+<td>Yes, moves to next iteration</td>
+<td>No, loop stops</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Skip unwanted values</td>
+<td>Stop when condition is met</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>Skip even numbers</td>
+<td>Stop at first error</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="using-continue-in-a-while-loop_1">🧪 Using <code>continue</code> in a <code>while</code> Loop</h3>
+<p>The <strong>continue</strong> statement works the same way in <strong>while</strong> loops. Be careful though—if you forget to update the loop variable before using <strong>continue</strong>, you can create an <strong>infinite loop</strong>.</p>
+<p><strong>Code example:</strong></p>
+<p>Set a variable <strong>count = 0</strong>. Start a <strong>while</strong> loop that runs while <strong>count &lt; 5</strong>. Inside the loop, increment <strong>count by 1</strong> first. Then check if <strong>count == 3</strong>. If true, use <strong>continue</strong> to skip printing. Otherwise, print the current count.</p>
+<p><strong>Expected output:</strong></p>
+<p>1<br />
+2<br />
+4<br />
+5  </p>
+<p>Notice that <strong>3</strong> is skipped, but the loop continues to the end.</p>
+<hr />
+<h3 id="common-pitfall-infinite-loop-with-continue_1">⚠️ Common Pitfall: Infinite Loop with <code>continue</code></h3>
+<p>If you place <strong>continue</strong> before updating your loop variable in a <strong>while</strong> loop, the variable never changes and the loop runs forever.</p>
+<p><strong>Bad example:</strong></p>
+<p>Set <strong>x = 0</strong>. Start a <strong>while</strong> loop with condition <strong>x &lt; 5</strong>. Inside, check if <strong>x == 2</strong> and use <strong>continue</strong>. Then increment <strong>x by 1</strong>. The <strong>continue</strong> skips the increment when <strong>x is 2</strong>, so <strong>x</strong> stays <strong>2</strong> forever.</p>
+<p><strong>Fix:</strong> Always update the loop variable <strong>before</strong> the <strong>continue</strong> statement, or ensure the update happens before any conditional skip.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li>Use <strong>continue</strong> to skip the current iteration and move to the next one.</li>
+<li>It is useful for filtering data, skipping errors, or ignoring unwanted values.</li>
+<li><strong>continue</strong> does not stop the loop—only the current round.</li>
+<li>Be careful with <strong>while</strong> loops to avoid infinite loops by updating variables before <strong>continue</strong>.</li>
+<li>Combine <strong>continue</strong> with <strong>if</strong> statements for clean, readable skipping logic.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>continue</code> statement skips the current iteration of a loop and moves directly to the next iteration.</p>
+<hr />
+<h3 id="example-1-skipping-a-single-number_1">🟢 Example 1: Skipping a single number</h3>
+<p>This example shows how <code>continue</code> skips the number 3 and continues with the next iteration.</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>1 2 4 5</strong></p>
+<hr />
+<h3 id="example-2-skipping-even-numbers_1">🟢 Example 2: Skipping even numbers</h3>
+<p>This example demonstrates using <code>continue</code> to skip all even numbers and only print odd numbers.</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>1 3 5 7 9</strong></p>
+<hr />
+<h3 id="example-3-skipping-items-in-a-list_1">🟢 Example 3: Skipping items in a list</h3>
+<p>This example shows how to skip a specific string value while iterating through a list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;manager&quot;</span><span class="p">,</span> <span class="s2">&quot;engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;intern&quot;</span><span class="p">,</span> <span class="s2">&quot;engineer&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">person</span> <span class="o">==</span> <span class="s2">&quot;manager&quot;</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>engineer engineer intern engineer</strong></p>
+<hr />
+<h3 id="example-4-skipping-negative-values-in-calculations_1">🟢 Example 4: Skipping negative values in calculations</h3>
+<p>This example demonstrates skipping negative numbers during a summation to only add positive values.</p>
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>30</strong></p>
+<hr />
+<h3 id="example-5-skipping-invalid-user-input-in-a-while-loop_1">🟢 Example 5: Skipping invalid user input in a while loop</h3>
+<p>This example shows how <code>continue</code> can skip empty or invalid input and prompt the user again.</p>
+<div class="highlight"><pre><span></span><code><span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a name: &quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name cannot be empty. Try again.&quot;</span><span class="p">)</span>
+        <span class="k">continue</span>
+    <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Collected names:&quot;</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(depends on user input, but will only accept 3 non-empty names)</strong></p>
+<hr />
+<h3 id="comparison-break-vs-continue_1">📊 Comparison: <code>break</code> vs <code>continue</code></h3>
 <table>
 <thead>
 <tr>

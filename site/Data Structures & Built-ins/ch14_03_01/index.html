@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_03_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Recommended Execution with subprocess.run() - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Recommended Execution with subprocess.run()";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_03_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_03_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -671,6 +671,40 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-subprocessrun-is-recommended_1">⚙️ Why subprocess.run() is Recommended</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-usage-pattern_1">🛠️ Basic Usage Pattern</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-subprocessrun-vs-older-methods_1">📊 Comparison: subprocess.run() vs Older Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#capturing-output-and-errors_1">🕵️ Capturing Output and Errors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#checking-command-success_1">✅ Checking Command Success</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#running-commands-with-shell-features_1">🌐 Running Commands with Shell Features</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setting-timeouts_1">⏱️ Setting Timeouts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-tips-for-daily-use_1">📝 Practical Tips for Daily Use</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-workflow-pattern_1">🧪 Common Workflow Pattern</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📌 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-running-a-simple-command_1">🛠️ Example 1: Running a simple command</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-capturing-command-output_1">🛠️ Example 2: Capturing command output</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-checking-if-a-command-succeeded_1">🛠️ Example 3: Checking if a command succeeded</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-running-a-command-with-arguments-and-environment-variables_1">🛠️ Example 4: Running a command with arguments and environment variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-running-a-pipeline-of-commands_1">🛠️ Example 5: Running a pipeline of commands</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_03_02/">Ch 14 | Capturing Command Output and Error Streams</a>
@@ -1082,7 +1116,7 @@
               
                 <h1 id="recommended-execution-with-subprocessrun">Recommended Execution with subprocess.run()</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  Shell Commands with Subprocess</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1229,8 +1263,7 @@
 <li>Reserve <strong>shell=True</strong> for cases where you truly need shell features.</li>
 </ul>
 <p>By mastering <strong>subprocess.run()</strong>, you gain a powerful and safe tool for automating system tasks directly from your Python scripts.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p><code>subprocess.run()</code> is Python's recommended way to execute shell commands and capture their output from within a Python script.</p>
 <h3 id="example-1-running-a-simple-command">🛠️ Example 1: Running a simple command</h3>
 <p>This shows how to run a basic shell command and wait for it to finish.</p>
@@ -1297,6 +1330,266 @@
 <strong>(shows up to 3 lines of running Python processes)</strong></p>
 <hr />
 <h3 id="comparison-table">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>subprocess.run()</code></th>
+<th><code>os.system()</code></th>
+<th><code>os.popen()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Captures output</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Returns exit code</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Safe from shell injection</td>
+<td>✅ Yes (default)</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Recommended by Python docs</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Works on all OS</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When working with Python, you often need to run shell commands—whether it's checking disk space, pinging a server, or managing files. The <strong>subprocess</strong> module is the modern, secure way to execute system commands from within Python. Among its many functions, <strong>subprocess.run()</strong> is the recommended approach for most tasks because it is simple, reliable, and handles errors gracefully.</p>
+<p>This guide will help you understand why <strong>subprocess.run()</strong> is the preferred method and how to use it effectively in your daily automation tasks.</p>
+<hr />
+<h3 id="why-subprocessrun-is-recommended_1">⚙️ Why subprocess.run() is Recommended</h3>
+<ul>
+<li><strong>Simplicity</strong> – It replaces older, more complex functions like <strong>os.system()</strong> and <strong>subprocess.call()</strong> with a clean, unified interface.</li>
+<li><strong>Safety</strong> – It avoids shell injection vulnerabilities by default (when used without <strong>shell=True</strong>).</li>
+<li><strong>Flexibility</strong> – It returns a <strong>CompletedProcess</strong> object that gives you access to the exit code, stdout, and stderr.</li>
+<li><strong>Error Handling</strong> – You can easily check if a command succeeded or failed using the return code.</li>
+</ul>
+<hr />
+<h3 id="basic-usage-pattern_1">🛠️ Basic Usage Pattern</h3>
+<p>The core idea is simple: you pass a list of command arguments to <strong>subprocess.run()</strong> and it executes the command for you.</p>
+<ul>
+<li>The command is provided as a <strong>list of strings</strong>, where the first element is the executable and the rest are its arguments.</li>
+<li>The function returns a <strong>CompletedProcess</strong> object that contains:</li>
+<li><strong>returncode</strong> – Exit code (0 means success, non-zero means failure)</li>
+<li><strong>stdout</strong> – Standard output (captured if you set <strong>capture_output=True</strong>)</li>
+<li><strong>stderr</strong> – Standard error (captured if you set <strong>capture_output=True</strong>)</li>
+</ul>
+<p>Example of a simple command execution:
+- <strong>subprocess.run(["ls", "-l"])</strong> – Lists files in the current directory.
+- <strong>subprocess.run(["ping", "-c", "4", "google.com"])</strong> – Pings google.com four times.</p>
+<hr />
+<h3 id="comparison-subprocessrun-vs-older-methods_1">📊 Comparison: subprocess.run() vs Older Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>subprocess.run()</th>
+<th>os.system()</th>
+<th>subprocess.call()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Return Type</strong></td>
+<td>CompletedProcess object</td>
+<td>Exit code (integer)</td>
+<td>Exit code (integer)</td>
+</tr>
+<tr>
+<td><strong>Capture Output</strong></td>
+<td>Yes, with capture_output=True</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Shell Injection Risk</strong></td>
+<td>Low (default)</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><strong>Error Handling</strong></td>
+<td>Easy with returncode</td>
+<td>Manual check needed</td>
+<td>Manual check needed</td>
+</tr>
+<tr>
+<td><strong>Modern Standard</strong></td>
+<td>✅ Yes</td>
+<td>❌ Legacy</td>
+<td>❌ Legacy</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="capturing-output-and-errors_1">🕵️ Capturing Output and Errors</h3>
+<p>One of the biggest advantages of <strong>subprocess.run()</strong> is the ability to capture what a command prints to the screen.</p>
+<ul>
+<li>Set <strong>capture_output=True</strong> to capture both stdout and stderr.</li>
+<li>Access the captured output using <strong>.stdout</strong> and <strong>.stderr</strong> attributes.</li>
+<li>Use <strong>text=True</strong> to get the output as a string instead of bytes.</li>
+</ul>
+<p>Example flow:
+- Run a command like <strong>subprocess.run(["df", "-h"], capture_output=True, text=True)</strong>
+- Check the <strong>result.stdout</strong> to see the disk space information.
+- Check <strong>result.stderr</strong> if something went wrong.</p>
+<hr />
+<h3 id="checking-command-success_1">✅ Checking Command Success</h3>
+<p>After running a command, you almost always want to know if it succeeded or failed.</p>
+<ul>
+<li>Use <strong>result.returncode</strong> to check the exit code.</li>
+<li>A return code of <strong>0</strong> means success.</li>
+<li>Any non-zero value indicates an error.</li>
+<li>You can also use <strong>result.check_returncode()</strong> to raise an exception if the command failed.</li>
+</ul>
+<p>Example logic:
+- If <strong>result.returncode == 0</strong>, proceed with your automation.
+- If <strong>result.returncode != 0</strong>, log the error from <strong>result.stderr</strong> and handle it appropriately.</p>
+<hr />
+<h3 id="running-commands-with-shell-features_1">🌐 Running Commands with Shell Features</h3>
+<p>Sometimes you need shell features like pipes, wildcards, or environment variable expansion.</p>
+<ul>
+<li>Set <strong>shell=True</strong> to run the command through the system shell.</li>
+<li><strong>Important:</strong> Only use <strong>shell=True</strong> with trusted input to avoid security risks.</li>
+<li>When using <strong>shell=True</strong>, pass the command as a single string instead of a list.</li>
+</ul>
+<p>Example:
+- <strong>subprocess.run("echo $HOME", shell=True, capture_output=True, text=True)</strong> – Prints the home directory path.</p>
+<hr />
+<h3 id="setting-timeouts_1">⏱️ Setting Timeouts</h3>
+<p>Commands can sometimes hang indefinitely. Protect your automation with timeouts.</p>
+<ul>
+<li>Use the <strong>timeout</strong> parameter to specify a maximum execution time in seconds.</li>
+<li>If the command exceeds the timeout, a <strong>TimeoutExpired</strong> exception is raised.</li>
+<li>This is especially useful for network commands like <strong>ping</strong> or <strong>curl</strong>.</li>
+</ul>
+<p>Example:
+- <strong>subprocess.run(["sleep", "10"], timeout=5)</strong> – This would raise a timeout error after 5 seconds.</p>
+<hr />
+<h3 id="practical-tips-for-daily-use_1">📝 Practical Tips for Daily Use</h3>
+<ul>
+<li>Always use <strong>capture_output=True</strong> when you need to inspect command output.</li>
+<li>Use <strong>text=True</strong> to work with strings instead of bytes.</li>
+<li>Prefer passing commands as <strong>lists</strong> over strings to avoid shell injection.</li>
+<li>Use <strong>check=True</strong> if you want the command to raise an exception automatically on failure.</li>
+<li>Store frequently used commands in variables or functions to avoid repetition.</li>
+</ul>
+<hr />
+<h3 id="common-workflow-pattern_1">🧪 Common Workflow Pattern</h3>
+<p>A typical pattern for running a command and handling its result looks like this:</p>
+<ul>
+<li>Define your command as a list: <strong>["command", "arg1", "arg2"]</strong></li>
+<li>Call <strong>subprocess.run()</strong> with your command and desired options.</li>
+<li>Check the <strong>returncode</strong> to determine success or failure.</li>
+<li>Access <strong>stdout</strong> or <strong>stderr</strong> for further processing or logging.</li>
+<li>Handle any exceptions like <strong>FileNotFoundError</strong> or <strong>TimeoutExpired</strong>.</li>
+</ul>
+<p>This pattern keeps your code clean, predictable, and easy to debug.</p>
+<hr />
+<h3 id="summary_1">📌 Summary</h3>
+<ul>
+<li><strong>subprocess.run()</strong> is the modern, recommended way to execute shell commands in Python.</li>
+<li>It returns a <strong>CompletedProcess</strong> object with exit code, stdout, and stderr.</li>
+<li>Use <strong>capture_output=True</strong> and <strong>text=True</strong> for easy output handling.</li>
+<li>Always check the <strong>returncode</strong> to confirm command success.</li>
+<li>Use <strong>timeout</strong> to prevent hanging commands.</li>
+<li>Prefer <strong>list-based commands</strong> over strings for security.</li>
+<li>Reserve <strong>shell=True</strong> for cases where you truly need shell features.</li>
+</ul>
+<p>By mastering <strong>subprocess.run()</strong>, you gain a powerful and safe tool for automating system tasks directly from your Python scripts.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><code>subprocess.run()</code> is Python's recommended way to execute shell commands and capture their output from within a Python script.</p>
+<h3 id="example-1-running-a-simple-command_1">🛠️ Example 1: Running a simple command</h3>
+<p>This shows how to run a basic shell command and wait for it to finish.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;echo&quot;</span><span class="p">,</span> <span class="s2">&quot;Hello from Python&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello from Python</strong></p>
+<hr />
+<h3 id="example-2-capturing-command-output_1">🛠️ Example 2: Capturing command output</h3>
+<p>This demonstrates how to capture the output of a command as a string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;whoami&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>your_username</strong></p>
+<hr />
+<h3 id="example-3-checking-if-a-command-succeeded_1">🛠️ Example 3: Checking if a command succeeded</h3>
+<p>This shows how to verify that a command completed without errors.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;/nonexistent&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Command succeeded&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Command failed with return code:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">returncode</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error message:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Command failed with return code: 2</strong><br />
+<strong>Error message: ls: cannot access '/nonexistent': No such file or directory</strong></p>
+<hr />
+<h3 id="example-4-running-a-command-with-arguments-and-environment-variables_1">🛠️ Example 4: Running a command with arguments and environment variables</h3>
+<p>This shows how to pass arguments and set environment variables for a command.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">env</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">env</span><span class="p">[</span><span class="s2">&quot;MY_VAR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;engineers&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;printenv&quot;</span><span class="p">,</span> <span class="s2">&quot;MY_VAR&quot;</span><span class="p">],</span>
+    <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">env</span><span class="o">=</span><span class="n">env</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>engineers</strong></p>
+<hr />
+<h3 id="example-5-running-a-pipeline-of-commands_1">🛠️ Example 5: Running a pipeline of commands</h3>
+<p>This demonstrates how to chain multiple commands together using shell=True.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="s2">&quot;ps aux | grep python | head -3&quot;</span><span class="p">,</span>
+    <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">shell</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>user  12345  0.0  0.1  12345  6789 pts/0    S+   12:34   0:00 python script.py</strong><br />
+<strong>(shows up to 3 lines of running Python processes)</strong></p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

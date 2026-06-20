@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch20_05_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 20 | Decoupling Dynamic System Variables from Logic Code - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 20 | Decoupling Dynamic System Variables from Logic Code";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch20_05_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch20_05_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -963,6 +963,38 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-approaches-to-decoupling-system-variables">📊 Comparison: Approaches to Decoupling System Variables</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-decoupling-matters_1">⚙️ Why Decoupling Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-problem-hardcoded-variables_1">🛠️ The Problem: Hardcoded Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-solution-external-configuration_1">🕵️ The Solution: External Configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-tightly-coupled-vs-decoupled-code_1">📊 Comparison: Tightly Coupled vs. Decoupled Code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-implementation-strategy_1">🧩 Practical Implementation Strategy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-before-and-after_1">💻 Example: Before and After</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-decoupling_1">✅ Best Practices for Decoupling</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benefits-you-will-notice-immediately_1">🚀 Benefits You Will Notice Immediately</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaway_1">📌 Key Takeaway</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-hardcoded-variable-before-decoupling_1">🧩 Example 1: Hardcoded Variable (Before Decoupling)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-simple-dictionary-for-grouped-settings_1">🧩 Example 2: Simple Dictionary for Grouped Settings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-environment-variables-with-osgetenv_1">🧩 Example 3: Using Environment Variables with os.getenv</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-loading-from-a-simple-text-config-file_1">🧩 Example 4: Loading from a Simple Text Config File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-using-a-config-class-with-defaults_1">🧩 Example 5: Using a Config Class with Defaults</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-approaches-to-decoupling-system-variables_1">📊 Comparison: Approaches to Decoupling System Variables</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch20_05_02/">Ch 20 | Isolating Secrets and Keys Inside Environment Variables</a>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="decoupling-dynamic-system-variables-from-logic-code">Decoupling Dynamic System Variables from Logic Code</h1>
 <p><span class="category-tag">🏷️ Python Scripting Best Practices /  Configuration Management</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1207,8 +1239,7 @@
 <hr />
 <h3 id="key-takeaway">📌 Key Takeaway</h3>
 <p>Decoupling dynamic system variables from logic code is not an advanced technique — it is a fundamental practice that separates good scripts from great ones. By moving configuration outside your code, you create scripts that are flexible, secure, and ready for any environment. Start small: pick one hardcoded value in your next script and move it to an environment variable. The improvement in code quality will be immediate and lasting.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This pattern separates values that change between environments (like file paths, API keys, or server addresses) from the code that uses them, so engineers can update settings without modifying scripts.</p>
 <hr />
 <h3 id="example-1-hardcoded-variable-before-decoupling">🧩 Example 1: Hardcoded Variable (Before Decoupling)</h3>
@@ -1276,6 +1307,247 @@
 📤 Output: <strong>Caching: True</strong></p>
 <hr />
 <h3 id="comparison-approaches-to-decoupling-system-variables">📊 Comparison: Approaches to Decoupling System Variables</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Where Variables Live</th>
+<th>Change Without Editing Code</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardcoded</td>
+<td>Inside script</td>
+<td>No</td>
+<td>Quick prototypes only</td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>Inside script</td>
+<td>No</td>
+<td>Small scripts, single environment</td>
+</tr>
+<tr>
+<td>Environment Variables</td>
+<td>OS environment</td>
+<td>Yes</td>
+<td>Cloud deployments, containers</td>
+</tr>
+<tr>
+<td>Config File</td>
+<td>External text file</td>
+<td>Yes</td>
+<td>Teams sharing scripts</td>
+</tr>
+<tr>
+<td>Config Class</td>
+<td>Python class</td>
+<td>Partial</td>
+<td>Complex systems with defaults</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>When writing Python scripts for automation or system management, one of the most common mistakes is hardcoding values like file paths, API endpoints, database credentials, or environment-specific settings directly into your logic code. This creates fragile scripts that break when deployed to different environments or when configurations change. The solution is <strong>decoupling</strong> — separating the dynamic system variables from the core logic, making your code portable, maintainable, and secure.</p>
+<hr />
+<h3 id="why-decoupling-matters_1">⚙️ Why Decoupling Matters</h3>
+<ul>
+<li><strong>Portability</strong> — Your script runs across development, staging, and production environments without code changes.</li>
+<li><strong>Security</strong> — Sensitive information like passwords and API keys stay out of version control.</li>
+<li><strong>Maintainability</strong> — Configuration changes require editing one file, not hunting through hundreds of lines of code.</li>
+<li><strong>Collaboration</strong> — Team members can work on logic and configuration independently.</li>
+</ul>
+<hr />
+<h3 id="the-problem-hardcoded-variables_1">🛠️ The Problem: Hardcoded Variables</h3>
+<p>Consider a script that connects to a database and processes data. When variables are hardcoded, every environment requires a different version of the script.</p>
+<p><strong>Example of tightly coupled code:</strong></p>
+<ul>
+<li><strong>Database host:</strong> <code>localhost</code></li>
+<li><strong>Database name:</strong> <code>dev_db</code></li>
+<li><strong>API endpoint:</strong> <code>https://dev.api.example.com</code></li>
+<li><strong>Log file path:</strong> <code>/var/log/dev/app.log</code></li>
+</ul>
+<p>If you need to run this in production, you must manually edit every line. This is error-prone and time-consuming.</p>
+<hr />
+<h3 id="the-solution-external-configuration_1">🕵️ The Solution: External Configuration</h3>
+<p>The goal is to move all dynamic system variables out of your logic code and into an external configuration source. Common approaches include:</p>
+<ul>
+<li><strong>Environment variables</strong> — Set at the system or session level</li>
+<li><strong>Configuration files</strong> — JSON, YAML, or INI files</li>
+<li><strong>Command-line arguments</strong> — Passed when running the script</li>
+</ul>
+<hr />
+<h3 id="comparison-tightly-coupled-vs-decoupled-code_1">📊 Comparison: Tightly Coupled vs. Decoupled Code</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Tightly Coupled (Hardcoded)</th>
+<th>Decoupled (External Config)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Environment changes</strong></td>
+<td>Requires editing script</td>
+<td>Change config file or env vars</td>
+</tr>
+<tr>
+<td><strong>Security risk</strong></td>
+<td>Secrets exposed in code</td>
+<td>Secrets stored outside code</td>
+</tr>
+<tr>
+<td><strong>Reusability</strong></td>
+<td>One environment only</td>
+<td>Any environment</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>Difficult to mock values</td>
+<td>Easy to swap configurations</td>
+</tr>
+<tr>
+<td><strong>Team workflow</strong></td>
+<td>Conflicts in version control</td>
+<td>Config files can be ignored</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-implementation-strategy_1">🧩 Practical Implementation Strategy</h3>
+<p><strong>Step 1: Identify dynamic variables in your script</strong></p>
+<p>Look for any value that might change between environments or over time. Common candidates include:</p>
+<ul>
+<li>Database connection strings</li>
+<li>API base URLs</li>
+<li>File paths and directories</li>
+<li>Timeout durations</li>
+<li>Feature flags or toggle settings</li>
+<li>Credentials and tokens</li>
+</ul>
+<p><strong>Step 2: Choose a configuration method</strong></p>
+<p>For most system automation scripts, <strong>environment variables</strong> are the simplest and most secure approach. They are supported natively by operating systems and container platforms.</p>
+<p><strong>Step 3: Access configuration in your code</strong></p>
+<p>Use Python's built-in <strong>os</strong> module to read environment variables. For optional values, provide sensible defaults.</p>
+<p><strong>Step 4: Create a configuration module</strong></p>
+<p>Centralize all configuration access in a single file or class. This makes it easy to change how configuration is loaded without touching your main logic.</p>
+<hr />
+<h3 id="example-before-and-after_1">💻 Example: Before and After</h3>
+<p><strong>Before (hardcoded):</strong></p>
+<ul>
+<li><strong>Database host:</strong> <code>localhost</code></li>
+<li><strong>Database port:</strong> <code>5432</code></li>
+<li><strong>Database name:</strong> <code>mydb</code></li>
+<li><strong>API key:</strong> <code>abc123secret</code></li>
+<li><strong>Log level:</strong> <code>DEBUG</code></li>
+</ul>
+<p>The script directly uses these values in database connections and API calls.</p>
+<p><strong>After (decoupled):</strong></p>
+<ul>
+<li><strong>Configuration source:</strong> Environment variables</li>
+<li><strong>Variable names:</strong> <code>DB_HOST</code>, <code>DB_PORT</code>, <code>DB_NAME</code>, <code>API_KEY</code>, <code>LOG_LEVEL</code></li>
+<li><strong>Default values:</strong> <code>localhost</code>, <code>5432</code>, <code>mydb</code>, <code>None</code>, <code>INFO</code></li>
+</ul>
+<p>The script reads these values from environment variables at runtime. If a variable is not set, the default is used. The logic code never contains environment-specific values.</p>
+<hr />
+<h3 id="best-practices-for-decoupling_1">✅ Best Practices for Decoupling</h3>
+<ul>
+<li><strong>Use descriptive variable names</strong> — Prefix with application name to avoid conflicts (e.g., <code>MYAPP_DB_HOST</code>)</li>
+<li><strong>Provide sensible defaults</strong> — For development convenience, but never for secrets</li>
+<li><strong>Validate configuration early</strong> — Check required variables exist when the script starts</li>
+<li><strong>Keep configuration separate from code</strong> — Never commit <code>.env</code> files or config files with secrets to version control</li>
+<li><strong>Document required variables</strong> — Create a sample config file or README listing all expected variables</li>
+</ul>
+<hr />
+<h3 id="benefits-you-will-notice-immediately_1">🚀 Benefits You Will Notice Immediately</h3>
+<ul>
+<li><strong>Deploy the same script</strong> to dev, staging, and production without changes</li>
+<li><strong>Rotate secrets</strong> by updating environment variables, not code</li>
+<li><strong>Onboard new engineers</strong> faster — they only need to set environment variables</li>
+<li><strong>Run tests</strong> with different configurations by simply changing environment variables</li>
+<li><strong>Containerize</strong> your script easily — Docker and Kubernetes handle environment variables natively</li>
+</ul>
+<hr />
+<h3 id="key-takeaway_1">📌 Key Takeaway</h3>
+<p>Decoupling dynamic system variables from logic code is not an advanced technique — it is a fundamental practice that separates good scripts from great ones. By moving configuration outside your code, you create scripts that are flexible, secure, and ready for any environment. Start small: pick one hardcoded value in your next script and move it to an environment variable. The improvement in code quality will be immediate and lasting.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This pattern separates values that change between environments (like file paths, API keys, or server addresses) from the code that uses them, so engineers can update settings without modifying scripts.</p>
+<hr />
+<h3 id="example-1-hardcoded-variable-before-decoupling_1">🧩 Example 1: Hardcoded Variable (Before Decoupling)</h3>
+<p>This shows the problem — a variable value is written directly inside the code, making it difficult to change for different environments.</p>
+<div class="highlight"><pre><span></span><code><span class="n">database_host</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connecting to database at:&quot;</span><span class="p">,</span> <span class="n">database_host</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Connecting to database at: localhost</strong></p>
+<hr />
+<h3 id="example-2-simple-dictionary-for-grouped-settings_1">🧩 Example 2: Simple Dictionary for Grouped Settings</h3>
+<p>This demonstrates collecting related system variables into one dictionary, keeping them separate from the logic that reads them.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.1.100&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">5432</span><span class="p">,</span>
+    <span class="s2">&quot;database&quot;</span><span class="p">:</span> <span class="s2">&quot;inventory_db&quot;</span>
+<span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Database host:&quot;</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Database port:&quot;</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>Database host: 192.168.1.100</strong><br />
+📤 Output: <strong>Database port: 5432</strong></p>
+<hr />
+<h3 id="example-3-using-environment-variables-with-osgetenv_1">🧩 Example 3: Using Environment Variables with os.getenv</h3>
+<p>This shows how to read system variables from the operating system environment, so each engineer can set their own values without editing the script.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">database_host</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DB_HOST&quot;</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span><span class="p">)</span>
+<span class="n">database_port</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;DB_PORT&quot;</span><span class="p">,</span> <span class="s2">&quot;5432&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connecting to&quot;</span><span class="p">,</span> <span class="n">database_host</span><span class="p">,</span> <span class="s2">&quot;on port&quot;</span><span class="p">,</span> <span class="n">database_port</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Connecting to localhost on port 5432</strong></p>
+<hr />
+<h3 id="example-4-loading-from-a-simple-text-config-file_1">🧩 Example 4: Loading from a Simple Text Config File</h3>
+<p>This demonstrates reading dynamic variables from an external file, so engineers can change settings by editing the file instead of the code.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config_values</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;settings.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="p">)</span>
+        <span class="n">config_values</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Server mode:&quot;</span><span class="p">,</span> <span class="n">config_values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="s2">&quot;unknown&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Log level:&quot;</span><span class="p">,</span> <span class="n">config_values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;log_level&quot;</span><span class="p">,</span> <span class="s2">&quot;info&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>Server mode: production</strong><br />
+📤 Output: <strong>Log level: debug</strong></p>
+<hr />
+<h3 id="example-5-using-a-config-class-with-defaults_1">🧩 Example 5: Using a Config Class with Defaults</h3>
+<p>This shows a reusable pattern where a class holds all system variables with sensible defaults, and engineers override only what they need.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">SystemConfig</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">server_url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8000&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeout_seconds</span> <span class="o">=</span> <span class="mi">30</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">retry_count</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">enable_caching</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">SystemConfig</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">server_url</span> <span class="o">=</span> <span class="s2">&quot;http://api.company.com&quot;</span>
+<span class="n">config</span><span class="o">.</span><span class="n">timeout_seconds</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Server URL:&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">server_url</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timeout:&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">timeout_seconds</span><span class="p">,</span> <span class="s2">&quot;seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Retries:&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">retry_count</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Caching:&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">enable_caching</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Server URL: http://api.company.com</strong><br />
+📤 Output: <strong>Timeout: 60 seconds</strong><br />
+📤 Output: <strong>Retries: 3</strong><br />
+📤 Output: <strong>Caching: True</strong></p>
+<hr />
+<h3 id="comparison-approaches-to-decoupling-system-variables_1">📊 Comparison: Approaches to Decoupling System Variables</h3>
 <table>
 <thead>
 <tr>

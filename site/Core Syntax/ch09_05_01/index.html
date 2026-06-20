@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch09_05_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 09 | Syntax Key-Value Expressions and Loops - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 09 | Syntax Key-Value Expressions and Loops";
         var mkdocs_page_input_path = "Core Syntax\\ch09_05_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch09_05_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -440,6 +440,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-mapping-sensor-readings-to-status">🔧 Example 5: Mapping sensor readings to status</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-dictionary-comprehension-vs-manual-loop">Comparison Table: Dictionary Comprehension vs. Manual Loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-dictionary-comprehension_1">⚙️ What Is a Dictionary Comprehension?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-syntax-breakdown_1">📊 Basic Syntax Breakdown</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-conditions-with-if-statements_1">🛠️ Adding Conditions with if Statements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transforming-existing-dictionaries_1">🕵️ Transforming Existing Dictionaries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-traditional-loop-vs-dictionary-comprehension_1">📋 Comparison: Traditional Loop vs. Dictionary Comprehension</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples-for-engineers_1">🧪 Practical Examples for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-dictionary-from-two-lists_1">🔧 Example 1: Basic dictionary from two lists</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-square-numbers-as-values_1">🔧 Example 2: Square numbers as values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-filtering-with-a-condition_1">🔧 Example 3: Filtering with a condition</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-transforming-existing-dictionary-keys_1">🔧 Example 4: Transforming existing dictionary keys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-mapping-sensor-readings-to-status_1">🔧 Example 5: Mapping sensor readings to status</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-dictionary-comprehension-vs-manual-loop_1">Comparison Table: Dictionary Comprehension vs. Manual Loop</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="syntax-key-value-expressions-and-loops">Syntax Key-Value Expressions and Loops</h1>
 <p><span class="category-tag">🏷️ Dictionaries /  Dictionary Comprehensions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Welcome to the world of dictionary comprehensions! If you've worked with lists before, you know how powerful comprehensions can be. Dictionary comprehensions take that same elegant, concise approach and apply it to key-value pairs. Instead of writing multiple lines to build a dictionary step by step, you can create one in a single, readable expression. This is especially useful when you need to transform data, filter entries, or map values from one structure to another.</p>
@@ -1195,8 +1221,7 @@
 <li>Use them when you need to map, filter, or transform data into a key-value structure quickly.</li>
 </ul>
 <p>Now you have a powerful tool in your Python toolkit. Practice by converting some of your existing loop-based dictionary building code into comprehensions, and you'll quickly see how much cleaner your scripts can become.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Dictionary comprehensions let you build dictionaries by combining a key-value expression with a loop in a single line.</p>
 <h3 id="example-1-basic-dictionary-from-two-lists">🔧 Example 1: Basic dictionary from two lists</h3>
 <p>Creates a dictionary by pairing items from two lists using a loop.</p>
@@ -1236,6 +1261,207 @@
 <p>📤 Output: <strong>{'temp_01': 'pass', 'temp_02': 'fail', 'temp_03': 'pass'}</strong></p>
 <hr />
 <h3 id="comparison-table-dictionary-comprehension-vs-manual-loop">Comparison Table: Dictionary Comprehension vs. Manual Loop</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Dictionary Comprehension</th>
+<th>Manual For Loop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lines of code</td>
+<td>1 line</td>
+<td>3–5 lines</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>Compact, clear for simple cases</td>
+<td>More explicit, easier to debug</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Faster for small to medium data</td>
+<td>Same result, more overhead</td>
+</tr>
+<tr>
+<td>Condition support</td>
+<td>Built-in with <code>if</code> clause</td>
+<td>Requires manual <code>if</code> block</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Simple key-value transformations</td>
+<td>Complex logic or multiple steps</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>Welcome to the world of dictionary comprehensions! If you've worked with lists before, you know how powerful comprehensions can be. Dictionary comprehensions take that same elegant, concise approach and apply it to key-value pairs. Instead of writing multiple lines to build a dictionary step by step, you can create one in a single, readable expression. This is especially useful when you need to transform data, filter entries, or map values from one structure to another.</p>
+<hr />
+<h3 id="what-is-a-dictionary-comprehension_1">⚙️ What Is a Dictionary Comprehension?</h3>
+<p>A dictionary comprehension is a compact way to create a dictionary by iterating over an iterable (like a list, tuple, or another dictionary) and defining both the <strong>key</strong> and the <strong>value</strong> for each item. The basic structure looks like this:</p>
+<ul>
+<li><strong>{key_expression: value_expression for item in iterable}</strong></li>
+</ul>
+<p>The key and value expressions can be any valid Python expression, and they are evaluated for each item in the iterable. The result is a new dictionary.</p>
+<hr />
+<h3 id="basic-syntax-breakdown_1">📊 Basic Syntax Breakdown</h3>
+<p>Let's break down the components of a dictionary comprehension:</p>
+<ul>
+<li><strong>Curly braces { }</strong> – These indicate you are creating a dictionary, just like with a literal dictionary.</li>
+<li><strong>key_expression</strong> – This defines what the key will be for each entry. It can be the item itself, a transformation of the item, or a completely new value.</li>
+<li><strong>Colon :</strong> – Separates the key expression from the value expression.</li>
+<li><strong>value_expression</strong> – This defines what the value will be for each entry.</li>
+<li><strong>for item in iterable</strong> – This is the loop part, iterating over each element in your source data.</li>
+</ul>
+<p><strong>Simple example:</strong> Creating a dictionary where each number from 0 to 4 is a key, and its square is the value.</p>
+<ul>
+<li><strong>{x: x</strong>2 for x in range(5)}<strong> would produce </strong>{0: 0, 1: 1, 2: 4, 3: 9, 4: 4}**</li>
+</ul>
+<hr />
+<h3 id="adding-conditions-with-if-statements_1">🛠️ Adding Conditions with if Statements</h3>
+<p>You can also filter items by adding an <strong>if</strong> condition at the end of the comprehension. This allows you to include only those key-value pairs that meet a specific criterion.</p>
+<ul>
+<li><strong>{key_expression: value_expression for item in iterable if condition}</strong></li>
+</ul>
+<p><strong>Example with filtering:</strong> Create a dictionary of even numbers and their cubes.</p>
+<ul>
+<li><strong>{x: x</strong>3 for x in range(10) if x % 2 == 0}<strong> would produce </strong>{0: 0, 2: 8, 4: 64, 6: 216, 8: 512}**</li>
+</ul>
+<hr />
+<h3 id="transforming-existing-dictionaries_1">🕵️ Transforming Existing Dictionaries</h3>
+<p>One of the most common use cases is transforming an existing dictionary. You can iterate over the items of a dictionary using the <strong>.items()</strong> method, which gives you access to both the key and the value.</p>
+<ul>
+<li><strong>{new_key: new_value for original_key, original_value in original_dict.items()}</strong></li>
+</ul>
+<p><strong>Example:</strong> Convert all keys in a dictionary to uppercase strings.</p>
+<ul>
+<li>Given <strong>original_dict = {"apple": 1, "banana": 2, "cherry": 3}</strong></li>
+<li><strong>{key.upper(): value for key, value in original_dict.items()}</strong> would produce <strong>{"APPLE": 1, "BANANA": 2, "CHERRY": 3}</strong></li>
+</ul>
+<hr />
+<h3 id="comparison-traditional-loop-vs-dictionary-comprehension_1">📋 Comparison: Traditional Loop vs. Dictionary Comprehension</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Traditional Loop</th>
+<th style="text-align: left;">Dictionary Comprehension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Lines of code</strong></td>
+<td style="text-align: left;">3 or more lines</td>
+<td style="text-align: left;">1 line</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Readability</strong></td>
+<td style="text-align: left;">Clear but verbose</td>
+<td style="text-align: left;">Concise and expressive</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Performance</strong></td>
+<td style="text-align: left;">Slightly slower</td>
+<td style="text-align: left;">Generally faster</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Best for</strong></td>
+<td style="text-align: left;">Complex logic or multiple steps</td>
+<td style="text-align: left;">Simple transformations and filtering</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Traditional loop example:</strong></p>
+<ul>
+<li>Start with an empty dictionary: <strong>result = {}</strong></li>
+<li>Loop over a range: <strong>for x in range(5):</strong></li>
+<li>Assign key-value pair: <strong>result[x] = x</strong>2</li>
+</ul>
+<p><strong>Dictionary comprehension equivalent:</strong></p>
+<ul>
+<li><strong>result = {x: x</strong>2 for x in range(5)}**</li>
+</ul>
+<p>Both produce the same output, but the comprehension is much shorter.</p>
+<hr />
+<h3 id="practical-examples-for-engineers_1">🧪 Practical Examples for Engineers</h3>
+<p><strong>Example 1: Mapping server names to their status codes</strong></p>
+<p>You have a list of server names and a list of corresponding status codes. You want to create a dictionary where the server name is the key and the status code is the value.</p>
+<ul>
+<li><strong>servers = ["web01", "db01", "cache01"]</strong></li>
+<li><strong>statuses = [200, 500, 200]</strong></li>
+<li><strong>{servers[i]: statuses[i] for i in range(len(servers))}</strong> would produce <strong>{"web01": 200, "db01": 500, "cache01": 200}</strong></li>
+</ul>
+<p><strong>Example 2: Filtering configuration keys that start with a specific prefix</strong></p>
+<p>You have a dictionary of configuration settings, and you only want to keep keys that start with "log_".</p>
+<ul>
+<li><strong>config = {"log_level": "info", "db_host": "localhost", "log_format": "json", "app_port": 8080}</strong></li>
+<li><strong>{key: value for key, value in config.items() if key.startswith("log_")}</strong> would produce <strong>{"log_level": "info", "log_format": "json"}</strong></li>
+</ul>
+<p><strong>Example 3: Swapping keys and values</strong></p>
+<p>You have a dictionary and want to invert it, making the original values the new keys and the original keys the new values.</p>
+<ul>
+<li><strong>original = {"a": 1, "b": 2, "c": 3}</strong></li>
+<li><strong>{value: key for key, value in original.items()}</strong> would produce <strong>{1: "a", 2: "b", 3: "c"}</strong></li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li>Dictionary comprehensions provide a concise way to create dictionaries from iterables.</li>
+<li>The syntax is <strong>{key: value for item in iterable}</strong> with an optional <strong>if</strong> condition for filtering.</li>
+<li>You can transform existing dictionaries by iterating over <strong>.items()</strong>.</li>
+<li>They are generally faster and more readable than traditional loops for simple transformations.</li>
+<li>Use them when you need to map, filter, or transform data into a key-value structure quickly.</li>
+</ul>
+<p>Now you have a powerful tool in your Python toolkit. Practice by converting some of your existing loop-based dictionary building code into comprehensions, and you'll quickly see how much cleaner your scripts can become.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Dictionary comprehensions let you build dictionaries by combining a key-value expression with a loop in a single line.</p>
+<h3 id="example-1-basic-dictionary-from-two-lists_1">🔧 Example 1: Basic dictionary from two lists</h3>
+<p>Creates a dictionary by pairing items from two lists using a loop.</p>
+<div class="highlight"><pre><span></span><code><span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">)}</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'a': 1, 'b': 2, 'c': 3}</strong></p>
+<hr />
+<h3 id="example-2-square-numbers-as-values_1">🔧 Example 2: Square numbers as values</h3>
+<p>Generates a dictionary where keys are numbers and values are their squares.</p>
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">squares</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">}</span>
+</code></pre></div>
+<p>📤 Output: <strong>{1: 1, 2: 4, 3: 9, 4: 16, 5: 25}</strong></p>
+<hr />
+<h3 id="example-3-filtering-with-a-condition_1">🔧 Example 3: Filtering with a condition</h3>
+<p>Builds a dictionary containing only even numbers and their cubes.</p>
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">even_cubes</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">**</span> <span class="mi">3</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">}</span>
+</code></pre></div>
+<p>📤 Output: <strong>{2: 8, 4: 64, 6: 216}</strong></p>
+<hr />
+<h3 id="example-4-transforming-existing-dictionary-keys_1">🔧 Example 4: Transforming existing dictionary keys</h3>
+<p>Creates a new dictionary with uppercase keys from an existing dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">original</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apple&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;cherry&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">uppercase</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="o">.</span><span class="n">upper</span><span class="p">():</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">original</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'APPLE': 3, 'BANANA': 5, 'CHERRY': 2}</strong></p>
+<hr />
+<h3 id="example-5-mapping-sensor-readings-to-status_1">🔧 Example 5: Mapping sensor readings to status</h3>
+<p>Converts a list of sensor readings into a dictionary with pass/fail status.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;temp_01&#39;</span><span class="p">,</span> <span class="s1">&#39;temp_02&#39;</span><span class="p">,</span> <span class="s1">&#39;temp_03&#39;</span><span class="p">]</span>
+<span class="n">readings</span> <span class="o">=</span> <span class="p">[</span><span class="mi">72</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">68</span><span class="p">]</span>
+<span class="n">status</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span> <span class="s1">&#39;pass&#39;</span> <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">90</span> <span class="k">else</span> <span class="s1">&#39;fail&#39;</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sensors</span><span class="p">,</span> <span class="n">readings</span><span class="p">)}</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'temp_01': 'pass', 'temp_02': 'fail', 'temp_03': 'pass'}</strong></p>
+<hr />
+<h3 id="comparison-table-dictionary-comprehension-vs-manual-loop_1">Comparison Table: Dictionary Comprehension vs. Manual Loop</h3>
 <table>
 <thead>
 <tr>

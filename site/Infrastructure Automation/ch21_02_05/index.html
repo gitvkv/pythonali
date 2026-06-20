@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_02_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Handling Permission Blocks and Missing Utilities Errors - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Handling Permission Blocks and Missing Utilities Errors";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_02_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_02_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -993,6 +993,32 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-permission-vs-missing-utility-handling">📊 Comparison Table: Permission vs Missing Utility Handling</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-permission-blocks_1">⚙️ Understanding Permission Blocks</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-missing-utilities-errors_1">🛠️ Handling Missing Utilities Errors</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-permission-blocks-vs-missing-utilities_1">📊 Comparison Table: Permission Blocks vs. Missing Utilities</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-robust-error-handling_1">🕵️ Best Practices for Robust Error Handling</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-implementation-tips_1">📝 Practical Implementation Tips</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-checking-if-a-file-is-readable_1">🔧 Example 1: Checking if a file is readable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-catching-a-permissionerror-when-opening-a-file_1">🔧 Example 2: Catching a PermissionError when opening a file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-checking-if-a-utility-exists-using-shutilwhich_1">🔧 Example 3: Checking if a utility exists using shutil.which</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-running-a-command-and-catching-filenotfounderror_1">🔧 Example 4: Running a command and catching FileNotFoundError</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-combined-permission-and-utility-check-for-a-health-script_1">🔧 Example 5: Combined permission and utility check for a health script</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-permission-vs-missing-utility-handling_1">📊 Comparison Table: Permission vs Missing Utility Handling</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_02_06/">Ch 21 | Serialization of Reports into JSON or Text Files</a>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="handling-permission-blocks-and-missing-utilities-errors">Handling Permission Blocks and Missing Utilities Errors</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Project: System Health Reporter</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1193,8 +1219,7 @@
 <li><strong>Is portable across different systems with different configurations</strong></li>
 </ul>
 <p>Remember: a robust script is one that handles errors gracefully and keeps the user informed every step of the way.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide shows how to detect and handle permission errors and missing command-line utilities when building system health scripts.</p>
 <hr />
 <h3 id="example-1-checking-if-a-file-is-readable">🔧 Example 1: Checking if a file is readable</h3>
@@ -1286,6 +1311,263 @@
 <p>📤 Output: <strong>Permission denied: cannot read /var/log/syslog</strong></p>
 <hr />
 <h3 id="comparison-table-permission-vs-missing-utility-handling">📊 Comparison Table: Permission vs Missing Utility Handling</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Detection Method</th>
+<th>Error Type</th>
+<th>Best Practice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cannot read a file</td>
+<td><code>os.access()</code> or <code>try/except</code></td>
+<td><code>PermissionError</code></td>
+<td>Check access before opening</td>
+</tr>
+<tr>
+<td>File does not exist</td>
+<td><code>os.path.exists()</code></td>
+<td><code>FileNotFoundError</code></td>
+<td>Check existence before reading</td>
+</tr>
+<tr>
+<td>Utility not installed</td>
+<td><code>shutil.which()</code></td>
+<td>Returns <code>None</code></td>
+<td>Check before calling subprocess</td>
+</tr>
+<tr>
+<td>Command not found</td>
+<td><code>try/except</code></td>
+<td><code>FileNotFoundError</code></td>
+<td>Wrap subprocess calls in try</td>
+</tr>
+<tr>
+<td>Both combined</td>
+<td>Multiple checks</td>
+<td>Mixed</td>
+<td>Validate all dependencies first</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When building a system health reporter script, you will often run into two common roadblocks: <strong>permission errors</strong> (your script can't access certain files or system information) and <strong>missing utilities</strong> (a command or tool your script depends on isn't installed). These issues can crash your script mid-execution if not handled properly. In this section, we'll learn how to gracefully detect and respond to both situations, keeping your script robust and user-friendly.</p>
+<hr />
+<h3 id="understanding-permission-blocks_1">⚙️ Understanding Permission Blocks</h3>
+<p>Permission blocks occur when your script tries to read, write, or execute something it doesn't have the rights to. For example, reading a protected log file or checking CPU temperature might require root or sudo access.</p>
+<p><strong>Key points to remember:</strong>
+- Your script runs with the permissions of the user who launches it
+- Common blocked areas include system logs, hardware sensors, and other users' home directories
+- A permission error will typically raise a specific exception (like PermissionError in Python)
+- You can catch these exceptions and provide a clear message instead of letting the script crash</p>
+<p><strong>How to handle permission blocks:</strong>
+- Wrap risky operations in try-except blocks
+- Check for file or directory accessibility before attempting to read
+- Use the os.access() function to test permissions beforehand
+- Provide fallback behavior when access is denied (skip the check, use a default value, or log a warning)</p>
+<p><strong>Example approach:</strong>
+- Before reading a system file, check if the current user has read permission
+- If not, skip that check and move to the next one
+- Print a warning message like <strong>"⚠️ Skipping CPU temperature check — permission denied. Run with sudo for full data."</strong></p>
+<hr />
+<h3 id="handling-missing-utilities-errors_1">🛠️ Handling Missing Utilities Errors</h3>
+<p>Your system health reporter might rely on external tools like <strong>df</strong>, <strong>free</strong>, <strong>uptime</strong>, or <strong>sensors</strong>. If these utilities are missing, your script will fail with a "command not found" error.</p>
+<p><strong>Key points to remember:</strong>
+- Always verify that a required utility exists before trying to use it
+- Use the <strong>shutil.which()</strong> function to locate a command in the system PATH
+- If a utility is missing, provide a clear message and optionally suggest how to install it
+- Consider making missing utilities non-fatal — skip that check and continue with others</p>
+<p><strong>How to handle missing utilities:</strong>
+- Import the <strong>shutil</strong> module in your script
+- Call <strong>shutil.which("command_name")</strong> to check availability
+- If the result is None, the utility is not installed
+- Print a user-friendly message like <strong>"🛑 'sensors' utility not found. Install lm-sensors to enable temperature monitoring."</strong>
+- Decide whether to skip the check entirely or exit gracefully</p>
+<p><strong>Example approach:</strong>
+- At the start of each health check function, verify the required utility exists
+- If missing, log a warning and return a default "unavailable" status
+- Continue running the rest of the script without interruption</p>
+<hr />
+<h3 id="comparison-table-permission-blocks-vs-missing-utilities_1">📊 Comparison Table: Permission Blocks vs. Missing Utilities</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Permission Block</th>
+<th>Missing Utility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Root Cause</strong></td>
+<td>User lacks access rights to a resource</td>
+<td>Required command/tool is not installed</td>
+</tr>
+<tr>
+<td><strong>Common Error</strong></td>
+<td>PermissionError, "Access denied"</td>
+<td>FileNotFoundError, "command not found"</td>
+</tr>
+<tr>
+<td><strong>Detection Method</strong></td>
+<td>try-except on file operations, os.access() check</td>
+<td>shutil.which() before calling the command</td>
+</tr>
+<tr>
+<td><strong>Typical Fix</strong></td>
+<td>Run script with sudo, adjust file permissions</td>
+<td>Install the missing package via apt, yum, or brew</td>
+</tr>
+<tr>
+<td><strong>Impact on Script</strong></td>
+<td>Can crash if unhandled; skips one check if handled</td>
+<td>Can crash if unhandled; skips one check if handled</td>
+</tr>
+<tr>
+<td><strong>User Message Example</strong></td>
+<td><strong>"⚠️ Cannot read /var/log/syslog — permission denied"</strong></td>
+<td><strong>"🛑 'df' command not found — skipping disk usage check"</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="best-practices-for-robust-error-handling_1">🕵️ Best Practices for Robust Error Handling</h3>
+<ul>
+<li><strong>Always use try-except blocks</strong> around system calls and file operations</li>
+<li><strong>Check utility availability early</strong> — ideally at the start of your script or before each major check</li>
+<li><strong>Provide actionable messages</strong> — tell the user what went wrong and how to fix it</li>
+<li><strong>Keep your script running</strong> — a missing utility or permission block should not stop the entire report</li>
+<li><strong>Log errors for debugging</strong> — write warnings to a log file or print them to stderr</li>
+<li><strong>Use fallback values</strong> — when a check fails, return a placeholder like <strong>"N/A"</strong> or <strong>"Unavailable"</strong></li>
+<li><strong>Test your script</strong> as a normal user and as root to see how permissions affect behavior</li>
+</ul>
+<hr />
+<h3 id="practical-implementation-tips_1">📝 Practical Implementation Tips</h3>
+<ul>
+<li>Import <strong>os</strong> and <strong>shutil</strong> at the top of your script for permission and utility checks</li>
+<li>Create a helper function like <strong>check_utility(utility_name)</strong> that returns True or False</li>
+<li>Create another helper like <strong>check_permission(path)</strong> that returns True or False</li>
+<li>In your main health check functions, call these helpers first</li>
+<li>If a check fails, print a warning and return early with a default value</li>
+<li>Collect all warnings at the end of the report so the user sees a summary</li>
+</ul>
+<p><strong>Example flow for a disk check:</strong>
+1. Call <strong>check_utility("df")</strong> — if False, print warning and return <strong>"Disk usage: Unavailable (df not found)"</strong>
+2. If True, run the df command inside a try-except block
+3. If a PermissionError occurs, print <strong>"⚠️ Disk usage: Permission denied — try running with sudo"</strong>
+4. If successful, parse and return the disk usage data</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Handling permission blocks and missing utilities is essential for building a reliable system health reporter. By checking for these issues proactively and responding gracefully, you ensure your script:</p>
+<ul>
+<li><strong>Does not crash unexpectedly</strong></li>
+<li><strong>Provides clear, helpful feedback to the user</strong></li>
+<li><strong>Continues running even when some checks fail</strong></li>
+<li><strong>Is portable across different systems with different configurations</strong></li>
+</ul>
+<p>Remember: a robust script is one that handles errors gracefully and keeps the user informed every step of the way.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide shows how to detect and handle permission errors and missing command-line utilities when building system health scripts.</p>
+<hr />
+<h3 id="example-1-checking-if-a-file-is-readable_1">🔧 Example 1: Checking if a file is readable</h3>
+<p>This example tries to read a system file and catches a permission error.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;/etc/shadow&quot;</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">R_OK</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File is readable&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Permission denied: cannot read file&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Permission denied: cannot read file</strong></p>
+<hr />
+<h3 id="example-2-catching-a-permissionerror-when-opening-a-file_1">🔧 Example 2: Catching a PermissionError when opening a file</h3>
+<p>This example uses a try-except block to handle permission errors gracefully.</p>
+<div class="highlight"><pre><span></span><code><span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;/etc/sudoers&quot;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File read successfully&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">PermissionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Permission denied: you do not have access to this file&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Permission denied: you do not have access to this file</strong></p>
+<hr />
+<h3 id="example-3-checking-if-a-utility-exists-using-shutilwhich_1">🔧 Example 3: Checking if a utility exists using shutil.which</h3>
+<p>This example verifies that a command-line tool is installed before using it.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">utility_name</span> <span class="o">=</span> <span class="s2">&quot;ping&quot;</span>
+
+<span class="k">if</span> <span class="n">shutil</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="n">utility_name</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Utility &#39;</span><span class="si">{</span><span class="n">utility_name</span><span class="si">}</span><span class="s2">&#39; is available&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Utility &#39;</span><span class="si">{</span><span class="n">utility_name</span><span class="si">}</span><span class="s2">&#39; is missing — install it first&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Utility 'ping' is available</strong></p>
+<hr />
+<h3 id="example-4-running-a-command-and-catching-filenotfounderror_1">🔧 Example 4: Running a command and catching FileNotFoundError</h3>
+<p>This example runs a system command and handles the case where the utility does not exist.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">utility</span> <span class="o">=</span> <span class="s2">&quot;nmap&quot;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">utility</span><span class="p">,</span> <span class="s2">&quot;--version&quot;</span><span class="p">],</span>
+        <span class="n">capture_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">timeout</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">utility</span><span class="si">}</span><span class="s2"> version: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: &#39;</span><span class="si">{</span><span class="n">utility</span><span class="si">}</span><span class="s2">&#39; is not installed on this system&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">TimeoutExpired</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: &#39;</span><span class="si">{</span><span class="n">utility</span><span class="si">}</span><span class="s2">&#39; took too long to respond&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Error: 'nmap' is not installed on this system</strong></p>
+<hr />
+<h3 id="example-5-combined-permission-and-utility-check-for-a-health-script_1">🔧 Example 5: Combined permission and utility check for a health script</h3>
+<p>This example checks both file permissions and utility availability before running a system health check.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">log_file</span> <span class="o">=</span> <span class="s2">&quot;/var/log/syslog&quot;</span>
+<span class="n">utility</span> <span class="o">=</span> <span class="s2">&quot;grep&quot;</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">shutil</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="n">utility</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing utility: </span><span class="si">{</span><span class="n">utility</span><span class="si">}</span><span class="s2"> is required&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">log_file</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">R_OK</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Permission denied: cannot read </span><span class="si">{</span><span class="n">log_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">utility</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="n">log_file</span><span class="p">],</span>
+            <span class="n">capture_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">timeout</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="p">)</span>
+        <span class="n">error_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="n">error_count</span><span class="si">}</span><span class="s2"> error entries in </span><span class="si">{</span><span class="n">log_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">TimeoutExpired</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Search timed out — log file may be too large&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Permission denied: cannot read /var/log/syslog</strong></p>
+<hr />
+<h3 id="comparison-table-permission-vs-missing-utility-handling_1">📊 Comparison Table: Permission vs Missing Utility Handling</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_01_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Streaming Configuration Files via load and dump - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Streaming Configuration Files via load and dump";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_01_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_01_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -879,6 +879,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-load-vs-dump">📊 Comparison Table: load vs dump</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-does-streaming-mean-here_1">⚙️ What Does "Streaming" Mean Here?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-load-function_1">🛠️ The load Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-dump-function_1">📤 The dump Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-load-vs-dump_1">📊 Comparison: load vs dump</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-details-to-remember_1">🕵️ Key Details to Remember</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-workflow-example_1">🔄 Practical Workflow Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-loading-a-simple-json-file-into-a-python-dictionary_1">💻 Example 1: Loading a simple JSON file into a Python dictionary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-dumping-a-python-dictionary-to-a-json-file_1">💻 Example 2: Dumping a Python dictionary to a JSON file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-loading-a-json-file-with-nested-configuration_1">💻 Example 3: Loading a JSON file with nested configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-dumping-with-pretty-print-formatting-for-readability_1">💻 Example 4: Dumping with pretty-print formatting for readability</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-loading-and-modifying-a-configuration-file-then-dumping-it-back_1">💻 Example 5: Loading and modifying a configuration file, then dumping it back</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-load-vs-dump_1">📊 Comparison Table: load vs dump</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_01_04/">Ch 19 | Beautifying Layout Files via Indent Parameters</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="streaming-configuration-files-via-load-and-dump">Streaming Configuration Files via load and dump</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  JSON In-Depth</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1209,8 +1237,7 @@
 <li>This streaming pattern is essential for automating infrastructure configuration tasks</li>
 </ul>
 <p>By mastering load and dump, you gain the ability to programmatically read, modify, and write configuration files — a fundamental skill for any engineer working with infrastructure automation.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Streaming configuration files via <code>load</code> and <code>dump</code> reads JSON data from a file and writes JSON data to a file using Python's built-in <code>json</code> module.</p>
 <hr />
 <h3 id="example-1-loading-a-simple-json-file-into-a-python-dictionary">💻 Example 1: Loading a simple JSON file into a Python dictionary</h3>
@@ -1293,6 +1320,253 @@
 <p>📤 Output: <strong>Config updated</strong></p>
 <hr />
 <h3 id="comparison-table-load-vs-dump">📊 Comparison Table: <code>load</code> vs <code>dump</code></h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+<th>Input</th>
+<th>Output</th>
+<th>File Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>json.load()</code></td>
+<td>Read JSON from file</td>
+<td>File object</td>
+<td>Python dictionary</td>
+<td><code>"r"</code> (read)</td>
+</tr>
+<tr>
+<td><code>json.dump()</code></td>
+<td>Write JSON to file</td>
+<td>Python dictionary</td>
+<td>File on disk</td>
+<td><code>"w"</code> (write)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When working with configuration files in Python, you often need to read data from a file (loading) or write data to a file (dumping). This process is called <strong>streaming</strong> — moving data between your Python program and a file on disk. For engineers managing infrastructure, this is essential for reading config files, updating settings, or generating new configuration templates dynamically.</p>
+<p>The <strong>load</strong> function reads a file and converts its contents into a Python object (like a dictionary or list). The <strong>dump</strong> function does the reverse — it takes a Python object and writes it to a file in a structured format.</p>
+<hr />
+<h3 id="what-does-streaming-mean-here_1">⚙️ What Does "Streaming" Mean Here?</h3>
+<p>Streaming in this context refers to the flow of data:</p>
+<ul>
+<li><strong>Input stream</strong>: Data flows from a file into your Python program (via <strong>load</strong>)</li>
+<li><strong>Output stream</strong>: Data flows from your Python program into a file (via <strong>dump</strong>)</li>
+</ul>
+<p>This is different from working with data entirely in memory. Streaming allows you to persist configuration changes and share them across systems.</p>
+<hr />
+<h3 id="the-load-function_1">🛠️ The load Function</h3>
+<p>The <strong>load</strong> function reads a structured file and converts it into a Python data structure.</p>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>You open a file using Python's built-in <strong>open()</strong> function</li>
+<li>You pass the file object to the <strong>load</strong> function from the appropriate library (json, yaml, or csv)</li>
+<li>The function returns a Python dictionary, list, or other data type</li>
+</ul>
+<p><strong>Example flow:</strong></p>
+<ul>
+<li>Open a file named <strong>config.json</strong> in read mode</li>
+<li>Pass the file object to <strong>json.load()</strong></li>
+<li>The result is a Python dictionary containing all the configuration keys and values</li>
+</ul>
+<p><strong>Why this matters:</strong> You can now access any configuration value using standard dictionary syntax, like <strong>config["database"]["host"]</strong>.</p>
+<hr />
+<h3 id="the-dump-function_1">📤 The dump Function</h3>
+<p>The <strong>dump</strong> function takes a Python object and writes it to a file in a structured format.</p>
+<p><strong>How it works:</strong></p>
+<ul>
+<li>You prepare a Python dictionary or list with the data you want to save</li>
+<li>You open a file in write mode</li>
+<li>You pass the Python object and the file object to the <strong>dump</strong> function</li>
+</ul>
+<p><strong>Example flow:</strong></p>
+<ul>
+<li>Create a dictionary with updated configuration values</li>
+<li>Open a file named <strong>settings.yaml</strong> in write mode</li>
+<li>Pass the dictionary and file object to <strong>yaml.dump()</strong></li>
+<li>The file now contains the configuration in YAML format</li>
+</ul>
+<p><strong>Why this matters:</strong> You can programmatically update configuration files without manual editing, which is critical for automation.</p>
+<hr />
+<h3 id="comparison-load-vs-dump_1">📊 Comparison: load vs dump</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>load</th>
+<th>dump</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Direction</strong></td>
+<td>File → Python</td>
+<td>Python → File</td>
+</tr>
+<tr>
+<td><strong>Input</strong></td>
+<td>A file object (opened for reading)</td>
+<td>A Python object (dict, list, etc.)</td>
+</tr>
+<tr>
+<td><strong>Output</strong></td>
+<td>A Python data structure</td>
+<td>A structured file on disk</td>
+</tr>
+<tr>
+<td><strong>Common use</strong></td>
+<td>Reading existing config files</td>
+<td>Saving updated or new config files</td>
+</tr>
+<tr>
+<td><strong>File mode</strong></td>
+<td>"r" (read)</td>
+<td>"w" (write) or "a" (append)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="key-details-to-remember_1">🕵️ Key Details to Remember</h3>
+<p><strong>For load operations:</strong></p>
+<ul>
+<li>Always open the file in read mode using <strong>open("filename.json", "r")</strong></li>
+<li>The file must exist, or you will get a <strong>FileNotFoundError</strong></li>
+<li>Use a <strong>with</strong> statement to ensure the file closes automatically after reading</li>
+</ul>
+<p><strong>For dump operations:</strong></p>
+<ul>
+<li>Always open the file in write mode using <strong>open("filename.json", "w")</strong></li>
+<li>If the file already exists, it will be overwritten</li>
+<li>If the file does not exist, Python will create it</li>
+<li>Use a <strong>with</strong> statement to ensure the file closes automatically after writing</li>
+</ul>
+<p><strong>Common mistakes to avoid:</strong></p>
+<ul>
+<li>Forgetting to open the file before calling load or dump</li>
+<li>Opening the file in the wrong mode (e.g., write mode for load)</li>
+<li>Passing the filename as a string instead of a file object</li>
+<li>Trying to dump a Python object that contains non-serializable data types (like datetime objects without custom handling)</li>
+</ul>
+<hr />
+<h3 id="practical-workflow-example_1">🔄 Practical Workflow Example</h3>
+<p>A typical streaming workflow looks like this:</p>
+<ol>
+<li><strong>Read</strong> an existing configuration file using <strong>load</strong></li>
+<li><strong>Modify</strong> the Python dictionary (add, update, or remove keys)</li>
+<li><strong>Write</strong> the updated dictionary back to the file using <strong>dump</strong></li>
+</ol>
+<p>This three-step process is the foundation of configuration management in Python.</p>
+<p><strong>Step-by-step breakdown:</strong></p>
+<ul>
+<li>Step 1: Open the file in read mode and call <strong>load</strong> to get a Python dictionary</li>
+<li>Step 2: Update the dictionary with new values (e.g., <strong>config["port"] = 8080</strong>)</li>
+<li>Step 3: Open the same file in write mode and call <strong>dump</strong> to save the changes</li>
+</ul>
+<p>The result is a seamlessly updated configuration file without any manual editing.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li><strong>load</strong> reads structured data from a file into Python</li>
+<li><strong>dump</strong> writes Python data to a file in a structured format</li>
+<li>Both functions require a file object (not just a filename)</li>
+<li>Always use a <strong>with</strong> statement for safe file handling</li>
+<li>This streaming pattern is essential for automating infrastructure configuration tasks</li>
+</ul>
+<p>By mastering load and dump, you gain the ability to programmatically read, modify, and write configuration files — a fundamental skill for any engineer working with infrastructure automation.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Streaming configuration files via <code>load</code> and <code>dump</code> reads JSON data from a file and writes JSON data to a file using Python's built-in <code>json</code> module.</p>
+<hr />
+<h3 id="example-1-loading-a-simple-json-file-into-a-python-dictionary_1">💻 Example 1: Loading a simple JSON file into a Python dictionary</h3>
+<p>This example reads a JSON configuration file and converts it into a Python dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'host': 'localhost', 'port': 8080, 'debug': True}</strong></p>
+<hr />
+<h3 id="example-2-dumping-a-python-dictionary-to-a-json-file_1">💻 Example 2: Dumping a Python dictionary to a JSON file</h3>
+<p>This example writes a Python dictionary to a JSON configuration file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">settings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span>
+    <span class="s2">&quot;debug&quot;</span><span class="p">:</span> <span class="kc">True</span>
+<span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">settings</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File written successfully&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>File written successfully</strong></p>
+<hr />
+<h3 id="example-3-loading-a-json-file-with-nested-configuration_1">💻 Example 3: Loading a JSON file with nested configuration</h3>
+<p>This example reads a JSON file that contains nested configuration settings.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;app_config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">app_config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">app_config</span><span class="p">[</span><span class="s2">&quot;database&quot;</span><span class="p">][</span><span class="s2">&quot;host&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">app_config</span><span class="p">[</span><span class="s2">&quot;database&quot;</span><span class="p">][</span><span class="s2">&quot;port&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>db.example.com 5432</strong></p>
+<hr />
+<h3 id="example-4-dumping-with-pretty-print-formatting-for-readability_1">💻 Example 4: Dumping with pretty-print formatting for readability</h3>
+<p>This example writes a JSON file with indentation so engineers can read it easily.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;server&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">3000</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;logging&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;info&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="s2">&quot;server.log&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;formatted_config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Formatted config written&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Formatted config written</strong></p>
+<hr />
+<h3 id="example-5-loading-and-modifying-a-configuration-file-then-dumping-it-back_1">💻 Example 5: Loading and modifying a configuration file, then dumping it back</h3>
+<p>This example reads a config file, changes a value, and writes the updated config back to disk.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="n">config</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9090</span>
+<span class="n">config</span><span class="p">[</span><span class="s2">&quot;debug&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Config updated&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Config updated</strong></p>
+<hr />
+<h3 id="comparison-table-load-vs-dump_1">📊 Comparison Table: <code>load</code> vs <code>dump</code></h3>
 <table>
 <thead>
 <tr>

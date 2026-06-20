@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_07_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Method Specializations (classmethod and staticmethod) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Method Specializations (classmethod and staticmethod)";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_07_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_07_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -877,6 +877,38 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-method-specializations_1">⚙️ What Are Method Specializations?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-classmethod_1">🕵️ Understanding @classmethod</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-staticmethod_1">🛠️ Understanding @staticmethod</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-regular-vs-class-vs-static-methods_1">📊 Comparison Table: Regular vs Class vs Static Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-employee-class_1">🧪 Practical Example: Employee Class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-each-method_1">🎯 When to Use Each Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">⚡ Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-tips-for-engineers_1">💡 Quick Tips for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary-checklist_1">✅ Summary Checklist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-regular-instance-method-vs-classmethod-vs-staticmethod-basic-difference_1">🔧 Example 1: Regular instance method vs classmethod vs staticmethod — basic difference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-calling-methods-on-the-class-itself-not-an-instance_1">🔧 Example 2: Calling methods on the class itself (not an instance)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-classmethod-as-an-alternative-constructor_1">🔧 Example 3: Classmethod as an alternative constructor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-staticmethod-for-utility-functions-related-to-the-class_1">🔧 Example 4: Staticmethod for utility functions related to the class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-classmethod-tracks-all-instances-staticmethod-validates-data_1">🔧 Example 5: Practical use — classmethod tracks all instances, staticmethod validates data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_01_01/">Ch 19 | Tracing JSON Types Mapping to Python Equivalents</a>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="method-specializations-classmethod-and-staticmethod">Method Specializations (classmethod and staticmethod)</h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Class vs Instance Attributes</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1226,8 +1258,7 @@ A static method called <strong>is_valid_age</strong> that checks if a given age 
 <li>[ ] Use static methods for utility functions related to the class</li>
 <li>[ ] Always call class and static methods on the class name for clarity</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Classmethod and staticmethod are special decorators that change how methods behave when called on a class or an instance.</p>
 <hr />
 <h3 id="example-1-regular-instance-method-vs-classmethod-vs-staticmethod-basic-difference">🔧 Example 1: Regular instance method vs classmethod vs staticmethod — basic difference</h3>
@@ -1346,6 +1377,309 @@ False<br />
 True</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Method Type</th>
+<th>First Argument</th>
+<th>Needs Instance?</th>
+<th>Needs Class?</th>
+<th>Typical Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instance method</td>
+<td><code>self</code> (instance)</td>
+<td>Yes</td>
+<td>No</td>
+<td>Works with object data</td>
+</tr>
+<tr>
+<td>Classmethod</td>
+<td><code>cls</code> (class)</td>
+<td>No</td>
+<td>No</td>
+<td>Alternative constructors, class-level data</td>
+</tr>
+<tr>
+<td>Staticmethod</td>
+<td>None</td>
+<td>No</td>
+<td>No</td>
+<td>Utility functions, validation logic</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>In Python, not all methods are created equal. While regular instance methods are the most common, there are two special method types that give you more flexibility: <strong>class methods</strong> and <strong>static methods</strong>. These specializations help you organize your code better, especially when you need methods that don't depend on a specific object instance.</p>
+<hr />
+<h3 id="what-are-method-specializations_1">⚙️ What Are Method Specializations?</h3>
+<p>Method specializations allow you to define methods that behave differently from regular instance methods. They are created using special <strong>decorators</strong> (special markers that modify how a function works).</p>
+<ul>
+<li><strong>Regular methods</strong> – Require an instance of the class to work</li>
+<li><strong>Class methods</strong> – Work with the class itself, not a specific instance</li>
+<li><strong>Static methods</strong> – Don't need access to either the class or an instance</li>
+</ul>
+<hr />
+<h3 id="understanding-classmethod_1">🕵️ Understanding @classmethod</h3>
+<p>A <strong>class method</strong> receives the class itself as the first argument (conventionally named <strong>cls</strong>) instead of an instance (conventionally named <strong>self</strong>).</p>
+<p><strong>Key characteristics:</strong>
+- Created using the <strong>@classmethod</strong> decorator
+- First parameter is <strong>cls</strong> (the class), not <strong>self</strong>
+- Can access and modify class-level attributes
+- Can be called on the class itself or on an instance
+- Useful for <strong>alternative constructors</strong> (creating objects in different ways)</p>
+<p><strong>Simple example:</strong>
+A class method called <strong>from_string</strong> that creates a Person object from a formatted string like "John-30" instead of passing separate arguments.</p>
+<hr />
+<h3 id="understanding-staticmethod_1">🛠️ Understanding @staticmethod</h3>
+<p>A <strong>static method</strong> does not receive any special first argument. It behaves like a regular function but lives inside the class namespace.</p>
+<p><strong>Key characteristics:</strong>
+- Created using the <strong>@staticmethod</strong> decorator
+- No <strong>self</strong> or <strong>cls</strong> parameter
+- Cannot access or modify class or instance attributes
+- Can be called on the class or on an instance
+- Useful for <strong>utility functions</strong> that are related to the class but don't need its data</p>
+<p><strong>Simple example:</strong>
+A static method called <strong>is_valid_age</strong> that checks if a given age number is reasonable, without needing any Person data.</p>
+<hr />
+<h3 id="comparison-table-regular-vs-class-vs-static-methods_1">📊 Comparison Table: Regular vs Class vs Static Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Regular Method</th>
+<th>Class Method</th>
+<th>Static Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Decorator</strong></td>
+<td>None</td>
+<td>@classmethod</td>
+<td>@staticmethod</td>
+</tr>
+<tr>
+<td><strong>First parameter</strong></td>
+<td>self (instance)</td>
+<td>cls (class)</td>
+<td>None</td>
+</tr>
+<tr>
+<td><strong>Can access instance data</strong></td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Can access class data</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>Can be called on class</strong></td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Can be called on instance</strong></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Use case</strong></td>
+<td>Working with object data</td>
+<td>Alternative constructors</td>
+<td>Utility/helper functions</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-employee-class_1">🧪 Practical Example: Employee Class</h3>
+<p>Let's see how these methods work together in a real scenario.</p>
+<p><strong>Scenario:</strong> You have an Employee class that tracks employee names and salaries. You want to:
+1. Create employees normally (regular constructor)
+2. Create employees from a CSV-style string (class method)
+3. Validate salary amounts (static method)</p>
+<p><strong>The class structure:</strong>
+- <strong><strong>init</strong></strong> – Regular method that sets name and salary
+- <strong>from_csv_string</strong> – Class method that parses "John,50000" into an Employee
+- <strong>is_valid_salary</strong> – Static method that checks if a salary is reasonable</p>
+<p><strong>How they are called:</strong>
+- Regular: <strong>emp1 = Employee("Alice", 60000)</strong>
+- Class method: <strong>emp2 = Employee.from_csv_string("Bob,55000")</strong>
+- Static method: <strong>Employee.is_valid_salary(45000)</strong> returns True or False</p>
+<hr />
+<h3 id="when-to-use-each-method_1">🎯 When to Use Each Method</h3>
+<p><strong>Use a regular method when:</strong>
+- You need to work with data from a specific object instance
+- You need to modify the object's attributes</p>
+<p><strong>Use a class method when:</strong>
+- You need to create objects in multiple ways (alternative constructors)
+- You need to modify class-level attributes that affect all instances
+- You want to implement factory patterns</p>
+<p><strong>Use a static method when:</strong>
+- You have a utility function that logically belongs to the class
+- The function doesn't need access to class or instance data
+- You want to group related helper functions together</p>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">⚡ Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Forgetting the decorator</strong> – Without @classmethod or @staticmethod, Python treats it as a regular method and expects <strong>self</strong></li>
+<li><strong>Using self in a class method</strong> – Class methods receive <strong>cls</strong>, not <strong>self</strong>. Using self will cause confusion</li>
+<li><strong>Trying to access instance data from static methods</strong> – Static methods have no access to <strong>self</strong> or <strong>cls</strong>, so they cannot read or modify object data</li>
+<li><strong>Overusing static methods</strong> – If a function doesn't relate to the class at all, consider making it a standalone function instead</li>
+</ul>
+<hr />
+<h3 id="quick-tips-for-engineers_1">💡 Quick Tips for Engineers</h3>
+<ul>
+<li>Class methods are excellent for <strong>parsing different input formats</strong> (JSON, CSV, XML) into objects</li>
+<li>Static methods work well for <strong>validation logic</strong> that checks data before creating objects</li>
+<li>Both class and static methods can be <strong>inherited</strong> by child classes, making them powerful for code reuse</li>
+<li>Use class methods when you need <strong>polymorphism</strong> – child classes can override them to return instances of themselves</li>
+</ul>
+<hr />
+<h3 id="summary-checklist_1">✅ Summary Checklist</h3>
+<ul>
+<li>[ ] Use <strong>@classmethod</strong> when the method needs the class but not an instance</li>
+<li>[ ] Use <strong>@staticmethod</strong> when the method needs neither class nor instance</li>
+<li>[ ] Remember that class methods receive <strong>cls</strong> as first parameter</li>
+<li>[ ] Remember that static methods receive no special first parameter</li>
+<li>[ ] Use class methods for alternative constructors (creating objects differently)</li>
+<li>[ ] Use static methods for utility functions related to the class</li>
+<li>[ ] Always call class and static methods on the class name for clarity</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Classmethod and staticmethod are special decorators that change how methods behave when called on a class or an instance.</p>
+<hr />
+<h3 id="example-1-regular-instance-method-vs-classmethod-vs-staticmethod-basic-difference_1">🔧 Example 1: Regular instance method vs classmethod vs staticmethod — basic difference</h3>
+<p>This example shows the first argument each method type receives.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Demo</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">instance_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Instance method called with: </span><span class="si">{</span><span class="bp">self</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">class_method</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Class method called with: </span><span class="si">{</span><span class="bp">cls</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">static_method</span><span class="p">():</span>
+        <span class="k">return</span> <span class="s2">&quot;Static method called with no special first argument&quot;</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">Demo</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">instance_method</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">class_method</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">static_method</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>Instance method called with: &lt;<strong>main</strong>.Demo object at 0x...&gt;<br />
+Class method called with: <class '__main__.Demo'><br />
+Static method called with no special first argument</strong></p>
+<hr />
+<h3 id="example-2-calling-methods-on-the-class-itself-not-an-instance_1">🔧 Example 2: Calling methods on the class itself (not an instance)</h3>
+<p>This example demonstrates that classmethod and staticmethod can be called directly on the class without creating an object.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Calculator</span><span class="p">:</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">describe</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;This is a </span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> class&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Calculator</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Calculator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>This is a Calculator class<br />
+8</strong></p>
+<hr />
+<h3 id="example-3-classmethod-as-an-alternative-constructor_1">🔧 Example 3: Classmethod as an alternative constructor</h3>
+<p>This example shows how classmethods create instances using different input formats.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Temperature</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">celsius</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">celsius</span> <span class="o">=</span> <span class="n">celsius</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_fahrenheit</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">fahrenheit</span><span class="p">):</span>
+        <span class="n">celsius</span> <span class="o">=</span> <span class="p">(</span><span class="n">fahrenheit</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">9</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">celsius</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">celsius</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">°C&quot;</span>
+
+<span class="n">temp1</span> <span class="o">=</span> <span class="n">Temperature</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">temp2</span> <span class="o">=</span> <span class="n">Temperature</span><span class="o">.</span><span class="n">from_fahrenheit</span><span class="p">(</span><span class="mi">77</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">temp1</span><span class="o">.</span><span class="n">display</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">temp2</span><span class="o">.</span><span class="n">display</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>25.0°C<br />
+25.0°C</strong></p>
+<hr />
+<h3 id="example-4-staticmethod-for-utility-functions-related-to-the-class_1">🔧 Example 4: Staticmethod for utility functions related to the class</h3>
+<p>This example shows how staticmethods organize helper logic inside the class without needing class or instance data.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">StringUtils</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_palindrome</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+        <span class="n">cleaned</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cleaned</span> <span class="o">==</span> <span class="n">cleaned</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_vowels</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+        <span class="n">vowels</span> <span class="o">=</span> <span class="s2">&quot;aeiou&quot;</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">vowels</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="n">is_palindrome</span><span class="p">(</span><span class="s2">&quot;racecar&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="n">is_palindrome</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="n">count_vowels</span><span class="p">(</span><span class="s2">&quot;engineer&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>True<br />
+False<br />
+4</strong></p>
+<hr />
+<h3 id="example-5-practical-use-classmethod-tracks-all-instances-staticmethod-validates-data_1">🔧 Example 5: Practical use — classmethod tracks all instances, staticmethod validates data</h3>
+<p>This example combines both specializations in a realistic engineer scenario.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Product</span><span class="p">:</span>
+    <span class="n">all_products</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+        <span class="n">Product</span><span class="o">.</span><span class="n">all_products</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">list_all</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">all_products</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_valid_price</span><span class="p">(</span><span class="n">price</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">price</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">price</span> <span class="o">&lt;</span> <span class="mi">10000</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="s2">&quot;Laptop&quot;</span><span class="p">,</span> <span class="mi">1200</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="s2">&quot;Mouse&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="s2">&quot;Monitor&quot;</span><span class="p">,</span> <span class="mi">350</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Product</span><span class="o">.</span><span class="n">list_all</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Product</span><span class="o">.</span><span class="n">is_valid_price</span><span class="p">(</span><span class="mi">15000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Product</span><span class="o">.</span><span class="n">is_valid_price</span><span class="p">(</span><span class="mi">500</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Laptop', 'Mouse', 'Monitor']<br />
+False<br />
+True</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

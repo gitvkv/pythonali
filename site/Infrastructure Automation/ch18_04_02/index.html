@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_04_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Public, Protected, and Private Naming Conventions - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Public, Protected, and Private Naming Conventions";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_04_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_04_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -855,6 +855,38 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#introduction_1">🧭 Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-naming-conventions_1">⚙️ What Are Naming Conventions?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#public-members_1">📊 Public Members</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#protected-members_1">🛡️ Protected Members</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#private-members_1">🔒 Private Members</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_2">🕵️ Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example_1">🛠️ Practical Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-use-these-conventions_1">🧠 Why Use These Conventions?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-note_1">⚠️ Important Note</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-public-attribute-accessible-anywhere_1">🔧 Example 1: Public attribute — accessible anywhere</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-protected-attribute-single-underscore-prefix_1">🔧 Example 2: Protected attribute — single underscore prefix</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-private-attribute-double-underscore-prefix_1">🔧 Example 3: Private attribute — double underscore prefix</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-private-method-double-underscore-prefix_1">🔧 Example 4: Private method — double underscore prefix</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-protected-method-in-a-subclass_1">🔧 Example 5: Protected method in a subclass</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_3">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_04_03/">Ch 18 | Getters and Setters Interfaces via Property Decorators</a>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="public-protected-and-private-naming-conventions">Public, Protected, and Private Naming Conventions</h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Encapsulation</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="introduction">🧭 Introduction</h3>
@@ -1180,8 +1212,7 @@
 <li><strong>Private</strong> — Double underscore, strongly hidden.</li>
 </ul>
 <p>By following these simple naming conventions, you make your Python code more readable, predictable, and professional.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how Python uses naming conventions to indicate whether an attribute or method is meant to be used freely, used only inside a class, or kept strictly internal.</p>
 <hr />
 <h3 id="example-1-public-attribute-accessible-anywhere">🔧 Example 1: Public attribute — accessible anywhere</h3>
@@ -1261,6 +1292,220 @@
 <p>📤 Output: <strong>Motor powered on — moving forward</strong></p>
 <hr />
 <h3 id="comparison-table_1">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Convention</th>
+<th>Prefix</th>
+<th>Access from outside class</th>
+<th>Intended use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Public</td>
+<td>None</td>
+<td>Yes</td>
+<td>Any engineer</td>
+</tr>
+<tr>
+<td>Protected</td>
+<td><code>_</code></td>
+<td>Yes (discouraged)</td>
+<td>Subclass engineers</td>
+</tr>
+<tr>
+<td>Private</td>
+<td><code>__</code></td>
+<td>No (name-mangled)</td>
+<td>Internal only</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="introduction_1">🧭 Introduction</h3>
+<p>In Python, encapsulation is the practice of bundling data and methods together while controlling access to them. Unlike some other languages, Python does not have strict access modifiers like <strong>public</strong>, <strong>protected</strong>, or <strong>private</strong>. Instead, it uses <strong>naming conventions</strong> to signal how a variable or method should be used. These conventions help engineers write cleaner, more maintainable code by making the intended usage clear.</p>
+<hr />
+<h3 id="what-are-naming-conventions_1">⚙️ What Are Naming Conventions?</h3>
+<p>Naming conventions are agreed-upon rules for how to name things in your code. In Python, they use underscores to indicate the level of access:</p>
+<ul>
+<li><strong>No underscore</strong> → Public</li>
+<li><strong>Single underscore</strong> → Protected</li>
+<li><strong>Double underscore</strong> → Private</li>
+</ul>
+<p>These conventions are not enforced by the Python interpreter (except for name mangling with double underscores), but they act as a <strong>gentleman's agreement</strong> among engineers.</p>
+<hr />
+<h3 id="public-members_1">📊 Public Members</h3>
+<ul>
+<li><strong>No underscore</strong> at the beginning of the name.</li>
+<li>Accessible from anywhere — inside the class, outside the class, and from subclasses.</li>
+<li>This is the default and most common type of member.</li>
+</ul>
+<p><strong>Example:</strong> A variable named <strong>name</strong> or a method named <strong>display_info</strong> is public.</p>
+<hr />
+<h3 id="protected-members_1">🛡️ Protected Members</h3>
+<ul>
+<li><strong>Single underscore</strong> at the beginning of the name (e.g., <strong>_salary</strong>).</li>
+<li>Intended for internal use within the class and its subclasses.</li>
+<li>Not meant to be accessed from outside the class, but Python does not prevent it.</li>
+<li>Think of it as a <strong>"use at your own risk"</strong> signal.</li>
+</ul>
+<p><strong>Example:</strong> A variable named <strong>_balance</strong> or a method named <strong>_calculate_tax</strong> is protected.</p>
+<hr />
+<h3 id="private-members_1">🔒 Private Members</h3>
+<ul>
+<li><strong>Double underscore</strong> at the beginning of the name (e.g., <strong>__password</strong>).</li>
+<li>Triggers <strong>name mangling</strong> — Python internally renames the variable to <strong>_ClassName__variable</strong>.</li>
+<li>This makes it harder (but not impossible) to access from outside the class.</li>
+<li>Used for attributes that should not be accessed or overridden by subclasses.</li>
+</ul>
+<p><strong>Example:</strong> A variable named <strong>__api_key</strong> or a method named <strong>__encrypt_data</strong> is private.</p>
+<hr />
+<h3 id="comparison-table_2">🕵️ Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Convention</th>
+<th>Syntax Example</th>
+<th>Accessibility</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Public</td>
+<td><strong>name</strong></td>
+<td>Anywhere</td>
+<td>Default, open access</td>
+</tr>
+<tr>
+<td>Protected</td>
+<td><strong>_name</strong></td>
+<td>Class and subclasses</td>
+<td>Internal use, not for external access</td>
+</tr>
+<tr>
+<td>Private</td>
+<td><strong>__name</strong></td>
+<td>Only within the class</td>
+<td>Strongly hidden, prevents accidental override</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example_1">🛠️ Practical Example</h3>
+<p>Consider a class called <strong>BankAccount</strong>:</p>
+<ul>
+<li><strong>Public</strong> attribute: <strong>account_holder</strong> — anyone can read or set this.</li>
+<li><strong>Protected</strong> attribute: <strong>_balance</strong> — intended for use by the class and its subclasses, but not by external code.</li>
+<li><strong>Private</strong> attribute: <strong>__pin</strong> — should only be used inside the class itself.</li>
+</ul>
+<p>When you try to access <strong>__pin</strong> from outside, Python will raise an <strong>AttributeError</strong> unless you use the mangled name <strong>_BankAccount__pin</strong>.</p>
+<hr />
+<h3 id="why-use-these-conventions_1">🧠 Why Use These Conventions?</h3>
+<ul>
+<li><strong>Clarity</strong> — Other engineers immediately understand how to use your code.</li>
+<li><strong>Maintainability</strong> — Reduces accidental misuse of internal details.</li>
+<li><strong>Encapsulation</strong> — Keeps the internal workings of a class hidden from the outside world.</li>
+<li><strong>Future-proofing</strong> — You can change internal implementation without breaking external code.</li>
+</ul>
+<hr />
+<h3 id="important-note_1">⚠️ Important Note</h3>
+<p>Python trusts the engineer. These conventions are <strong>not enforced</strong> by the language. A determined engineer can still access protected and private members. The goal is to communicate intent and encourage good habits, not to lock down access completely.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li><strong>Public</strong> — No underscore, open for all.</li>
+<li><strong>Protected</strong> — Single underscore, internal use.</li>
+<li><strong>Private</strong> — Double underscore, strongly hidden.</li>
+</ul>
+<p>By following these simple naming conventions, you make your Python code more readable, predictable, and professional.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how Python uses naming conventions to indicate whether an attribute or method is meant to be used freely, used only inside a class, or kept strictly internal.</p>
+<hr />
+<h3 id="example-1-public-attribute-accessible-anywhere_1">🔧 Example 1: Public attribute — accessible anywhere</h3>
+<p>A public attribute has no underscore prefix and can be read or changed from outside the class.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Car</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+
+<span class="n">my_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s2">&quot;Sedan&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_car</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Sedan</strong></p>
+<hr />
+<h3 id="example-2-protected-attribute-single-underscore-prefix_1">🔧 Example 2: Protected attribute — single underscore prefix</h3>
+<p>A protected attribute starts with one underscore, signaling engineers that it should not be accessed directly outside the class.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Employee</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">salary</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_salary</span> <span class="o">=</span> <span class="n">salary</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">show_salary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_salary</span>
+
+<span class="n">emp</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">60000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">show_salary</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>60000</strong></p>
+<hr />
+<h3 id="example-3-private-attribute-double-underscore-prefix_1">🔧 Example 3: Private attribute — double underscore prefix</h3>
+<p>A private attribute starts with two underscores, causing Python to name-mangle it so it is harder to access from outside the class.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BankAccount</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">balance</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">owner</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__balance</span> <span class="o">=</span> <span class="n">balance</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__balance</span>
+
+<span class="n">account</span> <span class="o">=</span> <span class="n">BankAccount</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">account</span><span class="o">.</span><span class="n">get_balance</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>1000</strong></p>
+<hr />
+<h3 id="example-4-private-method-double-underscore-prefix_1">🔧 Example 4: Private method — double underscore prefix</h3>
+<p>A private method is intended for internal use only and is name-mangled to prevent accidental calls from outside.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Logger</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__format_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__format_message</span><span class="p">(</span><span class="n">msg</span><span class="p">))</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">(</span><span class="s2">&quot;System&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;Starting up&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[System] Starting up</strong></p>
+<hr />
+<h3 id="example-5-protected-method-in-a-subclass_1">🔧 Example 5: Protected method in a subclass</h3>
+<p>A protected method can be overridden in a subclass, but engineers know it is not part of the public interface.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Vehicle</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_start_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Engine started&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">drive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_engine</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; — moving forward&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ElectricCar</span><span class="p">(</span><span class="n">Vehicle</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_start_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;Motor powered on&quot;</span>
+
+<span class="n">my_car</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_car</span><span class="o">.</span><span class="n">drive</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>Motor powered on — moving forward</strong></p>
+<hr />
+<h3 id="comparison-table_3">Comparison Table</h3>
 <table>
 <thead>
 <tr>

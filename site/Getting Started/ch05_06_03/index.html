@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch05_06_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 05 | Practical Example: Matching HTTP Status Codes - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 05 | Practical Example: Matching HTTP Status Codes";
         var mkdocs_page_input_path = "Getting Started\\ch05_06_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch05_06_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -276,6 +276,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-matching-with-variable-binding-for-specific-ranges">🔴 Example 5: Matching with variable binding for specific ranges</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-http-status-code-categories">📊 Comparison Table: HTTP Status Code Categories</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🌐 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-http-status-codes_1">⚙️ What Are HTTP Status Codes?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-the-status-code-matcher_1">🛠️ Building the Status Code Matcher</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-match-vs-if-elif-else_1">📊 Comparison: Match vs. If-Elif-Else</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-the-match-statement-works_1">🕵️ How the Match Statement Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-the-function_1">🧪 Testing the Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">🎯 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">📚 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-single-status-code-match_1">🟢 Example 1: Basic single status code match</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-matching-multiple-status-codes-with-or-patterns_1">🟡 Example 2: Matching multiple status codes with OR patterns</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-wildcard-for-any-other-status-code_1">🔵 Example 3: Using wildcard for any other status code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-grouping-status-codes-by-category_1">🟠 Example 4: Grouping status codes by category</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-matching-with-variable-binding-for-specific-ranges_1">🔴 Example 5: Matching with variable binding for specific ranges</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-http-status-code-categories_1">📊 Comparison Table: HTTP Status Code Categories</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="practical-example-matching-http-status-codes">Practical Example: Matching HTTP Status Codes</h1>
 <p><span class="category-tag">🏷️ Conditional Logic and Decision Making /  The Match Statement</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1184,8 +1212,7 @@
 <hr />
 <h3 id="next-steps">📚 Next Steps</h3>
 <p>Now that you understand how to match HTTP status codes, try extending the function to include additional codes like <strong>204 (No Content)</strong>, <strong>304 (Not Modified)</strong>, or <strong>429 (Too Many Requests)</strong>. You can also experiment with matching against tuples or lists to handle multiple codes at once.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example demonstrates how to use Python's <code>match</code> statement to categorize HTTP status codes into their standard meaning groups.</p>
 <hr />
 <h3 id="example-1-basic-single-status-code-match">🟢 Example 1: Basic single status code match</h3>
@@ -1267,6 +1294,236 @@
 <p>📤 Output: <strong>Created</strong></p>
 <hr />
 <h3 id="comparison-table-http-status-code-categories">📊 Comparison Table: HTTP Status Code Categories</h3>
+<table>
+<thead>
+<tr>
+<th>Status Code Range</th>
+<th>Category</th>
+<th>Common Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100–199</td>
+<td>Informational</td>
+<td>100 Continue</td>
+</tr>
+<tr>
+<td>200–299</td>
+<td>Success</td>
+<td>200 OK, 201 Created</td>
+</tr>
+<tr>
+<td>300–399</td>
+<td>Redirect</td>
+<td>301 Moved, 304 Not Modified</td>
+</tr>
+<tr>
+<td>400–499</td>
+<td>Client Error</td>
+<td>400 Bad Request, 404 Not Found</td>
+</tr>
+<tr>
+<td>500–599</td>
+<td>Server Error</td>
+<td>500 Internal Server Error</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🌐 Context Introduction</h3>
+<p>When building or troubleshooting web applications, you will frequently encounter HTTP status codes. These three-digit numbers tell you whether a request succeeded, failed, or requires further action. Instead of writing long chains of <strong>if-elif-else</strong> statements to handle each code, Python's <strong>match statement</strong> (introduced in Python 3.10) offers a cleaner and more readable approach. This practical example will show you how to map HTTP status codes to their meanings using pattern matching.</p>
+<hr />
+<h3 id="what-are-http-status-codes_1">⚙️ What Are HTTP Status Codes?</h3>
+<p>HTTP status codes are grouped into five categories:</p>
+<ul>
+<li><strong>1xx (Informational)</strong> – The request was received, continuing process.</li>
+<li><strong>2xx (Successful)</strong> – The request was successfully received, understood, and accepted.</li>
+<li><strong>3xx (Redirection)</strong> – Further action needs to be taken to complete the request.</li>
+<li><strong>4xx (Client Error)</strong> – The request contains bad syntax or cannot be fulfilled.</li>
+<li><strong>5xx (Server Error)</strong> – The server failed to fulfill a valid request.</li>
+</ul>
+<hr />
+<h3 id="building-the-status-code-matcher_1">🛠️ Building the Status Code Matcher</h3>
+<p>Let's create a function that takes an HTTP status code as input and returns a human-readable description. We will use the <strong>match statement</strong> to handle different code ranges and specific codes.</p>
+<p><strong>Step 1: Define the function and match structure</strong></p>
+<p>We start by defining a function called <strong>describe_status_code</strong> that accepts a single parameter: <strong>code</strong>. Inside the function, we use the <strong>match</strong> keyword followed by the variable we want to evaluate.</p>
+<p><strong>Step 2: Match specific codes first</strong></p>
+<p>The match statement allows us to check for exact values. We will handle the most common status codes explicitly:</p>
+<ul>
+<li>If <strong>code</strong> equals <strong>200</strong>, return <strong>"OK – Request succeeded"</strong></li>
+<li>If <strong>code</strong> equals <strong>201</strong>, return <strong>"Created – Resource successfully created"</strong></li>
+<li>If <strong>code</strong> equals <strong>301</strong>, return <strong>"Moved Permanently – Resource has moved"</strong></li>
+<li>If <strong>code</strong> equals <strong>400</strong>, return <strong>"Bad Request – Invalid syntax"</strong></li>
+<li>If <strong>code</strong> equals <strong>401</strong>, return <strong>"Unauthorized – Authentication required"</strong></li>
+<li>If <strong>code</strong> equals <strong>403</strong>, return <strong>"Forbidden – Access denied"</strong></li>
+<li>If <strong>code</strong> equals <strong>404</strong>, return <strong>"Not Found – Resource does not exist"</strong></li>
+<li>If <strong>code</strong> equals <strong>500</strong>, return <strong>"Internal Server Error – Server encountered an error"</strong></li>
+</ul>
+<p><strong>Step 3: Match ranges using wildcard patterns</strong></p>
+<p>For codes we do not handle explicitly, we can match entire ranges using the <strong>wildcard (_)</strong> pattern combined with conditional guards. The guard is an <strong>if</strong> condition placed after the pattern:</p>
+<ul>
+<li>If <strong>code</strong> is between <strong>100</strong> and <strong>199</strong>, return <strong>"Informational – Request is processing"</strong></li>
+<li>If <strong>code</strong> is between <strong>200</strong> and <strong>299</strong>, return <strong>"Success – Request completed"</strong></li>
+<li>If <strong>code</strong> is between <strong>300</strong> and <strong>399</strong>, return <strong>"Redirection – Further action needed"</strong></li>
+<li>If <strong>code</strong> is between <strong>400</strong> and <strong>499</strong>, return <strong>"Client Error – Check your request"</strong></li>
+<li>If <strong>code</strong> is between <strong>500</strong> and <strong>599</strong>, return <strong>"Server Error – Try again later"</strong></li>
+</ul>
+<p><strong>Step 4: Handle invalid codes</strong></p>
+<p>Finally, we add a catch-all pattern using the wildcard <strong>_</strong> to handle any code outside the valid HTTP range. This returns <strong>"Unknown status code"</strong>.</p>
+<hr />
+<h3 id="comparison-match-vs-if-elif-else_1">📊 Comparison: Match vs. If-Elif-Else</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Match Statement</th>
+<th>If-Elif-Else Chain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Readability</td>
+<td>Cleaner for multiple conditions</td>
+<td>Can become cluttered</td>
+</tr>
+<tr>
+<td>Pattern matching</td>
+<td>Supports ranges, wildcards, and guards</td>
+<td>Requires explicit comparisons</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Optimized for pattern matching</td>
+<td>Evaluates each condition sequentially</td>
+</tr>
+<tr>
+<td>Best use case</td>
+<td>Matching against fixed values or patterns</td>
+<td>Complex boolean logic</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-the-match-statement-works_1">🕵️ How the Match Statement Works</h3>
+<p>The <strong>match statement</strong> evaluates the subject (our <strong>code</strong> variable) against a series of patterns. Each pattern is checked in order, from top to bottom. When a pattern matches, the corresponding block of code runs, and the match statement exits.</p>
+<p>Key concepts to remember:</p>
+<ul>
+<li><strong>Literal patterns</strong> – Match exact values like <strong>200</strong> or <strong>404</strong></li>
+<li><strong>Wildcard pattern (_)</strong> – Matches anything, used as a default case</li>
+<li><strong>Guard conditions</strong> – Additional <strong>if</strong> checks placed after a pattern to refine matches</li>
+<li><strong>Order matters</strong> – More specific patterns should come before general ones</li>
+</ul>
+<hr />
+<h3 id="testing-the-function_1">🧪 Testing the Function</h3>
+<p>To verify our function works correctly, we can call it with different status codes:</p>
+<ul>
+<li>Calling <strong>describe_status_code(200)</strong> returns <strong>"OK – Request succeeded"</strong></li>
+<li>Calling <strong>describe_status_code(404)</strong> returns <strong>"Not Found – Resource does not exist"</strong></li>
+<li>Calling <strong>describe_status_code(302)</strong> returns <strong>"Redirection – Further action needed"</strong></li>
+<li>Calling <strong>describe_status_code(503)</strong> returns <strong>"Server Error – Try again later"</strong></li>
+<li>Calling <strong>describe_status_code(999)</strong> returns <strong>"Unknown status code"</strong></li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">🎯 Key Takeaways</h3>
+<ul>
+<li>The <strong>match statement</strong> provides a more readable alternative to long <strong>if-elif-else</strong> chains when working with fixed values or patterns.</li>
+<li>Use <strong>exact literal patterns</strong> for specific status codes and <strong>wildcard patterns with guards</strong> for ranges.</li>
+<li>Always include a <strong>default case</strong> using the wildcard pattern to handle unexpected inputs.</li>
+<li>This approach scales well as you add more status codes or categories in the future.</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">📚 Next Steps</h3>
+<p>Now that you understand how to match HTTP status codes, try extending the function to include additional codes like <strong>204 (No Content)</strong>, <strong>304 (Not Modified)</strong>, or <strong>429 (Too Many Requests)</strong>. You can also experiment with matching against tuples or lists to handle multiple codes at once.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example demonstrates how to use Python's <code>match</code> statement to categorize HTTP status codes into their standard meaning groups.</p>
+<hr />
+<h3 id="example-1-basic-single-status-code-match_1">🟢 Example 1: Basic single status code match</h3>
+<p>This example shows the simplest form of matching a single HTTP status code to its description.</p>
+<div class="highlight"><pre><span></span><code><span class="n">status_code</span> <span class="o">=</span> <span class="mi">200</span>
+
+<span class="k">match</span> <span class="n">status_code</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">404</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not Found&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">500</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Internal Server Error&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>OK</strong></p>
+<hr />
+<h3 id="example-2-matching-multiple-status-codes-with-or-patterns_1">🟡 Example 2: Matching multiple status codes with OR patterns</h3>
+<p>This example shows how to match several status codes that share the same meaning using the pipe <code>|</code> operator.</p>
+<div class="highlight"><pre><span></span><code><span class="n">status_code</span> <span class="o">=</span> <span class="mi">301</span>
+
+<span class="k">match</span> <span class="n">status_code</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">301</span> <span class="o">|</span> <span class="mi">302</span> <span class="o">|</span> <span class="mi">307</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Redirect&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">404</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not Found&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Redirect</strong></p>
+<hr />
+<h3 id="example-3-using-wildcard-for-any-other-status-code_1">🔵 Example 3: Using wildcard for any other status code</h3>
+<p>This example shows how to use the underscore <code>_</code> as a wildcard to catch all unmatched status codes.</p>
+<div class="highlight"><pre><span></span><code><span class="n">status_code</span> <span class="o">=</span> <span class="mi">418</span>
+
+<span class="k">match</span> <span class="n">status_code</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">404</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not Found&quot;</span><span class="p">)</span>
+    <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unknown status code&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Unknown status code</strong></p>
+<hr />
+<h3 id="example-4-grouping-status-codes-by-category_1">🟠 Example 4: Grouping status codes by category</h3>
+<p>This example shows how to match status codes by their hundreds-digit category using a guard condition.</p>
+<div class="highlight"><pre><span></span><code><span class="n">status_code</span> <span class="o">=</span> <span class="mi">403</span>
+
+<span class="k">match</span> <span class="n">status_code</span><span class="p">:</span>
+    <span class="k">case</span> <span class="n">code</span> <span class="k">if</span> <span class="mi">100</span> <span class="o">&lt;=</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mi">199</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Informational&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">code</span> <span class="k">if</span> <span class="mi">200</span> <span class="o">&lt;=</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mi">299</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">code</span> <span class="k">if</span> <span class="mi">300</span> <span class="o">&lt;=</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mi">399</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Redirect&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">code</span> <span class="k">if</span> <span class="mi">400</span> <span class="o">&lt;=</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mi">499</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Client Error&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">code</span> <span class="k">if</span> <span class="mi">500</span> <span class="o">&lt;=</span> <span class="n">code</span> <span class="o">&lt;=</span> <span class="mi">599</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Server Error&quot;</span><span class="p">)</span>
+    <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unknown&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Client Error</strong></p>
+<hr />
+<h3 id="example-5-matching-with-variable-binding-for-specific-ranges_1">🔴 Example 5: Matching with variable binding for specific ranges</h3>
+<p>This example shows how to bind the matched value to a variable and use it in a response message.</p>
+<div class="highlight"><pre><span></span><code><span class="n">status_code</span> <span class="o">=</span> <span class="mi">201</span>
+
+<span class="k">match</span> <span class="n">status_code</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">201</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Created&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="mi">204</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No Content&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">code</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Status code </span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2"> is not a standard success code&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Created</strong></p>
+<hr />
+<h3 id="comparison-table-http-status-code-categories_1">📊 Comparison Table: HTTP Status Code Categories</h3>
 <table>
 <thead>
 <tr>

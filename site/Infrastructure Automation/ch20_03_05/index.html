@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch20_03_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 20 | Routing Active Logs to Files vs Console Streams - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 20 | Routing Active Logs to Files vs Console Streams";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch20_03_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch20_03_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -947,6 +947,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-console-vs-file-logging">Comparison Table: Console vs File Logging</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-the-core-difference_1">🧠 Understanding the Core Difference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-route-logs-to-console-streams_1">⚙️ When to Route Logs to Console Streams</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-route-logs-to-files_1">📁 When to Route Logs to Files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-configuration-strategies_1">🛠️ Practical Configuration Strategies</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-file-logging-vs-console-logging_1">📊 Comparison Table: File Logging vs Console Logging</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">🕵️ Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#recommended-production-setup_1">🚀 Recommended Production Setup</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary-checklist_1">✅ Summary Checklist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-logging-only-to-the-console-default-behavior_1">🟢 Example 1: Logging only to the console (default behavior)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-logging-only-to-a-file_1">🟢 Example 2: Logging only to a file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-logging-to-both-console-and-file-simultaneously_1">🟢 Example 3: Logging to both console and file simultaneously</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-different-log-levels-for-console-vs-file_1">🟢 Example 4: Different log levels for console vs file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-rotating-file-logs-with-console-fallback_1">🟢 Example 5: Rotating file logs with console fallback</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-console-vs-file-logging_1">Comparison Table: Console vs File Logging</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch20_04_01/">Ch 20 | Mitigating Hardcoded Value Pitfalls via Terminal Inputs</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="routing-active-logs-to-files-vs-console-streams">Routing Active Logs to Files vs Console Streams</h1>
 <p><span class="category-tag">🏷️ Python Scripting Best Practices /  Structured Production Logging</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When your Python scripts run in production environments, how you handle log output becomes critical. During development, printing everything to the console is convenient, but in production, you need persistent records that survive restarts and can be searched later. This guide explains the practical differences between sending logs to files versus keeping them in console streams, and when to use each approach.</p>
@@ -1193,8 +1221,7 @@
 <li>[ ] Document your logging strategy so team members know where to find specific log types.</li>
 </ul>
 <p>By understanding when and how to route logs to files versus console streams, you ensure that your Python scripts provide the right level of visibility and persistence for every environment they run in.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how to send Python log messages to files, the console, or both at the same time.</p>
 <hr />
 <h3 id="example-1-logging-only-to-the-console-default-behavior">🟢 Example 1: Logging only to the console (default behavior)</h3>
@@ -1309,6 +1336,283 @@
 <strong>ERROR - Error message 4 — goes to both</strong></p>
 <hr />
 <h3 id="comparison-table-console-vs-file-logging">Comparison Table: Console vs File Logging</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Console (StreamHandler)</th>
+<th>File (FileHandler)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Where logs appear</td>
+<td>Terminal window</td>
+<td>Text file on disk</td>
+</tr>
+<tr>
+<td>Persists after script ends</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Real-time monitoring</td>
+<td>Historical review</td>
+</tr>
+<tr>
+<td>Can set different log levels</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Works with log rotation</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Typical use case</td>
+<td>Debugging during development</td>
+<td>Production record keeping</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When your Python scripts run in production environments, how you handle log output becomes critical. During development, printing everything to the console is convenient, but in production, you need persistent records that survive restarts and can be searched later. This guide explains the practical differences between sending logs to files versus keeping them in console streams, and when to use each approach.</p>
+<hr />
+<h3 id="understanding-the-core-difference_1">🧠 Understanding the Core Difference</h3>
+<ul>
+<li><strong>Console streams</strong> (stdout/stderr) display log output directly in your terminal or container logs. They are ephemeral and disappear when the session ends.</li>
+<li><strong>File logging</strong> writes log entries to a persistent file on disk. These records remain available for review, archiving, and troubleshooting long after the script finishes.</li>
+<li>Console output is ideal for real-time monitoring during active sessions, while file logging is essential for audit trails, debugging past incidents, and compliance requirements.</li>
+<li>Many production systems use both simultaneously: console for immediate visibility and files for permanent records.</li>
+</ul>
+<hr />
+<h3 id="when-to-route-logs-to-console-streams_1">⚙️ When to Route Logs to Console Streams</h3>
+<ul>
+<li><strong>Short-lived scripts</strong> that run interactively, such as one-off data transformations or manual maintenance tasks.</li>
+<li><strong>Development and testing</strong> environments where you want immediate feedback without checking log files.</li>
+<li><strong>Containerized applications</strong> where the container runtime (Docker, Kubernetes) captures stdout/stderr automatically for centralized logging.</li>
+<li><strong>Debugging sessions</strong> where you need to see log output in real time alongside other terminal activity.</li>
+<li><strong>CI/CD pipelines</strong> where console output is captured by the build system and displayed in the pipeline logs.</li>
+</ul>
+<hr />
+<h3 id="when-to-route-logs-to-files_1">📁 When to Route Logs to Files</h3>
+<ul>
+<li><strong>Long-running services</strong> like web servers, background workers, or scheduled tasks that run unattended.</li>
+<li><strong>Production deployments</strong> where you need historical records for post-mortem analysis and incident response.</li>
+<li><strong>Compliance and auditing</strong> requirements that mandate retaining log data for specific periods.</li>
+<li><strong>High-volume systems</strong> where console output would scroll too fast to be useful and would overwhelm terminal buffers.</li>
+<li><strong>Multi-instance deployments</strong> where each instance writes to its own log file for isolated troubleshooting.</li>
+</ul>
+<hr />
+<h3 id="practical-configuration-strategies_1">🛠️ Practical Configuration Strategies</h3>
+<ul>
+<li><strong>Use separate log files for different severity levels</strong>: critical errors go to one file, informational messages to another, making it easier to find urgent issues.</li>
+<li><strong>Implement log rotation</strong> to prevent files from growing indefinitely. Common patterns include rotating by file size (e.g., 100 MB) or by time (e.g., daily).</li>
+<li><strong>Include timestamps and context</strong> in every log entry: script name, function name, line number, and process ID help trace issues across distributed systems.</li>
+<li><strong>Set appropriate log levels</strong> per environment: DEBUG in development, INFO in staging, and WARNING or ERROR in production to reduce noise.</li>
+<li><strong>Use structured logging formats</strong> like JSON instead of plain text, making it easier to parse logs with automated tools and log aggregators.</li>
+</ul>
+<hr />
+<h3 id="comparison-table-file-logging-vs-console-logging_1">📊 Comparison Table: File Logging vs Console Logging</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Console Streams</th>
+<th>File Logging</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Persistence</td>
+<td>Lost when session ends</td>
+<td>Retained on disk</td>
+</tr>
+<tr>
+<td>Real-time visibility</td>
+<td>Immediate</td>
+<td>Requires file tailing</td>
+</tr>
+<tr>
+<td>Searchability</td>
+<td>Limited to terminal scroll</td>
+<td>Full text search possible</td>
+</tr>
+<tr>
+<td>Storage management</td>
+<td>No management needed</td>
+<td>Requires rotation and cleanup</td>
+</tr>
+<tr>
+<td>Performance impact</td>
+<td>Minimal</td>
+<td>Slight I/O overhead</td>
+</tr>
+<tr>
+<td>Container compatibility</td>
+<td>Native support</td>
+<td>Requires volume mounts</td>
+</tr>
+<tr>
+<td>Multi-instance isolation</td>
+<td>Mixed output</td>
+<td>Separate files per instance</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">🕵️ Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Writing all logs to a single file</strong> without rotation, which eventually fills the disk and crashes your application.</li>
+<li><strong>Using print statements</strong> instead of proper logging libraries, losing control over log levels, formatting, and routing destinations.</li>
+<li><strong>Mixing console and file output</strong> without clear separation, causing duplicate entries or missing critical messages.</li>
+<li><strong>Ignoring log buffering</strong> in file writes, which can lose the last few log entries if the application crashes unexpectedly.</li>
+<li><strong>Storing logs on the same partition</strong> as the application or database, risking data loss if the disk fills up.</li>
+</ul>
+<hr />
+<h3 id="recommended-production-setup_1">🚀 Recommended Production Setup</h3>
+<ul>
+<li>Configure your logging library to send <strong>WARNING and above</strong> to both console and a primary error log file.</li>
+<li>Route <strong>INFO level</strong> messages to a separate activity log file, with optional console output disabled in production.</li>
+<li>Use <strong>DEBUG level</strong> only in development or when actively troubleshooting a specific issue, writing to a dedicated debug log file.</li>
+<li>Implement <strong>log rotation</strong> with compression for archived files, keeping the last 30 days of logs online and older logs in cold storage.</li>
+<li>Add <strong>contextual metadata</strong> to every log entry: environment name, hostname, application version, and request ID for distributed tracing.</li>
+</ul>
+<hr />
+<h3 id="summary-checklist_1">✅ Summary Checklist</h3>
+<ul>
+<li>[ ] Determine the primary audience for your logs: operators watching consoles or engineers reviewing files.</li>
+<li>[ ] Choose console logging for interactive sessions and containerized workloads.</li>
+<li>[ ] Choose file logging for persistent records, compliance, and post-mortem analysis.</li>
+<li>[ ] Implement log rotation and retention policies before deploying to production.</li>
+<li>[ ] Use structured logging formats for machine readability.</li>
+<li>[ ] Test your logging configuration under realistic load conditions.</li>
+<li>[ ] Document your logging strategy so team members know where to find specific log types.</li>
+</ul>
+<p>By understanding when and how to route logs to files versus console streams, you ensure that your Python scripts provide the right level of visibility and persistence for every environment they run in.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how to send Python log messages to files, the console, or both at the same time.</p>
+<hr />
+<h3 id="example-1-logging-only-to-the-console-default-behavior_1">🟢 Example 1: Logging only to the console (default behavior)</h3>
+<p>This example shows the simplest logging setup where messages appear only in the terminal.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This message goes to the console only&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>INFO:root:This message goes to the console only</strong></p>
+<hr />
+<h3 id="example-2-logging-only-to-a-file_1">🟢 Example 2: Logging only to a file</h3>
+<p>This example shows how to send all log messages directly into a text file instead of the console.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;app.log&quot;</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span>
+<span class="p">)</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This message is written to the file, not the console&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(no console output — check app.log file for the message)</strong></p>
+<hr />
+<h3 id="example-3-logging-to-both-console-and-file-simultaneously_1">🟢 Example 3: Logging to both console and file simultaneously</h3>
+<p>This example shows how to send the same log messages to both the terminal and a file at the same time.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;dual_logger&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="n">console_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">file_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s2">&quot;combined.log&quot;</span><span class="p">)</span>
+
+<span class="n">console_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">file_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">console_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+<span class="n">file_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">console_handler</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_handler</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This appears in both console and file&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;This debug message goes only to the file&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>INFO - This appears in both console and file</strong></p>
+<hr />
+<h3 id="example-4-different-log-levels-for-console-vs-file_1">🟢 Example 4: Different log levels for console vs file</h3>
+<p>This example shows how to send only warnings to the console but all messages to a file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;level_splitter&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="n">console</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">console</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+
+<span class="n">file_out</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s2">&quot;detailed.log&quot;</span><span class="p">)</span>
+<span class="n">file_out</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="n">fmt</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">console</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
+<span class="n">file_out</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">console</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">file_out</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Debug: only in file&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Info: only in file&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Warning: in both console and file&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Error: in both console and file&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2025-01-15 10:30:00,123 - WARNING - Warning: in both console and file</strong><br />
+<strong>2025-01-15 10:30:00,124 - ERROR - Error: in both console and file</strong></p>
+<hr />
+<h3 id="example-5-rotating-file-logs-with-console-fallback_1">🟢 Example 5: Rotating file logs with console fallback</h3>
+<p>This example shows how to keep log files small by rotating them, while still showing critical errors on the console.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">logging.handlers</span><span class="w"> </span><span class="kn">import</span> <span class="n">RotatingFileHandler</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;rotating_logger&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="n">rotating_handler</span> <span class="o">=</span> <span class="n">RotatingFileHandler</span><span class="p">(</span>
+    <span class="s2">&quot;rotating.log&quot;</span><span class="p">,</span>
+    <span class="n">maxBytes</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">backupCount</span><span class="o">=</span><span class="mi">2</span>
+<span class="p">)</span>
+<span class="n">rotating_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="n">console_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">console_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">rotating_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+<span class="n">console_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">rotating_handler</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">console_handler</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Info message </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> — goes to rotating file&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error message </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> — goes to both&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ERROR - Error message 0 — goes to both</strong><br />
+<strong>ERROR - Error message 1 — goes to both</strong><br />
+<strong>ERROR - Error message 2 — goes to both</strong><br />
+<strong>ERROR - Error message 3 — goes to both</strong><br />
+<strong>ERROR - Error message 4 — goes to both</strong></p>
+<hr />
+<h3 id="comparison-table-console-vs-file-logging_1">Comparison Table: Console vs File Logging</h3>
 <table>
 <thead>
 <tr>

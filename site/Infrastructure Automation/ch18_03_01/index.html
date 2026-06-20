@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_03_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Defining Internal Business Logic Methods Inside Classes - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Defining Internal Business Logic Methods Inside Classes";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_03_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_03_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -845,6 +845,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-internal-business-logic-methods_1">⚙️ What Are Internal Business Logic Methods?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#defining-business-logic-methods_1">🛠️ Defining Business Logic Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#public-vs-private-business-logic-methods_1">📊 Public vs Private Business Logic Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-internal-methods-work-together_1">🕵️ How Internal Methods Work Together</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-examples-of-business-logic-methods_1">📋 Common Examples of Business Logic Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-internal-business-logic_1">🧩 Best Practices for Internal Business Logic</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-workflow-of-internal-logic_1">🔍 Example Workflow of Internal Logic</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-a-simple-private-helper-method-for-validation_1">🧩 Example 1: A simple private helper method for validation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-internal-method-for-calculating-tax_1">🧩 Example 2: Internal method for calculating tax</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-internal-method-for-formatting-output_1">🧩 Example 3: Internal method for formatting output</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-internal-method-for-checking-business-rules_1">🧩 Example 4: Internal method for checking business rules</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-internal-method-for-logging-changes_1">🧩 Example 5: Internal method for logging changes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_03_02/">Ch 18 | Method Bindings vs Regular Function Structures</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="defining-internal-business-logic-methods-inside-classes">Defining Internal Business Logic Methods Inside Classes</h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Instance Methods</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1204,8 +1234,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Internal business logic methods are the heart of any well-designed class. They encapsulate the rules and calculations that make your application work. By defining these methods thoughtfully — using clear names, focused responsibilities, and appropriate visibility — you create code that is easier to understand, maintain, and extend. Remember to use private methods for internal logic and keep your public interface clean and simple.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Internal business logic methods are functions inside a class that perform calculations or operations needed by other methods, but are not meant to be called directly from outside the class.</p>
 <hr />
 <h3 id="example-1-a-simple-private-helper-method-for-validation">🧩 Example 1: A simple private helper method for validation</h3>
@@ -1317,6 +1346,284 @@
 <p>📤 Output: <strong>['Bolts: 100 -&gt; 150']</strong></p>
 <hr />
 <h3 id="comparison-table">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Public Methods</th>
+<th>Internal Business Logic Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Naming convention</strong></td>
+<td>No underscore prefix</td>
+<td>Single underscore prefix (<code>_method</code>)</td>
+</tr>
+<tr>
+<td><strong>Intended caller</strong></td>
+<td>External code and other methods</td>
+<td>Only other methods inside the class</td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Provide the main interface</td>
+<td>Perform helper calculations or checks</td>
+</tr>
+<tr>
+<td><strong>Access from outside</strong></td>
+<td>Allowed and expected</td>
+<td>Discouraged but technically possible</td>
+</tr>
+<tr>
+<td><strong>Example use case</strong></td>
+<td><code>deposit()</code>, <code>display()</code></td>
+<td><code>_validate_amount()</code>, <code>_calculate_tax()</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When building real-world applications, classes often need to contain methods that perform specific operations behind the scenes. These are called <strong>internal business logic methods</strong> — they handle the core calculations, validations, or transformations that make your class functional, but they are not always meant to be called directly from outside the class. Understanding how to define and use these methods helps you write cleaner, more maintainable code.</p>
+<hr />
+<h3 id="what-are-internal-business-logic-methods_1">⚙️ What Are Internal Business Logic Methods?</h3>
+<p>Internal business logic methods are functions defined inside a class that perform the essential work of your application. They can be either:</p>
+<ul>
+<li><strong>Public methods</strong> — accessible from outside the class, intended for external use</li>
+<li><strong>Private or protected methods</strong> — intended for internal use only, supporting the public interface</li>
+</ul>
+<p>Key characteristics:</p>
+<ul>
+<li>They contain the actual rules, calculations, or data processing logic</li>
+<li>They are called by other methods within the same class</li>
+<li>They help keep your code organized and reusable</li>
+<li>They allow you to change internal logic without affecting external code</li>
+</ul>
+<hr />
+<h3 id="defining-business-logic-methods_1">🛠️ Defining Business Logic Methods</h3>
+<p>When defining internal business logic methods, follow these guidelines:</p>
+<ul>
+<li><strong>Use descriptive names</strong> that clearly indicate what the method does</li>
+<li><strong>Keep methods focused</strong> on a single responsibility</li>
+<li><strong>Accept parameters</strong> as needed to receive input data</li>
+<li><strong>Return values</strong> that other methods can use</li>
+<li><strong>Use the self parameter</strong> to access instance attributes and other methods</li>
+</ul>
+<p>Example structure for a business logic method:</p>
+<ul>
+<li>Method name: <strong>calculate_discount</strong></li>
+<li>Purpose: Apply business rules to determine a price reduction</li>
+<li>Input: Original price and customer tier</li>
+<li>Output: Discounted price</li>
+</ul>
+<hr />
+<h3 id="public-vs-private-business-logic-methods_1">📊 Public vs Private Business Logic Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Public Methods</th>
+<th>Private Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Naming convention</strong></td>
+<td>Normal method name</td>
+<td>Starts with underscore (e.g., <strong>_calculate</strong>)</td>
+</tr>
+<tr>
+<td><strong>Accessibility</strong></td>
+<td>Can be called from outside the class</td>
+<td>Intended for internal use only</td>
+</tr>
+<tr>
+<td><strong>Use case</strong></td>
+<td>Main interface for users of the class</td>
+<td>Supporting calculations or validations</td>
+</tr>
+<tr>
+<td><strong>Encapsulation</strong></td>
+<td>Less strict</td>
+<td>Better encapsulation of internal logic</td>
+</tr>
+<tr>
+<td><strong>Maintenance</strong></td>
+<td>Changes affect external code</td>
+<td>Changes are contained within the class</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-internal-methods-work-together_1">🕵️ How Internal Methods Work Together</h3>
+<p>Internal business logic methods typically follow a pattern:</p>
+<ol>
+<li><strong>A public method</strong> is called by external code</li>
+<li><strong>The public method</strong> calls one or more private methods</li>
+<li><strong>Each private method</strong> performs a specific part of the business logic</li>
+<li><strong>Results are combined</strong> and returned to the caller</li>
+</ol>
+<p>This approach provides several benefits:</p>
+<ul>
+<li><strong>Separation of concerns</strong> — each method handles one task</li>
+<li><strong>Reusability</strong> — logic can be called from multiple places</li>
+<li><strong>Testability</strong> — individual methods can be tested independently</li>
+<li><strong>Readability</strong> — the flow of logic is easier to follow</li>
+</ul>
+<hr />
+<h3 id="common-examples-of-business-logic-methods_1">📋 Common Examples of Business Logic Methods</h3>
+<p>Here are typical business logic methods you might define inside a class:</p>
+<ul>
+<li><strong>Validation methods</strong> — Check if input data meets business rules</li>
+<li><strong>Calculation methods</strong> — Perform mathematical or financial computations</li>
+<li><strong>Transformation methods</strong> — Convert data from one format to another</li>
+<li><strong>Decision methods</strong> — Determine which action to take based on conditions</li>
+<li><strong>Aggregation methods</strong> — Combine multiple pieces of data into a result</li>
+</ul>
+<hr />
+<h3 id="best-practices-for-internal-business-logic_1">🧩 Best Practices for Internal Business Logic</h3>
+<p>When designing internal business logic methods, keep these principles in mind:</p>
+<ul>
+<li><strong>Start with the public interface</strong> — Define what external users need first</li>
+<li><strong>Break down complex logic</strong> — Split large methods into smaller, focused ones</li>
+<li><strong>Use meaningful names</strong> — Method names should describe what they do</li>
+<li><strong>Keep methods short</strong> — Aim for methods that fit on one screen</li>
+<li><strong>Avoid side effects</strong> — Methods should not unexpectedly change state</li>
+<li><strong>Document complex logic</strong> — Add comments for non-obvious business rules</li>
+</ul>
+<hr />
+<h3 id="example-workflow-of-internal-logic_1">🔍 Example Workflow of Internal Logic</h3>
+<p>Consider a class that processes orders. The internal business logic might flow like this:</p>
+<ul>
+<li><strong>Public method: process_order</strong> — Called by external code</li>
+<li><strong>Internal method: validate_items</strong> — Checks that all items are in stock</li>
+<li><strong>Internal method: calculate_subtotal</strong> — Computes the total before discounts</li>
+<li><strong>Internal method: apply_discounts</strong> — Reduces price based on business rules</li>
+<li><strong>Internal method: calculate_tax</strong> — Adds appropriate tax amount</li>
+<li><strong>Internal method: generate_receipt</strong> — Creates a summary of the transaction</li>
+</ul>
+<p>Each internal method handles one piece of the overall business logic, and the public method orchestrates the sequence.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Internal business logic methods are the heart of any well-designed class. They encapsulate the rules and calculations that make your application work. By defining these methods thoughtfully — using clear names, focused responsibilities, and appropriate visibility — you create code that is easier to understand, maintain, and extend. Remember to use private methods for internal logic and keep your public interface clean and simple.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Internal business logic methods are functions inside a class that perform calculations or operations needed by other methods, but are not meant to be called directly from outside the class.</p>
+<hr />
+<h3 id="example-1-a-simple-private-helper-method-for-validation_1">🧩 Example 1: A simple private helper method for validation</h3>
+<p>This example shows a method that checks if a value is valid before storing it.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Account</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">balance</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">=</span> <span class="n">balance</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_validate_amount</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">amount</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_amount</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_balance</span> <span class="o">+=</span> <span class="n">amount</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">acc</span> <span class="o">=</span> <span class="n">Account</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">acc</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-2-internal-method-for-calculating-tax_1">🧩 Example 2: Internal method for calculating tax</h3>
+<p>This example shows a method that computes tax internally, hidden from outside users.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Invoice</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subtotal</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subtotal</span> <span class="o">=</span> <span class="n">subtotal</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_tax</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">subtotal</span> <span class="o">*</span> <span class="mf">0.08</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">total_with_tax</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_tax</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">subtotal</span> <span class="o">+</span> <span class="n">tax</span>
+
+<span class="n">inv</span> <span class="o">=</span> <span class="n">Invoice</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">inv</span><span class="o">.</span><span class="n">total_with_tax</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>216.0</strong></p>
+<hr />
+<h3 id="example-3-internal-method-for-formatting-output_1">🧩 Example 3: Internal method for formatting output</h3>
+<p>This example shows a method that prepares data for display without exposing the formatting logic.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Product</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_format_price</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">formatted</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_price</span><span class="p">()</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">formatted</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">item</span> <span class="o">=</span> <span class="n">Product</span><span class="p">(</span><span class="s2">&quot;Widget&quot;</span><span class="p">,</span> <span class="mf">49.5</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Widget: $49.50</strong></p>
+<hr />
+<h3 id="example-4-internal-method-for-checking-business-rules_1">🧩 Example 4: Internal method for checking business rules</h3>
+<p>This example shows a method that enforces a business rule before allowing an action.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Loan</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">credit_score</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">credit_score</span> <span class="o">=</span> <span class="n">credit_score</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_meets_requirements</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">credit_score</span> <span class="o">&gt;=</span> <span class="mi">700</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">&lt;=</span> <span class="mi">50000</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">approve</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_meets_requirements</span><span class="p">():</span>
+            <span class="k">return</span> <span class="s2">&quot;Loan Approved&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Loan Denied&quot;</span>
+
+<span class="n">loan1</span> <span class="o">=</span> <span class="n">Loan</span><span class="p">(</span><span class="mi">30000</span><span class="p">,</span> <span class="mi">720</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">loan1</span><span class="o">.</span><span class="n">approve</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Loan Approved</strong></p>
+<hr />
+<h3 id="example-5-internal-method-for-logging-changes_1">🧩 Example 5: Internal method for logging changes</h3>
+<p>This example shows a method that records internal state changes without exposing the logging mechanism.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Inventory</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">quantity</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span> <span class="o">=</span> <span class="n">quantity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_record_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_qty</span><span class="p">,</span> <span class="n">new_qty</span><span class="p">):</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">item</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">old_qty</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">new_qty</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">restock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="n">old</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span> <span class="o">+=</span> <span class="n">amount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_record_change</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_log</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_log</span>
+
+<span class="n">stock</span> <span class="o">=</span> <span class="n">Inventory</span><span class="p">(</span><span class="s2">&quot;Bolts&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">stock</span><span class="o">.</span><span class="n">restock</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stock</span><span class="o">.</span><span class="n">get_log</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Bolts: 100 -&gt; 150']</strong></p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

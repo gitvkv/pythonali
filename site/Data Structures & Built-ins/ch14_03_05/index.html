@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_03_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Advanced Process Management via Popen - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Advanced Process Management via Popen";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_03_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_03_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -683,6 +683,44 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-popen-vs-run-vs-call">📊 Comparison Table: Popen vs run vs call</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-makes-popen-different_1">⚙️ What Makes Popen Different</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-components-of-popen_1">🛠️ Core Components of Popen</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparing-popen-with-other-subprocess-methods_1">📊 Comparing Popen with Other Subprocess Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-process-launch-and-monitoring_1">🕵️ Basic Process Launch and Monitoring</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#capturing-output-in-real-time_1">🔄 Capturing Output in Real Time</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sending-input-to-a-running-process_1">📨 Sending Input to a Running Process</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#timeouts-and-process-termination_1">⏱️ Timeouts and Process Termination</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-with-environment-variables_1">🌐 Working with Environment Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setting-the-working-directory_1">📁 Setting the Working Directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#combining-multiple-processes-with-pipes_1">🧩 Combining Multiple Processes with Pipes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#error-handling-best-practices_1">🛡️ Error Handling Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-workflow-example_1">🚀 Practical Workflow Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📚 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-running-a-simple-shell-command-and-capturing-output_1">🧪 Example 1: Running a simple shell command and capturing output</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-passing-input-to-a-process-via-stdin_1">🧪 Example 2: Passing input to a process via stdin</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-running-a-process-in-the-background-and-checking-its-status_1">🧪 Example 3: Running a process in the background and checking its status</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-redirecting-stderr-to-a-separate-pipe_1">🧪 Example 4: Redirecting stderr to a separate pipe</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-chaining-multiple-processes-with-pipes-like-shell-pipelines_1">🧪 Example 5: Chaining multiple processes with pipes (like shell pipelines)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-popen-vs-run-vs-call_1">📊 Comparison Table: Popen vs run vs call</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_03_06/">Ch 14 | Practical Example: Running ping, df, and systemctl</a>
@@ -1086,7 +1124,7 @@
               
                 <h1 id="advanced-process-management-via-popen">Advanced Process Management via Popen</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  Shell Commands with Subprocess</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When you move beyond basic shell commands, you need finer control over how processes are launched, monitored, and terminated. The <strong>Popen</strong> class from Python's <strong>subprocess</strong> module gives you that control. Unlike simple helpers that wait for a command to finish, Popen lets you start a process, interact with it while it runs, and manage its lifecycle step by step.</p>
@@ -1232,8 +1270,7 @@
 <hr />
 <h3 id="summary">📚 Summary</h3>
 <p>Popen is the foundation for advanced process management in Python. It gives you complete control over how processes are launched, how they interact with your script, and how they are eventually stopped. By mastering Popen, you can build robust automation scripts that handle real-world scenarios like long-running tasks, interactive programs, and complex data pipelines. The flexibility it provides makes it an essential tool for any engineer working with system processes.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p><code>Popen</code> from the <code>subprocess</code> module launches and manages external system processes with full control over input, output, and execution behavior.</p>
 <hr />
 <h3 id="example-1-running-a-simple-shell-command-and-capturing-output">🧪 Example 1: Running a simple shell command and capturing output</h3>
@@ -1328,6 +1365,293 @@
 <em>(actual number depends on the system)</em></p>
 <hr />
 <h3 id="comparison-table-popen-vs-run-vs-call">📊 Comparison Table: <code>Popen</code> vs <code>run</code> vs <code>call</code></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>Popen</code></th>
+<th><code>run()</code> (Python 3.5+)</th>
+<th><code>call()</code> (legacy)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Control over stdin/stdout</td>
+<td>Full control via pipes</td>
+<td>Limited to <code>capture_output</code></td>
+<td>No pipe support</td>
+</tr>
+<tr>
+<td>Background execution</td>
+<td>Yes (non-blocking)</td>
+<td>No (always waits)</td>
+<td>No (always waits)</td>
+</tr>
+<tr>
+<td>Process chaining (pipelines)</td>
+<td>Yes (direct pipe connections)</td>
+<td>Not directly supported</td>
+<td>Not directly supported</td>
+</tr>
+<tr>
+<td>Return value</td>
+<td><code>Popen</code> object</td>
+<td><code>CompletedProcess</code> object</td>
+<td>Exit code (integer)</td>
+</tr>
+<tr>
+<td>Recommended for engineers</td>
+<td>Advanced process control</td>
+<td>Simple command execution</td>
+<td>Legacy code only</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you move beyond basic shell commands, you need finer control over how processes are launched, monitored, and terminated. The <strong>Popen</strong> class from Python's <strong>subprocess</strong> module gives you that control. Unlike simple helpers that wait for a command to finish, Popen lets you start a process, interact with it while it runs, and manage its lifecycle step by step.</p>
+<hr />
+<h3 id="what-makes-popen-different_1">⚙️ What Makes Popen Different</h3>
+<p>The key difference is that Popen does not wait for the process to finish unless you tell it to. This opens up several capabilities:</p>
+<ul>
+<li>You can start a process and continue doing other work in your script</li>
+<li>You can send input to the process while it is running</li>
+<li>You can read output as it is produced, line by line</li>
+<li>You can check on the process status at any time</li>
+<li>You can terminate or kill the process when needed</li>
+</ul>
+<hr />
+<h3 id="core-components-of-popen_1">🛠️ Core Components of Popen</h3>
+<p>When you create a Popen object, you provide several important pieces of information:</p>
+<ul>
+<li><strong>The command</strong> as a list of strings, where the first item is the executable and the rest are arguments</li>
+<li><strong>Standard input (stdin)</strong> to send data into the process</li>
+<li><strong>Standard output (stdout)</strong> to capture what the process prints</li>
+<li><strong>Standard error (stderr)</strong> to capture error messages separately</li>
+<li><strong>The working directory</strong> where the process should run</li>
+<li><strong>Environment variables</strong> to pass to the new process</li>
+</ul>
+<hr />
+<h3 id="comparing-popen-with-other-subprocess-methods_1">📊 Comparing Popen with Other Subprocess Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Popen</th>
+<th>run()</th>
+<th>call()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Waits for completion</td>
+<td>No, unless you call wait()</td>
+<td>Yes, always</td>
+<td>Yes, always</td>
+</tr>
+<tr>
+<td>Stream interaction</td>
+<td>Full control via pipes</td>
+<td>Limited to capturing output</td>
+<td>No stream control</td>
+</tr>
+<tr>
+<td>Process lifecycle</td>
+<td>Full management</td>
+<td>One-shot execution</td>
+<td>One-shot execution</td>
+</tr>
+<tr>
+<td>Background execution</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Real-time output reading</td>
+<td>Yes</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="basic-process-launch-and-monitoring_1">🕵️ Basic Process Launch and Monitoring</h3>
+<p>The simplest use of Popen starts a command and lets it run in the background. You can then check whether the process is still running using the <strong>poll()</strong> method. This method returns <strong>None</strong> if the process is still active, or the exit code if it has finished.</p>
+<p>You can also call <strong>wait()</strong> to block your script until the process completes. This is useful when you need to ensure a task finishes before moving on.</p>
+<hr />
+<h3 id="capturing-output-in-real-time_1">🔄 Capturing Output in Real Time</h3>
+<p>One of the most powerful features of Popen is reading output as it happens. By connecting the <strong>stdout</strong> pipe, you can read each line of output as the process produces it. This is ideal for:</p>
+<ul>
+<li>Monitoring long-running tasks</li>
+<li>Parsing log output while a service starts</li>
+<li>Showing progress updates to the user</li>
+</ul>
+<p>The same approach works for <strong>stderr</strong>, allowing you to capture error messages separately from normal output.</p>
+<hr />
+<h3 id="sending-input-to-a-running-process_1">📨 Sending Input to a Running Process</h3>
+<p>Some programs expect input while they are running. With Popen, you can write to the process's <strong>stdin</strong> pipe. This lets you automate interactive tools by sending commands or data at the right moments.</p>
+<p>You must open the stdin pipe when creating the Popen object. Then you can call <strong>communicate()</strong> with the input data as a string. The communicate method also returns the stdout and stderr output, making it a complete solution for input-output interaction.</p>
+<hr />
+<h3 id="timeouts-and-process-termination_1">⏱️ Timeouts and Process Termination</h3>
+<p>Processes can sometimes hang or take too long. Popen gives you tools to handle this:</p>
+<ul>
+<li><strong>poll()</strong> lets you check if the process is still running</li>
+<li><strong>terminate()</strong> sends a polite stop signal to the process</li>
+<li><strong>kill()</strong> forcefully stops the process immediately</li>
+<li><strong>wait(timeout=seconds)</strong> raises an exception if the process does not finish in time</li>
+</ul>
+<p>A common pattern is to start a process, check its status periodically, and terminate it if it exceeds a time limit.</p>
+<hr />
+<h3 id="working-with-environment-variables_1">🌐 Working with Environment Variables</h3>
+<p>By default, a child process inherits the environment of the parent script. You can customize this by passing a dictionary to the <strong>env</strong> parameter. This is useful when you need to:</p>
+<ul>
+<li>Set temporary environment variables for a specific command</li>
+<li>Run a process with a clean environment</li>
+<li>Pass secrets or configuration values without modifying the system environment</li>
+</ul>
+<hr />
+<h3 id="setting-the-working-directory_1">📁 Setting the Working Directory</h3>
+<p>The <strong>cwd</strong> parameter lets you specify which directory the process should run in. This is helpful when:</p>
+<ul>
+<li>The command expects to find files in a specific location</li>
+<li>You want to isolate file operations to a temporary directory</li>
+<li>You are running scripts that use relative paths</li>
+</ul>
+<hr />
+<h3 id="combining-multiple-processes-with-pipes_1">🧩 Combining Multiple Processes with Pipes</h3>
+<p>You can chain multiple processes together by connecting the stdout of one process to the stdin of another. This mimics the shell pipe operator. To do this:</p>
+<ul>
+<li>Capture the stdout of the first process using a pipe</li>
+<li>Pass that pipe as the stdin of the second process</li>
+<li>Read the final output from the last process in the chain</li>
+</ul>
+<p>This technique lets you build complex data pipelines entirely in Python without relying on shell syntax.</p>
+<hr />
+<h3 id="error-handling-best-practices_1">🛡️ Error Handling Best Practices</h3>
+<p>When working with Popen, always plan for errors:</p>
+<ul>
+<li>Check the return code after the process finishes using the <strong>returncode</strong> attribute</li>
+<li>Use <strong>check=True</strong> with run() if you want exceptions on failure, but with Popen you handle this manually</li>
+<li>Capture stderr separately so you can log or display error messages</li>
+<li>Always close pipes when you are done to free system resources</li>
+<li>Use <strong>try/finally</strong> blocks or context managers to ensure cleanup happens even if an error occurs</li>
+</ul>
+<hr />
+<h3 id="practical-workflow-example_1">🚀 Practical Workflow Example</h3>
+<p>A typical workflow with Popen follows these steps:</p>
+<ol>
+<li>Create the Popen object with the command and desired pipe settings</li>
+<li>Optionally send input data using communicate() or by writing to stdin</li>
+<li>Read output line by line in a loop until the process finishes</li>
+<li>Check the return code to determine success or failure</li>
+<li>Handle any errors or unexpected behavior</li>
+<li>Clean up by closing pipes and ensuring the process has terminated</li>
+</ol>
+<p>This pattern works for everything from running a simple system command to managing complex multi-process workflows.</p>
+<hr />
+<h3 id="summary_1">📚 Summary</h3>
+<p>Popen is the foundation for advanced process management in Python. It gives you complete control over how processes are launched, how they interact with your script, and how they are eventually stopped. By mastering Popen, you can build robust automation scripts that handle real-world scenarios like long-running tasks, interactive programs, and complex data pipelines. The flexibility it provides makes it an essential tool for any engineer working with system processes.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><code>Popen</code> from the <code>subprocess</code> module launches and manages external system processes with full control over input, output, and execution behavior.</p>
+<hr />
+<h3 id="example-1-running-a-simple-shell-command-and-capturing-output_1">🧪 Example 1: Running a simple shell command and capturing output</h3>
+<p>This example shows how to run a basic command and read its standard output.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">&#39;echo&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello from Popen&#39;</span><span class="p">],</span>
+    <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">output</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello from Popen</strong></p>
+<hr />
+<h3 id="example-2-passing-input-to-a-process-via-stdin_1">🧪 Example 2: Passing input to a process via stdin</h3>
+<p>This example demonstrates sending data into a process's standard input stream.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">&#39;grep&#39;</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">],</span>
+    <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+    <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">output</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s1">&#39;line one</span><span class="se">\n</span><span class="s1">line with error</span><span class="se">\n</span><span class="s1">last line</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>line with error</strong></p>
+<hr />
+<h3 id="example-3-running-a-process-in-the-background-and-checking-its-status_1">🧪 Example 3: Running a process in the background and checking its status</h3>
+<p>This example shows how to start a process without waiting for it to finish, then check if it is still running.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;sleep&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Process started with PID: </span><span class="si">{</span><span class="n">process</span><span class="o">.</span><span class="n">pid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">poll_result</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Poll result (None means running): </span><span class="si">{</span><span class="n">poll_result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">process</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exit code after completion: </span><span class="si">{</span><span class="n">process</span><span class="o">.</span><span class="n">returncode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Process started with PID: 12345</strong><br />
+📤 Output: <strong>Poll result (None means running): None</strong><br />
+📤 Output: <strong>Exit code after completion: 0</strong></p>
+<hr />
+<h3 id="example-4-redirecting-stderr-to-a-separate-pipe_1">🧪 Example 4: Redirecting stderr to a separate pipe</h3>
+<p>This example captures both standard output and standard error from a command that writes to both streams.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">&#39;bash&#39;</span><span class="p">,</span> <span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;echo stdout message; echo stderr message &gt;&amp;2&#39;</span><span class="p">],</span>
+    <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+    <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<span class="n">stdout_data</span><span class="p">,</span> <span class="n">stderr_data</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;stdout: </span><span class="si">{</span><span class="n">stdout_data</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;stderr: </span><span class="si">{</span><span class="n">stderr_data</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>stdout: stdout message</strong><br />
+📤 Output: <strong>stderr: stderr message</strong></p>
+<hr />
+<h3 id="example-5-chaining-multiple-processes-with-pipes-like-shell-pipelines_1">🧪 Example 5: Chaining multiple processes with pipes (like shell pipelines)</h3>
+<p>This example connects the output of one process directly to the input of another, simulating a Unix pipeline.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="c1"># First process: list files</span>
+<span class="n">ls_process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span> <span class="s1">&#39;/usr/bin&#39;</span><span class="p">],</span>
+    <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Second process: count lines from first process output</span>
+<span class="n">wc_process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">&#39;wc&#39;</span><span class="p">,</span> <span class="s1">&#39;-l&#39;</span><span class="p">],</span>
+    <span class="n">stdin</span><span class="o">=</span><span class="n">ls_process</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span>
+    <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Close the pipe so the first process can finish</span>
+<span class="n">ls_process</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">output</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">wc_process</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of files in /usr/bin: </span><span class="si">{</span><span class="n">output</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Number of files in /usr/bin: 2500</strong><br />
+<em>(actual number depends on the system)</em></p>
+<hr />
+<h3 id="comparison-table-popen-vs-run-vs-call_1">📊 Comparison Table: <code>Popen</code> vs <code>run</code> vs <code>call</code></h3>
 <table>
 <thead>
 <tr>

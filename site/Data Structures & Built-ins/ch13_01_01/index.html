@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch13_01_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 13 | Interpreter Error Raising Concepts - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 13 | Interpreter Error Raising Concepts";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch13_01_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch13_01_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -606,6 +606,42 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-7-re-raising-the-same-error-after-logging">🧪 Example 7: Re-raising the Same Error After Logging</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-interpreter-raised-errors">Comparison Table: Common Interpreter-Raised Errors</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">📌 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-does-raising-an-error-mean_1">⚙️ What Does "Raising an Error" Mean?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-scenarios-where-errors-are-raised_1">🛠️ Common Scenarios Where Errors Are Raised</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-the-interpreter-communicates-errors_1">📊 How the Interpreter Communicates Errors</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#understanding-the-traceback_1">🕵️ Understanding the Traceback</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-flow-of-error-raising_1">⚡ The Flow of Error Raising</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-automatic-vs-manual-error-raising_1">🧩 Comparison: Automatic vs. Manual Error Raising</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#why-understanding-error-raising-matters_1">🛡️ Why Understanding Error Raising Matters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-division-by-zero-raises-a-built-in-error_1">🧪 Example 1: Division by Zero Raises a Built-in Error</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-accessing-a-non-existent-list-index-raises-an-error_1">🧪 Example 2: Accessing a Non-existent List Index Raises an Error</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-converting-invalid-string-to-integer-raises-an-error_1">🧪 Example 3: Converting Invalid String to Integer Raises an Error</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-accessing-a-missing-dictionary-key-raises-an-error_1">🧪 Example 4: Accessing a Missing Dictionary Key Raises an Error</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-using-an-undefined-variable-raises-an-error_1">🧪 Example 5: Using an Undefined Variable Raises an Error</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-6-raising-a-custom-error-with-the-raise-keyword_1">🧪 Example 6: Raising a Custom Error with the raise Keyword</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-7-re-raising-the-same-error-after-logging_1">🧪 Example 7: Re-raising the Same Error After Logging</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-interpreter-raised-errors_1">Comparison Table: Common Interpreter-Raised Errors</a>
     </li>
     </ul>
                 </li>
@@ -1082,7 +1118,7 @@
               
                 <h1 id="interpreter-error-raising-concepts">Interpreter Error Raising Concepts</h1>
 <p><span class="category-tag">🏷️ Error Handling and Exceptions /  What are Exceptions?</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">📌 Context Introduction</h3>
@@ -1184,8 +1220,7 @@
 <li>Understanding error raising is the first step toward writing code that handles problems gracefully instead of crashing.</li>
 <li>You can also manually raise errors using the <strong>raise</strong> keyword to enforce your own rules and validations.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Interpreter error raising is the mechanism by which Python's interpreter stops normal execution and creates an exception object when it encounters an operation it cannot complete.</p>
 <hr />
 <h3 id="example-1-division-by-zero-raises-a-built-in-error">🧪 Example 1: Division by Zero Raises a Built-in Error</h3>
@@ -1239,6 +1274,202 @@
 <p>📤 Output: <strong>Engineer logged: cannot divide by zero</strong> followed by <strong>ZeroDivisionError: division by zero</strong></p>
 <hr />
 <h2 id="comparison-table-common-interpreter-raised-errors">Comparison Table: Common Interpreter-Raised Errors</h2>
+<table>
+<thead>
+<tr>
+<th>Error Type</th>
+<th>When It Occurs</th>
+<th>Example Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ZeroDivisionError</code></td>
+<td>Dividing a number by zero</td>
+<td><code>10 / 0</code></td>
+</tr>
+<tr>
+<td><code>IndexError</code></td>
+<td>Accessing list index out of range</td>
+<td><code>my_list[100]</code></td>
+</tr>
+<tr>
+<td><code>ValueError</code></td>
+<td>Converting invalid data type</td>
+<td><code>int("abc")</code></td>
+</tr>
+<tr>
+<td><code>KeyError</code></td>
+<td>Accessing missing dictionary key</td>
+<td><code>my_dict["missing"]</code></td>
+</tr>
+<tr>
+<td><code>NameError</code></td>
+<td>Using undefined variable</td>
+<td><code>print(undefined_var)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">📌 Context Introduction</h3>
+<p>When you write Python code, the interpreter reads and executes your instructions line by line. However, not everything always goes as planned. Sometimes, the interpreter encounters situations it cannot handle, and it needs a way to tell you something went wrong. This is where <strong>error raising</strong> comes into play. Understanding how the interpreter raises errors helps you write more robust code and debug issues faster when they occur.</p>
+<hr />
+<h3 id="what-does-raising-an-error-mean_1">⚙️ What Does "Raising an Error" Mean?</h3>
+<p>In Python, when the interpreter encounters a problem during execution, it <strong>raises</strong> (or throws) an exception. Think of this as the interpreter raising a red flag and saying, "I cannot continue because something unexpected happened."</p>
+<ul>
+<li>The interpreter stops normal execution at the point of the error.</li>
+<li>It creates a special object called an <strong>exception</strong> that contains information about what went wrong.</li>
+<li>If you don't handle this exception, the program will crash and display an error message.</li>
+</ul>
+<hr />
+<h3 id="common-scenarios-where-errors-are-raised_1">🛠️ Common Scenarios Where Errors Are Raised</h3>
+<p>The interpreter raises errors automatically when it detects problems. Here are some everyday examples:</p>
+<ul>
+<li><strong>Division by zero</strong>: If you try to divide a number by zero, the interpreter raises a <strong>ZeroDivisionError</strong>.</li>
+<li><strong>Accessing a missing key in a dictionary</strong>: If you try to access a key that doesn't exist, the interpreter raises a <strong>KeyError</strong>.</li>
+<li><strong>Converting invalid input to an integer</strong>: If you try to convert the string "hello" to an integer, the interpreter raises a <strong>ValueError</strong>.</li>
+<li><strong>Opening a file that doesn't exist</strong>: If you try to open a file that is not on your system, the interpreter raises a <strong>FileNotFoundError</strong>.</li>
+</ul>
+<hr />
+<h3 id="how-the-interpreter-communicates-errors_1">📊 How the Interpreter Communicates Errors</h3>
+<p>When an error is raised, the interpreter provides a clear message to help you understand what went wrong. This message includes:</p>
+<ul>
+<li><strong>The type of error</strong> (e.g., ZeroDivisionError, ValueError)</li>
+<li><strong>A description</strong> of what caused the error</li>
+<li><strong>A traceback</strong> showing where in your code the error occurred</li>
+</ul>
+<p>Example of what you might see (not in a code block):</p>
+<p>The interpreter prints: <strong>ZeroDivisionError: division by zero</strong> followed by a traceback showing the line number where the division happened.</p>
+<hr />
+<h3 id="understanding-the-traceback_1">🕵️ Understanding the Traceback</h3>
+<p>The traceback is the interpreter's way of showing you the path it took before encountering the error. It lists:</p>
+<ul>
+<li>The file name where the error occurred</li>
+<li>The line number of the problematic code</li>
+<li>The actual line of code that caused the error</li>
+</ul>
+<p>This information is invaluable for debugging because it tells you exactly where to look in your code.</p>
+<hr />
+<h3 id="the-flow-of-error-raising_1">⚡ The Flow of Error Raising</h3>
+<p>When the interpreter raises an error, the following sequence happens:</p>
+<ol>
+<li>The interpreter detects an abnormal condition during execution.</li>
+<li>It creates an exception object with details about the error.</li>
+<li>Normal program execution stops immediately.</li>
+<li>The interpreter looks for an exception handler (a <strong>try-except</strong> block) in your code.</li>
+<li>If no handler is found, the program terminates and displays the error message and traceback.</li>
+</ol>
+<hr />
+<h3 id="comparison-automatic-vs-manual-error-raising_1">🧩 Comparison: Automatic vs. Manual Error Raising</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Automatic Error Raising</th>
+<th>Manual Error Raising</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Who triggers it?</strong></td>
+<td>The Python interpreter</td>
+<td>The programmer using the <strong>raise</strong> keyword</td>
+</tr>
+<tr>
+<td><strong>When does it happen?</strong></td>
+<td>When the interpreter detects an invalid operation</td>
+<td>When you want to enforce your own rules or validations</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td>Dividing by zero raises <strong>ZeroDivisionError</strong></td>
+<td>Checking if a value is negative and raising <strong>ValueError</strong></td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>To protect the program from undefined behavior</td>
+<td>To enforce business logic or input validation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="why-understanding-error-raising-matters_1">🛡️ Why Understanding Error Raising Matters</h3>
+<p>Knowing how the interpreter raises errors helps you in several ways:</p>
+<ul>
+<li><strong>Debugging faster</strong>: When you see an error message, you can quickly identify the type of error and the line where it occurred.</li>
+<li><strong>Writing defensive code</strong>: You can anticipate where errors might happen and handle them gracefully.</li>
+<li><strong>Creating meaningful error messages</strong>: When you manually raise errors, you can provide clear explanations that help other engineers understand what went wrong.</li>
+<li><strong>Building reliable applications</strong>: Proper error handling prevents your programs from crashing unexpectedly.</li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li>The Python interpreter raises exceptions automatically when it encounters problems it cannot handle.</li>
+<li>Each error has a specific type (like <strong>ValueError</strong> or <strong>KeyError</strong>) that tells you what kind of problem occurred.</li>
+<li>The traceback shows you the exact location in your code where the error was raised.</li>
+<li>Understanding error raising is the first step toward writing code that handles problems gracefully instead of crashing.</li>
+<li>You can also manually raise errors using the <strong>raise</strong> keyword to enforce your own rules and validations.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Interpreter error raising is the mechanism by which Python's interpreter stops normal execution and creates an exception object when it encounters an operation it cannot complete.</p>
+<hr />
+<h3 id="example-1-division-by-zero-raises-a-built-in-error_1">🧪 Example 1: Division by Zero Raises a Built-in Error</h3>
+<p>This example shows the interpreter automatically raising a <code>ZeroDivisionError</code> when you try to divide by zero.</p>
+<div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+</code></pre></div>
+<p>📤 Output: <strong>ZeroDivisionError: division by zero</strong></p>
+<hr />
+<h3 id="example-2-accessing-a-non-existent-list-index-raises-an-error_1">🧪 Example 2: Accessing a Non-existent List Index Raises an Error</h3>
+<p>This example demonstrates the interpreter raising an <code>IndexError</code> when you try to access an element outside the list's range.</p>
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">item</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+</code></pre></div>
+<p>📤 Output: <strong>IndexError: list index out of range</strong></p>
+<hr />
+<h3 id="example-3-converting-invalid-string-to-integer-raises-an-error_1">🧪 Example 3: Converting Invalid String to Integer Raises an Error</h3>
+<p>This example shows the interpreter raising a <code>ValueError</code> when you try to convert a string that doesn't represent a number.</p>
+<div class="highlight"><pre><span></span><code><span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ValueError: invalid literal for int() with base 10: 'hello'</strong></p>
+<hr />
+<h3 id="example-4-accessing-a-missing-dictionary-key-raises-an-error_1">🧪 Example 4: Accessing a Missing Dictionary Key Raises an Error</h3>
+<p>This example demonstrates the interpreter raising a <code>KeyError</code> when you try to retrieve a key that doesn't exist in a dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
+<span class="n">city</span> <span class="o">=</span> <span class="n">user</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>📤 Output: <strong>KeyError: 'city'</strong></p>
+<hr />
+<h3 id="example-5-using-an-undefined-variable-raises-an-error_1">🧪 Example 5: Using an Undefined Variable Raises an Error</h3>
+<p>This example shows the interpreter raising a <code>NameError</code> when you try to use a variable that has never been assigned.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>NameError: name 'total' is not defined</strong></p>
+<hr />
+<h3 id="example-6-raising-a-custom-error-with-the-raise-keyword_1">🧪 Example 6: Raising a Custom Error with the <code>raise</code> Keyword</h3>
+<p>This example shows how engineers can manually trigger an error using the <code>raise</code> statement when a condition is not met.</p>
+<div class="highlight"><pre><span></span><code><span class="n">temperature</span> <span class="o">=</span> <span class="mi">150</span>
+<span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Temperature exceeds safe limit&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ValueError: Temperature exceeds safe limit</strong></p>
+<hr />
+<h3 id="example-7-re-raising-the-same-error-after-logging_1">🧪 Example 7: Re-raising the Same Error After Logging</h3>
+<p>This example demonstrates catching an error, printing a message, then re-raising the same error for further handling.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Engineer logged: cannot divide by zero&quot;</span><span class="p">)</span>
+    <span class="k">raise</span>
+</code></pre></div>
+<p>📤 Output: <strong>Engineer logged: cannot divide by zero</strong> followed by <strong>ZeroDivisionError: division by zero</strong></p>
+<hr />
+<h2 id="comparison-table-common-interpreter-raised-errors_1">Comparison Table: Common Interpreter-Raised Errors</h2>
 <table>
 <thead>
 <tr>

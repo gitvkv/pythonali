@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_02_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Copying Files (shutil.copy vs copy2) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Copying Files (shutil.copy vs copy2)";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_02_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_02_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -651,6 +651,30 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-shutilcopy-vs-shutilcopy2_1">Comparison Table: shutil.copy vs shutil.copy2</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-shutilcopy_1">⚙️ What Is shutil.copy()?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-shutilcopy2_1">🛠️ What Is shutil.copy2()?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-shutilcopy-vs-shutilcopy2_2">📊 Comparison Table: shutil.copy vs shutil.copy2</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-each-function_1">🕵️ When to Use Each Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-scenario_1">🧪 Practical Example Scenario</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-file-copy-with-shutilcopy_1">📄 Example 1: Basic file copy with shutil.copy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-copy-file-to-a-different-directory_1">📄 Example 2: Copy file to a different directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-copy-file-with-full-metadata-using-copy2_1">📄 Example 3: Copy file with full metadata using copy2</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-compare-timestamps-between-copy-and-copy2_1">📄 Example 4: Compare timestamps between copy and copy2</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-copy-with-error-handling-for-missing-source_1">📄 Example 5: Copy with error handling for missing source</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-shutilcopy-vs-shutilcopy2_3">Comparison Table: shutil.copy vs shutil.copy2</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_02_02/">Ch 14 | Moving Files and Directories via shutil.move</a>
@@ -1072,7 +1096,7 @@
               
                 <h1 id="copying-files-shutilcopy-vs-copy2">Copying Files (shutil.copy vs copy2)</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  The shutil Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with files in Python, you'll often need to duplicate them. The <strong>shutil</strong> module provides two main functions for copying files: <strong>shutil.copy()</strong> and <strong>shutil.copy2()</strong>. Both copy a file from one location to another, but they differ in what metadata they preserve. Understanding this difference helps you choose the right tool for your automation and backup tasks.</p>
@@ -1164,8 +1188,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Both <strong>shutil.copy()</strong> and <strong>shutil.copy2()</strong> are essential tools for file operations in Python. The key takeaway is simple: if you care about keeping the original file's timestamps, use <strong>copy2</strong>. If you just need the file content and permissions, use <strong>copy</strong>. Choose based on your specific need, and you'll handle file copying like a pro.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>shutil.copy</code> and <code>shutil.copy2</code> functions copy files from one location to another, with <code>copy2</code> also preserving file metadata like timestamps.</p>
 <hr />
 <h3 id="example-1-basic-file-copy-with-shutilcopy">📄 Example 1: Basic file copy with shutil.copy</h3>
@@ -1241,6 +1264,214 @@
 <p>📤 Output: <strong>Source file 'missing_file.txt' not found</strong></p>
 <hr />
 <h3 id="comparison-table-shutilcopy-vs-shutilcopy2_1">Comparison Table: shutil.copy vs shutil.copy2</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>shutil.copy</th>
+<th>shutil.copy2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Copies file contents</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Copies file permissions</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Preserves timestamps (mtime, atime)</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Preserves other metadata</td>
+<td>❌ No</td>
+<td>✅ Yes (as much as possible)</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Quick copies without history</td>
+<td>Backups needing original timestamps</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with files in Python, you'll often need to duplicate them. The <strong>shutil</strong> module provides two main functions for copying files: <strong>shutil.copy()</strong> and <strong>shutil.copy2()</strong>. Both copy a file from one location to another, but they differ in what metadata they preserve. Understanding this difference helps you choose the right tool for your automation and backup tasks.</p>
+<hr />
+<h3 id="what-is-shutilcopy_1">⚙️ What Is shutil.copy()?</h3>
+<p><strong>shutil.copy()</strong> copies the contents of a source file to a destination. It preserves the file's <strong>permission bits</strong> (read, write, execute) but does <strong>not</strong> preserve other metadata like timestamps.</p>
+<ul>
+<li>Copies file content and permission mode</li>
+<li>Does <strong>not</strong> preserve creation or modification timestamps</li>
+<li>Returns the path to the newly created file</li>
+<li>Best for quick file duplication where timestamps don't matter</li>
+</ul>
+<p><strong>Example usage:</strong><br />
+<strong>shutil.copy("source.txt", "destination.txt")</strong> copies the content and permissions from source.txt to destination.txt. The destination file will have the current system time as its timestamp.</p>
+<hr />
+<h3 id="what-is-shutilcopy2_1">🛠️ What Is shutil.copy2()?</h3>
+<p><strong>shutil.copy2()</strong> is identical to <strong>shutil.copy()</strong> in terms of copying file content and permissions, but it goes one step further — it also attempts to preserve as much <strong>metadata</strong> as possible.</p>
+<ul>
+<li>Copies file content and permission mode</li>
+<li>Preserves <strong>creation time</strong>, <strong>modification time</strong>, and <strong>access time</strong></li>
+<li>Returns the path to the newly created file</li>
+<li>Ideal for backups and archival operations where original timestamps are important</li>
+</ul>
+<p><strong>Example usage:</strong><br />
+<strong>shutil.copy2("source.txt", "destination.txt")</strong> copies everything from source.txt to destination.txt, including the original file's timestamps.</p>
+<hr />
+<h3 id="comparison-table-shutilcopy-vs-shutilcopy2_2">📊 Comparison Table: shutil.copy vs shutil.copy2</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>shutil.copy()</th>
+<th>shutil.copy2()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File content</td>
+<td>✅ Copied</td>
+<td>✅ Copied</td>
+</tr>
+<tr>
+<td>Permission bits</td>
+<td>✅ Preserved</td>
+<td>✅ Preserved</td>
+</tr>
+<tr>
+<td>Modification time</td>
+<td>❌ Not preserved</td>
+<td>✅ Preserved</td>
+</tr>
+<tr>
+<td>Creation time</td>
+<td>❌ Not preserved</td>
+<td>✅ Preserved</td>
+</tr>
+<tr>
+<td>Access time</td>
+<td>❌ Not preserved</td>
+<td>✅ Preserved</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Quick copies, temporary files</td>
+<td>Backups, archives, file synchronization</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="when-to-use-each-function_1">🕵️ When to Use Each Function</h3>
+<p><strong>Use shutil.copy() when:</strong>
+- You only need the file content and basic permissions
+- You are creating temporary working copies
+- Timestamps are irrelevant to your workflow
+- You want slightly faster execution</p>
+<p><strong>Use shutil.copy2() when:</strong>
+- You are creating backups and want to preserve original file dates
+- You are synchronizing files between directories
+- You need to maintain accurate file history
+- The metadata matters for auditing or compliance</p>
+<hr />
+<h3 id="practical-example-scenario_1">🧪 Practical Example Scenario</h3>
+<p>Imagine you have a configuration file named <strong>config.ini</strong> that was last modified on January 15th.</p>
+<ul>
+<li>Using <strong>shutil.copy("config.ini", "backup/config.ini")</strong> creates a copy with today's date as the modification time.</li>
+<li>Using <strong>shutil.copy2("config.ini", "backup/config.ini")</strong> creates a copy that still shows January 15th as the modification time.</li>
+</ul>
+<p>For most engineers, <strong>shutil.copy2()</strong> is the safer default choice because it preserves more information. You can always fall back to <strong>shutil.copy()</strong> when speed is critical and metadata doesn't matter.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Both <strong>shutil.copy()</strong> and <strong>shutil.copy2()</strong> are essential tools for file operations in Python. The key takeaway is simple: if you care about keeping the original file's timestamps, use <strong>copy2</strong>. If you just need the file content and permissions, use <strong>copy</strong>. Choose based on your specific need, and you'll handle file copying like a pro.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>shutil.copy</code> and <code>shutil.copy2</code> functions copy files from one location to another, with <code>copy2</code> also preserving file metadata like timestamps.</p>
+<hr />
+<h3 id="example-1-basic-file-copy-with-shutilcopy_1">📄 Example 1: Basic file copy with shutil.copy</h3>
+<p>This example copies a simple text file to a new location.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s2">&quot;source.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;destination.txt&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>'destination.txt'</strong></p>
+<hr />
+<h3 id="example-2-copy-file-to-a-different-directory_1">📄 Example 2: Copy file to a different directory</h3>
+<p>This example copies a file into an existing folder.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s2">&quot;report.pdf&quot;</span><span class="p">,</span> <span class="s2">&quot;backups/&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>'backups/report.pdf'</strong></p>
+<hr />
+<h3 id="example-3-copy-file-with-full-metadata-using-copy2_1">📄 Example 3: Copy file with full metadata using copy2</h3>
+<p>This example preserves the original file's modification and access times.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="s2">&quot;config.ini&quot;</span><span class="p">,</span> <span class="s2">&quot;config_backup.ini&quot;</span><span class="p">)</span>
+
+<span class="n">original_time</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="s2">&quot;config.ini&quot;</span><span class="p">)</span>
+<span class="n">copy_time</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="s2">&quot;config_backup.ini&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">original_time</span> <span class="o">==</span> <span class="n">copy_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-4-compare-timestamps-between-copy-and-copy2_1">📄 Example 4: Compare timestamps between copy and copy2</h3>
+<p>This example shows that <code>shutil.copy</code> does not preserve the original timestamp.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;data_copy.csv&quot;</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;data_copy2.csv&quot;</span><span class="p">)</span>
+
+<span class="n">original_mtime</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
+<span class="n">copy_mtime</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="s2">&quot;data_copy.csv&quot;</span><span class="p">)</span>
+<span class="n">copy2_mtime</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="s2">&quot;data_copy2.csv&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original mtime:&quot;</span><span class="p">,</span> <span class="n">original_mtime</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;copy mtime:&quot;</span><span class="p">,</span> <span class="n">copy_mtime</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;copy2 mtime:&quot;</span><span class="p">,</span> <span class="n">copy2_mtime</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;copy matches original:&quot;</span><span class="p">,</span> <span class="n">original_mtime</span> <span class="o">==</span> <span class="n">copy_mtime</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;copy2 matches original:&quot;</span><span class="p">,</span> <span class="n">original_mtime</span> <span class="o">==</span> <span class="n">copy2_mtime</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Original mtime: 1698001234.5678901</strong><br />
+📤 Output: <strong>copy mtime: 1698005678.9012345</strong><br />
+📤 Output: <strong>copy2 mtime: 1698001234.5678901</strong><br />
+📤 Output: <strong>copy matches original: False</strong><br />
+📤 Output: <strong>copy2 matches original: True</strong></p>
+<hr />
+<h3 id="example-5-copy-with-error-handling-for-missing-source_1">📄 Example 5: Copy with error handling for missing source</h3>
+<p>This example safely attempts to copy a file that may not exist.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">source_file</span> <span class="o">=</span> <span class="s2">&quot;missing_file.txt&quot;</span>
+<span class="n">destination_file</span> <span class="o">=</span> <span class="s2">&quot;backup_missing.txt&quot;</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">source_file</span><span class="p">):</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">source_file</span><span class="p">,</span> <span class="n">destination_file</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File copied successfully&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Source file &#39;</span><span class="si">{</span><span class="n">source_file</span><span class="si">}</span><span class="s2">&#39; not found&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Source file 'missing_file.txt' not found</strong></p>
+<hr />
+<h3 id="comparison-table-shutilcopy-vs-shutilcopy2_3">Comparison Table: shutil.copy vs shutil.copy2</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_05_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Writing Custom Assertion Diagnostic Functions - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Writing Custom Assertion Diagnostic Functions";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_05_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_05_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -921,6 +921,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-custom-assertion-functions">📊 Comparison Table: Custom Assertion Functions</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-the-problem-with-standard-assertions_1">🧠 Understanding the Problem with Standard Assertions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#anatomy-of-a-custom-assertion-diagnostic-function_1">⚙️ Anatomy of a Custom Assertion Diagnostic Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-your-first-custom-diagnostic-function_1">🛠️ Building Your First Custom Diagnostic Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-standard-assert-vs-custom-diagnostic_1">📊 Comparison: Standard Assert vs Custom Diagnostic</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#advanced-diagnostic-techniques_1">🕵️ Advanced Diagnostic Techniques</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-patterns-for-common-scenarios_1">🧩 Practical Patterns for Common Scenarios</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#integrating-diagnostics-into-your-workflow_1">🔄 Integrating Diagnostics into Your Workflow</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-writing-diagnostic-functions_1">✅ Best Practices for Writing Diagnostic Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#taking-it-further_1">🚀 Taking It Further</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-custom-assertion-message_1">🛠️ Example 1: Basic custom assertion message</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-checking-value-is-within-a-range_1">📐 Example 2: Checking value is within a range</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-validating-dictionary-keys-exist_1">🔍 Example 3: Validating dictionary keys exist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-validating-data-types-in-a-list_1">📊 Example 4: Validating data types in a list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-comparing-two-csv-like-row-structures_1">📋 Example 5: Comparing two CSV-like row structures</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-custom-assertion-functions_1">📊 Comparison Table: Custom Assertion Functions</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_05_04/">Ch 19 | Formal Advanced Schema Enforcement via jsonschema</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="writing-custom-assertion-diagnostic-functions">Writing Custom Assertion Diagnostic Functions</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  Data Validation Basics</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When validating data in Python, standard assertions often fall short. They tell you something failed, but rarely explain <strong>why</strong>. Custom assertion diagnostic functions give you the power to create meaningful, context-rich error messages that make debugging faster and more intuitive.</p>
@@ -1210,8 +1240,7 @@
 <li><strong>Custom exception classes</strong>: Create specialized exception types that carry diagnostic information</li>
 </ul>
 <p>Custom assertion diagnostic functions transform debugging from a guessing game into a structured, efficient process. They empower you to understand exactly what went wrong and why, saving time and reducing frustration during data validation tasks.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Custom assertion diagnostic functions let engineers create informative error messages when data validation fails in Python tests.</p>
 <hr />
 <h3 id="example-1-basic-custom-assertion-message">🛠️ Example 1: Basic custom assertion message</h3>
@@ -1273,6 +1302,240 @@
 <p>📤 Output: <strong>AssertionError: Row 5, Column 2: expected 'Engineer', got 'Manager'</strong></p>
 <hr />
 <h3 id="comparison-table-custom-assertion-functions">📊 Comparison Table: Custom Assertion Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>assert value == expected, message</code></td>
+<td>Simple value comparison</td>
+<td>Basic equality checks</td>
+</tr>
+<tr>
+<td><code>assert_in_range(value, low, high)</code></td>
+<td>Range validation</td>
+<td>Numeric sensor readings</td>
+</tr>
+<tr>
+<td><code>assert_has_keys(data, keys)</code></td>
+<td>Key presence check</td>
+<td>JSON or dictionary validation</td>
+</tr>
+<tr>
+<td><code>assert_all_type(items, type)</code></td>
+<td>Type consistency check</td>
+<td>List or column data validation</td>
+</tr>
+<tr>
+<td><code>assert_row_match(actual, expected, row)</code></td>
+<td>Row-by-row comparison</td>
+<td>CSV or table data validation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When validating data in Python, standard assertions often fall short. They tell you something failed, but rarely explain <strong>why</strong>. Custom assertion diagnostic functions give you the power to create meaningful, context-rich error messages that make debugging faster and more intuitive.</p>
+<hr />
+<h3 id="understanding-the-problem-with-standard-assertions_1">🧠 Understanding the Problem with Standard Assertions</h3>
+<p>Standard Python assertions provide minimal information when they fail:</p>
+<ul>
+<li><strong>Basic assert statement</strong>: Only raises an <strong>AssertionError</strong> with no context</li>
+<li><strong>assert with message</strong>: Shows a static string, but doesn't reveal actual values</li>
+<li><strong>No structured output</strong>: You must manually inspect variables to understand what went wrong</li>
+</ul>
+<p>Custom diagnostic functions solve these limitations by generating detailed, human-readable failure reports.</p>
+<hr />
+<h3 id="anatomy-of-a-custom-assertion-diagnostic-function_1">⚙️ Anatomy of a Custom Assertion Diagnostic Function</h3>
+<p>A well-designed diagnostic function typically includes these components:</p>
+<ul>
+<li><strong>A clear function name</strong> that describes what is being validated (e.g., <strong>assert_valid_email</strong>, <strong>check_range</strong>)</li>
+<li><strong>Input parameters</strong> for the actual value, expected value, and optional context</li>
+<li><strong>A comparison logic</strong> that determines pass or fail</li>
+<li><strong>A descriptive failure message</strong> that shows what was expected versus what was received</li>
+<li><strong>Optional metadata</strong> like timestamps, data types, or source locations</li>
+</ul>
+<hr />
+<h3 id="building-your-first-custom-diagnostic-function_1">🛠️ Building Your First Custom Diagnostic Function</h3>
+<p>Start with a simple pattern that checks equality and provides rich feedback:</p>
+<ul>
+<li><strong>Function name</strong>: <strong>assert_equals_with_diagnostics</strong></li>
+<li><strong>Parameters</strong>: <strong>actual</strong>, <strong>expected</strong>, <strong>label="Value"</strong></li>
+<li><strong>Logic</strong>: Compare actual to expected using <strong>==</strong></li>
+<li><strong>On failure</strong>: Return a string showing the label, expected value, actual value, and their data types</li>
+<li><strong>On success</strong>: Return <strong>None</strong> or an empty string</li>
+</ul>
+<p>This pattern can be extended to check ranges, data types, list lengths, dictionary keys, and more.</p>
+<hr />
+<h3 id="comparison-standard-assert-vs-custom-diagnostic_1">📊 Comparison: Standard Assert vs Custom Diagnostic</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Standard Assert</th>
+<th>Custom Diagnostic Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Error message</td>
+<td>Static or missing</td>
+<td>Dynamic and context-rich</td>
+</tr>
+<tr>
+<td>Shows actual value</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Shows expected value</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Shows data types</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Reusable across tests</td>
+<td>Limited</td>
+<td>Fully reusable</td>
+</tr>
+<tr>
+<td>Readable for debugging</td>
+<td>Poor</td>
+<td>Excellent</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="advanced-diagnostic-techniques_1">🕵️ Advanced Diagnostic Techniques</h3>
+<p>Once comfortable with basic comparisons, enhance your functions with these techniques:</p>
+<ul>
+<li><strong>Type checking</strong>: Validate that inputs are the expected data type before comparing values</li>
+<li><strong>Boundary analysis</strong>: For numeric checks, show how far off the actual value is from the expected range</li>
+<li><strong>Collection inspection</strong>: For lists or dictionaries, highlight which specific elements or keys differ</li>
+<li><strong>Nested reporting</strong>: For complex structures, recursively generate diagnostic messages for each level</li>
+<li><strong>Conditional messages</strong>: Tailor the output based on the type of failure (missing key, wrong type, out of range)</li>
+</ul>
+<hr />
+<h3 id="practical-patterns-for-common-scenarios_1">🧩 Practical Patterns for Common Scenarios</h3>
+<p><strong>Pattern 1: Value Range Checker</strong>
+- Accepts <strong>value</strong>, <strong>min_val</strong>, <strong>max_val</strong>, and <strong>name</strong>
+- Returns a message if value is outside the allowed range
+- Includes the actual value, the boundary that was violated, and by how much</p>
+<p><strong>Pattern 2: Dictionary Key Validator</strong>
+- Accepts <strong>data_dict</strong>, <strong>required_keys</strong>, and <strong>dict_name</strong>
+- Checks for missing keys and unexpected keys
+- Returns a structured report listing missing and extra keys separately</p>
+<p><strong>Pattern 3: List Content Comparator</strong>
+- Accepts <strong>actual_list</strong>, <strong>expected_list</strong>, and <strong>list_name</strong>
+- Identifies items present in one list but not the other
+- Reports differences in a clear, itemized format</p>
+<hr />
+<h3 id="integrating-diagnostics-into-your-workflow_1">🔄 Integrating Diagnostics into Your Workflow</h3>
+<p>Custom diagnostic functions work best when integrated into a validation pipeline:</p>
+<ul>
+<li><strong>Step 1</strong>: Define your diagnostic functions in a dedicated module (e.g., <strong>validation_helpers.py</strong>)</li>
+<li><strong>Step 2</strong>: Import them into your test scripts or data processing code</li>
+<li><strong>Step 3</strong>: Call the diagnostic function instead of a plain assert</li>
+<li><strong>Step 4</strong>: Check the return value — if it is not <strong>None</strong>, log or print the diagnostic message</li>
+<li><strong>Step 5</strong>: Use the detailed message to quickly identify and fix the issue</li>
+</ul>
+<hr />
+<h3 id="best-practices-for-writing-diagnostic-functions_1">✅ Best Practices for Writing Diagnostic Functions</h3>
+<ul>
+<li><strong>Keep messages concise but complete</strong>: Include enough detail to debug, but avoid overwhelming noise</li>
+<li><strong>Use consistent formatting</strong>: Standardize how values, types, and differences are displayed</li>
+<li><strong>Return None on success</strong>: This makes it easy to check pass/fail with a simple conditional</li>
+<li><strong>Make functions composable</strong>: Build small diagnostic functions that can be combined for complex validations</li>
+<li><strong>Document expected behavior</strong>: Add docstrings explaining what each function checks and what its output looks like</li>
+<li><strong>Test your diagnostics</strong>: Verify that your failure messages are accurate and helpful by intentionally triggering failures</li>
+</ul>
+<hr />
+<h3 id="taking-it-further_1">🚀 Taking It Further</h3>
+<p>Once comfortable with basic custom diagnostics, explore these enhancements:</p>
+<ul>
+<li><strong>Logging integration</strong>: Write diagnostic messages directly to a log file with timestamps</li>
+<li><strong>Color-coded output</strong>: Use terminal color codes to highlight differences in values</li>
+<li><strong>Aggregate reporting</strong>: Collect multiple diagnostic failures and present them as a single report</li>
+<li><strong>Threshold-based warnings</strong>: Instead of failing immediately, collect warnings for values that are close to boundaries</li>
+<li><strong>Custom exception classes</strong>: Create specialized exception types that carry diagnostic information</li>
+</ul>
+<p>Custom assertion diagnostic functions transform debugging from a guessing game into a structured, efficient process. They empower you to understand exactly what went wrong and why, saving time and reducing frustration during data validation tasks.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Custom assertion diagnostic functions let engineers create informative error messages when data validation fails in Python tests.</p>
+<hr />
+<h3 id="example-1-basic-custom-assertion-message_1">🛠️ Example 1: Basic custom assertion message</h3>
+<p>This example shows how to add a simple custom message to an assertion.</p>
+<div class="highlight"><pre><span></span><code><span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">expected</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">assert</span> <span class="n">value</span> <span class="o">==</span> <span class="n">expected</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Expected </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">, but got </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>📤 Output: <strong>AssertionError: Expected 5, but got 10</strong></p>
+<hr />
+<h3 id="example-2-checking-value-is-within-a-range_1">📐 Example 2: Checking value is within a range</h3>
+<p>This example demonstrates a custom diagnostic function that checks if a number falls within an acceptable range.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">assert_in_range</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">):</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Value </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2"> is not between </span><span class="si">{</span><span class="n">low</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">high</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">assert</span> <span class="n">low</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">,</span> <span class="n">message</span>
+
+<span class="n">temperature</span> <span class="o">=</span> <span class="mi">105</span>
+<span class="n">assert_in_range</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>AssertionError: Value 105 is not between 60 and 100</strong></p>
+<hr />
+<h3 id="example-3-validating-dictionary-keys-exist_1">🔍 Example 3: Validating dictionary keys exist</h3>
+<p>This example shows how to check that required keys are present in a data dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">assert_has_keys</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">required_keys</span><span class="p">):</span>
+    <span class="n">missing</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">required_keys</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Missing required keys: </span><span class="si">{</span><span class="n">missing</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">message</span>
+
+<span class="n">sensor_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;temperature&quot;</span><span class="p">:</span> <span class="mi">72</span><span class="p">,</span> <span class="s2">&quot;humidity&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">}</span>
+<span class="n">assert_has_keys</span><span class="p">(</span><span class="n">sensor_data</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;pressure&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>AssertionError: Missing required keys: ['pressure']</strong></p>
+<hr />
+<h3 id="example-4-validating-data-types-in-a-list_1">📊 Example 4: Validating data types in a list</h3>
+<p>This example demonstrates a custom function that checks all items in a list match an expected data type.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">assert_all_type</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">expected_type</span><span class="p">):</span>
+    <span class="n">bad_items</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">expected_type</span><span class="p">)]</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Items </span><span class="si">{</span><span class="n">bad_items</span><span class="si">}</span><span class="s2"> are not type </span><span class="si">{</span><span class="n">expected_type</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">bad_items</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="n">message</span>
+
+<span class="n">readings</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;thirty&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<span class="n">assert_all_type</span><span class="p">(</span><span class="n">readings</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>AssertionError: Items ['thirty'] are not type int</strong></p>
+<hr />
+<h3 id="example-5-comparing-two-csv-like-row-structures_1">📋 Example 5: Comparing two CSV-like row structures</h3>
+<p>This example shows a practical diagnostic function for comparing expected and actual data rows.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">assert_row_match</span><span class="p">(</span><span class="n">actual_row</span><span class="p">,</span> <span class="n">expected_row</span><span class="p">,</span> <span class="n">row_number</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">actual_row</span><span class="p">,</span> <span class="n">expected_row</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">actual</span> <span class="o">!=</span> <span class="n">expected</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Row </span><span class="si">{</span><span class="n">row_number</span><span class="si">}</span><span class="s2">, Column </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">: expected &#39;</span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">&#39;, got &#39;</span><span class="si">{</span><span class="n">actual</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+            <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="n">message</span>
+
+<span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ID001&quot;</span><span class="p">,</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">]</span>
+<span class="n">actual</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ID001&quot;</span><span class="p">,</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Manager&quot;</span><span class="p">]</span>
+<span class="n">assert_row_match</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>AssertionError: Row 5, Column 2: expected 'Engineer', got 'Manager'</strong></p>
+<hr />
+<h3 id="comparison-table-custom-assertion-functions_1">📊 Comparison Table: Custom Assertion Functions</h3>
 <table>
 <thead>
 <tr>

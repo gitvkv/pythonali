@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch06_06_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 06 | Practical Example: Pairing Hostnames with IPs - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 06 | Practical Example: Pairing Hostnames with IPs";
         var mkdocs_page_input_path = "Core Syntax\\ch06_06_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch06_06_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -324,6 +324,38 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-building-a-list-of-tuples-for-configuration">🔧 Example 5: Building a List of Tuples for Configuration</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">📝 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-problem-two-separate-lists_1">⚙️ The Problem: Two Separate Lists</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-solution-using-zip-to-pair-lists_1">🛠️ The Solution: Using zip() to Pair Lists</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-without-zip-vs-with-zip_1">📊 Comparison: Without zip vs. With zip</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-by-step-breakdown_1">🕵️ Step-by-Step Breakdown</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-script-example_1">💻 Practical Script Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-a-hostname-to-ip-mapping_1">📚 Building a Hostname-to-IP Mapping</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-notes-on-zip-behavior_1">⚠️ Important Notes on zip() Behavior</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-use-cases-for-engineers_1">🧪 Practical Use Cases for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-pairing-of-two-lists_1">🔧 Example 1: Basic Pairing of Two Lists</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-storing-pairs-in-a-dictionary_1">🔧 Example 2: Storing Pairs in a Dictionary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-handling-unequal-list-lengths_1">🔧 Example 3: Handling Unequal List Lengths</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-formatting-output-as-a-table_1">🔧 Example 4: Formatting Output as a Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-building-a-list-of-tuples-for-configuration_1">🔧 Example 5: Building a List of Tuples for Configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="practical-example-pairing-hostnames-with-ips">Practical Example: Pairing Hostnames with IPs</h1>
 <p><span class="category-tag">🏷️ Loops and Iteration /  Iterating Over Multiple Lists via Zip</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">📝 Context Introduction</h3>
@@ -1177,8 +1209,7 @@
 <li>The paired values can be used directly in loops, dictionary creation, or any other data processing task.</li>
 <li>Always ensure your lists are the same length, or be aware that <strong>zip()</strong> stops at the shortest list.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example shows how to pair hostnames with their corresponding IP addresses by iterating over two lists simultaneously using <code>zip()</code>.</p>
 <h3 id="example-1-basic-pairing-of-two-lists">🔧 Example 1: Basic Pairing of Two Lists</h3>
 <p>Pairing a simple list of hostnames with their IP addresses.</p>
@@ -1241,6 +1272,216 @@
 <p>📤 Output: <strong>DNS Server Configuration: dns-01: 10.10.1.1 dns-02: 10.10.1.2 dns-03: 10.10.1.3</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Example 1</th>
+<th>Example 2</th>
+<th>Example 3</th>
+<th>Example 4</th>
+<th>Example 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purpose</td>
+<td>Basic pairing</td>
+<td>Dictionary mapping</td>
+<td>Unequal lists</td>
+<td>Formatted table</td>
+<td>Tuple list</td>
+</tr>
+<tr>
+<td>Data structure</td>
+<td>Print output</td>
+<td>Dictionary</td>
+<td>Print output</td>
+<td>Formatted string</td>
+<td>List of tuples</td>
+</tr>
+<tr>
+<td>Handles unequal lists</td>
+<td>Yes (stops short)</td>
+<td>Yes (stops short)</td>
+<td>Yes (stops short)</td>
+<td>Yes (stops short)</td>
+<td>Yes (stops short)</td>
+</tr>
+<tr>
+<td>Output type</td>
+<td>Console</td>
+<td>Dictionary</td>
+<td>Console</td>
+<td>Console</td>
+<td>List</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">📝 Context Introduction</h3>
+<p>When managing networked systems, you often have two separate lists: one containing hostnames and another containing their corresponding IP addresses. Manually pairing these values one by one is tedious and error-prone. Python's <strong>zip()</strong> function provides an elegant way to iterate over multiple lists simultaneously, allowing you to pair hostnames with IPs in a clean, readable loop.</p>
+<hr />
+<h3 id="the-problem-two-separate-lists_1">⚙️ The Problem: Two Separate Lists</h3>
+<p>Imagine you have the following data stored in two lists:</p>
+<ul>
+<li><strong>Hostnames list:</strong> <strong>web01</strong>, <strong>db01</strong>, <strong>app01</strong>, <strong>cache01</strong></li>
+<li><strong>IP addresses list:</strong> <strong>192.168.1.10</strong>, <strong>192.168.1.20</strong>, <strong>192.168.1.30</strong>, <strong>192.168.1.40</strong></li>
+</ul>
+<p>Without <strong>zip()</strong>, you would need to use an index variable to access elements from both lists at the same position. This approach works but is clunky and prone to off-by-one errors.</p>
+<hr />
+<h3 id="the-solution-using-zip-to-pair-lists_1">🛠️ The Solution: Using zip() to Pair Lists</h3>
+<p>The <strong>zip()</strong> function takes two or more iterables (like lists) and returns an iterator of tuples. Each tuple contains one element from each input list, paired together in order.</p>
+<p><strong>Basic syntax:</strong> <strong>for hostname, ip in zip(hostnames, ips):</strong></p>
+<p>This creates a loop where <strong>hostname</strong> gets the current element from the first list and <strong>ip</strong> gets the corresponding element from the second list on each iteration.</p>
+<hr />
+<h3 id="comparison-without-zip-vs-with-zip_1">📊 Comparison: Without zip vs. With zip</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Code Style</th>
+<th>Readability</th>
+<th>Error Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Without zip()</strong></td>
+<td>Uses index variable <strong>i</strong> to access both lists</td>
+<td>Lower — requires tracking index manually</td>
+<td>Higher — index mismatch or out-of-range errors</td>
+</tr>
+<tr>
+<td><strong>With zip()</strong></td>
+<td>Directly assigns paired values to variables</td>
+<td>Higher — intent is clear and concise</td>
+<td>Lower — no manual index management needed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="step-by-step-breakdown_1">🕵️ Step-by-Step Breakdown</h3>
+<p><strong>Step 1:</strong> Define your two lists — one for hostnames and one for IP addresses.</p>
+<p><strong>Step 2:</strong> Use the <strong>zip()</strong> function inside a <strong>for</strong> loop to iterate over both lists simultaneously.</p>
+<p><strong>Step 3:</strong> Inside the loop, assign the paired values to meaningful variable names like <strong>host</strong> and <strong>ip</strong>.</p>
+<p><strong>Step 4:</strong> Perform any action you need with the paired data — print it, store it in a dictionary, or write it to a configuration file.</p>
+<hr />
+<h3 id="practical-script-example_1">💻 Practical Script Example</h3>
+<p>Here is how a complete script looks using <strong>zip()</strong> to pair hostnames with IPs:</p>
+<p><strong>Define the lists:</strong> <strong>hostnames = ["web01", "db01", "app01", "cache01"]</strong> and <strong>ips = ["192.168.1.10", "192.168.1.20", "192.168.1.30", "192.168.1.40"]</strong></p>
+<p><strong>Create a loop:</strong> <strong>for host, ip in zip(hostnames, ips):</strong></p>
+<p><strong>Inside the loop:</strong> <strong>print(f"{host} -&gt; {ip}")</strong></p>
+<p><strong>Expected output (printed to console):</strong></p>
+<ul>
+<li><strong>web01 -&gt; 192.168.1.10</strong></li>
+<li><strong>db01 -&gt; 192.168.1.20</strong></li>
+<li><strong>app01 -&gt; 192.168.1.30</strong></li>
+<li><strong>cache01 -&gt; 192.168.1.40</strong></li>
+</ul>
+<hr />
+<h3 id="building-a-hostname-to-ip-mapping_1">📚 Building a Hostname-to-IP Mapping</h3>
+<p>A common task is to create a dictionary that maps each hostname to its IP address. Using <strong>zip()</strong>, this becomes a one-liner:</p>
+<p><strong>host_to_ip = dict(zip(hostnames, ips))</strong></p>
+<p>This creates a dictionary where:</p>
+<ul>
+<li><strong>host_to_ip["web01"]</strong> returns <strong>192.168.1.10</strong></li>
+<li><strong>host_to_ip["db01"]</strong> returns <strong>192.168.1.20</strong></li>
+<li><strong>host_to_ip["app01"]</strong> returns <strong>192.168.1.30</strong></li>
+<li><strong>host_to_ip["cache01"]</strong> returns <strong>192.168.1.40</strong></li>
+</ul>
+<hr />
+<h3 id="important-notes-on-zip-behavior_1">⚠️ Important Notes on zip() Behavior</h3>
+<ul>
+<li><strong>Stops at the shortest list:</strong> If your hostnames list has 4 items but your IPs list has only 3, <strong>zip()</strong> will stop after 3 pairs. The extra hostname is ignored.</li>
+<li><strong>Works with more than two lists:</strong> You can pass three or more lists to <strong>zip()</strong> and unpack them into corresponding variables.</li>
+<li><strong>Returns an iterator:</strong> In Python 3, <strong>zip()</strong> returns an iterator, not a list. If you need to reuse the paired data, convert it to a list with <strong>list(zip(hostnames, ips))</strong>.</li>
+</ul>
+<hr />
+<h3 id="practical-use-cases-for-engineers_1">🧪 Practical Use Cases for Engineers</h3>
+<ul>
+<li><strong>Generating /etc/hosts entries:</strong> Pair hostnames with IPs and write them into a hosts file format.</li>
+<li><strong>Creating Ansible inventory:</strong> Build a dictionary of hosts and their connection IPs for automation scripts.</li>
+<li><strong>Configuring load balancers:</strong> Map backend server names to their IP addresses for configuration templates.</li>
+<li><strong>Logging and monitoring:</strong> Pair server names with IPs when generating reports or dashboards.</li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li><strong>zip()</strong> simplifies iterating over multiple lists by pairing elements at the same index position.</li>
+<li>It eliminates the need for manual index tracking, reducing bugs and improving code clarity.</li>
+<li>The paired values can be used directly in loops, dictionary creation, or any other data processing task.</li>
+<li>Always ensure your lists are the same length, or be aware that <strong>zip()</strong> stops at the shortest list.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example shows how to pair hostnames with their corresponding IP addresses by iterating over two lists simultaneously using <code>zip()</code>.</p>
+<h3 id="example-1-basic-pairing-of-two-lists_1">🔧 Example 1: Basic Pairing of Two Lists</h3>
+<p>Pairing a simple list of hostnames with their IP addresses.</p>
+<div class="highlight"><pre><span></span><code><span class="n">hostnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;server1&quot;</span><span class="p">,</span> <span class="s2">&quot;server2&quot;</span><span class="p">,</span> <span class="s2">&quot;server3&quot;</span><span class="p">]</span>
+<span class="n">ip_addresses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;192.168.1.10&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.11&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.12&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">ip</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">hostnames</span><span class="p">,</span> <span class="n">ip_addresses</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">ip</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>server1 192.168.1.10 server2 192.168.1.11 server3 192.168.1.12</strong></p>
+<hr />
+<h3 id="example-2-storing-pairs-in-a-dictionary_1">🔧 Example 2: Storing Pairs in a Dictionary</h3>
+<p>Creating a dictionary that maps each hostname to its IP address for easy lookup.</p>
+<div class="highlight"><pre><span></span><code><span class="n">hostnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;web-01&quot;</span><span class="p">,</span> <span class="s2">&quot;db-01&quot;</span><span class="p">,</span> <span class="s2">&quot;cache-01&quot;</span><span class="p">]</span>
+<span class="n">ip_addresses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;10.0.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.2&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.3&quot;</span><span class="p">]</span>
+
+<span class="n">host_ip_map</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">ip</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">hostnames</span><span class="p">,</span> <span class="n">ip_addresses</span><span class="p">):</span>
+    <span class="n">host_ip_map</span><span class="p">[</span><span class="n">hostname</span><span class="p">]</span> <span class="o">=</span> <span class="n">ip</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">host_ip_map</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'web-01': '10.0.0.1', 'db-01': '10.0.0.2', 'cache-01': '10.0.0.3'}</strong></p>
+<hr />
+<h3 id="example-3-handling-unequal-list-lengths_1">🔧 Example 3: Handling Unequal List Lengths</h3>
+<p>Demonstrating that <code>zip()</code> stops at the shortest list when lists have different lengths.</p>
+<div class="highlight"><pre><span></span><code><span class="n">hostnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;app-01&quot;</span><span class="p">,</span> <span class="s2">&quot;app-02&quot;</span><span class="p">,</span> <span class="s2">&quot;app-03&quot;</span><span class="p">,</span> <span class="s2">&quot;app-04&quot;</span><span class="p">]</span>
+<span class="n">ip_addresses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;172.16.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;172.16.0.2&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">ip</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">hostnames</span><span class="p">,</span> <span class="n">ip_addresses</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hostname</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>app-01 -&gt; 172.16.0.1 app-02 -&gt; 172.16.0.2</strong></p>
+<hr />
+<h3 id="example-4-formatting-output-as-a-table_1">🔧 Example 4: Formatting Output as a Table</h3>
+<p>Displaying paired hostnames and IPs in a formatted table for readability.</p>
+<div class="highlight"><pre><span></span><code><span class="n">hostnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;router-1&quot;</span><span class="p">,</span> <span class="s2">&quot;switch-2&quot;</span><span class="p">,</span> <span class="s2">&quot;firewall-3&quot;</span><span class="p">]</span>
+<span class="n">ip_addresses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;192.168.1.1&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.2&quot;</span><span class="p">,</span> <span class="s2">&quot;192.168.1.3&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hostname       IP Address&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------------&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">ip</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">hostnames</span><span class="p">,</span> <span class="n">ip_addresses</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hostname</span><span class="si">:</span><span class="s2">15s</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">ip</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hostname       IP Address ------------------------- router-1        192.168.1.1 switch-2        192.168.1.2 firewall-3      192.168.1.3</strong></p>
+<hr />
+<h3 id="example-5-building-a-list-of-tuples-for-configuration_1">🔧 Example 5: Building a List of Tuples for Configuration</h3>
+<p>Creating a list of hostname-IP pairs that can be used for configuration files.</p>
+<div class="highlight"><pre><span></span><code><span class="n">hostnames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;dns-01&quot;</span><span class="p">,</span> <span class="s2">&quot;dns-02&quot;</span><span class="p">,</span> <span class="s2">&quot;dns-03&quot;</span><span class="p">]</span>
+<span class="n">ip_addresses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;10.10.1.1&quot;</span><span class="p">,</span> <span class="s2">&quot;10.10.1.2&quot;</span><span class="p">,</span> <span class="s2">&quot;10.10.1.3&quot;</span><span class="p">]</span>
+
+<span class="n">dns_servers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">hostname</span><span class="p">,</span> <span class="n">ip</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">hostnames</span><span class="p">,</span> <span class="n">ip_addresses</span><span class="p">):</span>
+    <span class="n">dns_servers</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">hostname</span><span class="p">,</span> <span class="n">ip</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DNS Server Configuration:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">server</span> <span class="ow">in</span> <span class="n">dns_servers</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">server</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">server</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>DNS Server Configuration: dns-01: 10.10.1.1 dns-02: 10.10.1.2 dns-03: 10.10.1.3</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

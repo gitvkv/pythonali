@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch13_06_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 13 | Logging Module Integration vs Print Statements - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 13 | Logging Module Integration vs Print Statements";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch13_06_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch13_06_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -648,6 +648,48 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-7-logging-with-exception-details">📝 Example 7: Logging with Exception Details</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-print-statements-vs-logging-module">Comparison Table: Print Statements vs Logging Module</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">📋 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#why-print-statements-fall-short_1">🎯 Why Print Statements Fall Short</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-logging-module-advantage_1">⚙️ The Logging Module Advantage</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-table-print-vs-logging_1">📊 Comparison Table: Print vs Logging</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#basic-logging-setup_1">🛠️ Basic Logging Setup</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#logging-levels-explained_1">🕵️ Logging Levels Explained</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#writing-logs-to-a-file_1">📁 Writing Logs to a File</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#formatting-log-messages_1">🎨 Formatting Log Messages</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#transitioning-from-print-to-logging_1">🔄 Transitioning from Print to Logging</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-pitfalls-to-avoid_1">⚠️ Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#best-practices-summary_1">✅ Best Practices Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#next-steps_1">🚀 Next Steps</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-basic-print-statement_1">📝 Example 1: Basic Print Statement</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-basic-logging-module-setup_1">📝 Example 2: Basic Logging Module Setup</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-logging-with-different-severity-levels_1">📝 Example 3: Logging with Different Severity Levels</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-logging-with-timestamps_1">📝 Example 4: Logging with Timestamps</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-logging-to-a-file-instead-of-console_1">📝 Example 5: Logging to a File Instead of Console</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-6-using-print-vs-logging-in-a-loop_1">📝 Example 6: Using Print vs Logging in a Loop</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-7-logging-with-exception-details_1">📝 Example 7: Logging with Exception Details</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-print-statements-vs-logging-module_1">Comparison Table: Print Statements vs Logging Module</a>
     </li>
     </ul>
                 </li>
@@ -1088,7 +1130,7 @@
               
                 <h1 id="logging-module-integration-vs-print-statements">Logging Module Integration vs Print Statements</h1>
 <p><span class="category-tag">🏷️ Error Handling and Exceptions /  Error Handling Best Practices</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">📋 Context Introduction</h3>
@@ -1259,8 +1301,7 @@
 <li>Practice setting up logging in a multi-module project to see how loggers propagate</li>
 </ul>
 <p>Remember: <strong>Good logging is an investment that pays off every time something goes wrong in production.</strong></p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The logging module provides a structured way to record program events with severity levels, timestamps, and output control, while print statements simply display text to the console.</p>
 <hr />
 <h3 id="example-1-basic-print-statement">📝 Example 1: Basic Print Statement</h3>
@@ -1357,6 +1398,319 @@
 <strong>ZeroDivisionError: division by zero</strong></p>
 <hr />
 <h2 id="comparison-table-print-statements-vs-logging-module">Comparison Table: Print Statements vs Logging Module</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Print Statement</th>
+<th>Logging Module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Severity levels</td>
+<td>No</td>
+<td>Yes (DEBUG, INFO, WARNING, ERROR, CRITICAL)</td>
+</tr>
+<tr>
+<td>Timestamps</td>
+<td>No</td>
+<td>Yes (configurable format)</td>
+</tr>
+<tr>
+<td>Output to file</td>
+<td>No (console only)</td>
+<td>Yes (file, console, network)</td>
+</tr>
+<tr>
+<td>Filter by severity</td>
+<td>No</td>
+<td>Yes (set level to show only warnings+)</td>
+</tr>
+<tr>
+<td>Exception traceback</td>
+<td>Manual (try/except)</td>
+<td>Automatic (exc_info=True)</td>
+</tr>
+<tr>
+<td>Production use</td>
+<td>Not recommended</td>
+<td>Recommended for engineers</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">📋 Context Introduction</h3>
+<p>When building scripts and tools, engineers often start with <strong>print statements</strong> to see what's happening. While this works for small scripts, it quickly becomes problematic in larger systems. The <strong>logging module</strong> offers a structured, professional approach to tracking events, errors, and debugging information. This guide explains why logging is superior and how to transition from print statements to proper logging.</p>
+<hr />
+<h3 id="why-print-statements-fall-short_1">🎯 Why Print Statements Fall Short</h3>
+<p>Print statements are simple but have significant limitations in production environments:</p>
+<ul>
+<li><strong>No control over output levels</strong> – You cannot easily suppress debug messages or highlight errors</li>
+<li><strong>No timestamps</strong> – You lose critical context about when events occurred</li>
+<li><strong>No destination flexibility</strong> – Output always goes to the console, not to files or external systems</li>
+<li><strong>Difficult to disable</strong> – Removing or commenting out print statements is tedious and error-prone</li>
+<li><strong>No structured formatting</strong> – Messages are plain text without consistent patterns</li>
+</ul>
+<hr />
+<h3 id="the-logging-module-advantage_1">⚙️ The Logging Module Advantage</h3>
+<p>The <strong>logging module</strong> solves all these problems with built-in capabilities:</p>
+<ul>
+<li><strong>Multiple severity levels</strong> – DEBUG, INFO, WARNING, ERROR, CRITICAL</li>
+<li><strong>Timestamps automatically</strong> – Every log entry records when it happened</li>
+<li><strong>Flexible output destinations</strong> – Console, files, network sockets, or all at once</li>
+<li><strong>Runtime configuration</strong> – Change logging behavior without modifying code</li>
+<li><strong>Structured formatting</strong> – Consistent message patterns across your entire application</li>
+</ul>
+<hr />
+<h3 id="comparison-table-print-vs-logging_1">📊 Comparison Table: Print vs Logging</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Print Statements</th>
+<th>Logging Module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Message levels</td>
+<td>None (all messages equal)</td>
+<td>DEBUG, INFO, WARNING, ERROR, CRITICAL</td>
+</tr>
+<tr>
+<td>Timestamps</td>
+<td>Manual (you write it)</td>
+<td>Automatic (built-in)</td>
+</tr>
+<tr>
+<td>Output control</td>
+<td>Always visible</td>
+<td>Configurable per level</td>
+</tr>
+<tr>
+<td>File output</td>
+<td>Requires file handling code</td>
+<td>Built-in file handlers</td>
+</tr>
+<tr>
+<td>Performance impact</td>
+<td>Always runs</td>
+<td>Can be disabled at runtime</td>
+</tr>
+<tr>
+<td>Production readiness</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="basic-logging-setup_1">🛠️ Basic Logging Setup</h3>
+<p>To start using logging, you need a simple configuration:</p>
+<ul>
+<li>Import the logging module with <strong>import logging</strong></li>
+<li>Configure the basic settings using <strong>logging.basicConfig()</strong></li>
+<li>Set the desired log level (typically INFO or DEBUG for development)</li>
+<li>Define a format string that includes timestamp, level, and message</li>
+</ul>
+<p>A minimal setup looks like this:</p>
+<ul>
+<li><strong>logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')</strong></li>
+<li>Then use <strong>logging.info("Your message here")</strong> instead of <strong>print("Your message here")</strong></li>
+</ul>
+<hr />
+<h3 id="logging-levels-explained_1">🕵️ Logging Levels Explained</h3>
+<p>The logging module provides five standard levels, each serving a specific purpose:</p>
+<ul>
+<li><strong>DEBUG</strong> – Detailed information for diagnosing problems (use during development only)</li>
+<li><strong>INFO</strong> – Confirmation that things are working as expected</li>
+<li><strong>WARNING</strong> – Something unexpected happened, but the application still works</li>
+<li><strong>ERROR</strong> – The application couldn't perform a function due to a more serious issue</li>
+<li><strong>CRITICAL</strong> – A serious error that may prevent the application from continuing</li>
+</ul>
+<p>To use a specific level, call the corresponding function:</p>
+<ul>
+<li><strong>logging.debug("Variable value is: 42")</strong> – Only visible when level is set to DEBUG</li>
+<li><strong>logging.info("Server started successfully")</strong> – Visible at INFO level and above</li>
+<li><strong>logging.warning("Disk space is low")</strong> – Visible at WARNING level and above</li>
+<li><strong>logging.error("Failed to connect to database")</strong> – Visible at ERROR level and above</li>
+<li><strong>logging.critical("System is shutting down")</strong> – Always visible regardless of level</li>
+</ul>
+<hr />
+<h3 id="writing-logs-to-a-file_1">📁 Writing Logs to a File</h3>
+<p>One of the most powerful features is directing logs to a file for later review:</p>
+<ul>
+<li>Add the <strong>filename</strong> parameter to basicConfig: <strong>logging.basicConfig(filename='app.log', level=logging.INFO)</strong></li>
+<li>All log messages will now be written to <strong>app.log</strong> instead of the console</li>
+<li>You can still see messages in the console by adding a <strong>StreamHandler</strong> alongside the file handler</li>
+</ul>
+<p>For more advanced file management:</p>
+<ul>
+<li>Use <strong>RotatingFileHandler</strong> to automatically create new log files when the current one reaches a certain size</li>
+<li>Use <strong>TimedRotatingFileHandler</strong> to create new log files daily, hourly, or at custom intervals</li>
+</ul>
+<hr />
+<h3 id="formatting-log-messages_1">🎨 Formatting Log Messages</h3>
+<p>Customize how log messages appear with format strings:</p>
+<ul>
+<li><strong>%(asctime)s</strong> – Adds timestamp in ISO 8601 format</li>
+<li><strong>%(levelname)s</strong> – Shows the severity level (INFO, ERROR, etc.)</li>
+<li><strong>%(message)s</strong> – The actual log message you provide</li>
+<li><strong>%(name)s</strong> – Shows the logger name (useful for large applications)</li>
+<li><strong>%(lineno)d</strong> – Shows the line number where the log call was made</li>
+</ul>
+<p>Example format: <strong>'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</strong></p>
+<p>This produces output like: <strong>2024-01-15 14:30:22 - root - INFO - Server started</strong></p>
+<hr />
+<h3 id="transitioning-from-print-to-logging_1">🔄 Transitioning from Print to Logging</h3>
+<p>Here is a practical approach to convert existing code:</p>
+<ul>
+<li>Replace <strong>print("Starting process...")</strong> with <strong>logging.info("Starting process...")</strong></li>
+<li>Replace <strong>print(f"Error: {error_message}")</strong> with <strong>logging.error(f"Error: {error_message}")</strong></li>
+<li>Replace <strong>print(f"Debug: {variable}")</strong> with <strong>logging.debug(f"Debug: {variable}")</strong></li>
+<li>Keep print statements only for user-facing interactive prompts that require immediate response</li>
+</ul>
+<p>A common pattern for scripts:</p>
+<ul>
+<li>Set logging level to DEBUG during development for maximum visibility</li>
+<li>Change to INFO or WARNING when deploying to production</li>
+<li>Use ERROR and CRITICAL for conditions that require immediate attention</li>
+</ul>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">⚠️ Common Pitfalls to Avoid</h3>
+<p>When adopting logging, watch out for these mistakes:</p>
+<ul>
+<li><strong>Forgetting to configure logging</strong> – Without basicConfig, logging messages may not appear</li>
+<li><strong>Using print inside exception handlers</strong> – Always use logging.exception() or logging.error() instead</li>
+<li><strong>Logging sensitive information</strong> – Avoid logging passwords, API keys, or personal data</li>
+<li><strong>Over-logging at DEBUG level</strong> – Too much debug output can hide important messages</li>
+<li><strong>Not using exception logging</strong> – Use <strong>logging.exception("Error occurred")</strong> inside except blocks to capture the full traceback</li>
+</ul>
+<hr />
+<h3 id="best-practices-summary_1">✅ Best Practices Summary</h3>
+<p>Follow these guidelines for effective logging:</p>
+<ul>
+<li><strong>Set appropriate log levels</strong> – Use DEBUG for development, INFO for normal operations, ERROR for failures</li>
+<li><strong>Include context in messages</strong> – Add relevant variable values or identifiers to help debugging</li>
+<li><strong>Use structured logging</strong> – Consistent format across all modules makes log analysis easier</li>
+<li><strong>Configure logging at application start</strong> – Set up once at the entry point of your script</li>
+<li><strong>Rotate log files</strong> – Prevent single log files from growing too large</li>
+<li><strong>Monitor logs regularly</strong> – Set up alerts for ERROR and CRITICAL messages</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">🚀 Next Steps</h3>
+<p>To deepen your understanding of logging:</p>
+<ul>
+<li>Explore <strong>logger objects</strong> instead of the root logger for better control in larger applications</li>
+<li>Learn about <strong>handlers</strong> (FileHandler, StreamHandler, SMTPHandler) for different output destinations</li>
+<li>Investigate <strong>log filters</strong> to selectively include or exclude messages</li>
+<li>Practice setting up logging in a multi-module project to see how loggers propagate</li>
+</ul>
+<p>Remember: <strong>Good logging is an investment that pays off every time something goes wrong in production.</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The logging module provides a structured way to record program events with severity levels, timestamps, and output control, while print statements simply display text to the console.</p>
+<hr />
+<h3 id="example-1-basic-print-statement_1">📝 Example 1: Basic Print Statement</h3>
+<p>This shows how a print statement outputs a simple message to the console.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Engine starting sequence initiated&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Engine starting sequence initiated</strong></p>
+<hr />
+<h3 id="example-2-basic-logging-module-setup_1">📝 Example 2: Basic Logging Module Setup</h3>
+<p>This shows how to configure the logging module and write a simple informational message.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Engine starting sequence initiated&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>INFO:root:Engine starting sequence initiated</strong></p>
+<hr />
+<h3 id="example-3-logging-with-different-severity-levels_1">📝 Example 3: Logging with Different Severity Levels</h3>
+<p>This shows how the logging module categorizes messages by severity (debug, info, warning, error, critical).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Checking fuel pressure&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Fuel pressure normal&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Fuel level below 25%&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Engine temperature critical&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s2">&quot;Engine shutdown required&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>DEBUG:root:Checking fuel pressure</strong><br />
+<strong>INFO:root:Fuel pressure normal</strong><br />
+<strong>WARNING:root:Fuel level below 25%</strong><br />
+<strong>ERROR:root:Engine temperature critical</strong><br />
+<strong>CRITICAL:root:Engine shutdown required</strong></p>
+<hr />
+<h3 id="example-4-logging-with-timestamps_1">📝 Example 4: Logging with Timestamps</h3>
+<p>This shows how to add timestamps to log entries for tracking when events occurred.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Sensor calibration started&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Sensor 3 reading out of range&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-01-15 14:30:22,456 - INFO - Sensor calibration started</strong><br />
+<strong>2024-01-15 14:30:22,457 - WARNING - Sensor 3 reading out of range</strong></p>
+<hr />
+<h3 id="example-5-logging-to-a-file-instead-of-console_1">📝 Example 5: Logging to a File Instead of Console</h3>
+<p>This shows how to redirect log messages to a file for later review by engineers.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;engine_log.txt&quot;</span><span class="p">,</span>
+    <span class="n">filemode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Engine startup sequence complete&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Coolant temperature rising slowly&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Coolant pump failure detected&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(No console output — all messages written to engine_log.txt)</strong></p>
+<hr />
+<h3 id="example-6-using-print-vs-logging-in-a-loop_1">📝 Example 6: Using Print vs Logging in a Loop</h3>
+<p>This shows how print statements clutter output while logging can filter by severity level.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+
+<span class="n">sensor_readings</span> <span class="o">=</span> <span class="p">[</span><span class="mi">95</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">97</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">reading</span> <span class="ow">in</span> <span class="n">sensor_readings</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sensor reading: </span><span class="si">{</span><span class="n">reading</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sensor reading: </span><span class="si">{</span><span class="n">reading</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">reading</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sensor reading exceeds threshold: </span><span class="si">{</span><span class="n">reading</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Sensor reading: 95</strong><br />
+<strong>Sensor reading: 102</strong><br />
+<strong>Sensor reading: 98</strong><br />
+<strong>Sensor reading: 110</strong><br />
+<strong>Sensor reading: 97</strong><br />
+<strong>WARNING:root:Sensor reading exceeds threshold: 102</strong><br />
+<strong>WARNING:root:Sensor reading exceeds threshold: 110</strong></p>
+<hr />
+<h3 id="example-7-logging-with-exception-details_1">📝 Example 7: Logging with Exception Details</h3>
+<p>This shows how the logging module captures full error tracebacks for debugging by engineers.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Division failed&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ERROR:root:Division failed</strong><br />
+<strong>Traceback (most recent call last):</strong><br />
+<strong>  File "<stdin>", line 4, in <module></strong><br />
+<strong>ZeroDivisionError: division by zero</strong></p>
+<hr />
+<h2 id="comparison-table-print-statements-vs-logging-module_1">Comparison Table: Print Statements vs Logging Module</h2>
 <table>
 <thead>
 <tr>

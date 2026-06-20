@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_07_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Shared Class Variables Across Active Instances - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Shared Class Variables Across Active Instances";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_07_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_07_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -873,6 +873,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-class-variable-vs-instance-variable">📋 Comparison: Class Variable vs Instance Variable</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-class-variables_1">⚙️ What Are Class Variables?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#class-variables-vs-instance-variables_1">🆚 Class Variables vs Instance Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-shared-class-variables-work_1">🛠️ How Shared Class Variables Work</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-tracking-all-instances_1">🕵️ Practical Example: Tracking All Instances</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfall-shadowing-class-variables_1">⚠️ Common Pitfall: Shadowing Class Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-shared-class-variables_1">📊 When to Use Shared Class Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-your-understanding_1">🧪 Testing Your Understanding</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-defining-a-shared-class-variable_1">🧱 Example 1: Defining a shared class variable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-all-instances-see-the-same-shared-variable_1">🔗 Example 2: All instances see the same shared variable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-changing-the-shared-variable-through-the-class_1">✏️ Example 3: Changing the shared variable through the class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-assigning-to-an-instance-creates-a-separate-copy_1">⚠️ Example 4: Assigning to an instance creates a separate copy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-tracking-active-instance-count-with-a-shared-variable_1">📊 Example 5: Tracking active instance count with a shared variable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-class-variable-vs-instance-variable_1">📋 Comparison: Class Variable vs Instance Variable</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_07_02/">Ch 18 | Method Specializations (classmethod and staticmethod)</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="shared-class-variables-across-active-instances">Shared Class Variables Across Active Instances</h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Class vs Instance Attributes</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1185,8 +1215,7 @@
 <li>Use class variables for data that should be consistent across all objects.</li>
 <li>Always be deliberate about whether you intend to modify a class variable or create an instance variable.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>A shared class variable is a value stored on the class itself that all instances of that class can access and modify together.</p>
 <hr />
 <h3 id="example-1-defining-a-shared-class-variable">🧱 Example 1: Defining a shared class variable</h3>
@@ -1269,6 +1298,236 @@
 <strong>1</strong></p>
 <hr />
 <h3 id="comparison-class-variable-vs-instance-variable">📋 Comparison: Class Variable vs Instance Variable</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Class Variable</th>
+<th>Instance Variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Defined where</td>
+<td>Inside class, outside methods</td>
+<td>Inside <code>__init__</code> or other methods</td>
+</tr>
+<tr>
+<td>Shared across instances</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Changed via class</td>
+<td>Affects all instances</td>
+<td>Does not affect class</td>
+</tr>
+<tr>
+<td>Changed via instance</td>
+<td>Creates a new instance variable</td>
+<td>Only affects that instance</td>
+</tr>
+<tr>
+<td>Typical use</td>
+<td>Constants, counters, shared settings</td>
+<td>Unique data per instance</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When you create multiple objects (instances) from the same class, each instance normally gets its own copy of instance attributes. However, <strong>class variables</strong> are different—they are shared across <strong>all active instances</strong> of that class. This means if one instance modifies a class variable, every other instance sees that change immediately. Understanding this distinction is crucial for writing predictable and bug-free Python code.</p>
+<hr />
+<h3 id="what-are-class-variables_1">⚙️ What Are Class Variables?</h3>
+<ul>
+<li><strong>Class variables</strong> are defined directly inside the class body, outside any methods.</li>
+<li>They belong to the class itself, not to any single instance.</li>
+<li>All instances of the class <strong>share the same memory location</strong> for that variable.</li>
+<li>They are accessed using the class name (e.g., <strong>ClassName.variable</strong>) or through an instance (e.g., <strong>instance.variable</strong>).</li>
+</ul>
+<hr />
+<h3 id="class-variables-vs-instance-variables_1">🆚 Class Variables vs Instance Variables</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Class Variables</th>
+<th>Instance Variables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Where defined</strong></td>
+<td>Inside class, outside methods</td>
+<td>Inside <strong><strong>init</strong></strong> or other methods</td>
+</tr>
+<tr>
+<td><strong>Ownership</strong></td>
+<td>Belongs to the class</td>
+<td>Belongs to each instance</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>Single copy shared by all instances</td>
+<td>Separate copy per instance</td>
+</tr>
+<tr>
+<td><strong>Change effect</strong></td>
+<td>Affects all instances</td>
+<td>Affects only that instance</td>
+</tr>
+<tr>
+<td><strong>Access syntax</strong></td>
+<td><strong>ClassName.variable</strong> or <strong>instance.variable</strong></td>
+<td><strong>self.variable</strong> or <strong>instance.variable</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-shared-class-variables-work_1">🛠️ How Shared Class Variables Work</h3>
+<ul>
+<li>When you define a variable at the class level, Python stores it in the class's namespace.</li>
+<li>Every instance you create can read that variable directly.</li>
+<li>If you modify the variable using the <strong>class name</strong>, the change propagates to all instances.</li>
+<li>If you modify it using an <strong>instance</strong>, Python creates a new instance variable that shadows the class variable for that specific instance only.</li>
+</ul>
+<hr />
+<h3 id="practical-example-tracking-all-instances_1">🕵️ Practical Example: Tracking All Instances</h3>
+<p>Imagine you want to keep count of how many instances of a class have been created. A class variable is perfect for this:</p>
+<ul>
+<li>Define a class variable called <strong>instance_count</strong> and set it to <strong>0</strong>.</li>
+<li>Inside the <strong><strong>init</strong></strong> method, increment <strong>instance_count</strong> by <strong>1</strong>.</li>
+<li>Every time a new object is created, the counter increases for all existing objects.</li>
+</ul>
+<p>Another common use is storing a list of all active instances:</p>
+<ul>
+<li>Define a class variable called <strong>all_instances</strong> as an empty list.</li>
+<li>Inside <strong><strong>init</strong></strong>, append <strong>self</strong> to that list.</li>
+<li>Now any instance can access the complete list of all objects ever created.</li>
+</ul>
+<hr />
+<h3 id="common-pitfall-shadowing-class-variables_1">⚠️ Common Pitfall: Shadowing Class Variables</h3>
+<p>A frequent mistake is accidentally creating an instance variable that hides the class variable:</p>
+<ul>
+<li>If you write <strong>self.variable = new_value</strong> inside an instance, Python creates a new instance attribute.</li>
+<li>The original class variable remains unchanged and is still accessible via <strong>ClassName.variable</strong>.</li>
+<li>Other instances continue to see the original class variable value.</li>
+</ul>
+<p>To safely modify a class variable from an instance, always use the class name: <strong>ClassName.variable = new_value</strong>.</p>
+<hr />
+<h3 id="when-to-use-shared-class-variables_1">📊 When to Use Shared Class Variables</h3>
+<ul>
+<li><strong>Configuration defaults</strong> that should apply to all instances unless overridden</li>
+<li><strong>Tracking metadata</strong> like instance counts, creation timestamps, or logging settings</li>
+<li><strong>Shared resources</strong> such as database connections or API clients</li>
+<li><strong>Registry patterns</strong> where you need to know about all active objects</li>
+</ul>
+<hr />
+<h3 id="testing-your-understanding_1">🧪 Testing Your Understanding</h3>
+<p>Consider this scenario: You have a class with a class variable <strong>default_color = "blue"</strong>. You create two instances. The first instance sets <strong>self.default_color = "red"</strong>. What color does the second instance see?</p>
+<ul>
+<li>The second instance still sees <strong>"blue"</strong> because the first instance only created a new instance variable.</li>
+<li>The class variable <strong>default_color</strong> remains <strong>"blue"</strong> for all other instances.</li>
+</ul>
+<p>To change it for all instances, you would need to write <strong>ClassName.default_color = "red"</strong>.</p>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li>Class variables are shared memory across all instances of a class.</li>
+<li>Modifying a class variable via the class name affects every instance.</li>
+<li>Modifying it via an instance creates a separate copy for that instance only.</li>
+<li>Use class variables for data that should be consistent across all objects.</li>
+<li>Always be deliberate about whether you intend to modify a class variable or create an instance variable.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>A shared class variable is a value stored on the class itself that all instances of that class can access and modify together.</p>
+<hr />
+<h3 id="example-1-defining-a-shared-class-variable_1">🧱 Example 1: Defining a shared class variable</h3>
+<p>This example shows how to create a variable that belongs to the class, not to any single instance.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Employee</span><span class="p">:</span>
+    <span class="n">company_name</span> <span class="o">=</span> <span class="s2">&quot;BuildCorp&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Employee</span><span class="o">.</span><span class="n">company_name</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>BuildCorp</strong></p>
+<hr />
+<h3 id="example-2-all-instances-see-the-same-shared-variable_1">🔗 Example 2: All instances see the same shared variable</h3>
+<p>This example demonstrates that every instance reads the same value from the class.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Employee</span><span class="p">:</span>
+    <span class="n">company_name</span> <span class="o">=</span> <span class="s2">&quot;BuildCorp&quot;</span>
+
+<span class="n">alice</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">()</span>
+<span class="n">bob</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">alice</span><span class="o">.</span><span class="n">company_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bob</span><span class="o">.</span><span class="n">company_name</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>BuildCorp</strong><br />
+<strong>BuildCorp</strong></p>
+<hr />
+<h3 id="example-3-changing-the-shared-variable-through-the-class_1">✏️ Example 3: Changing the shared variable through the class</h3>
+<p>This example shows how updating the class variable changes it for all existing instances.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Employee</span><span class="p">:</span>
+    <span class="n">company_name</span> <span class="o">=</span> <span class="s2">&quot;BuildCorp&quot;</span>
+
+<span class="n">alice</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">()</span>
+<span class="n">bob</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">()</span>
+
+<span class="n">Employee</span><span class="o">.</span><span class="n">company_name</span> <span class="o">=</span> <span class="s2">&quot;MegaBuild&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">alice</span><span class="o">.</span><span class="n">company_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bob</span><span class="o">.</span><span class="n">company_name</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>MegaBuild</strong><br />
+<strong>MegaBuild</strong></p>
+<hr />
+<h3 id="example-4-assigning-to-an-instance-creates-a-separate-copy_1">⚠️ Example 4: Assigning to an instance creates a separate copy</h3>
+<p>This example shows that assigning to an instance variable with the same name does not change the shared class variable.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Employee</span><span class="p">:</span>
+    <span class="n">company_name</span> <span class="o">=</span> <span class="s2">&quot;BuildCorp&quot;</span>
+
+<span class="n">alice</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">()</span>
+<span class="n">bob</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">()</span>
+
+<span class="n">alice</span><span class="o">.</span><span class="n">company_name</span> <span class="o">=</span> <span class="s2">&quot;AliceCorp&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">alice</span><span class="o">.</span><span class="n">company_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bob</span><span class="o">.</span><span class="n">company_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Employee</span><span class="o">.</span><span class="n">company_name</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>AliceCorp</strong><br />
+<strong>BuildCorp</strong><br />
+<strong>BuildCorp</strong></p>
+<hr />
+<h3 id="example-5-tracking-active-instance-count-with-a-shared-variable_1">📊 Example 5: Tracking active instance count with a shared variable</h3>
+<p>This example shows a practical use — counting how many instances exist at any time.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Employee</span><span class="p">:</span>
+    <span class="n">active_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">Employee</span><span class="o">.</span><span class="n">active_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">leave</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Employee</span><span class="o">.</span><span class="n">active_count</span> <span class="o">-=</span> <span class="mi">1</span>
+
+<span class="n">alice</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+<span class="n">bob</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Employee</span><span class="o">.</span><span class="n">active_count</span><span class="p">)</span>
+
+<span class="n">bob</span><span class="o">.</span><span class="n">leave</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Employee</span><span class="o">.</span><span class="n">active_count</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2</strong><br />
+<strong>1</strong></p>
+<hr />
+<h3 id="comparison-class-variable-vs-instance-variable_1">📋 Comparison: Class Variable vs Instance Variable</h3>
 <table>
 <thead>
 <tr>

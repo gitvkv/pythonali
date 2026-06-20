@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_03_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Securing Sensitive Credentials, Passwords, and Tokens - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Securing Sensitive Credentials, Passwords, and Tokens";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_03_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_03_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -1009,6 +1009,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-credential-storage-methods">📊 Comparison: Credential Storage Methods</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-hardcoding-credentials-is-dangerous_1">🧠 Why Hardcoding Credentials Is Dangerous</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#recommended-approaches-for-storing-secrets_1">🛠️ Recommended Approaches for Storing Secrets</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-environment-variables_1">⚙️ Using Environment Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-a-env-file-with-python-dotenv_1">📄 Using a .env File with python-dotenv</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setting-file-permissions-for-configuration-files_1">🔐 Setting File Permissions for Configuration Files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#avoiding-common-mistakes_1">🕵️ Avoiding Common Mistakes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#code-review-checklist-for-credential-security_1">✅ Code Review Checklist for Credential Security</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📌 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-hardcoded-credential-what-not-to-do_1">🔐 Example 1: Hardcoded credential (what NOT to do)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-reading-credentials-from-environment-variables_1">🔐 Example 2: Reading credentials from environment variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-a-env-file-with-python-dotenv_1">🔐 Example 3: Using a .env file with python-dotenv</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-prompting-for-a-password-at-runtime_1">🔐 Example 4: Prompting for a password at runtime</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-storing-tokens-in-a-json-config-file-with-file-permissions_1">🔐 Example 5: Storing tokens in a JSON config file (with file permissions)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-6-using-keyring-for-os-level-credential-storage_1">🔐 Example 6: Using keyring for OS-level credential storage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-credential-storage-methods_1">📊 Comparison: Credential Storage Methods</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_03_05/">Ch 21 | Testing Execution Idempotency Across Multiple Passes</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="securing-sensitive-credentials-passwords-and-tokens">Securing Sensitive Credentials, Passwords, and Tokens</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Code Review Checklist</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When building automation scripts or tools, one of the most common mistakes is accidentally exposing sensitive information like API keys, database passwords, or authentication tokens. Hardcoding these values directly into your Python files creates a serious security risk, especially when code is shared, committed to version control, or deployed across environments. This section covers practical techniques to keep credentials safe while still making them accessible to your scripts.</p>
@@ -1180,8 +1210,7 @@
 <hr />
 <h3 id="summary">📌 Summary</h3>
 <p>Protecting sensitive credentials is a fundamental responsibility when writing automation scripts. By using environment variables, <code>.env</code> files, or restricted configuration files, you keep secrets separate from your code and reduce the risk of accidental exposure. Always treat credentials as confidential data, never hardcode them, and make credential management a standard part of your development workflow.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This section shows how to keep passwords, API keys, and tokens out of your Python code so they aren't accidentally shared or exposed.</p>
 <hr />
 <h3 id="example-1-hardcoded-credential-what-not-to-do">🔐 Example 1: Hardcoded credential (what NOT to do)</h3>
@@ -1257,6 +1286,236 @@
 <p>📤 Output: <strong>Retrieved password: s3cu...</strong></p>
 <hr />
 <h3 id="comparison-credential-storage-methods">📊 Comparison: Credential Storage Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Where secret lives</th>
+<th>Safe to commit?</th>
+<th>Requires extra setup?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hardcoded in code</td>
+<td>In the script file</td>
+<td>❌ No</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Environment variable</td>
+<td>OS environment</td>
+<td>✅ Yes (if not in code)</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>.env file</td>
+<td>Separate file</td>
+<td>❌ No (add to .gitignore)</td>
+<td>✅ Yes (python-dotenv)</td>
+</tr>
+<tr>
+<td>Runtime prompt</td>
+<td>User input only</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>JSON config file</td>
+<td>Local file</td>
+<td>❌ No (set file permissions)</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>OS keyring</td>
+<td>OS credential manager</td>
+<td>✅ Yes</td>
+<td>✅ Yes (keyring library)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When building automation scripts or tools, one of the most common mistakes is accidentally exposing sensitive information like API keys, database passwords, or authentication tokens. Hardcoding these values directly into your Python files creates a serious security risk, especially when code is shared, committed to version control, or deployed across environments. This section covers practical techniques to keep credentials safe while still making them accessible to your scripts.</p>
+<hr />
+<h3 id="why-hardcoding-credentials-is-dangerous_1">🧠 Why Hardcoding Credentials Is Dangerous</h3>
+<ul>
+<li><strong>Version control exposure</strong> – If you commit a file containing a password or token, it stays in the git history forever, even if you remove it later.</li>
+<li><strong>Accidental sharing</strong> – Sending a script to a colleague or posting it in a shared repository can leak secrets unintentionally.</li>
+<li><strong>Environment inflexibility</strong> – Hardcoded values force you to edit the script every time credentials change or when moving between development, staging, and production environments.</li>
+<li><strong>Compliance violations</strong> – Many security standards (like SOC2, PCI-DSS) explicitly forbid storing secrets in source code.</li>
+</ul>
+<hr />
+<h3 id="recommended-approaches-for-storing-secrets_1">🛠️ Recommended Approaches for Storing Secrets</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Best For</th>
+<th>Key Advantage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Environment variables</td>
+<td>Quick scripts and local development</td>
+<td>Simple to set up, no extra files to manage</td>
+</tr>
+<tr>
+<td><code>.env</code> files with <code>python-dotenv</code></td>
+<td>Projects with multiple secrets</td>
+<td>Keeps secrets in one file outside your code</td>
+</tr>
+<tr>
+<td>Configuration files (JSON/YAML) with restricted permissions</td>
+<td>Structured settings</td>
+<td>Easy to parse and organize</td>
+</tr>
+<tr>
+<td>Secret management tools (HashiCorp Vault, AWS Secrets Manager)</td>
+<td>Production and enterprise systems</td>
+<td>Centralized, audited, and rotated automatically</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="using-environment-variables_1">⚙️ Using Environment Variables</h3>
+<p>Environment variables are a standard way to pass configuration to your application without embedding secrets in code.</p>
+<ul>
+<li>Set a variable in your terminal session: <strong>export DB_PASSWORD="my_secret_pass"</strong></li>
+<li>Access it in Python using the <strong>os</strong> module: <strong>os.getenv("DB_PASSWORD")</strong></li>
+<li>If the variable is missing, <strong>os.getenv</strong> returns <strong>None</strong> by default, or you can provide a fallback value: <strong>os.getenv("DB_PASSWORD", "default_value")</strong></li>
+</ul>
+<p>Example usage in a script:</p>
+<ul>
+<li>Import <strong>os</strong> at the top of your file.</li>
+<li>Store the value in a variable: <strong>password = os.getenv("DB_PASSWORD")</strong></li>
+<li>Check if the value exists before using it: <strong>if not password: raise ValueError("Missing DB_PASSWORD environment variable")</strong></li>
+</ul>
+<p>This approach keeps your code clean and your credentials out of the repository.</p>
+<hr />
+<h3 id="using-a-env-file-with-python-dotenv_1">📄 Using a <code>.env</code> File with <code>python-dotenv</code></h3>
+<p>For local development, a <code>.env</code> file is a convenient way to manage multiple secrets without setting environment variables manually each time.</p>
+<ul>
+<li>Create a file named <strong>.env</strong> in your project root.</li>
+<li>Add each secret on a new line using <strong>KEY=VALUE</strong> format: <strong>API_TOKEN=abc123xyz</strong></li>
+<li>Install the <strong>python-dotenv</strong> library using <strong>pip install python-dotenv</strong></li>
+<li>At the start of your script, load the file: <strong>from dotenv import load_dotenv</strong> then <strong>load_dotenv()</strong></li>
+<li>Access values the same way as environment variables: <strong>os.getenv("API_TOKEN")</strong></li>
+</ul>
+<p>Critical rule: Add <strong>.env</strong> to your <strong>.gitignore</strong> file immediately so it is never committed to version control.</p>
+<hr />
+<h3 id="setting-file-permissions-for-configuration-files_1">🔐 Setting File Permissions for Configuration Files</h3>
+<p>If you choose to store secrets in a JSON or YAML configuration file, restrict who can read it.</p>
+<ul>
+<li>Store the file outside your project directory if possible, for example: <strong>/home/your_user/secrets/config.json</strong></li>
+<li>Set file permissions so only your user can read it: <strong>chmod 600 config.json</strong></li>
+<li>In Python, read the file and parse it: <strong>import json</strong> then <strong>with open("config.json") as f: config = json.load(f)</strong> then access values like <strong>config["db_password"]</strong></li>
+</ul>
+<p>This method is useful when you need structured configuration beyond simple key-value pairs.</p>
+<hr />
+<h3 id="avoiding-common-mistakes_1">🕵️ Avoiding Common Mistakes</h3>
+<ul>
+<li>Never print or log credentials during debugging. Use placeholder values like <strong>"</strong><em>"</em>* if you must show that a value exists.</li>
+<li>Do not pass secrets as command-line arguments. Other users on the system can see them in process lists.</li>
+<li>Avoid storing secrets in environment variables that are automatically loaded by your shell profile (like <strong>.bashrc</strong>) unless the file is properly secured.</li>
+<li>When using version control, run a scan with tools like <strong>git-secrets</strong> or <strong>truffleHog</strong> to detect accidentally committed secrets.</li>
+</ul>
+<hr />
+<h3 id="code-review-checklist-for-credential-security_1">✅ Code Review Checklist for Credential Security</h3>
+<p>When reviewing a script or project, check for these items:</p>
+<ul>
+<li>Are there any hardcoded strings that look like passwords, tokens, or API keys in the code?</li>
+<li>Is there a <strong>.gitignore</strong> file that excludes <strong>.env</strong>, <strong>config.json</strong>, or similar files?</li>
+<li>Are secrets loaded from environment variables or a secure configuration file?</li>
+<li>Is there a <strong>README</strong> or documentation explaining how to set up required environment variables?</li>
+<li>Are file permissions restricted for any configuration files containing secrets?</li>
+<li>Are there any debug print statements or logging calls that might expose sensitive values?</li>
+</ul>
+<hr />
+<h3 id="summary_1">📌 Summary</h3>
+<p>Protecting sensitive credentials is a fundamental responsibility when writing automation scripts. By using environment variables, <code>.env</code> files, or restricted configuration files, you keep secrets separate from your code and reduce the risk of accidental exposure. Always treat credentials as confidential data, never hardcode them, and make credential management a standard part of your development workflow.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This section shows how to keep passwords, API keys, and tokens out of your Python code so they aren't accidentally shared or exposed.</p>
+<hr />
+<h3 id="example-1-hardcoded-credential-what-not-to-do_1">🔐 Example 1: Hardcoded credential (what NOT to do)</h3>
+<p>This example shows the unsafe practice of writing a password directly into your script — never do this in real code.</p>
+<div class="highlight"><pre><span></span><code><span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;admin&quot;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;SuperSecret123!&quot;</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;abc123def456&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Logging in as </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Logging in as admin</strong></p>
+<hr />
+<h3 id="example-2-reading-credentials-from-environment-variables_1">🔐 Example 2: Reading credentials from environment variables</h3>
+<p>This example shows how to pull a password from the operating system's environment variables instead of writing it in code.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">db_password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;DB_PASSWORD&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Database password loaded: </span><span class="si">{</span><span class="n">db_password</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kc">None</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Database password loaded: True</strong></p>
+<hr />
+<h3 id="example-3-using-a-env-file-with-python-dotenv_1">🔐 Example 3: Using a .env file with python-dotenv</h3>
+<p>This example shows how to load multiple secrets from a separate <code>.env</code> file that is never committed to version control.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">dotenv</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;API_TOKEN&quot;</span><span class="p">)</span>
+<span class="n">secret_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;SECRET_KEY&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;API token: </span><span class="si">{</span><span class="n">api_token</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Secret key: </span><span class="si">{</span><span class="n">secret_key</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>API token: sk-12...</strong><br />
+📤 Output: <strong>Secret key: 9a8b...</strong></p>
+<hr />
+<h3 id="example-4-prompting-for-a-password-at-runtime_1">🔐 Example 4: Prompting for a password at runtime</h3>
+<p>This example shows how to ask the user for a password without displaying it on screen using <code>getpass</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">getpass</span>
+
+<span class="n">username</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your username: &quot;</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getpass</span><span class="p">(</span><span class="s2">&quot;Enter your password: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2"> authenticated successfully&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>User jdoe authenticated successfully</strong></p>
+<hr />
+<h3 id="example-5-storing-tokens-in-a-json-config-file-with-file-permissions_1">🔐 Example 5: Storing tokens in a JSON config file (with file permissions)</h3>
+<p>This example shows how to read a token from a local JSON file that only the engineer running the script can read.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">config_path</span> <span class="o">=</span> <span class="s2">&quot;secrets.json&quot;</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">config_path</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;github_token&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GitHub token loaded: </span><span class="si">{</span><span class="n">token</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No secrets file found — using fallback&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>GitHub token loaded: ghp_ab...</strong></p>
+<hr />
+<h3 id="example-6-using-keyring-for-os-level-credential-storage_1">🔐 Example 6: Using keyring for OS-level credential storage</h3>
+<p>This example shows how to store and retrieve a password using the operating system's built-in credential manager.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">keyring</span>
+
+<span class="n">service_name</span> <span class="o">=</span> <span class="s2">&quot;my_engineer_tool&quot;</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;deploy_bot&quot;</span>
+
+<span class="n">keyring</span><span class="o">.</span><span class="n">set_password</span><span class="p">(</span><span class="n">service_name</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="s2">&quot;s3cur3P@ss!&quot;</span><span class="p">)</span>
+<span class="n">retrieved</span> <span class="o">=</span> <span class="n">keyring</span><span class="o">.</span><span class="n">get_password</span><span class="p">(</span><span class="n">service_name</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Retrieved password: </span><span class="si">{</span><span class="n">retrieved</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Retrieved password: s3cu...</strong></p>
+<hr />
+<h3 id="comparison-credential-storage-methods_1">📊 Comparison: Credential Storage Methods</h3>
 <table>
 <thead>
 <tr>

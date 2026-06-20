@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch15_05_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 15 | Extracting All IPs from Unstructured Text - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 15 | Extracting All IPs from Unstructured Text";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch15_05_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch15_05_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -724,6 +724,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-extracting-ips-from-a-realistic-network-log-file">🧪 Example 5: Extracting IPs from a Realistic Network Log File</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-basic-vs-validated-ip-extraction">📊 Comparison: Basic vs. Validated IP Extraction</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#understanding-the-ip-address-pattern_1">🕵️ Understanding the IP Address Pattern</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#building-the-regex-pattern-step-by-step_1">⚙️ Building the Regex Pattern Step by Step</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#python-implementation-for-extraction_1">🛠️ Python Implementation for Extraction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-simple-vs-robust-patterns_1">📊 Comparison: Simple vs Robust Patterns</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#testing-your-extraction_1">🧪 Testing Your Extraction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-applications_1">🚀 Practical Applications</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary-checklist_1">📝 Summary Checklist</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-extracting-a-single-ip-from-simple-text_1">🧪 Example 1: Extracting a Single IP from Simple Text</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-extracting-multiple-ips-from-a-log-line_1">🧪 Example 2: Extracting Multiple IPs from a Log Line</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-extracting-ips-from-multi-line-text_1">🧪 Example 3: Extracting IPs from Multi-Line Text</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-filtering-out-invalid-ips-basic-validation_1">🧪 Example 4: Filtering Out Invalid IPs (Basic Validation)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-extracting-ips-from-a-realistic-network-log-file_1">🧪 Example 5: Extracting IPs from a Realistic Network Log File</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-basic-vs-validated-ip-extraction_1">📊 Comparison: Basic vs. Validated IP Extraction</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1106,7 @@
               
                 <h1 id="extracting-all-ips-from-unstructured-text">Extracting All IPs from Unstructured Text</h1>
 <p><span class="category-tag">🏷️ Regular Expressions (Regex) /  Practical Engineering Examples</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1185,8 +1215,7 @@
 <li>✅ Apply extraction to real-world logs and configuration files</li>
 </ul>
 <p>With this approach, you can reliably extract all valid IP addresses from any unstructured text, making your log analysis and network troubleshooting tasks significantly more efficient.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide shows how to extract all IPv4 addresses from unstructured text using Python's <code>re</code> module.</p>
 <hr />
 <h3 id="example-1-extracting-a-single-ip-from-simple-text">🧪 Example 1: Extracting a Single IP from Simple Text</h3>
@@ -1264,6 +1293,233 @@
 <p>📤 Output: <strong>['10.0.0.1', '172.16.0.100', '192.168.1.50', '8.8.4.4', '8.8.8.8']</strong></p>
 <hr />
 <h2 id="comparison-basic-vs-validated-ip-extraction">📊 Comparison: Basic vs. Validated IP Extraction</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Basic Pattern</th>
+<th>Validated Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Captures all 4-number groups</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Rejects numbers &gt; 255</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Handles multi-line text</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Removes duplicates</td>
+<td>❌ No</td>
+<td>✅ Yes (with <code>set()</code>)</td>
+</tr>
+<tr>
+<td>Code complexity</td>
+<td>Low</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>When working with logs, configuration files, or network data, you'll often encounter unstructured text containing IP addresses scattered throughout. Manually scanning through hundreds of lines to find every IP is inefficient and error-prone. Using Python's regular expressions (regex), you can reliably extract all IPv4 addresses from any text block in seconds. This skill is essential for log analysis, security auditing, and network troubleshooting tasks.</p>
+<hr />
+<h3 id="understanding-the-ip-address-pattern_1">🕵️ Understanding the IP Address Pattern</h3>
+<p>An IPv4 address consists of four numbers (octets) separated by dots. Each octet ranges from <strong>0 to 255</strong>. The regex pattern must match this structure precisely.</p>
+<p><strong>Key components of an IP address:</strong>
+- Four groups of 1-3 digits each
+- Groups separated by a single dot (<code>.</code>)
+- Each group value between 0 and 255</p>
+<p><strong>Common pitfalls to avoid:</strong>
+- Matching numbers like <strong>999.999.999.999</strong> (invalid octets)
+- Accidentally capturing partial matches like <strong>192.168</strong> without the full four octets
+- Including trailing dots or extra characters</p>
+<hr />
+<h3 id="building-the-regex-pattern-step-by-step_1">⚙️ Building the Regex Pattern Step by Step</h3>
+<p>Let's construct a pattern that correctly identifies valid IPv4 addresses:</p>
+<p><strong>Step 1: Match a single octet (0-255)</strong>
+- Numbers 0-9: <strong>\d</strong> or <strong>[0-9]</strong>
+- Numbers 10-99: <strong>[1-9]\d</strong>
+- Numbers 100-199: <strong>1\d{2}</strong>
+- Numbers 200-249: <strong>2[0-4]\d</strong>
+- Numbers 250-255: <strong>25[0-5]</strong></p>
+<p><strong>Step 2: Combine all octet possibilities</strong>
+- Pattern for one octet: <strong>(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)</strong></p>
+<p><strong>Step 3: Repeat for four octets with dots</strong>
+- Full pattern: <strong>(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d).(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d).(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d).(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)</strong></p>
+<p><strong>Step 4: Simplify with grouping and repetition</strong>
+- Cleaner version: <strong>(?:(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d).){3}(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)</strong></p>
+<hr />
+<h3 id="python-implementation-for-extraction_1">🛠️ Python Implementation for Extraction</h3>
+<p>Here's how to use this pattern in Python to extract all IPs from any text:</p>
+<p><strong>Basic extraction script structure:</strong>
+1. Import the <strong>re</strong> module (Python's built-in regex library)
+2. Define your regex pattern using <strong>re.compile()</strong>
+3. Use <strong>pattern.findall()</strong> on your text input
+4. Process the resulting list of matched IPs</p>
+<p><strong>Example workflow:</strong>
+- Store your unstructured text in a variable (e.g., from a log file or network output)
+- Apply the <strong>findall()</strong> method to extract all matches
+- The result is a Python list containing every IP address found</p>
+<p><strong>Handling edge cases:</strong>
+- Use <strong>re.finditer()</strong> instead of <strong>findall()</strong> if you need match positions
+- Add word boundaries (<strong>\b</strong>) around the pattern to avoid partial matches
+- Consider using <strong>re.IGNORECASE</strong> flag if text contains mixed case (though IPs are case-insensitive)</p>
+<hr />
+<h3 id="comparison-simple-vs-robust-patterns_1">📊 Comparison: Simple vs Robust Patterns</h3>
+<table>
+<thead>
+<tr>
+<th>Pattern Type</th>
+<th>Example Pattern</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple (basic digits)</td>
+<td><strong>\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}</strong></td>
+<td>Easy to read and remember</td>
+<td>Matches invalid IPs like <strong>999.999.999.999</strong></td>
+</tr>
+<tr>
+<td>Robust (validated octets)</td>
+<td><strong>(?:(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d).){3}(?:25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)</strong></td>
+<td>Only matches valid IPs (0-255 per octet)</td>
+<td>More complex syntax</td>
+</tr>
+<tr>
+<td>With word boundaries</td>
+<td><strong>\b(?:...pattern...)\b</strong></td>
+<td>Prevents partial matches (e.g., avoids matching <strong>192.168.1.1000</strong>)</td>
+<td>Slightly slower on very large texts</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="testing-your-extraction_1">🧪 Testing Your Extraction</h3>
+<p><strong>Sample input text for testing:</strong>
+- "Server at 192.168.1.1 is responding. Backup at 10.0.0.255. Invalid: 999.999.999.999 and 256.1.1.1"</p>
+<p><strong>Expected output from robust pattern:</strong>
+- <strong>192.168.1.1</strong>
+- <strong>10.0.0.255</strong></p>
+<p><strong>What the simple pattern would incorrectly capture:</strong>
+- <strong>999.999.999.999</strong> (invalid octets)
+- <strong>256.1.1.1</strong> (first octet exceeds 255)</p>
+<hr />
+<h3 id="practical-applications_1">🚀 Practical Applications</h3>
+<p><strong>Where you'll use IP extraction:</strong>
+- Parsing firewall logs to identify source and destination addresses
+- Analyzing network configuration files for all configured IPs
+- Scanning system logs for unauthorized connection attempts
+- Extracting IPs from threat intelligence feeds
+- Validating user input in network automation scripts</p>
+<p><strong>Pro tip for engineers:</strong> Always use the robust pattern in production code. The simple pattern is fine for quick one-off scripts, but the validated pattern prevents false positives that could lead to incorrect data analysis.</p>
+<hr />
+<h3 id="summary-checklist_1">📝 Summary Checklist</h3>
+<ul>
+<li>✅ Understand the IPv4 address structure (four octets, 0-255 each)</li>
+<li>✅ Build a regex pattern that validates each octet range</li>
+<li>✅ Use <strong>re.findall()</strong> or <strong>re.finditer()</strong> for extraction</li>
+<li>✅ Add word boundaries (<strong>\b</strong>) to prevent partial matches</li>
+<li>✅ Test your pattern against edge cases (invalid IPs, partial matches)</li>
+<li>✅ Apply extraction to real-world logs and configuration files</li>
+</ul>
+<p>With this approach, you can reliably extract all valid IP addresses from any unstructured text, making your log analysis and network troubleshooting tasks significantly more efficient.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide shows how to extract all IPv4 addresses from unstructured text using Python's <code>re</code> module.</p>
+<hr />
+<h3 id="example-1-extracting-a-single-ip-from-simple-text_1">🧪 Example 1: Extracting a Single IP from Simple Text</h3>
+<p>This example finds one IP address in a short sentence.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The server IP is 192.168.1.1&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['192.168.1.1']</strong></p>
+<hr />
+<h3 id="example-2-extracting-multiple-ips-from-a-log-line_1">🧪 Example 2: Extracting Multiple IPs from a Log Line</h3>
+<p>This example finds all IPs in a single line of log text.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_line</span> <span class="o">=</span> <span class="s2">&quot;Connection from 10.0.0.5 to 172.16.0.10 failed&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_line</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['10.0.0.5', '172.16.0.10']</strong></p>
+<hr />
+<h3 id="example-3-extracting-ips-from-multi-line-text_1">🧪 Example 3: Extracting IPs from Multi-Line Text</h3>
+<p>This example extracts IPs from a block of text with multiple lines.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_block</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">2024-01-15 08:23:45 192.168.1.100 GET /index.html</span>
+<span class="s2">2024-01-15 08:24:12 10.0.0.50 POST /login</span>
+<span class="s2">2024-01-15 08:25:33 172.16.0.1 PUT /update</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_block</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['192.168.1.100', '10.0.0.50', '172.16.0.1']</strong></p>
+<hr />
+<h3 id="example-4-filtering-out-invalid-ips-basic-validation_1">🧪 Example 4: Filtering Out Invalid IPs (Basic Validation)</h3>
+<p>This example extracts only IPs where each octet is between 0 and 255.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Valid IPs: 192.168.1.1 and 10.0.0.5. Invalid: 999.999.999.999&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\b(?:[0-9]{1,3}\.)</span><span class="si">{3}</span><span class="s2">[0-9]{1,3}\b&quot;</span>
+<span class="n">potential_ips</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="n">valid_ips</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">ip</span> <span class="ow">in</span> <span class="n">potential_ips</span><span class="p">:</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">ip</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="nb">int</span><span class="p">(</span><span class="n">part</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">255</span> <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">):</span>
+        <span class="n">valid_ips</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">valid_ips</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['192.168.1.1', '10.0.0.5']</strong></p>
+<hr />
+<h3 id="example-5-extracting-ips-from-a-realistic-network-log-file_1">🧪 Example 5: Extracting IPs from a Realistic Network Log File</h3>
+<p>This example reads a simulated log file and extracts all unique IPs.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">[ERROR] 10.0.0.1 - Connection timeout to 8.8.8.8</span>
+<span class="s2">[INFO] 192.168.1.50 - Successful ping to 10.0.0.1</span>
+<span class="s2">[WARN] 172.16.0.100 - High latency to 8.8.4.4</span>
+<span class="s2">[ERROR] 10.0.0.1 - Retry to 8.8.8.8</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\b(?:[0-9]{1,3}\.)</span><span class="si">{3}</span><span class="s2">[0-9]{1,3}\b&quot;</span>
+<span class="n">all_ips</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_data</span><span class="p">)</span>
+
+<span class="n">unique_ips</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">all_ips</span><span class="p">))</span>
+<span class="n">unique_ips</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_ips</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['10.0.0.1', '172.16.0.100', '192.168.1.50', '8.8.4.4', '8.8.8.8']</strong></p>
+<hr />
+<h2 id="comparison-basic-vs-validated-ip-extraction_1">📊 Comparison: Basic vs. Validated IP Extraction</h2>
 <table>
 <thead>
 <tr>

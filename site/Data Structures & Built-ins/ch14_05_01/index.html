@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_05_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Getting the Current Process ID via getpid - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Getting the Current Process ID via getpid";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_05_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_05_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -683,6 +683,32 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-osgetpid-vs-manual-pid-tracking">📊 Comparison: os.getpid() vs Manual PID Tracking</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-process-id_1">⚙️ What is a Process ID?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-the-osgetpid-function_1">🛠️ Using the os.getpid() Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example_1">📊 Practical Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-getpid_1">🕵️ When to Use getpid()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-your-understanding_1">🧪 Testing Your Understanding</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-notes_1">⚠️ Important Notes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🔄 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-getting-the-current-process-id_1">🔧 Example 1: Getting the current process ID</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-storing-the-pid-in-a-variable-for-later-use_1">🔧 Example 2: Storing the PID in a variable for later use</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-comparing-pids-across-multiple-function-calls_1">🔧 Example 3: Comparing PIDs across multiple function calls</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-the-pid-to-create-a-unique-temporary-filename_1">🔧 Example 4: Using the PID to create a unique temporary filename</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-logging-the-pid-for-debugging-purposes_1">🔧 Example 5: Logging the PID for debugging purposes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-osgetpid-vs-manual-pid-tracking_1">📊 Comparison: os.getpid() vs Manual PID Tracking</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_05_02/">Ch 14 | Signal Module Introduction and Concepts</a>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="getting-the-current-process-id-via-getpid">Getting the Current Process ID via getpid</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  Working with Processes and Signals</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When you run a Python script, the operating system assigns it a unique identifier called a <strong>Process ID (PID)</strong>. This number helps the system track and manage your running program. Understanding how to retrieve the current PID is useful for logging, debugging, and coordinating between multiple running scripts.</p>
@@ -1163,8 +1189,7 @@
 <hr />
 <h3 id="summary">🔄 Summary</h3>
 <p>Retrieving the current process ID with <strong>os.getpid()</strong> is a straightforward yet powerful technique. It gives your script awareness of its own identity within the operating system, enabling better logging, file management, and process coordination. This simple function is often the first step toward building more sophisticated process-aware applications.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>os.getpid()</code> function returns the unique numeric identifier (Process ID or PID) assigned by the operating system to the currently running Python process.</p>
 <hr />
 <h3 id="example-1-getting-the-current-process-id">🔧 Example 1: Getting the current process ID</h3>
@@ -1228,6 +1253,194 @@
 📤 Output: <strong>[PID 12345] Processing complete</strong></p>
 <hr />
 <h3 id="comparison-osgetpid-vs-manual-pid-tracking">📊 Comparison: <code>os.getpid()</code> vs Manual PID Tracking</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>os.getpid()</code></th>
+<th>Manual PID Tracking</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accuracy</td>
+<td>Always returns the real OS-assigned PID</td>
+<td>Prone to human error</td>
+</tr>
+<tr>
+<td>Effort</td>
+<td>One function call</td>
+<td>Requires external tools or manual input</td>
+</tr>
+<tr>
+<td>Reliability</td>
+<td>Guaranteed by the operating system</td>
+<td>Depends on correct manual assignment</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>All Python process management</td>
+<td>Not recommended for engineers</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you run a Python script, the operating system assigns it a unique identifier called a <strong>Process ID (PID)</strong>. This number helps the system track and manage your running program. Understanding how to retrieve the current PID is useful for logging, debugging, and coordinating between multiple running scripts.</p>
+<hr />
+<h3 id="what-is-a-process-id_1">⚙️ What is a Process ID?</h3>
+<p>A Process ID is a numeric label that the operating system assigns to every running process. Think of it as a temporary name tag that identifies your script while it is executing.</p>
+<p>Key points about PIDs:
+- Each running process gets a unique PID at any given moment
+- PIDs can be reused after a process finishes
+- The PID helps you monitor or terminate specific processes from the command line
+- Knowing your own PID is helpful when writing scripts that need to reference themselves</p>
+<hr />
+<h3 id="using-the-osgetpid-function_1">🛠️ Using the os.getpid() Function</h3>
+<p>Python's built-in <strong>os</strong> module provides a simple function called <strong>getpid()</strong> that returns the current process ID.</p>
+<p>How to access it:
+- Import the <strong>os</strong> module at the top of your script
+- Call <strong>os.getpid()</strong> to retrieve the current PID
+- The function returns an integer value representing the process ID</p>
+<p>Example usage in a script:
+- Store the result in a variable: <strong>current_pid = os.getpid()</strong>
+- Print the PID for logging: <strong>print(f"Current process ID: {os.getpid()}")</strong>
+- Use the PID in filenames to avoid conflicts: <strong>log_file = f"script_{os.getpid()}.log"</strong></p>
+<hr />
+<h3 id="practical-example_1">📊 Practical Example</h3>
+<p>Consider a simple script that reports its own identity:</p>
+<ul>
+<li>The script imports the <strong>os</strong> module</li>
+<li>It calls <strong>os.getpid()</strong> and stores the result</li>
+<li>It prints a message showing the current PID</li>
+<li>It also prints the parent process ID using <strong>os.getppid()</strong> for context</li>
+</ul>
+<p>Expected output when running the script:
+- <strong>Current Process ID: 12345</strong>
+- <strong>Parent Process ID: 9876</strong></p>
+<p>The actual numbers will vary each time you run the script because the operating system assigns new PIDs dynamically.</p>
+<hr />
+<h3 id="when-to-use-getpid_1">🕵️ When to Use getpid()</h3>
+<p>Knowing your process ID becomes valuable in several scenarios:</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Why It Helps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Logging and Monitoring</strong></td>
+<td>Include the PID in log entries to track which instance wrote the message</td>
+</tr>
+<tr>
+<td><strong>Creating Unique Files</strong></td>
+<td>Use the PID in temporary filenames to prevent collisions between parallel runs</td>
+</tr>
+<tr>
+<td><strong>Process Management</strong></td>
+<td>Store the PID in a file so other scripts can check if this process is still running</td>
+</tr>
+<tr>
+<td><strong>Debugging</strong></td>
+<td>Identify which process is consuming resources when multiple instances run</td>
+</tr>
+<tr>
+<td><strong>Signal Handling</strong></td>
+<td>Reference your own PID when sending signals to yourself or coordinating with child processes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="testing-your-understanding_1">🧪 Testing Your Understanding</h3>
+<p>Try these simple exercises to practice working with PIDs:</p>
+<ul>
+<li>Write a script that prints <strong>"My PID is: [number]"</strong> using <strong>os.getpid()</strong></li>
+<li>Create a script that stores its PID in a variable and prints it twice to confirm consistency</li>
+<li>Run the same script multiple times and observe how the PID changes each time</li>
+<li>Combine <strong>os.getpid()</strong> with <strong>os.getppid()</strong> to see both the current and parent process IDs</li>
+</ul>
+<hr />
+<h3 id="important-notes_1">⚠️ Important Notes</h3>
+<ul>
+<li>The <strong>os</strong> module is part of Python's standard library, so no additional installation is needed</li>
+<li>PIDs are system-specific and will differ between Windows, Linux, and macOS</li>
+<li>A PID is only valid while the process is running; once the script ends, the PID may be reused</li>
+<li>For cross-platform compatibility, always use <strong>os.getpid()</strong> rather than platform-specific commands</li>
+</ul>
+<hr />
+<h3 id="summary_1">🔄 Summary</h3>
+<p>Retrieving the current process ID with <strong>os.getpid()</strong> is a straightforward yet powerful technique. It gives your script awareness of its own identity within the operating system, enabling better logging, file management, and process coordination. This simple function is often the first step toward building more sophisticated process-aware applications.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>os.getpid()</code> function returns the unique numeric identifier (Process ID or PID) assigned by the operating system to the currently running Python process.</p>
+<hr />
+<h3 id="example-1-getting-the-current-process-id_1">🔧 Example 1: Getting the current process ID</h3>
+<p>This example shows the most basic use of <code>os.getpid()</code> — retrieving the PID of your running Python script.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">current_pid</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_pid</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>12345</strong> <em>(your actual PID will be different)</em></p>
+<hr />
+<h3 id="example-2-storing-the-pid-in-a-variable-for-later-use_1">🔧 Example 2: Storing the PID in a variable for later use</h3>
+<p>This example demonstrates how to capture the PID and reuse it in other parts of your code.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">process_id</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This process has PID:&quot;</span><span class="p">,</span> <span class="n">process_id</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>This process has PID: 12345</strong></p>
+<hr />
+<h3 id="example-3-comparing-pids-across-multiple-function-calls_1">🔧 Example 3: Comparing PIDs across multiple function calls</h3>
+<p>This example shows that <code>os.getpid()</code> returns the same value every time you call it within the same process.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">first_call</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+<span class="n">second_call</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First call:&quot;</span><span class="p">,</span> <span class="n">first_call</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Second call:&quot;</span><span class="p">,</span> <span class="n">second_call</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Are they the same?&quot;</span><span class="p">,</span> <span class="n">first_call</span> <span class="o">==</span> <span class="n">second_call</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>First call: 12345</strong><br />
+📤 Output: <strong>Second call: 12345</strong><br />
+📤 Output: <strong>Are they the same? True</strong></p>
+<hr />
+<h3 id="example-4-using-the-pid-to-create-a-unique-temporary-filename_1">🔧 Example 4: Using the PID to create a unique temporary filename</h3>
+<p>This example shows a practical use — combining the PID with a timestamp to generate unique filenames.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">pid</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;log_</span><span class="si">{</span><span class="n">pid</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">.txt&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Generated filename:&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Generated filename: log_12345_1698765432.txt</strong></p>
+<hr />
+<h3 id="example-5-logging-the-pid-for-debugging-purposes_1">🔧 Example 5: Logging the PID for debugging purposes</h3>
+<p>This example shows how engineers log the PID to track which process generated a particular log entry.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_message</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+    <span class="n">pid</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[PID </span><span class="si">{</span><span class="n">pid</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">log_message</span><span class="p">(</span><span class="s2">&quot;Starting data processing&quot;</span><span class="p">)</span>
+<span class="n">log_message</span><span class="p">(</span><span class="s2">&quot;Processing complete&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[PID 12345] Starting data processing</strong><br />
+📤 Output: <strong>[PID 12345] Processing complete</strong></p>
+<hr />
+<h3 id="comparison-osgetpid-vs-manual-pid-tracking_1">📊 Comparison: <code>os.getpid()</code> vs Manual PID Tracking</h3>
 <table>
 <thead>
 <tr>

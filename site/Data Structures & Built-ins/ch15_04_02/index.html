@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch15_04_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 15 | Accessing Positional Groups by Group Index - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 15 | Accessing Positional Groups by Group Index";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch15_04_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch15_04_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -717,6 +717,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-group-access-methods">📊 Comparison Table: Group Access Methods</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-group-indexing-works_1">⚙️ How Group Indexing Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accessing-groups-with-group_1">🛠️ Accessing Groups with .group()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-group-vs-groups_1">📊 Comparison: .group() vs .groups()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-patterns-for-engineers_1">🕵️ Common Patterns for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-notes-and-gotchas_1">⚠️ Important Notes and Gotchas</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference_1">🧪 Quick Reference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-accessing-the-first-captured-group_1">🔧 Example 1: Accessing the First Captured Group</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-accessing-multiple-groups-by-index_1">🔧 Example 2: Accessing Multiple Groups by Index</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-accessing-all-groups-at-once_1">🔧 Example 3: Accessing All Groups at Once</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-group-index-with-a-repeated-pattern_1">🔧 Example 4: Using Group Index with a Repeated Pattern</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-log-parsing-with-group-indexes_1">🔧 Example 5: Practical Log Parsing with Group Indexes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-group-access-methods_1">📊 Comparison Table: Group Access Methods</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch15_04_03/">Ch 15 | Named Capture Groups Syntax Layouts</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="accessing-positional-groups-by-group-index">Accessing Positional Groups by Group Index</h1>
 <p><span class="category-tag">🏷️ Regular Expressions (Regex) /  Groups and Capturing</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1204,8 +1232,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Accessing positional groups by index is a fundamental skill for extracting structured data from unstructured text. By understanding how Python numbers groups from left to right starting at <strong>1</strong>, and using <strong>.group()</strong> and <strong>.groups()</strong> effectively, you can parse logs, configuration files, network data, and more with confidence. Start with simple patterns, verify your group indices, and always handle cases where matches might fail gracefully.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Positional group indexing lets you retrieve specific captured groups from a regex match using their numeric position (starting from 1).</p>
 <hr />
 <h3 id="example-1-accessing-the-first-captured-group">🔧 Example 1: Accessing the First Captured Group</h3>
@@ -1281,6 +1308,245 @@
 <p>📤 Output: <strong>[2024-12-25 10:30:45] ERROR: Connection timeout</strong></p>
 <hr />
 <h3 id="comparison-table-group-access-methods">📊 Comparison Table: Group Access Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>match.group(1)</code></td>
+<td>First captured group</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>match.group(2)</code></td>
+<td>Second captured group</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>match.group(0)</code></td>
+<td>Entire matched text</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>match.groups()</code></td>
+<td>All captured groups</td>
+<td>Tuple of strings</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When working with regular expressions in Python, you often need to extract specific parts of a matched pattern rather than just the entire match. This is where <strong>capturing groups</strong> become essential. Each pair of parentheses <strong><em>( )</em></strong> in your regex pattern creates a group, and these groups are automatically assigned an index number starting from <strong>1</strong> (index <strong>0</strong> always refers to the entire match). Understanding how to access these groups by their index allows you to pull out exactly the data you need from strings like log entries, configuration files, or network data.</p>
+<hr />
+<h3 id="how-group-indexing-works_1">⚙️ How Group Indexing Works</h3>
+<ul>
+<li>Every opening parenthesis <strong><em>(</em></strong> in your regex pattern creates a new group.</li>
+<li>Groups are numbered from left to right, starting at <strong>1</strong>.</li>
+<li>Index <strong>0</strong> always represents the complete matched string.</li>
+<li>You access groups using the <strong>.group()</strong> method on a match object.</li>
+</ul>
+<p><strong>Example pattern breakdown:</strong>
+- Pattern: <strong>(\d{3})-(\d{3})-(\d{4})</strong> (matching a phone number like 555-123-4567)
+- <strong>Group 0</strong>: The entire match — <strong>555-123-4567</strong>
+- <strong>Group 1</strong>: First three digits — <strong>555</strong>
+- <strong>Group 2</strong>: Next three digits — <strong>123</strong>
+- <strong>Group 3</strong>: Last four digits — <strong>4567</strong></p>
+<hr />
+<h3 id="accessing-groups-with-group_1">🛠️ Accessing Groups with .group()</h3>
+<p>The <strong>.group()</strong> method is your primary tool for retrieving captured content:</p>
+<ul>
+<li><strong>match.group(0)</strong> — Returns the entire matched string.</li>
+<li><strong>match.group(1)</strong> — Returns the content of the first capturing group.</li>
+<li><strong>match.group(2)</strong> — Returns the content of the second capturing group.</li>
+<li><strong>match.group(3)</strong> — Returns the content of the third capturing group.</li>
+</ul>
+<p><strong>Practical script example:</strong>
+- Import the <strong>re</strong> module.
+- Define a pattern: <strong>r"Server: (\w+), Port: (\d+)"</strong>
+- Use <strong>re.search()</strong> to find a match in a string like <strong>"Server: web01, Port: 8080"</strong>.
+- Store the result in a variable named <strong>match</strong>.
+- Print <strong>match.group(0)</strong> to see the full match.
+- Print <strong>match.group(1)</strong> to extract <strong>web01</strong>.
+- Print <strong>match.group(2)</strong> to extract <strong>8080</strong>.</p>
+<p><strong>Expected output from the above:</strong>
+- <strong>Server: web01, Port: 8080</strong>
+- <strong>web01</strong>
+- <strong>8080</strong></p>
+<hr />
+<h3 id="comparison-group-vs-groups_1">📊 Comparison: .group() vs .groups()</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What It Returns</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>match.group(n)</strong></td>
+<td>Single string for group index <strong>n</strong></td>
+<td>When you need one specific piece of data</td>
+</tr>
+<tr>
+<td><strong>match.groups()</strong></td>
+<td>Tuple of all captured groups (index 1 and above)</td>
+<td>When you need all extracted values at once</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example using .groups():</strong>
+- Same pattern: <strong>r"Server: (\w+), Port: (\d+)"</strong>
+- Call <strong>match.groups()</strong> — returns <strong>('web01', '8080')</strong>
+- You can unpack this directly: <strong>server_name, port_number = match.groups()</strong></p>
+<hr />
+<h3 id="common-patterns-for-engineers_1">🕵️ Common Patterns for Engineers</h3>
+<p><strong>Extracting IP addresses and ports:</strong>
+- Pattern: <strong>r"(\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}):(\d+)"</strong>
+- <strong>group(1)</strong> gives the IP address.
+- <strong>group(2)</strong> gives the port number.</p>
+<p><strong>Parsing log timestamps:</strong>
+- Pattern: <strong>r"(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}:\d{2})"</strong>
+- <strong>group(1)</strong> gives the date.
+- <strong>group(2)</strong> gives the time.</p>
+<p><strong>Extracting key-value pairs from config files:</strong>
+- Pattern: <strong>r"(\w+)\s<em>=\s</em>(\w+)"</strong>
+- <strong>group(1)</strong> gives the key name.
+- <strong>group(2)</strong> gives the value.</p>
+<hr />
+<h3 id="important-notes-and-gotchas_1">⚠️ Important Notes and Gotchas</h3>
+<ul>
+<li>If a group does not participate in the match (e.g., due to an alternation <strong>|</strong>), <strong>.group(n)</strong> returns <strong>None</strong>.</li>
+<li>Non-capturing groups <strong><em>(?:...)</em></strong> do not get assigned an index and are not counted in the numbering.</li>
+<li>Nested groups are numbered by the order of their opening parentheses, not by depth.</li>
+<li>Always check if a match was found before calling <strong>.group()</strong> to avoid <strong>AttributeError</strong>.</li>
+</ul>
+<p><strong>Safe access pattern:</strong>
+- Use <strong>if match:</strong> before accessing groups.
+- Alternatively, use <strong>match.group(n, default="N/A")</strong> to provide a fallback value.</p>
+<hr />
+<h3 id="quick-reference_1">🧪 Quick Reference</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Code Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get entire match</td>
+<td><strong>match.group(0)</strong></td>
+</tr>
+<tr>
+<td>Get first group</td>
+<td><strong>match.group(1)</strong></td>
+</tr>
+<tr>
+<td>Get all groups as tuple</td>
+<td><strong>match.groups()</strong></td>
+</tr>
+<tr>
+<td>Get group with default</td>
+<td><strong>match.group(2, "missing")</strong></td>
+</tr>
+<tr>
+<td>Number of groups in pattern</td>
+<td><strong>re.compile(pattern).groups</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Accessing positional groups by index is a fundamental skill for extracting structured data from unstructured text. By understanding how Python numbers groups from left to right starting at <strong>1</strong>, and using <strong>.group()</strong> and <strong>.groups()</strong> effectively, you can parse logs, configuration files, network data, and more with confidence. Start with simple patterns, verify your group indices, and always handle cases where matches might fail gracefully.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Positional group indexing lets you retrieve specific captured groups from a regex match using their numeric position (starting from 1).</p>
+<hr />
+<h3 id="example-1-accessing-the-first-captured-group_1">🔧 Example 1: Accessing the First Captured Group</h3>
+<p>Extract the first group from a simple pattern with two parentheses groups.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(Hello) (World)&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="n">first_group</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_group</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello</strong></p>
+<hr />
+<h3 id="example-2-accessing-multiple-groups-by-index_1">🔧 Example 2: Accessing Multiple Groups by Index</h3>
+<p>Retrieve both the first and second captured groups from the same match.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(Hello) (World)&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="n">first_group</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">second_group</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_group</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_group</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello</strong><br />
+📤 Output: <strong>World</strong></p>
+<hr />
+<h3 id="example-3-accessing-all-groups-at-once_1">🔧 Example 3: Accessing All Groups at Once</h3>
+<p>Use <code>.groups()</code> to get a tuple of all captured groups by their index order.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;John: 35, Engineer&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\w+): (\d+), (\w+)&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="n">all_groups</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_groups</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>('John', '35', 'Engineer')</strong></p>
+<hr />
+<h3 id="example-4-using-group-index-with-a-repeated-pattern_1">🔧 Example 4: Using Group Index with a Repeated Pattern</h3>
+<p>Capture multiple parts of a date string using positional groups.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Date: 2024-12-25&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\d</span><span class="si">{4}</span><span class="s2">)-(\d</span><span class="si">{2}</span><span class="s2">)-(\d</span><span class="si">{2}</span><span class="s2">)&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="n">year</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">month</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">day</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Year: </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">, Month: </span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">, Day: </span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Year: 2024, Month: 12, Day: 25</strong></p>
+<hr />
+<h3 id="example-5-practical-log-parsing-with-group-indexes_1">🔧 Example 5: Practical Log Parsing with Group Indexes</h3>
+<p>Extract timestamp, level, and message from a log entry using positional groups.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_entry</span> <span class="o">=</span> <span class="s2">&quot;2024-12-25 10:30:45 ERROR Connection timeout&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\d</span><span class="si">{4}</span><span class="s2">-\d</span><span class="si">{2}</span><span class="s2">-\d</span><span class="si">{2}</span><span class="s2"> \d</span><span class="si">{2}</span><span class="s2">:\d</span><span class="si">{2}</span><span class="s2">:\d</span><span class="si">{2}</span><span class="s2">) (\w+) (.+)&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_entry</span><span class="p">)</span>
+
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">level</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">message</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[2024-12-25 10:30:45] ERROR: Connection timeout</strong></p>
+<hr />
+<h3 id="comparison-table-group-access-methods_1">📊 Comparison Table: Group Access Methods</h3>
 <table>
 <thead>
 <tr>

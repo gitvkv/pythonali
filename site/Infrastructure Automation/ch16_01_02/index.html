@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch16_01_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 16 | Local System Time Retrieved via now() - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 16 | Local System Time Retrieved via now()";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch16_01_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch16_01_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -741,6 +741,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#quick-reference-common-now-attributes-and-methods">📊 Quick Reference: Common now() Attributes and Methods</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🌐 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-now_1">⚙️ What is now()?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-usage-of-now_1">🛠️ Basic Usage of now()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparing-now-with-other-time-methods_1">📊 Comparing now() with Other Time Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#extracting-components-from-now_1">🕵️ Extracting Components from now()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-timestamping-a-log-entry_1">🧪 Practical Example: Timestamping a Log Entry</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-notes-for-engineers_1">⚠️ Important Notes for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference-common-now-patterns_1">📝 Quick Reference: Common now() Patterns</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">🔄 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-current-date-and-time-retrieval_1">🕐 Example 1: Basic Current Date and Time Retrieval</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-extracting-individual-date-components_1">🔢 Example 2: Extracting Individual Date Components</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-extracting-individual-time-components_1">⏰ Example 3: Extracting Individual Time Components</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-formatting-current-date-for-display_1">📅 Example 4: Formatting Current Date for Display</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-creating-a-timestamp-for-logging_1">📝 Example 5: Creating a Timestamp for Logging</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference-common-now-attributes-and-methods_1">📊 Quick Reference: Common now() Attributes and Methods</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch16_01_03/">Ch 16 | Standard Reference Clocks via utcnow()</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="local-system-time-retrieved-via-now">Local System Time Retrieved via now()</h1>
 <p><span class="category-tag">🏷️ Working with Dates and Time /  The datetime Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1188,8 +1218,7 @@
 - <strong>Converting</strong> between timezones with <strong>pytz</strong> or <strong>zoneinfo</strong>
 - <strong>Parsing</strong> string dates back into datetime objects with <strong>strptime()</strong></p>
 <p>These skills will help you build robust logging, scheduling, and monitoring tools in your Python scripts.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>datetime.now()</code> method retrieves the current date and time from your local system clock.</p>
 <hr />
 <h3 id="example-1-basic-current-date-and-time-retrieval">🕐 Example 1: Basic Current Date and Time Retrieval</h3>
@@ -1251,6 +1280,228 @@
 <p>📤 Output: <strong>[2024-01-15 14:30:45] System check completed</strong></p>
 <hr />
 <h3 id="quick-reference-common-now-attributes-and-methods">📊 Quick Reference: Common <code>now()</code> Attributes and Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute / Method</th>
+<th>Description</th>
+<th>Example Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.year</code></td>
+<td>Current year</td>
+<td>2024</td>
+</tr>
+<tr>
+<td><code>.month</code></td>
+<td>Current month (1-12)</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>.day</code></td>
+<td>Current day of month</td>
+<td>15</td>
+</tr>
+<tr>
+<td><code>.hour</code></td>
+<td>Current hour (0-23)</td>
+<td>14</td>
+</tr>
+<tr>
+<td><code>.minute</code></td>
+<td>Current minute (0-59)</td>
+<td>30</td>
+</tr>
+<tr>
+<td><code>.second</code></td>
+<td>Current second (0-59)</td>
+<td>45</td>
+</tr>
+<tr>
+<td><code>.strftime(format)</code></td>
+<td>Format datetime as string</td>
+<td>"2024-01-15"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🌐 Context Introduction</h3>
+<p>When working with automation scripts, log files, or scheduled tasks, you'll often need to capture the current date and time from your system. Python's <strong>datetime module</strong> provides a straightforward way to retrieve the local system time using the <strong>now()</strong> method. This gives you the current timestamp based on your computer's clock, which is essential for time-stamping events, measuring durations, or generating unique identifiers.</p>
+<hr />
+<h3 id="what-is-now_1">⚙️ What is <code>now()</code>?</h3>
+<p>The <strong>now()</strong> method is a class method of the <strong>datetime</strong> object that returns the current local date and time. It pulls the time from your operating system's clock, so it reflects your system's configured timezone.</p>
+<p>Key points:
+- <strong>now()</strong> returns a <strong>datetime object</strong> containing both date and time components
+- It includes year, month, day, hour, minute, second, and microsecond
+- By default, it uses your system's local time (not UTC)
+- You can optionally pass a timezone object to get timezone-aware time</p>
+<hr />
+<h3 id="basic-usage-of-now_1">🛠️ Basic Usage of <code>now()</code></h3>
+<p>To use <strong>now()</strong>, you first import the <strong>datetime</strong> class from the <strong>datetime</strong> module. Then call <strong>datetime.now()</strong> to capture the current moment.</p>
+<p><strong>Import statement:</strong> from datetime import datetime</p>
+<p><strong>Basic call:</strong> current_time = datetime.now()</p>
+<p><strong>What you get back:</strong> A datetime object like: 2024-12-15 14:30:45.123456</p>
+<p>The output includes:
+- <strong>Year</strong> (4 digits)
+- <strong>Month</strong> (1-12)
+- <strong>Day</strong> (1-31)
+- <strong>Hour</strong> (0-23)
+- <strong>Minute</strong> (0-59)
+- <strong>Second</strong> (0-59)
+- <strong>Microsecond</strong> (0-999999)</p>
+<hr />
+<h3 id="comparing-now-with-other-time-methods_1">📊 Comparing <code>now()</code> with Other Time Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+<th>Timezone</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>datetime.now()</strong></td>
+<td>Current local date &amp; time</td>
+<td>System local time</td>
+<td>General timestamping</td>
+</tr>
+<tr>
+<td><strong>datetime.utcnow()</strong></td>
+<td>Current UTC date &amp; time</td>
+<td>UTC (no timezone)</td>
+<td>Coordinated logging</td>
+</tr>
+<tr>
+<td><strong>datetime.today()</strong></td>
+<td>Current local date &amp; time</td>
+<td>System local time</td>
+<td>Same as now() but no timezone option</td>
+</tr>
+<tr>
+<td><strong>datetime.utcnow()</strong></td>
+<td>Current UTC date &amp; time</td>
+<td>UTC</td>
+<td>Cross-system consistency</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="extracting-components-from-now_1">🕵️ Extracting Components from <code>now()</code></h3>
+<p>Once you capture the current time with <strong>now()</strong>, you can access individual components using dot notation.</p>
+<p><strong>Common attributes:</strong>
+- <strong>current_time.year</strong> — returns the year as an integer (e.g., 2024)
+- <strong>current_time.month</strong> — returns the month (1-12)
+- <strong>current_time.day</strong> — returns the day of the month (1-31)
+- <strong>current_time.hour</strong> — returns the hour (0-23)
+- <strong>current_time.minute</strong> — returns the minute (0-59)
+- <strong>current_time.second</strong> — returns the second (0-59)
+- <strong>current_time.microsecond</strong> — returns the microsecond (0-999999)</p>
+<p><strong>Example usage:</strong> To get just the current hour, use <strong>datetime.now().hour</strong></p>
+<hr />
+<h3 id="practical-example-timestamping-a-log-entry_1">🧪 Practical Example: Timestamping a Log Entry</h3>
+<p>A common use case for <strong>now()</strong> is adding timestamps to log messages. Here's how you might structure it:</p>
+<p><strong>Step 1:</strong> Import the datetime class: from datetime import datetime</p>
+<p><strong>Step 2:</strong> Capture the current time: log_time = datetime.now()</p>
+<p><strong>Step 3:</strong> Format it for readability: formatted_time = log_time.strftime("%Y-%m-%d %H:%M:%S")</p>
+<p><strong>Step 4:</strong> Use it in your message: print(f"[{formatted_time}] System check completed")</p>
+<p><strong>Expected output:</strong> [2024-12-15 14:30:45] System check completed</p>
+<hr />
+<h3 id="important-notes-for-engineers_1">⚠️ Important Notes for Engineers</h3>
+<ul>
+<li><strong>System clock dependency:</strong> The accuracy of <strong>now()</strong> depends entirely on your system's clock being correct. Always ensure NTP (Network Time Protocol) is configured on servers.</li>
+<li><strong>Timezone awareness:</strong> By default, <strong>now()</strong> returns a "naive" datetime (no timezone info). For timezone-aware timestamps, use <strong>datetime.now(timezone.utc)</strong> or another timezone object.</li>
+<li><strong>Performance:</strong> Calling <strong>now()</strong> is very fast and can be used frequently without performance concerns.</li>
+<li><strong>Consistency across systems:</strong> If you're running scripts across multiple servers, consider using <strong>utcnow()</strong> instead to avoid timezone discrepancies.</li>
+</ul>
+<hr />
+<h3 id="quick-reference-common-now-patterns_1">📝 Quick Reference: Common <code>now()</code> Patterns</h3>
+<p><strong>Get current timestamp:</strong> datetime.now()</p>
+<p><strong>Get current hour only:</strong> datetime.now().hour</p>
+<p><strong>Get current date only:</strong> datetime.now().date()</p>
+<p><strong>Get current time only:</strong> datetime.now().time()</p>
+<p><strong>Get timestamp for filename:</strong> datetime.now().strftime("%Y%m%d_%H%M%S")</p>
+<p><strong>Check if it's a new day:</strong> Compare datetime.now().day with a stored value</p>
+<hr />
+<h3 id="next-steps_1">🔄 Next Steps</h3>
+<p>Now that you understand how to retrieve local system time with <strong>now()</strong>, you can explore:
+- <strong>Formatting</strong> datetime objects with <strong>strftime()</strong> for custom output
+- <strong>Calculating time differences</strong> using <strong>timedelta</strong>
+- <strong>Converting</strong> between timezones with <strong>pytz</strong> or <strong>zoneinfo</strong>
+- <strong>Parsing</strong> string dates back into datetime objects with <strong>strptime()</strong></p>
+<p>These skills will help you build robust logging, scheduling, and monitoring tools in your Python scripts.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>datetime.now()</code> method retrieves the current date and time from your local system clock.</p>
+<hr />
+<h3 id="example-1-basic-current-date-and-time-retrieval_1">🕐 Example 1: Basic Current Date and Time Retrieval</h3>
+<p>This example shows how to get the current local date and time with a single function call.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-01-15 14:30:45.123456</strong></p>
+<hr />
+<h3 id="example-2-extracting-individual-date-components_1">🔢 Example 2: Extracting Individual Date Components</h3>
+<p>This example demonstrates how to access specific parts of the current date and time.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">year</span> <span class="o">=</span> <span class="n">current_time</span><span class="o">.</span><span class="n">year</span>
+<span class="n">month</span> <span class="o">=</span> <span class="n">current_time</span><span class="o">.</span><span class="n">month</span>
+<span class="n">day</span> <span class="o">=</span> <span class="n">current_time</span><span class="o">.</span><span class="n">day</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024 1 15</strong></p>
+<hr />
+<h3 id="example-3-extracting-individual-time-components_1">⏰ Example 3: Extracting Individual Time Components</h3>
+<p>This example shows how to access the hour, minute, second, and microsecond from the current time.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">hour</span> <span class="o">=</span> <span class="n">current_time</span><span class="o">.</span><span class="n">hour</span>
+<span class="n">minute</span> <span class="o">=</span> <span class="n">current_time</span><span class="o">.</span><span class="n">minute</span>
+<span class="n">second</span> <span class="o">=</span> <span class="n">current_time</span><span class="o">.</span><span class="n">second</span>
+<span class="n">microsecond</span> <span class="o">=</span> <span class="n">current_time</span><span class="o">.</span><span class="n">microsecond</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">second</span><span class="p">,</span> <span class="n">microsecond</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>14 30 45 123456</strong></p>
+<hr />
+<h3 id="example-4-formatting-current-date-for-display_1">📅 Example 4: Formatting Current Date for Display</h3>
+<p>This example demonstrates how to convert the current datetime into a readable string format.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">formatted_date</span> <span class="o">=</span> <span class="n">current_time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%B </span><span class="si">%d</span><span class="s2">, %Y&quot;</span><span class="p">)</span>
+<span class="n">formatted_time</span> <span class="o">=</span> <span class="n">current_time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%I:%M %p&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted_date</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>January 15, 2024</strong><br />
+📤 Output: <strong>02:30 PM</strong></p>
+<hr />
+<h3 id="example-5-creating-a-timestamp-for-logging_1">📝 Example 5: Creating a Timestamp for Logging</h3>
+<p>This example shows a practical use case — generating a timestamp for logging events in an application.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">log_timestamp</span> <span class="o">=</span> <span class="n">current_time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;[%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S]&quot;</span><span class="p">)</span>
+<span class="n">log_message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">log_timestamp</span><span class="si">}</span><span class="s2"> System check completed&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">log_message</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[2024-01-15 14:30:45] System check completed</strong></p>
+<hr />
+<h3 id="quick-reference-common-now-attributes-and-methods_1">📊 Quick Reference: Common <code>now()</code> Attributes and Methods</h3>
 <table>
 <thead>
 <tr>

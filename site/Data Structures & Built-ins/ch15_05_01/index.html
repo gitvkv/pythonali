@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch15_05_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 15 | Validating IPv4 Address String Formats - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 15 | Validating IPv4 Address String Formats";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch15_05_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch15_05_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -723,6 +723,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#pattern-comparison-table">📊 Pattern Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-makes-an-ipv4-address-valid_1">⚙️ What Makes an IPv4 Address Valid?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-the-regex-pattern-step-by-step_1">🛠️ Building the Regex Pattern Step by Step</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-use-the-regex-in-python_1">🕵️ How to Use the Regex in Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-regex-vs-manual-validation_1">📊 Comparison: Regex vs. Manual Validation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#edge-cases-to-consider_1">🧪 Edge Cases to Consider</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-use-cases_1">🧰 Practical Use Cases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-ipv4-format-check-with-valid-address_1">✅ Example 1: Basic IPv4 format check with valid address</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-rejecting-an-invalid-ipv4-format-letters-present_1">❌ Example 2: Rejecting an invalid IPv4 format (letters present)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-validating-octet-range-0-255-with-stricter-pattern_1">⚠️ Example 3: Validating octet range (0-255) with stricter pattern</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-extracting-all-valid-ipv4-addresses-from-a-log-string_1">🔍 Example 4: Extracting all valid IPv4 addresses from a log string</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-validating-and-rejecting-addresses-with-leading-zeros_1">🛡️ Example 5: Validating and rejecting addresses with leading zeros</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pattern-comparison-table_1">📊 Pattern Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch15_05_02/">Ch 15 | Extracting All IPs from Unstructured Text</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="validating-ipv4-address-string-formats">Validating IPv4 Address String Formats</h1>
 <p><span class="category-tag">🏷️ Regular Expressions (Regex) /  Practical Engineering Examples</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1217,8 +1245,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Validating IPv4 address string formats using regular expressions is a reliable and efficient method for any engineer working with network data. By breaking down the pattern into manageable parts (0–9, 10–99, 100–199, 200–249, 250–255), you can build a robust validation function in Python. Remember to handle edge cases like whitespace and leading zeros, and always use <code>re.fullmatch()</code> to ensure the entire string conforms to the pattern. With this skill, you can confidently process and validate IP addresses in your scripts and automation tasks.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>A regular expression pattern that checks whether a given string follows the standard IPv4 address format of four decimal numbers (0-255) separated by periods.</p>
 <hr />
 <h3 id="example-1-basic-ipv4-format-check-with-valid-address">✅ Example 1: Basic IPv4 format check with valid address</h3>
@@ -1286,6 +1313,260 @@
 <p>📤 Output: <strong>False</strong></p>
 <hr />
 <h3 id="pattern-comparison-table">📊 Pattern Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Pattern Type</th>
+<th>Accepts 0-255</th>
+<th>Rejects Leading Zeros</th>
+<th>Rejects Letters</th>
+<th>Extracts from Text</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic <code>\d{1,3}</code></td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Range <code>25[0-5]...</code></td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Full strict (no leading zeros)</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>With <code>\b</code> word boundaries</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When working with network configurations, log files, or user input, you will frequently encounter IPv4 addresses. Not all strings that <em>look</em> like an IP address are valid. An IPv4 address must follow a strict format: four octets (numbers) separated by dots, where each octet ranges from <strong>0 to 255</strong>. This guide will show you how to validate IPv4 address strings using regular expressions in Python, ensuring your scripts handle network data reliably.</p>
+<hr />
+<h3 id="what-makes-an-ipv4-address-valid_1">⚙️ What Makes an IPv4 Address Valid?</h3>
+<p>An IPv4 address must satisfy these rules:</p>
+<ul>
+<li><strong>Four octets</strong> separated by a dot (<code>.</code>)</li>
+<li>Each octet is a number from <strong>0 to 255</strong></li>
+<li>No leading zeros are allowed (e.g., <code>01</code> is invalid, but <code>0</code> is valid)</li>
+<li>No extra characters (spaces, letters, symbols)</li>
+</ul>
+<p><strong>Valid examples:</strong>
+- <code>192.168.1.1</code>
+- <code>10.0.0.255</code>
+- <code>0.0.0.0</code></p>
+<p><strong>Invalid examples:</strong>
+- <code>256.1.1.1</code> (octet exceeds 255)
+- <code>192.168.01.1</code> (leading zero)
+- <code>192.168.1</code> (missing octet)
+- <code>192.168.1.abc</code> (non-numeric)</p>
+<hr />
+<h3 id="building-the-regex-pattern-step-by-step_1">🛠️ Building the Regex Pattern Step by Step</h3>
+<p>Let's break down the regex pattern for a single octet (0–255):</p>
+<table>
+<thead>
+<tr>
+<th>Octet Range</th>
+<th>Regex Pattern</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–9</td>
+<td><code>\d</code></td>
+<td>Single digit</td>
+</tr>
+<tr>
+<td>10–99</td>
+<td><code>[1-9]\d</code></td>
+<td>Two digits, first cannot be zero</td>
+</tr>
+<tr>
+<td>100–199</td>
+<td><code>1\d{2}</code></td>
+<td>Starts with 1, followed by any two digits</td>
+</tr>
+<tr>
+<td>200–249</td>
+<td><code>2[0-4]\d</code></td>
+<td>Starts with 2, second digit 0–4</td>
+</tr>
+<tr>
+<td>250–255</td>
+<td><code>25[0-5]</code></td>
+<td>Starts with 25, last digit 0–5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Combined pattern for one octet:</strong>
+<code>(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])</code></p>
+<p><strong>Full pattern for the entire IPv4 address:</strong>
+<code>^(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d{2}|2[0-4]\d|25[0-5])$</code></p>
+<hr />
+<h3 id="how-to-use-the-regex-in-python_1">🕵️ How to Use the Regex in Python</h3>
+<p>To validate an IPv4 address string, you will use the <strong>re</strong> module in Python. Here is the step-by-step approach:</p>
+<ol>
+<li><strong>Import the re module</strong> at the top of your script</li>
+<li><strong>Compile the regex pattern</strong> using <code>re.compile()</code> for better performance</li>
+<li><strong>Use the <code>match()</code> or <code>fullmatch()</code> method</strong> to check if the entire string matches the pattern</li>
+<li><strong>Return a boolean result</strong> (True if valid, False if invalid)</li>
+</ol>
+<p><strong>Example workflow:</strong>
+- Define a function called <code>is_valid_ipv4(address)</code>
+- Inside the function, compile the regex pattern
+- Use <code>re.fullmatch(pattern, address)</code> to check the string
+- Return <code>True</code> if a match is found, otherwise return <code>False</code></p>
+<p><strong>Testing the function:</strong>
+- Call <code>is_valid_ipv4("192.168.1.1")</code> → returns <strong>True</strong>
+- Call <code>is_valid_ipv4("256.1.1.1")</code> → returns <strong>False</strong>
+- Call <code>is_valid_ipv4("192.168.01.1")</code> → returns <strong>False</strong>
+- Call <code>is_valid_ipv4("10.0.0.0")</code> → returns <strong>True</strong></p>
+<hr />
+<h3 id="comparison-regex-vs-manual-validation_1">📊 Comparison: Regex vs. Manual Validation</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Regex</strong></td>
+<td>Concise, fast, easy to read once understood</td>
+<td>Pattern can look complex at first</td>
+</tr>
+<tr>
+<td><strong>Manual (split + range check)</strong></td>
+<td>More explicit logic, easier for beginners</td>
+<td>More lines of code, slower for large datasets</td>
+</tr>
+</tbody>
+</table>
+<p><strong>When to use regex:</strong>
+- Validating user input in forms or APIs
+- Parsing large log files for IP addresses
+- Cleaning network configuration data</p>
+<p><strong>When to use manual validation:</strong>
+- Learning the basics of string manipulation
+- When you need to explain the logic to non-technical stakeholders
+- If you are already splitting the string for other purposes</p>
+<hr />
+<h3 id="edge-cases-to-consider_1">🧪 Edge Cases to Consider</h3>
+<p>When validating IPv4 addresses, watch out for these common pitfalls:</p>
+<ul>
+<li><strong>Whitespace:</strong> A string like <code>" 192.168.1.1"</code> should be invalid unless you trim it first</li>
+<li><strong>Multiple dots:</strong> <code>"192..168.1.1"</code> should fail</li>
+<li><strong>Negative numbers:</strong> <code>"-10.0.0.1"</code> should fail</li>
+<li><strong>Empty string:</strong> <code>""</code> should return False</li>
+<li><strong>Hexadecimal or octal formats:</strong> <code>"0x10.0.0.1"</code> is not a valid IPv4 string format</li>
+</ul>
+<p><strong>Tip:</strong> Always use <code>re.fullmatch()</code> instead of <code>re.match()</code> to ensure the <em>entire</em> string matches the pattern, not just the beginning.</p>
+<hr />
+<h3 id="practical-use-cases_1">🧰 Practical Use Cases</h3>
+<p>Engineers commonly validate IPv4 addresses in these scenarios:</p>
+<ul>
+<li><strong>Network configuration scripts:</strong> Verifying user-provided IP addresses before applying settings</li>
+<li><strong>Log analysis:</strong> Extracting and validating IP addresses from server logs</li>
+<li><strong>API input validation:</strong> Ensuring client requests contain properly formatted IP addresses</li>
+<li><strong>Database cleanup:</strong> Checking stored IP address strings for correctness</li>
+<li><strong>Monitoring tools:</strong> Validating target IP addresses before running network tests</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Validating IPv4 address string formats using regular expressions is a reliable and efficient method for any engineer working with network data. By breaking down the pattern into manageable parts (0–9, 10–99, 100–199, 200–249, 250–255), you can build a robust validation function in Python. Remember to handle edge cases like whitespace and leading zeros, and always use <code>re.fullmatch()</code> to ensure the entire string conforms to the pattern. With this skill, you can confidently process and validate IP addresses in your scripts and automation tasks.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>A regular expression pattern that checks whether a given string follows the standard IPv4 address format of four decimal numbers (0-255) separated by periods.</p>
+<hr />
+<h3 id="example-1-basic-ipv4-format-check-with-valid-address_1">✅ Example 1: Basic IPv4 format check with valid address</h3>
+<p>This example shows the simplest valid IPv4 address pattern — four octets separated by dots.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$&quot;</span>
+<span class="n">ip_address</span> <span class="o">=</span> <span class="s2">&quot;192.168.1.1&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-2-rejecting-an-invalid-ipv4-format-letters-present_1">❌ Example 2: Rejecting an invalid IPv4 format (letters present)</h3>
+<p>This example demonstrates that letters or non-numeric characters cause the pattern to fail.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$&quot;</span>
+<span class="n">ip_address</span> <span class="o">=</span> <span class="s2">&quot;192.168.abc.1&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>False</strong></p>
+<hr />
+<h3 id="example-3-validating-octet-range-0-255-with-stricter-pattern_1">⚠️ Example 3: Validating octet range (0-255) with stricter pattern</h3>
+<p>This example ensures each octet is between 0 and 255, not just any 1-3 digit number.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^(25[0-5]|2[0-4]\d|1\d</span><span class="si">{2}</span><span class="s2">|[1-9]?\d)\.&quot;</span> \
+         <span class="sa">r</span><span class="s2">&quot;(25[0-5]|2[0-4]\d|1\d</span><span class="si">{2}</span><span class="s2">|[1-9]?\d)\.&quot;</span> \
+         <span class="sa">r</span><span class="s2">&quot;(25[0-5]|2[0-4]\d|1\d</span><span class="si">{2}</span><span class="s2">|[1-9]?\d)\.&quot;</span> \
+         <span class="sa">r</span><span class="s2">&quot;(25[0-5]|2[0-4]\d|1\d</span><span class="si">{2}</span><span class="s2">|[1-9]?\d)$&quot;</span>
+<span class="n">ip_address</span> <span class="o">=</span> <span class="s2">&quot;256.100.50.25&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>False</strong></p>
+<hr />
+<h3 id="example-4-extracting-all-valid-ipv4-addresses-from-a-log-string_1">🔍 Example 4: Extracting all valid IPv4 addresses from a log string</h3>
+<p>This example shows how engineers can pull multiple IP addresses out of a larger block of text.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\b(25[0-5]|2[0-4]\d|1\d</span><span class="si">{2}</span><span class="s2">|[1-9]?\d)\.&quot;</span> \
+         <span class="sa">r</span><span class="s2">&quot;(25[0-5]|2[0-4]\d|1\d</span><span class="si">{2}</span><span class="s2">|[1-9]?\d)\.&quot;</span> \
+         <span class="sa">r</span><span class="s2">&quot;(25[0-5]|2[0-4]\d|1\d</span><span class="si">{2}</span><span class="s2">|[1-9]?\d)\.&quot;</span> \
+         <span class="sa">r</span><span class="s2">&quot;(25[0-5]|2[0-4]\d|1\d</span><span class="si">{2}</span><span class="s2">|[1-9]?\d)\b&quot;</span>
+<span class="n">log_text</span> <span class="o">=</span> <span class="s2">&quot;Failed login from 10.0.0.1 at 14:32, then from 192.168.1.100&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[('10', '0', '0', '1'), ('192', '168', '1', '100')]</strong></p>
+<hr />
+<h3 id="example-5-validating-and-rejecting-addresses-with-leading-zeros_1">🛡️ Example 5: Validating and rejecting addresses with leading zeros</h3>
+<p>This example ensures engineers catch invalid formats where octets have leading zeros (e.g., 192.168.01.1).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^(25[0-5]|2[0-4]\d|1\d</span><span class="si">{2}</span><span class="s2">|[1-9]\d?|\d)\.&quot;</span> \
+         <span class="sa">r</span><span class="s2">&quot;(25[0-5]|2[0-4]\d|1\d</span><span class="si">{2}</span><span class="s2">|[1-9]\d?|\d)\.&quot;</span> \
+         <span class="sa">r</span><span class="s2">&quot;(25[0-5]|2[0-4]\d|1\d</span><span class="si">{2}</span><span class="s2">|[1-9]\d?|\d)\.&quot;</span> \
+         <span class="sa">r</span><span class="s2">&quot;(25[0-5]|2[0-4]\d|1\d</span><span class="si">{2}</span><span class="s2">|[1-9]\d?|\d)$&quot;</span>
+<span class="n">ip_address</span> <span class="o">=</span> <span class="s2">&quot;192.168.01.1&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">ip_address</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>False</strong></p>
+<hr />
+<h3 id="pattern-comparison-table_1">📊 Pattern Comparison Table</h3>
 <table>
 <thead>
 <tr>

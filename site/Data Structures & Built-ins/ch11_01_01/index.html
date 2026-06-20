@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch11_01_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 11 | Python File as an Isolated Module - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 11 | Python File as an Isolated Module";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch11_01_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch11_01_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -514,6 +514,38 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-module-with-a-class-for-reuse">📦 Example 5: Module with a class for reuse</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-direct-execution-vs-module-import">📊 Comparison: Direct Execution vs Module Import</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🌱 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-makes-a-python-file-an-isolated-module_1">🧱 What Makes a Python File an Isolated Module?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-isolation-works-in-practice_1">⚙️ How Isolation Works in Practice</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-benefits-of-module-isolation_1">🛠️ Key Benefits of Module Isolation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-namespace-isolation_1">🕵️ Understanding Namespace Isolation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-use-a-module-from-another-file_1">📦 How to Use a Module from Another File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-happens-when-a-module-is-imported_1">🧩 What Happens When a Module is Imported</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#protecting-code-from-running-on-import_1">🔒 Protecting Code from Running on Import</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-module-isolation_1">🧠 Best Practices for Module Isolation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-creating-a-simple-module-file_1">🧱 Example 1: Creating a simple module file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-importing-a-module-into-another-file_1">🔌 Example 2: Importing a module into another file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-preventing-module-code-from-running-on-import_1">🛡️ Example 3: Preventing module code from running on import</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-module-with-variables-and-constants_1">🧩 Example 4: Module with variables and constants</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-module-with-a-class-for-reuse_1">📦 Example 5: Module with a class for reuse</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-direct-execution-vs-module-import_1">📊 Comparison: Direct Execution vs Module Import</a>
     </li>
     </ul>
                 </li>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="python-file-as-an-isolated-module">Python File as an Isolated Module</h1>
 <p><span class="category-tag">🏷️ Modules and Imports /  What is a Module?</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🌱 Context Introduction</h3>
@@ -1184,8 +1216,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>A Python file as an isolated module is the fundamental building block of organized Python programs. Each <strong>.py</strong> file creates its own namespace, keeping its contents separate from other files. This isolation prevents naming conflicts, promotes code reuse, and makes large codebases manageable. By understanding how modules work and how to import them, you can structure your Python projects in a clean, scalable way.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>A Python file becomes an isolated module when it contains reusable code that can be imported into other Python files without running its full contents.</p>
 <hr />
 <h3 id="example-1-creating-a-simple-module-file">🧱 Example 1: Creating a simple module file</h3>
@@ -1289,6 +1320,254 @@
 <strong>18.0</strong></p>
 <hr />
 <h3 id="comparison-direct-execution-vs-module-import">📊 Comparison: Direct Execution vs Module Import</h3>
+<table>
+<thead>
+<tr>
+<th>Behavior</th>
+<th>Direct Execution (<code>python file.py</code>)</th>
+<th>Module Import (<code>import file</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code runs immediately</td>
+<td>✅ Yes</td>
+<td>❌ No (only definitions load)</td>
+</tr>
+<tr>
+<td><code>if __name__ == "__main__"</code> block runs</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Functions/classes available to other files</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Variables persist for reuse</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Testing, standalone scripts</td>
+<td>Reusable libraries, shared code</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🌱 Context Introduction</h3>
+<p>When you write Python code, every <strong>.py file</strong> you create is automatically a <strong>module</strong>. Think of a module as a self-contained container of code — like a toolbox that holds related functions, classes, and variables. The key idea is <strong>isolation</strong>: each module has its own namespace, meaning variables and functions inside one module won't accidentally interfere with another module unless you explicitly choose to share them.</p>
+<p>This isolation makes your code <strong>organized</strong>, <strong>reusable</strong>, and <strong>easier to debug</strong>. Instead of writing one giant script, you break your program into smaller, focused files that each handle a specific responsibility.</p>
+<hr />
+<h3 id="what-makes-a-python-file-an-isolated-module_1">🧱 What Makes a Python File an Isolated Module?</h3>
+<ul>
+<li>Every <strong>.py file</strong> is a module — no special declaration needed.</li>
+<li>The filename (without <strong>.py</strong>) becomes the <strong>module name</strong>.</li>
+<li>Variables, functions, and classes defined in the file are <strong>private by default</strong> — they only exist within that module's namespace.</li>
+<li>To use code from another module, you must <strong>import</strong> it, which brings only what you explicitly request into your current namespace.</li>
+<li>This isolation prevents <strong>name collisions</strong> — you can have a function called <strong>calculate()</strong> in multiple modules without conflict.</li>
+</ul>
+<hr />
+<h3 id="how-isolation-works-in-practice_1">⚙️ How Isolation Works in Practice</h3>
+<p>When Python runs a module, it creates a separate namespace for that file. Consider two files:</p>
+<p><strong>File: calculator.py</strong>
+- Contains a function called <strong>add(a, b)</strong> that returns <strong>a + b</strong>
+- Contains a variable <strong>PI = 3.14159</strong></p>
+<p><strong>File: main.py</strong>
+- Contains its own variable <strong>PI = 3.14</strong>
+- Imports <strong>calculator</strong> and calls <strong>calculator.add(5, 3)</strong></p>
+<p>Even though both files have a variable named <strong>PI</strong>, they are completely separate. Changing <strong>PI</strong> in <strong>main.py</strong> does not affect <strong>PI</strong> in <strong>calculator.py</strong>, and vice versa. This is the core benefit of module isolation.</p>
+<hr />
+<h3 id="key-benefits-of-module-isolation_1">🛠️ Key Benefits of Module Isolation</h3>
+<ul>
+<li><strong>Reusability</strong>: Write a module once and use it across many projects</li>
+<li><strong>Maintainability</strong>: Fix or update code in one module without touching others</li>
+<li><strong>Testability</strong>: Test each module independently</li>
+<li><strong>Collaboration</strong>: Multiple engineers can work on different modules simultaneously</li>
+<li><strong>Encapsulation</strong>: Hide internal implementation details from other parts of the program</li>
+</ul>
+<hr />
+<h3 id="understanding-namespace-isolation_1">🕵️ Understanding Namespace Isolation</h3>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Module namespace</strong></td>
+<td>Each module has its own dictionary of names (variables, functions, classes)</td>
+</tr>
+<tr>
+<td><strong>Global scope</strong></td>
+<td>Names defined at the top level of a module belong to that module's namespace</td>
+</tr>
+<tr>
+<td><strong>Import behavior</strong></td>
+<td>Importing a module does not merge namespaces — it creates a reference to the module object</td>
+</tr>
+<tr>
+<td><strong>Name collision prevention</strong></td>
+<td>Two modules can define the same name without conflict because they live in separate namespaces</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-to-use-a-module-from-another-file_1">📦 How to Use a Module from Another File</h3>
+<p>To use code from one module in another, you use the <strong>import</strong> statement. The module name is the filename without the <strong>.py</strong> extension.</p>
+<p><strong>Example scenario:</strong>
+- You have a file named <strong>helpers.py</strong> that contains a function <strong>format_date()</strong>
+- In your <strong>app.py</strong> file, you want to use that function</p>
+<p>You would write in <strong>app.py</strong>: <strong>import helpers</strong> and then call <strong>helpers.format_date()</strong></p>
+<p>The dot notation (<strong>module_name.function_name</strong>) is how you access isolated content from another module. This makes it clear where each piece of code comes from.</p>
+<hr />
+<h3 id="what-happens-when-a-module-is-imported_1">🧩 What Happens When a Module is Imported</h3>
+<p>When Python encounters an import statement, it does the following:</p>
+<ul>
+<li>Searches for the <strong>.py</strong> file in specific locations (current directory, installed packages, etc.)</li>
+<li>Executes the entire module file <strong>from top to bottom</strong></li>
+<li>Creates a module object with its own namespace</li>
+<li>Makes that module object available in the importing file under the module name</li>
+</ul>
+<p>This means any top-level code in the imported module runs immediately. If your module has print statements or variable assignments at the top level, those execute when the module is first imported.</p>
+<hr />
+<h3 id="protecting-code-from-running-on-import_1">🔒 Protecting Code from Running on Import</h3>
+<p>Sometimes you want code in a module to run only when that module is executed directly, not when it is imported. Python provides a built-in mechanism for this:</p>
+<ul>
+<li>Every module has a special variable called <strong><strong>name</strong></strong></li>
+<li>When a module is run directly, <strong><strong>name</strong></strong> is set to <strong>"<strong>main</strong>"</strong></li>
+<li>When a module is imported, <strong><strong>name</strong></strong> is set to the module's filename (without <strong>.py</strong>)</li>
+</ul>
+<p>You can use this to create a <strong>guard</strong> that prevents certain code from executing during import:</p>
+<p>In your module file, place code that should only run when executed directly inside a conditional block: <strong>if <strong>name</strong> == "<strong>main</strong>":</strong></p>
+<p>This pattern is extremely common and allows a file to serve dual purposes — as a reusable module and as a standalone script.</p>
+<hr />
+<h3 id="best-practices-for-module-isolation_1">🧠 Best Practices for Module Isolation</h3>
+<ul>
+<li>Keep each module focused on a <strong>single responsibility</strong> or related set of functions</li>
+<li>Use <strong>descriptive filenames</strong> that indicate the module's purpose</li>
+<li>Avoid <strong>circular imports</strong> (Module A imports Module B, and Module B imports Module A)</li>
+<li>Use the <strong>if <strong>name</strong> == "<strong>main</strong>"</strong> guard for test code or example usage</li>
+<li>Group related modules into <strong>packages</strong> (folders with an <strong><strong>init</strong>.py</strong> file) for larger projects</li>
+<li>Import only what you need using <strong>from module import specific_item</strong> when appropriate</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>A Python file as an isolated module is the fundamental building block of organized Python programs. Each <strong>.py</strong> file creates its own namespace, keeping its contents separate from other files. This isolation prevents naming conflicts, promotes code reuse, and makes large codebases manageable. By understanding how modules work and how to import them, you can structure your Python projects in a clean, scalable way.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>A Python file becomes an isolated module when it contains reusable code that can be imported into other Python files without running its full contents.</p>
+<hr />
+<h3 id="example-1-creating-a-simple-module-file_1">🧱 Example 1: Creating a simple module file</h3>
+<p>This example shows how a single Python file acts as a module when it contains only definitions.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Save this as: greetings.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;Hello, engineer!&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">say_goodbye</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;Goodbye, engineer!&quot;</span>
+</code></pre></div>
+<p>📤 Output: <strong>(no output — file is a module, not executed directly)</strong></p>
+<hr />
+<h3 id="example-2-importing-a-module-into-another-file_1">🔌 Example 2: Importing a module into another file</h3>
+<p>This example demonstrates importing the module and calling its functions from a separate file.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Save this as: main.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">greetings</span>
+
+<span class="n">result1</span> <span class="o">=</span> <span class="n">greetings</span><span class="o">.</span><span class="n">say_hello</span><span class="p">()</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">greetings</span><span class="o">.</span><span class="n">say_goodbye</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello, engineer!</strong><br />
+<strong>Goodbye, engineer!</strong></p>
+<hr />
+<h3 id="example-3-preventing-module-code-from-running-on-import_1">🛡️ Example 3: Preventing module code from running on import</h3>
+<p>This example shows how to use <code>if __name__ == "__main__"</code> to isolate test code from the module.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Save this as: calculator.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Running calculator module directly&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Save this as: use_calculator.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">calculator</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">product</span> <span class="o">=</span> <span class="n">calculator</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>30</strong><br />
+<strong>30</strong></p>
+<hr />
+<h3 id="example-4-module-with-variables-and-constants_1">🧩 Example 4: Module with variables and constants</h3>
+<p>This example shows a module that stores shared configuration values for other files to use.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Save this as: config.py</span>
+<span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14159</span>
+<span class="n">MAX_RETRIES</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">DATABASE_NAME</span> <span class="o">=</span> <span class="s2">&quot;engineer_db&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_config</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;pi&quot;</span><span class="p">:</span> <span class="n">PI</span><span class="p">,</span> <span class="s2">&quot;max_retries&quot;</span><span class="p">:</span> <span class="n">MAX_RETRIES</span><span class="p">,</span> <span class="s2">&quot;db&quot;</span><span class="p">:</span> <span class="n">DATABASE_NAME</span><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Save this as: app.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">PI</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">MAX_RETRIES</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get_config</span><span class="p">()[</span><span class="s2">&quot;db&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>3.14159</strong><br />
+<strong>5</strong><br />
+<strong>engineer_db</strong></p>
+<hr />
+<h3 id="example-5-module-with-a-class-for-reuse_1">📦 Example 5: Module with a class for reuse</h3>
+<p>This example demonstrates a module containing a class that engineers can instantiate in other files.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Save this as: sensor.py</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TemperatureSensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="mf">25.0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">read_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_temperature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="n">value</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Save this as: monitor.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sensor</span><span class="w"> </span><span class="kn">import</span> <span class="n">TemperatureSensor</span>
+
+<span class="n">sensor1</span> <span class="o">=</span> <span class="n">TemperatureSensor</span><span class="p">(</span><span class="s2">&quot;Engine Room&quot;</span><span class="p">)</span>
+<span class="n">sensor2</span> <span class="o">=</span> <span class="n">TemperatureSensor</span><span class="p">(</span><span class="s2">&quot;Cooling Unit&quot;</span><span class="p">)</span>
+
+<span class="n">sensor1</span><span class="o">.</span><span class="n">set_temperature</span><span class="p">(</span><span class="mf">32.5</span><span class="p">)</span>
+<span class="n">sensor2</span><span class="o">.</span><span class="n">set_temperature</span><span class="p">(</span><span class="mf">18.0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor1</span><span class="o">.</span><span class="n">read_temperature</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor2</span><span class="o">.</span><span class="n">read_temperature</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>32.5</strong><br />
+<strong>18.0</strong></p>
+<hr />
+<h3 id="comparison-direct-execution-vs-module-import_1">📊 Comparison: Direct Execution vs Module Import</h3>
 <table>
 <thead>
 <tr>

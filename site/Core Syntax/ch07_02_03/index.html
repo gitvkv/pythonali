@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch07_02_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 07 | Extending and Merging Lists - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 07 | Extending and Merging Lists";
         var mkdocs_page_input_path = "Core Syntax\\ch07_02_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch07_02_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -336,6 +336,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-merging-multiple-lists-into-one">🔧 Example 5: Merging multiple lists into one</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-does-extending-a-list-mean_1">⚙️ What Does Extending a List Mean?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-the-extend-method_1">🛠️ Using the extend() Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#merging-lists-with-the-operator_1">🔗 Merging Lists with the + Operator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-extend-vs-operator_1">📊 Comparison: extend() vs + Operator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#merging-multiple-lists-at-once_1">🕵️ Merging Multiple Lists at Once</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-the-operator-in-place-merge_1">🧩 Using the += Operator (In-Place Merge)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfall-appending-a-list-instead-of-extending_1">⚠️ Common Pitfall: Appending a List Instead of Extending</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference-when-to-use-each_1">🎯 Quick Reference: When to Use Each</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-combining-configuration-lists_1">💡 Practical Example: Combining Configuration Lists</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-extending-a-list-with-extend_1">🔧 Example 1: Extending a list with .extend()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-merging-lists-with-the-operator_1">🔧 Example 2: Merging lists with the + operator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-extending-a-list-with-a-tuple_1">🔧 Example 3: Extending a list with a tuple</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-merging-with-augmented-assignment_1">🔧 Example 4: Merging with augmented assignment +=</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-merging-multiple-lists-into-one_1">🔧 Example 5: Merging multiple lists into one</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="extending-and-merging-lists">Extending and Merging Lists</h1>
 <p><span class="category-tag">🏷️ Lists and List Operations /  Modifying Lists</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with lists in Python, you'll often need to combine multiple lists or add new elements to an existing list. Understanding how to extend and merge lists efficiently will help you manage data collections, whether you're aggregating logs, combining configuration values, or building dynamic inventories.</p>
@@ -1186,8 +1216,7 @@
 <li>If you use the <strong>+ operator</strong>, you get a new list <strong>[80, 443, 8080, 8443]</strong> while the base list remains <strong>[80, 443]</strong>.</li>
 </ul>
 <p>Choose based on whether you need to preserve the original data or not.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Extending and merging lists allows engineers to combine multiple lists into one, either by adding all elements from another list or by concatenating lists together.</p>
 <h3 id="example-1-extending-a-list-with-extend">🔧 Example 1: Extending a list with <code>.extend()</code></h3>
 <p>This example shows how to add all items from one list to the end of another list using the <code>.extend()</code> method.</p>
@@ -1235,6 +1264,196 @@
 <p>📤 Output: <strong>['HTML', 'CSS', 'Python', 'SQL', 'Docker', 'K8s']</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Creates new list?</th>
+<th>Modifies original?</th>
+<th>Use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.extend()</code></td>
+<td>No</td>
+<td>Yes</td>
+<td>Add items to existing list</td>
+</tr>
+<tr>
+<td><code>+</code> operator</td>
+<td>Yes</td>
+<td>No</td>
+<td>Combine lists into new list</td>
+</tr>
+<tr>
+<td><code>+=</code> operator</td>
+<td>No</td>
+<td>Yes</td>
+<td>Shortcut for extending in place</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with lists in Python, you'll often need to combine multiple lists or add new elements to an existing list. Understanding how to extend and merge lists efficiently will help you manage data collections, whether you're aggregating logs, combining configuration values, or building dynamic inventories.</p>
+<hr />
+<h3 id="what-does-extending-a-list-mean_1">⚙️ What Does Extending a List Mean?</h3>
+<p>Extending a list means adding multiple elements from another iterable (like another list, tuple, or set) to the end of your existing list. Unlike appending a single item, extending adds each element individually.</p>
+<ul>
+<li><strong>Append</strong> adds one item as a single element (even if it's a list).</li>
+<li><strong>Extend</strong> adds each element from the iterable separately.</li>
+</ul>
+<hr />
+<h3 id="using-the-extend-method_1">🛠️ Using the <code>extend()</code> Method</h3>
+<p>The <strong>extend()</strong> method takes an iterable (like a list) and adds its elements one by one to the end of the original list.</p>
+<p><strong>Example:</strong>
+- You have a list of server names: <strong>['web-01', 'web-02']</strong>
+- You want to add more servers from another list: <strong>['web-03', 'web-04']</strong>
+- Using <strong>extend()</strong>, the result becomes: <strong>['web-01', 'web-02', 'web-03', 'web-04']</strong></p>
+<p><strong>Key point:</strong> The original list is modified directly — no new list is created.</p>
+<hr />
+<h3 id="merging-lists-with-the-operator_1">🔗 Merging Lists with the <code>+</code> Operator</h3>
+<p>The <strong>+ operator</strong> creates a brand new list by combining two or more lists together. The original lists remain unchanged.</p>
+<p><strong>Example:</strong>
+- List A: <strong>['us-east-1', 'us-west-2']</strong>
+- List B: <strong>['eu-west-1', 'ap-southeast-1']</strong>
+- Using <strong>A + B</strong> gives: <strong>['us-east-1', 'us-west-2', 'eu-west-1', 'ap-southeast-1']</strong>
+- Both List A and List B stay exactly as they were.</p>
+<hr />
+<h3 id="comparison-extend-vs-operator_1">📊 Comparison: <code>extend()</code> vs <code>+</code> Operator</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><strong>extend()</strong></th>
+<th><strong>+ Operator</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modifies original list?</td>
+<td>✅ Yes, changes in place</td>
+<td>❌ No, creates new list</td>
+</tr>
+<tr>
+<td>Creates a new list?</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>Lower (no copy)</td>
+<td>Higher (new list created)</td>
+</tr>
+<tr>
+<td>Can chain multiple lists?</td>
+<td>One at a time</td>
+<td>Yes, multiple lists at once</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>When you want to update an existing list</td>
+<td>When you need to keep originals unchanged</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="merging-multiple-lists-at-once_1">🕵️ Merging Multiple Lists at Once</h3>
+<p>You can merge more than two lists using the <strong>+ operator</strong> in a single expression.</p>
+<p><strong>Example:</strong>
+- List 1: <strong>['dev', 'staging']</strong>
+- List 2: <strong>['prod']</strong>
+- List 3: <strong>['dr']</strong>
+- Using <strong>List1 + List2 + List3</strong> gives: <strong>['dev', 'staging', 'prod', 'dr']</strong></p>
+<hr />
+<h3 id="using-the-operator-in-place-merge_1">🧩 Using the <code>+=</code> Operator (In-Place Merge)</h3>
+<p>The <strong>+= operator</strong> works like <strong>extend()</strong> — it modifies the original list by adding elements from another iterable.</p>
+<p><strong>Example:</strong>
+- Original list: <strong>['10.0.0.1', '10.0.0.2']</strong>
+- Using <strong>+= ['10.0.0.3', '10.0.0.4']</strong> results in: <strong>['10.0.0.1', '10.0.0.2', '10.0.0.3', '10.0.0.4']</strong></p>
+<p><strong>Note:</strong> The <strong>+= operator</strong> is often preferred for readability when you want to modify the list in place.</p>
+<hr />
+<h3 id="common-pitfall-appending-a-list-instead-of-extending_1">⚠️ Common Pitfall: Appending a List Instead of Extending</h3>
+<p>A frequent mistake is using <strong>append()</strong> when you meant to use <strong>extend()</strong>.</p>
+<p><strong>What happens with append:</strong>
+- You have: <strong>['a', 'b']</strong>
+- You append: <strong>['c', 'd']</strong>
+- Result: <strong>['a', 'b', ['c', 'd']]</strong> — a nested list!</p>
+<p><strong>What happens with extend:</strong>
+- You have: <strong>['a', 'b']</strong>
+- You extend: <strong>['c', 'd']</strong>
+- Result: <strong>['a', 'b', 'c', 'd']</strong> — flat list as intended</p>
+<hr />
+<h3 id="quick-reference-when-to-use-each_1">🎯 Quick Reference: When to Use Each</h3>
+<ul>
+<li>Use <strong>extend()</strong> or <strong>+=</strong> when you want to add items to an existing list without creating a new object.</li>
+<li>Use the <strong>+ operator</strong> when you need to keep the original lists unchanged and work with a new combined list.</li>
+<li>Use <strong>append()</strong> only when you want to add a single element (including a list as one nested element).</li>
+</ul>
+<hr />
+<h3 id="practical-example-combining-configuration-lists_1">💡 Practical Example: Combining Configuration Lists</h3>
+<p>Imagine you have a base list of default ports and an environment-specific list of additional ports.</p>
+<p><strong>Base list:</strong> <strong>[80, 443]</strong>
+<strong>Environment-specific list:</strong> <strong>[8080, 8443]</strong></p>
+<ul>
+<li>If you use <strong>extend()</strong> on the base list, the base list becomes <strong>[80, 443, 8080, 8443]</strong>.</li>
+<li>If you use the <strong>+ operator</strong>, you get a new list <strong>[80, 443, 8080, 8443]</strong> while the base list remains <strong>[80, 443]</strong>.</li>
+</ul>
+<p>Choose based on whether you need to preserve the original data or not.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Extending and merging lists allows engineers to combine multiple lists into one, either by adding all elements from another list or by concatenating lists together.</p>
+<h3 id="example-1-extending-a-list-with-extend_1">🔧 Example 1: Extending a list with <code>.extend()</code></h3>
+<p>This example shows how to add all items from one list to the end of another list using the <code>.extend()</code> method.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">]</span>
+<span class="n">new_engineers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Diana&quot;</span><span class="p">]</span>
+<span class="n">engineers</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">new_engineers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineers</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Alice', 'Bob', 'Charlie', 'Diana']</strong></p>
+<hr />
+<h3 id="example-2-merging-lists-with-the-operator_1">🔧 Example 2: Merging lists with the <code>+</code> operator</h3>
+<p>This example demonstrates how to create a new list by combining two existing lists using the <code>+</code> operator.</p>
+<div class="highlight"><pre><span></span><code><span class="n">team_a</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Eve&quot;</span><span class="p">,</span> <span class="s2">&quot;Frank&quot;</span><span class="p">]</span>
+<span class="n">team_b</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Grace&quot;</span><span class="p">,</span> <span class="s2">&quot;Hank&quot;</span><span class="p">]</span>
+<span class="n">combined_team</span> <span class="o">=</span> <span class="n">team_a</span> <span class="o">+</span> <span class="n">team_b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">combined_team</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Eve', 'Frank', 'Grace', 'Hank']</strong></p>
+<hr />
+<h3 id="example-3-extending-a-list-with-a-tuple_1">🔧 Example 3: Extending a list with a tuple</h3>
+<p>This example shows that <code>.extend()</code> works with any iterable, not just lists — here a tuple is used.</p>
+<div class="highlight"><pre><span></span><code><span class="n">project_leads</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ivy&quot;</span><span class="p">,</span> <span class="s2">&quot;Jack&quot;</span><span class="p">]</span>
+<span class="n">new_lead</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Ken&quot;</span><span class="p">,)</span>
+<span class="n">project_leads</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">new_lead</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">project_leads</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Ivy', 'Jack', 'Ken']</strong></p>
+<hr />
+<h3 id="example-4-merging-with-augmented-assignment_1">🔧 Example 4: Merging with augmented assignment <code>+=</code></h3>
+<p>This example demonstrates using the <code>+=</code> operator to extend a list in place, which is equivalent to <code>.extend()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;design&quot;</span><span class="p">,</span> <span class="s2">&quot;code&quot;</span><span class="p">]</span>
+<span class="n">tasks</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;deploy&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['design', 'code', 'test', 'deploy']</strong></p>
+<hr />
+<h3 id="example-5-merging-multiple-lists-into-one_1">🔧 Example 5: Merging multiple lists into one</h3>
+<p>This example shows how engineers can merge three or more lists into a single list using the <code>+</code> operator.</p>
+<div class="highlight"><pre><span></span><code><span class="n">frontend</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;HTML&quot;</span><span class="p">,</span> <span class="s2">&quot;CSS&quot;</span><span class="p">]</span>
+<span class="n">backend</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="s2">&quot;SQL&quot;</span><span class="p">]</span>
+<span class="n">devops</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Docker&quot;</span><span class="p">,</span> <span class="s2">&quot;K8s&quot;</span><span class="p">]</span>
+<span class="n">full_stack</span> <span class="o">=</span> <span class="n">frontend</span> <span class="o">+</span> <span class="n">backend</span> <span class="o">+</span> <span class="n">devops</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">full_stack</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['HTML', 'CSS', 'Python', 'SQL', 'Docker', 'K8s']</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

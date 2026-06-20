@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch09_03_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 09 | Iterating Over Values Explicitly - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 09 | Iterating Over Values Explicitly";
         var mkdocs_page_input_path = "Core Syntax\\ch09_03_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch09_03_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -426,6 +426,30 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-filtering-values-with-a-condition">🔧 Example 5: Filtering values with a condition</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-does-iterating-over-values-mean_1">⚙️ What Does "Iterating Over Values" Mean?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-iterate-over-values_1">🛠️ How to Iterate Over Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-checking-server-statuses_1">📊 Example: Checking Server Statuses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-values-vs-keys-or-items_1">🕵️ When to Use .values() vs .keys() or .items()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-filtering-values_1">🧪 Practical Example: Filtering Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-loop-over-dictionary-values_1">🔧 Example 1: Basic loop over dictionary values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-converting-values-to-a-list_1">🔧 Example 2: Converting values to a list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-summing-all-values_1">🔧 Example 3: Summing all values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-finding-the-maximum-value_1">🔧 Example 4: Finding the maximum value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-filtering-values-with-a-condition_1">🔧 Example 5: Filtering values with a condition</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1072,7 +1096,7 @@
               
                 <h1 id="iterating-over-values-explicitly">Iterating Over Values Explicitly</h1>
 <p><span class="category-tag">🏷️ Dictionaries /  Iterating Over Dictionaries</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with dictionaries, you often need to access just the values stored inside them—without worrying about the keys. This is especially useful when you care only about the data itself, such as a list of server statuses, configuration values, or error counts. Python provides a clean, explicit way to loop through dictionary values directly.</p>
@@ -1151,8 +1175,7 @@
 <li>Remember: if you need the keys as well, switch to <strong>.items()</strong>.</li>
 </ul>
 <p>By mastering <strong>.values()</strong>, you can write cleaner, more focused loops that handle dictionary data efficiently.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This method lets you access each value stored in a dictionary directly, without needing the corresponding keys.</p>
 <h3 id="example-1-basic-loop-over-dictionary-values">🔧 Example 1: Basic loop over dictionary values</h3>
 <p>This shows how to print each value from a simple dictionary using <code>.values()</code>.</p>
@@ -1203,6 +1226,167 @@
 <p>📤 Output: <strong>1</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What it returns</th>
+<th>Use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dict.values()</code></td>
+<td>View of all values</td>
+<td>When you only need the stored data</td>
+</tr>
+<tr>
+<td><code>dict.keys()</code></td>
+<td>View of all keys</td>
+<td>When you need the labels</td>
+</tr>
+<tr>
+<td><code>dict.items()</code></td>
+<td>View of key-value pairs</td>
+<td>When you need both</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div class="tabbed-block">
+<p>When working with dictionaries, you often need to access just the values stored inside them—without worrying about the keys. This is especially useful when you care only about the data itself, such as a list of server statuses, configuration values, or error counts. Python provides a clean, explicit way to loop through dictionary values directly.</p>
+<hr />
+<h3 id="what-does-iterating-over-values-mean_1">⚙️ What Does "Iterating Over Values" Mean?</h3>
+<p>A dictionary stores data in <strong>key-value pairs</strong>. When you iterate over values explicitly, you skip the keys and focus only on the values. This is helpful when:</p>
+<ul>
+<li>You want to process or display the data without needing the labels.</li>
+<li>You are summing, counting, or transforming values.</li>
+<li>You need to check if a specific value exists in the dictionary.</li>
+</ul>
+<hr />
+<h3 id="how-to-iterate-over-values_1">🛠️ How to Iterate Over Values</h3>
+<p>Python gives you the <strong><code>.values()</code></strong> method to access all values in a dictionary. You use it inside a <strong>for loop</strong> like this:</p>
+<ul>
+<li>Start with a dictionary, for example: <strong>server_status = {"web": "active", "db": "active", "cache": "inactive"}</strong></li>
+<li>To loop through only the values, write: <strong>for status in server_status.values():</strong></li>
+<li>Inside the loop, you can print each value or perform actions: <strong>print(status)</strong></li>
+</ul>
+<p>This will output each value one by one: <strong>active</strong>, <strong>active</strong>, <strong>inactive</strong></p>
+<hr />
+<h3 id="example-checking-server-statuses_1">📊 Example: Checking Server Statuses</h3>
+<p>Imagine you have a dictionary of servers and their current states. You want to know how many are active.</p>
+<ul>
+<li>Dictionary: <strong>server_health = {"web01": "active", "web02": "active", "db01": "inactive", "cache01": "active"}</strong></li>
+<li>Loop through values: <strong>for state in server_health.values():</strong></li>
+<li>Count active servers: <strong>if state == "active": count += 1</strong></li>
+<li>Final result: <strong>count</strong> equals <strong>3</strong></li>
+</ul>
+<p>This approach is cleaner than looping through keys and then looking up each value.</p>
+<hr />
+<h3 id="when-to-use-values-vs-keys-or-items_1">🕵️ When to Use <code>.values()</code> vs <code>.keys()</code> or <code>.items()</code></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What You Get</th>
+<th>Best Used When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.values()</strong></td>
+<td>Only the values</td>
+<td>You don't need the keys, just the data</td>
+</tr>
+<tr>
+<td><strong>.keys()</strong></td>
+<td>Only the keys</td>
+<td>You need the labels or identifiers</td>
+</tr>
+<tr>
+<td><strong>.items()</strong></td>
+<td>Both keys and values</td>
+<td>You need to work with both together</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-filtering-values_1">🧪 Practical Example: Filtering Values</h3>
+<p>Suppose you have a dictionary of error counts for different services:</p>
+<ul>
+<li>Dictionary: <strong>error_counts = {"web": 5, "db": 12, "cache": 0, "api": 8}</strong></li>
+<li>You want to list only services with errors (values greater than 0)</li>
+<li>Loop: <strong>for count in error_counts.values():</strong></li>
+<li>Condition: <strong>if count &gt; 0: print(count)</strong></li>
+<li>Output: <strong>5</strong>, <strong>12</strong>, <strong>8</strong></li>
+</ul>
+<p>Notice that you lose the service name here. If you need both the service name and the count, you would use <strong>.items()</strong> instead.</p>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li>Use <strong>.values()</strong> when you only care about the data stored in the dictionary.</li>
+<li>It returns a view object that you can loop through directly.</li>
+<li>This method is explicit and makes your code easier to read.</li>
+<li>Remember: if you need the keys as well, switch to <strong>.items()</strong>.</li>
+</ul>
+<p>By mastering <strong>.values()</strong>, you can write cleaner, more focused loops that handle dictionary data efficiently.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This method lets you access each value stored in a dictionary directly, without needing the corresponding keys.</p>
+<h3 id="example-1-basic-loop-over-dictionary-values_1">🔧 Example 1: Basic loop over dictionary values</h3>
+<p>This shows how to print each value from a simple dictionary using <code>.values()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensor_readings</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;temp&quot;</span><span class="p">:</span> <span class="mi">72</span><span class="p">,</span> <span class="s2">&quot;humidity&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s2">&quot;pressure&quot;</span><span class="p">:</span> <span class="mi">1013</span><span class="p">}</span>
+<span class="k">for</span> <span class="n">reading</span> <span class="ow">in</span> <span class="n">sensor_readings</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">reading</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>72 45 1013</strong></p>
+<hr />
+<h3 id="example-2-converting-values-to-a-list_1">🔧 Example 2: Converting values to a list</h3>
+<p>This demonstrates how to capture all dictionary values into a list for later use.</p>
+<div class="highlight"><pre><span></span><code><span class="n">server_speeds</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;web&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s2">&quot;db&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s2">&quot;cache&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">}</span>
+<span class="n">speed_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">server_speeds</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">speed_list</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[1.5, 2.0, 0.8]</strong></p>
+<hr />
+<h3 id="example-3-summing-all-values_1">🔧 Example 3: Summing all values</h3>
+<p>This shows how to add up all numeric values in a dictionary using a loop.</p>
+<div class="highlight"><pre><span></span><code><span class="n">error_counts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;critical&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;warning&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;info&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">}</span>
+<span class="n">total_errors</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">error_counts</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="n">total_errors</span> <span class="o">=</span> <span class="n">total_errors</span> <span class="o">+</span> <span class="n">count</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total_errors</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>60</strong></p>
+<hr />
+<h3 id="example-4-finding-the-maximum-value_1">🔧 Example 4: Finding the maximum value</h3>
+<p>This demonstrates how to find the largest value in a dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">response_times</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;api&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">,</span> <span class="s2">&quot;db&quot;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s2">&quot;cdn&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">}</span>
+<span class="n">max_time</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">response_times</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="n">max_time</span><span class="p">:</span>
+        <span class="n">max_time</span> <span class="o">=</span> <span class="n">time</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">max_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>200</strong></p>
+<hr />
+<h3 id="example-5-filtering-values-with-a-condition_1">🔧 Example 5: Filtering values with a condition</h3>
+<p>This shows how to count how many values meet a specific threshold.</p>
+<div class="highlight"><pre><span></span><code><span class="n">cpu_usage</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;node1&quot;</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span> <span class="s2">&quot;node2&quot;</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s2">&quot;node3&quot;</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span> <span class="s2">&quot;node4&quot;</span><span class="p">:</span> <span class="mi">45</span><span class="p">}</span>
+<span class="n">high_usage_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">usage</span> <span class="ow">in</span> <span class="n">cpu_usage</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">usage</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
+        <span class="n">high_usage_count</span> <span class="o">=</span> <span class="n">high_usage_count</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">high_usage_count</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>1</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

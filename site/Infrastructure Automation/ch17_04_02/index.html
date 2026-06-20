@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch17_04_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 17 | Catching Failures via requests.exceptions.Timeout - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 17 | Catching Failures via requests.exceptions.Timeout";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch17_04_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch17_04_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -811,6 +811,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-timeout_1">⚙️ What Is a Timeout?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-set-timeouts-in-requests_1">🛠️ How to Set Timeouts in requests</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#catching-timeout-exceptions_1">🕵️ Catching Timeout Exceptions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-with-vs-without-timeout-handling_1">📊 Comparison: With vs. Without Timeout Handling</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-breakdown_1">🧪 Practical Example Breakdown</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#retry-logic-after-timeout_1">🔁 Retry Logic After Timeout</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">⚠️ Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-summary_1">✅ Best Practices Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-timeout-exception_1">⏱️ Example 1: Basic Timeout Exception</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-catching-timeout-with-a-specific-error-message_1">⏱️ Example 2: Catching Timeout with a Specific Error Message</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-a-retry-after-timeout_1">⏱️ Example 3: Using a Retry After Timeout</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-different-timeout-values-for-connect-and-read_1">⏱️ Example 4: Different Timeout Values for Connect and Read</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-catching-timeout-in-a-function-for-reuse_1">⏱️ Example 5: Catching Timeout in a Function for Reuse</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch17_04_03/">Ch 17 | Catching Anomalies via requests.exceptions.ConnectionError</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="catching-failures-via-requestsexceptionstimeout">Catching Failures via requests.exceptions.Timeout</h1>
 <p><span class="category-tag">🏷️ APIs and HTTP Requests /  Timeouts and Error Handling</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When your Python script makes HTTP requests to external services, sometimes those services take too long to respond. A timeout occurs when a request exceeds a specified waiting period. Without handling these timeouts properly, your script can hang indefinitely, causing delays or failures in your automation workflows.</p>
@@ -1182,8 +1210,7 @@
 <li>Use separate connect and read timeouts for more granular control.</li>
 </ul>
 <p>By handling timeouts properly, your scripts become more robust and reliable, especially when interacting with external APIs that may experience latency or downtime.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This exception is raised when a request takes longer than the allowed time limit, allowing engineers to handle slow or unresponsive servers gracefully.</p>
 <hr />
 <h3 id="example-1-basic-timeout-exception">⏱️ Example 1: Basic Timeout Exception</h3>
@@ -1267,6 +1294,236 @@
 <strong>Request timed out</strong></p>
 <hr />
 <h3 id="comparison-table">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Timeout Value</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fast server response</td>
+<td>5 seconds</td>
+<td>Request succeeds normally</td>
+</tr>
+<tr>
+<td>Slow server response</td>
+<td>1 second</td>
+<td><code>requests.exceptions.Timeout</code> raised</td>
+</tr>
+<tr>
+<td>Separate connect/read timeouts</td>
+<td>(2, 3)</td>
+<td>Connect timeout at 2s, read timeout at 3s</td>
+</tr>
+<tr>
+<td>With retry logic</td>
+<td>2 seconds</td>
+<td>Retries once before failing</td>
+</tr>
+<tr>
+<td>Reusable function</td>
+<td>5 seconds</td>
+<td>Returns data or timeout message</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When your Python script makes HTTP requests to external services, sometimes those services take too long to respond. A timeout occurs when a request exceeds a specified waiting period. Without handling these timeouts properly, your script can hang indefinitely, causing delays or failures in your automation workflows.</p>
+<hr />
+<h3 id="what-is-a-timeout_1">⚙️ What Is a Timeout?</h3>
+<p>A timeout is a limit you set on how long your script will wait for a response from a server. If the server doesn't respond within that time, Python raises a <strong>requests.exceptions.Timeout</strong> exception.</p>
+<ul>
+<li><strong>Connect timeout</strong> – The time allowed for your script to establish a connection to the server.</li>
+<li><strong>Read timeout</strong> – The time allowed for your script to receive data from the server after the connection is made.</li>
+<li><strong>Combined timeout</strong> – A single value applied to both connect and read phases.</li>
+</ul>
+<hr />
+<h3 id="how-to-set-timeouts-in-requests_1">🛠️ How to Set Timeouts in requests</h3>
+<p>When making a request using the <strong>requests</strong> library, you pass a <strong>timeout</strong> parameter:</p>
+<ul>
+<li><strong>timeout=5</strong> – Wait up to 5 seconds for both connect and read.</li>
+<li><strong>timeout=(3, 10)</strong> – Wait 3 seconds to connect, then 10 seconds to read.</li>
+<li><strong>timeout=None</strong> – No timeout (not recommended, as your script may hang forever).</li>
+</ul>
+<p>Example of setting a timeout in a request:</p>
+<ul>
+<li><strong>requests.get('https://example.com', timeout=5)</strong> – This tells the script to wait a maximum of 5 seconds for a response.</li>
+</ul>
+<hr />
+<h3 id="catching-timeout-exceptions_1">🕵️ Catching Timeout Exceptions</h3>
+<p>When a timeout occurs, Python raises <strong>requests.exceptions.Timeout</strong>. You catch this exception using a <strong>try-except</strong> block to handle the failure gracefully.</p>
+<p>Basic structure:</p>
+<ul>
+<li>Wrap your request in a <strong>try</strong> block.</li>
+<li>Catch <strong>requests.exceptions.Timeout</strong> in an <strong>except</strong> block.</li>
+<li>Inside the except block, log the error, retry, or take alternative action.</li>
+</ul>
+<p>Example flow:</p>
+<ul>
+<li><strong>try:</strong> – Make the HTTP request with a timeout value.</li>
+<li><strong>except requests.exceptions.Timeout:</strong> – Print a message like "Request timed out" and continue with fallback logic.</li>
+</ul>
+<hr />
+<h3 id="comparison-with-vs-without-timeout-handling_1">📊 Comparison: With vs. Without Timeout Handling</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Behavior</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No timeout set</td>
+<td>Script waits indefinitely</td>
+<td>Script hangs, no error raised</td>
+</tr>
+<tr>
+<td>Timeout set but not caught</td>
+<td>Script raises an unhandled exception</td>
+<td>Script crashes with a traceback</td>
+</tr>
+<tr>
+<td>Timeout set and caught</td>
+<td>Script handles the failure gracefully</td>
+<td>Script logs the error and continues</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-breakdown_1">🧪 Practical Example Breakdown</h3>
+<p>Imagine you are polling a status endpoint every few seconds. If the endpoint becomes unresponsive, you want to detect that quickly and move on.</p>
+<p>Steps in your logic:</p>
+<ol>
+<li>Set a <strong>timeout</strong> of 3 seconds on your request.</li>
+<li>Use a <strong>try-except</strong> block to catch <strong>requests.exceptions.Timeout</strong>.</li>
+<li>In the <strong>except</strong> block, print a warning message and continue the loop.</li>
+<li>Optionally, implement a retry mechanism with a delay.</li>
+</ol>
+<p>This approach ensures your script does not get stuck waiting for a dead service.</p>
+<hr />
+<h3 id="retry-logic-after-timeout_1">🔁 Retry Logic After Timeout</h3>
+<p>A common pattern is to retry the request a few times before giving up. You can combine timeout handling with a simple retry loop:</p>
+<ul>
+<li>Set a maximum number of retries (e.g., 3).</li>
+<li>Use a <strong>for</strong> loop to attempt the request multiple times.</li>
+<li>Catch the timeout exception inside the loop.</li>
+<li>If the request succeeds, break out of the loop.</li>
+<li>If all retries fail, log a final error and exit.</li>
+</ul>
+<p>This pattern increases resilience against transient network issues.</p>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">⚠️ Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Forgetting to set a timeout</strong> – Your script may hang forever if the server never responds.</li>
+<li><strong>Catching the wrong exception</strong> – Use <strong>requests.exceptions.Timeout</strong>, not a generic <strong>Exception</strong>.</li>
+<li><strong>Not logging the failure</strong> – Without logging, you won't know why your script behaved unexpectedly.</li>
+<li><strong>Infinite retry loops</strong> – Always limit retry attempts to avoid endless execution.</li>
+</ul>
+<hr />
+<h3 id="best-practices-summary_1">✅ Best Practices Summary</h3>
+<ul>
+<li>Always set a <strong>timeout</strong> on every HTTP request you make.</li>
+<li>Catch <strong>requests.exceptions.Timeout</strong> explicitly in your error handling.</li>
+<li>Log timeout events with details like the URL and elapsed time.</li>
+<li>Implement a <strong>retry mechanism</strong> with a maximum retry count and delay.</li>
+<li>Use separate connect and read timeouts for more granular control.</li>
+</ul>
+<p>By handling timeouts properly, your scripts become more robust and reliable, especially when interacting with external APIs that may experience latency or downtime.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This exception is raised when a request takes longer than the allowed time limit, allowing engineers to handle slow or unresponsive servers gracefully.</p>
+<hr />
+<h3 id="example-1-basic-timeout-exception_1">⏱️ Example 1: Basic Timeout Exception</h3>
+<p>This example shows what happens when a request exceeds a very short timeout value.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/delay/5&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Timeout</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The request timed out&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>The request timed out</strong></p>
+<hr />
+<h3 id="example-2-catching-timeout-with-a-specific-error-message_1">⏱️ Example 2: Catching Timeout with a Specific Error Message</h3>
+<p>This example demonstrates how to catch the timeout and display a custom message.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/delay/3&quot;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Timeout</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request to </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2"> failed due to timeout&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Request to https://httpbin.org/delay/3 failed due to timeout</strong></p>
+<hr />
+<h3 id="example-3-using-a-retry-after-timeout_1">⏱️ Example 3: Using a Retry After Timeout</h3>
+<p>This example shows how to retry a request once after catching a timeout.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/delay/4&quot;</span>
+<span class="n">max_retries</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">attempt</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">attempt</span> <span class="o">&lt;=</span> <span class="n">max_retries</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Request succeeded&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Timeout</span><span class="p">:</span>
+        <span class="n">attempt</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">attempt</span> <span class="o">&lt;=</span> <span class="n">max_retries</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Timeout occurred, retrying (attempt </span><span class="si">{</span><span class="n">attempt</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Max retries reached, request failed&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Timeout occurred, retrying (attempt 1)</strong><br />
+<strong>Max retries reached, request failed</strong></p>
+<hr />
+<h3 id="example-4-different-timeout-values-for-connect-and-read_1">⏱️ Example 4: Different Timeout Values for Connect and Read</h3>
+<p>This example shows how to set separate timeouts for connecting and reading data.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/delay/6&quot;</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Timeout</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Timeout occurred during connection or reading&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Timeout occurred during connection or reading</strong></p>
+<hr />
+<h3 id="example-5-catching-timeout-in-a-function-for-reuse_1">⏱️ Example 5: Catching Timeout in a Function for Reuse</h3>
+<p>This example wraps timeout handling in a reusable function for multiple URLs.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fetch_with_timeout</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">Timeout</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Request timed out&quot;</span>
+
+<span class="n">result1</span> <span class="o">=</span> <span class="n">fetch_with_timeout</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/delay/1&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">fetch_with_timeout</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/delay/10&quot;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result1</span><span class="p">[:</span><span class="mi">50</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{</strong><br />
+<strong>Request timed out</strong></p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

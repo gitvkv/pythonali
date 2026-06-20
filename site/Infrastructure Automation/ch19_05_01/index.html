@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_05_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Checking for Mandatory Schema Configuration Key Markers - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Checking for Mandatory Schema Configuration Key Markers";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_05_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_05_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -921,6 +921,40 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🌍 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-mandatory-schema-configuration-key-markers_1">⚙️ What Are Mandatory Schema Configuration Key Markers?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-check-for-mandatory-keys_1">🛠️ Why Check for Mandatory Keys?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-check-for-mandatory-keys-in-python_1">🕵️ How to Check for Mandatory Keys in Python</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#for-json-and-yaml-dictionaries_1">✅ For JSON and YAML (Dictionaries)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#for-csv-files-rows-as-dictionaries_1">✅ For CSV Files (Rows as Dictionaries)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-checking-mandatory-keys-across-formats_1">📊 Comparison: Checking Mandatory Keys Across Formats</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-key-validation_1">🧠 Best Practices for Key Validation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together_1">🚀 Putting It All Together</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-checking-a-single-mandatory-key-exists_1">🔧 Example 1: Checking a single mandatory key exists</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-checking-for-a-missing-mandatory-key_1">🔧 Example 2: Checking for a missing mandatory key</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-checking-multiple-mandatory-keys-with-a-list_1">🔧 Example 3: Checking multiple mandatory keys with a list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-collecting-all-missing-mandatory-keys_1">🔧 Example 4: Collecting all missing mandatory keys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-validating-a-configuration-before-processing_1">🔧 Example 5: Validating a configuration before processing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_05_02/">Ch 19 | Type Checking Parsed Parameter Values in Configurations</a>
@@ -1082,7 +1116,7 @@
               
                 <h1 id="checking-for-mandatory-schema-configuration-key-markers">Checking for Mandatory Schema Configuration Key Markers</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  Data Validation Basics</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🌍 Context Introduction</h3>
@@ -1222,8 +1256,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Checking for mandatory schema configuration key markers is a simple yet powerful validation technique that every engineer should master. By comparing a predefined set of required keys against the keys present in your data, you can catch missing fields early, provide clear error messages, and ensure your programs only work with complete and valid configurations. Whether you are working with JSON, YAML, or CSV files, the same core logic applies—define your requirements, compare, and report. This small step can save hours of debugging and prevent many runtime failures.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This technique verifies that required keys exist in a configuration dictionary before using the data.</p>
 <h3 id="example-1-checking-a-single-mandatory-key-exists">🔧 Example 1: Checking a single mandatory key exists</h3>
 <p>This example shows how to check if one required key is present in a dictionary.</p>
@@ -1321,6 +1354,279 @@
 <p>📤 Output: <strong>Configuration invalid. Missing keys: ['protocol']</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Use Case</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single key check with <code>in</code></td>
+<td>One required key</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>Loop with <code>in</code></td>
+<td>Multiple required keys</td>
+<td>Prints each result</td>
+</tr>
+<tr>
+<td>Loop with <code>not in</code> and list</td>
+<td>Collect all missing keys</td>
+<td>List of missing keys</td>
+</tr>
+<tr>
+<td>Function with return list</td>
+<td>Reusable validation</td>
+<td>List of missing keys</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🌍 Context Introduction</h3>
+<p>When working with configuration files in JSON, YAML, or CSV formats, one of the most common tasks is ensuring that all required keys or fields are present before using the data. Missing mandatory keys can lead to runtime errors, unexpected behavior, or system failures. This guide introduces a simple approach to checking for mandatory schema configuration key markers—a foundational validation technique that helps engineers catch missing data early and keep their pipelines robust.</p>
+<hr />
+<h3 id="what-are-mandatory-schema-configuration-key-markers_1">⚙️ What Are Mandatory Schema Configuration Key Markers?</h3>
+<p>Mandatory schema configuration key markers are the required fields or keys that must exist in every valid configuration file or data record. Think of them as a checklist that your data must pass before it is considered usable.</p>
+<p><strong>Key points to understand:</strong></p>
+<ul>
+<li>A <strong>schema</strong> defines the structure of your data—what keys are expected, their types, and which ones are required.</li>
+<li><strong>Mandatory key markers</strong> are the specific keys that must be present. If any are missing, the configuration is considered invalid.</li>
+<li>This validation is especially important when loading settings, API responses, or CSV rows where missing fields could break downstream logic.</li>
+</ul>
+<p><strong>Example scenario:</strong> A configuration file for a web server might require keys like <code>host</code>, <code>port</code>, and <code>protocol</code>. If <code>port</code> is missing, the server cannot start.</p>
+<hr />
+<h3 id="why-check-for-mandatory-keys_1">🛠️ Why Check for Mandatory Keys?</h3>
+<p>Checking for mandatory keys provides several benefits:</p>
+<ul>
+<li><strong>Prevents silent failures</strong> – Missing keys are caught early, not during execution.</li>
+<li><strong>Improves debugging</strong> – Clear error messages tell you exactly what is missing.</li>
+<li><strong>Enforces consistency</strong> – All configuration files follow the same required structure.</li>
+<li><strong>Reduces runtime errors</strong> – Your code only proceeds when all necessary data is present.</li>
+</ul>
+<hr />
+<h3 id="how-to-check-for-mandatory-keys-in-python_1">🕵️ How to Check for Mandatory Keys in Python</h3>
+<p>The core idea is simple: define a list of required keys, then compare it against the keys present in your loaded data. Below are practical approaches for each data format.</p>
+<h4 id="for-json-and-yaml-dictionaries_1">✅ For JSON and YAML (Dictionaries)</h4>
+<p>Both JSON and YAML files load into Python as dictionaries, so the same validation logic applies.</p>
+<p><strong>Step-by-step approach:</strong></p>
+<ol>
+<li><strong>Define your mandatory keys</strong> as a list or set, for example: <code>required_keys = ["host", "port", "protocol"]</code></li>
+<li><strong>Load your data</strong> from the JSON or YAML file into a dictionary variable.</li>
+<li><strong>Check for missing keys</strong> by comparing the set of required keys against the dictionary's keys.</li>
+<li><strong>Report any missing keys</strong> with a clear error message.</li>
+</ol>
+<p><strong>Example logic (without code blocks):</strong></p>
+<ul>
+<li>Start by creating a set of required keys: <strong>required_keys = {"host", "port", "protocol"}</strong></li>
+<li>After loading your data into a dictionary called <strong>config</strong>, find missing keys using: <strong>missing_keys = required_keys - set(config.keys())</strong></li>
+<li>If <strong>missing_keys</strong> is not empty, print or raise an error listing the missing keys.</li>
+</ul>
+<p><strong>Expected behavior:</strong></p>
+<ul>
+<li>If all required keys exist, your program continues normally.</li>
+<li>If any key is missing, you get a message like: <strong>"Missing mandatory keys: port"</strong></li>
+</ul>
+<h4 id="for-csv-files-rows-as-dictionaries_1">✅ For CSV Files (Rows as Dictionaries)</h4>
+<p>CSV files require a slightly different approach because each row is a record, and you need to check every row.</p>
+<p><strong>Step-by-step approach:</strong></p>
+<ol>
+<li><strong>Define your mandatory column headers</strong>, for example: <strong>required_columns = ["name", "email", "role"]</strong></li>
+<li><strong>Read the CSV file</strong> using Python's CSV reader, converting each row to a dictionary (using <strong>csv.DictReader</strong>).</li>
+<li><strong>For each row</strong>, check if all required columns are present using the same set comparison technique.</li>
+<li><strong>Track which rows</strong> are missing keys and report them.</li>
+</ol>
+<p><strong>Example logic (without code blocks):</strong></p>
+<ul>
+<li>Use <strong>csv.DictReader</strong> to read the file, which automatically uses the first row as headers.</li>
+<li>For each row (dictionary), compute: <strong>missing = required_columns - set(row.keys())</strong></li>
+<li>If <strong>missing</strong> is not empty, record the row number and the missing columns.</li>
+</ul>
+<p><strong>Expected behavior:</strong></p>
+<ul>
+<li>You get a report like: <strong>"Row 3 is missing columns: email"</strong></li>
+<li>You can choose to skip invalid rows or stop processing entirely.</li>
+</ul>
+<hr />
+<h3 id="comparison-checking-mandatory-keys-across-formats_1">📊 Comparison: Checking Mandatory Keys Across Formats</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>JSON / YAML</th>
+<th>CSV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data structure</strong></td>
+<td>Single dictionary</td>
+<td>List of dictionaries (rows)</td>
+</tr>
+<tr>
+<td><strong>Validation scope</strong></td>
+<td>One check per file</td>
+<td>One check per row</td>
+</tr>
+<tr>
+<td><strong>Common approach</strong></td>
+<td>Set difference on dictionary keys</td>
+<td>Set difference on each row's keys</td>
+</tr>
+<tr>
+<td><strong>Error granularity</strong></td>
+<td>Reports missing keys for the whole file</td>
+<td>Reports missing keys per row</td>
+</tr>
+<tr>
+<td><strong>Typical use case</strong></td>
+<td>Configuration files, API payloads</td>
+<td>Spreadsheet-like data, logs</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="best-practices-for-key-validation_1">🧠 Best Practices for Key Validation</h3>
+<ul>
+<li><strong>Define required keys explicitly</strong> – Keep them in a constant at the top of your script or in a separate schema file.</li>
+<li><strong>Use sets for comparison</strong> – Sets make it easy to find missing keys with simple subtraction.</li>
+<li><strong>Provide actionable error messages</strong> – Tell the user exactly which keys are missing and in which file or row.</li>
+<li><strong>Decide on failure behavior</strong> – Should your program stop on the first missing key, or collect all errors and report them at once?</li>
+<li><strong>Consider optional keys</strong> – Not every key needs to be mandatory. Separate your required and optional key lists.</li>
+</ul>
+<hr />
+<h3 id="putting-it-all-together_1">🚀 Putting It All Together</h3>
+<p>A typical workflow for checking mandatory schema configuration key markers looks like this:</p>
+<ol>
+<li><strong>Load your data</strong> from a JSON, YAML, or CSV file.</li>
+<li><strong>Define your mandatory key list</strong> based on your schema requirements.</li>
+<li><strong>Run the validation check</strong> using set comparison.</li>
+<li><strong>Handle the result</strong> – either proceed with valid data or report errors.</li>
+</ol>
+<p><strong>Example flow for a JSON config file:</strong></p>
+<ul>
+<li>Load the JSON file into a dictionary called <strong>config_data</strong>.</li>
+<li>Define <strong>required_keys = {"host", "port", "protocol"}</strong></li>
+<li>Compute <strong>missing_keys = required_keys - set(config_data.keys())</strong></li>
+<li>If <strong>missing_keys</strong> is empty, proceed. Otherwise, print: <strong>"Validation failed. Missing keys: host, protocol"</strong></li>
+</ul>
+<p><strong>Example flow for a CSV file:</strong></p>
+<ul>
+<li>Open the CSV file and create a <strong>csv.DictReader</strong> object.</li>
+<li>Define <strong>required_columns = ["name", "email", "role"]</strong></li>
+<li>Loop through each row, compute missing columns, and collect errors.</li>
+<li>After the loop, print all errors: <strong>"Row 2: missing email. Row 5: missing name, role"</strong></li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Checking for mandatory schema configuration key markers is a simple yet powerful validation technique that every engineer should master. By comparing a predefined set of required keys against the keys present in your data, you can catch missing fields early, provide clear error messages, and ensure your programs only work with complete and valid configurations. Whether you are working with JSON, YAML, or CSV files, the same core logic applies—define your requirements, compare, and report. This small step can save hours of debugging and prevent many runtime failures.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This technique verifies that required keys exist in a configuration dictionary before using the data.</p>
+<h3 id="example-1-checking-a-single-mandatory-key-exists_1">🔧 Example 1: Checking a single mandatory key exists</h3>
+<p>This example shows how to check if one required key is present in a dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;server01&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8080</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="s2">&quot;host&quot;</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key &#39;host&#39; is present&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key &#39;host&#39; is missing&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Key 'host' is present</strong></p>
+<hr />
+<h3 id="example-2-checking-for-a-missing-mandatory-key_1">🔧 Example 2: Checking for a missing mandatory key</h3>
+<p>This example demonstrates what happens when a required key is absent.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;server01&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8080</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="s2">&quot;timeout&quot;</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key &#39;timeout&#39; is present&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key &#39;timeout&#39; is missing&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Key 'timeout' is missing</strong></p>
+<hr />
+<h3 id="example-3-checking-multiple-mandatory-keys-with-a-list_1">🔧 Example 3: Checking multiple mandatory keys with a list</h3>
+<p>This example shows how to verify several required keys at once using a loop.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;server01&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span>
+    <span class="s2">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;https&quot;</span>
+<span class="p">}</span>
+
+<span class="n">required_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">,</span> <span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="s2">&quot;protocol&quot;</span><span class="p">,</span> <span class="s2">&quot;timeout&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">required_keys</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Key &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; is present&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Key &#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; is missing&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Key 'host' is present</strong><br />
+<strong>Key 'port' is present</strong><br />
+<strong>Key 'protocol' is present</strong><br />
+<strong>Key 'timeout' is missing</strong></p>
+<hr />
+<h3 id="example-4-collecting-all-missing-mandatory-keys_1">🔧 Example 4: Collecting all missing mandatory keys</h3>
+<p>This example shows how to gather all missing keys into a list for reporting.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;server01&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8080</span>
+<span class="p">}</span>
+
+<span class="n">required_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">,</span> <span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="s2">&quot;protocol&quot;</span><span class="p">,</span> <span class="s2">&quot;timeout&quot;</span><span class="p">]</span>
+<span class="n">missing_keys</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">required_keys</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">:</span>
+        <span class="n">missing_keys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">missing_keys</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All required keys are present&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing keys: </span><span class="si">{</span><span class="n">missing_keys</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Missing keys: ['protocol', 'timeout']</strong></p>
+<hr />
+<h3 id="example-5-validating-a-configuration-before-processing_1">🔧 Example 5: Validating a configuration before processing</h3>
+<p>This example shows a practical validation function that stops processing if keys are missing.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;server01&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8080</span>
+<span class="p">}</span>
+
+<span class="n">required_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">,</span> <span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="s2">&quot;protocol&quot;</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_config</span><span class="p">(</span><span class="n">config_data</span><span class="p">,</span> <span class="n">required</span><span class="p">):</span>
+    <span class="n">missing</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">required</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config_data</span><span class="p">:</span>
+            <span class="n">missing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">missing</span>
+
+<span class="n">missing_keys</span> <span class="o">=</span> <span class="n">validate_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">required_keys</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">missing_keys</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Configuration is valid. Starting service.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Configuration invalid. Missing keys: </span><span class="si">{</span><span class="n">missing_keys</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Configuration invalid. Missing keys: ['protocol']</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

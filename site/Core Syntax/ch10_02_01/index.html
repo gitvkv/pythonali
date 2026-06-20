@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch10_02_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 10 | Positional Parameters and Ordering - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 10 | Positional Parameters and Ordering";
         var mkdocs_page_input_path = "Core Syntax\\ch10_02_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch10_02_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -458,6 +458,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-positional-parameters-with-calculation-and-multiple-outputs">📌 Example 5: Positional parameters with calculation and multiple outputs</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-positional-parameter-ordering">Comparison Table: Positional Parameter Ordering</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-positional-parameters_1">⚙️ What Are Positional Parameters?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-ordering-works_1">🛠️ How Ordering Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-correct-vs-incorrect-ordering_1">📊 Comparison: Correct vs. Incorrect Ordering</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-rules-to-remember_1">🕵️ Key Rules to Remember</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-tips-for-engineers_1">🧪 Practical Tips for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-simple-positional-parameter-with-one-argument_1">📌 Example 1: Simple positional parameter with one argument</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-two-positional-parameters-in-order_1">📌 Example 2: Two positional parameters in order</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-swapping-argument-order-changes-the-output_1">📌 Example 3: Swapping argument order changes the output</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-three-positional-parameters-for-an-engineers-report_1">📌 Example 4: Three positional parameters for an engineer's report</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-positional-parameters-with-calculation-and-multiple-outputs_1">📌 Example 5: Positional parameters with calculation and multiple outputs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-positional-parameter-ordering_1">Comparison Table: Positional Parameter Ordering</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="positional-parameters-and-ordering">Positional Parameters and Ordering</h1>
 <p><span class="category-tag">🏷️ Functions /  Parameters and Arguments</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1163,8 +1189,7 @@
 <li>Always match the <strong>count</strong> and <strong>order</strong> of arguments to the function's parameters.</li>
 <li>Understanding positional ordering is the foundation for mastering more advanced argument-passing techniques in Python.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Positional parameters are the most basic way to pass values into a function, where the order of arguments must match the order of parameters defined.</p>
 <hr />
 <h3 id="example-1-simple-positional-parameter-with-one-argument">📌 Example 1: Simple positional parameter with one argument</h3>
@@ -1223,6 +1248,189 @@
 📤 Output: <strong>Concrete needed: 12500 kg</strong></p>
 <hr />
 <h3 id="comparison-table-positional-parameter-ordering">Comparison Table: Positional Parameter Ordering</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Correct Order</th>
+<th>Wrong Order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Function definition</td>
+<td><code>def build(steel, concrete)</code></td>
+<td><code>def build(steel, concrete)</code></td>
+</tr>
+<tr>
+<td>Function call</td>
+<td><code>build(100, 50)</code></td>
+<td><code>build(50, 100)</code></td>
+</tr>
+<tr>
+<td>Result</td>
+<td>steel=100, concrete=50</td>
+<td>steel=50, concrete=100</td>
+</tr>
+<tr>
+<td>Impact</td>
+<td>Correct material amounts</td>
+<td>Incorrect material amounts</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When you call a function in Python, you often need to pass information into it. That information is called an <strong>argument</strong>, and the placeholders inside the function definition are called <strong>parameters</strong>. The simplest way to pass arguments is by <strong>position</strong> — meaning the order in which you provide the arguments matters. This concept is called <strong>positional parameters</strong>, and understanding how ordering works is essential for writing clean, predictable code.</p>
+<hr />
+<h3 id="what-are-positional-parameters_1">⚙️ What Are Positional Parameters?</h3>
+<ul>
+<li>A <strong>positional parameter</strong> is a parameter that receives its value based on the position of the argument in the function call.</li>
+<li>The first argument maps to the first parameter, the second argument maps to the second parameter, and so on.</li>
+<li>The <strong>number of arguments</strong> must match the number of parameters, unless you use default values (covered later in the series).</li>
+</ul>
+<p><strong>Example concept:</strong>
+- If a function expects two parameters, you must provide exactly two arguments in the correct order.</p>
+<hr />
+<h3 id="how-ordering-works_1">🛠️ How Ordering Works</h3>
+<ul>
+<li>The <strong>order of arguments</strong> in the function call must match the <strong>order of parameters</strong> in the function definition.</li>
+<li>Swapping the order of arguments changes the values assigned to the parameters.</li>
+</ul>
+<p><strong>Example:</strong>
+- Function definition: <strong>def greet(first_name, last_name)</strong>
+- Correct call: <strong>greet("Alice", "Smith")</strong> → first_name = "Alice", last_name = "Smith"
+- Incorrect call: <strong>greet("Smith", "Alice")</strong> → first_name = "Smith", last_name = "Alice"</p>
+<hr />
+<h3 id="comparison-correct-vs-incorrect-ordering_1">📊 Comparison: Correct vs. Incorrect Ordering</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Function Call</th>
+<th>Parameter 1 Value</th>
+<th>Parameter 2 Value</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ Correct Order</td>
+<td><strong>calculate_area(5, 10)</strong></td>
+<td>length = 5</td>
+<td>width = 10</td>
+<td>Works as expected</td>
+</tr>
+<tr>
+<td>❌ Swapped Order</td>
+<td><strong>calculate_area(10, 5)</strong></td>
+<td>length = 10</td>
+<td>width = 5</td>
+<td>Wrong calculation</td>
+</tr>
+<tr>
+<td>✅ Correct Order</td>
+<td><strong>connect("admin", "password123")</strong></td>
+<td>username = "admin"</td>
+<td>password = "password123"</td>
+<td>Works as expected</td>
+</tr>
+<tr>
+<td>❌ Swapped Order</td>
+<td><strong>connect("password123", "admin")</strong></td>
+<td>username = "password123"</td>
+<td>password = "admin"</td>
+<td>Login fails</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="key-rules-to-remember_1">🕵️ Key Rules to Remember</h3>
+<ul>
+<li><strong>Position matters</strong> — always pass arguments in the exact order the function expects.</li>
+<li><strong>Count matters</strong> — you must provide exactly the same number of arguments as there are parameters (unless default values are used).</li>
+<li><strong>Readability matters</strong> — even though Python allows you to pass arguments positionally, always think about the logical order of your data when calling a function.</li>
+</ul>
+<hr />
+<h3 id="practical-tips-for-engineers_1">🧪 Practical Tips for Engineers</h3>
+<ul>
+<li>When reading someone else's code, look at the <strong>function definition first</strong> to understand what order the parameters expect.</li>
+<li>When writing your own functions, choose a <strong>logical order</strong> for your parameters (e.g., source before destination, input before configuration).</li>
+<li>If you ever need to pass arguments in a different order, you can use <strong>keyword arguments</strong> (covered in a later topic), but for now, stick to positional ordering.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li><strong>Positional parameters</strong> rely on the order of arguments in the function call.</li>
+<li>The first argument goes to the first parameter, the second to the second, and so on.</li>
+<li>Always match the <strong>count</strong> and <strong>order</strong> of arguments to the function's parameters.</li>
+<li>Understanding positional ordering is the foundation for mastering more advanced argument-passing techniques in Python.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Positional parameters are the most basic way to pass values into a function, where the order of arguments must match the order of parameters defined.</p>
+<hr />
+<h3 id="example-1-simple-positional-parameter-with-one-argument_1">📌 Example 1: Simple positional parameter with one argument</h3>
+<p>A function that takes a single value and prints it.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello, Alice</strong></p>
+<hr />
+<h3 id="example-2-two-positional-parameters-in-order_1">📌 Example 2: Two positional parameters in order</h3>
+<p>A function that takes two values and uses them in the order they are passed.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">introduce</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="n">first_name</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">last_name</span><span class="p">)</span>
+
+<span class="n">introduce</span><span class="p">(</span><span class="s2">&quot;Jane&quot;</span><span class="p">,</span> <span class="s2">&quot;Doe&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>I am Jane Doe</strong></p>
+<hr />
+<h3 id="example-3-swapping-argument-order-changes-the-output_1">📌 Example 3: Swapping argument order changes the output</h3>
+<p>Demonstrates that changing the order of arguments changes the result.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="n">divide</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">divide</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>5.0</strong><br />
+📤 Output: <strong>0.2</strong></p>
+<hr />
+<h3 id="example-4-three-positional-parameters-for-an-engineers-report_1">📌 Example 4: Three positional parameters for an engineer's report</h3>
+<p>A function that formats a project status update using three values in order.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">project_status</span><span class="p">(</span><span class="n">project_name</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">days_remaining</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Project: &quot;</span> <span class="o">+</span> <span class="n">project_name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Status: &quot;</span> <span class="o">+</span> <span class="n">status</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Days left: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">days_remaining</span><span class="p">))</span>
+
+<span class="n">project_status</span><span class="p">(</span><span class="s2">&quot;Bridge Design&quot;</span><span class="p">,</span> <span class="s2">&quot;In Progress&quot;</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Project: Bridge Design</strong><br />
+📤 Output: <strong>Status: In Progress</strong><br />
+📤 Output: <strong>Days left: 45</strong></p>
+<hr />
+<h3 id="example-5-positional-parameters-with-calculation-and-multiple-outputs_1">📌 Example 5: Positional parameters with calculation and multiple outputs</h3>
+<p>A function that calculates material requirements using two positional parameters.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">material_needed</span><span class="p">(</span><span class="n">length_meters</span><span class="p">,</span> <span class="n">width_meters</span><span class="p">):</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">length_meters</span> <span class="o">*</span> <span class="n">width_meters</span>
+    <span class="n">concrete_kg</span> <span class="o">=</span> <span class="n">area</span> <span class="o">*</span> <span class="mi">250</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Area: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">area</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; sq meters&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Concrete needed: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">concrete_kg</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; kg&quot;</span><span class="p">)</span>
+
+<span class="n">material_needed</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Area: 50 sq meters</strong><br />
+📤 Output: <strong>Concrete needed: 12500 kg</strong></p>
+<hr />
+<h3 id="comparison-table-positional-parameter-ordering_1">Comparison Table: Positional Parameter Ordering</h3>
 <table>
 <thead>
 <tr>

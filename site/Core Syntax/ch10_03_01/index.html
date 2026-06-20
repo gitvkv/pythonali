@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch10_03_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 10 | Returning Results with return - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 10 | Returning Results with return";
         var mkdocs_page_input_path = "Core Syntax\\ch10_03_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch10_03_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -468,6 +468,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-6-returning-early-from-a-function">🔧 Example 6: Returning early from a function</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-return-patterns">Comparison Table: Common Return Patterns</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-does-return-do_1">⚙️ What Does return Do?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#basic-example-of-returning-a-value_1">🛠️ Basic Example of Returning a Value</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-function-with-vs-without-return_1">📊 Comparison: Function With vs Without return</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#returning-multiple-values_1">🕵️ Returning Multiple Values</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-patterns-with-return_1">🧪 Common Patterns with return</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-returning-a-simple-value_1">🔧 Example 1: Returning a simple value</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-returning-a-computed-result_1">🔧 Example 2: Returning a computed result</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-returning-a-string-from-a-function_1">🔧 Example 3: Returning a string from a function</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-returning-a-boolean-truefalse_1">🔧 Example 4: Returning a boolean (True/False)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-using-a-returned-value-in-another-calculation_1">🔧 Example 5: Using a returned value in another calculation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-6-returning-early-from-a-function_1">🔧 Example 6: Returning early from a function</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-return-patterns_1">Comparison Table: Common Return Patterns</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1106,7 @@
               
                 <h1 id="returning-results-with-return">Returning Results with return</h1>
 <p><span class="category-tag">🏷️ Functions /  Return Values</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1163,8 +1193,7 @@
 <li>Code after <strong>return</strong> inside the same function block is never executed</li>
 <li>Use <strong>return</strong> when you need to capture and reuse a function's output elsewhere in your program</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>return</code> statement sends a value back from a function to the code that called it, allowing the function's result to be stored or used elsewhere.</p>
 <hr />
 <h3 id="example-1-returning-a-simple-value">🔧 Example 1: Returning a simple value</h3>
@@ -1243,6 +1272,212 @@
 📤 Output: <strong>Number is positive</strong></p>
 <hr />
 <h2 id="comparison-table-common-return-patterns">Comparison Table: Common Return Patterns</h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Description</th>
+<th>Example Return Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Single value</td>
+<td>Returns one number or string</td>
+<td><code>return 42</code></td>
+</tr>
+<tr>
+<td>Computed result</td>
+<td>Returns result of an expression</td>
+<td><code>return a + b</code></td>
+</tr>
+<tr>
+<td>Conditional return</td>
+<td>Returns different values based on logic</td>
+<td><code>return "yes"</code> or <code>return "no"</code></td>
+</tr>
+<tr>
+<td>Early return</td>
+<td>Exits function before reaching the end</td>
+<td><code>return None</code></td>
+</tr>
+<tr>
+<td>Chained return</td>
+<td>Return value used as input to another function</td>
+<td><code>func2(func1(x))</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>Functions are powerful because they can take inputs, perform actions, and then <strong>send back a result</strong> for you to use elsewhere in your code. Without returning a value, a function simply runs its instructions and disappears—leaving nothing behind for you to capture. The <strong>return</strong> statement is how you hand a result back to the part of your program that called the function.</p>
+<hr />
+<h3 id="what-does-return-do_1">⚙️ What Does <code>return</code> Do?</h3>
+<p>When you use <strong>return</strong> inside a function, two things happen:</p>
+<ul>
+<li>The function <strong>stops executing</strong> immediately (any code after return is ignored)</li>
+<li>The value after <strong>return</strong> is <strong>sent back</strong> to the caller</li>
+</ul>
+<p>You can then store that returned value in a variable, use it in a calculation, or pass it to another function.</p>
+<hr />
+<h3 id="basic-example-of-returning-a-value_1">🛠️ Basic Example of Returning a Value</h3>
+<p>Consider a function that calculates the square of a number:</p>
+<ul>
+<li>Define the function: <strong>def square(number):</strong></li>
+<li>Inside the function: <strong>result = number * number</strong></li>
+<li>Return the result: <strong>return result</strong></li>
+<li>Call the function and store the output: <strong>output = square(5)</strong></li>
+<li>Now <strong>output</strong> holds the value <strong>25</strong></li>
+</ul>
+<p>Without the <strong>return</strong> statement, the variable <strong>output</strong> would contain <strong>None</strong> instead of the calculated result.</p>
+<hr />
+<h3 id="comparison-function-with-vs-without-return_1">📊 Comparison: Function With vs Without <code>return</code></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>With <code>return</code></th>
+<th>Without <code>return</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What the caller gets</td>
+<td>The actual computed value</td>
+<td><strong>None</strong> (nothing useful)</td>
+</tr>
+<tr>
+<td>Can store the result</td>
+<td>Yes, in a variable</td>
+<td>No, variable becomes <strong>None</strong></td>
+</tr>
+<tr>
+<td>Can use result in expressions</td>
+<td>Yes, e.g., <strong>total = add(3, 4) * 2</strong></td>
+<td>No, you lose the computation</td>
+</tr>
+<tr>
+<td>Function purpose</td>
+<td>To compute and deliver a value</td>
+<td>To perform an action (like printing)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="returning-multiple-values_1">🕵️ Returning Multiple Values</h3>
+<p>Python allows you to return more than one value at once using a comma-separated list:</p>
+<ul>
+<li><strong>return x, y, z</strong> sends back a <strong>tuple</strong> containing all three values</li>
+<li>You can unpack them directly: <strong>a, b, c = my_function()</strong></li>
+<li>Example: <strong>def min_max(list):</strong> returns <strong>return min_val, max_val</strong></li>
+</ul>
+<p>This is very useful when you need a function to produce multiple related results.</p>
+<hr />
+<h3 id="common-patterns-with-return_1">🧪 Common Patterns with <code>return</code></h3>
+<p><strong>Early return for validation:</strong>
+- Check if input is valid first
+- If invalid, <strong>return None</strong> or an error message immediately
+- If valid, continue with the main logic and return the result</p>
+<p><strong>Returning computed results:</strong>
+- Perform calculations or data transformations inside the function
+- Use <strong>return</strong> to hand back the final computed value</p>
+<p><strong>Returning Boolean values:</strong>
+- Functions that check conditions often return <strong>True</strong> or <strong>False</strong>
+- Example: <strong>def is_even(number):</strong> returns <strong>return number % 2 == 0</strong></p>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li><strong>return</strong> sends a value back from a function to where it was called</li>
+<li>A function without <strong>return</strong> gives you <strong>None</strong></li>
+<li>You can return one value, multiple values (as a tuple), or nothing at all</li>
+<li>Code after <strong>return</strong> inside the same function block is never executed</li>
+<li>Use <strong>return</strong> when you need to capture and reuse a function's output elsewhere in your program</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>return</code> statement sends a value back from a function to the code that called it, allowing the function's result to be stored or used elsewhere.</p>
+<hr />
+<h3 id="example-1-returning-a-simple-value_1">🔧 Example 1: Returning a simple value</h3>
+<p>This example shows a function that returns a single number.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">get_pi</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mf">3.14159</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">get_pi</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>3.14159</strong></p>
+<hr />
+<h3 id="example-2-returning-a-computed-result_1">🔧 Example 2: Returning a computed result</h3>
+<p>This example shows a function that calculates and returns a value based on its input.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">number</span> <span class="o">*</span> <span class="n">number</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>25</strong></p>
+<hr />
+<h3 id="example-3-returning-a-string-from-a-function_1">🔧 Example 3: Returning a string from a function</h3>
+<p>This example shows a function that builds and returns a formatted message.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">create_greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span>
+    <span class="k">return</span> <span class="n">message</span>
+
+<span class="n">greeting</span> <span class="o">=</span> <span class="n">create_greeting</span><span class="p">(</span><span class="s2">&quot;Engineer&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello, Engineer!</strong></p>
+<hr />
+<h3 id="example-4-returning-a-boolean-truefalse_1">🔧 Example 4: Returning a boolean (True/False)</h3>
+<p>This example shows a function that checks a condition and returns a logical result.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">is_even</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="n">remainder</span> <span class="o">=</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">remainder</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="n">check</span> <span class="o">=</span> <span class="n">is_even</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">check</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-5-using-a-returned-value-in-another-calculation_1">🔧 Example 5: Using a returned value in another calculation</h3>
+<p>This example shows how to chain functions by using one function's return value as input to another.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">add_ten</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="n">new_value</span> <span class="o">=</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">10</span>
+    <span class="k">return</span> <span class="n">new_value</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">multiply_by_two</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="n">new_value</span> <span class="o">=</span> <span class="n">value</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">new_value</span>
+
+<span class="n">first_result</span> <span class="o">=</span> <span class="n">add_ten</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">second_result</span> <span class="o">=</span> <span class="n">multiply_by_two</span><span class="p">(</span><span class="n">first_result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>30</strong></p>
+<hr />
+<h3 id="example-6-returning-early-from-a-function_1">🔧 Example 6: Returning early from a function</h3>
+<p>This example shows how <code>return</code> can stop a function immediately and send a value back.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">check_positive</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Negative number detected&quot;</span>
+    <span class="k">return</span> <span class="s2">&quot;Number is positive&quot;</span>
+
+<span class="n">result1</span> <span class="o">=</span> <span class="n">check_positive</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">check_positive</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Negative number detected</strong><br />
+📤 Output: <strong>Number is positive</strong></p>
+<hr />
+<h2 id="comparison-table-common-return-patterns_1">Comparison Table: Common Return Patterns</h2>
 <table>
 <thead>
 <tr>

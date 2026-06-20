@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_03_06/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Practical Example: Running ping, df, and systemctl - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Practical Example: Running ping, df, and systemctl";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_03_06.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_03_06/";
       </script>
     
     <!--[if lt IE 9]>
@@ -677,6 +677,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📋 Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-use-subprocess-instead-of-ossystem_1">⚙️ Why Use Subprocess Instead of os.system?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-running-ping-to-check-network-connectivity_1">🕵️ Example 1: Running ping to Check Network Connectivity</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-running-df-to-check-disk-usage_1">📊 Example 2: Running df to Check Disk Usage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-running-systemctl-to-manage-services_1">🛠️ Example 3: Running systemctl to Manage Services</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-command-characteristics_1">🔍 Comparison Table: Command Characteristics</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together-a-simple-system-health-script_1">🧪 Putting It All Together: A Simple System Health Script</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-running-shell-commands-in-python_1">✅ Best Practices for Running Shell Commands in Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">🚀 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-running-a-simple-ping-command_1">🖥️ Example 1: Running a simple ping command</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-checking-disk-space-with-df_1">💾 Example 2: Checking disk space with df</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-checking-a-service-status-with-systemctl_1">⚙️ Example 3: Checking a service status with systemctl</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-running-ping-with-a-timeout-and-checking-return-code_1">🔄 Example 4: Running ping with a timeout and checking return code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-combining-df-output-with-error-handling_1">📊 Example 5: Combining df output with error handling</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📋 Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_04_01/">Ch 14 | Reading Command-Line Arguments via argv</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="practical-example-running-ping-df-and-systemctl">Practical Example: Running ping, df, and systemctl</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  Shell Commands with Subprocess</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1215,8 +1245,7 @@
 <hr />
 <h3 id="next-steps">🚀 Next Steps</h3>
 <p>Now that you've seen how to run <strong>ping</strong>, <strong>df</strong>, and <strong>systemctl</strong> from Python, try building your own health check script that combines all three. Start simple—just print the results—then gradually add logic for alerts, retries, and logging. As you grow more comfortable, explore other useful commands like <strong>ps</strong> (process list), <strong>netstat</strong> (network connections), and <strong>journalctl</strong> (system logs) to expand your automation toolkit.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This section shows how to run common system commands from Python using the subprocess module.</p>
 <hr />
 <h3 id="example-1-running-a-simple-ping-command">🖥️ Example 1: Running a simple ping command</h3>
@@ -1271,6 +1300,232 @@
 <p>📤 Output: <strong>Command failed with error: df: /nonexistent: No such file or directory</strong></p>
 <hr />
 <h3 id="comparison-table">📋 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+<th>Common Options</th>
+<th>Typical Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ping</td>
+<td>Test network connectivity</td>
+<td>-c (count), -w (timeout)</td>
+<td>Check if a remote host is reachable</td>
+</tr>
+<tr>
+<td>df</td>
+<td>Show disk space usage</td>
+<td>-h (human-readable), -T (filesystem type)</td>
+<td>Monitor available disk space</td>
+</tr>
+<tr>
+<td>systemctl</td>
+<td>Control system services</td>
+<td>is-active, status, start, stop</td>
+<td>Check or manage service states</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When working with servers and systems, you'll frequently need to run shell commands from within Python scripts. Whether it's checking if a remote host is reachable, monitoring disk space, or managing services, the <strong>subprocess</strong> module is your gateway to executing system commands programmatically. This guide walks through three real-world examples that engineers encounter daily: <strong>ping</strong>, <strong>df</strong>, and <strong>systemctl</strong>.</p>
+<hr />
+<h3 id="why-use-subprocess-instead-of-ossystem_1">⚙️ Why Use Subprocess Instead of os.system?</h3>
+<p>Before diving into examples, it's important to understand why <strong>subprocess</strong> is preferred over the older <strong>os.system</strong> approach:</p>
+<ul>
+<li><strong>subprocess</strong> gives you full control over input, output, and error streams</li>
+<li>It returns exit codes that you can check programmatically</li>
+<li>It handles arguments safely without shell injection risks</li>
+<li>You can capture command output as strings for further processing</li>
+</ul>
+<hr />
+<h3 id="example-1-running-ping-to-check-network-connectivity_1">🕵️ Example 1: Running ping to Check Network Connectivity</h3>
+<p>The <strong>ping</strong> command tests whether a remote host is reachable over the network. In automation scripts, you might use this to verify that a server is online before deploying updates or running backups.</p>
+<p><strong>How it works:</strong>
+- You call <strong>subprocess.run()</strong> with the ping command and target IP or hostname
+- On Linux, you typically use the <strong>-c</strong> flag to limit the number of packets (e.g., <strong>-c 4</strong> for four pings)
+- The command returns a <strong>CompletedProcess</strong> object containing the exit code and output
+- An exit code of <strong>0</strong> means the host is reachable; any other code indicates failure</p>
+<p><strong>Practical use case:</strong>
+- A monitoring script that pings a list of servers every minute
+- A deployment script that waits for a server to come back online after a reboot
+- A network troubleshooting tool that logs ping results over time</p>
+<p><strong>Key considerations:</strong>
+- Use <strong>capture_output=True</strong> to store the command's stdout and stderr
+- Set <strong>text=True</strong> to get output as strings instead of bytes
+- Check <strong>returncode</strong> to determine success or failure</p>
+<hr />
+<h3 id="example-2-running-df-to-check-disk-usage_1">📊 Example 2: Running df to Check Disk Usage</h3>
+<p>The <strong>df</strong> command reports filesystem disk space usage. Engineers use this constantly to monitor storage capacity, identify full disks, and trigger alerts before space runs out.</p>
+<p><strong>How it works:</strong>
+- You call <strong>subprocess.run()</strong> with the <strong>df</strong> command and useful flags like <strong>-h</strong> (human-readable) or <strong>-T</strong> (filesystem type)
+- The output is a table showing mount points, total size, used space, available space, and usage percentage
+- You can parse this output to extract specific values for monitoring or alerting</p>
+<p><strong>Practical use case:</strong>
+- A daily cron job that checks disk usage and sends warnings if any partition exceeds 80%
+- A deployment script that verifies enough free space exists before copying large files
+- A dashboard that collects disk metrics from multiple servers</p>
+<p><strong>Key considerations:</strong>
+- Use <strong>-h</strong> flag to get sizes in KB, MB, or GB instead of raw bytes
+- Parse the output line by line, skipping the header row
+- Convert percentage strings to integers for comparison logic</p>
+<hr />
+<h3 id="example-3-running-systemctl-to-manage-services_1">🛠️ Example 3: Running systemctl to Manage Services</h3>
+<p>The <strong>systemctl</strong> command controls systemd services on modern Linux distributions. Engineers use it to start, stop, restart, enable, or check the status of services.</p>
+<p><strong>How it works:</strong>
+- You call <strong>subprocess.run()</strong> with <strong>systemctl</strong> followed by an action and service name
+- Common actions include <strong>status</strong>, <strong>start</strong>, <strong>stop</strong>, <strong>restart</strong>, and <strong>enable</strong>
+- The <strong>status</strong> action returns detailed information about whether a service is active, enabled, or failed</p>
+<p><strong>Practical use case:</strong>
+- A deployment script that restarts a web application after updating its code
+- A health check script that verifies critical services like <strong>nginx</strong> or <strong>sshd</strong> are running
+- A recovery script that attempts to restart failed services automatically</p>
+<p><strong>Key considerations:</strong>
+- Use <strong>systemctl is-active</strong> for a simple yes/no check on service status
+- Use <strong>systemctl is-enabled</strong> to check if a service starts on boot
+- Always handle permission errors gracefully (some commands require sudo)</p>
+<hr />
+<h3 id="comparison-table-command-characteristics_1">🔍 Comparison Table: Command Characteristics</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>ping</th>
+<th>df</th>
+<th>systemctl</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Network connectivity test</td>
+<td>Disk space reporting</td>
+<td>Service management</td>
+</tr>
+<tr>
+<td><strong>Exit code meaning</strong></td>
+<td>0 = reachable, 1 = unreachable</td>
+<td>0 = success, non-zero = error</td>
+<td>0 = active, 3 = inactive</td>
+</tr>
+<tr>
+<td><strong>Output format</strong></td>
+<td>Text summary with statistics</td>
+<td>Tabular data with columns</td>
+<td>Structured text with details</td>
+</tr>
+<tr>
+<td><strong>Common flags</strong></td>
+<td><strong>-c</strong> (count), <strong>-W</strong> (timeout)</td>
+<td><strong>-h</strong> (human-readable), <strong>-T</strong> (type)</td>
+<td><strong>status</strong>, <strong>start</strong>, <strong>stop</strong></td>
+</tr>
+<tr>
+<td><strong>Parsing complexity</strong></td>
+<td>Low (check exit code)</td>
+<td>Medium (parse table rows)</td>
+<td>Low to medium (check status line)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="putting-it-all-together-a-simple-system-health-script_1">🧪 Putting It All Together: A Simple System Health Script</h3>
+<p>Imagine you want to write a Python script that performs three checks on a server:</p>
+<ol>
+<li><strong>Ping</strong> a remote database server to ensure it's reachable</li>
+<li><strong>Check disk usage</strong> on the root partition to avoid running out of space</li>
+<li><strong>Verify</strong> that the <strong>nginx</strong> web server service is running</li>
+</ol>
+<p><strong>Script flow:</strong>
+- First, run <strong>ping -c 4 192.168.1.100</strong> and check the return code
+- If ping fails, log an error and exit early
+- Next, run <strong>df -h /</strong> and parse the output to find the usage percentage
+- If usage exceeds 90%, trigger a warning
+- Finally, run <strong>systemctl is-active nginx</strong> and check if the output is "active"
+- If nginx is inactive, attempt to restart it with <strong>systemctl restart nginx</strong></p>
+<p><strong>Error handling tips:</strong>
+- Wrap each subprocess call in a <strong>try/except</strong> block to catch <strong>FileNotFoundError</strong> (command missing) or <strong>CalledProcessError</strong>
+- Use <strong>stderr</strong> capture to log any error messages from the commands themselves
+- Set a timeout for ping to prevent the script from hanging on unreachable hosts</p>
+<hr />
+<h3 id="best-practices-for-running-shell-commands-in-python_1">✅ Best Practices for Running Shell Commands in Python</h3>
+<ul>
+<li><strong>Always use subprocess.run()</strong> instead of os.system() for better control and safety</li>
+<li><strong>Pass commands as lists</strong> (e.g., <strong>["ping", "-c", "4", "google.com"]</strong>) to avoid shell injection</li>
+<li><strong>Capture output</strong> with <strong>capture_output=True</strong> and <strong>text=True</strong> for easy string handling</li>
+<li><strong>Check return codes</strong> explicitly rather than assuming success</li>
+<li><strong>Set timeouts</strong> for network commands to prevent indefinite hangs</li>
+<li><strong>Handle missing commands</strong> gracefully with try/except</li>
+<li><strong>Log both stdout and stderr</strong> for debugging failed commands</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">🚀 Next Steps</h3>
+<p>Now that you've seen how to run <strong>ping</strong>, <strong>df</strong>, and <strong>systemctl</strong> from Python, try building your own health check script that combines all three. Start simple—just print the results—then gradually add logic for alerts, retries, and logging. As you grow more comfortable, explore other useful commands like <strong>ps</strong> (process list), <strong>netstat</strong> (network connections), and <strong>journalctl</strong> (system logs) to expand your automation toolkit.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This section shows how to run common system commands from Python using the subprocess module.</p>
+<hr />
+<h3 id="example-1-running-a-simple-ping-command_1">🖥️ Example 1: Running a simple ping command</h3>
+<p>This example runs a single ping to check if a host is reachable.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ping&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;8.8.8.8&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data. 64 bytes from 8.8.8.8: icmp_seq=1 ttl=118 time=12.3 ms</strong></p>
+<hr />
+<h3 id="example-2-checking-disk-space-with-df_1">💾 Example 2: Checking disk space with df</h3>
+<p>This example runs the df command to show available disk space in human-readable format.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;df&quot;</span><span class="p">,</span> <span class="s2">&quot;-h&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Filesystem      Size  Used Avail Use% Mounted on /dev/sda1        50G   20G   30G  40% /</strong></p>
+<hr />
+<h3 id="example-3-checking-a-service-status-with-systemctl_1">⚙️ Example 3: Checking a service status with systemctl</h3>
+<p>This example checks whether the ssh service is active using systemctl.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;systemctl&quot;</span><span class="p">,</span> <span class="s2">&quot;is-active&quot;</span><span class="p">,</span> <span class="s2">&quot;ssh&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>active</strong></p>
+<hr />
+<h3 id="example-4-running-ping-with-a-timeout-and-checking-return-code_1">🔄 Example 4: Running ping with a timeout and checking return code</h3>
+<p>This example runs ping with a timeout and checks if the command succeeded or failed.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ping&quot;</span><span class="p">,</span> <span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;google.com&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ping successful&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ping failed&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Ping successful</strong></p>
+<hr />
+<h3 id="example-5-combining-df-output-with-error-handling_1">📊 Example 5: Combining df output with error handling</h3>
+<p>This example runs df on a specific mount point and handles errors if the path does not exist.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;df&quot;</span><span class="p">,</span> <span class="s2">&quot;-h&quot;</span><span class="p">,</span> <span class="s2">&quot;/nonexistent&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Command failed with error: </span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Command failed with error: df: /nonexistent: No such file or directory</strong></p>
+<hr />
+<h3 id="comparison-table_1">📋 Comparison Table</h3>
 <table>
 <thead>
 <tr>

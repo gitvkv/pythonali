@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch16_03_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 16 | Practical Example: SSL Certificate Expiry Alerts - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 16 | Practical Example: SSL Certificate Expiry Alerts";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch16_03_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch16_03_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -765,6 +765,40 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🌐 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-ssl-certificate-dates-work_1">⚙️ How SSL Certificate Dates Work</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-the-ssl-expiry-checker_1">🛠️ Building the SSL Expiry Checker</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-components-explained_1">📊 Key Components Explained</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-the-date-calculation_1">🕵️ Understanding the Date Calculation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-script-example_1">🔧 Practical Script Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sample-output-structure_1">📈 Sample Output Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-with-real-servers_1">🧪 Testing with Real Servers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#extending-the-script_1">🔄 Extending the Script</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-considerations_1">⚠️ Important Considerations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🎯 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-calculate-days-until-a-certificate-expires_1">🔧 Example 1: Calculate days until a certificate expires</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-check-if-a-certificate-is-expired_1">🔧 Example 2: Check if a certificate is expired</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-alert-when-certificate-expires-within-30-days_1">🔧 Example 3: Alert when certificate expires within 30 days</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-check-multiple-certificates-and-list-those-expiring-soon_1">🔧 Example 4: Check multiple certificates and list those expiring soon</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-generate-a-daily-report-of-certificate-statuses_1">🔧 Example 5: Generate a daily report of certificate statuses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch16_04_01/">Ch 16 | Understanding Epoch Timelines and Seconds Tracking</a>
@@ -1082,7 +1116,7 @@
               
                 <h1 id="practical-example-ssl-certificate-expiry-alerts">Practical Example: SSL Certificate Expiry Alerts</h1>
 <p><span class="category-tag">🏷️ Working with Dates and Time /  Date Arithmetic with Timedelta</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🌐 Context Introduction</h3>
@@ -1193,8 +1227,7 @@
 <hr />
 <h3 id="summary">🎯 Summary</h3>
 <p>This practical example demonstrates how Python's date and time capabilities solve a real-world infrastructure problem. By combining <strong>datetime</strong>, <strong>timedelta</strong>, and <strong>ssl</strong> modules, you can build a simple but effective SSL certificate monitoring tool. The same principles apply to any scenario where you need to calculate time differences, set reminders, or trigger actions based on dates. Start with this basic script, then customize it to fit your specific monitoring needs.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example shows how to calculate days until an SSL certificate expires and trigger alerts using Python's datetime and timedelta.</p>
 <h3 id="example-1-calculate-days-until-a-certificate-expires">🔧 Example 1: Calculate days until a certificate expires</h3>
 <p>This example demonstrates the basic calculation of remaining days from today to an expiry date.</p>
@@ -1294,6 +1327,269 @@
 <p>📤 Output: <strong>=== SSL Certificate Status Report ===</strong> (followed by a table of certificate statuses)</p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Basic Check</th>
+<th>Alert Threshold</th>
+<th>Multiple Certs</th>
+<th>Daily Report</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Days calculation</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Expired detection</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Custom threshold</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Batch processing</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Status levels</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🌐 Context Introduction</h3>
+<p>SSL certificates are the backbone of secure web communication. Every certificate has an expiration date, and letting one expire can cause service outages, security warnings, or complete loss of HTTPS functionality. As engineers, we need automated ways to check certificate expiry dates and receive alerts before they expire. This practical example combines Python's date and time capabilities with SSL certificate inspection to build a simple monitoring tool.</p>
+<hr />
+<h3 id="how-ssl-certificate-dates-work_1">⚙️ How SSL Certificate Dates Work</h3>
+<p>When you connect to a secure website, the server presents its SSL certificate. This certificate contains two critical date fields:</p>
+<ul>
+<li><strong>Not Before</strong> - The date when the certificate becomes valid</li>
+<li><strong>Not After</strong> - The date when the certificate expires</li>
+</ul>
+<p>Python's <strong>ssl</strong> and <strong>socket</strong> modules allow us to fetch this certificate information programmatically. We then use <strong>datetime</strong> and <strong>timedelta</strong> to calculate how many days remain until expiration.</p>
+<hr />
+<h3 id="building-the-ssl-expiry-checker_1">🛠️ Building the SSL Expiry Checker</h3>
+<p>The script follows these steps:</p>
+<ol>
+<li><strong>Connect to the target server</strong> using a secure socket connection</li>
+<li><strong>Retrieve the SSL certificate</strong> and extract the expiry date</li>
+<li><strong>Calculate days remaining</strong> by subtracting today's date from the expiry date</li>
+<li><strong>Compare against a threshold</strong> (e.g., 30 days) to determine if an alert is needed</li>
+<li><strong>Print the result</strong> with appropriate formatting</li>
+</ol>
+<hr />
+<h3 id="key-components-explained_1">📊 Key Components Explained</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ssl.get_server_certificate()</strong></td>
+<td>Fetches the raw certificate from a server</td>
+</tr>
+<tr>
+<td><strong>datetime.strptime()</strong></td>
+<td>Converts the certificate date string into a datetime object</td>
+</tr>
+<tr>
+<td><strong>datetime.now()</strong></td>
+<td>Gets the current date and time</td>
+</tr>
+<tr>
+<td><strong>timedelta</strong></td>
+<td>Calculates the difference between two dates</td>
+</tr>
+<tr>
+<td><strong>.days attribute</strong></td>
+<td>Extracts the number of days from a timedelta object</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="understanding-the-date-calculation_1">🕵️ Understanding the Date Calculation</h3>
+<p>The certificate expiry date comes in a specific format like <strong>"Dec 15 12:00:00 2025 GMT"</strong>. To work with this date in Python, we must:</p>
+<ul>
+<li>Parse the string using <strong>strptime()</strong> with the format code <strong>"%b %d %H:%M:%S %Y %Z"</strong></li>
+<li>Compare it to <strong>datetime.now()</strong> using subtraction</li>
+<li>The result is a <strong>timedelta</strong> object containing the difference in days</li>
+</ul>
+<hr />
+<h3 id="practical-script-example_1">🔧 Practical Script Example</h3>
+<p>Here is the complete SSL expiry checker script. The script defines a function that takes a hostname and port, then returns the days until certificate expiration:</p>
+<p><strong>Step 1 - Import required modules:</strong> Import <strong>ssl</strong>, <strong>socket</strong>, and <strong>datetime</strong> at the top of your script.</p>
+<p><strong>Step 2 - Define the check function:</strong> Create a function called <strong>check_ssl_expiry</strong> that accepts <strong>hostname</strong> and <strong>port</strong> (default port 443) as parameters.</p>
+<p><strong>Step 3 - Establish connection:</strong> Use <strong>ssl.wrap_socket()</strong> with a socket connection to the target server. Set a timeout to avoid hanging on unresponsive servers.</p>
+<p><strong>Step 4 - Extract certificate:</strong> Call <strong>getpeercert()</strong> on the socket object to retrieve the certificate dictionary.</p>
+<p><strong>Step 5 - Parse expiry date:</strong> Access the <strong>"notAfter"</strong> key from the certificate dictionary. Convert this string to a datetime object using <strong>strptime()</strong> with the format <strong>"%b %d %H:%M:%S %Y %Z"</strong>.</p>
+<p><strong>Step 6 - Calculate days remaining:</strong> Subtract <strong>datetime.now()</strong> from the parsed expiry date. Access the <strong>.days</strong> attribute of the resulting timedelta.</p>
+<p><strong>Step 7 - Return the result:</strong> Return the number of days as an integer. Close the socket connection.</p>
+<p><strong>Step 8 - Add alert logic:</strong> In the main part of the script, call the function for each server you want to monitor. Compare the returned days against a threshold (e.g., 30 days). Print a warning if the certificate expires within the threshold, or print a success message if it's still valid.</p>
+<hr />
+<h3 id="sample-output-structure_1">📈 Sample Output Structure</h3>
+<p>When you run the script, the output should look like this:</p>
+<p><strong>For a valid certificate:</strong> The output shows the hostname, the expiry date, and the number of days remaining. A green or neutral message indicates everything is fine.</p>
+<p><strong>For an expiring certificate:</strong> The output shows the same information but with a warning message indicating the certificate will expire soon. The number of days remaining is highlighted.</p>
+<p><strong>For an expired certificate:</strong> The output shows a critical alert with the number of days since expiration (negative value).</p>
+<hr />
+<h3 id="testing-with-real-servers_1">🧪 Testing with Real Servers</h3>
+<p>You can test the script with any HTTPS website. Common examples include:</p>
+<ul>
+<li><strong>google.com</strong> - Usually has a long validity period</li>
+<li><strong>github.com</strong> - Another reliable test target</li>
+<li><strong>expired.badssl.com</strong> - A test site with an intentionally expired certificate</li>
+</ul>
+<p>Each test will demonstrate different outputs based on the certificate's remaining validity.</p>
+<hr />
+<h3 id="extending-the-script_1">🔄 Extending the Script</h3>
+<p>Once the basic script works, you can extend it in several ways:</p>
+<ul>
+<li><strong>Multiple servers:</strong> Store a list of hostnames in a configuration file and loop through them</li>
+<li><strong>Email alerts:</strong> Integrate with <strong>smtplib</strong> to send email notifications when certificates are expiring</li>
+<li><strong>Slack notifications:</strong> Use webhooks to post alerts to a Slack channel</li>
+<li><strong>Logging:</strong> Write results to a log file with timestamps for historical tracking</li>
+<li><strong>Scheduling:</strong> Use cron jobs or task schedulers to run the script daily</li>
+</ul>
+<hr />
+<h3 id="important-considerations_1">⚠️ Important Considerations</h3>
+<ul>
+<li><strong>Network connectivity:</strong> The script requires outbound access to the target servers on port 443</li>
+<li><strong>Firewall rules:</strong> Ensure your environment allows SSL connections to external hosts</li>
+<li><strong>Rate limiting:</strong> Avoid checking the same server too frequently to prevent being blocked</li>
+<li><strong>Certificate chains:</strong> This example checks only the leaf certificate, not the full chain</li>
+<li><strong>Time zones:</strong> The certificate date is in GMT, so ensure your system time is accurate</li>
+</ul>
+<hr />
+<h3 id="summary_1">🎯 Summary</h3>
+<p>This practical example demonstrates how Python's date and time capabilities solve a real-world infrastructure problem. By combining <strong>datetime</strong>, <strong>timedelta</strong>, and <strong>ssl</strong> modules, you can build a simple but effective SSL certificate monitoring tool. The same principles apply to any scenario where you need to calculate time differences, set reminders, or trigger actions based on dates. Start with this basic script, then customize it to fit your specific monitoring needs.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example shows how to calculate days until an SSL certificate expires and trigger alerts using Python's datetime and timedelta.</p>
+<h3 id="example-1-calculate-days-until-a-certificate-expires_1">🔧 Example 1: Calculate days until a certificate expires</h3>
+<p>This example demonstrates the basic calculation of remaining days from today to an expiry date.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
+
+<span class="n">expiry_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+<span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="n">days_remaining</span> <span class="o">=</span> <span class="p">(</span><span class="n">expiry_date</span> <span class="o">-</span> <span class="n">today</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">days_remaining</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>365</strong> (or the actual number of days from today)</p>
+<hr />
+<h3 id="example-2-check-if-a-certificate-is-expired_1">🔧 Example 2: Check if a certificate is expired</h3>
+<p>This example shows how to compare a certificate's expiry date against today's date to determine if it has expired.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+
+<span class="n">expiry_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">expiry_date</span> <span class="o">&lt;</span> <span class="n">today</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Certificate has expired&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Certificate is still valid&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Certificate has expired</strong> (if today is after Jan 15, 2024)</p>
+<hr />
+<h3 id="example-3-alert-when-certificate-expires-within-30-days_1">🔧 Example 3: Alert when certificate expires within 30 days</h3>
+<p>This example demonstrates how to trigger a warning when a certificate's expiry is approaching within a specific threshold.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="n">expiry_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="n">days_remaining</span> <span class="o">=</span> <span class="p">(</span><span class="n">expiry_date</span> <span class="o">-</span> <span class="n">today</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+<span class="n">alert_threshold</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="k">if</span> <span class="n">days_remaining</span> <span class="o">&lt;=</span> <span class="n">alert_threshold</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ALERT: Certificate expires in </span><span class="si">{</span><span class="n">days_remaining</span><span class="si">}</span><span class="s2"> days&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Certificate expires in </span><span class="si">{</span><span class="n">days_remaining</span><span class="si">}</span><span class="s2"> days — no alert needed&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ALERT: Certificate expires in 30 days</strong> (if today is May 2, 2025)</p>
+<hr />
+<h3 id="example-4-check-multiple-certificates-and-list-those-expiring-soon_1">🔧 Example 4: Check multiple certificates and list those expiring soon</h3>
+<p>This example shows how to loop through a list of certificates and flag any that expire within a 60-day window.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+
+<span class="n">certificates</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;expiry&quot;</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;api.example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;expiry&quot;</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mail.example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;expiry&quot;</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)},</span>
+<span class="p">]</span>
+
+<span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="n">alert_threshold</span> <span class="o">=</span> <span class="mi">60</span>
+
+<span class="k">for</span> <span class="n">cert</span> <span class="ow">in</span> <span class="n">certificates</span><span class="p">:</span>
+    <span class="n">days_left</span> <span class="o">=</span> <span class="p">(</span><span class="n">cert</span><span class="p">[</span><span class="s2">&quot;expiry&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">today</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+    <span class="k">if</span> <span class="n">days_left</span> <span class="o">&lt;=</span> <span class="n">alert_threshold</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ALERT: </span><span class="si">{</span><span class="n">cert</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> expires in </span><span class="si">{</span><span class="n">days_left</span><span class="si">}</span><span class="s2"> days&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;OK: </span><span class="si">{</span><span class="n">cert</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> expires in </span><span class="si">{</span><span class="n">days_left</span><span class="si">}</span><span class="s2"> days&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>ALERT: example.com expires in 45 days</strong> (if today is Jan 29, 2025)</p>
+<hr />
+<h3 id="example-5-generate-a-daily-report-of-certificate-statuses_1">🔧 Example 5: Generate a daily report of certificate statuses</h3>
+<p>This example demonstrates how to create a summary report showing each certificate's status with days remaining and an alert level.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+
+<span class="n">certificates</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;expiry&quot;</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;api.example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;expiry&quot;</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">15</span><span class="p">)},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mail.example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;expiry&quot;</span><span class="p">:</span> <span class="n">date</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)},</span>
+<span class="p">]</span>
+
+<span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== SSL Certificate Status Report ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Report Date: </span><span class="si">{</span><span class="n">today</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">cert</span> <span class="ow">in</span> <span class="n">certificates</span><span class="p">:</span>
+    <span class="n">days_left</span> <span class="o">=</span> <span class="p">(</span><span class="n">cert</span><span class="p">[</span><span class="s2">&quot;expiry&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">today</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+    <span class="k">if</span> <span class="n">days_left</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;EXPIRED&quot;</span>
+    <span class="k">elif</span> <span class="n">days_left</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;CRITICAL&quot;</span>
+    <span class="k">elif</span> <span class="n">days_left</span> <span class="o">&lt;=</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;WARNING&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cert</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">20s</span><span class="si">}</span><span class="s2"> | Days Left: </span><span class="si">{</span><span class="n">days_left</span><span class="si">:</span><span class="s2">3d</span><span class="si">}</span><span class="s2"> | Status: </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== End of Report ===&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>=== SSL Certificate Status Report ===</strong> (followed by a table of certificate statuses)</p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

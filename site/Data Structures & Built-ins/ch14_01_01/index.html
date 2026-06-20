@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_01_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Directory Retrieval and Navigation (getcwd, chdir) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Directory Retrieval and Navigation (getcwd, chdir)";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_01_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_01_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -641,6 +641,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-getcwd-vs-chdir_1">📊 Comparison: getcwd vs chdir</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-the-current-working-directory_1">⚙️ What is the Current Working Directory?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#retrieving-the-current-directory-with-getcwd_1">🧭 Retrieving the Current Directory with getcwd()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#changing-the-directory-with-chdir_1">🚪 Changing the Directory with chdir()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-use-cases-for-directory-navigation_1">🛠️ Common Use Cases for Directory Navigation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-getcwd-vs-chdir_2">📊 Comparison: getcwd vs chdir</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-notes-for-engineers_1">🕵️ Important Notes for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simple-workflow-example_1">🧪 Simple Workflow Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-get-current-working-directory_1">🔍 Example 1: Get current working directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-change-to-a-different-directory_1">🔄 Example 2: Change to a different directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-navigate-back-to-parent-directory_1">🔙 Example 3: Navigate back to parent directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-change-to-a-subdirectory-and-return_1">📂 Example 4: Change to a subdirectory and return</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-check-if-a-directory-exists-before-changing_1">🛠️ Example 5: Check if a directory exists before changing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-getcwd-vs-chdir_3">📊 Comparison: getcwd vs chdir</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_01_02/">Ch 14 | Listing Directory Contents via listdir</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="directory-retrieval-and-navigation-getcwd-chdir">Directory Retrieval and Navigation (getcwd, chdir)</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  The os Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with files and scripts, knowing <strong>where you are</strong> in the file system and being able to <strong>move around</strong> is essential. Python's <strong>os module</strong> gives you two simple but powerful tools for this: <strong>getcwd</strong> (get current working directory) and <strong>chdir</strong> (change directory). These functions help you understand your script's location and navigate to other folders programmatically.</p>
@@ -1189,8 +1217,7 @@ You call <strong>os.chdir("/var/log")</strong> to move into the logs folder. The
 <li>Save and restore the original directory if your script needs to leave things as it found them</li>
 </ul>
 <p>Mastering these two functions makes your scripts more robust and portable across different environments.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>os.getcwd()</code> and <code>os.chdir()</code> functions let you find your current working directory and move to a different directory from within Python.</p>
 <h3 id="example-1-get-current-working-directory">🔍 Example 1: Get current working directory</h3>
 <p>Shows how to find which folder your Python script is currently running in.</p>
@@ -1255,6 +1282,209 @@ You call <strong>os.chdir("/var/log")</strong> to move into the logs folder. The
 <p>📤 Output: <strong>Directory does not exist: /home/user/logs</strong></p>
 <hr />
 <h3 id="comparison-getcwd-vs-chdir_1">📊 Comparison: getcwd vs chdir</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>os.getcwd()</code></td>
+<td>Shows the current working directory path</td>
+<td>A string (folder path)</td>
+</tr>
+<tr>
+<td><code>os.chdir(path)</code></td>
+<td>Changes the current working directory to <code>path</code></td>
+<td>Nothing (None)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with files and scripts, knowing <strong>where you are</strong> in the file system and being able to <strong>move around</strong> is essential. Python's <strong>os module</strong> gives you two simple but powerful tools for this: <strong>getcwd</strong> (get current working directory) and <strong>chdir</strong> (change directory). These functions help you understand your script's location and navigate to other folders programmatically.</p>
+<hr />
+<h3 id="what-is-the-current-working-directory_1">⚙️ What is the Current Working Directory?</h3>
+<p>The <strong>current working directory</strong> (CWD) is the folder from which your Python script is currently running. When you open a file without specifying a full path, Python looks for it in this directory.</p>
+<ul>
+<li>Every running process has a CWD</li>
+<li>It affects how relative file paths are resolved</li>
+<li>It can change during script execution</li>
+<li>It is independent of where the script file itself is stored</li>
+</ul>
+<hr />
+<h3 id="retrieving-the-current-directory-with-getcwd_1">🧭 Retrieving the Current Directory with <strong>getcwd()</strong></h3>
+<p>The <strong>os.getcwd()</strong> function returns the absolute path of the current working directory as a string.</p>
+<ul>
+<li>It takes <strong>no arguments</strong></li>
+<li>It returns a string like <strong>/home/user/projects</strong> or <strong>C:\Users\Engineer\scripts</strong></li>
+<li>The result is always an <strong>absolute path</strong> (full path from the root)</li>
+<li>It is useful for logging, debugging, or confirming your location before file operations</li>
+</ul>
+<p><strong>Example in practice:</strong><br />
+You call <strong>os.getcwd()</strong> and store the result in a variable like <strong>current_dir</strong>. You then print it to see something like <strong>/home/engineer/automation</strong>. This confirms your script is running from the expected folder.</p>
+<hr />
+<h3 id="changing-the-directory-with-chdir_1">🚪 Changing the Directory with <strong>chdir()</strong></h3>
+<p>The <strong>os.chdir()</strong> function changes the current working directory to a specified path.</p>
+<ul>
+<li>It takes <strong>one argument</strong>: the path to the target directory</li>
+<li>The path can be <strong>absolute</strong> (starting from root) or <strong>relative</strong> (relative to current location)</li>
+<li>After calling <strong>chdir()</strong>, all subsequent relative file operations use the new directory</li>
+<li>It raises an error if the target directory does not exist</li>
+</ul>
+<p><strong>Example in practice:</strong><br />
+You call <strong>os.chdir("/var/log")</strong> to move into the logs folder. Then you call <strong>os.getcwd()</strong> again, and it now returns <strong>/var/log</strong>. Any file you open with a relative path will look inside this folder.</p>
+<hr />
+<h3 id="common-use-cases-for-directory-navigation_1">🛠️ Common Use Cases for Directory Navigation</h3>
+<ul>
+<li><strong>Reading configuration files</strong> from a specific folder before processing</li>
+<li><strong>Switching to a data directory</strong> where input files are stored</li>
+<li><strong>Moving to an output directory</strong> before writing results</li>
+<li><strong>Navigating relative paths</strong> like <strong>os.chdir("..")</strong> to go up one level</li>
+<li><strong>Building portable scripts</strong> that change directories based on user input</li>
+</ul>
+<hr />
+<h3 id="comparison-getcwd-vs-chdir_2">📊 Comparison: getcwd vs chdir</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><strong>getcwd()</strong></th>
+<th><strong>chdir()</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purpose</td>
+<td>Tells you where you are</td>
+<td>Moves you somewhere else</td>
+</tr>
+<tr>
+<td>Arguments</td>
+<td>None</td>
+<td>One path (string)</td>
+</tr>
+<tr>
+<td>Return value</td>
+<td>A string (the path)</td>
+<td><strong>None</strong> (changes state)</td>
+</tr>
+<tr>
+<td>Error risk</td>
+<td>Very low</td>
+<td>High if path is invalid</td>
+</tr>
+<tr>
+<td>Typical use</td>
+<td>Logging, validation</td>
+<td>Navigation, setup</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="important-notes-for-engineers_1">🕵️ Important Notes for Engineers</h3>
+<ul>
+<li>Always <strong>check if a directory exists</strong> before calling <strong>chdir()</strong> to avoid runtime errors</li>
+<li>Changing the directory affects <strong>all file operations</strong> in your script until you change it again</li>
+<li>Use <strong>absolute paths</strong> when possible to avoid confusion with relative navigation</li>
+<li>The original working directory is <strong>not automatically restored</strong> when your script ends</li>
+<li>Consider saving the original directory with <strong>os.getcwd()</strong> at the start if you need to return later</li>
+</ul>
+<hr />
+<h3 id="simple-workflow-example_1">🧪 Simple Workflow Example</h3>
+<p>Imagine you have a script that needs to process files in a folder called <strong>data</strong> and then save results in a folder called <strong>output</strong>.</p>
+<ol>
+<li>First, you call <strong>os.getcwd()</strong> to confirm your starting location</li>
+<li>You call <strong>os.chdir("data")</strong> to move into the data folder</li>
+<li>You process the files using relative paths</li>
+<li>You call <strong>os.chdir("../output")</strong> to move into the output folder</li>
+<li>You save your results there</li>
+<li>Optionally, you call <strong>os.chdir(original_dir)</strong> to return to where you started</li>
+</ol>
+<p>This pattern keeps your script flexible and avoids hardcoding full paths everywhere.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li><strong>os.getcwd()</strong> retrieves your current location in the file system</li>
+<li><strong>os.chdir()</strong> moves you to a different directory</li>
+<li>Together, they give you full control over directory navigation in your scripts</li>
+<li>Always handle potential errors when changing directories</li>
+<li>Save and restore the original directory if your script needs to leave things as it found them</li>
+</ul>
+<p>Mastering these two functions makes your scripts more robust and portable across different environments.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>os.getcwd()</code> and <code>os.chdir()</code> functions let you find your current working directory and move to a different directory from within Python.</p>
+<h3 id="example-1-get-current-working-directory_1">🔍 Example 1: Get current working directory</h3>
+<p>Shows how to find which folder your Python script is currently running in.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">current</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>/home/user/projects</strong></p>
+<hr />
+<h3 id="example-2-change-to-a-different-directory_1">🔄 Example 2: Change to a different directory</h3>
+<p>Moves the Python process into a different folder on the filesystem.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;/home/user/documents&quot;</span><span class="p">)</span>
+<span class="n">new_location</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_location</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>/home/user/documents</strong></p>
+<hr />
+<h3 id="example-3-navigate-back-to-parent-directory_1">🔙 Example 3: Navigate back to parent directory</h3>
+<p>Moves one level up in the directory tree using the <code>..</code> path.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;/home/user/projects/python_scripts&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>Before: /home/user/projects/python_scripts</strong><br />
+📤 Output: <strong>After: /home/user/projects</strong></p>
+<hr />
+<h3 id="example-4-change-to-a-subdirectory-and-return_1">📂 Example 4: Change to a subdirectory and return</h3>
+<p>Moves into a subfolder, confirms the new location, then goes back to the original folder.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">original</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Start:&quot;</span><span class="p">,</span> <span class="n">original</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In data folder:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Back to start:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>Start: /home/user/projects</strong><br />
+📤 Output: <strong>In data folder: /home/user/projects/data</strong><br />
+📤 Output: <strong>Back to start: /home/user/projects</strong></p>
+<hr />
+<h3 id="example-5-check-if-a-directory-exists-before-changing_1">🛠️ Example 5: Check if a directory exists before changing</h3>
+<p>Verifies a target folder exists using <code>os.path.isdir()</code> before attempting to navigate into it.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">target</span> <span class="o">=</span> <span class="s2">&quot;/home/user/logs&quot;</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moved to:&quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory does not exist:&quot;</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Directory does not exist: /home/user/logs</strong></p>
+<hr />
+<h3 id="comparison-getcwd-vs-chdir_3">📊 Comparison: getcwd vs chdir</h3>
 <table>
 <thead>
 <tr>

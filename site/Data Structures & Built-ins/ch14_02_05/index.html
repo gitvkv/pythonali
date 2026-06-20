@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_02_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Practical Example: Archiving Old Log Files - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Practical Example: Archiving Old Log Files";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_02_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_02_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -665,6 +665,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-archive-methods">📊 Comparison Table: Archive Methods</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-goal_1">⚙️ The Goal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-tools-from-the-shutil-module_1">🛠️ Key Tools from the shutil Module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-archive-formats_1">📊 Comparison: Archive Formats</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-by-step-script-logic_1">🕵️ Step-by-Step Script Logic</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-script-structure-inline_1">🧪 Example Script Structure (Inline)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#expected-outcome_1">✅ Expected Outcome</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-engineers_1">🧹 Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🔁 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-creating-a-simple-zip-archive-of-a-single-file_1">📦 Example 1: Creating a simple ZIP archive of a single file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-archiving-an-entire-directory-of-log-files_1">📦 Example 2: Archiving an entire directory of log files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-archiving-only-files-older-than-7-days_1">📦 Example 3: Archiving only files older than 7 days</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-archiving-and-deleting-original-log-files-after-backup_1">📦 Example 4: Archiving and deleting original log files after backup</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-archiving-logs-with-date-stamped-archive-names_1">📦 Example 5: Archiving logs with date-stamped archive names</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-archive-methods_1">📊 Comparison Table: Archive Methods</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_03_01/">Ch 14 | Recommended Execution with subprocess.run()</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="practical-example-archiving-old-log-files">Practical Example: Archiving Old Log Files</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  The shutil Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1200,8 +1230,7 @@
 <hr />
 <h3 id="summary">🔁 Summary</h3>
 <p>This practical example shows how the <strong>shutil</strong> module simplifies file archiving tasks that would otherwise require complex shell commands or manual effort. By combining <strong>shutil.make_archive()</strong> with file age checks, engineers can build a reliable log rotation system that keeps storage under control without losing historical data. The same approach can be extended to archive other file types or to compress entire directories.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example shows how to use Python's <code>shutil</code> module to archive old log files into compressed archives for storage or cleanup.</p>
 <hr />
 <h3 id="example-1-creating-a-simple-zip-archive-of-a-single-file">📦 Example 1: Creating a simple ZIP archive of a single file</h3>
@@ -1289,6 +1318,262 @@
 <p>📤 Output: <strong>logs_archive_2024-01-15.zip created (date will vary)</strong></p>
 <hr />
 <h3 id="comparison-table-archive-methods">📊 Comparison Table: Archive Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Use Case</th>
+<th>Preserves Original Files</th>
+<th>Creates Archive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>make_archive</code> with single file</td>
+<td>Quick backup of one log</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>make_archive</code> with directory</td>
+<td>Backup entire log folder</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Filter by age + archive</td>
+<td>Archive old logs only</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Archive + delete originals</td>
+<td>Free up disk space</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Date-stamped archive name</td>
+<td>Organized backups</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>Log files are essential for troubleshooting and monitoring, but they can quickly consume disk space if left unchecked. Engineers often need to archive or compress older log files to free up storage while preserving them for future reference. This practical example demonstrates how to use Python's <strong>shutil</strong> module to automate the process of identifying and archiving old log files into a compressed archive.</p>
+<hr />
+<h3 id="the-goal_1">⚙️ The Goal</h3>
+<p>The objective is to create a script that:</p>
+<ul>
+<li>Scans a specified directory for log files (e.g., files ending with <strong>.log</strong>)</li>
+<li>Identifies files older than a certain number of days (e.g., 7 days)</li>
+<li>Compresses those old files into a single archive (e.g., <strong>.zip</strong> or <strong>.tar.gz</strong>)</li>
+<li>Removes the original log files after successful archiving</li>
+</ul>
+<hr />
+<h3 id="key-tools-from-the-shutil-module_1">🛠️ Key Tools from the shutil Module</h3>
+<p>The <strong>shutil</strong> module provides high-level file operations. For this task, we rely on:</p>
+<ul>
+<li><strong>shutil.make_archive()</strong> – Creates a compressed archive (zip, tar, etc.) from a collection of files</li>
+<li><strong>shutil.rmtree()</strong> – Removes a directory and all its contents (useful if logs are stored in subdirectories)</li>
+<li><strong>os.path.getmtime()</strong> – Retrieves the last modification time of a file to determine its age</li>
+</ul>
+<hr />
+<h3 id="comparison-archive-formats_1">📊 Comparison: Archive Formats</h3>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Compression</th>
+<th>Platform Support</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>zip</strong></td>
+<td>Moderate</td>
+<td>Cross-platform</td>
+<td>General purpose, easy to open on any OS</td>
+</tr>
+<tr>
+<td><strong>tar.gz</strong></td>
+<td>High (gzip)</td>
+<td>Linux/macOS preferred</td>
+<td>Better compression, common in server environments</td>
+</tr>
+<tr>
+<td><strong>tar.bz2</strong></td>
+<td>Very high</td>
+<td>Linux/macOS preferred</td>
+<td>Maximum compression, slower to create</td>
+</tr>
+</tbody>
+</table>
+<p>For this example, we will use <strong>zip</strong> format for simplicity and broad compatibility.</p>
+<hr />
+<h3 id="step-by-step-script-logic_1">🕵️ Step-by-Step Script Logic</h3>
+<p><strong>Step 1: Define the target directory and age threshold</strong></p>
+<ul>
+<li>Set a variable for the directory containing log files (e.g., <strong>/var/log/myapp</strong>)</li>
+<li>Set a variable for the maximum age in days (e.g., <strong>7</strong>)</li>
+</ul>
+<p><strong>Step 2: List all files in the directory</strong></p>
+<ul>
+<li>Use <strong>os.listdir()</strong> to get all entries in the directory</li>
+<li>Filter for files ending with <strong>.log</strong> using <strong>str.endswith()</strong></li>
+</ul>
+<p><strong>Step 3: Check file age</strong></p>
+<ul>
+<li>For each log file, use <strong>os.path.getmtime()</strong> to get the last modification timestamp</li>
+<li>Compare the timestamp with the current time minus the age threshold (using <strong>time.time()</strong>)</li>
+<li>If the file is older than the threshold, add it to a list of files to archive</li>
+</ul>
+<p><strong>Step 4: Create the archive</strong></p>
+<ul>
+<li>Use <strong>shutil.make_archive()</strong> with the base name (e.g., <strong>old_logs_archive</strong>), format (<strong>zip</strong>), and the list of file paths</li>
+<li>The archive will be created in the current working directory or a specified location</li>
+</ul>
+<p><strong>Step 5: Remove the original files</strong></p>
+<ul>
+<li>After successful archiving, use <strong>os.remove()</strong> to delete each original log file</li>
+<li>Optionally, log the names of archived and removed files for auditing</li>
+</ul>
+<hr />
+<h3 id="example-script-structure-inline_1">🧪 Example Script Structure (Inline)</h3>
+<p>The script begins by importing <strong>os</strong>, <strong>shutil</strong>, and <strong>time</strong>. It then defines the target directory and age threshold. A function called <strong>archive_old_logs()</strong> is created to encapsulate the logic.</p>
+<p>Inside the function:</p>
+<ul>
+<li>A list called <strong>files_to_archive</strong> is initialized as empty</li>
+<li>The script loops through all entries in the target directory using <strong>os.listdir()</strong></li>
+<li>For each entry that ends with <strong>.log</strong>, it checks the file's modification time</li>
+<li>If the file is older than the threshold, its full path is appended to <strong>files_to_archive</strong></li>
+<li>After the loop, if there are files to archive, <strong>shutil.make_archive()</strong> is called with a base name like <strong>archived_logs</strong>, format <strong>zip</strong>, and the root directory set to the target directory. The files to archive are passed as a list of relative paths</li>
+<li>Finally, each original file in <strong>files_to_archive</strong> is deleted using <strong>os.remove()</strong></li>
+</ul>
+<p>The script prints a message for each file archived and removed, and a summary at the end.</p>
+<hr />
+<h3 id="expected-outcome_1">✅ Expected Outcome</h3>
+<p>When the script runs:</p>
+<ul>
+<li>It scans the target directory and identifies all <strong>.log</strong> files older than 7 days</li>
+<li>It creates a single <strong>.zip</strong> file named <strong>archived_logs.zip</strong> containing those old log files</li>
+<li>It deletes the original log files from the directory</li>
+<li>The console output shows something like:</li>
+</ul>
+<p><strong>Archived: /var/log/myapp/error_20231001.log</strong><br />
+<strong>Archived: /var/log/myapp/access_20230928.log</strong><br />
+<strong>Removed: /var/log/myapp/error_20231001.log</strong><br />
+<strong>Removed: /var/log/myapp/access_20230928.log</strong><br />
+<strong>Archiving complete. 2 files processed.</strong></p>
+<hr />
+<h3 id="best-practices-for-engineers_1">🧹 Best Practices for Engineers</h3>
+<ul>
+<li>Always test the script on a copy of your log directory first to avoid accidental data loss</li>
+<li>Use absolute paths to avoid confusion about the current working directory</li>
+<li>Add error handling (e.g., <strong>try-except</strong> blocks) to manage permission issues or missing files</li>
+<li>Schedule the script using <strong>cron</strong> (Linux) or <strong>Task Scheduler</strong> (Windows) for regular automated cleanup</li>
+<li>Consider logging the script's actions to a separate file for audit trails</li>
+</ul>
+<hr />
+<h3 id="summary_1">🔁 Summary</h3>
+<p>This practical example shows how the <strong>shutil</strong> module simplifies file archiving tasks that would otherwise require complex shell commands or manual effort. By combining <strong>shutil.make_archive()</strong> with file age checks, engineers can build a reliable log rotation system that keeps storage under control without losing historical data. The same approach can be extended to archive other file types or to compress entire directories.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example shows how to use Python's <code>shutil</code> module to archive old log files into compressed archives for storage or cleanup.</p>
+<hr />
+<h3 id="example-1-creating-a-simple-zip-archive-of-a-single-file_1">📦 Example 1: Creating a simple ZIP archive of a single file</h3>
+<p>This example demonstrates how to compress one log file into a ZIP archive.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">log_file</span> <span class="o">=</span> <span class="s2">&quot;server.log&quot;</span>
+<span class="n">archive_name</span> <span class="o">=</span> <span class="s2">&quot;server_log_backup&quot;</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">make_archive</span><span class="p">(</span><span class="n">archive_name</span><span class="p">,</span> <span class="s2">&quot;zip&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">log_file</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>server_log_backup.zip created in current directory</strong></p>
+<hr />
+<h3 id="example-2-archiving-an-entire-directory-of-log-files_1">📦 Example 2: Archiving an entire directory of log files</h3>
+<p>This example shows how to compress a folder containing multiple log files into one archive.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="n">log_directory</span> <span class="o">=</span> <span class="s2">&quot;logs&quot;</span>
+<span class="n">archive_name</span> <span class="o">=</span> <span class="s2">&quot;logs_backup&quot;</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">make_archive</span><span class="p">(</span><span class="n">archive_name</span><span class="p">,</span> <span class="s2">&quot;zip&quot;</span><span class="p">,</span> <span class="n">log_directory</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>logs_backup.zip created containing all files from logs/</strong></p>
+<hr />
+<h3 id="example-3-archiving-only-files-older-than-7-days_1">📦 Example 3: Archiving only files older than 7 days</h3>
+<p>This example demonstrates how to filter and archive log files based on their age.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">log_directory</span> <span class="o">=</span> <span class="s2">&quot;logs&quot;</span>
+<span class="n">archive_name</span> <span class="o">=</span> <span class="s2">&quot;old_logs_backup&quot;</span>
+<span class="n">temp_dir</span> <span class="o">=</span> <span class="s2">&quot;temp_old_logs&quot;</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">temp_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">seven_days_ago</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">log_directory</span><span class="p">):</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">log_directory</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">seven_days_ago</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">temp_dir</span><span class="p">)</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">make_archive</span><span class="p">(</span><span class="n">archive_name</span><span class="p">,</span> <span class="s2">&quot;zip&quot;</span><span class="p">,</span> <span class="n">temp_dir</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">temp_dir</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>old_logs_backup.zip created with files older than 7 days</strong></p>
+<hr />
+<h3 id="example-4-archiving-and-deleting-original-log-files-after-backup_1">📦 Example 4: Archiving and deleting original log files after backup</h3>
+<p>This example shows how to archive old logs and then remove the original files to free up space.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">log_directory</span> <span class="o">=</span> <span class="s2">&quot;logs&quot;</span>
+<span class="n">archive_name</span> <span class="o">=</span> <span class="s2">&quot;archived_logs&quot;</span>
+<span class="n">temp_dir</span> <span class="o">=</span> <span class="s2">&quot;temp_archive&quot;</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">temp_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">seven_days_ago</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="p">(</span><span class="mi">7</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">log_directory</span><span class="p">):</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">log_directory</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">seven_days_ago</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">temp_dir</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">make_archive</span><span class="p">(</span><span class="n">archive_name</span><span class="p">,</span> <span class="s2">&quot;zip&quot;</span><span class="p">,</span> <span class="n">temp_dir</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">temp_dir</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>archived_logs.zip created, original old log files deleted</strong></p>
+<hr />
+<h3 id="example-5-archiving-logs-with-date-stamped-archive-names_1">📦 Example 5: Archiving logs with date-stamped archive names</h3>
+<p>This example demonstrates how to create archives with the current date in the filename for better organization.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">log_directory</span> <span class="o">=</span> <span class="s2">&quot;logs&quot;</span>
+<span class="n">current_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">archive_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;logs_archive_</span><span class="si">{</span><span class="n">current_date</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">shutil</span><span class="o">.</span><span class="n">make_archive</span><span class="p">(</span><span class="n">archive_name</span><span class="p">,</span> <span class="s2">&quot;zip&quot;</span><span class="p">,</span> <span class="n">log_directory</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>logs_archive_2024-01-15.zip created (date will vary)</strong></p>
+<hr />
+<h3 id="comparison-table-archive-methods_1">📊 Comparison Table: Archive Methods</h3>
 <table>
 <thead>
 <tr>

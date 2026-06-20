@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch09_04_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 09 | Practical Example: Nested Network Device Configs - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 09 | Practical Example: Nested Network Device Configs";
         var mkdocs_page_input_path = "Core Syntax\\ch09_04_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch09_04_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -442,6 +442,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-updating-nested-values-across-multiple-devices">🔧 Example 5: Updating nested values across multiple devices</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-nested-dictionaries-for-network-configs_1">⚙️ Why Nested Dictionaries for Network Configs?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-a-nested-device-config_1">🛠️ Building a Nested Device Config</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accessing-nested-data_1">🕵️ Accessing Nested Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#updating-nested-values_1">📊 Updating Nested Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#iterating-over-nested-data_1">🔄 Iterating Over Nested Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-flat-vs-nested-structures_1">🧩 Comparison: Flat vs. Nested Structures</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-engineers_1">✅ Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">🚀 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-nested-dictionary-for-a-single-switch_1">🔧 Example 1: Basic nested dictionary for a single switch</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-accessing-nested-values-with-multiple-keys_1">🔧 Example 2: Accessing nested values with multiple keys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-adding-new-nested-configuration-to-a-device_1">🔧 Example 3: Adding new nested configuration to a device</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-looping-through-nested-device-configurations_1">🔧 Example 4: Looping through nested device configurations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-updating-nested-values-across-multiple-devices_1">🔧 Example 5: Updating nested values across multiple devices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="practical-example-nested-network-device-configs">Practical Example: Nested Network Device Configs</h1>
 <p><span class="category-tag">🏷️ Dictionaries /  Nested Dictionaries</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1190,8 +1220,7 @@
 - Write logic to find all interfaces that are <strong>"down"</strong> across all devices
 - Create a function that takes a device name and returns a list of all IP addresses configured on that device</p>
 <p>Nested dictionaries are the foundation for working with JSON data from network devices, APIs, and configuration files. Master this pattern, and you'll be ready to automate real network tasks with confidence.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Nested dictionaries store device configurations where each device contains multiple configuration parameters as key-value pairs.</p>
 <hr />
 <h3 id="example-1-basic-nested-dictionary-for-a-single-switch">🔧 Example 1: Basic nested dictionary for a single switch</h3>
@@ -1317,6 +1346,284 @@
 <p>📤 Output: <strong>{'community': 'secure_community', 'version': 'v3'} {'community': 'secure_community', 'version': 'v3'}</strong></p>
 <hr />
 <h3 id="comparison-table">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Example</th>
+<th>Key Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Access nested value</td>
+<td><code>config["vlans"]["10"]</code></td>
+<td>Uses multiple keys</td>
+</tr>
+<tr>
+<td>Add nested value</td>
+<td><code>config["interfaces"]["eth2"] = "dmz"</code></td>
+<td>Creates new key-value pair</td>
+</tr>
+<tr>
+<td>Loop through devices</td>
+<td><code>for name, info in devices.items()</code></td>
+<td>Iterates all nested data</td>
+</tr>
+<tr>
+<td>Update nested value</td>
+<td><code>config["snmp"]["community"] = "new"</code></td>
+<td>Modifies existing nested key</td>
+</tr>
+<tr>
+<td>Check device status</td>
+<td><code>if device_info["status"] == "online"</code></td>
+<td>Conditional nested access</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>As you begin working with network automation, you'll quickly discover that real-world device configurations are rarely flat and simple. A single switch or router contains multiple interfaces, each with its own IP address, VLAN assignment, and status. This hierarchical data is best represented using <strong>nested dictionaries</strong>—dictionaries inside other dictionaries. In this guide, we'll walk through a practical example of modeling a network device's configuration using nested dictionaries, then show how to access, update, and iterate over that data.</p>
+<hr />
+<h3 id="why-nested-dictionaries-for-network-configs_1">⚙️ Why Nested Dictionaries for Network Configs?</h3>
+<ul>
+<li><strong>Real-world structure</strong>: A device has interfaces; each interface has properties (IP, VLAN, status). This is a natural parent-child relationship.</li>
+<li><strong>Efficient lookups</strong>: Instead of looping through flat lists, you can access specific interface details directly by key.</li>
+<li><strong>Easy to update</strong>: Need to change the IP on interface GigabitEthernet0/1? You can do it in one line without touching other data.</li>
+<li><strong>Readable and maintainable</strong>: Nested dictionaries mirror how engineers think about device configurations—organized by device, then interface, then property.</li>
+</ul>
+<hr />
+<h3 id="building-a-nested-device-config_1">🛠️ Building a Nested Device Config</h3>
+<p>Let's model a single network switch with two interfaces. We'll create a dictionary where the top-level key is the device hostname, and the value is another dictionary containing interface names as keys, each pointing to a dictionary of properties.</p>
+<p><strong>Example structure (conceptual):</strong>
+- Top-level key: <strong>"switch-01"</strong>
+- Inside that, a key <strong>"interfaces"</strong> with value being another dictionary
+- Inside interfaces, keys like <strong>"GigabitEthernet0/1"</strong> and <strong>"GigabitEthernet0/2"</strong>
+- Each interface has keys: <strong>"ip_address"</strong>, <strong>"vlan"</strong>, <strong>"status"</strong></p>
+<p><strong>How to build it in Python:</strong>
+- Start with an empty dictionary: <strong>device_config = {}</strong>
+- Add the device name as a key with an empty dictionary as value: <strong>device_config["switch-01"] = {}</strong>
+- Inside that, add an "interfaces" key with another empty dictionary: <strong>device_config["switch-01"]["interfaces"] = {}</strong>
+- Now add each interface: <strong>device_config["switch-01"]["interfaces"]["GigabitEthernet0/1"] = {"ip_address": "10.0.1.1", "vlan": 10, "status": "up"}</strong>
+- Repeat for the second interface: <strong>device_config["switch-01"]["interfaces"]["GigabitEthernet0/2"] = {"ip_address": "10.0.2.1", "vlan": 20, "status": "down"}</strong></p>
+<p>The final structure looks like this (written as a single assignment for clarity):
+- <strong>device_config = {"switch-01": {"interfaces": {"GigabitEthernet0/1": {"ip_address": "10.0.1.1", "vlan": 10, "status": "up"}, "GigabitEthernet0/2": {"ip_address": "10.0.2.1", "vlan": 20, "status": "down"}}}}</strong></p>
+<hr />
+<h3 id="accessing-nested-data_1">🕵️ Accessing Nested Data</h3>
+<p>To retrieve specific values, chain the keys in order from outer to inner.</p>
+<p><strong>Examples of accessing data:</strong>
+- Get the IP address of the first interface: <strong>device_config["switch-01"]["interfaces"]["GigabitEthernet0/1"]["ip_address"]</strong> → returns <strong>"10.0.1.1"</strong>
+- Get the VLAN of the second interface: <strong>device_config["switch-01"]["interfaces"]["GigabitEthernet0/2"]["vlan"]</strong> → returns <strong>20</strong>
+- Get the entire dictionary for the first interface: <strong>device_config["switch-01"]["interfaces"]["GigabitEthernet0/1"]</strong> → returns <strong>{"ip_address": "10.0.1.1", "vlan": 10, "status": "up"}</strong></p>
+<p><strong>What happens if a key doesn't exist?</strong>
+- Python raises a <strong>KeyError</strong>. To avoid this, use the <strong>.get()</strong> method: <strong>device_config.get("switch-01", {}).get("interfaces", {}).get("GigabitEthernet0/3", "Not found")</strong> → returns <strong>"Not found"</strong> instead of crashing.</p>
+<hr />
+<h3 id="updating-nested-values_1">📊 Updating Nested Values</h3>
+<p>Updating a value in a nested dictionary is straightforward—just assign a new value to the full key path.</p>
+<p><strong>Examples of updates:</strong>
+- Change the IP address on GigabitEthernet0/1: <strong>device_config["switch-01"]["interfaces"]["GigabitEthernet0/1"]["ip_address"] = "10.0.1.100"</strong>
+- Change the status of GigabitEthernet0/2 to "up": <strong>device_config["switch-01"]["interfaces"]["GigabitEthernet0/2"]["status"] = "up"</strong>
+- Add a new property (e.g., description) to an interface: <strong>device_config["switch-01"]["interfaces"]["GigabitEthernet0/1"]["description"] = "Uplink to core"</strong></p>
+<p><strong>Adding a new interface entirely:</strong>
+- <strong>device_config["switch-01"]["interfaces"]["GigabitEthernet0/3"] = {"ip_address": "10.0.3.1", "vlan": 30, "status": "admin down"}</strong></p>
+<hr />
+<h3 id="iterating-over-nested-data_1">🔄 Iterating Over Nested Data</h3>
+<p>To process all interfaces on a device, you'll need nested loops—one for devices, one for interfaces.</p>
+<p><strong>How to loop through all interfaces:</strong>
+- Outer loop: <strong>for device_name, device_data in device_config.items():</strong> — this gives you each device name and its data dictionary
+- Inner loop: <strong>for interface_name, interface_props in device_data["interfaces"].items():</strong> — this gives you each interface name and its properties dictionary
+- Inside the inner loop, you can access individual properties: <strong>interface_props["ip_address"]</strong>, <strong>interface_props["vlan"]</strong>, <strong>interface_props["status"]</strong></p>
+<p><strong>Practical output example (not code, just the logic):</strong>
+- For each device, print the device name
+- For each interface on that device, print the interface name, its IP, VLAN, and status
+- This lets you generate a report of all interfaces across all devices in one go</p>
+<hr />
+<h3 id="comparison-flat-vs-nested-structures_1">🧩 Comparison: Flat vs. Nested Structures</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Flat Dictionary</th>
+<th>Nested Dictionary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Example key</strong></td>
+<td><strong>"switch-01_Gig0/1_ip"</strong></td>
+<td><strong>["switch-01"]["interfaces"]["Gig0/1"]["ip"]</strong></td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Hard to parse visually</td>
+<td>Mirrors real-world hierarchy</td>
+</tr>
+<tr>
+<td><strong>Adding new interface</strong></td>
+<td>Requires new key with prefix</td>
+<td>Just add a new inner dictionary</td>
+</tr>
+<tr>
+<td><strong>Updating all interfaces</strong></td>
+<td>Must loop and filter by prefix</td>
+<td>Directly iterate over inner dict</td>
+</tr>
+<tr>
+<td><strong>Error-prone?</strong></td>
+<td>Easy to mis-type long keys</td>
+<td>Clearer path, but must ensure parent keys exist</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="best-practices-for-engineers_1">✅ Best Practices for Engineers</h3>
+<ul>
+<li><strong>Always use .get() for safe access</strong> when you're not sure a key exists—this prevents your script from crashing on unexpected data.</li>
+<li><strong>Build nested dictionaries step by step</strong> rather than all at once—it's easier to debug and verify each level.</li>
+<li><strong>Use meaningful key names</strong> like <strong>"interfaces"</strong>, <strong>"vlan"</strong>, <strong>"status"</strong>—avoid abbreviations that might confuse you later.</li>
+<li><strong>Consider using a small helper function</strong> to safely drill into nested dictionaries: for example, a function that takes a list of keys and returns the value or a default.</li>
+<li><strong>When iterating, unpack wisely</strong>—use descriptive variable names like <strong>device_name</strong>, <strong>interface_name</strong>, <strong>interface_props</strong> so the code reads like English.</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">🚀 Next Steps</h3>
+<p>Now that you understand nested dictionaries, try extending this example:
+- Add a second device (e.g., <strong>"switch-02"</strong>) with its own interfaces
+- Write logic to find all interfaces that are <strong>"down"</strong> across all devices
+- Create a function that takes a device name and returns a list of all IP addresses configured on that device</p>
+<p>Nested dictionaries are the foundation for working with JSON data from network devices, APIs, and configuration files. Master this pattern, and you'll be ready to automate real network tasks with confidence.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Nested dictionaries store device configurations where each device contains multiple configuration parameters as key-value pairs.</p>
+<hr />
+<h3 id="example-1-basic-nested-dictionary-for-a-single-switch_1">🔧 Example 1: Basic nested dictionary for a single switch</h3>
+<p>This example creates a simple nested dictionary with one device and its configuration settings.</p>
+<div class="highlight"><pre><span></span><code><span class="n">switch_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;SW-01&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;vlans&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;10&quot;</span><span class="p">:</span> <span class="s2">&quot;Management&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;20&quot;</span><span class="p">:</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;30&quot;</span><span class="p">:</span> <span class="s2">&quot;Voice&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;interfaces&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Gig0/1&quot;</span><span class="p">:</span> <span class="s2">&quot;access&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Gig0/2&quot;</span><span class="p">:</span> <span class="s2">&quot;trunk&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">switch_config</span><span class="p">[</span><span class="s2">&quot;hostname&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">switch_config</span><span class="p">[</span><span class="s2">&quot;vlans&quot;</span><span class="p">][</span><span class="s2">&quot;10&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">switch_config</span><span class="p">[</span><span class="s2">&quot;interfaces&quot;</span><span class="p">][</span><span class="s2">&quot;Gig0/1&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>SW-01 Management access</strong></p>
+<hr />
+<h3 id="example-2-accessing-nested-values-with-multiple-keys_1">🔧 Example 2: Accessing nested values with multiple keys</h3>
+<p>This example shows how to retrieve specific configuration values from deeply nested dictionaries.</p>
+<div class="highlight"><pre><span></span><code><span class="n">router_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;RTR-01&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ospf&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;process_id&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="s2">&quot;area&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;networks&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;192.168.1.0&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0.0.255&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;10.0.0.0&quot;</span><span class="p">:</span> <span class="s2">&quot;0.255.255.255&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">router_config</span><span class="p">[</span><span class="s2">&quot;ospf&quot;</span><span class="p">][</span><span class="s2">&quot;process_id&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">router_config</span><span class="p">[</span><span class="s2">&quot;ospf&quot;</span><span class="p">][</span><span class="s2">&quot;networks&quot;</span><span class="p">][</span><span class="s2">&quot;192.168.1.0&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>100 0.0.0.255</strong></p>
+<hr />
+<h3 id="example-3-adding-new-nested-configuration-to-a-device_1">🔧 Example 3: Adding new nested configuration to a device</h3>
+<p>This example demonstrates how to add new configuration parameters to an existing nested dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">firewall_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;FW-01&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;interfaces&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;eth0&quot;</span><span class="p">:</span> <span class="s2">&quot;outside&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;eth1&quot;</span><span class="p">:</span> <span class="s2">&quot;inside&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">firewall_config</span><span class="p">[</span><span class="s2">&quot;interfaces&quot;</span><span class="p">][</span><span class="s2">&quot;eth2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;dmz&quot;</span>
+<span class="n">firewall_config</span><span class="p">[</span><span class="s2">&quot;nat_rules&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;rule_1&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;10.0.0.0/24&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;destination&quot;</span><span class="p">:</span> <span class="s2">&quot;any&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;permit&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">firewall_config</span><span class="p">[</span><span class="s2">&quot;interfaces&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">firewall_config</span><span class="p">[</span><span class="s2">&quot;nat_rules&quot;</span><span class="p">][</span><span class="s2">&quot;rule_1&quot;</span><span class="p">][</span><span class="s2">&quot;action&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'eth0': 'outside', 'eth1': 'inside', 'eth2': 'dmz'} permit</strong></p>
+<hr />
+<h3 id="example-4-looping-through-nested-device-configurations_1">🔧 Example 4: Looping through nested device configurations</h3>
+<p>This example shows how to iterate over all devices and their nested configuration parameters.</p>
+<div class="highlight"><pre><span></span><code><span class="n">network_devices</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;SW-01&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;switch&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;vlans&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;RTR-01&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;router&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;vlans&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;online&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;FW-01&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;firewall&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;vlans&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">],</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;offline&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">device_name</span><span class="p">,</span> <span class="n">device_info</span> <span class="ow">in</span> <span class="n">network_devices</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Device: </span><span class="si">{</span><span class="n">device_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Type: </span><span class="si">{</span><span class="n">device_info</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  Status: </span><span class="si">{</span><span class="n">device_info</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  VLANs: </span><span class="si">{</span><span class="n">device_info</span><span class="p">[</span><span class="s1">&#39;vlans&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Device: SW-01 Type: switch Status: online VLANs: [10, 20, 30] Device: RTR-01 Type: router Status: online VLANs: [10, 20] Device: FW-01 Type: firewall Status: offline VLANs: [10]</strong></p>
+<hr />
+<h3 id="example-5-updating-nested-values-across-multiple-devices_1">🔧 Example 5: Updating nested values across multiple devices</h3>
+<p>This example demonstrates how to modify nested configuration values for multiple devices at once.</p>
+<div class="highlight"><pre><span></span><code><span class="n">device_configs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;SW-01&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;SW-01&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mgmt_ip&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.1.10&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;snmp&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;community&quot;</span><span class="p">:</span> <span class="s2">&quot;public&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v2c&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;SW-02&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;SW-02&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;mgmt_ip&quot;</span><span class="p">:</span> <span class="s2">&quot;192.168.1.11&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;snmp&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;community&quot;</span><span class="p">:</span> <span class="s2">&quot;public&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v2c&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">device</span><span class="p">,</span> <span class="n">config</span> <span class="ow">in</span> <span class="n">device_configs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">config</span><span class="p">[</span><span class="s2">&quot;snmp&quot;</span><span class="p">][</span><span class="s2">&quot;community&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;secure_community&quot;</span>
+    <span class="n">config</span><span class="p">[</span><span class="s2">&quot;snmp&quot;</span><span class="p">][</span><span class="s2">&quot;version&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;v3&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">device_configs</span><span class="p">[</span><span class="s2">&quot;SW-01&quot;</span><span class="p">][</span><span class="s2">&quot;snmp&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">device_configs</span><span class="p">[</span><span class="s2">&quot;SW-02&quot;</span><span class="p">][</span><span class="s2">&quot;snmp&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'community': 'secure_community', 'version': 'v3'} {'community': 'secure_community', 'version': 'v3'}</strong></p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

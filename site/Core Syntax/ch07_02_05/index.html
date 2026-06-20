@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch07_02_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 07 | Removing and Returning by Index via pop() - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 07 | Removing and Returning by Index via pop()";
         var mkdocs_page_input_path = "Core Syntax\\ch07_02_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch07_02_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -338,6 +338,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-processing-a-list-until-empty">🔧 Example 5: Processing a List Until Empty</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-pop-vs-other-removal-methods">Comparison Table: pop() vs Other Removal Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-pop-works_1">⚙️ How pop() Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-syntax-and-usage_1">🛠️ Basic Syntax and Usage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-removing-the-last-item_1">📊 Example: Removing the Last Item</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-removing-by-specific-index_1">📊 Example: Removing by Specific Index</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-behavior-to-remember_1">🕵️ Important Behavior to Remember</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-pop-vs-remove_1">🆚 Comparison: pop() vs remove()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-use-cases-for-engineers_1">💡 Practical Use Cases for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-tips_1">🧠 Quick Tips</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-removing-the-last-element_1">🔧 Example 1: Removing the Last Element</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-removing-by-specific-index_1">🔧 Example 2: Removing by Specific Index</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-pop-with-a-variable_1">🔧 Example 3: Using pop() with a Variable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-removing-from-the-beginning-of-a-list_1">🔧 Example 4: Removing from the Beginning of a List</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-processing-a-list-until-empty_1">🔧 Example 5: Processing a List Until Empty</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-pop-vs-other-removal-methods_1">Comparison Table: pop() vs Other Removal Methods</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="removing-and-returning-by-index-via-pop">Removing and Returning by Index via pop()</h1>
 <p><span class="category-tag">🏷️ Lists and List Operations /  Modifying Lists</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with lists in Python, you often need to remove an item while also keeping a reference to it for later use. The <strong>pop()</strong> method does exactly this — it removes an element at a specific index and returns that element to you. This is different from the <strong>remove()</strong> method, which only deletes the first matching value without returning it. Think of <strong>pop()</strong> like taking the top card off a deck: you remove it from the deck, but now you hold that card in your hand.</p>
@@ -1174,8 +1202,7 @@
 <li>Remember that <strong>pop()</strong> is faster than <strong>remove()</strong> when you know the index, because it doesn't need to search for a matching value.</li>
 <li>For removing the last element, <strong>pop()</strong> is more efficient than slicing or other methods.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>pop()</code> method removes an element from a list at a specified index and returns that removed element.</p>
 <hr />
 <h3 id="example-1-removing-the-last-element">🔧 Example 1: Removing the Last Element</h3>
@@ -1235,6 +1262,199 @@
 📤 Output: <strong>[]</strong></p>
 <hr />
 <h3 id="comparison-table-pop-vs-other-removal-methods">Comparison Table: pop() vs Other Removal Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Removes by</th>
+<th>Returns removed element</th>
+<th>Requires index</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pop()</code></td>
+<td>Index (or last)</td>
+<td>Yes</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td><code>remove()</code></td>
+<td>Value</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>del</code></td>
+<td>Index or slice</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div class="tabbed-block">
+<p>When working with lists in Python, you often need to remove an item while also keeping a reference to it for later use. The <strong>pop()</strong> method does exactly this — it removes an element at a specific index and returns that element to you. This is different from the <strong>remove()</strong> method, which only deletes the first matching value without returning it. Think of <strong>pop()</strong> like taking the top card off a deck: you remove it from the deck, but now you hold that card in your hand.</p>
+<hr />
+<h3 id="how-pop-works_1">⚙️ How pop() Works</h3>
+<ul>
+<li>The <strong>pop()</strong> method is called on a list and accepts one optional argument: the <strong>index</strong> of the element you want to remove.</li>
+<li>If you do not provide an index, <strong>pop()</strong> removes and returns the <strong>last item</strong> in the list by default.</li>
+<li>The list is modified in place — the element is gone from the original list.</li>
+<li>The method <strong>returns</strong> the removed element, which you can store in a variable or use immediately.</li>
+</ul>
+<hr />
+<h3 id="basic-syntax-and-usage_1">🛠️ Basic Syntax and Usage</h3>
+<ul>
+<li><strong>Syntax:</strong> <strong>my_list.pop(index)</strong></li>
+<li><strong>Default behavior (no index):</strong> <strong>my_list.pop()</strong> removes the last element.</li>
+<li><strong>With an index:</strong> <strong>my_list.pop(2)</strong> removes the element at position 2 (third item).</li>
+<li>The returned value can be assigned: <strong>removed_item = my_list.pop(0)</strong></li>
+</ul>
+<hr />
+<h3 id="example-removing-the-last-item_1">📊 Example: Removing the Last Item</h3>
+<p>Consider a list of server names: <strong>servers = ["web-01", "db-01", "cache-01", "worker-01"]</strong></p>
+<ul>
+<li>Calling <strong>last_server = servers.pop()</strong> removes <strong>"worker-01"</strong> from the list.</li>
+<li>The variable <strong>last_server</strong> now holds the string <strong>"worker-01"</strong> .</li>
+<li>The original list becomes: <strong>["web-01", "db-01", "cache-01"]</strong></li>
+</ul>
+<hr />
+<h3 id="example-removing-by-specific-index_1">📊 Example: Removing by Specific Index</h3>
+<p>Using the same list: <strong>servers = ["web-01", "db-01", "cache-01", "worker-01"]</strong></p>
+<ul>
+<li>Calling <strong>removed_server = servers.pop(1)</strong> removes the element at index 1, which is <strong>"db-01"</strong> .</li>
+<li>The variable <strong>removed_server</strong> now holds <strong>"db-01"</strong> .</li>
+<li>The original list becomes: <strong>["web-01", "cache-01", "worker-01"]</strong></li>
+</ul>
+<hr />
+<h3 id="important-behavior-to-remember_1">🕵️ Important Behavior to Remember</h3>
+<ul>
+<li><strong>Index must exist:</strong> If you provide an index that is out of range (e.g., <strong>pop(10)</strong> on a list with only 4 items), Python raises an <strong>IndexError</strong>.</li>
+<li><strong>Negative indices work:</strong> You can use negative indices like <strong>pop(-1)</strong> to remove the last item, or <strong>pop(-2)</strong> to remove the second-to-last item.</li>
+<li><strong>pop() modifies the original list</strong> — it does not create a copy.</li>
+<li>The returned value can be used in expressions: <strong>print(my_list.pop())</strong> will print the removed item directly.</li>
+</ul>
+<hr />
+<h3 id="comparison-pop-vs-remove_1">🆚 Comparison: pop() vs remove()</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>pop()</th>
+<th>remove()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Removes by</td>
+<td>Index position</td>
+<td>Value match</td>
+</tr>
+<tr>
+<td>Returns removed item</td>
+<td>Yes</td>
+<td>No (returns None)</td>
+</tr>
+<tr>
+<td>Default behavior</td>
+<td>Removes last item</td>
+<td>Requires a value argument</td>
+</tr>
+<tr>
+<td>Error if not found</td>
+<td>IndexError (bad index)</td>
+<td>ValueError (value not found)</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>When you need the removed value</td>
+<td>When you only need to delete</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-use-cases-for-engineers_1">💡 Practical Use Cases for Engineers</h3>
+<ul>
+<li><strong>Queue processing:</strong> Use <strong>pop(0)</strong> to process items in FIFO (first-in, first-out) order, removing the first item and using it.</li>
+<li><strong>Stack operations:</strong> Use <strong>pop()</strong> without an index to implement LIFO (last-in, first-out) behavior, like undoing actions.</li>
+<li><strong>Inventory management:</strong> Remove a specific item by its position in a list and store it for logging or further processing.</li>
+<li><strong>Data cleanup:</strong> Iterate through a list and <strong>pop()</strong> items that meet certain conditions while capturing their values.</li>
+</ul>
+<hr />
+<h3 id="quick-tips_1">🧠 Quick Tips</h3>
+<ul>
+<li>Always check the list length before using <strong>pop()</strong> with a specific index to avoid IndexError.</li>
+<li>Use <strong>pop()</strong> when you need to both remove an element and use its value later.</li>
+<li>Remember that <strong>pop()</strong> is faster than <strong>remove()</strong> when you know the index, because it doesn't need to search for a matching value.</li>
+<li>For removing the last element, <strong>pop()</strong> is more efficient than slicing or other methods.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>pop()</code> method removes an element from a list at a specified index and returns that removed element.</p>
+<hr />
+<h3 id="example-1-removing-the-last-element_1">🔧 Example 1: Removing the Last Element</h3>
+<p>Removes and returns the last item from a list when no index is given.</p>
+<div class="highlight"><pre><span></span><code><span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;wrench&quot;</span><span class="p">,</span> <span class="s2">&quot;hammer&quot;</span><span class="p">,</span> <span class="s2">&quot;screwdriver&quot;</span><span class="p">]</span>
+<span class="n">removed_tool</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">removed_tool</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tools</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>screwdriver</strong><br />
+📤 Output: <strong>['wrench', 'hammer']</strong></p>
+<hr />
+<h3 id="example-2-removing-by-specific-index_1">🔧 Example 2: Removing by Specific Index</h3>
+<p>Removes and returns the element at index 1 (the second item).</p>
+<div class="highlight"><pre><span></span><code><span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="mf">10.5</span><span class="p">,</span> <span class="mf">20.3</span><span class="p">,</span> <span class="mf">30.7</span><span class="p">,</span> <span class="mf">40.1</span><span class="p">]</span>
+<span class="n">removed_value</span> <span class="o">=</span> <span class="n">measurements</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">removed_value</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>20.3</strong><br />
+📤 Output: <strong>[10.5, 30.7, 40.1]</strong></p>
+<hr />
+<h3 id="example-3-using-pop-with-a-variable_1">🔧 Example 3: Using pop() with a Variable</h3>
+<p>Stores the removed element in a variable for later use in a calculation.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensor_readings</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">102</span><span class="p">]</span>
+<span class="n">last_reading</span> <span class="o">=</span> <span class="n">sensor_readings</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="n">average</span> <span class="o">=</span> <span class="p">(</span><span class="n">last_reading</span> <span class="o">+</span> <span class="mi">50</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">last_reading</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">average</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor_readings</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>102</strong><br />
+📤 Output: <strong>76.0</strong><br />
+📤 Output: <strong>[45, 67, 89]</strong></p>
+<hr />
+<h3 id="example-4-removing-from-the-beginning-of-a-list_1">🔧 Example 4: Removing from the Beginning of a List</h3>
+<p>Uses index 0 to remove and return the first element.</p>
+<div class="highlight"><pre><span></span><code><span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;engineer_1&quot;</span><span class="p">,</span> <span class="s2">&quot;engineer_2&quot;</span><span class="p">,</span> <span class="s2">&quot;engineer_3&quot;</span><span class="p">]</span>
+<span class="n">next_in_line</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">next_in_line</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>engineer_1</strong><br />
+📤 Output: <strong>['engineer_2', 'engineer_3']</strong></p>
+<hr />
+<h3 id="example-5-processing-a-list-until-empty_1">🔧 Example 5: Processing a List Until Empty</h3>
+<p>Repeatedly pops elements until the list is empty, simulating a task queue.</p>
+<div class="highlight"><pre><span></span><code><span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;calibrate&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;deploy&quot;</span><span class="p">]</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">current_task</span> <span class="o">=</span> <span class="n">tasks</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing: </span><span class="si">{</span><span class="n">current_task</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Processing: calibrate</strong><br />
+📤 Output: <strong>Processing: test</strong><br />
+📤 Output: <strong>Processing: deploy</strong><br />
+📤 Output: <strong>[]</strong></p>
+<hr />
+<h3 id="comparison-table-pop-vs-other-removal-methods_1">Comparison Table: pop() vs Other Removal Methods</h3>
 <table>
 <thead>
 <tr>

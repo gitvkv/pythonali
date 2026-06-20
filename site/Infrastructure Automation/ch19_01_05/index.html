@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_01_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Handling Non-Serializable Types like Datetimes - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Handling Non-Serializable Types like Datetimes";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_01_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_01_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -881,6 +881,32 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-handling-non-serializable-types">📊 Comparison Table: Handling Non-Serializable Types</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-datetimes-are-not-json-serializable_1">⚙️ Why Datetimes Are Not JSON-Serializable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#two-common-approaches-to-handle-datetimes_1">🛠️ Two Common Approaches to Handle Datetimes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#approach-1-custom-serializer-function_1">🕵️ Approach 1: Custom Serializer Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#approach-2-custom-json-encoder-class_1">📊 Approach 2: Custom JSON Encoder Class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deserializing-datetime-strings-back-to-python-objects_1">🔄 Deserializing Datetime Strings Back to Python Objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-engineers_1">✅ Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🧠 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-the-default-json-serialization-error_1">🧪 Example 1: The Default JSON Serialization Error</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-manual-string-conversion-before-serialization_1">🧪 Example 2: Manual String Conversion Before Serialization</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-a-custom-serialization-function_1">🧪 Example 3: Using a Custom Serialization Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-a-custom-json-encoder-class_1">🧪 Example 4: Using a Custom JSON Encoder Class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-handling-multiple-non-serializable-types_1">🧪 Example 5: Handling Multiple Non-Serializable Types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-handling-non-serializable-types_1">📊 Comparison Table: Handling Non-Serializable Types</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_02_01/">Ch 19 | YAML Benefits in Infrastructure Tools like K8s</a>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="handling-non-serializable-types-like-datetimes">Handling Non-Serializable Types like Datetimes</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  JSON In-Depth</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with JSON in Python, you'll quickly discover that not everything can be automatically converted to JSON format. Python's <strong>datetime</strong> objects are a classic example of a <strong>non-serializable type</strong> — they cannot be directly converted to JSON because JSON has no native date or time representation. This section explains why this happens and how to handle it cleanly.</p>
@@ -1175,8 +1201,7 @@
 <li>Stick to <strong>ISO 8601</strong> and <strong>UTC</strong> for consistency and interoperability across systems.</li>
 </ul>
 <p>Handling non-serializable types like datetimes is a common task when building data pipelines, APIs, or configuration systems. Mastering this pattern ensures your JSON data remains clean, portable, and easy to work with across different tools and languages.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This section shows how to handle Python objects like datetimes that JSON cannot natively convert to strings.</p>
 <hr />
 <h3 id="example-1-the-default-json-serialization-error">🧪 Example 1: The Default JSON Serialization Error</h3>
@@ -1286,6 +1311,252 @@
 <p>📤 Output: <strong>{"event": "deployment", "timestamp": "2025-04-08T14:30:00.123456", "tags": ["production", "critical", "v3"]}</strong></p>
 <hr />
 <h3 id="comparison-table-handling-non-serializable-types">📊 Comparison Table: Handling Non-Serializable Types</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Code Complexity</th>
+<th>Reusability</th>
+<th>Handles Multiple Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manual string conversion</td>
+<td>Low</td>
+<td>Low</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Custom serializer function</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Custom JSON encoder class</td>
+<td>Medium</td>
+<td>High</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommendation:</strong> Use a custom JSON encoder class when you need to handle datetimes across multiple files or projects.</p>
+</div>
+<div class="tabbed-block">
+<p>When working with JSON in Python, you'll quickly discover that not everything can be automatically converted to JSON format. Python's <strong>datetime</strong> objects are a classic example of a <strong>non-serializable type</strong> — they cannot be directly converted to JSON because JSON has no native date or time representation. This section explains why this happens and how to handle it cleanly.</p>
+<hr />
+<h3 id="why-datetimes-are-not-json-serializable_1">⚙️ Why Datetimes Are Not JSON-Serializable</h3>
+<ul>
+<li>JSON supports only a limited set of data types: <strong>strings, numbers, booleans, null, arrays, and objects</strong> (dictionaries).</li>
+<li>Python's <strong>datetime.datetime</strong>, <strong>datetime.date</strong>, and <strong>datetime.time</strong> objects are not part of this set.</li>
+<li>When you try to serialize a datetime object using <strong>json.dumps()</strong>, Python raises a <strong>TypeError</strong> with a message like: <strong>"Object of type datetime is not JSON serializable"</strong>.</li>
+</ul>
+<hr />
+<h3 id="two-common-approaches-to-handle-datetimes_1">🛠️ Two Common Approaches to Handle Datetimes</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Description</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Custom Serializer Function</strong></td>
+<td>Write a function that converts datetime objects to a string format (e.g., ISO 8601) and pass it to <strong>json.dumps()</strong> via the <strong>default</strong> parameter</td>
+<td>Simple, one-off conversions</td>
+</tr>
+<tr>
+<td><strong>Custom JSON Encoder Class</strong></td>
+<td>Create a subclass of <strong>json.JSONEncoder</strong> that overrides the <strong>default()</strong> method</td>
+<td>Reusable across multiple files or projects</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="approach-1-custom-serializer-function_1">🕵️ Approach 1: Custom Serializer Function</h3>
+<ul>
+<li>Define a function that checks if an object is a datetime instance and converts it to a string.</li>
+<li>Use the <strong>isoformat()</strong> method to produce a standardized, human-readable string like <strong>"2025-03-15T14:30:00"</strong>.</li>
+<li>Pass this function to <strong>json.dumps()</strong> using the <strong>default</strong> parameter.</li>
+</ul>
+<p><strong>Example structure:</strong></p>
+<ul>
+<li>Create a function called <strong>serialize_datetime</strong> that accepts a single argument <strong>obj</strong>.</li>
+<li>Inside the function, check <strong>isinstance(obj, datetime.datetime)</strong>.</li>
+<li>If true, return <strong>obj.isoformat()</strong>.</li>
+<li>If false, raise a <strong>TypeError</strong> with a message like <strong>"Type {type(obj)} is not serializable"</strong>.</li>
+<li>When calling <strong>json.dumps()</strong>, add <strong>default=serialize_datetime</strong> as a parameter.</li>
+</ul>
+<p><strong>Result:</strong> Your JSON output will contain datetime values as ISO 8601 strings, which are widely supported by other systems and languages.</p>
+<hr />
+<h3 id="approach-2-custom-json-encoder-class_1">📊 Approach 2: Custom JSON Encoder Class</h3>
+<ul>
+<li>Create a class that inherits from <strong>json.JSONEncoder</strong>.</li>
+<li>Override the <strong>default()</strong> method with the same logic as the custom function above.</li>
+<li>Use this encoder class by passing <strong>cls=YourEncoderClassName</strong> to <strong>json.dumps()</strong>.</li>
+</ul>
+<p><strong>Example structure:</strong></p>
+<ul>
+<li>Define a class called <strong>DateTimeEncoder</strong> that extends <strong>json.JSONEncoder</strong>.</li>
+<li>Inside the class, define a method called <strong>default(self, obj)</strong>.</li>
+<li>Use the same <strong>isinstance</strong> check and <strong>isoformat()</strong> conversion.</li>
+<li>For non-datetime objects, call <strong>super().default(obj)</strong> to let the parent class handle them.</li>
+<li>When serializing, use <strong>json.dumps(data, cls=DateTimeEncoder)</strong>.</li>
+</ul>
+<p><strong>Result:</strong> This approach is cleaner for larger projects where you serialize datetime objects in many places. You only define the encoder once and reuse it everywhere.</p>
+<hr />
+<h3 id="deserializing-datetime-strings-back-to-python-objects_1">🔄 Deserializing Datetime Strings Back to Python Objects</h3>
+<ul>
+<li>When reading JSON back into Python, datetime strings remain as plain strings.</li>
+<li>To convert them back to datetime objects, use a custom <strong>object_hook</strong> function with <strong>json.loads()</strong>.</li>
+<li>The <strong>object_hook</strong> function receives each dictionary and can transform string values that match a datetime pattern.</li>
+</ul>
+<p><strong>Example structure:</strong></p>
+<ul>
+<li>Define a function called <strong>parse_datetime</strong> that accepts a dictionary <strong>dct</strong>.</li>
+<li>Loop through the dictionary keys and values.</li>
+<li>For each value, try to parse it using <strong>datetime.fromisoformat()</strong>.</li>
+<li>If successful, replace the string with the datetime object.</li>
+<li>Return the modified dictionary.</li>
+<li>Pass this function to <strong>json.loads()</strong> using <strong>object_hook=parse_datetime</strong>.</li>
+</ul>
+<p><strong>Result:</strong> Your loaded data will contain actual Python datetime objects instead of plain strings, making it easier to work with date arithmetic and formatting.</p>
+<hr />
+<h3 id="best-practices-for-engineers_1">✅ Best Practices for Engineers</h3>
+<ul>
+<li>Always use <strong>ISO 8601 format</strong> for datetime serialization — it is the standard for data interchange and is supported by most programming languages and databases.</li>
+<li>Store datetime values as <strong>UTC</strong> to avoid timezone confusion when sharing data across systems.</li>
+<li>Document your datetime format clearly in API documentation or data contracts so consumers know how to parse the values.</li>
+<li>Consider using third-party libraries like <strong>pytz</strong> or <strong>dateutil</strong> for advanced timezone handling if your project requires it.</li>
+<li>Test your serialization and deserialization logic with edge cases like <strong>midnight</strong>, <strong>leap years</strong>, and <strong>daylight saving time transitions</strong>.</li>
+</ul>
+<hr />
+<h3 id="summary_1">🧠 Summary</h3>
+<ul>
+<li>Python datetime objects are <strong>not natively JSON-serializable</strong> because JSON lacks date/time types.</li>
+<li>Use a <strong>custom serializer function</strong> or a <strong>custom JSONEncoder class</strong> to convert datetimes to ISO 8601 strings.</li>
+<li>Use an <strong>object_hook</strong> function to convert those strings back into datetime objects when loading JSON.</li>
+<li>Stick to <strong>ISO 8601</strong> and <strong>UTC</strong> for consistency and interoperability across systems.</li>
+</ul>
+<p>Handling non-serializable types like datetimes is a common task when building data pipelines, APIs, or configuration systems. Mastering this pattern ensures your JSON data remains clean, portable, and easy to work with across different tools and languages.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This section shows how to handle Python objects like datetimes that JSON cannot natively convert to strings.</p>
+<hr />
+<h3 id="example-1-the-default-json-serialization-error_1">🧪 Example 1: The Default JSON Serialization Error</h3>
+<p>This example demonstrates what happens when you try to serialize a datetime object without any special handling.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;deployment&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">current_time</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>TypeError: Object of type datetime is not JSON serializable</strong></p>
+<hr />
+<h3 id="example-2-manual-string-conversion-before-serialization_1">🧪 Example 2: Manual String Conversion Before Serialization</h3>
+<p>This example shows how to manually convert a datetime to a string before passing it to JSON.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;deployment&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_time</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{"event": "deployment", "timestamp": "2025-04-08 14:30:00.123456"}</strong></p>
+<hr />
+<h3 id="example-3-using-a-custom-serialization-function_1">🧪 Example 3: Using a Custom Serialization Function</h3>
+<p>This example shows how to write a custom function that converts non-serializable types to strings.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">custom_serializer</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="si">}</span><span class="s2"> not serializable&quot;</span><span class="p">)</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;deployment&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">current_time</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">custom_serializer</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{"event": "deployment", "timestamp": "2025-04-08T14:30:00.123456"}</strong></p>
+<hr />
+<h3 id="example-4-using-a-custom-json-encoder-class_1">🧪 Example 4: Using a Custom JSON Encoder Class</h3>
+<p>This example shows how to create a reusable JSON encoder class for handling datetimes.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DateTimeEncoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONEncoder</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;deployment&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">current_time</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;completed&quot;</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">DateTimeEncoder</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{"event": "deployment", "timestamp": "2025-04-08T14:30:00.123456", "status": "completed"}</strong></p>
+<hr />
+<h3 id="example-5-handling-multiple-non-serializable-types_1">🧪 Example 5: Handling Multiple Non-Serializable Types</h3>
+<p>This example shows how to handle both datetimes and other non-serializable types like sets.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CustomEncoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONEncoder</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">set</span><span class="p">):</span>
+            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">tags</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;production&quot;</span><span class="p">,</span> <span class="s2">&quot;critical&quot;</span><span class="p">,</span> <span class="s2">&quot;v3&quot;</span><span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;deployment&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="n">current_time</span><span class="p">,</span>
+    <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="n">tags</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">CustomEncoder</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{"event": "deployment", "timestamp": "2025-04-08T14:30:00.123456", "tags": ["production", "critical", "v3"]}</strong></p>
+<hr />
+<h3 id="comparison-table-handling-non-serializable-types_1">📊 Comparison Table: Handling Non-Serializable Types</h3>
 <table>
 <thead>
 <tr>

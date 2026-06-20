@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch20_03_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 20 | Logging Module Architecture and Visibility Advantages - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 20 | Logging Module Architecture and Visibility Advantages";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch20_03_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch20_03_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -938,6 +938,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-using-multiple-loggers-for-different-components">🔧 Example 5: Using multiple loggers for different components</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-print-vs-logging-for-engineers">Comparison: print() vs logging for Engineers</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#core-architecture-of-the-logging-module_1">⚙️ Core Architecture of the Logging Module</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#visibility-advantages-over-print-statements_1">📊 Visibility Advantages Over Print Statements</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-comparison-print-vs-logging_1">🛠️ Practical Comparison: Print vs. Logging</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-the-architecture-improves-debugging_1">🕵️ How the Architecture Improves Debugging</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#recommended-production-logging-setup_1">📁 Recommended Production Logging Setup</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-basic-logging-vs-print-why-logging-wins_1">🔧 Example 1: Basic logging vs print — why logging wins</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-setting-log-levels-to-control-visibility_1">🔧 Example 2: Setting log levels to control visibility</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-adding-timestamps-to-every-log-message_1">🔧 Example 3: Adding timestamps to every log message</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-sending-logs-to-a-file-instead-of-the-console_1">🔧 Example 4: Sending logs to a file instead of the console</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-using-multiple-loggers-for-different-components_1">🔧 Example 5: Using multiple loggers for different components</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-print-vs-logging-for-engineers_1">Comparison: print() vs logging for Engineers</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1102,7 @@
               
                 <h1 id="logging-module-architecture-and-visibility-advantages">Logging Module Architecture and Visibility Advantages</h1>
 <p><span class="category-tag">🏷️ Python Scripting Best Practices /  Structured Production Logging</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1170,8 +1198,7 @@
 <li>Moving from <strong>print()</strong> to logging is one of the most impactful improvements for production Python code.</li>
 </ul>
 <p>By adopting the logging module's architecture, engineers transform runtime information from scattered text into a structured, searchable, and actionable asset.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The Python <code>logging</code> module provides a structured way to record messages from your code, giving engineers control over what gets printed, where it goes, and how much detail is shown.</p>
 <hr />
 <h3 id="example-1-basic-logging-vs-print-why-logging-wins">🔧 Example 1: Basic logging vs print — why logging wins</h3>
@@ -1257,6 +1284,228 @@
 <p>📤 Output: <strong>data_processing - DEBUG - Parsing row 42</strong> and <strong>data_processing - INFO - File loaded successfully</strong> and <strong>api_requests - WARNING - API rate limit approaching</strong> and <strong>api_requests - ERROR - API returned 500</strong></p>
 <hr />
 <h2 id="comparison-print-vs-logging-for-engineers">Comparison: <code>print()</code> vs <code>logging</code> for Engineers</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>print()</code></th>
+<th><code>logging</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Control output levels</td>
+<td>No</td>
+<td>Yes (DEBUG, INFO, WARNING, ERROR, CRITICAL)</td>
+</tr>
+<tr>
+<td>Add timestamps automatically</td>
+<td>Manual only</td>
+<td>Built-in with <code>%(asctime)s</code></td>
+</tr>
+<tr>
+<td>Send to file or console</td>
+<td>Console only</td>
+<td>Both (or multiple destinations)</td>
+</tr>
+<tr>
+<td>Separate messages by component</td>
+<td>No</td>
+<td>Yes (multiple loggers)</td>
+</tr>
+<tr>
+<td>Suppress debug messages in production</td>
+<td>Manual removal</td>
+<td>Just change level to WARNING</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>When Python scripts run in production environments—whether as scheduled jobs, automation tasks, or backend services—understanding what happened during execution becomes critical. The built-in <strong>logging module</strong> provides a structured, scalable way to capture runtime information without relying on scattered <strong>print()</strong> statements. This architecture gives engineers clear visibility into application behavior, making debugging, monitoring, and auditing far more manageable.</p>
+<hr />
+<h3 id="core-architecture-of-the-logging-module_1">⚙️ Core Architecture of the Logging Module</h3>
+<p>The logging module follows a <strong>hierarchical, component-based design</strong> with four key building blocks:</p>
+<ul>
+<li><strong>Loggers</strong> – The entry point for your code. You create a logger instance and call methods like <strong>logger.info()</strong> or <strong>logger.error()</strong> to record events.</li>
+<li><strong>Handlers</strong> – Determine where the log output goes. Common handlers include the console, a file, or a remote logging service.</li>
+<li><strong>Formatters</strong> – Define the structure and content of each log message (timestamp, severity, message text, etc.).</li>
+<li><strong>Filters</strong> – Optionally apply logic to include or exclude specific log records based on custom rules.</li>
+</ul>
+<p>These components work together in a pipeline: your code sends a message to a logger, which passes it through any attached filters, then dispatches it to one or more handlers, each using its own formatter.</p>
+<hr />
+<h3 id="visibility-advantages-over-print-statements_1">📊 Visibility Advantages Over Print Statements</h3>
+<p>Using the logging module instead of <strong>print()</strong> offers several practical benefits for production scripts:</p>
+<ul>
+<li><strong>Severity Levels</strong> – Log messages are categorized as <strong>DEBUG</strong>, <strong>INFO</strong>, <strong>WARNING</strong>, <strong>ERROR</strong>, or <strong>CRITICAL</strong>. You can control which levels appear without modifying code.</li>
+<li><strong>Timestamping</strong> – Every log entry automatically includes a timestamp, making it easy to trace events chronologically.</li>
+<li><strong>Source Tracking</strong> – The module can record the file name and line number where each log call originated.</li>
+<li><strong>Selective Output</strong> – You can send different severity levels to different destinations (e.g., errors to a file, info to console).</li>
+<li><strong>No Silent Failures</strong> – Unlike <strong>print()</strong>, which can be accidentally left in production code, logging is designed for long-term use and can be toggled via configuration.</li>
+</ul>
+<hr />
+<h3 id="practical-comparison-print-vs-logging_1">🛠️ Practical Comparison: Print vs. Logging</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><strong>print()</strong></th>
+<th><strong>logging module</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Severity levels</td>
+<td>None</td>
+<td>DEBUG, INFO, WARNING, ERROR, CRITICAL</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>Manual only</td>
+<td>Automatic with formatter</td>
+</tr>
+<tr>
+<td>Output routing</td>
+<td>Single stream (stdout)</td>
+<td>Multiple handlers (file, console, network)</td>
+</tr>
+<tr>
+<td>Production control</td>
+<td>Remove or comment out code</td>
+<td>Adjust log level via config</td>
+</tr>
+<tr>
+<td>Performance impact</td>
+<td>Always writes output</td>
+<td>Can be disabled at runtime</td>
+</tr>
+<tr>
+<td>Thread safety</td>
+<td>Not safe</td>
+<td>Safe for multi-threaded scripts</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-the-architecture-improves-debugging_1">🕵️ How the Architecture Improves Debugging</h3>
+<p>The modular design of the logging module gives engineers precise control over visibility:</p>
+<ul>
+<li><strong>Root Logger</strong> – Every logger inherits from the root logger by default. You can set a base configuration once and all child loggers follow it.</li>
+<li><strong>Logger Hierarchy</strong> – Loggers are named with dot notation (e.g., <strong>script.database</strong>, <strong>script.network</strong>). This allows you to enable detailed logging for one subsystem while keeping others quiet.</li>
+<li><strong>Handler Independence</strong> – You can attach a file handler that writes all <strong>ERROR</strong> messages to a dedicated error log, while a console handler shows only <strong>INFO</strong> and above.</li>
+<li><strong>Formatter Customization</strong> – You can include contextual data like process ID, thread name, or custom fields without modifying your log calls.</li>
+</ul>
+<hr />
+<h3 id="recommended-production-logging-setup_1">📁 Recommended Production Logging Setup</h3>
+<p>For most automation scripts and services, a practical configuration includes:</p>
+<ul>
+<li><strong>Console handler</strong> – Shows <strong>INFO</strong> and above during interactive runs.</li>
+<li><strong>File handler</strong> – Captures <strong>DEBUG</strong> and above to a rotating log file for post-mortem analysis.</li>
+<li><strong>Error file handler</strong> – Records only <strong>ERROR</strong> and <strong>CRITICAL</strong> messages in a separate file for quick incident review.</li>
+<li><strong>Consistent format</strong> – Use a formatter that includes timestamp, logger name, severity level, and message.</li>
+</ul>
+<p>This layered approach ensures that normal operations produce minimal console noise, while full diagnostic details are preserved for troubleshooting.</p>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li>The logging module separates <strong>what</strong> is logged from <strong>where</strong> it goes and <strong>how</strong> it appears.</li>
+<li>Engineers gain visibility without sacrificing code cleanliness or performance.</li>
+<li>A well-structured logging setup scales from simple scripts to complex distributed systems.</li>
+<li>Moving from <strong>print()</strong> to logging is one of the most impactful improvements for production Python code.</li>
+</ul>
+<p>By adopting the logging module's architecture, engineers transform runtime information from scattered text into a structured, searchable, and actionable asset.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The Python <code>logging</code> module provides a structured way to record messages from your code, giving engineers control over what gets printed, where it goes, and how much detail is shown.</p>
+<hr />
+<h3 id="example-1-basic-logging-vs-print-why-logging-wins_1">🔧 Example 1: Basic logging vs print — why logging wins</h3>
+<p>This example shows the simplest logging setup and how it differs from a plain <code>print</code> statement.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;This is a warning message&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a print message&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>WARNING:root:This is a warning message</strong> (plus the print output)</p>
+<hr />
+<h3 id="example-2-setting-log-levels-to-control-visibility_1">🔧 Example 2: Setting log levels to control visibility</h3>
+<p>This example demonstrates how log levels let you filter messages — only warnings and above appear by default.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Debug: tiny detail&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Info: general update&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Warning: something unusual&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Error: something failed&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>WARNING:root:Warning: something unusual</strong> and <strong>ERROR:root:Error: something failed</strong></p>
+<hr />
+<h3 id="example-3-adding-timestamps-to-every-log-message_1">🔧 Example 3: Adding timestamps to every log message</h3>
+<p>This example shows how to include a timestamp so engineers know exactly when each event occurred.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Pipeline started&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Processing file data.csv&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;File size exceeds limit&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2025-03-27 14:30:15,123 - INFO - Pipeline started</strong> (followed by the other lines with timestamps)</p>
+<hr />
+<h3 id="example-4-sending-logs-to-a-file-instead-of-the-console_1">🔧 Example 4: Sending logs to a file instead of the console</h3>
+<p>This example shows how to redirect all log messages into a file for later review.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span>
+    <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;pipeline.log&quot;</span><span class="p">,</span>
+    <span class="n">filemode</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Reading configuration&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Connecting to database&quot;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Connection timeout&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(no console output — all messages go into pipeline.log)</strong></p>
+<hr />
+<h3 id="example-5-using-multiple-loggers-for-different-components_1">🔧 Example 5: Using multiple loggers for different components</h3>
+<p>This example shows how engineers can create separate loggers for different parts of a system, each with its own visibility level.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="c1"># Create two separate loggers</span>
+<span class="n">data_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;data_processing&quot;</span><span class="p">)</span>
+<span class="n">api_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;api_requests&quot;</span><span class="p">)</span>
+
+<span class="c1"># Configure each with different levels</span>
+<span class="n">data_logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">api_logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+
+<span class="c1"># Add a handler that prints to console</span>
+<span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%(name)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+
+<span class="n">data_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+<span class="n">api_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+
+<span class="c1"># Use them</span>
+<span class="n">data_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Parsing row 42&quot;</span><span class="p">)</span>
+<span class="n">data_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;File loaded successfully&quot;</span><span class="p">)</span>
+<span class="n">api_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;API rate limit approaching&quot;</span><span class="p">)</span>
+<span class="n">api_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;API returned 500&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>data_processing - DEBUG - Parsing row 42</strong> and <strong>data_processing - INFO - File loaded successfully</strong> and <strong>api_requests - WARNING - API rate limit approaching</strong> and <strong>api_requests - ERROR - API returned 500</strong></p>
+<hr />
+<h2 id="comparison-print-vs-logging-for-engineers_1">Comparison: <code>print()</code> vs <code>logging</code> for Engineers</h2>
 <table>
 <thead>
 <tr>

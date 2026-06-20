@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch01_05_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 01 | Using requirements.txt to Declare Dependencies - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 01 | Using requirements.txt to Declare Dependencies";
         var mkdocs_page_input_path = "Getting Started\\ch01_05_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch01_05_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -120,6 +120,40 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-7-freezing-current-environment-into-requirementstxt">📄 Example 7: Freezing current environment into requirements.txt</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-requirementstxt-file_1">🧠 What is a requirements.txt File?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-use-requirementstxt_1">⚙️ Why Use requirements.txt?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-create-a-requirementstxt-file_1">🛠️ How to Create a requirements.txt File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-version-constraints_1">📊 Understanding Version Constraints</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-requirementstxt_1">🕵️ Best Practices for requirements.txt</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-use-requirementstxt_1">🔄 How to Use requirements.txt</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-requirementstxt-example_1">🧪 Common requirements.txt Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">⚠️ Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">🎯 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-creating-a-simple-requirementstxt-with-one-package_1">📄 Example 1: Creating a simple requirements.txt with one package</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-pinning-a-specific-version_1">📄 Example 2: Pinning a specific version</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-minimum-version-and-version-range_1">📄 Example 3: Using minimum version and version range</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-multiple-packages-with-different-version-rules_1">📄 Example 4: Multiple packages with different version rules</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-including-development-only-dependencies_1">📄 Example 5: Including development-only dependencies</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-6-installing-from-requirementstxt-with-a-virtual-environment_1">📄 Example 6: Installing from requirements.txt with a virtual environment</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-7-freezing-current-environment-into-requirementstxt_1">📄 Example 7: Freezing current environment into requirements.txt</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1082,7 +1116,7 @@
               
                 <h1 id="using-requirementstxt-to-declare-dependencies">Using requirements.txt to Declare Dependencies</h1>
 <p><span class="category-tag">🏷️ Setting Up Your Python Environment /  Package Management with pip</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When you start building Python projects, you'll quickly find yourself relying on external packages—code written by others that saves you from reinventing the wheel. The challenge is keeping track of which packages your project needs and ensuring everyone working on it uses the same versions. This is where <strong>requirements.txt</strong> comes in. It's a simple text file that acts as a manifest for your project's dependencies, making your work reproducible and portable.</p>
@@ -1216,8 +1250,7 @@
 <li>This simple file is one of the most powerful tools for managing Python projects effectively.</li>
 </ul>
 <p>By mastering requirements.txt, you ensure that your Python projects are portable, predictable, and professional—ready to be shared, deployed, and maintained with confidence.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>A <code>requirements.txt</code> file lists all external packages your Python project needs so other engineers can install them with one command.</p>
 <hr />
 <h3 id="example-1-creating-a-simple-requirementstxt-with-one-package">📄 Example 1: Creating a simple requirements.txt with one package</h3>
@@ -1304,6 +1337,267 @@
 <p>📤 Output: <strong>A complete <code>requirements.txt</code> with exact versions of every package and sub-dependency currently installed.</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Without requirements.txt</th>
+<th>With requirements.txt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sharing dependencies</td>
+<td>Engineers must manually install each package</td>
+<td>One command installs everything</td>
+</tr>
+<tr>
+<td>Version consistency</td>
+<td>Each engineer gets different versions</td>
+<td>All engineers use the same versions</td>
+</tr>
+<tr>
+<td>Reproducing environments</td>
+<td>Manual, error-prone process</td>
+<td>Run <code>pip install -r requirements.txt</code></td>
+</tr>
+<tr>
+<td>Tracking dependencies</td>
+<td>No record of what's needed</td>
+<td>Clear list in a single file</td>
+</tr>
+<tr>
+<td>Onboarding new engineers</td>
+<td>Time-consuming setup</td>
+<td>Minutes to get running</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you start building Python projects, you'll quickly find yourself relying on external packages—code written by others that saves you from reinventing the wheel. The challenge is keeping track of which packages your project needs and ensuring everyone working on it uses the same versions. This is where <strong>requirements.txt</strong> comes in. It's a simple text file that acts as a manifest for your project's dependencies, making your work reproducible and portable.</p>
+<hr />
+<h3 id="what-is-a-requirementstxt-file_1">🧠 What is a requirements.txt File?</h3>
+<p>A <strong>requirements.txt</strong> file is a plain text file that lists every external Python package your project depends on, along with their specific version numbers. Think of it as a shopping list for your Python environment. When you share your project with a colleague or deploy it to a server, this file tells them exactly what packages to install.</p>
+<ul>
+<li>It lives in the root directory of your project.</li>
+<li>Each line contains one package name, optionally with a version constraint.</li>
+<li>It ensures consistency across different machines and environments.</li>
+</ul>
+<hr />
+<h3 id="why-use-requirementstxt_1">⚙️ Why Use requirements.txt?</h3>
+<p>Without a requirements file, you'd have to manually remember and communicate every package your project uses. That quickly becomes impossible as projects grow. Here's why this file is essential:</p>
+<ul>
+<li><strong>Reproducibility</strong> – Anyone can recreate your exact environment with a single command.</li>
+<li><strong>Collaboration</strong> – Team members get the same versions, avoiding "it works on my machine" problems.</li>
+<li><strong>Deployment</strong> – Servers and CI/CD pipelines can install dependencies automatically.</li>
+<li><strong>Documentation</strong> – The file itself serves as a clear record of your project's dependencies.</li>
+</ul>
+<hr />
+<h3 id="how-to-create-a-requirementstxt-file_1">🛠️ How to Create a requirements.txt File</h3>
+<p>Creating a requirements file is straightforward. You have two main approaches:</p>
+<p><strong>Approach 1: Manual Creation</strong>
+- Open a new text file in your project root.
+- List each package on its own line.
+- Add version constraints using operators like <strong>==</strong> (exact version), <strong>&gt;=</strong> (minimum version), or <strong>~=</strong> (compatible release).
+- Save the file as <strong>requirements.txt</strong>.</p>
+<p><strong>Approach 2: Automatic Generation</strong>
+- After installing packages into your virtual environment, use a tool to scan your environment and generate the file automatically.
+- This method captures every installed package, including dependencies of your dependencies.</p>
+<hr />
+<h3 id="understanding-version-constraints_1">📊 Understanding Version Constraints</h3>
+<p>Version constraints give you control over which versions of a package are acceptable. Here's a quick comparison of the most common operators:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Meaning</th>
+<th>Example</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>==</strong></td>
+<td>Exact version</td>
+<td><strong>requests==2.31.0</strong></td>
+<td>Installs only version 2.31.0</td>
+</tr>
+<tr>
+<td><strong>&gt;=</strong></td>
+<td>Minimum version</td>
+<td><strong>flask&gt;=2.0.0</strong></td>
+<td>Installs 2.0.0 or any newer version</td>
+</tr>
+<tr>
+<td><strong>&lt;=</strong></td>
+<td>Maximum version</td>
+<td><strong>numpy&lt;=1.24.0</strong></td>
+<td>Installs 1.24.0 or any older version</td>
+</tr>
+<tr>
+<td><strong>~=</strong></td>
+<td>Compatible release</td>
+<td><strong>pandas~=1.5.0</strong></td>
+<td>Installs versions &gt;=1.5.0 but &lt;2.0.0</td>
+</tr>
+<tr>
+<td><strong>&gt;</strong></td>
+<td>Greater than</td>
+<td><strong>django&gt;3.2</strong></td>
+<td>Installs any version strictly newer than 3.2</td>
+</tr>
+<tr>
+<td><strong>&lt;</strong></td>
+<td>Less than</td>
+<td><strong>pillow&lt;10.0</strong></td>
+<td>Installs any version strictly older than 10.0</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="best-practices-for-requirementstxt_1">🕵️ Best Practices for requirements.txt</h3>
+<p>Follow these guidelines to keep your dependencies clean and manageable:</p>
+<ul>
+<li><strong>Pin exact versions</strong> for production projects to avoid unexpected breaking changes.</li>
+<li><strong>Use ranges</strong> for libraries where you want flexibility with minor updates.</li>
+<li><strong>Group dependencies logically</strong> by adding comments with <strong>#</strong> symbols to separate development vs. production packages.</li>
+<li><strong>Update regularly</strong> to keep dependencies secure and up-to-date.</li>
+<li><strong>Include only top-level dependencies</strong> when possible—let pip handle the sub-dependencies automatically.</li>
+</ul>
+<hr />
+<h3 id="how-to-use-requirementstxt_1">🔄 How to Use requirements.txt</h3>
+<p>Once your file is ready, using it is simple. The process works in two directions:</p>
+<p><strong>Installing from requirements.txt</strong>
+- When you or someone else clones your project, they create a fresh virtual environment.
+- They then use the requirements file to install every dependency listed.
+- The result is an exact replica of your development environment.</p>
+<p><strong>Updating requirements.txt</strong>
+- After adding a new package to your project, update the requirements file to include it.
+- If you upgrade a package, reflect the new version in the file.
+- Run a check periodically to ensure the file matches your actual environment.</p>
+<hr />
+<h3 id="common-requirementstxt-example_1">🧪 Common requirements.txt Example</h3>
+<p>A typical requirements file might look like this when written out:</p>
+<ul>
+<li><strong>flask==2.3.3</strong> – The web framework pinned to an exact version.</li>
+<li><strong>requests&gt;=2.28.0</strong> – HTTP library with a minimum version requirement.</li>
+<li><strong>pandas~=1.5.0</strong> – Data analysis library using compatible release.</li>
+<li><strong>python-dotenv==1.0.0</strong> – Environment variable loader pinned exactly.</li>
+<li><strong>gunicorn==20.1.0</strong> – Production web server pinned exactly.</li>
+</ul>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">⚠️ Common Pitfalls to Avoid</h3>
+<p>Watch out for these mistakes when working with requirements.txt:</p>
+<ul>
+<li><strong>Forgetting to update</strong> the file after installing new packages.</li>
+<li><strong>Using overly broad constraints</strong> like <strong>&gt;=</strong> without an upper bound, which can lead to unexpected upgrades.</li>
+<li><strong>Including system-specific packages</strong> that won't work on other platforms.</li>
+<li><strong>Mixing development and production dependencies</strong> without clear separation.</li>
+<li><strong>Committing the file without verifying</strong> it matches your actual environment.</li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">🎯 Key Takeaways</h3>
+<ul>
+<li><strong>requirements.txt</strong> is your project's dependency manifest, ensuring reproducibility across environments.</li>
+<li>Version constraints give you control over which package versions are installed.</li>
+<li>Pin exact versions for stability, use ranges for flexibility.</li>
+<li>Always keep the file updated and in sync with your actual environment.</li>
+<li>This simple file is one of the most powerful tools for managing Python projects effectively.</li>
+</ul>
+<p>By mastering requirements.txt, you ensure that your Python projects are portable, predictable, and professional—ready to be shared, deployed, and maintained with confidence.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>A <code>requirements.txt</code> file lists all external packages your Python project needs so other engineers can install them with one command.</p>
+<hr />
+<h3 id="example-1-creating-a-simple-requirementstxt-with-one-package_1">📄 Example 1: Creating a simple requirements.txt with one package</h3>
+<p>This shows the most basic <code>requirements.txt</code> file — a single package name with no version.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Contents of requirements.txt:</span>
+<span class="n">requests</span>
+</code></pre></div>
+<p>📤 Output: <strong>When another engineer runs <code>pip install -r requirements.txt</code>, pip installs the latest version of <code>requests</code>.</strong></p>
+<hr />
+<h3 id="example-2-pinning-a-specific-version_1">📄 Example 2: Pinning a specific version</h3>
+<p>This shows how to lock a package to a specific version so all engineers use the same code.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Contents of requirements.txt:</span>
+<span class="n">flask</span><span class="o">==</span><span class="mf">2.3.3</span>
+</code></pre></div>
+<p>📤 Output: <strong>When another engineer runs <code>pip install -r requirements.txt</code>, pip installs flask version 2.3.3 exactly.</strong></p>
+<hr />
+<h3 id="example-3-using-minimum-version-and-version-range_1">📄 Example 3: Using minimum version and version range</h3>
+<p>This shows how to set a minimum version or a range of acceptable versions.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Contents of requirements.txt:</span>
+<span class="n">numpy</span><span class="o">&gt;=</span><span class="mf">1.24.0</span>
+<span class="n">pandas</span><span class="o">&gt;=</span><span class="mf">1.5.0</span><span class="p">,</span><span class="o">&lt;</span><span class="mf">2.0.0</span>
+</code></pre></div>
+<p>📤 Output: <strong>pip installs numpy version 1.24.0 or newer, and pandas between 1.5.0 and 1.9.9.</strong></p>
+<hr />
+<h3 id="example-4-multiple-packages-with-different-version-rules_1">📄 Example 4: Multiple packages with different version rules</h3>
+<p>This shows a realistic <code>requirements.txt</code> with several packages and mixed version constraints.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Contents of requirements.txt:</span>
+<span class="n">requests</span><span class="o">==</span><span class="mf">2.31.0</span>
+<span class="n">flask</span><span class="o">&gt;=</span><span class="mf">2.3.0</span>
+<span class="n">pytest</span><span class="o">&gt;=</span><span class="mf">7.0.0</span><span class="p">,</span><span class="o">&lt;</span><span class="mf">8.0.0</span>
+<span class="n">python</span><span class="o">-</span><span class="n">dotenv</span><span class="o">==</span><span class="mf">1.0.0</span>
+<span class="n">gunicorn</span><span class="o">&gt;=</span><span class="mf">20.1.0</span>
+</code></pre></div>
+<p>📤 Output: <strong>pip installs all five packages with their specified version rules in one command.</strong></p>
+<hr />
+<h3 id="example-5-including-development-only-dependencies_1">📄 Example 5: Including development-only dependencies</h3>
+<p>This shows how to separate main dependencies from tools only needed during development.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Contents of requirements.txt:</span>
+<span class="n">flask</span><span class="o">==</span><span class="mf">2.3.3</span>
+<span class="n">requests</span><span class="o">==</span><span class="mf">2.31.0</span>
+<span class="n">python</span><span class="o">-</span><span class="n">dotenv</span><span class="o">==</span><span class="mf">1.0.0</span>
+
+<span class="c1"># Contents of requirements-dev.txt:</span>
+<span class="n">pytest</span><span class="o">==</span><span class="mf">7.4.0</span>
+<span class="n">black</span><span class="o">==</span><span class="mf">23.7.0</span>
+<span class="n">flake8</span><span class="o">==</span><span class="mf">6.1.0</span>
+</code></pre></div>
+<p>📤 Output: <strong>Engineers run <code>pip install -r requirements.txt</code> for production, and <code>pip install -r requirements-dev.txt</code> for development tools.</strong></p>
+<hr />
+<h3 id="example-6-installing-from-requirementstxt-with-a-virtual-environment_1">📄 Example 6: Installing from requirements.txt with a virtual environment</h3>
+<p>This shows the complete workflow — create a virtual environment, then install all dependencies.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Create virtual environment</span>
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
+
+<span class="c1"># Step 2: Activate it (Windows)</span>
+<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">activate</span>
+
+<span class="c1"># Step 2: Activate it (Mac/Linux)</span>
+<span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+
+<span class="c1"># Step 3: Install all dependencies from requirements.txt</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</code></pre></div>
+<p>📤 Output: <strong>All packages listed in requirements.txt are installed inside the virtual environment, isolated from the system Python.</strong></p>
+<hr />
+<h3 id="example-7-freezing-current-environment-into-requirementstxt_1">📄 Example 7: Freezing current environment into requirements.txt</h3>
+<p>This shows how to generate a <code>requirements.txt</code> from an already-working environment.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># After installing packages manually, freeze the exact versions</span>
+<span class="n">pip</span> <span class="n">freeze</span> <span class="o">&gt;</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+
+<span class="c1"># Example contents of the generated file:</span>
+<span class="n">certifi</span><span class="o">==</span><span class="mf">2023.7.22</span>
+<span class="n">charset</span><span class="o">-</span><span class="n">normalizer</span><span class="o">==</span><span class="mf">3.2.0</span>
+<span class="n">click</span><span class="o">==</span><span class="mf">8.1.6</span>
+<span class="n">flask</span><span class="o">==</span><span class="mf">2.3.3</span>
+<span class="n">idna</span><span class="o">==</span><span class="mf">3.4</span>
+<span class="n">itsdangerous</span><span class="o">==</span><span class="mf">2.1.2</span>
+<span class="n">jinja2</span><span class="o">==</span><span class="mf">3.1.2</span>
+<span class="n">markupsafe</span><span class="o">==</span><span class="mf">2.1.3</span>
+<span class="n">requests</span><span class="o">==</span><span class="mf">2.31.0</span>
+<span class="n">urllib3</span><span class="o">==</span><span class="mf">2.0.4</span>
+<span class="n">werkzeug</span><span class="o">==</span><span class="mf">2.3.6</span>
+</code></pre></div>
+<p>📤 Output: <strong>A complete <code>requirements.txt</code> with exact versions of every package and sub-dependency currently installed.</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

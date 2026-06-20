@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch15_04_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 15 | Practical Example: Extracting Fields from Logs - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 15 | Practical Example: Extracting Fields from Logs";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch15_04_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch15_04_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -721,6 +721,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-group-extraction-methods">📊 Comparison Table: Group Extraction Methods</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-capturing-groups_1">🕵️ What Are Capturing Groups?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#anatomy-of-a-log-line_1">⚙️ Anatomy of a Log Line</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-the-regex-pattern-step-by-step_1">🛠️ Building the Regex Pattern Step by Step</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-without-groups-vs-with-groups_1">📊 Comparison: Without Groups vs With Groups</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#python-implementation_1">💻 Python Implementation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-and-how-to-avoid-them_1">📋 Common Pitfalls and How to Avoid Them</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#taking-it-further_1">🚀 Taking It Further</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-extracting-a-single-ip-address-from-a-log-line_1">🔧 Example 1: Extracting a Single IP Address from a Log Line</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-extracting-timestamp-and-log-level_1">🔧 Example 2: Extracting Timestamp and Log Level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-extracting-user-id-and-action-from-an-audit-log_1">🔧 Example 3: Extracting User ID and Action from an Audit Log</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-extracting-http-status-code-and-response-size_1">🔧 Example 4: Extracting HTTP Status Code and Response Size</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-extracting-multiple-fields-from-a-firewall-log_1">🔧 Example 5: Extracting Multiple Fields from a Firewall Log</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-group-extraction-methods_1">📊 Comparison Table: Group Extraction Methods</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch15_05_01/">Ch 15 | Validating IPv4 Address String Formats</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="practical-example-extracting-fields-from-logs">Practical Example: Extracting Fields from Logs</h1>
 <p><span class="category-tag">🏷️ Regular Expressions (Regex) /  Groups and Capturing</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1210,8 +1238,7 @@
 <li>Use Python's <strong>csv</strong> module to write the structured data to a CSV file for reporting</li>
 </ul>
 <p>This technique forms the foundation for log parsing, monitoring systems, and data extraction pipelines that engineers use every day to make sense of operational data.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example shows how to use regex groups to extract structured fields from unstructured log lines.</p>
 <hr />
 <h3 id="example-1-extracting-a-single-ip-address-from-a-log-line">🔧 Example 1: Extracting a Single IP Address from a Log Line</h3>
@@ -1295,6 +1322,254 @@
 <p>📤 Output: <strong>From 10.0.0.5:54321 to 203.0.113.50:80 via TCP — ALLOW</strong></p>
 <hr />
 <h3 id="comparison-table-group-extraction-methods">📊 Comparison Table: Group Extraction Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>group(1)</code></td>
+<td>Captures first parenthesized group</td>
+<td>Simple single-field extraction</td>
+</tr>
+<tr>
+<td><code>group(2)</code></td>
+<td>Captures second parenthesized group</td>
+<td>Multi-field extraction by position</td>
+</tr>
+<tr>
+<td><code>group("name")</code></td>
+<td>Captures a named group using <code>(?P&lt;name&gt;...)</code></td>
+<td>Readable code with many fields</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>Log files are everywhere in our daily work—application logs, system logs, web server logs, and more. When you need to pull specific pieces of information from these logs, manually scanning through thousands of lines is not practical. This is where regex groups and capturing come to the rescue. By defining patterns that isolate the exact fields you need, you can transform messy log entries into structured, usable data with just a few lines of Python.</p>
+<hr />
+<h3 id="what-are-capturing-groups_1">🕵️ What Are Capturing Groups?</h3>
+<p>A capturing group is a portion of a regex pattern enclosed in parentheses <strong>()</strong>. When the regex engine finds a match, it remembers the text that matched each group. This allows you to extract specific substrings from a larger match.</p>
+<ul>
+<li><strong>Simple group</strong>: <strong>(abc)</strong> captures the exact text "abc"</li>
+<li><strong>Named group</strong>: <strong>(?P<name>pattern)</strong> gives the captured text a name for easier access</li>
+<li><strong>Non-capturing group</strong>: <strong>(?:pattern)</strong> groups the pattern but does not save the match</li>
+</ul>
+<hr />
+<h3 id="anatomy-of-a-log-line_1">⚙️ Anatomy of a Log Line</h3>
+<p>Consider a typical web server log entry:</p>
+<p><strong>192.168.1.10 - - [10/Dec/2024:13:55:36 +0000] "GET /index.html HTTP/1.1" 200 2326</strong></p>
+<p>The fields we might want to extract are:</p>
+<ul>
+<li><strong>IP Address</strong>: 192.168.1.10</li>
+<li><strong>Timestamp</strong>: 10/Dec/2024:13:55:36 +0000</li>
+<li><strong>HTTP Method</strong>: GET</li>
+<li><strong>Requested Path</strong>: /index.html</li>
+<li><strong>Status Code</strong>: 200</li>
+<li><strong>Bytes Sent</strong>: 2326</li>
+</ul>
+<hr />
+<h3 id="building-the-regex-pattern-step-by-step_1">🛠️ Building the Regex Pattern Step by Step</h3>
+<p>Let us break down the log line into its components and build a pattern with named capturing groups.</p>
+<p><strong>Step 1: Match the IP address</strong></p>
+<p>Pattern: <strong>(?P<ip>\d+.\d+.\d+.\d+)</strong></p>
+<p>This matches four numbers separated by dots and stores the result in a group named "ip".</p>
+<p><strong>Step 2: Match the timestamp inside brackets</strong></p>
+<p>Pattern: <strong>[(?P<timestamp>[^]]+)]</strong></p>
+<p>The backslash escapes the square brackets, and <strong>[^]]+</strong> matches any character that is not a closing bracket.</p>
+<p><strong>Step 3: Match the HTTP request inside quotes</strong></p>
+<p>Pattern: <strong>"(?P<method>\w+) (?P<path>[^"]+)"</strong></p>
+<p>This captures the HTTP method (a word) and the requested path (everything up to the closing quote).</p>
+<p><strong>Step 4: Match the status code and bytes</strong></p>
+<p>Pattern: <strong>(?P<status>\d+) (?P<bytes>\d+)</strong></p>
+<p>Two numbers separated by a space.</p>
+<p><strong>Complete pattern assembled:</strong></p>
+<p><strong>(?P<ip>\d+.\d+.\d+.\d+) - - [(?P<timestamp>[^]]+)] "(?P<method>\w+) (?P<path>[^"]+)" (?P<status>\d+) (?P<bytes>\d+)</strong></p>
+<hr />
+<h3 id="comparison-without-groups-vs-with-groups_1">📊 Comparison: Without Groups vs With Groups</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Without Capturing Groups</th>
+<th>With Capturing Groups</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Result</strong></td>
+<td>You get the entire matched string</td>
+<td>You get individual field values</td>
+</tr>
+<tr>
+<td><strong>Accessing data</strong></td>
+<td>Must split or slice the matched string manually</td>
+<td>Access by group name or index directly</td>
+</tr>
+<tr>
+<td><strong>Code readability</strong></td>
+<td>More lines, harder to understand</td>
+<td>Cleaner, self-documenting code</td>
+</tr>
+<tr>
+<td><strong>Error handling</strong></td>
+<td>Fragile if log format changes slightly</td>
+<td>Easier to adjust one group at a time</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="python-implementation_1">💻 Python Implementation</h3>
+<p>To use this pattern in Python, you import the <strong>re</strong> module and use <strong>re.search()</strong> or <strong>re.match()</strong> with the pattern and the log line.</p>
+<p><strong>Step 1: Import the module and define the pattern</strong></p>
+<ul>
+<li>Import the <strong>re</strong> module</li>
+<li>Store the regex pattern as a raw string (prefix with <strong>r</strong>) to avoid escaping issues</li>
+<li>Compile the pattern using <strong>re.compile()</strong> for better performance if matching multiple lines</li>
+</ul>
+<p><strong>Step 2: Apply the pattern to a log line</strong></p>
+<ul>
+<li>Use <strong>pattern.search(log_line)</strong> to find the first match</li>
+<li>Check if a match was found using an <strong>if match:</strong> condition</li>
+<li>Access captured groups using <strong>match.group('name')</strong> for named groups or <strong>match.group(1)</strong> for positional groups</li>
+</ul>
+<p><strong>Step 3: Extract and use the fields</strong></p>
+<ul>
+<li>Store each extracted field in a variable</li>
+<li>Convert numeric fields like status code and bytes to integers if needed</li>
+<li>Use the extracted data for further processing, such as filtering or aggregation</li>
+</ul>
+<p><strong>Example workflow:</strong></p>
+<ul>
+<li>Define a sample log line as a string variable</li>
+<li>Call <strong>pattern.search()</strong> on that string</li>
+<li>Print each extracted field using <strong>match.group()</strong> with the appropriate group name</li>
+<li>Convert the bytes field to an integer and calculate a simple statistic, like total bytes transferred</li>
+</ul>
+<hr />
+<h3 id="common-pitfalls-and-how-to-avoid-them_1">📋 Common Pitfalls and How to Avoid Them</h3>
+<p><strong>Pitfall 1: Forgetting to escape special characters</strong></p>
+<ul>
+<li>Characters like <strong>.</strong>, <strong>[</strong>, <strong>]</strong>, <strong>"</strong> have special meaning in regex</li>
+<li>Always use a backslash *<em>*</em> before these characters to match them literally</li>
+<li>Using raw strings <strong>r"pattern"</strong> prevents Python from interpreting backslashes</li>
+</ul>
+<p><strong>Pitfall 2: Assuming all log lines have the same format</strong></p>
+<ul>
+<li>Some log entries may have missing fields or different delimiters</li>
+<li>Use <strong>re.search()</strong> instead of <strong>re.match()</strong> to find the pattern anywhere in the line</li>
+<li>Add optional groups with <strong>?</strong> for fields that may not always be present</li>
+</ul>
+<p><strong>Pitfall 3: Overcomplicating the pattern</strong></p>
+<ul>
+<li>Start with the simplest pattern that works for your current log format</li>
+<li>Test your pattern on a few sample lines before applying it to the entire file</li>
+<li>Use online regex testers to visualize what each part of your pattern matches</li>
+</ul>
+<hr />
+<h3 id="taking-it-further_1">🚀 Taking It Further</h3>
+<p>Once you have mastered extracting fields from a single log line, you can scale this approach to process entire log files:</p>
+<ul>
+<li>Read a log file line by line using a <strong>for</strong> loop</li>
+<li>Apply your compiled regex pattern to each line</li>
+<li>Store the extracted fields in a list of dictionaries for easy analysis</li>
+<li>Use Python's <strong>csv</strong> module to write the structured data to a CSV file for reporting</li>
+</ul>
+<p>This technique forms the foundation for log parsing, monitoring systems, and data extraction pipelines that engineers use every day to make sense of operational data.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example shows how to use regex groups to extract structured fields from unstructured log lines.</p>
+<hr />
+<h3 id="example-1-extracting-a-single-ip-address-from-a-log-line_1">🔧 Example 1: Extracting a Single IP Address from a Log Line</h3>
+<p>This example demonstrates how to capture one field — an IP address — from a simple log entry.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_line</span> <span class="o">=</span> <span class="s2">&quot;Connection from 192.168.1.10 on port 443&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;from (\d+\.\d+\.\d+\.\d+)&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_line</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+    <span class="n">ip_address</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ip_address</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>192.168.1.10</strong></p>
+<hr />
+<h3 id="example-2-extracting-timestamp-and-log-level_1">🔧 Example 2: Extracting Timestamp and Log Level</h3>
+<p>This example shows how to capture two fields at once using two capturing groups.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_line</span> <span class="o">=</span> <span class="s2">&quot;2025-03-27 14:32:01 ERROR Disk space low&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\d</span><span class="si">{4}</span><span class="s2">-\d</span><span class="si">{2}</span><span class="s2">-\d</span><span class="si">{2}</span><span class="s2"> \d</span><span class="si">{2}</span><span class="s2">:\d</span><span class="si">{2}</span><span class="s2">:\d</span><span class="si">{2}</span><span class="s2">) (INFO|WARN|ERROR)&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_line</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">log_level</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">log_level</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2025-03-27 14:32:01</strong><br />
+📤 Output: <strong>ERROR</strong></p>
+<hr />
+<h3 id="example-3-extracting-user-id-and-action-from-an-audit-log_1">🔧 Example 3: Extracting User ID and Action from an Audit Log</h3>
+<p>This example demonstrates how to extract named fields from a structured audit log entry.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_line</span> <span class="o">=</span> <span class="s2">&quot;user=jdoe action=DELETE target=file42.txt&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;user=(\w+) action=(\w+)&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_line</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User: </span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">, Action: </span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>User: jdoe, Action: DELETE</strong></p>
+<hr />
+<h3 id="example-4-extracting-http-status-code-and-response-size_1">🔧 Example 4: Extracting HTTP Status Code and Response Size</h3>
+<p>This example shows how to pull numeric fields from a web server log line.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_line</span> <span class="o">=</span> <span class="s1">&#39;192.168.1.1 - - [27/Mar/2025:14:32:01] &quot;GET /index.html&quot; 200 1234&#39;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;&quot;\w+ /\S+&quot; (\d</span><span class="si">{3}</span><span class="s1">) (\d+)&#39;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_line</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">response_size</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Status: </span><span class="si">{</span><span class="n">status_code</span><span class="si">}</span><span class="s2">, Size: </span><span class="si">{</span><span class="n">response_size</span><span class="si">}</span><span class="s2"> bytes&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Status: 200, Size: 1234 bytes</strong></p>
+<hr />
+<h3 id="example-5-extracting-multiple-fields-from-a-firewall-log_1">🔧 Example 5: Extracting Multiple Fields from a Firewall Log</h3>
+<p>This example demonstrates how to capture several fields from a realistic firewall log entry using named groups.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log_line</span> <span class="o">=</span> <span class="s2">&quot;SRC=10.0.0.5 DST=203.0.113.50 PROTO=TCP SPORT=54321 DPORT=80 ACTION=ALLOW&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;SRC=(?P&lt;src&gt;\S+) DST=(?P&lt;dst&gt;\S+) PROTO=(?P&lt;proto&gt;\S+) SPORT=(?P&lt;sport&gt;\d+) DPORT=(?P&lt;dport&gt;\d+) ACTION=(?P&lt;action&gt;\S+)&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log_line</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+    <span class="n">src_ip</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">)</span>
+    <span class="n">dst_ip</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;dst&quot;</span><span class="p">)</span>
+    <span class="n">protocol</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;proto&quot;</span><span class="p">)</span>
+    <span class="n">src_port</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;sport&quot;</span><span class="p">)</span>
+    <span class="n">dst_port</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;dport&quot;</span><span class="p">)</span>
+    <span class="n">action</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;action&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;From </span><span class="si">{</span><span class="n">src_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">src_port</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">dst_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">dst_port</span><span class="si">}</span><span class="s2"> via </span><span class="si">{</span><span class="n">protocol</span><span class="si">}</span><span class="s2"> — </span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>From 10.0.0.5:54321 to 203.0.113.50:80 via TCP — ALLOW</strong></p>
+<hr />
+<h3 id="comparison-table-group-extraction-methods_1">📊 Comparison Table: Group Extraction Methods</h3>
 <table>
 <thead>
 <tr>

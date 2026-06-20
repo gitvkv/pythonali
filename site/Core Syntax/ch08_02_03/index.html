@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch08_02_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 08 | Performance and Allocation Efficiency - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 08 | Performance and Allocation Efficiency";
         var mkdocs_page_input_path = "Core Syntax\\ch08_02_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch08_02_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -378,6 +378,28 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-performance-for-iteration">🔧 Example 5: Practical performance for iteration</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-performance-matters_1">⚙️ Why Performance Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#memory-allocation-the-hidden-difference_1">📊 Memory Allocation: The Hidden Difference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#speed-benchmarks-at-a-glance_1">🕵️ Speed Benchmarks at a Glance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-choose-which-for-performance_1">🛠️ When to Choose Which for Performance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-takeaway-for-everyday-code_1">🧠 Practical Takeaway for Everyday Code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-memory-size-of-an-empty-tuple-vs-empty-list_1">🔧 Example 1: Memory size of an empty tuple vs empty list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-memory-size-of-a-small-tuple-vs-small-list_1">🔧 Example 2: Memory size of a small tuple vs small list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-time-to-create-a-tuple-vs-a-list_1">🔧 Example 3: Time to create a tuple vs a list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-allocation-overhead-when-appending-to-a-list_1">🔧 Example 4: Allocation overhead when appending to a list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-performance-for-iteration_1">🔧 Example 5: Practical performance for iteration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1070,7 +1092,7 @@
               
                 <h1 id="performance-and-allocation-efficiency">Performance and Allocation Efficiency</h1>
 <p><span class="category-tag">🏷️ Tuples and Sets /  Tuples vs Lists</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When engineers start working with Python, choosing between tuples and lists often comes down to more than just mutability. Understanding how each data structure behaves under the hood—especially in terms of speed and memory usage—can make a real difference in how your scripts perform, particularly when handling large datasets or time-sensitive operations.</p>
@@ -1166,8 +1188,7 @@
 <li>Profile your code if performance is a concern. A simple <strong>timeit</strong> test on your actual data will confirm whether the choice matters in your specific case.</li>
 </ul>
 <p>Remember: readability and correctness come first. Optimize with tuples only when you have identified a real bottleneck.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This section compares how tuples and lists differ in memory usage and execution speed, helping engineers choose the right structure for performance-critical code.</p>
 <h3 id="example-1-memory-size-of-an-empty-tuple-vs-empty-list">🔧 Example 1: Memory size of an empty tuple vs empty list</h3>
 <p>Shows that an empty tuple uses less memory than an empty list.</p>
@@ -1246,6 +1267,221 @@
 <p>📤 Output: <strong>0.045 0.052</strong> (tuple iteration is consistently faster)</p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Tuple</th>
+<th>List</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memory usage</td>
+<td>Lower (no overallocation)</td>
+<td>Higher (overallocates for growth)</td>
+</tr>
+<tr>
+<td>Creation speed</td>
+<td>Faster</td>
+<td>Slower</td>
+</tr>
+<tr>
+<td>Iteration speed</td>
+<td>Slightly faster</td>
+<td>Slightly slower</td>
+</tr>
+<tr>
+<td>Modifiable</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Fixed data, read-only operations</td>
+<td>Dynamic data, frequent changes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When engineers start working with Python, choosing between tuples and lists often comes down to more than just mutability. Understanding how each data structure behaves under the hood—especially in terms of speed and memory usage—can make a real difference in how your scripts perform, particularly when handling large datasets or time-sensitive operations.</p>
+<hr />
+<h3 id="why-performance-matters_1">⚙️ Why Performance Matters</h3>
+<p>Python's flexibility sometimes hides the cost of certain operations. Lists are dynamic and versatile, but that flexibility comes with overhead. Tuples, being immutable, are simpler for Python to manage. This simplicity translates into measurable performance gains in several key areas.</p>
+<ul>
+<li><strong>Creation speed</strong>: Tuples are faster to create because Python knows exactly how much memory they need upfront.</li>
+<li><strong>Memory footprint</strong>: Tuples use less memory than lists of the same length, since they don't allocate extra space for future growth.</li>
+<li><strong>Access time</strong>: Reading elements from a tuple is slightly faster than from a list, as there is no indirection for resizing logic.</li>
+</ul>
+<hr />
+<h3 id="memory-allocation-the-hidden-difference_1">📊 Memory Allocation: The Hidden Difference</h3>
+<p>The most significant difference lies in how Python allocates memory for each structure.</p>
+<ul>
+<li><strong>Lists</strong> are overallocated. When you create a list, Python reserves more memory than needed, anticipating future <strong>append</strong> or <strong>insert</strong> operations. This avoids costly reallocation on every addition, but it wastes memory if the list never grows.</li>
+<li><strong>Tuples</strong> are exact. Python allocates only the memory required to hold the items. There is no overhead for future expansion because tuples cannot change size.</li>
+</ul>
+<p><strong>Example comparison for a sequence of 10 integers:</strong></p>
+<ul>
+<li>A <strong>list</strong> of 10 integers might use around 120 bytes (including overallocation overhead).</li>
+<li>A <strong>tuple</strong> of 10 integers uses roughly 80 bytes—a 33% reduction in memory.</li>
+</ul>
+<p>For large collections or many small collections, this difference adds up quickly.</p>
+<hr />
+<h3 id="speed-benchmarks-at-a-glance_1">🕵️ Speed Benchmarks at a Glance</h3>
+<p>While exact numbers depend on your Python version and system, the relative performance differences are consistent.</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Tuple</th>
+<th>List</th>
+<th>Why the Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Creation</strong></td>
+<td>Faster</td>
+<td>Slower</td>
+<td>No overallocation logic needed for tuples</td>
+</tr>
+<tr>
+<td><strong>Index access</strong></td>
+<td>Slightly faster</td>
+<td>Slightly slower</td>
+<td>Simpler internal structure for tuples</td>
+</tr>
+<tr>
+<td><strong>Iteration</strong></td>
+<td>Faster</td>
+<td>Slower</td>
+<td>Less memory overhead per element</td>
+</tr>
+<tr>
+<td><strong>Membership test (in)</strong></td>
+<td>Same</td>
+<td>Same</td>
+<td>Both use linear search for unsorted data</td>
+</tr>
+<tr>
+<td><strong>Appending</strong></td>
+<td>Not possible</td>
+<td>Fast (amortized)</td>
+<td>Lists are designed for growth</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="when-to-choose-which-for-performance_1">🛠️ When to Choose Which for Performance</h3>
+<p>Use these guidelines to make the right choice based on your performance needs.</p>
+<p><strong>Choose a tuple when:</strong></p>
+<ul>
+<li>The data is fixed and will never change (e.g., coordinates, configuration constants, return values from functions).</li>
+<li>You are creating many small collections and memory efficiency is critical.</li>
+<li>You need the fastest possible iteration over a static dataset.</li>
+<li>You want to use the sequence as a dictionary key (lists cannot be keys).</li>
+</ul>
+<p><strong>Choose a list when:</strong></p>
+<ul>
+<li>You need to modify the sequence frequently (add, remove, or change elements).</li>
+<li>The size of the collection is unknown and will grow dynamically.</li>
+<li>You are building a sequence step by step inside a loop.</li>
+<li>You need methods like <strong>sort</strong>, <strong>reverse</strong>, or <strong>pop</strong> that are not available on tuples.</li>
+</ul>
+<hr />
+<h3 id="practical-takeaway-for-everyday-code_1">🧠 Practical Takeaway for Everyday Code</h3>
+<p>For most scripts, the performance difference between tuples and lists is negligible. However, in performance-critical sections—such as loops that run millions of iterations, or when storing thousands of small records—switching from lists to tuples can yield noticeable improvements.</p>
+<ul>
+<li>Use <strong>tuples</strong> as the default for fixed data. It signals intent and gives you a small performance bonus.</li>
+<li>Use <strong>lists</strong> only when you genuinely need mutability or dynamic growth.</li>
+<li>Profile your code if performance is a concern. A simple <strong>timeit</strong> test on your actual data will confirm whether the choice matters in your specific case.</li>
+</ul>
+<p>Remember: readability and correctness come first. Optimize with tuples only when you have identified a real bottleneck.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This section compares how tuples and lists differ in memory usage and execution speed, helping engineers choose the right structure for performance-critical code.</p>
+<h3 id="example-1-memory-size-of-an-empty-tuple-vs-empty-list_1">🔧 Example 1: Memory size of an empty tuple vs empty list</h3>
+<p>Shows that an empty tuple uses less memory than an empty list.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">empty_tuple</span> <span class="o">=</span> <span class="p">()</span>
+<span class="n">empty_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">tuple_size</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">empty_tuple</span><span class="p">)</span>
+<span class="n">list_size</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">empty_list</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tuple_size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_size</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>40 56</strong></p>
+<hr />
+<h3 id="example-2-memory-size-of-a-small-tuple-vs-small-list_1">🔧 Example 2: Memory size of a small tuple vs small list</h3>
+<p>Demonstrates that tuples are more memory-efficient for storing the same number of elements.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">small_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">small_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="n">tuple_size</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">small_tuple</span><span class="p">)</span>
+<span class="n">list_size</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">small_list</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tuple_size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_size</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>64 88</strong></p>
+<hr />
+<h3 id="example-3-time-to-create-a-tuple-vs-a-list_1">🔧 Example 3: Time to create a tuple vs a list</h3>
+<p>Shows that creating a tuple is faster than creating a list with the same elements.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">timeit</span>
+
+<span class="n">tuple_time</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;(1, 2, 3, 4, 5)&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+<span class="n">list_time</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;[1, 2, 3, 4, 5]&quot;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tuple_time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>0.012 0.018</strong> (values will vary, but tuple is consistently faster)</p>
+<hr />
+<h3 id="example-4-allocation-overhead-when-appending-to-a-list_1">🔧 Example 4: Allocation overhead when appending to a list</h3>
+<p>Illustrates that lists allocate extra memory for future growth, while tuples allocate exactly what they need.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">growing_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">initial_size</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">growing_list</span><span class="p">)</span>
+
+<span class="n">growing_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">after_one_size</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">growing_list</span><span class="p">)</span>
+
+<span class="n">growing_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">after_two_size</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">growing_list</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">initial_size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">after_one_size</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">after_two_size</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>56 88 88</strong> (list overallocates to avoid frequent resizing)</p>
+<hr />
+<h3 id="example-5-practical-performance-for-iteration_1">🔧 Example 5: Practical performance for iteration</h3>
+<p>Shows that iterating over a tuple is slightly faster than iterating over a list of the same size.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">timeit</span>
+
+<span class="n">large_tuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+<span class="n">large_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+
+<span class="n">tuple_iter_time</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;for x in large_tuple: pass&quot;</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span> <span class="n">number</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">list_iter_time</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;for x in large_list: pass&quot;</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span> <span class="n">number</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tuple_iter_time</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_iter_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>0.045 0.052</strong> (tuple iteration is consistently faster)</p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

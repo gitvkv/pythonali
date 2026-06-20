@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_03_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Emitting Flat Array Records into Files via csv.writer - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Emitting Flat Array Records into Files via csv.writer";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_03_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_03_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -902,6 +902,38 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-writing-flat-array-records-from-a-list-of-dictionaries">🟣 Example 5: Writing Flat Array Records from a List of Dictionaries</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-csvwriter-methods">Comparison Table: csv.writer Methods</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">📌 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-a-flat-array-record_1">⚙️ What Is a Flat Array Record?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-csvwriter-object_1">🛠️ The csv.writer Object</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#writing-flat-array-records-step-by-step_1">📊 Writing Flat Array Records: Step by Step</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-emitting-server-inventory-records_1">🕵️ Example: Emitting Server Inventory Records</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-csvwriter-methods_1">🧪 Common csv.writer Methods</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#customizing-output-with-parameters_1">🎯 Customizing Output with Parameters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#important-considerations_1">⚠️ Important Considerations</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">📋 Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-writing-a-single-flat-array-record_1">🟢 Example 1: Writing a Single Flat Array Record</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-writing-multiple-flat-array-records_1">🟡 Example 2: Writing Multiple Flat Array Records</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-adding-a-header-row-before-flat-array-records_1">🟠 Example 3: Adding a Header Row Before Flat Array Records</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-writing-records-with-different-delimiter-tab-separated_1">🔵 Example 4: Writing Records with Different Delimiter (Tab-Separated)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-writing-flat-array-records-from-a-list-of-dictionaries_1">🟣 Example 5: Writing Flat Array Records from a List of Dictionaries</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-csvwriter-methods_1">Comparison Table: csv.writer Methods</a>
     </li>
     </ul>
                 </li>
@@ -1078,7 +1110,7 @@
               
                 <h1 id="emitting-flat-array-records-into-files-via-csvwriter">Emitting Flat Array Records into Files via csv.writer</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  CSV In-Depth</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">📌 Context Introduction</h3>
@@ -1195,8 +1227,7 @@
 <li>Always use <strong>newline=""</strong> and consider a <strong>with</strong> statement for proper file handling</li>
 <li>Add a header row to make the CSV file self-documenting and easier to understand</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>csv.writer</code> writes flat array records (lists of values) as rows into a CSV file, converting each list into a comma-separated line.</p>
 <hr />
 <h3 id="example-1-writing-a-single-flat-array-record">🟢 Example 1: Writing a Single Flat Array Record</h3>
@@ -1280,6 +1311,237 @@
 <p>📤 Output: <strong>people.csv contains: name,role,age\nAlice,Engineer,35\nBob,Designer,28</strong></p>
 <hr />
 <h2 id="comparison-table-csvwriter-methods">Comparison Table: csv.writer Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th>Accepts</th>
+<th>Writes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>writerow()</code></td>
+<td>Write one record</td>
+<td>Single list</td>
+<td>One row</td>
+</tr>
+<tr>
+<td><code>writerows()</code></td>
+<td>Write multiple records</td>
+<td>List of lists</td>
+<td>Multiple rows</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Key takeaway:</strong> Use <code>writerow()</code> for one record at a time, and <code>writerows()</code> when you have a collection of records ready to write.</p>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">📌 Context Introduction</h3>
+<p>When working with structured data, you will often encounter <strong>flat arrays</strong> — simple lists of records where each record contains the same fields. The <strong>csv.writer</strong> module in Python provides a straightforward way to emit these flat array records into CSV files. This approach is ideal for generating reports, exporting data from scripts, or creating data files that can be opened in spreadsheet applications.</p>
+<hr />
+<h3 id="what-is-a-flat-array-record_1">⚙️ What Is a Flat Array Record?</h3>
+<p>A <strong>flat array record</strong> is a collection of values where each position corresponds to a specific field. In Python, this is typically represented as a <strong>list</strong> or <strong>tuple</strong>.</p>
+<p><strong>Example of a flat array record:</strong>
+- A single record: <strong>["server-01", "192.168.1.10", "Linux", "active"]</strong>
+- A collection of records: <strong>a list of such lists</strong></p>
+<p>Each record has the same number of elements, and the order of elements determines which field they belong to.</p>
+<hr />
+<h3 id="the-csvwriter-object_1">🛠️ The csv.writer Object</h3>
+<p>The <strong>csv.writer</strong> object is used to write data to a CSV file. It takes a file object and optional formatting parameters.</p>
+<p><strong>Key parameters:</strong>
+- <strong>delimiter</strong> — The character that separates fields (default is comma)
+- <strong>quotechar</strong> — The character used to quote fields (default is double quote)
+- <strong>quoting</strong> — Controls when quotes are added (default is <strong>csv.QUOTE_MINIMAL</strong>)</p>
+<p><strong>Creating a csv.writer:</strong>
+- Open a file in write mode using <strong>open("filename.csv", "w", newline="")</strong>
+- Pass the file object to <strong>csv.writer()</strong>
+- Use the <strong>writerow()</strong> method for single records or <strong>writerows()</strong> for multiple records</p>
+<hr />
+<h3 id="writing-flat-array-records-step-by-step_1">📊 Writing Flat Array Records: Step by Step</h3>
+<p><strong>Step 1: Prepare your data as a list of lists</strong>
+- Each inner list represents one record
+- All inner lists should have the same number of elements</p>
+<p><strong>Step 2: Open a file for writing</strong>
+- Use <strong>open()</strong> with mode <strong>"w"</strong>
+- Always specify <strong>newline=""</strong> to avoid extra blank lines on some systems</p>
+<p><strong>Step 3: Create a csv.writer object</strong>
+- Pass the file object to <strong>csv.writer()</strong>
+- Optionally specify delimiter and quoting behavior</p>
+<p><strong>Step 4: Write the header row (optional but recommended)</strong>
+- Use <strong>writer.writerow(["header1", "header2", "header3"])</strong></p>
+<p><strong>Step 5: Write the data rows</strong>
+- Use <strong>writer.writerows(data)</strong> to write all records at once
+- Or use <strong>writer.writerow(record)</strong> in a loop for individual records</p>
+<hr />
+<h3 id="example-emitting-server-inventory-records_1">🕵️ Example: Emitting Server Inventory Records</h3>
+<p><strong>Data preparation:</strong>
+- Define a list of server records, where each record is a list containing: <strong>hostname, IP address, OS, status</strong>
+- Example records: <strong>["web-01", "10.0.0.1", "Ubuntu", "online"]</strong> and <strong>["db-01", "10.0.0.2", "CentOS", "online"]</strong></p>
+<p><strong>File creation:</strong>
+- Open <strong>"server_inventory.csv"</strong> in write mode with <strong>newline=""</strong>
+- Create a <strong>csv.writer</strong> object with default comma delimiter</p>
+<p><strong>Writing header and data:</strong>
+- Write a header row: <strong>["Hostname", "IP Address", "OS", "Status"]</strong>
+- Write all records using <strong>writer.writerows(server_data)</strong></p>
+<p><strong>Resulting CSV file content (as plain text):</strong>
+- <strong>Hostname,IP Address,OS,Status</strong>
+- <strong>web-01,10.0.0.1,Ubuntu,online</strong>
+- <strong>db-01,10.0.0.2,CentOS,online</strong></p>
+<hr />
+<h3 id="common-csvwriter-methods_1">🧪 Common csv.writer Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>writerow(row)</strong></td>
+<td>Writes a single record</td>
+<td>Writing one row at a time in a loop</td>
+</tr>
+<tr>
+<td><strong>writerows(rows)</strong></td>
+<td>Writes multiple records at once</td>
+<td>Writing an entire dataset in one call</td>
+</tr>
+<tr>
+<td><strong>csv.writer</strong> constructor</td>
+<td>Creates the writer object</td>
+<td>Always required before writing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="customizing-output-with-parameters_1">🎯 Customizing Output with Parameters</h3>
+<p><strong>Using a different delimiter:</strong>
+- Specify <strong>delimiter=";"</strong> to create semicolon-separated files
+- Useful when data contains commas</p>
+<p><strong>Controlling quoting behavior:</strong>
+- <strong>csv.QUOTE_ALL</strong> — Quotes every field
+- <strong>csv.QUOTE_NONNUMERIC</strong> — Quotes all non-numeric fields
+- <strong>csv.QUOTE_MINIMAL</strong> — Quotes only fields with special characters (default)</p>
+<p><strong>Example with custom settings:</strong>
+- Create writer with <strong>delimiter="|"</strong> and <strong>quoting=csv.QUOTE_ALL</strong>
+- This produces pipe-delimited files with all fields quoted</p>
+<hr />
+<h3 id="important-considerations_1">⚠️ Important Considerations</h3>
+<p><strong>Newline handling:</strong>
+- Always use <strong>newline=""</strong> when opening the file
+- Prevents extra blank lines between rows on Windows systems</p>
+<p><strong>File closing:</strong>
+- Use a <strong>with</strong> statement to ensure the file closes automatically
+- Example: <strong>with open("file.csv", "w", newline="") as csvfile:</strong></p>
+<p><strong>Data consistency:</strong>
+- Ensure all records have the same number of fields
+- Missing values should be represented as empty strings or <strong>None</strong></p>
+<p><strong>Encoding:</strong>
+- For non-ASCII characters, specify encoding: <strong>open("file.csv", "w", newline="", encoding="utf-8")</strong></p>
+<hr />
+<h3 id="summary_1">📋 Summary</h3>
+<ul>
+<li><strong>csv.writer</strong> is the go-to tool for emitting flat array records into CSV files</li>
+<li>Flat array records are represented as <strong>lists of lists</strong> in Python</li>
+<li>Use <strong>writerow()</strong> for single records and <strong>writerows()</strong> for multiple records</li>
+<li>Customize output with <strong>delimiter</strong>, <strong>quotechar</strong>, and <strong>quoting</strong> parameters</li>
+<li>Always use <strong>newline=""</strong> and consider a <strong>with</strong> statement for proper file handling</li>
+<li>Add a header row to make the CSV file self-documenting and easier to understand</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>csv.writer</code> writes flat array records (lists of values) as rows into a CSV file, converting each list into a comma-separated line.</p>
+<hr />
+<h3 id="example-1-writing-a-single-flat-array-record_1">🟢 Example 1: Writing a Single Flat Array Record</h3>
+<p>Writes one list of values as a single row in a CSV file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">record</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;35&quot;</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;people.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>people.csv contains: Alice,Engineer,35</strong></p>
+<hr />
+<h3 id="example-2-writing-multiple-flat-array-records_1">🟡 Example 2: Writing Multiple Flat Array Records</h3>
+<p>Writes several lists, each becoming one row in the CSV file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">records</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;35&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Designer&quot;</span><span class="p">,</span> <span class="s2">&quot;28&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Carol&quot;</span><span class="p">,</span> <span class="s2">&quot;Manager&quot;</span><span class="p">,</span> <span class="s2">&quot;42&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;people.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>people.csv contains: Alice,Engineer,35\nBob,Designer,28\nCarol,Manager,42</strong></p>
+<hr />
+<h3 id="example-3-adding-a-header-row-before-flat-array-records_1">🟠 Example 3: Adding a Header Row Before Flat Array Records</h3>
+<p>Writes a header list first, then the data records underneath.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Role&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">]</span>
+<span class="n">records</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;35&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Designer&quot;</span><span class="p">,</span> <span class="s2">&quot;28&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;people.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>people.csv contains: Name,Role,Age\nAlice,Engineer,35\nBob,Designer,28</strong></p>
+<hr />
+<h3 id="example-4-writing-records-with-different-delimiter-tab-separated_1">🔵 Example 4: Writing Records with Different Delimiter (Tab-Separated)</h3>
+<p>Uses a tab character as the delimiter instead of a comma.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">records</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;35&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Designer&quot;</span><span class="p">,</span> <span class="s2">&quot;28&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;people.tsv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">records</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>people.tsv contains: Alice\tEngineer\t35\nBob\tDesigner\t28</strong></p>
+<hr />
+<h3 id="example-5-writing-flat-array-records-from-a-list-of-dictionaries_1">🟣 Example 5: Writing Flat Array Records from a List of Dictionaries</h3>
+<p>Extracts values from dictionaries into flat lists, then writes them as rows.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">people</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineer&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;Designer&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">28</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;people.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">people</span><span class="p">:</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[</span><span class="n">person</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">person</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">],</span> <span class="n">person</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]]</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>people.csv contains: name,role,age\nAlice,Engineer,35\nBob,Designer,28</strong></p>
+<hr />
+<h2 id="comparison-table-csvwriter-methods_1">Comparison Table: csv.writer Methods</h2>
 <table>
 <thead>
 <tr>

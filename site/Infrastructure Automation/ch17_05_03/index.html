@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch17_05_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 17 | Practical Example: Querying Real-Time Monitoring Alerts - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 17 | Practical Example: Querying Real-Time Monitoring Alerts";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch17_05_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch17_05_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -837,6 +837,50 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-we-are-building_1">⚙️ What We Are Building</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-concepts-before-we-start_1">🛠️ Key Concepts Before We Start</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-by-step-breakdown_1">📊 Step-by-Step Breakdown</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-import-required-libraries_1">1️⃣ Import Required Libraries</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-define-the-api-endpoint-and-headers_1">2️⃣ Define the API Endpoint and Headers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-send-the-get-request_1">3️⃣ Send the GET Request</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-check-the-response-status_1">4️⃣ Check the Response Status</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-parse-the-json-data_1">5️⃣ Parse the JSON Data</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#6-extract-and-display-alerts_1">6️⃣ Extract and Display Alerts</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-script-logic-without-code-blocks_1">🕵️ Example Script Logic (Without Code Blocks)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-json-fields-in-monitoring-alerts_1">📋 Comparison Table: Common JSON Fields in Monitoring Alerts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-and-validation-tips_1">🧪 Testing and Validation Tips</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps-for-engineers_1">🚀 Next Steps for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-fetching-a-single-alert-from-a-monitoring-api_1">🟢 Example 1: Fetching a single alert from a monitoring API</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-fetching-all-active-alerts_1">🟡 Example 2: Fetching all active alerts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-filtering-alerts-by-severity-level_1">🔵 Example 3: Filtering alerts by severity level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-counting-alerts-by-severity_1">🟣 Example 4: Counting alerts by severity</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-extracting-alert-messages-for-a-specific-time-window_1">🔴 Example 5: Extracting alert messages for a specific time window</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch17_06_01/">Ch 17 | Sending JSON Payloads in POST Requests</a>
@@ -1092,7 +1136,7 @@
               
                 <h1 id="practical-example-querying-real-time-monitoring-alerts">Practical Example: Querying Real-Time Monitoring Alerts</h1>
 <p><span class="category-tag">🏷️ APIs and HTTP Requests /  JSON Responses</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1227,8 +1271,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Querying real-time monitoring alerts with Python is a practical skill that helps you automate infrastructure health checks. By making an HTTP GET request, parsing the JSON response, and extracting key fields, you can quickly turn raw API data into actionable information. This pattern applies to almost any modern monitoring tool and is a foundation for building more advanced automation and observability workflows.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example shows how to fetch and process real-time monitoring alerts from an API endpoint using Python.</p>
 <hr />
 <h3 id="example-1-fetching-a-single-alert-from-a-monitoring-api">🟢 Example 1: Fetching a single alert from a monitoring API</h3>
@@ -1303,6 +1346,256 @@
 <strong>Network latency spike detected</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>What It Does</th>
+<th>Key Concept</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Example 1</td>
+<td>Fetches a single alert</td>
+<td>Basic GET request + JSON parse</td>
+</tr>
+<tr>
+<td>Example 2</td>
+<td>Fetches all active alerts</td>
+<td>Query parameter filtering</td>
+</tr>
+<tr>
+<td>Example 3</td>
+<td>Filters by severity</td>
+<td>URL parameter filtering</td>
+</tr>
+<tr>
+<td>Example 4</td>
+<td>Counts alerts by severity</td>
+<td>JSON list iteration</td>
+</tr>
+<tr>
+<td>Example 5</td>
+<td>Extracts messages by time</td>
+<td>Date filtering + field extraction</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>Monitoring systems generate alerts when something goes wrong—like a server going down, high CPU usage, or disk space running low. As an engineer, you often need to pull these alerts programmatically to check system health, build dashboards, or trigger automated responses. In this example, we'll use Python to query a real-time monitoring API and work with the JSON response it returns.</p>
+<hr />
+<h3 id="what-we-are-building_1">⚙️ What We Are Building</h3>
+<p>We will write a Python script that:</p>
+<ul>
+<li>Connects to a monitoring system's API endpoint</li>
+<li>Sends a request to fetch current alerts</li>
+<li>Parses the JSON response</li>
+<li>Displays the alerts in a readable format</li>
+</ul>
+<p>This mimics what you might do with tools like Prometheus, Datadog, Grafana, or a custom monitoring platform.</p>
+<hr />
+<h3 id="key-concepts-before-we-start_1">🛠️ Key Concepts Before We Start</h3>
+<ul>
+<li><strong>API Endpoint</strong>: A URL where the monitoring system listens for requests</li>
+<li><strong>HTTP GET Request</strong>: Used to retrieve data from the API</li>
+<li><strong>JSON Response</strong>: The data format returned by most modern APIs—structured as key-value pairs</li>
+<li><strong>Authentication</strong>: Some APIs require a token or key to verify your identity</li>
+<li><strong>Status Codes</strong>: HTTP codes like <strong>200 (success)</strong> or <strong>401 (unauthorized)</strong> tell you if the request worked</li>
+</ul>
+<hr />
+<h3 id="step-by-step-breakdown_1">📊 Step-by-Step Breakdown</h3>
+<h4 id="1-import-required-libraries_1">1️⃣ Import Required Libraries</h4>
+<p>You need the <strong>requests</strong> library to make HTTP calls and <strong>json</strong> (built-in) to handle the response. If <strong>requests</strong> is not installed, you can add it using <strong>pip install requests</strong>.</p>
+<h4 id="2-define-the-api-endpoint-and-headers_1">2️⃣ Define the API Endpoint and Headers</h4>
+<p>Create a variable for the API URL. If authentication is required, include an <strong>Authorization</strong> header with your API token. For example:</p>
+<ul>
+<li><strong>api_url</strong> = "https://monitoring.example.com/api/v1/alerts"</li>
+<li><strong>headers</strong> = {"Authorization": "Bearer YOUR_API_TOKEN_HERE"}</li>
+</ul>
+<h4 id="3-send-the-get-request_1">3️⃣ Send the GET Request</h4>
+<p>Use the <strong>requests.get()</strong> method with the URL and headers. Store the result in a variable like <strong>response</strong>.</p>
+<h4 id="4-check-the-response-status_1">4️⃣ Check the Response Status</h4>
+<p>Before processing data, verify the request succeeded. Check <strong>response.status_code</strong> equals <strong>200</strong>. If not, print an error message and stop.</p>
+<h4 id="5-parse-the-json-data_1">5️⃣ Parse the JSON Data</h4>
+<p>Use <strong>response.json()</strong> to convert the JSON response into a Python dictionary or list. This makes it easy to access specific fields.</p>
+<h4 id="6-extract-and-display-alerts_1">6️⃣ Extract and Display Alerts</h4>
+<p>Loop through the alerts in the parsed data. For each alert, print relevant details such as:</p>
+<ul>
+<li>Alert name or ID</li>
+<li>Severity level (critical, warning, info)</li>
+<li>Timestamp</li>
+<li>Description or message</li>
+</ul>
+<hr />
+<h3 id="example-script-logic-without-code-blocks_1">🕵️ Example Script Logic (Without Code Blocks)</h3>
+<p>Here is how the script logic flows in plain text:</p>
+<p><strong>Step 1</strong>: Import the <strong>requests</strong> library.</p>
+<p><strong>Step 2</strong>: Set the <strong>api_url</strong> variable to the monitoring endpoint.</p>
+<p><strong>Step 3</strong>: Set the <strong>headers</strong> dictionary with your API token.</p>
+<p><strong>Step 4</strong>: Call <strong>requests.get(api_url, headers=headers)</strong> and assign the result to <strong>response</strong>.</p>
+<p><strong>Step 5</strong>: Check if <strong>response.status_code</strong> equals <strong>200</strong>. If not, print "Failed to fetch alerts. Status code: [code]".</p>
+<p><strong>Step 6</strong>: Parse the JSON using <strong>alerts_data = response.json()</strong>.</p>
+<p><strong>Step 7</strong>: Assume the JSON structure contains a key called <strong>"alerts"</strong> which is a list. Loop through each alert in <strong>alerts_data["alerts"]</strong>.</p>
+<p><strong>Step 8</strong>: For each alert, print the <strong>name</strong>, <strong>severity</strong>, <strong>timestamp</strong>, and <strong>message</strong> fields.</p>
+<p><strong>Expected Output Example</strong> (formatted inline):</p>
+<ul>
+<li>Alert: CPU Overload | Severity: Critical | Time: 2025-03-15 14:32:10 | Message: CPU usage exceeded 95%</li>
+<li>Alert: Disk Space Low | Severity: Warning | Time: 2025-03-15 14:28:45 | Message: /dev/sda1 at 88% capacity</li>
+<li>Alert: Service Down | Severity: Critical | Time: 2025-03-15 14:15:00 | Message: nginx service not responding</li>
+</ul>
+<hr />
+<h3 id="comparison-table-common-json-fields-in-monitoring-alerts_1">📋 Comparison Table: Common JSON Fields in Monitoring Alerts</h3>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>Unique identifier for the alert</td>
+<td>"alert-12345"</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td>Short title of the alert</td>
+<td>"High CPU Usage"</td>
+</tr>
+<tr>
+<td><strong>severity</strong></td>
+<td>How critical the alert is</td>
+<td>"critical", "warning", "info"</td>
+</tr>
+<tr>
+<td><strong>timestamp</strong></td>
+<td>When the alert was triggered</td>
+<td>"2025-03-15T14:32:10Z"</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td>Detailed description</td>
+<td>"CPU usage at 97% for 5 minutes"</td>
+</tr>
+<tr>
+<td><strong>source</strong></td>
+<td>Which system generated the alert</td>
+<td>"server-01", "aws-east-1"</td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td>Current state of the alert</td>
+<td>"active", "acknowledged", "resolved"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="testing-and-validation-tips_1">🧪 Testing and Validation Tips</h3>
+<ul>
+<li>Start by testing the API endpoint directly in your browser or a tool like <strong>Postman</strong> to see the raw JSON structure</li>
+<li>If you get a <strong>401</strong> error, your token may be expired or incorrect</li>
+<li>If you get a <strong>404</strong>, double-check the URL path</li>
+<li>Print the raw <strong>response.text</strong> first to see what the API actually returns before parsing JSON</li>
+<li>Handle cases where the JSON structure differs from what you expect (e.g., missing keys)</li>
+</ul>
+<hr />
+<h3 id="next-steps-for-engineers_1">🚀 Next Steps for Engineers</h3>
+<p>Once you can fetch alerts, consider extending the script to:</p>
+<ul>
+<li>Filter alerts by severity (e.g., only show critical ones)</li>
+<li>Send notifications via email or Slack when new critical alerts appear</li>
+<li>Save alerts to a file or database for historical analysis</li>
+<li>Build a simple dashboard that refreshes every minute</li>
+<li>Combine alerts from multiple monitoring systems into one view</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Querying real-time monitoring alerts with Python is a practical skill that helps you automate infrastructure health checks. By making an HTTP GET request, parsing the JSON response, and extracting key fields, you can quickly turn raw API data into actionable information. This pattern applies to almost any modern monitoring tool and is a foundation for building more advanced automation and observability workflows.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example shows how to fetch and process real-time monitoring alerts from an API endpoint using Python.</p>
+<hr />
+<h3 id="example-1-fetching-a-single-alert-from-a-monitoring-api_1">🟢 Example 1: Fetching a single alert from a monitoring API</h3>
+<p>This demonstrates the simplest way to request one alert record from a monitoring system.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.monitoring.example.com/alerts/1&quot;</span><span class="p">)</span>
+<span class="n">alert</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alert</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'id': 1, 'severity': 'critical', 'message': 'CPU usage above 95%', 'timestamp': '2024-03-15T10:30:00Z'}</strong></p>
+<hr />
+<h3 id="example-2-fetching-all-active-alerts_1">🟡 Example 2: Fetching all active alerts</h3>
+<p>This shows how to retrieve a list of all currently active alerts from the monitoring system.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.monitoring.example.com/alerts?status=active&quot;</span><span class="p">)</span>
+<span class="n">alerts</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alerts</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[{'id': 1, 'severity': 'critical', 'message': 'CPU usage above 95%'}, {'id': 2, 'severity': 'warning', 'message': 'Disk space at 80%'}]</strong></p>
+<hr />
+<h3 id="example-3-filtering-alerts-by-severity-level_1">🔵 Example 3: Filtering alerts by severity level</h3>
+<p>This demonstrates how to request only critical alerts from the monitoring API.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.monitoring.example.com/alerts?severity=critical&quot;</span><span class="p">)</span>
+<span class="n">critical_alerts</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">critical_alerts</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[{'id': 1, 'severity': 'critical', 'message': 'CPU usage above 95%'}, {'id': 3, 'severity': 'critical', 'message': 'Memory leak detected'}]</strong></p>
+<hr />
+<h3 id="example-4-counting-alerts-by-severity_1">🟣 Example 4: Counting alerts by severity</h3>
+<p>This shows how to process the JSON response to count how many alerts exist for each severity level.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.monitoring.example.com/alerts&quot;</span><span class="p">)</span>
+<span class="n">alerts</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">critical_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">warning_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">info_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">alert</span> <span class="ow">in</span> <span class="n">alerts</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">alert</span><span class="p">[</span><span class="s2">&quot;severity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;critical&quot;</span><span class="p">:</span>
+        <span class="n">critical_count</span> <span class="o">=</span> <span class="n">critical_count</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">alert</span><span class="p">[</span><span class="s2">&quot;severity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;warning&quot;</span><span class="p">:</span>
+        <span class="n">warning_count</span> <span class="o">=</span> <span class="n">warning_count</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">info_count</span> <span class="o">=</span> <span class="n">info_count</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">critical_count</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">warning_count</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">info_count</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>3 5 2</strong></p>
+<hr />
+<h3 id="example-5-extracting-alert-messages-for-a-specific-time-window_1">🔴 Example 5: Extracting alert messages for a specific time window</h3>
+<p>This demonstrates how to fetch alerts from the last hour and print only their messages.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="n">one_hour_ago</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.monitoring.example.com/alerts?since=&quot;</span> <span class="o">+</span> <span class="n">one_hour_ago</span><span class="o">.</span><span class="n">isoformat</span><span class="p">())</span>
+<span class="n">recent_alerts</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">alert</span> <span class="ow">in</span> <span class="n">recent_alerts</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">alert</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>CPU usage above 95%</strong><br />
+<strong>Disk space at 80%</strong><br />
+<strong>Network latency spike detected</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

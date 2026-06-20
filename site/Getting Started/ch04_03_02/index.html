@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch04_03_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 04 | Rounding Functions (ceil, floor) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 04 | Rounding Functions (ceil, floor)";
         var mkdocs_page_input_path = "Getting Started\\ch04_03_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch04_03_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -212,6 +212,30 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-calculating-pages-needed">🧮 Example 5: Practical Use — Calculating Pages Needed</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-floor-vs-ceil">📊 Comparison Table: floor() vs ceil()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-ceil-and-floor_1">⚙️ What Are Ceil and Floor?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-they-work_1">📊 How They Work</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples_1">🛠️ Practical Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-each-function_1">🕵️ When to Use Each Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">⚡ Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference_1">✅ Quick Reference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-floor-rounding-down_1">🧮 Example 1: Basic floor() — Rounding Down</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-basic-ceil-rounding-up_1">🧮 Example 2: Basic ceil() — Rounding Up</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-negative-numbers-with-floor_1">🧮 Example 3: Negative Numbers with floor()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-negative-numbers-with-ceil_1">🧮 Example 4: Negative Numbers with ceil()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-calculating-pages-needed_1">🧮 Example 5: Practical Use — Calculating Pages Needed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-floor-vs-ceil_1">📊 Comparison Table: floor() vs ceil()</a>
     </li>
     </ul>
                 </li>
@@ -1072,7 +1096,7 @@
               
                 <h1 id="rounding-functions-ceil-floor">Rounding Functions (ceil, floor)</h1>
 <p><span class="category-tag">🏷️ Numbers and Mathematical Operations /  The Math Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with numbers in Python, you'll often need to round values in specific ways. While the built-in <strong>round()</strong> function handles standard rounding, Python's <strong>math module</strong> provides two specialized rounding functions: <strong>ceil()</strong> and <strong>floor()</strong>. These functions are essential when you need precise control over how decimal numbers are rounded—whether you're calculating resource allocations, setting thresholds, or processing measurement data.</p>
@@ -1165,8 +1189,7 @@
 <li><strong>Input type</strong>: Both functions accept <strong>float</strong> or <strong>integer</strong> values</li>
 </ul>
 <p>These rounding functions give you precise control over how numbers are handled in your calculations, ensuring your results align with real-world constraints and requirements.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>ceil()</code> and <code>floor()</code> functions from the <code>math</code> module round numbers up or down to the nearest integer, respectively.</p>
 <hr />
 <h3 id="example-1-basic-floor-rounding-down">🧮 Example 1: Basic <code>floor()</code> — Rounding Down</h3>
@@ -1218,6 +1241,191 @@
 <p>📤 Output: <strong>5</strong></p>
 <hr />
 <h3 id="comparison-table-floor-vs-ceil">📊 Comparison Table: <code>floor()</code> vs <code>ceil()</code></h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Behavior</th>
+<th>Example Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>floor(x)</code></td>
+<td>Rounds down to nearest integer</td>
+<td>4.7</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>ceil(x)</code></td>
+<td>Rounds up to nearest integer</td>
+<td>4.3</td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>floor(x)</code></td>
+<td>Rounds down (away from zero) for negatives</td>
+<td>-3.2</td>
+<td>-4</td>
+</tr>
+<tr>
+<td><code>ceil(x)</code></td>
+<td>Rounds up (toward zero) for negatives</td>
+<td>-3.8</td>
+<td>-3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with numbers in Python, you'll often need to round values in specific ways. While the built-in <strong>round()</strong> function handles standard rounding, Python's <strong>math module</strong> provides two specialized rounding functions: <strong>ceil()</strong> and <strong>floor()</strong>. These functions are essential when you need precise control over how decimal numbers are rounded—whether you're calculating resource allocations, setting thresholds, or processing measurement data.</p>
+<hr />
+<h3 id="what-are-ceil-and-floor_1">⚙️ What Are Ceil and Floor?</h3>
+<p>The <strong>ceil()</strong> and <strong>floor()</strong> functions serve opposite purposes:</p>
+<ul>
+<li><strong>ceil()</strong> (short for "ceiling") always rounds a number <strong>up</strong> to the nearest integer, regardless of the decimal value</li>
+<li><strong>floor()</strong> always rounds a number <strong>down</strong> to the nearest integer, regardless of the decimal value</li>
+</ul>
+<p>Both functions return an integer value and are part of the <strong>math module</strong>, which means you need to import it before using them.</p>
+<hr />
+<h3 id="how-they-work_1">📊 How They Work</h3>
+<p>Here's a quick comparison of how <strong>ceil()</strong> and <strong>floor()</strong> handle different decimal values:</p>
+<table>
+<thead>
+<tr>
+<th>Input Value</th>
+<th>ceil() Result</th>
+<th>floor() Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.1</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3.9</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr>
+<td>-3.1</td>
+<td>-3</td>
+<td>-4</td>
+</tr>
+<tr>
+<td>-3.9</td>
+<td>-3</td>
+<td>-4</td>
+</tr>
+<tr>
+<td>5.0</td>
+<td>5</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>Notice the key difference: <strong>ceil()</strong> always moves toward positive infinity (up), while <strong>floor()</strong> always moves toward negative infinity (down). This is especially important with negative numbers, where the behavior might be counterintuitive at first.</p>
+<hr />
+<h3 id="practical-examples_1">🛠️ Practical Examples</h3>
+<p>To use these functions, you first need to import the math module:</p>
+<ul>
+<li><strong>Import the module</strong>: <strong>import math</strong></li>
+<li><strong>Using ceil()</strong>: <strong>math.ceil(4.2)</strong> returns <strong>5</strong></li>
+<li><strong>Using floor()</strong>: <strong>math.floor(4.2)</strong> returns <strong>4</strong></li>
+</ul>
+<p>For negative numbers:
+- <strong>math.ceil(-4.2)</strong> returns <strong>-4</strong> (moves up toward zero)
+- <strong>math.floor(-4.2)</strong> returns <strong>-5</strong> (moves down, further from zero)</p>
+<p>For whole numbers:
+- <strong>math.ceil(7.0)</strong> returns <strong>7</strong>
+- <strong>math.floor(7.0)</strong> returns <strong>7</strong></p>
+<hr />
+<h3 id="when-to-use-each-function_1">🕵️ When to Use Each Function</h3>
+<p><strong>Use ceil() when you need to guarantee a minimum value:</strong>
+- Calculating how many servers are needed to handle a workload (you can't have a fraction of a server)
+- Determining how many storage containers are required for a given amount of data
+- Computing minimum resource allocations where partial units aren't acceptable</p>
+<p><strong>Use floor() when you need to stay within a maximum limit:</strong>
+- Calculating how many complete items can fit within a given space
+- Determining maximum capacity without exceeding a threshold
+- Processing data where partial units should be discarded</p>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">⚡ Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Forgetting to import math</strong>: You'll get a <strong>NameError</strong> if you try to use <strong>ceil()</strong> or <strong>floor()</strong> without importing the module first</li>
+<li><strong>Confusing with round()</strong>: The built-in <strong>round()</strong> function uses "banker's rounding" (rounds to nearest even number for .5), which behaves differently from both <strong>ceil()</strong> and <strong>floor()</strong></li>
+<li><strong>Assuming positive behavior for negatives</strong>: Remember that <strong>floor()</strong> of a negative number moves further from zero, while <strong>ceil()</strong> moves toward zero</li>
+</ul>
+<hr />
+<h3 id="quick-reference_1">✅ Quick Reference</h3>
+<ul>
+<li><strong>Import</strong>: <strong>import math</strong> at the top of your script</li>
+<li><strong>Ceil (up)</strong>: <strong>math.ceil(value)</strong> — rounds up to the nearest integer</li>
+<li><strong>Floor (down)</strong>: <strong>math.floor(value)</strong> — rounds down to the nearest integer</li>
+<li><strong>Return type</strong>: Both functions always return an <strong>integer</strong></li>
+<li><strong>Input type</strong>: Both functions accept <strong>float</strong> or <strong>integer</strong> values</li>
+</ul>
+<p>These rounding functions give you precise control over how numbers are handled in your calculations, ensuring your results align with real-world constraints and requirements.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>ceil()</code> and <code>floor()</code> functions from the <code>math</code> module round numbers up or down to the nearest integer, respectively.</p>
+<hr />
+<h3 id="example-1-basic-floor-rounding-down_1">🧮 Example 1: Basic <code>floor()</code> — Rounding Down</h3>
+<p>This example shows how <code>floor()</code> always rounds a decimal number down to the nearest integer.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mf">4.7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>4</strong></p>
+<hr />
+<h3 id="example-2-basic-ceil-rounding-up_1">🧮 Example 2: Basic <code>ceil()</code> — Rounding Up</h3>
+<p>This example shows how <code>ceil()</code> always rounds a decimal number up to the nearest integer.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">4.3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>5</strong></p>
+<hr />
+<h3 id="example-3-negative-numbers-with-floor_1">🧮 Example 3: Negative Numbers with <code>floor()</code></h3>
+<p>This example demonstrates that <code>floor()</code> rounds negative numbers <em>down</em> (away from zero).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="o">-</span><span class="mf">3.2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>-4</strong></p>
+<hr />
+<h3 id="example-4-negative-numbers-with-ceil_1">🧮 Example 4: Negative Numbers with <code>ceil()</code></h3>
+<p>This example demonstrates that <code>ceil()</code> rounds negative numbers <em>up</em> (toward zero).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="o">-</span><span class="mf">3.8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>-3</strong></p>
+<hr />
+<h3 id="example-5-practical-use-calculating-pages-needed_1">🧮 Example 5: Practical Use — Calculating Pages Needed</h3>
+<p>This example shows how <code>ceil()</code> helps engineers determine how many pages are needed to display a list of items.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="n">total_items</span> <span class="o">=</span> <span class="mi">47</span>
+<span class="n">items_per_page</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">pages_needed</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">total_items</span> <span class="o">/</span> <span class="n">items_per_page</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pages_needed</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>5</strong></p>
+<hr />
+<h3 id="comparison-table-floor-vs-ceil_1">📊 Comparison Table: <code>floor()</code> vs <code>ceil()</code></h3>
 <table>
 <thead>
 <tr>

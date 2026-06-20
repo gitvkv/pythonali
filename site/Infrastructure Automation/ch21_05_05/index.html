@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_05_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Binding Scripts to Database Endpoints via Native Drivers - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Binding Scripts to Database Endpoints via Native Drivers";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_05_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_05_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -1033,6 +1033,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-native-driver-binding-options">Comparison Table: Native Driver Binding Options</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-native-database-drivers_1">⚙️ What Are Native Database Drivers?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-connection-pattern-three-essential-steps_1">🛠️ The Connection Pattern: Three Essential Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-connection-methods-across-databases_1">📊 Comparison: Connection Methods Across Databases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-secure-database-binding_1">🕵️ Best Practices for Secure Database Binding</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-patterns-for-script-to-database-binding_1">🧩 Common Patterns for Script-to-Database Binding</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#error-handling-in-database-operations_1">📋 Error Handling in Database Operations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#transitioning-from-local-to-production-endpoints_1">🚀 Transitioning from Local to Production Endpoints</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps-after-mastering-database-binding_1">🔮 Next Steps After Mastering Database Binding</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-connecting-to-a-sqlite-database-file-based-no-server-needed_1">🔧 Example 1: Connecting to a SQLite database (file-based, no server needed)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-creating-a-table-and-inserting-a-row-into-sqlite_1">🔧 Example 2: Creating a table and inserting a row into SQLite</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-connecting-to-postgresql-using-the-psycopg2-native-driver_1">🔧 Example 3: Connecting to PostgreSQL using the psycopg2 native driver</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-querying-mysql-with-parameterized-input-using-mysql-connector-python_1">🔧 Example 4: Querying MySQL with parameterized input using mysql-connector-python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-inserting-multiple-rows-into-sqlite-using-executemany-batch-insert_1">🔧 Example 5: Inserting multiple rows into SQLite using executemany (batch insert)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-native-driver-binding-options_1">Comparison Table: Native Driver Binding Options</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_05_06/">Ch 21 | Connecting to Infrastructure Packages (Netmiko, Boto3, K8s)</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="binding-scripts-to-database-endpoints-via-native-drivers">Binding Scripts to Database Endpoints via Native Drivers</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Next Steps After This Curriculum</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1241,8 +1271,7 @@
 - Building RESTful APIs that expose database data to other services
 - Implementing database migrations and schema versioning</p>
 <p>Each of these topics will deepen your understanding of how scripts and databases work together to create robust, data-driven systems. The pattern you have learned here—connect, execute, fetch, close—remains the foundation for all of them.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This section shows how to connect Python scripts directly to databases using the database's own driver library, so engineers can run queries and manipulate data from code.</p>
 <hr />
 <h3 id="example-1-connecting-to-a-sqlite-database-file-based-no-server-needed">🔧 Example 1: Connecting to a SQLite database (file-based, no server needed)</h3>
@@ -1326,6 +1355,299 @@
 <p>📤 Output: <strong>[(1, 'Alice'), (2, 'Bob'), (3, 'Carol'), (4, 'Dave')]</strong></p>
 <hr />
 <h3 id="comparison-table-native-driver-binding-options">Comparison Table: Native Driver Binding Options</h3>
+<table>
+<thead>
+<tr>
+<th>Database</th>
+<th>Native Driver Library</th>
+<th>Connection Style</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQLite</td>
+<td><code>sqlite3</code> (built-in)</td>
+<td>File path</td>
+<td>Local testing, small data</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>psycopg2</code></td>
+<td>Host + port + credentials</td>
+<td>Production systems, complex queries</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td><code>mysql-connector-python</code></td>
+<td>Host + port + credentials</td>
+<td>Web applications, large datasets</td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td><code>executemany</code></td>
+<td>Batch insert</td>
+<td>Fast bulk data loading</td>
+</tr>
+<tr>
+<td>All above</td>
+<td>Parameterized queries</td>
+<td><code>?</code> or <code>%s</code> placeholders</td>
+<td>Secure input handling</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>Throughout this curriculum, you have built scripts that interact with files, APIs, and system resources. Now, it is time to take the next logical step: connecting your Python scripts directly to databases. This capability transforms your scripts from simple automation tools into powerful data-driven applications. By binding scripts to database endpoints using native drivers, you enable real-time data retrieval, insertion, updates, and deletions—all from within your Python code. This section introduces the core concepts and patterns for making those connections securely and efficiently.</p>
+<hr />
+<h3 id="what-are-native-database-drivers_1">⚙️ What Are Native Database Drivers?</h3>
+<p>Native database drivers are specialized Python libraries that allow your script to communicate directly with a specific database management system (DBMS). Unlike generic data access methods, native drivers are optimized for the database they target, providing better performance, security, and access to database-specific features.</p>
+<p><strong>Key characteristics of native drivers:</strong>
+- They implement the database's native wire protocol for communication
+- They handle connection pooling, authentication, and data type conversion
+- They expose the full feature set of the database (stored procedures, transactions, etc.)
+- They are maintained by the database vendor or the open-source community</p>
+<p><strong>Common native drivers for popular databases:</strong>
+- <strong>PostgreSQL:</strong> psycopg2 or asyncpg
+- <strong>MySQL / MariaDB:</strong> mysql-connector-python or PyMySQL
+- <strong>SQLite:</strong> sqlite3 (built into Python's standard library)
+- <strong>Microsoft SQL Server:</strong> pyodbc or pymssql
+- <strong>Oracle:</strong> cx_Oracle
+- <strong>MongoDB:</strong> pymongo (for NoSQL databases)</p>
+<hr />
+<h3 id="the-connection-pattern-three-essential-steps_1">🛠️ The Connection Pattern: Three Essential Steps</h3>
+<p>Every database binding follows the same fundamental pattern, regardless of which database or driver you use. Understanding this pattern will allow you to work with any database endpoint.</p>
+<p><strong>Step 1: Establish a Connection</strong>
+- You create a connection object by providing the database endpoint details: hostname, port, database name, username, and password
+- This connection represents a network session between your script and the database server
+- Connection parameters are typically stored in environment variables or configuration files, never hardcoded in the script</p>
+<p><strong>Step 2: Create a Cursor</strong>
+- A cursor is an object that allows you to execute SQL statements and fetch results
+- Think of it as a pointer or a work area where your queries run
+- You always create a cursor from an active connection</p>
+<p><strong>Step 3: Execute Queries and Fetch Results</strong>
+- You use the cursor to run SQL statements (SELECT, INSERT, UPDATE, DELETE)
+- For queries that return data, you fetch the results using methods like fetchone(), fetchall(), or fetchmany()
+- For data modification statements, you must commit the transaction to make changes permanent</p>
+<hr />
+<h3 id="comparison-connection-methods-across-databases_1">📊 Comparison: Connection Methods Across Databases</h3>
+<table>
+<thead>
+<tr>
+<th>Database</th>
+<th>Native Driver</th>
+<th>Connection String Pattern</th>
+<th>Key Consideration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PostgreSQL</td>
+<td>psycopg2</td>
+<td>host, port, dbname, user, password</td>
+<td>Excellent for complex queries and JSON support</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>mysql-connector-python</td>
+<td>host, port, database, user, password</td>
+<td>Widely used in web applications</td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td>sqlite3</td>
+<td>Single file path</td>
+<td>No server needed; perfect for local or embedded use</td>
+</tr>
+<tr>
+<td>SQL Server</td>
+<td>pyodbc</td>
+<td>DSN or full connection string</td>
+<td>Requires ODBC driver installation</td>
+</tr>
+<tr>
+<td>MongoDB</td>
+<td>pymongo</td>
+<td>mongodb://host:port/dbname</td>
+<td>No SQL; uses document-based queries</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="best-practices-for-secure-database-binding_1">🕵️ Best Practices for Secure Database Binding</h3>
+<p>When binding scripts to database endpoints, security must be a top priority. A compromised database connection can expose sensitive data or allow unauthorized access to your entire system.</p>
+<p><strong>🔐 Credential Management</strong>
+- Store database credentials in environment variables, not in your script files
+- Use a .env file with the python-dotenv library for local development
+- For production, use secrets management tools like HashiCorp Vault or cloud provider secret stores
+- Never commit credentials to version control systems</p>
+<p><strong>🌐 Connection Security</strong>
+- Always use encrypted connections (SSL/TLS) when connecting to remote databases
+- Verify that your database server enforces encrypted connections
+- Use connection timeouts to prevent hanging connections from consuming resources</p>
+<p><strong>📋 Resource Management</strong>
+- Always close cursors and connections when you are done with them
+- Use context managers (the with statement) to automatically handle cleanup
+- Implement connection pooling for scripts that make frequent database calls</p>
+<p><strong>🛡️ SQL Injection Prevention</strong>
+- Never concatenate user input directly into SQL strings
+- Always use parameterized queries or prepared statements provided by the native driver
+- Validate and sanitize any data that originates from external sources</p>
+<hr />
+<h3 id="common-patterns-for-script-to-database-binding_1">🧩 Common Patterns for Script-to-Database Binding</h3>
+<p><strong>Pattern 1: One-Time Query Script</strong>
+- Connect to the database
+- Execute a single query
+- Process and display results
+- Close the connection
+- Best for reporting or data extraction tasks</p>
+<p><strong>Pattern 2: Batch Processing Script</strong>
+- Connect to the database once
+- Loop through a set of operations (reads, writes, or updates)
+- Commit changes periodically or after all operations complete
+- Close the connection
+- Best for data migration, ETL processes, or bulk updates</p>
+<p><strong>Pattern 3: Long-Running Service Script</strong>
+- Establish a persistent connection or connection pool
+- Listen for events, schedule tasks, or serve API requests
+- Handle connection drops with automatic reconnection logic
+- Gracefully shut down connections on script termination
+- Best for background workers, monitoring agents, or data pipelines</p>
+<hr />
+<h3 id="error-handling-in-database-operations_1">📋 Error Handling in Database Operations</h3>
+<p>Database operations can fail for many reasons: network issues, authentication failures, constraint violations, or deadlocks. Robust error handling is essential.</p>
+<p><strong>Common exceptions to handle:</strong>
+- Connection failures (wrong host, port, or credentials)
+- Timeout errors (database is unreachable or overloaded)
+- Integrity errors (duplicate keys, foreign key violations)
+- Programming errors (invalid SQL syntax)
+- Operational errors (database server restarted or crashed)</p>
+<p><strong>Error handling strategy:</strong>
+- Wrap database operations in try-except blocks
+- Log detailed error information for debugging
+- Implement retry logic with exponential backoff for transient failures
+- Roll back transactions on error to maintain data consistency
+- Always close connections in a finally block or use context managers</p>
+<hr />
+<h3 id="transitioning-from-local-to-production-endpoints_1">🚀 Transitioning from Local to Production Endpoints</h3>
+<p>As you move from development to production, your database binding approach must evolve.</p>
+<p><strong>Development environment:</strong>
+- Connect to a local database instance or a shared development server
+- Use relaxed security settings for ease of testing
+- Log all queries for debugging purposes</p>
+<p><strong>Production environment:</strong>
+- Connect to a dedicated database server with restricted access
+- Use read-only credentials for scripts that only fetch data
+- Implement connection pooling to handle concurrent requests
+- Monitor connection counts and query performance
+- Use database migration tools to manage schema changes</p>
+<p><strong>Key questions to answer before deploying:</strong>
+- What is the expected frequency and volume of database calls?
+- Does the script need read-only or read-write access?
+- How will the script handle database unavailability?
+- What monitoring and alerting is in place for database issues?</p>
+<hr />
+<h3 id="next-steps-after-mastering-database-binding_1">🔮 Next Steps After Mastering Database Binding</h3>
+<p>Once you are comfortable binding scripts to database endpoints, you are ready to explore more advanced topics that build on this foundation.</p>
+<p><strong>Recommended next areas:</strong>
+- Object-Relational Mapping (ORM) libraries like SQLAlchemy for higher-level database interaction
+- Asynchronous database drivers for high-concurrency applications
+- Database connection pooling libraries for production-grade performance
+- Data validation and serialization with libraries like Pydantic
+- Building RESTful APIs that expose database data to other services
+- Implementing database migrations and schema versioning</p>
+<p>Each of these topics will deepen your understanding of how scripts and databases work together to create robust, data-driven systems. The pattern you have learned here—connect, execute, fetch, close—remains the foundation for all of them.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This section shows how to connect Python scripts directly to databases using the database's own driver library, so engineers can run queries and manipulate data from code.</p>
+<hr />
+<h3 id="example-1-connecting-to-a-sqlite-database-file-based-no-server-needed_1">🔧 Example 1: Connecting to a SQLite database (file-based, no server needed)</h3>
+<p>This example opens a connection to a local SQLite database file, which is the simplest way to test database binding without setting up a server.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+
+<span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;example.db&quot;</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT sqlite_version();&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>('3.45.1',)</strong></p>
+<hr />
+<h3 id="example-2-creating-a-table-and-inserting-a-row-into-sqlite_1">🔧 Example 2: Creating a table and inserting a row into SQLite</h3>
+<p>This example creates a new table called <code>engineers</code> and inserts one record, then commits the change.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+
+<span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;example.db&quot;</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE IF NOT EXISTS engineers (id INTEGER, name TEXT);&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;INSERT INTO engineers VALUES (1, &#39;Alice&#39;);&quot;</span><span class="p">)</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM engineers;&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>[(1, 'Alice')]</strong></p>
+<hr />
+<h3 id="example-3-connecting-to-postgresql-using-the-psycopg2-native-driver_1">🔧 Example 3: Connecting to PostgreSQL using the psycopg2 native driver</h3>
+<p>This example connects to a PostgreSQL database running on localhost, using a native driver that speaks the PostgreSQL protocol directly.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">psycopg2</span>
+
+<span class="n">connection</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;testdb&quot;</span><span class="p">,</span>
+    <span class="n">user</span><span class="o">=</span><span class="s2">&quot;engineer&quot;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;secret&quot;</span>
+<span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT version();&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>('PostgreSQL 16.2 on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, 64-bit',)</strong></p>
+<hr />
+<h3 id="example-4-querying-mysql-with-parameterized-input-using-mysql-connector-python_1">🔧 Example 4: Querying MySQL with parameterized input using mysql-connector-python</h3>
+<p>This example safely queries a MySQL database using a parameterized WHERE clause to avoid SQL injection, then prints the matching rows.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">mysql.connector</span>
+
+<span class="n">connection</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+    <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
+    <span class="n">database</span><span class="o">=</span><span class="s2">&quot;inventory&quot;</span><span class="p">,</span>
+    <span class="n">user</span><span class="o">=</span><span class="s2">&quot;engineer&quot;</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;secret&quot;</span>
+<span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT item_name, quantity FROM stock WHERE quantity &lt; </span><span class="si">%s</span><span class="s2">;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>('Widget A', 3) ('Bolt M8', 7)</strong></p>
+<hr />
+<h3 id="example-5-inserting-multiple-rows-into-sqlite-using-executemany-batch-insert_1">🔧 Example 5: Inserting multiple rows into SQLite using executemany (batch insert)</h3>
+<p>This example inserts three engineer records at once using a list of tuples, which is faster than running individual INSERT statements.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+
+<span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;example.db&quot;</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;CREATE TABLE IF NOT EXISTS engineers (id INTEGER, name TEXT);&quot;</span><span class="p">)</span>
+<span class="n">new_engineers</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Carol&quot;</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Dave&quot;</span><span class="p">)]</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="s2">&quot;INSERT INTO engineers VALUES (?, ?);&quot;</span><span class="p">,</span> <span class="n">new_engineers</span><span class="p">)</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM engineers;&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>[(1, 'Alice'), (2, 'Bob'), (3, 'Carol'), (4, 'Dave')]</strong></p>
+<hr />
+<h3 id="comparison-table-native-driver-binding-options_1">Comparison Table: Native Driver Binding Options</h3>
 <table>
 <thead>
 <tr>

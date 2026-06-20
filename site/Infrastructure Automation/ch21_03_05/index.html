@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_03_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Testing Execution Idempotency Across Multiple Passes - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Testing Execution Idempotency Across Multiple Passes";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_03_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_03_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -1011,6 +1011,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-idempotent-vs-non-idempotent-patterns">Comparison Table: Idempotent vs Non-Idempotent Patterns</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-idempotency-in-scripting_1">⚙️ What Is Idempotency in Scripting?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-test-across-multiple-passes_1">🕵️ Why Test Across Multiple Passes?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-testing-strategies-for-idempotency_1">🛠️ Key Testing Strategies for Idempotency</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-idempotent-vs-non-idempotent-behavior_1">📊 Comparison: Idempotent vs. Non-Idempotent Behavior</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-testing-workflow_1">🧪 Practical Testing Workflow</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-watch-for_1">🧠 Common Pitfalls to Watch For</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#checklist-for-testing-idempotency_1">✅ Checklist for Testing Idempotency</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#final-thoughts_1">📝 Final Thoughts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-simple-counter-that-resets-each-time_1">✅ Example 1: Simple counter that resets each time</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-file-write-that-overwrites-instead-of-appending_1">✅ Example 2: File write that overwrites instead of appending</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-function-that-returns-the-same-value-for-the-same-input_1">✅ Example 3: Function that returns the same value for the same input</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-database-update-that-checks-before-writing_1">✅ Example 4: Database update that checks before writing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-api-call-that-uses-a-unique-request-id_1">✅ Example 5: API call that uses a unique request ID</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-idempotent-vs-non-idempotent-patterns_1">Comparison Table: Idempotent vs Non-Idempotent Patterns</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_03_06/">Ch 21 | Verifying Interface Help Clarity with Custom Arguments</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="testing-execution-idempotency-across-multiple-passes">Testing Execution Idempotency Across Multiple Passes</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Code Review Checklist</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1181,8 +1211,7 @@
 <hr />
 <h3 id="final-thoughts">📝 Final Thoughts</h3>
 <p>Testing execution idempotency across multiple passes is not just a best practice — it is a fundamental requirement for reliable automation. By designing scripts that behave consistently no matter how many times they run, you reduce the risk of production incidents, simplify debugging, and build confidence in your automation pipeline. Always include multi-pass testing as part of your code review checklist, and treat any script that fails this test as needing immediate revision.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This section shows how to verify that running the same code multiple times produces the same result — a key property for reliable engineer scripts.</p>
 <hr />
 <h3 id="example-1-simple-counter-that-resets-each-time">✅ Example 1: Simple counter that resets each time</h3>
@@ -1239,6 +1268,212 @@
 <p>📤 Output: <strong>"already processed"</strong></p>
 <hr />
 <h3 id="comparison-table-idempotent-vs-non-idempotent-patterns">Comparison Table: Idempotent vs Non-Idempotent Patterns</h3>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Behavior on First Run</th>
+<th>Behavior on Second Run</th>
+<th>Idempotent?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Counter reset each time</td>
+<td>Starts at 0, becomes 1</td>
+<td>Starts at 0, becomes 1</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>File write with <code>"w"</code> mode</td>
+<td>Writes "pass"</td>
+<td>Overwrites with "pass"</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Pure function <code>double_value(5)</code></td>
+<td>Returns 10</td>
+<td>Returns 10</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Database update without check</td>
+<td>Always writes "active"</td>
+<td>Writes "active" again</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Unique request ID check</td>
+<td>Processes new request</td>
+<td>Returns "already processed"</td>
+<td>✅ Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When building automation scripts, one of the most important reliability concepts to understand is <strong>idempotency</strong>. An idempotent operation produces the same result no matter how many times it is executed. For example, if you run a script that ensures a configuration file exists, running it once or ten times should leave the system in the exact same state. This is critical for automation because scripts often run on schedules, retries, or across multiple environments. Testing idempotency across multiple passes means verifying that your script behaves consistently on the first, second, and tenth run without causing errors, duplication, or unintended side effects.</p>
+<hr />
+<h3 id="what-is-idempotency-in-scripting_1">⚙️ What Is Idempotency in Scripting?</h3>
+<ul>
+<li><strong>Idempotent script</strong>: A script that can be run multiple times and always produces the same final state, with no negative side effects from repeated execution.</li>
+<li><strong>Non-idempotent script</strong>: A script that changes state differently on each run, such as appending the same line to a file every time it runs, or creating duplicate resources.</li>
+<li><strong>Why it matters</strong>: Automation relies on predictable behavior. If a script fails halfway and is retried, it should pick up where it left off without breaking existing configurations.</li>
+</ul>
+<hr />
+<h3 id="why-test-across-multiple-passes_1">🕵️ Why Test Across Multiple Passes?</h3>
+<ul>
+<li><strong>Catch cumulative errors</strong>: Some bugs only appear after the second or third run, such as log files growing unbounded or temporary files accumulating.</li>
+<li><strong>Validate state checks</strong>: Idempotent scripts typically check current state before making changes. Running multiple passes confirms these checks work correctly.</li>
+<li><strong>Simulate real-world usage</strong>: In production, scripts may run on a cron schedule every hour. Testing multiple passes mimics this pattern.</li>
+<li><strong>Ensure cleanup logic works</strong>: Scripts that create temporary resources must clean them up properly, even when run repeatedly.</li>
+</ul>
+<hr />
+<h3 id="key-testing-strategies-for-idempotency_1">🛠️ Key Testing Strategies for Idempotency</h3>
+<ul>
+<li><strong>Run the script twice in a row</strong> on the same target system or environment. Compare the output and final state after each run.</li>
+<li><strong>Check for no changes on subsequent runs</strong>: After the first run, the script should report that everything is already in the desired state, with zero modifications made.</li>
+<li><strong>Verify resource counts remain stable</strong>: For example, if the script creates a user account, running it again should not create a duplicate user.</li>
+<li><strong>Test with different initial states</strong>: Start with a clean system, then a partially configured system, then a fully configured system. The script should handle all cases gracefully.</li>
+<li><strong>Use dry-run or check mode</strong> if available: Many tools and scripts support a mode that shows what would change without actually making changes. Run this mode multiple times to confirm the same output each time.</li>
+</ul>
+<hr />
+<h3 id="comparison-idempotent-vs-non-idempotent-behavior_1">📊 Comparison: Idempotent vs. Non-Idempotent Behavior</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Idempotent Script</th>
+<th>Non-Idempotent Script</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First run</td>
+<td>Creates desired state</td>
+<td>Creates desired state</td>
+</tr>
+<tr>
+<td>Second run</td>
+<td>Reports "already in desired state"</td>
+<td>Creates duplicate entries or resources</td>
+</tr>
+<tr>
+<td>Error on retry</td>
+<td>Safe to rerun after failure</td>
+<td>May cause conflicts or corruption</td>
+</tr>
+<tr>
+<td>Log output</td>
+<td>Consistent, no new changes logged</td>
+<td>Log grows with each run</td>
+</tr>
+<tr>
+<td>Resource usage</td>
+<td>Stable</td>
+<td>May leak temporary files or connections</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-testing-workflow_1">🧪 Practical Testing Workflow</h3>
+<ul>
+<li><strong>Step 1</strong>: Prepare a clean test environment (virtual machine, container, or isolated directory).</li>
+<li><strong>Step 2</strong>: Run the script once and record the final state (file contents, service status, configuration values).</li>
+<li><strong>Step 3</strong>: Run the script a second time and compare the output. Look for messages like "already exists," "no changes needed," or "skipped."</li>
+<li><strong>Step 4</strong>: Run the script a third, fourth, and fifth time. Verify that no new files, users, or configurations are created.</li>
+<li><strong>Step 5</strong>: Introduce a partial failure (simulate a network timeout or permission error) and rerun the script. Confirm it recovers cleanly.</li>
+<li><strong>Step 6</strong>: Clean up the environment and run the script from scratch again to confirm the same initial result.</li>
+</ul>
+<hr />
+<h3 id="common-pitfalls-to-watch-for_1">🧠 Common Pitfalls to Watch For</h3>
+<ul>
+<li><strong>Appending instead of overwriting</strong>: Scripts that write to log files or configuration files using append mode will grow the file on every run.</li>
+<li><strong>Missing state checks</strong>: If the script does not check whether a resource already exists before creating it, duplicates will occur.</li>
+<li><strong>Timestamps or unique identifiers</strong>: Scripts that generate unique names or timestamps on each run are inherently non-idempotent unless they also clean up previous versions.</li>
+<li><strong>Side effects from external services</strong>: Calling an API that creates a record without checking for duplicates will cause repeated entries.</li>
+<li><strong>Mutable global variables</strong>: In Python scripts, if a global variable accumulates state across runs within the same process, it can cause unexpected behavior.</li>
+</ul>
+<hr />
+<h3 id="checklist-for-testing-idempotency_1">✅ Checklist for Testing Idempotency</h3>
+<ul>
+<li>[ ] Run the script twice and compare final states</li>
+<li>[ ] Verify no new resources are created on the second run</li>
+<li>[ ] Confirm log files do not grow unexpectedly</li>
+<li>[ ] Test with a partially configured starting state</li>
+<li>[ ] Test with a fully configured starting state</li>
+<li>[ ] Simulate a failure mid-execution and rerun</li>
+<li>[ ] Check that temporary files are cleaned up</li>
+<li>[ ] Validate that the script exits with a success code on all passes</li>
+<li>[ ] Review the script for any append-only operations</li>
+<li>[ ] Ensure all API calls include idempotency keys or duplicate checks</li>
+</ul>
+<hr />
+<h3 id="final-thoughts_1">📝 Final Thoughts</h3>
+<p>Testing execution idempotency across multiple passes is not just a best practice — it is a fundamental requirement for reliable automation. By designing scripts that behave consistently no matter how many times they run, you reduce the risk of production incidents, simplify debugging, and build confidence in your automation pipeline. Always include multi-pass testing as part of your code review checklist, and treat any script that fails this test as needing immediate revision.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This section shows how to verify that running the same code multiple times produces the same result — a key property for reliable engineer scripts.</p>
+<hr />
+<h3 id="example-1-simple-counter-that-resets-each-time_1">✅ Example 1: Simple counter that resets each time</h3>
+<p>This example shows that a fresh variable always starts at the same value, regardless of how many times the script runs.</p>
+<div class="highlight"><pre><span></span><code><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">counter</span>
+</code></pre></div>
+<p>📤 Output: <strong>1</strong></p>
+<hr />
+<h3 id="example-2-file-write-that-overwrites-instead-of-appending_1">✅ Example 2: File write that overwrites instead of appending</h3>
+<p>This example shows that writing to a file with <code>"w"</code> mode replaces the content each time, making the output idempotent.</p>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;status.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;pass&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;status.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>"pass"</strong></p>
+<hr />
+<h3 id="example-3-function-that-returns-the-same-value-for-the-same-input_1">✅ Example 3: Function that returns the same value for the same input</h3>
+<p>This example shows a pure function — no matter how many times you call it, the same input gives the same output.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">double_value</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="n">result_one</span> <span class="o">=</span> <span class="n">double_value</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">result_two</span> <span class="o">=</span> <span class="n">double_value</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>10</strong></p>
+<hr />
+<h3 id="example-4-database-update-that-checks-before-writing_1">✅ Example 4: Database update that checks before writing</h3>
+<p>This example shows an idempotent update — it only writes if the value is different, so repeated runs don't change the result.</p>
+<div class="highlight"><pre><span></span><code><span class="n">current_status</span> <span class="o">=</span> <span class="s2">&quot;active&quot;</span>
+<span class="n">new_status</span> <span class="o">=</span> <span class="s2">&quot;active&quot;</span>
+
+<span class="k">if</span> <span class="n">current_status</span> <span class="o">!=</span> <span class="n">new_status</span><span class="p">:</span>
+    <span class="n">current_status</span> <span class="o">=</span> <span class="n">new_status</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;updated&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;no change needed&quot;</span>
+</code></pre></div>
+<p>📤 Output: <strong>"no change needed"</strong></p>
+<hr />
+<h3 id="example-5-api-call-that-uses-a-unique-request-id_1">✅ Example 5: API call that uses a unique request ID</h3>
+<p>This example shows how a unique ID prevents duplicate processing — the same request ID returns the same result on every pass.</p>
+<div class="highlight"><pre><span></span><code><span class="n">request_id</span> <span class="o">=</span> <span class="s2">&quot;req-001&quot;</span>
+<span class="n">processed_ids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;req-001&quot;</span><span class="p">,</span> <span class="s2">&quot;req-002&quot;</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="n">request_id</span> <span class="ow">in</span> <span class="n">processed_ids</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;already processed&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">processed_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">request_id</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;processing new request&quot;</span>
+</code></pre></div>
+<p>📤 Output: <strong>"already processed"</strong></p>
+<hr />
+<h3 id="comparison-table-idempotent-vs-non-idempotent-patterns_1">Comparison Table: Idempotent vs Non-Idempotent Patterns</h3>
 <table>
 <thead>
 <tr>

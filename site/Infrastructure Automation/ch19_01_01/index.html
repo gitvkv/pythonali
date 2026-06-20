@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_01_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Tracing JSON Types Mapping to Python Equivalents - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Tracing JSON Types Mapping to Python Equivalents";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_01_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_01_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -875,6 +875,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#json-to-python-type-mapping-table_1">📊 JSON to Python Type Mapping Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-this-mapping-matters_1">⚙️ Why This Mapping Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#json-to-python-type-mapping-table_2">📊 JSON to Python Type Mapping Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-observations_1">🕵️ Key Observations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-loading-json-into-python_1">🛠️ Practical Example: Loading JSON into Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reverse-mapping-python-to-json_1">🔄 Reverse Mapping: Python to JSON</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-watch-for_1">⚠️ Common Pitfalls to Watch For</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference-for-engineers_1">🧪 Quick Reference for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-json-string-maps-to-python-string_1">📘 Example 1: JSON string maps to Python string</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-json-number-maps-to-python-int-or-float_1">📘 Example 2: JSON number maps to Python int or float</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-json-boolean-maps-to-python-bool_1">📘 Example 3: JSON boolean maps to Python bool</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-json-null-maps-to-python-none_1">📘 Example 4: JSON null maps to Python None</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-json-object-and-array-map-to-python-dict-and-list_1">📘 Example 5: JSON object and array map to Python dict and list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-6-mixed-types-inside-a-json-array_1">📘 Example 6: Mixed types inside a JSON array</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#json-to-python-type-mapping-table_3">📊 JSON to Python Type Mapping Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_01_02/">Ch 19 | Processing Variables Payloads via loads and dumps</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="tracing-json-types-mapping-to-python-equivalents">Tracing JSON Types Mapping to Python Equivalents</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  JSON In-Depth</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with JSON data in Python, understanding how JSON types translate to Python objects is essential. JSON is a lightweight data interchange format, and Python provides built-in tools to convert between JSON strings and Python data structures. This mapping allows engineers to read, manipulate, and write JSON data seamlessly within their Python scripts.</p>
@@ -1188,8 +1216,7 @@
 </ul>
 <hr />
 <p>By tracing these type mappings, engineers can confidently handle JSON data in Python, whether they are reading configuration files, processing API responses, or preparing data for export. Understanding this foundation makes working with structured data formats much more predictable and less error-prone.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide shows how each JSON data type maps directly to a Python type when parsed.</p>
 <hr />
 <h3 id="example-1-json-string-maps-to-python-string">📘 Example 1: JSON string maps to Python string</h3>
@@ -1282,6 +1309,269 @@
 📤 Output: <strong>{'role': 'dev'} -&gt; <class 'dict'></strong></p>
 <hr />
 <h3 id="json-to-python-type-mapping-table_1">📊 JSON to Python Type Mapping Table</h3>
+<table>
+<thead>
+<tr>
+<th>JSON Type</th>
+<th>Python Type</th>
+<th>Example JSON</th>
+<th>Python Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>string</td>
+<td>str</td>
+<td><code>"hello"</code></td>
+<td><code>"hello"</code></td>
+</tr>
+<tr>
+<td>number (int)</td>
+<td>int</td>
+<td><code>42</code></td>
+<td><code>42</code></td>
+</tr>
+<tr>
+<td>number (float)</td>
+<td>float</td>
+<td><code>3.14</code></td>
+<td><code>3.14</code></td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>bool</td>
+<td><code>true</code> / <code>false</code></td>
+<td><code>True</code> / <code>False</code></td>
+</tr>
+<tr>
+<td>null</td>
+<td>NoneType</td>
+<td><code>null</code></td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td>object</td>
+<td>dict</td>
+<td><code>{"key": "val"}</code></td>
+<td><code>{'key': 'val'}</code></td>
+</tr>
+<tr>
+<td>array</td>
+<td>list</td>
+<td><code>[1, 2, 3]</code></td>
+<td><code>[1, 2, 3]</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with JSON data in Python, understanding how JSON types translate to Python objects is essential. JSON is a lightweight data interchange format, and Python provides built-in tools to convert between JSON strings and Python data structures. This mapping allows engineers to read, manipulate, and write JSON data seamlessly within their Python scripts.</p>
+<hr />
+<h3 id="why-this-mapping-matters_1">⚙️ Why This Mapping Matters</h3>
+<ul>
+<li>JSON is commonly used for configuration files, API responses, and data storage.</li>
+<li>Python's <strong>json</strong> module handles the conversion automatically, but knowing the mapping helps you anticipate how data will behave.</li>
+<li>Engineers often need to extract, transform, or validate JSON data, and understanding the type equivalence prevents unexpected errors.</li>
+</ul>
+<hr />
+<h3 id="json-to-python-type-mapping-table_2">📊 JSON to Python Type Mapping Table</h3>
+<table>
+<thead>
+<tr>
+<th>JSON Type</th>
+<th>Python Equivalent</th>
+<th>Example (JSON)</th>
+<th>Example (Python)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>string</strong></td>
+<td><strong>str</strong></td>
+<td><strong>"hello"</strong></td>
+<td><strong>'hello'</strong></td>
+</tr>
+<tr>
+<td><strong>number (integer)</strong></td>
+<td><strong>int</strong></td>
+<td><strong>42</strong></td>
+<td><strong>42</strong></td>
+</tr>
+<tr>
+<td><strong>number (float)</strong></td>
+<td><strong>float</strong></td>
+<td><strong>3.14</strong></td>
+<td><strong>3.14</strong></td>
+</tr>
+<tr>
+<td><strong>boolean</strong></td>
+<td><strong>bool</strong></td>
+<td><strong>true</strong></td>
+<td><strong>True</strong></td>
+</tr>
+<tr>
+<td><strong>null</strong></td>
+<td><strong>None</strong></td>
+<td><strong>null</strong></td>
+<td><strong>None</strong></td>
+</tr>
+<tr>
+<td><strong>array</strong></td>
+<td><strong>list</strong></td>
+<td><strong>[1, 2, 3]</strong></td>
+<td><strong>[1, 2, 3]</strong></td>
+</tr>
+<tr>
+<td><strong>object</strong></td>
+<td><strong>dict</strong></td>
+<td><strong>{"key": "value"}</strong></td>
+<td><strong>{'key': 'value'}</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="key-observations_1">🕵️ Key Observations</h3>
+<ul>
+<li>JSON numbers without a decimal point become Python <strong>int</strong>. Numbers with a decimal point become <strong>float</strong>.</li>
+<li>JSON <strong>true</strong> and <strong>false</strong> are lowercase, but Python uses <strong>True</strong> and <strong>False</strong> with capital letters.</li>
+<li>JSON <strong>null</strong> maps directly to Python's <strong>None</strong>.</li>
+<li>JSON arrays always become Python <strong>lists</strong>, not tuples.</li>
+<li>JSON objects always become Python <strong>dictionaries</strong> with string keys.</li>
+</ul>
+<hr />
+<h3 id="practical-example-loading-json-into-python_1">🛠️ Practical Example: Loading JSON into Python</h3>
+<p>When you load a JSON string using the <strong>json.loads()</strong> function, Python automatically applies the mapping above. For instance:</p>
+<ul>
+<li>A JSON string like <strong>'{"name": "Alice", "age": 30, "active": true, "score": null}'</strong> becomes a Python dictionary: <strong>{'name': 'Alice', 'age': 30, 'active': True, 'score': None}</strong>.</li>
+<li>A JSON array like <strong>'[10, 20, 30]'</strong> becomes a Python list: <strong>[10, 20, 30]</strong>.</li>
+</ul>
+<hr />
+<h3 id="reverse-mapping-python-to-json_1">🔄 Reverse Mapping: Python to JSON</h3>
+<p>When converting Python objects back to JSON using <strong>json.dumps()</strong>, the reverse mapping applies:</p>
+<ul>
+<li>Python <strong>str</strong> becomes JSON <strong>string</strong>.</li>
+<li>Python <strong>int</strong> and <strong>float</strong> become JSON <strong>number</strong>.</li>
+<li>Python <strong>True</strong> and <strong>False</strong> become JSON <strong>true</strong> and <strong>false</strong>.</li>
+<li>Python <strong>None</strong> becomes JSON <strong>null</strong>.</li>
+<li>Python <strong>list</strong> becomes JSON <strong>array</strong>.</li>
+<li>Python <strong>dict</strong> becomes JSON <strong>object</strong>.</li>
+</ul>
+<hr />
+<h3 id="common-pitfalls-to-watch-for_1">⚠️ Common Pitfalls to Watch For</h3>
+<ul>
+<li>Python <strong>tuples</strong> are converted to JSON arrays, not tuples, because JSON has no tuple type.</li>
+<li>Python <strong>sets</strong> are not directly supported by JSON and will cause an error unless converted manually.</li>
+<li>Python <strong>datetime</strong> objects are not automatically serialized; you must convert them to strings first.</li>
+<li>Dictionary keys in Python must be strings for JSON serialization; integer keys will be converted to strings automatically.</li>
+</ul>
+<hr />
+<h3 id="quick-reference-for-engineers_1">🧪 Quick Reference for Engineers</h3>
+<ul>
+<li>Use <strong>json.loads()</strong> to parse a JSON string into Python data.</li>
+<li>Use <strong>json.dumps()</strong> to convert Python data into a JSON string.</li>
+<li>Always check the type of your Python data after loading JSON to avoid assumptions.</li>
+<li>When writing JSON output, remember that Python <strong>None</strong> becomes <strong>null</strong>, and Python <strong>True/False</strong> become <strong>true/false</strong>.</li>
+</ul>
+<hr />
+<p>By tracing these type mappings, engineers can confidently handle JSON data in Python, whether they are reading configuration files, processing API responses, or preparing data for export. Understanding this foundation makes working with structured data formats much more predictable and less error-prone.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide shows how each JSON data type maps directly to a Python type when parsed.</p>
+<hr />
+<h3 id="example-1-json-string-maps-to-python-string_1">📘 Example 1: JSON string maps to Python string</h3>
+<p>A JSON string value becomes a Python string object when parsed.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">json_data</span> <span class="o">=</span> <span class="s1">&#39;{&quot;name&quot;: &quot;engineer&quot;}&#39;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>engineer</strong><br />
+📤 Output: <strong><class 'str'></strong></p>
+<hr />
+<h3 id="example-2-json-number-maps-to-python-int-or-float_1">📘 Example 2: JSON number maps to Python int or float</h3>
+<p>JSON numbers without decimals become Python integers; numbers with decimals become floats.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">json_data</span> <span class="o">=</span> <span class="s1">&#39;{&quot;count&quot;: 42, &quot;price&quot;: 19.99}&#39;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;count&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;price&quot;</span><span class="p">]))</span>
+</code></pre></div>
+<p>📤 Output: <strong>42</strong><br />
+📤 Output: <strong><class 'int'></strong><br />
+📤 Output: <strong>19.99</strong><br />
+📤 Output: <strong><class 'float'></strong></p>
+<hr />
+<h3 id="example-3-json-boolean-maps-to-python-bool_1">📘 Example 3: JSON boolean maps to Python bool</h3>
+<p>JSON <code>true</code> and <code>false</code> become Python <code>True</code> and <code>False</code> (capitalized).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">json_data</span> <span class="o">=</span> <span class="s1">&#39;{&quot;is_active&quot;: true, &quot;is_admin&quot;: false}&#39;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;is_active&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;is_active&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;is_admin&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;is_admin&quot;</span><span class="p">]))</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong><br />
+📤 Output: <strong><class 'bool'></strong><br />
+📤 Output: <strong>False</strong><br />
+📤 Output: <strong><class 'bool'></strong></p>
+<hr />
+<h3 id="example-4-json-null-maps-to-python-none_1">📘 Example 4: JSON null maps to Python None</h3>
+<p>The JSON <code>null</code> value becomes Python's <code>None</code> object.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">json_data</span> <span class="o">=</span> <span class="s1">&#39;{&quot;middle_name&quot;: null}&#39;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;middle_name&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>None</strong><br />
+📤 Output: <strong><class 'NoneType'></strong></p>
+<hr />
+<h3 id="example-5-json-object-and-array-map-to-python-dict-and-list_1">📘 Example 5: JSON object and array map to Python dict and list</h3>
+<p>A JSON object becomes a Python dictionary; a JSON array becomes a Python list.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">json_data</span> <span class="o">=</span> <span class="s1">&#39;{&quot;team&quot;: {&quot;lead&quot;: &quot;Alice&quot;, &quot;members&quot;: [&quot;Bob&quot;, &quot;Carol&quot;]}}&#39;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;team&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;team&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;team&quot;</span><span class="p">][</span><span class="s2">&quot;members&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&quot;team&quot;</span><span class="p">][</span><span class="s2">&quot;members&quot;</span><span class="p">]))</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'lead': 'Alice', 'members': ['Bob', 'Carol']}</strong><br />
+📤 Output: <strong><class 'dict'></strong><br />
+📤 Output: <strong>['Bob', 'Carol']</strong><br />
+📤 Output: <strong><class 'list'></strong></p>
+<hr />
+<h3 id="example-6-mixed-types-inside-a-json-array_1">📘 Example 6: Mixed types inside a JSON array</h3>
+<p>A JSON array can hold multiple types, and each element maps to its Python equivalent.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">json_data</span> <span class="o">=</span> <span class="s1">&#39;[&quot;engineer&quot;, 42, true, null, {&quot;role&quot;: &quot;dev&quot;}]&#39;</span>
+<span class="n">parsed</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_data</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">parsed</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>engineer -&gt; <class 'str'></strong><br />
+📤 Output: <strong>42 -&gt; <class 'int'></strong><br />
+📤 Output: <strong>True -&gt; <class 'bool'></strong><br />
+📤 Output: <strong>None -&gt; <class 'NoneType'></strong><br />
+📤 Output: <strong>{'role': 'dev'} -&gt; <class 'dict'></strong></p>
+<hr />
+<h3 id="json-to-python-type-mapping-table_3">📊 JSON to Python Type Mapping Table</h3>
 <table>
 <thead>
 <tr>

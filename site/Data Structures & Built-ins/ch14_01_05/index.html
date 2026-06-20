@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_01_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Renaming Files and Targets with os.rename - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Renaming Files and Targets with os.rename";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_01_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_01_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -667,6 +667,52 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-osrename_1">⚙️ What is os.rename?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-syntax-and-usage_1">🛠️ Basic Syntax and Usage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#renaming-vs-moving_1">📊 Renaming vs. Moving</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples-for-engineers_1">🕵️ Practical Examples for Engineers</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-renaming-a-single-file_2">Example 1: Renaming a Single File</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-moving-a-file-to-another-directory_1">Example 2: Moving a File to Another Directory</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-renaming-all-files-in-a-directory_1">Example 3: Renaming All Files in a Directory</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-errors-and-how-to-handle-them_1">⚠️ Common Errors and How to Handle Them</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#error-filenotfounderror_1">Error: FileNotFoundError</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#error-fileexistserror_1">Error: FileExistsError</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#error-permissionerror_1">Error: PermissionError</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices_1">✅ Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-example-safe-rename-function_1">🧪 Quick Example: Safe Rename Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📌 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-renaming-a-single-file_3">📁 Example 1: Renaming a single file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-renaming-a-directory_1">📁 Example 2: Renaming a directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-moving-a-file-to-a-different-folder-with-rename_1">📁 Example 3: Moving a file to a different folder (with rename)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-handling-errors-when-target-already-exists_1">📁 Example 4: Handling errors when target already exists</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-renaming-multiple-files-in-a-loop_1">📁 Example 5: Renaming multiple files in a loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_01_06/">Ch 14 | Reading Active Shell Environment Variables</a>
@@ -1094,7 +1140,7 @@
               
                 <h1 id="renaming-files-and-targets-with-osrename">Renaming Files and Targets with os.rename</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  The os Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1212,8 +1258,7 @@
 <li>Use it in loops for batch renaming tasks common in system operations.</li>
 </ul>
 <p>With <strong>os.rename</strong>, you can automate file organization, backup routines, and log management with just a few lines of Python.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>os.rename()</code> function changes the name of a file or directory from one path to another within the same filesystem.</p>
 <hr />
 <h3 id="example-1-renaming-a-single-file_1">📁 Example 1: Renaming a single file</h3>
@@ -1314,6 +1359,265 @@
 📤 Output: <strong>['backup_file_1.txt', 'backup_file_2.txt', 'backup_file_3.txt']</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th><code>os.rename()</code> Behavior</th>
+<th>Notes for Engineers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rename file</td>
+<td>Changes name, keeps content</td>
+<td>Works on same filesystem only</td>
+</tr>
+<tr>
+<td>Rename directory</td>
+<td>Changes folder name</td>
+<td>All contents move with it</td>
+</tr>
+<tr>
+<td>Move file to subfolder</td>
+<td>Use full path as destination</td>
+<td>Same as rename with path change</td>
+</tr>
+<tr>
+<td>Overwrite existing file</td>
+<td>Raises <code>FileExistsError</code></td>
+<td>Check with <code>os.path.exists()</code> first</td>
+</tr>
+<tr>
+<td>Rename multiple files</td>
+<td>Loop with <code>os.listdir()</code></td>
+<td>Filter by extension or pattern</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>As you work with files and directories in Python, you will often need to rename them—whether it's cleaning up log files, organizing configuration backups, or standardizing naming conventions across a system. Python's <strong>os.rename</strong> function provides a straightforward way to rename files and directories. This guide will walk you through how to use it effectively, handle common pitfalls, and apply it in real-world scenarios.</p>
+<hr />
+<h3 id="what-is-osrename_1">⚙️ What is os.rename?</h3>
+<p><strong>os.rename</strong> is a function from Python's built-in <strong>os module</strong> that renames a file or directory from a source path to a destination path. It works similarly to the <strong>mv</strong> command in Unix/Linux systems.</p>
+<p>Key points:
+- It takes two arguments: the current name/path and the new name/path.
+- It can rename files within the same directory or move them to a different directory.
+- It raises an error if the source file does not exist or if the destination already exists (on most systems).</p>
+<hr />
+<h3 id="basic-syntax-and-usage_1">🛠️ Basic Syntax and Usage</h3>
+<p>The basic structure of <strong>os.rename</strong> is:</p>
+<ul>
+<li><strong>os.rename(source, destination)</strong></li>
+<li><strong>source</strong>: The current path of the file or directory (string).</li>
+<li><strong>destination</strong>: The new path (string).</li>
+</ul>
+<p>Simple example:
+- <strong>os.rename("old_report.txt", "new_report.txt")</strong> renames the file <strong>old_report.txt</strong> to <strong>new_report.txt</strong> in the current directory.</p>
+<hr />
+<h3 id="renaming-vs-moving_1">📊 Renaming vs. Moving</h3>
+<p><strong>os.rename</strong> can both rename and move files. The distinction depends on whether the destination path includes a different directory.</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Source Path</th>
+<th>Destination Path</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rename only</td>
+<td><strong>/logs/error.log</strong></td>
+<td><strong>/logs/error_2024.log</strong></td>
+<td>File stays in same folder, name changes</td>
+</tr>
+<tr>
+<td>Move only</td>
+<td><strong>/logs/error.log</strong></td>
+<td><strong>/backups/error.log</strong></td>
+<td>File moves to new folder, name stays same</td>
+</tr>
+<tr>
+<td>Rename and move</td>
+<td><strong>/logs/error.log</strong></td>
+<td><strong>/backups/error_2024.log</strong></td>
+<td>File moves and gets a new name</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-examples-for-engineers_1">🕵️ Practical Examples for Engineers</h3>
+<h4 id="example-1-renaming-a-single-file_2">Example 1: Renaming a Single File</h4>
+<ul>
+<li><strong>os.rename("config.ini", "config_backup.ini")</strong> renames <strong>config.ini</strong> to <strong>config_backup.ini</strong> in the current directory.</li>
+</ul>
+<h4 id="example-2-moving-a-file-to-another-directory_1">Example 2: Moving a File to Another Directory</h4>
+<ul>
+<li><strong>os.rename("/var/log/app.log", "/archive/logs/app_2024.log")</strong> moves the file <strong>app.log</strong> from <strong>/var/log/</strong> to <strong>/archive/logs/</strong> and renames it to <strong>app_2024.log</strong>.</li>
+</ul>
+<h4 id="example-3-renaming-all-files-in-a-directory_1">Example 3: Renaming All Files in a Directory</h4>
+<p>You can loop through files in a directory and rename them systematically:</p>
+<ul>
+<li>Use <strong>os.listdir()</strong> to get all files in a folder.</li>
+<li>For each file, check if it matches a pattern (e.g., ends with <strong>.tmp</strong>).</li>
+<li>Use <strong>os.rename()</strong> to change the extension or add a prefix/suffix.</li>
+</ul>
+<hr />
+<h3 id="common-errors-and-how-to-handle-them_1">⚠️ Common Errors and How to Handle Them</h3>
+<h4 id="error-filenotfounderror_1">Error: FileNotFoundError</h4>
+<ul>
+<li>Occurs when the source file does not exist.</li>
+<li><strong>Solution</strong>: Always check if the source exists using <strong>os.path.exists()</strong> before renaming.</li>
+</ul>
+<h4 id="error-fileexistserror_1">Error: FileExistsError</h4>
+<ul>
+<li>Occurs when the destination file already exists (on Windows and some Unix systems).</li>
+<li><strong>Solution</strong>: Check if the destination exists first, or use <strong>os.replace()</strong> which overwrites the destination.</li>
+</ul>
+<h4 id="error-permissionerror_1">Error: PermissionError</h4>
+<ul>
+<li>Occurs when you do not have write permissions for the source or destination directory.</li>
+<li><strong>Solution</strong>: Ensure your script runs with appropriate permissions, or use exception handling.</li>
+</ul>
+<hr />
+<h3 id="best-practices_1">✅ Best Practices</h3>
+<ul>
+<li>Always verify the source file exists before renaming to avoid crashes.</li>
+<li>Use <strong>try-except</strong> blocks to handle potential errors gracefully.</li>
+<li>For cross-platform compatibility, use <strong>os.path.join()</strong> to build paths instead of hardcoding slashes.</li>
+<li>When renaming many files, test with a small batch first to confirm the logic works.</li>
+<li>Consider using <strong>pathlib</strong> (modern alternative) for more readable path operations.</li>
+</ul>
+<hr />
+<h3 id="quick-example-safe-rename-function_1">🧪 Quick Example: Safe Rename Function</h3>
+<p>Here is a simple pattern you can use in your scripts:</p>
+<ul>
+<li>Define a function that takes source and destination paths.</li>
+<li>Check if the source exists using <strong>os.path.exists()</strong>.</li>
+<li>Check if the destination already exists; if so, handle it (e.g., skip, overwrite, or append a timestamp).</li>
+<li>Call <strong>os.rename()</strong> inside a <strong>try-except</strong> block.</li>
+<li>Print a success or error message for logging.</li>
+</ul>
+<hr />
+<h3 id="summary_1">📌 Summary</h3>
+<ul>
+<li><strong>os.rename</strong> is a simple yet powerful tool for renaming and moving files and directories.</li>
+<li>It requires two arguments: the current path and the new path.</li>
+<li>It can rename, move, or both, depending on the destination path.</li>
+<li>Always handle errors like missing files or permission issues.</li>
+<li>Use it in loops for batch renaming tasks common in system operations.</li>
+</ul>
+<p>With <strong>os.rename</strong>, you can automate file organization, backup routines, and log management with just a few lines of Python.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>os.rename()</code> function changes the name of a file or directory from one path to another within the same filesystem.</p>
+<hr />
+<h3 id="example-1-renaming-a-single-file_3">📁 Example 1: Renaming a single file</h3>
+<p>This example renames a simple text file from "old_name.txt" to "new_name.txt".</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Create a test file first</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;old_name.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello, engineers!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Rename the file</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;old_name.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;new_name.txt&quot;</span><span class="p">)</span>
+
+<span class="c1"># Verify the rename worked</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;old_name.txt&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;new_name.txt&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>False</strong><br />
+📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-2-renaming-a-directory_1">📁 Example 2: Renaming a directory</h3>
+<p>This example renames a folder from "project_alpha" to "project_beta".</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Create a test directory first</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;project_alpha&quot;</span><span class="p">)</span>
+
+<span class="c1"># Rename the directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;project_alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;project_beta&quot;</span><span class="p">)</span>
+
+<span class="c1"># Verify the rename worked</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;project_alpha&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;project_beta&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>False</strong><br />
+📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-3-moving-a-file-to-a-different-folder-with-rename_1">📁 Example 3: Moving a file to a different folder (with rename)</h3>
+<p>This example moves a file into a subdirectory by renaming its full path.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Create a test file and a target folder</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;report.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Annual report data&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;archive&quot;</span><span class="p">)</span>
+
+<span class="c1"># Move the file into the archive folder</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;report.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;archive/report.txt&quot;</span><span class="p">)</span>
+
+<span class="c1"># Verify the file is now in the new location</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;report.txt&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;archive/report.txt&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>False</strong><br />
+📤 Output: <strong>True</strong></p>
+<hr />
+<h3 id="example-4-handling-errors-when-target-already-exists_1">📁 Example 4: Handling errors when target already exists</h3>
+<p>This example shows that <code>os.rename()</code> will raise an error if the destination file already exists.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Create two test files</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;source.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Source content&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;target.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Target content&quot;</span><span class="p">)</span>
+
+<span class="c1"># Attempt to rename over an existing file</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;source.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;target.txt&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rename succeeded&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: target file already exists&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Error: target file already exists</strong></p>
+<hr />
+<h3 id="example-5-renaming-multiple-files-in-a-loop_1">📁 Example 5: Renaming multiple files in a loop</h3>
+<p>This example renames all <code>.txt</code> files in a folder by adding a "backup_" prefix.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Create several test files</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;file_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Content of file </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Rename each .txt file with a prefix</span>
+<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.txt&quot;</span><span class="p">):</span>
+        <span class="n">new_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;backup_</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">new_name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Renamed </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">new_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># List the renamed files</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>Renamed file_1.txt -&gt; backup_file_1.txt</strong><br />
+📤 Output: <strong>Renamed file_2.txt -&gt; backup_file_2.txt</strong><br />
+📤 Output: <strong>Renamed file_3.txt -&gt; backup_file_3.txt</strong><br />
+📤 Output: <strong>['backup_file_1.txt', 'backup_file_2.txt', 'backup_file_3.txt']</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

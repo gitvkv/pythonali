@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch10_04_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 10 | Local Scope Inside Functions - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 10 | Local Scope Inside Functions";
         var mkdocs_page_input_path = "Core Syntax\\ch10_04_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch10_04_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -472,6 +472,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-using-a-local-variable-as-a-temporary-calculation">🧪 Example 5: Using a local variable as a temporary calculation</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-local-vs-global-scope">📊 Comparison Table: Local vs Global Scope</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🔍 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-local-scope_1">⚙️ What Is Local Scope?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-local-scope-works_1">🛠️ How Local Scope Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#local-vs-global-scope-comparison_1">📊 Local vs Global Scope Comparison</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-local-scope-matters_1">🕵️ Why Local Scope Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-tips-for-engineers_1">💡 Practical Tips for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-a-simple-local-variable-inside-a-function_1">🧪 Example 1: A simple local variable inside a function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-trying-to-access-a-local-variable-outside-its-function_1">🧪 Example 2: Trying to access a local variable outside its function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-two-functions-with-separate-local-scopes_1">🧪 Example 3: Two functions with separate local scopes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-local-variable-shadows-a-global-variable_1">🧪 Example 4: Local variable shadows a global variable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-using-a-local-variable-as-a-temporary-calculation_1">🧪 Example 5: Using a local variable as a temporary calculation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-local-vs-global-scope_1">📊 Comparison Table: Local vs Global Scope</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="local-scope-inside-functions">Local Scope Inside Functions</h1>
 <p><span class="category-tag">🏷️ Functions /  Variable Scope</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1163,8 +1189,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Local scope is a fundamental concept that keeps your functions clean and predictable. Variables defined inside a function stay inside that function, protecting the rest of your code from unintended side effects. By embracing local scope, you write more reliable and maintainable code where each function operates independently with its own temporary workspace.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Local scope means variables defined inside a function exist only within that function and cannot be accessed outside it.</p>
 <h3 id="example-1-a-simple-local-variable-inside-a-function">🧪 Example 1: A simple local variable inside a function</h3>
 <p>This example shows a variable created inside a function that cannot be used outside the function.</p>
@@ -1229,6 +1254,195 @@
 <p>📤 Output: <strong>15</strong></p>
 <hr />
 <h3 id="comparison-table-local-vs-global-scope">📊 Comparison Table: Local vs Global Scope</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Local Scope</th>
+<th>Global Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Defined inside a function</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+<tr>
+<td>Accessible outside the function</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Created when function runs</td>
+<td>✅ Yes</td>
+<td>❌ No (exists before function runs)</td>
+</tr>
+<tr>
+<td>Destroyed when function ends</td>
+<td>✅ Yes</td>
+<td>❌ No (persists)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🔍 Context Introduction</h3>
+<p>When you create a variable inside a function, that variable exists only within that function. This is called <strong>local scope</strong>. Think of it like a temporary workspace—once the function finishes its job, the variable disappears. This helps keep your code organized and prevents accidental interference between different parts of your program.</p>
+<hr />
+<h3 id="what-is-local-scope_1">⚙️ What Is Local Scope?</h3>
+<ul>
+<li>A variable defined inside a function is <strong>local</strong> to that function</li>
+<li>It cannot be accessed from outside the function</li>
+<li>It is created when the function runs and destroyed when the function ends</li>
+<li>Each function call creates its own separate local scope</li>
+</ul>
+<p><strong>Example concept:</strong>
+- You define a variable called <strong>message</strong> inside a function named <strong>greet</strong>
+- Outside the function, <strong>message</strong> does not exist
+- Trying to use <strong>message</strong> outside the function will cause an error</p>
+<hr />
+<h3 id="how-local-scope-works_1">🛠️ How Local Scope Works</h3>
+<p>When you run a function, Python creates a new local namespace for that function. Any variables you assign inside the function belong to this namespace.</p>
+<p><strong>Key behaviors:</strong>
+- Local variables take priority over global variables with the same name
+- Parameters of a function are also local to that function
+- Nested functions have their own separate local scopes</p>
+<p><strong>Simple example:</strong>
+- Function <strong>calculate_total</strong> has a local variable <strong>tax_rate</strong>
+- Inside the function, you can use <strong>tax_rate</strong> freely
+- Outside the function, <strong>tax_rate</strong> is unknown and inaccessible</p>
+<hr />
+<h3 id="local-vs-global-scope-comparison_1">📊 Local vs Global Scope Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Local Scope</th>
+<th>Global Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Where defined</td>
+<td>Inside a function</td>
+<td>Outside any function</td>
+</tr>
+<tr>
+<td>Accessibility</td>
+<td>Only within the function</td>
+<td>Everywhere in the file</td>
+</tr>
+<tr>
+<td>Lifetime</td>
+<td>While function runs</td>
+<td>Entire program runs</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td>Released after function ends</td>
+<td>Persists until program ends</td>
+</tr>
+<tr>
+<td>Risk of conflict</td>
+<td>Low (isolated)</td>
+<td>Higher (shared)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="why-local-scope-matters_1">🕵️ Why Local Scope Matters</h3>
+<p><strong>Benefits of using local scope:</strong>
+- Prevents accidental modification of variables from other parts of your code
+- Makes functions self-contained and reusable
+- Reduces debugging complexity
+- Allows you to use the same variable names in different functions without conflict</p>
+<p><strong>Common mistake to avoid:</strong>
+- Assuming a variable created inside a function is available outside it
+- Trying to modify a global variable inside a function without proper declaration</p>
+<hr />
+<h3 id="practical-tips-for-engineers_1">💡 Practical Tips for Engineers</h3>
+<ul>
+<li>Always define variables as locally as possible</li>
+<li>Use function parameters to pass data into functions instead of relying on global variables</li>
+<li>Keep functions focused on a single task to minimize the number of local variables</li>
+<li>Name local variables clearly so their purpose is obvious within the function context</li>
+<li>Remember that each function call creates a fresh set of local variables</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Local scope is a fundamental concept that keeps your functions clean and predictable. Variables defined inside a function stay inside that function, protecting the rest of your code from unintended side effects. By embracing local scope, you write more reliable and maintainable code where each function operates independently with its own temporary workspace.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Local scope means variables defined inside a function exist only within that function and cannot be accessed outside it.</p>
+<h3 id="example-1-a-simple-local-variable-inside-a-function_1">🧪 Example 1: A simple local variable inside a function</h3>
+<p>This example shows a variable created inside a function that cannot be used outside the function.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">():</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello, engineer!&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+<span class="n">greet</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello, engineer!</strong></p>
+<hr />
+<h3 id="example-2-trying-to-access-a-local-variable-outside-its-function_1">🧪 Example 2: Trying to access a local variable outside its function</h3>
+<p>This example demonstrates that a local variable does not exist outside the function where it was defined.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">calculate</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="n">calculate</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>NameError: name 'result' is not defined</strong></p>
+<hr />
+<h3 id="example-3-two-functions-with-separate-local-scopes_1">🧪 Example 3: Two functions with separate local scopes</h3>
+<p>This example shows that each function has its own local scope, and variables with the same name in different functions do not interfere.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">():</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside add:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">():</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inside multiply:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="n">add</span><span class="p">()</span>
+<span class="n">multiply</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Inside add: 10</strong><br />
+📤 Output: <strong>Inside multiply: 20</strong></p>
+<hr />
+<h3 id="example-4-local-variable-shadows-a-global-variable_1">🧪 Example 4: Local variable shadows a global variable</h3>
+<p>This example shows that a local variable with the same name as a global variable takes precedence inside the function.</p>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Global Engineer&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">show_name</span><span class="p">():</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Local Engineer&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="n">show_name</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Local Engineer</strong><br />
+📤 Output: <strong>Global Engineer</strong></p>
+<hr />
+<h3 id="example-5-using-a-local-variable-as-a-temporary-calculation_1">🧪 Example 5: Using a local variable as a temporary calculation</h3>
+<p>This example shows a practical use of local scope to store intermediate results inside a function.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">calculate_area</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">length</span> <span class="o">*</span> <span class="n">width</span>
+    <span class="k">return</span> <span class="n">area</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">calculate_area</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>15</strong></p>
+<hr />
+<h3 id="comparison-table-local-vs-global-scope_1">📊 Comparison Table: Local vs Global Scope</h3>
 <table>
 <thead>
 <tr>

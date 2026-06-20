@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_04_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Cataloging Common Integration Mistakes and Fixes - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Cataloging Common Integration Mistakes and Fixes";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_04_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_04_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -1033,6 +1033,46 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-integration-mistakes-and-fixes">Comparison Table: Common Integration Mistakes and Fixes</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mistake-1-ignoring-response-status-codes_1">⚙️ Mistake #1: Ignoring Response Status Codes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mistake-2-hardcoding-configuration-values_1">🛠️ Mistake #2: Hardcoding Configuration Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mistake-3-not-handling-timeouts-properly_1">🕵️ Mistake #3: Not Handling Timeouts Properly</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mistake-4-assuming-data-format-consistency_1">📊 Mistake #4: Assuming Data Format Consistency</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mistake-5-forgetting-to-close-connections_1">🔄 Mistake #5: Forgetting to Close Connections</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-mistakes-vs-best-practices_1">📋 Comparison Table: Common Mistakes vs. Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mistake-6-overlooking-authentication-expiry_1">🧪 Mistake #6: Overlooking Authentication Expiry</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mistake-7-swallowing-exceptions-silently_1">🔍 Mistake #7: Swallowing Exceptions Silently</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mistake-8-mixing-synchronous-and-asynchronous-calls-incorrectly_1">📝 Mistake #8: Mixing Synchronous and Asynchronous Calls Incorrectly</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#final-thoughts_1">🧩 Final Thoughts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-forgetting-to-convert-string-numbers-to-integers_1">🔧 Example 1: Forgetting to convert string numbers to integers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-fixing-string-to-integer-conversion_1">🔧 Example 2: Fixing string-to-integer conversion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-missing-file-path-when-reading-configuration_1">🔧 Example 3: Missing file path when reading configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-try-except-to-handle-missing-files-gracefully_1">🔧 Example 4: Using try-except to handle missing files gracefully</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-forgetting-to-close-a-database-connection_1">🔧 Example 5: Forgetting to close a database connection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-6-properly-closing-a-database-connection-with-a-context-manager_1">🔧 Example 6: Properly closing a database connection with a context manager</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-7-passing-wrong-data-type-to-an-api-function_1">🔧 Example 7: Passing wrong data type to an API function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-8-fixing-data-type-mismatch-with-string-join_1">🔧 Example 8: Fixing data type mismatch with string join</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-integration-mistakes-and-fixes_1">Comparison Table: Common Integration Mistakes and Fixes</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_05_01/">Ch 21 | Advanced Concepts (Decorators and Custom Context Managers)</a>
@@ -1088,7 +1128,7 @@
               
                 <h1 id="cataloging-common-integration-mistakes-and-fixes">Cataloging Common Integration Mistakes and Fixes</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Debugging Techniques</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1175,8 +1215,7 @@
 <h3 id="final-thoughts">🧩 Final Thoughts</h3>
 <p>Integration mistakes are a normal part of building connected systems. The key is to recognize these patterns early and apply consistent fixes. By checking status codes, using configuration files, setting timeouts, validating data, managing connections, handling authentication, logging exceptions, and choosing the right execution model, you can avoid the most common pitfalls.</p>
 <p>Remember: every integration failure is a learning opportunity. Document what went wrong and how you fixed it. Over time, you will build a personal catalog of patterns that make your scripts more robust and reliable.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This file catalogs common mistakes engineers make when integrating Python code with external systems and shows how to fix them.</p>
 <h3 id="example-1-forgetting-to-convert-string-numbers-to-integers">🔧 Example 1: Forgetting to convert string numbers to integers</h3>
 <p>This example shows what happens when you try to add a string number to an integer without conversion.</p>
@@ -1268,6 +1307,225 @@
 <p>📤 Output: <strong>Sending: Temperature: 85F</strong></p>
 <hr />
 <h3 id="comparison-table-common-integration-mistakes-and-fixes">Comparison Table: Common Integration Mistakes and Fixes</h3>
+<table>
+<thead>
+<tr>
+<th>Mistake</th>
+<th>Problem</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adding string to integer</td>
+<td>Type error</td>
+<td>Convert string with <code>int()</code></td>
+</tr>
+<tr>
+<td>Opening missing file</td>
+<td>File not found error</td>
+<td>Use <code>try-except</code> block</td>
+</tr>
+<tr>
+<td>Leaving database open</td>
+<td>Resource leak</td>
+<td>Use <code>with</code> context manager</td>
+</tr>
+<tr>
+<td>Passing wrong data type</td>
+<td>Function receives unexpected type</td>
+<td>Convert with <code>join()</code> or <code>str()</code></td>
+</tr>
+<tr>
+<td>Not handling network timeout</td>
+<td>Script hangs forever</td>
+<td>Set timeout parameter</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When connecting different systems, APIs, or services together, things don't always go as planned. Even a well-written script can fail due to small but critical integration mistakes. This guide catalogs the most frequent errors engineers encounter during integration work and provides straightforward fixes. Understanding these patterns will save you hours of debugging and help you build more resilient connections between components.</p>
+<hr />
+<h3 id="mistake-1-ignoring-response-status-codes_1">⚙️ Mistake #1: Ignoring Response Status Codes</h3>
+<p><strong>The Problem:</strong> Many engineers assume an API call succeeded because no error was thrown. In reality, the server may have returned a <strong>400 Bad Request</strong> or <strong>500 Internal Server Error</strong>, but the script continued processing as if everything was fine.</p>
+<p><strong>The Fix:</strong> Always check the HTTP status code before processing the response. A successful response typically falls in the <strong>200–299 range</strong>. Anything outside that range should trigger a specific handling path. Log the status code and response body together so you can trace what went wrong.</p>
+<p><strong>Quick Tip:</strong> Treat every API response as potentially invalid until you explicitly verify its status code.</p>
+<hr />
+<h3 id="mistake-2-hardcoding-configuration-values_1">🛠️ Mistake #2: Hardcoding Configuration Values</h3>
+<p><strong>The Problem:</strong> Credentials, endpoints, and environment-specific values are written directly into the script. When moving from development to staging or production, the script breaks because the hardcoded values no longer match.</p>
+<p><strong>The Fix:</strong> Store all configurable values in environment variables or a dedicated configuration file. Reference these values using a consistent naming convention. This makes your script portable across environments without modifying the code itself.</p>
+<p><strong>Quick Tip:</strong> Use a <strong>.env</strong> file for local development and inject environment variables through your deployment system for production.</p>
+<hr />
+<h3 id="mistake-3-not-handling-timeouts-properly_1">🕵️ Mistake #3: Not Handling Timeouts Properly</h3>
+<p><strong>The Problem:</strong> External services can be slow or unresponsive. Without a timeout setting, your script may hang indefinitely, blocking other processes and wasting resources.</p>
+<p><strong>The Fix:</strong> Set explicit timeout values for every external call. Choose a timeout that is generous enough for normal operation but aggressive enough to fail fast when something is wrong. Combine this with a retry mechanism for transient failures.</p>
+<p><strong>Quick Tip:</strong> A common pattern is <strong>3 retries with exponential backoff</strong> (wait 1 second, then 2 seconds, then 4 seconds between attempts).</p>
+<hr />
+<h3 id="mistake-4-assuming-data-format-consistency_1">📊 Mistake #4: Assuming Data Format Consistency</h3>
+<p><strong>The Problem:</strong> Engineers expect data to arrive in a specific format (e.g., JSON with certain field names), but the actual response may have missing fields, different data types, or unexpected null values.</p>
+<p><strong>The Fix:</strong> Validate the structure and types of incoming data before processing it. Check for required fields, verify data types (string vs. integer vs. null), and handle missing values gracefully. Use default values where appropriate.</p>
+<p><strong>Quick Tip:</strong> Create a simple validation function that checks each expected field and logs warnings for unexpected data shapes.</p>
+<hr />
+<h3 id="mistake-5-forgetting-to-close-connections_1">🔄 Mistake #5: Forgetting to Close Connections</h3>
+<p><strong>The Problem:</strong> Database connections, file handles, and network sockets remain open after use. Over time, this leads to resource exhaustion and mysterious failures.</p>
+<p><strong>The Fix:</strong> Always close connections explicitly when you are done with them. Better yet, use context managers that automatically handle cleanup, even if an error occurs during processing.</p>
+<p><strong>Quick Tip:</strong> For database connections and file operations, use the <strong>with</strong> statement pattern. It guarantees cleanup regardless of success or failure.</p>
+<hr />
+<h3 id="comparison-table-common-mistakes-vs-best-practices_1">📋 Comparison Table: Common Mistakes vs. Best Practices</h3>
+<table>
+<thead>
+<tr>
+<th>❌ Common Mistake</th>
+<th>✅ Best Practice</th>
+<th>🎯 Key Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ignoring status codes</td>
+<td>Always verify response status</td>
+<td>Catches silent failures early</td>
+</tr>
+<tr>
+<td>Hardcoding values</td>
+<td>Use environment variables</td>
+<td>Script works across environments</td>
+</tr>
+<tr>
+<td>No timeout handling</td>
+<td>Set explicit timeouts with retries</td>
+<td>Prevents hanging processes</td>
+</tr>
+<tr>
+<td>Assuming data format</td>
+<td>Validate structure and types</td>
+<td>Handles unexpected data gracefully</td>
+</tr>
+<tr>
+<td>Leaving connections open</td>
+<td>Use context managers</td>
+<td>Prevents resource leaks</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="mistake-6-overlooking-authentication-expiry_1">🧪 Mistake #6: Overlooking Authentication Expiry</h3>
+<p><strong>The Problem:</strong> API tokens, session keys, and certificates have expiration dates. A script that worked yesterday fails today because the authentication credentials are no longer valid.</p>
+<p><strong>The Fix:</strong> Implement token refresh logic that checks expiration before making requests. If a token is about to expire, refresh it automatically. Log authentication failures separately so you can distinguish between credential issues and other errors.</p>
+<p><strong>Quick Tip:</strong> Store the token expiry timestamp alongside the token itself, and check it before each API call.</p>
+<hr />
+<h3 id="mistake-7-swallowing-exceptions-silently_1">🔍 Mistake #7: Swallowing Exceptions Silently</h3>
+<p><strong>The Problem:</strong> A broad exception handler catches all errors but does nothing with them. The script continues running, but the error goes unnoticed until a downstream process fails mysteriously.</p>
+<p><strong>The Fix:</strong> Never use empty exception handlers. At minimum, log the error with its full traceback. For critical failures, consider stopping the process or sending an alert. Be specific about which exceptions you catch.</p>
+<p><strong>Quick Tip:</strong> Log exceptions with different severity levels. Use <strong>WARNING</strong> for recoverable issues and <strong>ERROR</strong> for failures that require human attention.</p>
+<hr />
+<h3 id="mistake-8-mixing-synchronous-and-asynchronous-calls-incorrectly_1">📝 Mistake #8: Mixing Synchronous and Asynchronous Calls Incorrectly</h3>
+<p><strong>The Problem:</strong> Engineers combine blocking synchronous calls with asynchronous code, causing performance bottlenecks or deadlocks. The script becomes unpredictable and hard to debug.</p>
+<p><strong>The Fix:</strong> Choose one paradigm and stick with it. If you are using asynchronous code, make sure all I/O operations are non-blocking. If you are using synchronous code, avoid mixing in async functions without proper handling.</p>
+<p><strong>Quick Tip:</strong> Use dedicated libraries designed for your chosen paradigm. For async work, use <strong>aiohttp</strong> or <strong>httpx</strong>. For sync work, use <strong>requests</strong>.</p>
+<hr />
+<h3 id="final-thoughts_1">🧩 Final Thoughts</h3>
+<p>Integration mistakes are a normal part of building connected systems. The key is to recognize these patterns early and apply consistent fixes. By checking status codes, using configuration files, setting timeouts, validating data, managing connections, handling authentication, logging exceptions, and choosing the right execution model, you can avoid the most common pitfalls.</p>
+<p>Remember: every integration failure is a learning opportunity. Document what went wrong and how you fixed it. Over time, you will build a personal catalog of patterns that make your scripts more robust and reliable.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This file catalogs common mistakes engineers make when integrating Python code with external systems and shows how to fix them.</p>
+<h3 id="example-1-forgetting-to-convert-string-numbers-to-integers_1">🔧 Example 1: Forgetting to convert string numbers to integers</h3>
+<p>This example shows what happens when you try to add a string number to an integer without conversion.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensor_reading</span> <span class="o">=</span> <span class="s2">&quot;42&quot;</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="c1"># Mistake: adding string to integer</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">sensor_reading</span> <span class="o">+</span> <span class="n">offset</span>
+</code></pre></div>
+<p>📤 Output: <strong>TypeError: can only concatenate str (not "int") to str</strong></p>
+<hr />
+<h3 id="example-2-fixing-string-to-integer-conversion_1">🔧 Example 2: Fixing string-to-integer conversion</h3>
+<p>This example shows how to properly convert a string number to an integer before performing arithmetic.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensor_reading</span> <span class="o">=</span> <span class="s2">&quot;42&quot;</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="c1"># Fix: convert string to integer first</span>
+<span class="n">reading_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sensor_reading</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">reading_int</span> <span class="o">+</span> <span class="n">offset</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>50</strong></p>
+<hr />
+<h3 id="example-3-missing-file-path-when-reading-configuration_1">🔧 Example 3: Missing file path when reading configuration</h3>
+<p>This example shows what happens when you try to open a file that does not exist at the given path.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config_path</span> <span class="o">=</span> <span class="s2">&quot;settings.txt&quot;</span>
+<span class="c1"># Mistake: file does not exist at this path</span>
+<span class="n">config_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">config_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">config_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>FileNotFoundError: [Errno 2] No such file or directory: 'settings.txt'</strong></p>
+<hr />
+<h3 id="example-4-using-try-except-to-handle-missing-files-gracefully_1">🔧 Example 4: Using try-except to handle missing files gracefully</h3>
+<p>This example shows how to safely attempt to read a file and handle the case where it is missing.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config_path</span> <span class="o">=</span> <span class="s2">&quot;settings.txt&quot;</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">config_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">config_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">config_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Configuration loaded&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using default settings&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Using default settings</strong></p>
+<hr />
+<h3 id="example-5-forgetting-to-close-a-database-connection_1">🔧 Example 5: Forgetting to close a database connection</h3>
+<p>This example shows what happens when you leave a database connection open after querying data.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;inventory.db&quot;</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM parts&quot;</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="c1"># Mistake: no connection.close() called</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[(1, 'bolt', 0.50), (2, 'nut', 0.25)]</strong> (connection remains open)</p>
+<hr />
+<h3 id="example-6-properly-closing-a-database-connection-with-a-context-manager_1">🔧 Example 6: Properly closing a database connection with a context manager</h3>
+<p>This example shows how to use a <code>with</code> block to automatically close the database connection.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+<span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;inventory.db&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM parts&quot;</span><span class="p">)</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[(1, 'bolt', 0.50), (2, 'nut', 0.25)]</strong> (connection closed automatically)</p>
+<hr />
+<h3 id="example-7-passing-wrong-data-type-to-an-api-function_1">🔧 Example 7: Passing wrong data type to an API function</h3>
+<p>This example shows what happens when you pass a list instead of a string to a function expecting text.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">send_message</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sending: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">message_parts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="s2">&quot; 85F&quot;</span><span class="p">]</span>
+<span class="c1"># Mistake: passing list instead of string</span>
+<span class="n">send_message</span><span class="p">(</span><span class="n">message_parts</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Sending: ['Temperature', ':', ' 85F']</strong> (function receives list, not string)</p>
+<hr />
+<h3 id="example-8-fixing-data-type-mismatch-with-string-join_1">🔧 Example 8: Fixing data type mismatch with string join</h3>
+<p>This example shows how to combine list elements into a single string before passing to the function.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">send_message</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sending: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">message_parts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="s2">&quot; 85F&quot;</span><span class="p">]</span>
+<span class="c1"># Fix: join list into a single string</span>
+<span class="n">full_message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">message_parts</span><span class="p">)</span>
+<span class="n">send_message</span><span class="p">(</span><span class="n">full_message</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Sending: Temperature: 85F</strong></p>
+<hr />
+<h3 id="comparison-table-common-integration-mistakes-and-fixes_1">Comparison Table: Common Integration Mistakes and Fixes</h3>
 <table>
 <thead>
 <tr>

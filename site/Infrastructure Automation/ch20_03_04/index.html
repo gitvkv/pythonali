@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch20_03_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 20 | Configuring Format Layouts with Timestamps and Fields - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 20 | Configuring Format Layouts with Timestamps and Fields";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch20_03_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch20_03_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -949,6 +949,38 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#format-field-reference-table">📊 Format Field Reference Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-format-layouts-matter_1">⚙️ Why Format Layouts Matter</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-components-of-a-format-layout_1">🛠️ Core Components of a Format Layout</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-format-layout-examples_1">📊 Common Format Layout Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-a-format-layout-string_1">🕵️ Building a Format Layout String</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#configuring-timestamp-formats_1">⏰ Configuring Timestamp Formats</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#applying-format-layouts-in-practice_1">📋 Applying Format Layouts in Practice</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-your-format-layout_1">🧪 Testing Your Format Layout</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-production-layouts_1">🚀 Best Practices for Production Layouts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🔁 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-timestamp-with-default-fields_1">📘 Example 1: Basic timestamp with default fields</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-custom-timestamp-format-without-milliseconds_1">📘 Example 2: Custom timestamp format without milliseconds</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-adding-log-level-and-module-name-fields_1">📘 Example 3: Adding log level and module name fields</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-including-line-number-and-function-name-for-debugging_1">📘 Example 4: Including line number and function name for debugging</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-custom-field-with-process-id-and-thread-name_1">📘 Example 5: Custom field with process ID and thread name</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#format-field-reference-table_1">📊 Format Field Reference Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch20_03_05/">Ch 20 | Routing Active Logs to Files vs Console Streams</a>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="configuring-format-layouts-with-timestamps-and-fields">Configuring Format Layouts with Timestamps and Fields</h1>
 <p><span class="category-tag">🏷️ Python Scripting Best Practices /  Structured Production Logging</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1197,8 +1229,7 @@
 <hr />
 <h3 id="summary">🔁 Summary</h3>
 <p>Configuring format layouts with timestamps and fields transforms raw log output into structured, actionable data. By carefully designing your layout string, you ensure every log entry carries the context needed for monitoring, debugging, and auditing. A well-structured format is the foundation of any reliable production logging system.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide shows how to control the appearance of log messages by configuring format layouts with timestamps and custom fields.</p>
 <hr />
 <h3 id="example-1-basic-timestamp-with-default-fields">📘 Example 1: Basic timestamp with default fields</h3>
@@ -1293,6 +1324,273 @@
 <strong>2025-04-09 14:30:15 | PID:12345 | TID:MainThread | INFO | Main process finished</strong></p>
 <hr />
 <h3 id="format-field-reference-table">📊 Format Field Reference Table</h3>
+<table>
+<thead>
+<tr>
+<th>Field Code</th>
+<th>Description</th>
+<th>Example Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%(asctime)s</code></td>
+<td>Timestamp from <code>datefmt</code></td>
+<td>2025-04-09 14:30:15</td>
+</tr>
+<tr>
+<td><code>%(levelname)s</code></td>
+<td>Log severity level</td>
+<td>INFO, WARNING, ERROR</td>
+</tr>
+<tr>
+<td><code>%(name)s</code></td>
+<td>Logger name (often module name)</td>
+<td>etl_pipeline</td>
+</tr>
+<tr>
+<td><code>%(funcName)s</code></td>
+<td>Function where log was called</td>
+<td>validate_data</td>
+</tr>
+<tr>
+<td><code>%(lineno)d</code></td>
+<td>Line number in source file</td>
+<td>12</td>
+</tr>
+<tr>
+<td><code>%(process)d</code></td>
+<td>Operating system process ID</td>
+<td>12345</td>
+</tr>
+<tr>
+<td><code>%(threadName)s</code></td>
+<td>Thread name</td>
+<td>DataLoader, MainThread</td>
+</tr>
+<tr>
+<td><code>%(message)s</code></td>
+<td>The actual log message text</td>
+<td>Pipeline started</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When running Python scripts in production environments, the default print statements quickly become unmanageable. Without structured formatting, logs lack critical context like timestamps, severity levels, and module names. Configuring format layouts allows you to control exactly how each log entry appears, making it easier to search, filter, and debug issues across distributed systems.</p>
+<hr />
+<h3 id="why-format-layouts-matter_1">⚙️ Why Format Layouts Matter</h3>
+<ul>
+<li><strong>Timestamps</strong> provide chronological context for tracing events and identifying when issues occurred.</li>
+<li><strong>Field labels</strong> (like log level, module name, and line number) help engineers quickly filter relevant entries.</li>
+<li><strong>Consistent structure</strong> enables log aggregation tools (like Elasticsearch or Splunk) to parse entries automatically.</li>
+<li><strong>Readability</strong> improves when every log line follows the same predictable pattern.</li>
+</ul>
+<hr />
+<h3 id="core-components-of-a-format-layout_1">🛠️ Core Components of a Format Layout</h3>
+<p>A typical format layout combines several fields into a single string template:</p>
+<ul>
+<li><strong>Timestamp</strong> — Usually in ISO 8601 format for machine readability (e.g., 2025-03-15 14:30:22,456)</li>
+<li><strong>Log Level</strong> — Severity indicator: DEBUG, INFO, WARNING, ERROR, CRITICAL</li>
+<li><strong>Logger Name</strong> — Identifies which module or component generated the log</li>
+<li><strong>Message</strong> — The actual log content you want to record</li>
+<li><strong>Line Number</strong> — Helps pinpoint exact source location during debugging</li>
+</ul>
+<hr />
+<h3 id="common-format-layout-examples_1">📊 Common Format Layout Examples</h3>
+<table>
+<thead>
+<tr>
+<th>Layout Style</th>
+<th>Example Output</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basic Timestamp</td>
+<td>2025-03-15 14:30:22 - INFO - Connection established</td>
+<td>Simple scripts</td>
+</tr>
+<tr>
+<td>Detailed Fields</td>
+<td>2025-03-15 14:30:22,456</td>
+<td>my_module:42</td>
+</tr>
+<tr>
+<td>Compact Format</td>
+<td>14:30:22</td>
+<td>WARN</td>
+</tr>
+<tr>
+<td>JSON Structured</td>
+<td>{"time": "2025-03-15T14:30:22", "level": "ERROR", "module": "db_conn", "msg": "Connection failed"}</td>
+<td>Log aggregation systems</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="building-a-format-layout-string_1">🕵️ Building a Format Layout String</h3>
+<p>The format layout is defined using a template string with placeholder variables:</p>
+<ul>
+<li><strong>%(asctime)s</strong> — Inserts the timestamp when the log record was created</li>
+<li><strong>%(levelname)s</strong> — Displays the severity level in uppercase</li>
+<li><strong>%(name)s</strong> — Shows the logger name (often the module path)</li>
+<li><strong>%(message)s</strong> — Contains the actual log message you pass</li>
+<li><strong>%(lineno)d</strong> — Inserts the line number where the log call was made</li>
+<li><strong>%(funcName)s</strong> — Shows the function name where the log originated</li>
+</ul>
+<p>A common production layout string looks like: <strong>%(asctime)s | %(levelname)-8s | %(name)s:%(lineno)d | %(message)s</strong></p>
+<p>This produces output such as: <strong>2025-03-15 14:30:22,456 | INFO | app.main:128 | Server started successfully</strong></p>
+<hr />
+<h3 id="configuring-timestamp-formats_1">⏰ Configuring Timestamp Formats</h3>
+<p>Timestamps can be customized to match your team's standards:</p>
+<ul>
+<li><strong>Default format</strong> — 2025-03-15 14:30:22,456 (ISO 8601 with milliseconds)</li>
+<li><strong>Date only</strong> — 2025-03-15</li>
+<li><strong>Time only</strong> — 14:30:22</li>
+<li><strong>Custom format</strong> — 15/Mar/2025:14:30:22 +0000 (common in web server logs)</li>
+</ul>
+<p>Common timestamp format codes include:
+- <strong>%Y</strong> — Four-digit year
+- <strong>%m</strong> — Two-digit month
+- <strong>%d</strong> — Two-digit day
+- <strong>%H</strong> — Hour in 24-hour format
+- <strong>%M</strong> — Minute
+- <strong>%S</strong> — Second
+- <strong>%f</strong> — Microsecond (truncated to milliseconds in practice)</p>
+<hr />
+<h3 id="applying-format-layouts-in-practice_1">📋 Applying Format Layouts in Practice</h3>
+<p>When configuring a logger, you apply the format layout through a formatter object:</p>
+<ul>
+<li>Create a formatter with your desired layout string and timestamp format</li>
+<li>Attach the formatter to a handler (console, file, or network)</li>
+<li>Add the handler to your logger instance</li>
+</ul>
+<p>The formatter controls the final appearance of every log entry passing through that handler. Different handlers can use different formats — for example, a console handler might use a compact format while a file handler uses a detailed JSON layout.</p>
+<hr />
+<h3 id="testing-your-format-layout_1">🧪 Testing Your Format Layout</h3>
+<p>Before deploying to production, verify your layout produces readable output:</p>
+<ul>
+<li>Check that timestamps display in the expected timezone (UTC is recommended for production)</li>
+<li>Confirm that long messages wrap or truncate appropriately</li>
+<li>Verify that special characters in messages (like quotes or newlines) are escaped correctly</li>
+<li>Test with all log levels to ensure alignment and spacing remain consistent</li>
+</ul>
+<hr />
+<h3 id="best-practices-for-production-layouts_1">🚀 Best Practices for Production Layouts</h3>
+<ul>
+<li><strong>Always include timestamps</strong> in UTC to avoid timezone confusion across distributed systems</li>
+<li><strong>Use consistent field separators</strong> like pipes (|) or tabs for easy parsing</li>
+<li><strong>Keep the layout compact</strong> for high-volume logging to reduce storage costs</li>
+<li><strong>Include module and line numbers</strong> for faster debugging without needing source maps</li>
+<li><strong>Avoid sensitive data</strong> in format layouts — never include passwords, tokens, or PII in field names or messages</li>
+</ul>
+<hr />
+<h3 id="summary_1">🔁 Summary</h3>
+<p>Configuring format layouts with timestamps and fields transforms raw log output into structured, actionable data. By carefully designing your layout string, you ensure every log entry carries the context needed for monitoring, debugging, and auditing. A well-structured format is the foundation of any reliable production logging system.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide shows how to control the appearance of log messages by configuring format layouts with timestamps and custom fields.</p>
+<hr />
+<h3 id="example-1-basic-timestamp-with-default-fields_1">📘 Example 1: Basic timestamp with default fields</h3>
+<p>Shows how to add a timestamp to every log message using the simplest format string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span>
+<span class="p">)</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Pipeline started&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Disk space low&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2025-04-09 14:30:15,123 - Pipeline started</strong><br />
+<strong>2025-04-09 14:30:15,124 - Disk space low</strong></p>
+<hr />
+<h3 id="example-2-custom-timestamp-format-without-milliseconds_1">📘 Example 2: Custom timestamp format without milliseconds</h3>
+<p>Shows how to control the timestamp style using the <code>datefmt</code> parameter.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span>
+<span class="p">)</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Data extraction complete&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2025-04-09 14:30:15 - Data extraction complete</strong></p>
+<hr />
+<h3 id="example-3-adding-log-level-and-module-name-fields_1">📘 Example 3: Adding log level and module name fields</h3>
+<p>Shows how to include the severity level and the name of the Python file generating the log.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> | </span><span class="si">%(levelname)-8s</span><span class="s1"> | </span><span class="si">%(name)s</span><span class="s1"> | </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%H:%M:%S&#39;</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span>
+<span class="p">)</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;etl_pipeline&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Connecting to database&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Query executed successfully&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>14:30:15 | DEBUG    | etl_pipeline | Connecting to database</strong><br />
+<strong>14:30:15 | INFO     | etl_pipeline | Query executed successfully</strong></p>
+<hr />
+<h3 id="example-4-including-line-number-and-function-name-for-debugging_1">📘 Example 4: Including line number and function name for debugging</h3>
+<p>Shows how to add the exact line number and function name where the log was called, useful for troubleshooting.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> | </span><span class="si">%(levelname)s</span><span class="s1"> | </span><span class="si">%(funcName)s</span><span class="s1">:</span><span class="si">%(lineno)d</span><span class="s1"> | </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span>
+<span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">validate_data</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Missing values in column &quot;age&quot;&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_results</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Connection timeout after 30 seconds&#39;</span><span class="p">)</span>
+
+<span class="n">validate_data</span><span class="p">()</span>
+<span class="n">load_results</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>2025-04-09 14:30:15 | WARNING | validate_data:12 | Missing values in column "age"</strong><br />
+<strong>2025-04-09 14:30:15 | ERROR   | load_results:15 | Connection timeout after 30 seconds</strong></p>
+<hr />
+<h3 id="example-5-custom-field-with-process-id-and-thread-name_1">📘 Example 5: Custom field with process ID and thread name</h3>
+<p>Shows how to add system-level fields like process ID and thread name for multi-threaded or multi-process engineers.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> | PID:</span><span class="si">%(process)d</span><span class="s1"> | TID:</span><span class="si">%(threadName)s</span><span class="s1"> | </span><span class="si">%(levelname)s</span><span class="s1"> | </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">,</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span>
+<span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">worker</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Worker thread started processing&#39;</span><span class="p">)</span>
+
+<span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;DataLoader&#39;</span><span class="p">)</span>
+<span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Main process finished&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2025-04-09 14:30:15 | PID:12345 | TID:DataLoader | INFO | Worker thread started processing</strong><br />
+<strong>2025-04-09 14:30:15 | PID:12345 | TID:MainThread | INFO | Main process finished</strong></p>
+<hr />
+<h3 id="format-field-reference-table_1">📊 Format Field Reference Table</h3>
 <table>
 <thead>
 <tr>

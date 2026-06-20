@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch11_03_07/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 11 | The json Module for Data Serialization - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 11 | The json Module for Data Serialization";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch11_03_07.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch11_03_07/";
       </script>
     
     <!--[if lt IE 9]>
@@ -538,6 +538,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-pretty-printing-json-with-indentation-for-readability">🧪 Example 5: Pretty-printing JSON with indentation for readability</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-json-and-why-use-it_1">⚙️ What is JSON and Why Use It?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-functions-of-the-json-module_1">🛠️ Core Functions of the json Module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#python-to-json-type-mapping_1">📊 Python to JSON Type Mapping</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#serialization-converting-python-to-json_1">🕵️ Serialization: Converting Python to JSON</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deserialization-converting-json-to-python_1">🔄 Deserialization: Converting JSON to Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-complex-data-types_1">🧪 Handling Complex Data Types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-and-best-practices_1">⚠️ Common Pitfalls and Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-use-cases-for-engineers_1">🎯 Practical Use Cases for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📝 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-converting-a-python-dictionary-to-a-json-string_1">🧪 Example 1: Converting a Python dictionary to a JSON string</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-converting-a-json-string-back-to-a-python-dictionary_1">🧪 Example 2: Converting a JSON string back to a Python dictionary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-writing-a-python-list-of-dictionaries-to-a-json-file_1">🧪 Example 3: Writing a Python list of dictionaries to a JSON file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-reading-a-json-file-back-into-a-python-list_1">🧪 Example 4: Reading a JSON file back into a Python list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-pretty-printing-json-with-indentation-for-readability_1">🧪 Example 5: Pretty-printing JSON with indentation for readability</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="the-json-module-for-data-serialization">The json Module for Data Serialization</h1>
 <p><span class="category-tag">🏷️ Modules and Imports /  Built-in Modules for Engineers</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with automation scripts, configuration files, or API responses, you will frequently encounter data that needs to be saved, transferred, or shared between different systems. The <strong>json module</strong> is Python's built-in tool for converting Python objects into a standardized text format (serialization) and converting that text back into Python objects (deserialization). JSON (JavaScript Object Notation) is lightweight, human-readable, and supported by virtually every programming language, making it the universal language for data exchange.</p>
@@ -1195,8 +1225,7 @@
 <hr />
 <h3 id="summary">📝 Summary</h3>
 <p>The json module is an essential tool in any Python engineer's toolkit. Its four core functions—<strong>dumps</strong>, <strong>loads</strong>, <strong>dump</strong>, and <strong>load</strong>—cover all common scenarios for data serialization and deserialization. By understanding the type mapping between Python and JSON, and by using formatting options for readability, you can seamlessly exchange data between systems, store configuration, and process API responses. With practice, working with JSON becomes second nature, enabling you to build more robust and interconnected automation solutions.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>json</code> module converts Python data (like dictionaries and lists) into a text format that can be saved to a file or sent over a network, and back again.</p>
 <hr />
 <h3 id="example-1-converting-a-python-dictionary-to-a-json-string">🧪 Example 1: Converting a Python dictionary to a JSON string</h3>
@@ -1277,6 +1306,244 @@
 <strong>}</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>json.dumps()</code></td>
+<td>Convert Python object to JSON string</td>
+<td>Python dict/list</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>json.loads()</code></td>
+<td>Convert JSON string to Python object</td>
+<td>String</td>
+<td>Python dict/list</td>
+</tr>
+<tr>
+<td><code>json.dump()</code></td>
+<td>Write Python object to JSON file</td>
+<td>Python dict/list + file object</td>
+<td>None (writes to file)</td>
+</tr>
+<tr>
+<td><code>json.load()</code></td>
+<td>Read JSON file into Python object</td>
+<td>File object</td>
+<td>Python dict/list</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with automation scripts, configuration files, or API responses, you will frequently encounter data that needs to be saved, transferred, or shared between different systems. The <strong>json module</strong> is Python's built-in tool for converting Python objects into a standardized text format (serialization) and converting that text back into Python objects (deserialization). JSON (JavaScript Object Notation) is lightweight, human-readable, and supported by virtually every programming language, making it the universal language for data exchange.</p>
+<hr />
+<h3 id="what-is-json-and-why-use-it_1">⚙️ What is JSON and Why Use It?</h3>
+<p>JSON represents data as key-value pairs and ordered lists, closely mirroring Python's dictionaries and lists. The json module allows you to:</p>
+<ul>
+<li><strong>Serialize</strong> Python objects into a JSON string or file</li>
+<li><strong>Deserialize</strong> JSON strings or files back into Python objects</li>
+<li><strong>Work with APIs</strong> that send and receive JSON data</li>
+<li><strong>Store configuration</strong> in a readable, editable format</li>
+</ul>
+<p>The key advantage of JSON over other formats like CSV or plain text is its ability to represent nested structures (dictionaries within lists within dictionaries) while remaining easy for humans to read and edit.</p>
+<hr />
+<h3 id="core-functions-of-the-json-module_1">🛠️ Core Functions of the json Module</h3>
+<p>The json module provides four primary functions, split into two pairs for working with strings versus files:</p>
+<p><strong>For String Operations:</strong></p>
+<ul>
+<li><strong>json.dumps()</strong> - Converts a Python object into a JSON-formatted string</li>
+<li><strong>json.loads()</strong> - Converts a JSON-formatted string into a Python object</li>
+</ul>
+<p><strong>For File Operations:</strong></p>
+<ul>
+<li><strong>json.dump()</strong> - Writes a Python object directly to a file in JSON format</li>
+<li><strong>json.load()</strong> - Reads a JSON file and converts it into a Python object</li>
+</ul>
+<hr />
+<h3 id="python-to-json-type-mapping_1">📊 Python to JSON Type Mapping</h3>
+<p>When you serialize Python objects to JSON, the conversion follows a specific mapping. Understanding this helps avoid surprises when your data comes back in a different form.</p>
+<table>
+<thead>
+<tr>
+<th>Python Object</th>
+<th>JSON Representation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dict</td>
+<td>Object (curly braces)</td>
+</tr>
+<tr>
+<td>list, tuple</td>
+<td>Array (square brackets)</td>
+</tr>
+<tr>
+<td>str</td>
+<td>String (double quotes)</td>
+</tr>
+<tr>
+<td>int, float</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>True</td>
+<td>true</td>
+</tr>
+<tr>
+<td>False</td>
+<td>false</td>
+</tr>
+<tr>
+<td>None</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+<p>Note that Python tuples become JSON arrays, and when deserialized, they come back as lists. Also, JSON only supports double-quoted strings, so Python single-quoted strings will be converted to double quotes.</p>
+<hr />
+<h3 id="serialization-converting-python-to-json_1">🕵️ Serialization: Converting Python to JSON</h3>
+<p><strong>Using json.dumps() for strings:</strong></p>
+<p>To convert a Python dictionary into a JSON string, pass your Python object to <strong>json.dumps()</strong>. The result is a string that can be printed, logged, or sent over a network.</p>
+<p>For example, a dictionary containing server information like hostname, IP address, and status can be converted to a JSON string. The output will use double quotes for keys and string values, and boolean values will be lowercase (true/false instead of True/False).</p>
+<p><strong>Using json.dump() for files:</strong></p>
+<p>To write JSON data directly to a file, use <strong>json.dump()</strong> with two arguments: the Python object and a file object opened in write mode. This approach is ideal for saving configuration files, caching API responses, or creating data exports.</p>
+<p>The file should be opened with <strong>open()</strong> using mode <strong>'w'</strong> for writing. After writing, the file will contain valid JSON that can be read by any JSON parser.</p>
+<p><strong>Formatting Options:</strong></p>
+<p>The json module offers parameters to make your output more readable:</p>
+<ul>
+<li><strong>indent</strong> parameter - Adds whitespace and line breaks for human readability. A value of <strong>2</strong> or <strong>4</strong> is common.</li>
+<li><strong>sort_keys</strong> parameter - When set to <strong>True</strong>, dictionary keys are sorted alphabetically in the output.</li>
+<li><strong>separators</strong> parameter - Customizes the separators between items. The default is <strong>(', ', ': ')</strong>, but you can use <strong>(',', ':')</strong> for compact output.</li>
+</ul>
+<hr />
+<h3 id="deserialization-converting-json-to-python_1">🔄 Deserialization: Converting JSON to Python</h3>
+<p><strong>Using json.loads() for strings:</strong></p>
+<p>When you receive a JSON string from an API response, a configuration file read into memory, or a message from another service, use <strong>json.loads()</strong> to convert it back into a Python dictionary or list.</p>
+<p>The function takes a JSON-formatted string and returns the corresponding Python object. Keys will be strings, arrays become lists, and JSON null becomes Python None.</p>
+<p><strong>Using json.load() for files:</strong></p>
+<p>To read JSON data directly from a file, use <strong>json.load()</strong> with a file object opened in read mode. This is the most common way to load configuration files or previously saved data.</p>
+<p>The file should be opened with <strong>open()</strong> using mode <strong>'r'</strong> for reading. The function will parse the entire file and return the Python object.</p>
+<hr />
+<h3 id="handling-complex-data-types_1">🧪 Handling Complex Data Types</h3>
+<p>The json module only handles basic Python types by default. For custom objects or specialized types like datetime, you need to provide custom encoding and decoding logic.</p>
+<p><strong>Custom Serialization with default parameter:</strong></p>
+<p>When calling <strong>json.dumps()</strong>, you can pass a function to the <strong>default</strong> parameter. This function receives objects that are not natively serializable and should return a serializable representation.</p>
+<p>For example, a datetime object can be converted to a string using <strong>str()</strong> or <strong>isoformat()</strong>. If the function cannot handle the object, it should raise a <strong>TypeError</strong>.</p>
+<p><strong>Custom Deserialization with object_hook parameter:</strong></p>
+<p>When calling <strong>json.loads()</strong>, you can pass a function to the <strong>object_hook</strong> parameter. This function receives each dictionary during parsing and can transform it into a custom object or type.</p>
+<p>For example, you can detect a special key like <strong>"<strong>type</strong>"</strong> and convert the dictionary into a datetime object or a custom class instance.</p>
+<hr />
+<h3 id="common-pitfalls-and-best-practices_1">⚠️ Common Pitfalls and Best Practices</h3>
+<p><strong>Trailing Commas:</strong> Python allows trailing commas in dictionaries and lists, but JSON does not. Always ensure your data structures do not have trailing commas before serialization.</p>
+<p><strong>Single vs Double Quotes:</strong> Python accepts both single and double quotes for strings, but JSON requires double quotes. The json module handles this conversion automatically during serialization.</p>
+<p><strong>Key Types:</strong> JSON object keys must be strings. If your Python dictionary has integer keys, they will be converted to strings during serialization. When deserialized, they will remain as strings.</p>
+<p><strong>File Encoding:</strong> Always open JSON files with <strong>encoding='utf-8'</strong> to handle special characters properly. This is especially important when working with international data or log files.</p>
+<p><strong>Error Handling:</strong> Wrap json.loads() and json.load() in try-except blocks to catch <strong>json.JSONDecodeError</strong> when parsing potentially malformed data. This prevents your script from crashing on bad input.</p>
+<hr />
+<h3 id="practical-use-cases-for-engineers_1">🎯 Practical Use Cases for Engineers</h3>
+<p><strong>Configuration Management:</strong> Store application settings, database connection strings, or feature flags in JSON files. Load them at startup using <strong>json.load()</strong> and modify them programmatically using <strong>json.dump()</strong>.</p>
+<p><strong>API Integration:</strong> Most REST APIs return JSON responses. Use <strong>json.loads()</strong> on the response text to convert it into Python dictionaries for processing. When sending data to APIs, use <strong>json.dumps()</strong> to prepare the payload.</p>
+<p><strong>Data Export and Import:</strong> Save script results, monitoring data, or inventory lists as JSON files for later analysis or sharing with other tools. The structured format preserves relationships between data points.</p>
+<p><strong>Logging and Debugging:</strong> Convert complex Python objects to JSON strings for clean, readable log entries. Use the <strong>indent</strong> parameter to make debug output easier to read during development.</p>
+<hr />
+<h3 id="summary_1">📝 Summary</h3>
+<p>The json module is an essential tool in any Python engineer's toolkit. Its four core functions—<strong>dumps</strong>, <strong>loads</strong>, <strong>dump</strong>, and <strong>load</strong>—cover all common scenarios for data serialization and deserialization. By understanding the type mapping between Python and JSON, and by using formatting options for readability, you can seamlessly exchange data between systems, store configuration, and process API responses. With practice, working with JSON becomes second nature, enabling you to build more robust and interconnected automation solutions.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>json</code> module converts Python data (like dictionaries and lists) into a text format that can be saved to a file or sent over a network, and back again.</p>
+<hr />
+<h3 id="example-1-converting-a-python-dictionary-to-a-json-string_1">🧪 Example 1: Converting a Python dictionary to a JSON string</h3>
+<p>This example shows how to turn a Python dictionary into a JSON-formatted text string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">person</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ana&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">}</span>
+<span class="n">json_string</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{"name": "Ana", "age": 30, "city": "Berlin"}</strong></p>
+<hr />
+<h3 id="example-2-converting-a-json-string-back-to-a-python-dictionary_1">🧪 Example 2: Converting a JSON string back to a Python dictionary</h3>
+<p>This example shows how to parse a JSON string and get back a Python dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">json_string</span> <span class="o">=</span> <span class="s1">&#39;{&quot;name&quot;: &quot;Ana&quot;, &quot;age&quot;: 30, &quot;city&quot;: &quot;Berlin&quot;}&#39;</span>
+<span class="n">person</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">person</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'name': 'Ana', 'age': 30, 'city': 'Berlin'}</strong><br />
+📤 Output: <strong><class 'dict'></strong></p>
+<hr />
+<h3 id="example-3-writing-a-python-list-of-dictionaries-to-a-json-file_1">🧪 Example 3: Writing a Python list of dictionaries to a JSON file</h3>
+<p>This example shows how to save structured data to a file in JSON format.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">engineers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Carlos&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;mechanical&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Elena&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;electrical&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ming&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;software&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;engineers.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">engineers</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data written to engineers.json&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Data written to engineers.json</strong></p>
+<hr />
+<h3 id="example-4-reading-a-json-file-back-into-a-python-list_1">🧪 Example 4: Reading a JSON file back into a Python list</h3>
+<p>This example shows how to load JSON data from a file into a Python object.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;engineers.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">engineers</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">engineers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of engineers:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">engineers</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>[{'name': 'Carlos', 'role': 'mechanical'}, {'name': 'Elena', 'role': 'electrical'}, {'name': 'Ming', 'role': 'software'}]</strong><br />
+📤 Output: <strong>Number of engineers: 3</strong></p>
+<hr />
+<h3 id="example-5-pretty-printing-json-with-indentation-for-readability_1">🧪 Example 5: Pretty-printing JSON with indentation for readability</h3>
+<p>This example shows how to format a JSON string with indentation so engineers can read it easily.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">sensor_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;sensor_id&quot;</span><span class="p">:</span> <span class="s2">&quot;TEMP-001&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;readings&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">23.5</span><span class="p">,</span> <span class="mf">24.1</span><span class="p">,</span> <span class="mf">22.8</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">],</span>
+    <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;celsius&quot;</span>
+<span class="p">}</span>
+
+<span class="n">pretty_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">sensor_data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pretty_json</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output:<br />
+<strong>{</strong><br />
+<strong>    "sensor_id": "TEMP-001",</strong><br />
+<strong>    "readings": [</strong><br />
+<strong>        23.5,</strong><br />
+<strong>        24.1,</strong><br />
+<strong>        22.8,</strong><br />
+<strong>        25.0</strong><br />
+<strong>    ],</strong><br />
+<strong>    "unit": "celsius"</strong><br />
+<strong>}</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

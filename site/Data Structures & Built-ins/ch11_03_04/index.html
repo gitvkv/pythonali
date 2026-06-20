@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch11_03_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 11 | The socket Module for Low-Level Networking - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 11 | The socket Module for Low-Level Networking";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch11_03_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch11_03_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -534,6 +534,38 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-creating-a-simple-tcp-client-that-connects-to-a-server">📩 Example 5: Creating a simple TCP client that connects to a server</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-common-socket-functions">📊 Comparison: Common Socket Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🌐 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-socket_1">⚙️ What is a Socket?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-socket-concepts_1">🛠️ Core Socket Concepts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-tcp-vs-udp_1">📊 Comparison: TCP vs UDP</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-a-simple-tcp-server_1">🧱 Creating a Simple TCP Server</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-a-simple-tcp-client_1">🧱 Creating a Simple TCP Client</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-socket-methods_1">🕵️ Common Socket Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-checking-if-a-port-is-open_1">🧪 Practical Example: Checking if a Port is Open</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-considerations_1">⚠️ Important Considerations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🔁 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-creating-a-basic-socket-object_1">🔌 Example 1: Creating a basic socket object</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-getting-the-hostname-of-the-local-machine_1">🌐 Example 2: Getting the hostname of the local machine</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-resolving-a-domain-name-to-an-ip-address_1">📡 Example 3: Resolving a domain name to an IP address</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-creating-a-simple-tcp-server-that-listens-for-one-connection_1">📨 Example 4: Creating a simple TCP server that listens for one connection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-creating-a-simple-tcp-client-that-connects-to-a-server_1">📩 Example 5: Creating a simple TCP client that connects to a server</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-common-socket-functions_1">📊 Comparison: Common Socket Functions</a>
     </li>
     </ul>
                 </li>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="the-socket-module-for-low-level-networking">The socket Module for Low-Level Networking</h1>
 <p><span class="category-tag">🏷️ Modules and Imports /  Built-in Modules for Engineers</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🌐 Context Introduction</h3>
@@ -1209,8 +1241,7 @@
 <hr />
 <h3 id="summary">🔁 Summary</h3>
 <p>The <strong>socket module</strong> is your gateway to low-level network programming in Python. It gives you complete control over how data flows between machines, whether you're building a simple chat application, a custom protocol, or a network monitoring tool. While higher-level libraries like <strong>requests</strong> or <strong>http.server</strong> are easier for common tasks, understanding sockets is essential when you need fine-grained control, performance tuning, or when working with non-standard protocols. Start with simple client-server examples, experiment with both TCP and UDP, and gradually add error handling and concurrency as your confidence grows.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>socket</code> module provides engineers with direct access to network communication between computers using IP addresses and ports.</p>
 <hr />
 <h3 id="example-1-creating-a-basic-socket-object">🔌 Example 1: Creating a basic socket object</h3>
@@ -1274,6 +1305,264 @@
 <p>📤 Output: <strong><code>Hello from the server!</code></strong></p>
 <hr />
 <h3 id="comparison-common-socket-functions">📊 Comparison: Common Socket Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+<th>Example Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>socket()</code></td>
+<td>Creates a new socket object</td>
+<td><code>s = socket.socket()</code></td>
+</tr>
+<tr>
+<td><code>gethostname()</code></td>
+<td>Gets the local machine name</td>
+<td><code>socket.gethostname()</code></td>
+</tr>
+<tr>
+<td><code>gethostbyname()</code></td>
+<td>Resolves domain to IP</td>
+<td><code>socket.gethostbyname("example.com")</code></td>
+</tr>
+<tr>
+<td><code>bind()</code></td>
+<td>Assigns an IP and port to a server socket</td>
+<td><code>s.bind(("0.0.0.0", 8080))</code></td>
+</tr>
+<tr>
+<td><code>listen()</code></td>
+<td>Tells the OS to queue incoming connections</td>
+<td><code>s.listen(5)</code></td>
+</tr>
+<tr>
+<td><code>accept()</code></td>
+<td>Waits for and accepts a client connection</td>
+<td><code>conn, addr = s.accept()</code></td>
+</tr>
+<tr>
+<td><code>connect()</code></td>
+<td>Connects a client socket to a server</td>
+<td><code>s.connect(("server.com", 80))</code></td>
+</tr>
+<tr>
+<td><code>send()</code></td>
+<td>Sends data over a connected socket</td>
+<td><code>s.send(b"data")</code></td>
+</tr>
+<tr>
+<td><code>recv()</code></td>
+<td>Receives data from a connected socket</td>
+<td><code>data = s.recv(1024)</code></td>
+</tr>
+<tr>
+<td><code>close()</code></td>
+<td>Closes the socket connection</td>
+<td><code>s.close()</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🌐 Context Introduction</h3>
+<p>When two computers need to talk to each other over a network, they use something called a <strong>socket</strong>. Think of a socket as a digital door—one computer opens a door and listens, while another computer knocks and walks through. Python's built-in <strong>socket module</strong> gives you direct control over this process, allowing you to create network connections, send data, and receive responses at a very low level. This is the foundation upon which higher-level protocols like HTTP, FTP, and SSH are built.</p>
+<hr />
+<h3 id="what-is-a-socket_1">⚙️ What is a Socket?</h3>
+<p>A socket is an endpoint in a network communication channel. It combines:</p>
+<ul>
+<li><strong>An IP address</strong> (the computer's location on the network)</li>
+<li><strong>A port number</strong> (a specific door on that computer)</li>
+</ul>
+<p>Together, they form a unique address that allows data to flow between two programs, possibly on different machines.</p>
+<hr />
+<h3 id="core-socket-concepts_1">🛠️ Core Socket Concepts</h3>
+<ul>
+<li><strong>Server Socket</strong>: A socket that waits for incoming connections. It binds to a specific port and listens.</li>
+<li><strong>Client Socket</strong>: A socket that initiates a connection to a server.</li>
+<li><strong>TCP (Transmission Control Protocol)</strong>: Reliable, ordered, and error-checked delivery. Used for web browsing, email, file transfers.</li>
+<li><strong>UDP (User Datagram Protocol)</strong>: Faster but less reliable. Used for streaming, gaming, DNS lookups.</li>
+</ul>
+<hr />
+<h3 id="comparison-tcp-vs-udp_1">📊 Comparison: TCP vs UDP</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>TCP</th>
+<th>UDP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection</td>
+<td>Connection-oriented (handshake required)</td>
+<td>Connectionless (send and forget)</td>
+</tr>
+<tr>
+<td>Reliability</td>
+<td>Guaranteed delivery, retransmits lost packets</td>
+<td>No guarantee, packets may be lost</td>
+</tr>
+<tr>
+<td>Ordering</td>
+<td>Data arrives in order</td>
+<td>Data may arrive out of order</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Slower due to overhead</td>
+<td>Faster, minimal overhead</td>
+</tr>
+<tr>
+<td>Use Case</td>
+<td>Web servers, databases, email</td>
+<td>Video streaming, online gaming, DNS</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="creating-a-simple-tcp-server_1">🧱 Creating a Simple TCP Server</h3>
+<p>A basic TCP server follows these steps:</p>
+<ol>
+<li><strong>Import the socket module</strong></li>
+<li><strong>Create a socket object</strong> using <strong>socket.socket(socket.AF_INET, socket.SOCK_STREAM)</strong></li>
+<li><strong>Bind</strong> the socket to an address and port using <strong>.bind(('localhost', 12345))</strong></li>
+<li><strong>Listen</strong> for incoming connections using <strong>.listen(5)</strong></li>
+<li><strong>Accept</strong> a connection using <strong>.accept()</strong> which returns a new socket object and the client's address</li>
+<li><strong>Receive data</strong> using <strong>.recv(1024)</strong> and <strong>send data</strong> using <strong>.send()</strong></li>
+<li><strong>Close</strong> the connection using <strong>.close()</strong></li>
+</ol>
+<p>A simple server script would:
+- Create a socket with <strong>socket.socket(socket.AF_INET, socket.SOCK_STREAM)</strong>
+- Bind to <strong>('127.0.0.1', 8080)</strong>
+- Listen for up to 5 queued connections
+- Accept a client connection
+- Receive up to 1024 bytes of data
+- Send back a response like <strong>b'Hello, client!'</strong>
+- Close the client socket</p>
+<hr />
+<h3 id="creating-a-simple-tcp-client_1">🧱 Creating a Simple TCP Client</h3>
+<p>A basic TCP client follows these steps:</p>
+<ol>
+<li><strong>Import the socket module</strong></li>
+<li><strong>Create a socket object</strong> using <strong>socket.socket(socket.AF_INET, socket.SOCK_STREAM)</strong></li>
+<li><strong>Connect</strong> to the server using <strong>.connect(('localhost', 12345))</strong></li>
+<li><strong>Send data</strong> using <strong>.send()</strong> or <strong>.sendall()</strong></li>
+<li><strong>Receive response</strong> using <strong>.recv(1024)</strong></li>
+<li><strong>Close</strong> the connection using <strong>.close()</strong></li>
+</ol>
+<p>A simple client script would:
+- Create a socket with <strong>socket.socket(socket.AF_INET, socket.SOCK_STREAM)</strong>
+- Connect to <strong>('127.0.0.1', 8080)</strong>
+- Send a message like <strong>b'Hello, server!'</strong>
+- Receive up to 1024 bytes of the server's response
+- Print the received data
+- Close the socket</p>
+<hr />
+<h3 id="common-socket-methods_1">🕵️ Common Socket Methods</h3>
+<ul>
+<li><strong>socket.gethostname()</strong>: Returns the hostname of the current machine</li>
+<li><strong>socket.gethostbyname('google.com')</strong>: Resolves a domain name to an IP address</li>
+<li><strong>socket.getservbyname('http')</strong>: Returns the port number for a service (80 for HTTP)</li>
+<li><strong>socket.settimeout(10)</strong>: Sets a timeout for blocking operations (in seconds)</li>
+<li><strong>socket.setblocking(False)</strong>: Makes the socket non-blocking (operations return immediately)</li>
+</ul>
+<hr />
+<h3 id="practical-example-checking-if-a-port-is-open_1">🧪 Practical Example: Checking if a Port is Open</h3>
+<p>You can use sockets to quickly check if a remote server is reachable on a specific port:</p>
+<ul>
+<li>Create a socket with <strong>socket.socket(socket.AF_INET, socket.SOCK_STREAM)</strong></li>
+<li>Set a timeout using <strong>.settimeout(2)</strong> (2 seconds)</li>
+<li>Try to connect using <strong>.connect_ex(('8.8.8.8', 53))</strong> — this returns 0 if successful, an error code otherwise</li>
+<li>If the result is <strong>0</strong>, the port is open</li>
+<li>Close the socket</li>
+</ul>
+<p>This technique is commonly used for health checks and network diagnostics.</p>
+<hr />
+<h3 id="important-considerations_1">⚠️ Important Considerations</h3>
+<ul>
+<li><strong>Always close sockets</strong> after use to free up system resources. Use <strong>.close()</strong> or better, a <strong>with</strong> statement.</li>
+<li><strong>Handle exceptions</strong> like <strong>socket.error</strong>, <strong>socket.timeout</strong>, and <strong>ConnectionRefusedError</strong> to make your code robust.</li>
+<li><strong>Use non-blocking or threading</strong> for handling multiple clients simultaneously in a server.</li>
+<li><strong>Be mindful of byte encoding</strong>: Network data is sent as bytes. Use <strong>.encode()</strong> for strings and <strong>.decode()</strong> when receiving.</li>
+<li><strong>Firewalls and permissions</strong> may block certain ports or require administrative privileges.</li>
+</ul>
+<hr />
+<h3 id="summary_1">🔁 Summary</h3>
+<p>The <strong>socket module</strong> is your gateway to low-level network programming in Python. It gives you complete control over how data flows between machines, whether you're building a simple chat application, a custom protocol, or a network monitoring tool. While higher-level libraries like <strong>requests</strong> or <strong>http.server</strong> are easier for common tasks, understanding sockets is essential when you need fine-grained control, performance tuning, or when working with non-standard protocols. Start with simple client-server examples, experiment with both TCP and UDP, and gradually add error handling and concurrency as your confidence grows.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>socket</code> module provides engineers with direct access to network communication between computers using IP addresses and ports.</p>
+<hr />
+<h3 id="example-1-creating-a-basic-socket-object_1">🔌 Example 1: Creating a basic socket object</h3>
+<p>This example shows how to create a socket object that can communicate over the internet using TCP.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+
+<span class="n">my_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_socket</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>&lt;socket.socket fd=3, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('0.0.0.0', 0)&gt;</code></strong></p>
+<hr />
+<h3 id="example-2-getting-the-hostname-of-the-local-machine_1">🌐 Example 2: Getting the hostname of the local machine</h3>
+<p>This example demonstrates how to retrieve the computer's network name using the socket module.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+
+<span class="n">host_name</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">host_name</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>DESKTOP-ABC123</code></strong> (varies by machine)</p>
+<hr />
+<h3 id="example-3-resolving-a-domain-name-to-an-ip-address_1">📡 Example 3: Resolving a domain name to an IP address</h3>
+<p>This example shows how to convert a website domain name into its numerical IP address.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+
+<span class="n">domain</span> <span class="o">=</span> <span class="s2">&quot;google.com&quot;</span>
+<span class="n">ip_address</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostbyname</span><span class="p">(</span><span class="n">domain</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ip_address</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>142.250.80.14</code></strong> (may vary)</p>
+<hr />
+<h3 id="example-4-creating-a-simple-tcp-server-that-listens-for-one-connection_1">📨 Example 4: Creating a simple TCP server that listens for one connection</h3>
+<p>This example demonstrates how to set up a basic server that waits for a single client to connect and sends a welcome message.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+
+<span class="n">server_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">server_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">9999</span><span class="p">))</span>
+<span class="n">server_socket</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Server listening on port 9999...&quot;</span><span class="p">)</span>
+
+<span class="n">client_socket</span><span class="p">,</span> <span class="n">client_address</span> <span class="o">=</span> <span class="n">server_socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connection from </span><span class="si">{</span><span class="n">client_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">client_socket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;Hello from the server!&quot;</span><span class="p">)</span>
+<span class="n">client_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">server_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>Server listening on port 9999...</code></strong> then <strong><code>Connection from ('127.0.0.1', 54321)</code></strong> (port varies)</p>
+<hr />
+<h3 id="example-5-creating-a-simple-tcp-client-that-connects-to-a-server_1">📩 Example 5: Creating a simple TCP client that connects to a server</h3>
+<p>This example shows how to build a client that connects to a server and receives data.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+
+<span class="n">client_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">client_socket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">9999</span><span class="p">))</span>
+
+<span class="n">message</span> <span class="o">=</span> <span class="n">client_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+
+<span class="n">client_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>Hello from the server!</code></strong></p>
+<hr />
+<h3 id="comparison-common-socket-functions_1">📊 Comparison: Common Socket Functions</h3>
 <table>
 <thead>
 <tr>

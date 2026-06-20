@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_05_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Signal Module Introduction and Concepts - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Signal Module Introduction and Concepts";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_05_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_05_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -689,6 +689,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-signals_1">⚙️ What Are Signals?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-use-the-signal-module_1">🛠️ Why Use the Signal Module?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-concepts_1">🕵️ Core Concepts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-signals-and-their-meanings_1">📊 Common Signals and Their Meanings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-usage-pattern_1">🧪 Basic Usage Pattern</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simple-example-no-code-blocks_1">🧩 Simple Example (No Code Blocks)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-considerations_1">⚠️ Important Considerations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-engineers_1">🧠 Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📦 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-listing-available-signals-on-your-system_1">🛑 Example 1: Listing available signals on your system</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-setting-an-alarm-signal-with-sigalrm_1">⏰ Example 2: Setting an alarm signal with SIGALRM</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-ignoring-the-interrupt-signal-sigint_1">⌨️ Example 3: Ignoring the interrupt signal (SIGINT)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-sigalrm-to-timeout-a-long-operation_1">⏱️ Example 4: Using SIGALRM to timeout a long operation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-handling-sigchld-to-detect-child-process-exit_1">🔄 Example 5: Handling SIGCHLD to detect child process exit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_05_03/">Ch 14 | Handling SIGINT (Ctrl+C) Gracefully</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="signal-module-introduction-and-concepts">Signal Module Introduction and Concepts</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  Working with Processes and Signals</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When you're working with long-running scripts or system-level tools, you'll often need to handle interruptions, clean up resources, or communicate with running processes. Python's <strong>signal module</strong> gives you the ability to catch and respond to operating system signals—like when someone presses <strong>Ctrl+C</strong> or when a process needs to shut down gracefully. This module is essential for writing robust scripts that behave well in production environments.</p>
@@ -1210,8 +1240,7 @@
 <li>Be mindful of platform limitations and keep handlers lightweight.</li>
 </ul>
 <p>Mastering the signal module gives you fine-grained control over how your Python scripts respond to system events—a critical skill for writing production-ready tools and services.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The Python <code>signal</code> module lets engineers handle operating system signals — asynchronous notifications sent to a running process.</p>
 <h3 id="example-1-listing-available-signals-on-your-system">🛑 Example 1: Listing available signals on your system</h3>
 <p>This example shows how to see all signal names defined in the module.</p>
@@ -1307,6 +1336,274 @@
 📤 Output: <strong>Parent done</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Signal Name</th>
+<th>Purpose</th>
+<th>Typical Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIGALRM</td>
+<td>Timer expiration</td>
+<td>Timeout enforcement</td>
+</tr>
+<tr>
+<td>SIGINT</td>
+<td>Keyboard interrupt</td>
+<td>Graceful shutdown</td>
+</tr>
+<tr>
+<td>SIGCHLD</td>
+<td>Child process status change</td>
+<td>Process monitoring</td>
+</tr>
+<tr>
+<td>SIGTERM</td>
+<td>Termination request</td>
+<td>Clean program exit</td>
+</tr>
+<tr>
+<td>SIGKILL</td>
+<td>Force kill (cannot be caught)</td>
+<td>Emergency stop</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you're working with long-running scripts or system-level tools, you'll often need to handle interruptions, clean up resources, or communicate with running processes. Python's <strong>signal module</strong> gives you the ability to catch and respond to operating system signals—like when someone presses <strong>Ctrl+C</strong> or when a process needs to shut down gracefully. This module is essential for writing robust scripts that behave well in production environments.</p>
+<hr />
+<h3 id="what-are-signals_1">⚙️ What Are Signals?</h3>
+<p>Signals are asynchronous notifications sent to a process by the operating system (or by another process). They are a form of inter-process communication used to indicate events like:</p>
+<ul>
+<li><strong>SIGINT</strong> – Interrupt from keyboard (usually <strong>Ctrl+C</strong>)</li>
+<li><strong>SIGTERM</strong> – Termination request (common in system shutdowns)</li>
+<li><strong>SIGHUP</strong> – Hangup detected (often used to reload configuration)</li>
+<li><strong>SIGKILL</strong> – Force kill (cannot be caught or ignored)</li>
+<li><strong>SIGUSR1</strong> / <strong>SIGUSR2</strong> – User-defined signals for custom behavior</li>
+</ul>
+<p>Each signal has a default behavior (like terminating the process), but you can override that behavior using Python's <strong>signal</strong> module.</p>
+<hr />
+<h3 id="why-use-the-signal-module_1">🛠️ Why Use the Signal Module?</h3>
+<ul>
+<li><strong>Graceful shutdown</strong> – Clean up files, close database connections, or save state before exiting.</li>
+<li><strong>Custom behavior</strong> – Reload configuration files without restarting the script.</li>
+<li><strong>Timeout handling</strong> – Set alarms to interrupt long-running operations.</li>
+<li><strong>Process coordination</strong> – Send signals between parent and child processes.</li>
+</ul>
+<hr />
+<h3 id="core-concepts_1">🕵️ Core Concepts</h3>
+<ul>
+<li><strong>Signal Handlers</strong> – Functions you define to run when a specific signal is received.</li>
+<li><strong>Default Actions</strong> – What the OS does if you don't set a custom handler (e.g., terminate, ignore, or stop).</li>
+<li><strong>Blocking Signals</strong> – Temporarily preventing a signal from being delivered.</li>
+<li><strong>Signal Numbers</strong> – Each signal has a numeric identifier (e.g., <strong>SIGINT</strong> is signal 2, <strong>SIGTERM</strong> is signal 15).</li>
+</ul>
+<hr />
+<h3 id="common-signals-and-their-meanings_1">📊 Common Signals and Their Meanings</h3>
+<table>
+<thead>
+<tr>
+<th>Signal Name</th>
+<th>Number</th>
+<th>Default Action</th>
+<th>Typical Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SIGINT</strong></td>
+<td>2</td>
+<td>Terminate</td>
+<td>Interrupt from keyboard (<strong>Ctrl+C</strong>)</td>
+</tr>
+<tr>
+<td><strong>SIGTERM</strong></td>
+<td>15</td>
+<td>Terminate</td>
+<td>Graceful termination request</td>
+</tr>
+<tr>
+<td><strong>SIGHUP</strong></td>
+<td>1</td>
+<td>Terminate</td>
+<td>Reload configuration or restart</td>
+</tr>
+<tr>
+<td><strong>SIGUSR1</strong></td>
+<td>10</td>
+<td>Terminate</td>
+<td>Custom user-defined action</td>
+</tr>
+<tr>
+<td><strong>SIGUSR2</strong></td>
+<td>12</td>
+<td>Terminate</td>
+<td>Custom user-defined action</td>
+</tr>
+<tr>
+<td><strong>SIGALRM</strong></td>
+<td>14</td>
+<td>Terminate</td>
+<td>Timer expiration (used with <strong>signal.alarm()</strong>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="basic-usage-pattern_1">🧪 Basic Usage Pattern</h3>
+<p>The typical workflow for using the signal module follows these steps:</p>
+<ol>
+<li><strong>Define a handler function</strong> – This function will be called when the signal is received. It usually takes two arguments: the signal number and the current stack frame.</li>
+<li><strong>Register the handler</strong> – Use <strong>signal.signal(signal_number, handler_function)</strong> to tell Python which function to call for a given signal.</li>
+<li><strong>Let the program run</strong> – The handler will be invoked automatically when the signal arrives.</li>
+<li><strong>Use signal.alarm()</strong> (optional) – Set a timer that sends <strong>SIGALRM</strong> after a specified number of seconds.</li>
+</ol>
+<hr />
+<h3 id="simple-example-no-code-blocks_1">🧩 Simple Example (No Code Blocks)</h3>
+<p>To catch <strong>Ctrl+C</strong> and print a message instead of immediately exiting, you would:</p>
+<ul>
+<li>Define a function called <strong>handle_interrupt</strong> that prints "Shutting down gracefully..." and then calls <strong>sys.exit(0)</strong>.</li>
+<li>Register this function with <strong>signal.signal(signal.SIGINT, handle_interrupt)</strong>.</li>
+<li>Run your main program loop. When the user presses <strong>Ctrl+C</strong>, your handler runs instead of the default termination.</li>
+</ul>
+<p>For a timeout scenario:</p>
+<ul>
+<li>Set an alarm using <strong>signal.alarm(5)</strong> to trigger after 5 seconds.</li>
+<li>Define a handler for <strong>SIGALRM</strong> that prints "Operation timed out" and raises an exception.</li>
+<li>Run your long operation. If it finishes before 5 seconds, call <strong>signal.alarm(0)</strong> to cancel the timer.</li>
+</ul>
+<hr />
+<h3 id="important-considerations_1">⚠️ Important Considerations</h3>
+<ul>
+<li><strong>SIGKILL and SIGSTOP</strong> cannot be caught, blocked, or ignored. They are reserved for the operating system.</li>
+<li><strong>Signal handlers must be simple</strong> – Avoid complex logic or blocking calls inside handlers. They run asynchronously and can cause race conditions.</li>
+<li><strong>Windows limitations</strong> – The signal module works on Windows, but only a subset of signals is available (e.g., <strong>SIGINT</strong>, <strong>SIGTERM</strong>). Unix-specific signals like <strong>SIGHUP</strong> or <strong>SIGUSR1</strong> are not supported.</li>
+<li><strong>Threading conflicts</strong> – Signals are only handled in the main thread. If you use threads, signals will be delivered to the main thread only.</li>
+<li><strong>Restoring defaults</strong> – You can reset a signal to its default behavior by passing <strong>signal.SIG_DFL</strong> as the handler.</li>
+</ul>
+<hr />
+<h3 id="best-practices-for-engineers_1">🧠 Best Practices for Engineers</h3>
+<ul>
+<li>Always define a handler for <strong>SIGINT</strong> and <strong>SIGTERM</strong> in long-running scripts to ensure clean shutdown.</li>
+<li>Use <strong>signal.alarm()</strong> to implement timeouts for operations that might hang indefinitely.</li>
+<li>Keep handler functions short – set a flag or queue an event, then handle the actual work in the main loop.</li>
+<li>Test your signal handling in both interactive and daemon (background) modes.</li>
+<li>Remember that signals are delivered asynchronously – your program could be in the middle of anything when a signal arrives.</li>
+</ul>
+<hr />
+<h3 id="summary_1">📦 Summary</h3>
+<ul>
+<li>The <strong>signal module</strong> lets you intercept OS-level signals and define custom behavior.</li>
+<li>Common signals include <strong>SIGINT</strong> (Ctrl+C), <strong>SIGTERM</strong> (termination), and <strong>SIGALRM</strong> (timer).</li>
+<li>Handlers are simple functions registered with <strong>signal.signal()</strong>.</li>
+<li>Use signals for graceful shutdowns, timeouts, and configuration reloads.</li>
+<li>Be mindful of platform limitations and keep handlers lightweight.</li>
+</ul>
+<p>Mastering the signal module gives you fine-grained control over how your Python scripts respond to system events—a critical skill for writing production-ready tools and services.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The Python <code>signal</code> module lets engineers handle operating system signals — asynchronous notifications sent to a running process.</p>
+<h3 id="example-1-listing-available-signals-on-your-system_1">🛑 Example 1: Listing available signals on your system</h3>
+<p>This example shows how to see all signal names defined in the module.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+
+<span class="n">available_signals</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">available_signals</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>['SIGABRT', 'SIGALRM', 'SIGBUS', 'SIGCHLD', 'SIGCLD', 'SIGCONT', 'SIGFPE', 'SIGHUP', 'SIGILL', 'SIGINT']</strong></p>
+<hr />
+<h3 id="example-2-setting-an-alarm-signal-with-sigalrm_1">⏰ Example 2: Setting an alarm signal with SIGALRM</h3>
+<p>This example demonstrates how to schedule a signal to be sent after a fixed number of seconds.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">alarm_handler</span><span class="p">(</span><span class="n">signum</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Alarm went off!&quot;</span><span class="p">)</span>
+
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGALRM</span><span class="p">,</span> <span class="n">alarm_handler</span><span class="p">)</span>
+<span class="n">signal</span><span class="o">.</span><span class="n">alarm</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Waiting for alarm...&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Waiting for alarm...</strong><br />
+📤 Output: <strong>Alarm went off!</strong></p>
+<hr />
+<h3 id="example-3-ignoring-the-interrupt-signal-sigint_1">⌨️ Example 3: Ignoring the interrupt signal (SIGINT)</h3>
+<p>This example shows how to make a process ignore Ctrl+C keyboard interrupts.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">ignore_interrupt</span><span class="p">(</span><span class="n">signum</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Interrupt received, but ignoring it&quot;</span><span class="p">)</span>
+
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">ignore_interrupt</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Press Ctrl+C — I will ignore it&quot;</span><span class="p">)</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done — still running&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Press Ctrl+C — I will ignore it</strong><br />
+📤 Output: <strong>(if you press Ctrl+C) Interrupt received, but ignoring it</strong><br />
+📤 Output: <strong>Done — still running</strong></p>
+<hr />
+<h3 id="example-4-using-sigalrm-to-timeout-a-long-operation_1">⏱️ Example 4: Using SIGALRM to timeout a long operation</h3>
+<p>This example demonstrates a practical use of signals to enforce a time limit on code execution.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">timeout_handler</span><span class="p">(</span><span class="n">signum</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="ne">TimeoutError</span><span class="p">(</span><span class="s2">&quot;Operation took too long&quot;</span><span class="p">)</span>
+
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGALRM</span><span class="p">,</span> <span class="n">timeout_handler</span><span class="p">)</span>
+<span class="n">signal</span><span class="o">.</span><span class="n">alarm</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting slow operation...&quot;</span><span class="p">)</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Operation completed&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">TimeoutError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Timed out: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">signal</span><span class="o">.</span><span class="n">alarm</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Starting slow operation...</strong><br />
+📤 Output: <strong>Timed out: Operation took too long</strong></p>
+<hr />
+<h3 id="example-5-handling-sigchld-to-detect-child-process-exit_1">🔄 Example 5: Handling SIGCHLD to detect child process exit</h3>
+<p>This example shows how to catch when a child process finishes.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">child_done</span><span class="p">(</span><span class="n">signum</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Child process has exited&quot;</span><span class="p">)</span>
+
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGCHLD</span><span class="p">,</span> <span class="n">child_done</span><span class="p">)</span>
+
+<span class="n">pid</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">fork</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">pid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Child process running&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Parent waiting for child&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Parent done&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Parent waiting for child</strong><br />
+📤 Output: <strong>Child process running</strong><br />
+📤 Output: <strong>Child process has exited</strong><br />
+📤 Output: <strong>Parent done</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch04_04_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 04 | The Decimal Module for Precision-Critical Work - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 04 | The Decimal Module for Precision-Critical Work";
         var mkdocs_page_input_path = "Getting Started\\ch04_04_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch04_04_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -228,6 +228,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-financial-calculation-with-decimal">🎯 Example 5: Financial Calculation with Decimal</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-float-vs-decimal">📊 Comparison: Float vs Decimal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-the-decimal-module_1">⚙️ What Is the Decimal Module?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-concepts-at-a-glance_1">📊 Key Concepts at a Glance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-use-the-decimal-module_1">🛠️ How to Use the Decimal Module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-use-cases-for-engineers_1">🕵️ Common Use Cases for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-walkthrough_1">⚡ Practical Example Walkthrough</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-choose-decimal-over-float_1">🧠 When to Choose Decimal Over Float</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📌 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-decimal-creation-and-display_1">🎯 Example 1: Basic Decimal Creation and Display</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-floating-point-vs-decimal-precision_1">🎯 Example 2: Floating-Point vs Decimal Precision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-setting-decimal-precision_1">🎯 Example 3: Setting Decimal Precision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-rounding-with-decimal_1">🎯 Example 4: Rounding with Decimal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-financial-calculation-with-decimal_1">🎯 Example 5: Financial Calculation with Decimal</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-float-vs-decimal_1">📊 Comparison: Float vs Decimal</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="the-decimal-module-for-precision-critical-work">The Decimal Module for Precision-Critical Work</h1>
 <p><span class="category-tag">🏷️ Numbers and Mathematical Operations /  Large Numbers and Precision</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with numbers in Python, you might assume that standard floating-point arithmetic is always accurate. However, due to the way computers store decimal numbers in binary, operations like <strong>0.1 + 0.2</strong> can produce unexpected results like <strong>0.30000000000000004</strong>. For most tasks, this tiny error is harmless. But for precision-critical work—such as financial calculations, scientific measurements, or any scenario where rounding errors compound—you need a more reliable tool. This is where Python's <strong>Decimal module</strong> comes in, giving you exact control over precision and rounding.</p>
@@ -1151,8 +1177,7 @@
 <hr />
 <h3 id="summary">📌 Summary</h3>
 <p>The <strong>Decimal module</strong> is your go-to tool for any work where numeric precision cannot be compromised. It gives you exact decimal arithmetic, configurable precision, and explicit rounding rules—all essential for financial, scientific, and validation tasks. While floating-point numbers are faster and fine for most engineering work, Decimal ensures that when accuracy matters, you get exactly the result you expect. Start by importing <strong>Decimal</strong> from the <strong>decimal</strong> module, create numbers using strings, and adjust the context to match your precision needs.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The Decimal module provides exact decimal arithmetic for engineers who need to avoid floating-point rounding errors in financial, scientific, or measurement calculations.</p>
 <h3 id="example-1-basic-decimal-creation-and-display">🎯 Example 1: Basic Decimal Creation and Display</h3>
 <p>This example shows how to create a Decimal number and see its exact value without floating-point approximation.</p>
@@ -1222,6 +1247,193 @@
 <strong>64.7676</strong> (third line)</p>
 <hr />
 <h3 id="comparison-float-vs-decimal">📊 Comparison: Float vs Decimal</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Float</th>
+<th>Decimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Precision</td>
+<td>Approximate (binary)</td>
+<td>Exact (decimal)</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>Lower</td>
+<td>Higher</td>
+</tr>
+<tr>
+<td>Speed</td>
+<td>Faster</td>
+<td>Slower</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Graphics, science approximations</td>
+<td>Money, measurements, exact math</td>
+</tr>
+<tr>
+<td>Default in Python</td>
+<td>Yes</td>
+<td>No (must import)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with numbers in Python, you might assume that standard floating-point arithmetic is always accurate. However, due to the way computers store decimal numbers in binary, operations like <strong>0.1 + 0.2</strong> can produce unexpected results like <strong>0.30000000000000004</strong>. For most tasks, this tiny error is harmless. But for precision-critical work—such as financial calculations, scientific measurements, or any scenario where rounding errors compound—you need a more reliable tool. This is where Python's <strong>Decimal module</strong> comes in, giving you exact control over precision and rounding.</p>
+<hr />
+<h3 id="what-is-the-decimal-module_1">⚙️ What Is the Decimal Module?</h3>
+<p>The <strong>Decimal module</strong> provides a way to perform arithmetic with decimal numbers that behave exactly like you learned in school. Instead of using binary fractions (which can't represent many decimal values exactly), the Decimal module stores numbers as decimal digits, allowing for precise control over:</p>
+<ul>
+<li><strong>Exact representation</strong> of decimal numbers (no more <strong>0.1 + 0.2</strong> surprises)</li>
+<li><strong>Configurable precision</strong> (how many digits to keep)</li>
+<li><strong>Explicit rounding rules</strong> (round up, round down, round half up, etc.)</li>
+<li><strong>Context management</strong> (set precision and rounding for an entire block of code)</li>
+</ul>
+<hr />
+<h3 id="key-concepts-at-a-glance_1">📊 Key Concepts at a Glance</h3>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>What It Means</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Exact Decimal Representation</strong></td>
+<td>Numbers like <strong>0.1</strong> are stored exactly as <strong>0.1</strong>, not as a binary approximation</td>
+<td>Eliminates floating-point drift in financial or scientific calculations</td>
+</tr>
+<tr>
+<td><strong>Precision</strong></td>
+<td>The total number of significant digits to maintain (default is <strong>28</strong>)</td>
+<td>Controls how many digits are kept before rounding occurs</td>
+</tr>
+<tr>
+<td><strong>Rounding Modes</strong></td>
+<td>Rules like <strong>ROUND_HALF_UP</strong> (standard rounding) or <strong>ROUND_DOWN</strong> (truncation)</td>
+<td>Ensures consistent, predictable rounding behavior</td>
+</tr>
+<tr>
+<td><strong>Context</strong></td>
+<td>A settings object that holds precision, rounding mode, and other options</td>
+<td>Lets you change behavior globally or temporarily for specific operations</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-to-use-the-decimal-module_1">🛠️ How to Use the Decimal Module</h3>
+<p><strong>Importing the module</strong> is your first step. You bring in the <strong>Decimal</strong> class and optionally the <strong>getcontext</strong> function to adjust settings.</p>
+<p><strong>Creating Decimal numbers</strong> is straightforward. You pass a number as a string (recommended) or an integer to the <strong>Decimal()</strong> constructor. Using a string ensures the exact value is captured without any intermediate floating-point error.</p>
+<p><strong>Performing arithmetic</strong> works with standard operators like <strong>+</strong>, <strong>-</strong>, <strong><em>*</em>, and </strong>/**. The result is always a Decimal object, preserving precision according to the current context.</p>
+<p><strong>Setting precision</strong> is done through the context. You call <strong>getcontext().prec = N</strong> where <strong>N</strong> is the number of significant digits you want.</p>
+<p><strong>Choosing a rounding mode</strong> is also done through the context. For example, <strong>getcontext().rounding = ROUND_HALF_UP</strong> gives you the rounding you learned in school.</p>
+<hr />
+<h3 id="common-use-cases-for-engineers_1">🕵️ Common Use Cases for Engineers</h3>
+<ul>
+<li><strong>Financial calculations</strong>: Computing taxes, interest rates, or invoice totals where every cent must be exact</li>
+<li><strong>Scientific measurements</strong>: Recording sensor data or experimental results where floating-point drift is unacceptable</li>
+<li><strong>Unit conversions</strong>: Converting between measurement systems (e.g., inches to centimeters) with guaranteed precision</li>
+<li><strong>Validation and testing</strong>: Comparing expected values against computed results without tolerance for floating-point error</li>
+<li><strong>Configuration files</strong>: Storing precise numeric parameters (like timeout values or rate limits) that must not change due to rounding</li>
+</ul>
+<hr />
+<h3 id="practical-example-walkthrough_1">⚡ Practical Example Walkthrough</h3>
+<p>Imagine you are calculating the total cost of 3 items priced at <strong>$0.10</strong>, <strong>$0.20</strong>, and <strong>$0.30</strong>. With floating-point arithmetic, adding these might give you <strong>0.6000000000000001</strong> instead of the correct <strong>0.60</strong>. Using the Decimal module, you create each price as <strong>Decimal('0.10')</strong>, <strong>Decimal('0.20')</strong>, and <strong>Decimal('0.30')</strong>. Adding them together yields exactly <strong>Decimal('0.60')</strong>.</p>
+<p>Now suppose you need to split a bill of <strong>$10.00</strong> among 3 people. With standard division, you get <strong>3.3333333333333335</strong>. With Decimal, you set the precision to <strong>2</strong> (for dollars and cents) and use <strong>ROUND_HALF_UP</strong>. The result is exactly <strong>3.33</strong> per person, with the remaining penny handled explicitly.</p>
+<hr />
+<h3 id="when-to-choose-decimal-over-float_1">🧠 When to Choose Decimal Over Float</h3>
+<ul>
+<li><strong>Always use Decimal</strong> when dealing with money, currency, or any financial data</li>
+<li><strong>Prefer Decimal</strong> when you need exact decimal representation and predictable rounding</li>
+<li><strong>Stick with float</strong> for performance-critical calculations where tiny errors are acceptable (e.g., graphics, machine learning, most scientific simulations)</li>
+<li><strong>Use Decimal</strong> for configuration values that must remain stable across different systems or Python versions</li>
+</ul>
+<hr />
+<h3 id="summary_1">📌 Summary</h3>
+<p>The <strong>Decimal module</strong> is your go-to tool for any work where numeric precision cannot be compromised. It gives you exact decimal arithmetic, configurable precision, and explicit rounding rules—all essential for financial, scientific, and validation tasks. While floating-point numbers are faster and fine for most engineering work, Decimal ensures that when accuracy matters, you get exactly the result you expect. Start by importing <strong>Decimal</strong> from the <strong>decimal</strong> module, create numbers using strings, and adjust the context to match your precision needs.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The Decimal module provides exact decimal arithmetic for engineers who need to avoid floating-point rounding errors in financial, scientific, or measurement calculations.</p>
+<h3 id="example-1-basic-decimal-creation-and-display_1">🎯 Example 1: Basic Decimal Creation and Display</h3>
+<p>This example shows how to create a Decimal number and see its exact value without floating-point approximation.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+
+<span class="n">value</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;0.1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>0.1</strong></p>
+<hr />
+<h3 id="example-2-floating-point-vs-decimal-precision_1">🎯 Example 2: Floating-Point vs Decimal Precision</h3>
+<p>This example demonstrates the difference between standard float arithmetic and Decimal arithmetic for a simple calculation.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+
+<span class="n">float_result</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span>
+<span class="n">decimal_result</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;0.1&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;0.2&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">float_result</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">decimal_result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>0.30000000000000004</strong> (first line)<br />
+<strong>0.3</strong> (second line)</p>
+<hr />
+<h3 id="example-3-setting-decimal-precision_1">🎯 Example 3: Setting Decimal Precision</h3>
+<p>This example shows how to control the number of decimal places used in calculations.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">getcontext</span>
+
+<span class="n">getcontext</span><span class="p">()</span><span class="o">.</span><span class="n">prec</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>0.3333</strong></p>
+<hr />
+<h3 id="example-4-rounding-with-decimal_1">🎯 Example 4: Rounding with Decimal</h3>
+<p>This example demonstrates how to round a Decimal number to a specific number of decimal places using different rounding modes.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span><span class="p">,</span> <span class="n">ROUND_HALF_UP</span>
+
+<span class="n">value</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;2.675&#39;</span><span class="p">)</span>
+<span class="n">rounded_value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">quantize</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;0.01&#39;</span><span class="p">),</span> <span class="n">rounding</span><span class="o">=</span><span class="n">ROUND_HALF_UP</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">rounded_value</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2.68</strong></p>
+<hr />
+<h3 id="example-5-financial-calculation-with-decimal_1">🎯 Example 5: Financial Calculation with Decimal</h3>
+<p>This example shows a practical use case: calculating total cost with tax for multiple items, ensuring exact monetary values.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+
+<span class="n">item_price</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;19.99&#39;</span><span class="p">)</span>
+<span class="n">quantity</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">)</span>
+<span class="n">tax_rate</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s1">&#39;0.08&#39;</span><span class="p">)</span>
+
+<span class="n">subtotal</span> <span class="o">=</span> <span class="n">item_price</span> <span class="o">*</span> <span class="n">quantity</span>
+<span class="n">tax_amount</span> <span class="o">=</span> <span class="n">subtotal</span> <span class="o">*</span> <span class="n">tax_rate</span>
+<span class="n">total_cost</span> <span class="o">=</span> <span class="n">subtotal</span> <span class="o">+</span> <span class="n">tax_amount</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">subtotal</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tax_amount</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total_cost</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>59.97</strong> (first line)<br />
+<strong>4.7976</strong> (second line)<br />
+<strong>64.7676</strong> (third line)</p>
+<hr />
+<h3 id="comparison-float-vs-decimal_1">📊 Comparison: Float vs Decimal</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch16_05_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 16 | Converting Timestamps Between Regional Zones - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 16 | Converting Timestamps Between Regional Zones";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch16_05_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch16_05_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -779,6 +779,40 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-why-time-zone-conversion-matters_1">🌍 Context: Why Time Zone Conversion Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-concepts_1">⚙️ Core Concepts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#essential-python-libraries_1">🛠️ Essential Python Libraries</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-by-step-conversion-process_1">📊 Step-by-Step Conversion Process</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-converting-utc-to-eastern-time_1">🕵️ Example: Converting UTC to Eastern Time</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-time-zone-strings_1">📋 Comparison Table: Common Time Zone Strings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-use-case-converting-server-log-timestamps_1">🧪 Practical Use Case: Converting Server Log Timestamps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-for-beginners_1">⚠️ Common Pitfalls for Beginners</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices_1">✅ Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference-conversion-template_1">📚 Quick Reference: Conversion Template</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">🔍 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-converting-a-utc-timestamp-to-a-local-time-zone_1">🌍 Example 1: Converting a UTC timestamp to a local time zone</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-converting-from-one-regional-zone-to-another_1">🌍 Example 2: Converting from one regional zone to another</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-converting-a-naive-timestamp-by-assigning-a-time-zone-first_1">🌍 Example 3: Converting a naive timestamp by assigning a time zone first</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-converting-current-utc-time-to-multiple-regional-zones_1">🌍 Example 4: Converting current UTC time to multiple regional zones</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-converting-a-timestamp-string-from-one-zone-to-another_1">🌍 Example 5: Converting a timestamp string from one zone to another</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch16_05_04/">Ch 16 | Architectural Standardization on UTC References</a>
@@ -1082,7 +1116,7 @@
               
                 <h1 id="converting-timestamps-between-regional-zones">Converting Timestamps Between Regional Zones</h1>
 <p><span class="category-tag">🏷️ Working with Dates and Time /  Time Zones</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with systems spread across different geographic locations, timestamps often arrive in various regional time zones. Converting between these zones is essential for accurate logging, monitoring, and data correlation. This guide introduces how to handle time zone conversions using Python's built-in libraries.</p>
@@ -1211,8 +1245,7 @@
 <li>Explore formatting options like <strong>.strftime('%Y-%m-%d %H:%M:%S %Z')</strong> to display the time zone name.</li>
 </ul>
 <p>Time zone conversion is a foundational skill for working with distributed systems. With these tools, you can confidently handle timestamps from any region.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This guide shows how to convert timestamps between different time zones using Python's <code>zoneinfo</code> and <code>datetime</code> modules.</p>
 <hr />
 <h3 id="example-1-converting-a-utc-timestamp-to-a-local-time-zone">🌍 Example 1: Converting a UTC timestamp to a local time zone</h3>
@@ -1283,6 +1316,241 @@
 <p>📤 Output: <strong>2024-12-25 21:00:00+04:00</strong></p>
 <hr />
 <h3 id="comparison-table">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>astimezone()</code></td>
+<td>Converts an aware datetime to another time zone</td>
+<td>Most common conversion method</td>
+</tr>
+<tr>
+<td><code>replace(tzinfo=...)</code></td>
+<td>Assigns a time zone to a naive datetime</td>
+<td>Preparing naive timestamps for conversion</td>
+</tr>
+<tr>
+<td><code>datetime.now(timezone.utc)</code></td>
+<td>Gets current UTC time as an aware datetime</td>
+<td>Starting point for real-time conversions</td>
+</tr>
+<tr>
+<td><code>strptime()</code> + <code>replace()</code></td>
+<td>Parses string and assigns time zone</td>
+<td>Converting log timestamps or user input</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with systems spread across different geographic locations, timestamps often arrive in various regional time zones. Converting between these zones is essential for accurate logging, monitoring, and data correlation. This guide introduces how to handle time zone conversions using Python's built-in libraries.</p>
+<hr />
+<h3 id="context-why-time-zone-conversion-matters_1">🌍 Context: Why Time Zone Conversion Matters</h3>
+<p>Servers, APIs, and databases may record timestamps in UTC, Eastern Time, Pacific Time, or other regional zones. Without proper conversion, comparing events or scheduling tasks across zones can lead to errors. Python provides tools to parse, convert, and display timestamps in any time zone.</p>
+<hr />
+<h3 id="core-concepts_1">⚙️ Core Concepts</h3>
+<ul>
+<li><strong>UTC (Coordinated Universal Time):</strong> The standard reference time zone. Most systems store timestamps in UTC to avoid ambiguity.</li>
+<li><strong>Regional Time Zones:</strong> Local offsets from UTC, such as US/Eastern (UTC-5) or Asia/Tokyo (UTC+9).</li>
+<li><strong>DST (Daylight Saving Time):</strong> Some zones adjust offsets seasonally. Python's time zone libraries handle this automatically.</li>
+</ul>
+<hr />
+<h3 id="essential-python-libraries_1">🛠️ Essential Python Libraries</h3>
+<ul>
+<li><strong>datetime:</strong> Core module for working with dates and times.</li>
+<li><strong>pytz:</strong> Third-party library (most common) for time zone definitions and conversions.</li>
+<li><strong>zoneinfo:</strong> Built-in library (Python 3.9+) for IANA time zone support.</li>
+</ul>
+<p>For new engineers, <strong>pytz</strong> is recommended due to its widespread use and simplicity.</p>
+<hr />
+<h3 id="step-by-step-conversion-process_1">📊 Step-by-Step Conversion Process</h3>
+<ol>
+<li><strong>Create a timestamp</strong> in a known time zone.</li>
+<li><strong>Localize</strong> the timestamp to that zone (attach the time zone info).</li>
+<li><strong>Convert</strong> to the target time zone using the <code>astimezone()</code> method.</li>
+<li><strong>Format</strong> the output for readability.</li>
+</ol>
+<hr />
+<h3 id="example-converting-utc-to-eastern-time_1">🕵️ Example: Converting UTC to Eastern Time</h3>
+<p><strong>Step 1:</strong> Import required libraries:
+- <strong>from datetime import datetime</strong>
+- <strong>import pytz</strong></p>
+<p><strong>Step 2:</strong> Define the time zones:
+- <strong>utc_zone = pytz.utc</strong>
+- <strong>eastern_zone = pytz.timezone('US/Eastern')</strong></p>
+<p><strong>Step 3:</strong> Create a UTC timestamp:
+- <strong>utc_time = datetime(2024, 6, 15, 14, 30, 0, tzinfo=utc_zone)</strong></p>
+<p><strong>Step 4:</strong> Convert to Eastern Time:
+- <strong>eastern_time = utc_time.astimezone(eastern_zone)</strong></p>
+<p><strong>Step 5:</strong> Display the result:
+- <strong>print(eastern_time)</strong> outputs <strong>2024-06-15 10:30:00-04:00</strong></p>
+<hr />
+<h3 id="comparison-table-common-time-zone-strings_1">📋 Comparison Table: Common Time Zone Strings</h3>
+<table>
+<thead>
+<tr>
+<th>Region</th>
+<th>pytz Time Zone String</th>
+<th>UTC Offset (Standard)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UTC</td>
+<td><strong>pytz.utc</strong></td>
+<td>+00:00</td>
+</tr>
+<tr>
+<td>US Eastern</td>
+<td><strong>'US/Eastern'</strong></td>
+<td>-05:00</td>
+</tr>
+<tr>
+<td>US Pacific</td>
+<td><strong>'US/Pacific'</strong></td>
+<td>-08:00</td>
+</tr>
+<tr>
+<td>Europe/London</td>
+<td><strong>'Europe/London'</strong></td>
+<td>+00:00</td>
+</tr>
+<tr>
+<td>Asia/Tokyo</td>
+<td><strong>'Asia/Tokyo'</strong></td>
+<td>+09:00</td>
+</tr>
+<tr>
+<td>Australia/Sydney</td>
+<td><strong>'Australia/Sydney'</strong></td>
+<td>+10:00</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-use-case-converting-server-log-timestamps_1">🧪 Practical Use Case: Converting Server Log Timestamps</h3>
+<p>Imagine a log file records events in UTC, but your team operates in Pacific Time. Here's how to convert:</p>
+<p><strong>Input timestamp from log:</strong> <strong>2024-07-20 23:15:00 UTC</strong></p>
+<p><strong>Conversion steps:</strong>
+- Parse the string: <strong>datetime.strptime('2024-07-20 23:15:00', '%Y-%m-%d %H:%M:%S')</strong>
+- Localize to UTC: <strong>utc_time = utc_zone.localize(parsed_time)</strong>
+- Convert to Pacific: <strong>pacific_time = utc_time.astimezone(pytz.timezone('US/Pacific'))</strong></p>
+<p><strong>Result:</strong> <strong>2024-07-20 16:15:00-07:00</strong> (Pacific Daylight Time)</p>
+<hr />
+<h3 id="common-pitfalls-for-beginners_1">⚠️ Common Pitfalls for Beginners</h3>
+<ul>
+<li><strong>Naive vs. Aware Datetimes:</strong> A naive datetime has no time zone info. Always localize before converting.</li>
+<li><strong>Using <code>replace()</code> Instead of <code>localize()</code>:</strong> Never use <strong>.replace(tzinfo=...)</strong> on a naive datetime; it may ignore DST rules. Always use <strong>pytz.timezone('...').localize(dt)</strong>.</li>
+<li><strong>Forgetting DST:</strong> When converting in March or November, offsets may shift. pytz handles this automatically if you use <code>localize()</code>.</li>
+</ul>
+<hr />
+<h3 id="best-practices_1">✅ Best Practices</h3>
+<ul>
+<li>Store all timestamps in <strong>UTC</strong> internally. Convert to regional zones only for display.</li>
+<li>Use <strong>pytz.utc</strong> for UTC operations to avoid ambiguity.</li>
+<li>Always test conversions around DST transition dates to verify correctness.</li>
+<li>For Python 3.9+, consider using <strong>zoneinfo</strong> for a built-in solution without external dependencies.</li>
+</ul>
+<hr />
+<h3 id="quick-reference-conversion-template_1">📚 Quick Reference: Conversion Template</h3>
+<p><strong>To convert any timestamp between zones:</strong>
+1. <strong>from datetime import datetime</strong>
+2. <strong>import pytz</strong>
+3. <strong>source_zone = pytz.timezone('Source/Zone')</strong>
+4. <strong>target_zone = pytz.timezone('Target/Zone')</strong>
+5. <strong>source_time = source_zone.localize(datetime(2024, 1, 1, 12, 0, 0))</strong>
+6. <strong>converted_time = source_time.astimezone(target_zone)</strong></p>
+<p>This pattern works for any pair of IANA time zones and handles DST automatically.</p>
+<hr />
+<h3 id="next-steps_1">🔍 Next Steps</h3>
+<ul>
+<li>Experiment with converting timestamps from your own system logs.</li>
+<li>Try converting between three or more zones in a single script.</li>
+<li>Explore formatting options like <strong>.strftime('%Y-%m-%d %H:%M:%S %Z')</strong> to display the time zone name.</li>
+</ul>
+<p>Time zone conversion is a foundational skill for working with distributed systems. With these tools, you can confidently handle timestamps from any region.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This guide shows how to convert timestamps between different time zones using Python's <code>zoneinfo</code> and <code>datetime</code> modules.</p>
+<hr />
+<h3 id="example-1-converting-a-utc-timestamp-to-a-local-time-zone_1">🌍 Example 1: Converting a UTC timestamp to a local time zone</h3>
+<p>This example converts a UTC timestamp to US Eastern time.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+
+<span class="n">utc_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+<span class="n">eastern</span> <span class="o">=</span> <span class="n">utc_time</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;America/New_York&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eastern</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-12-25 09:30:00-05:00</strong></p>
+<hr />
+<h3 id="example-2-converting-from-one-regional-zone-to-another_1">🌍 Example 2: Converting from one regional zone to another</h3>
+<p>This example converts a timestamp from Tokyo time to London time.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+
+<span class="n">tokyo_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Asia/Tokyo&quot;</span><span class="p">))</span>
+<span class="n">london_time</span> <span class="o">=</span> <span class="n">tokyo_time</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Europe/London&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">london_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-12-25 11:00:00+00:00</strong></p>
+<hr />
+<h3 id="example-3-converting-a-naive-timestamp-by-assigning-a-time-zone-first_1">🌍 Example 3: Converting a naive timestamp by assigning a time zone first</h3>
+<p>This example shows how to handle a timestamp without time zone info by assigning one before converting.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+
+<span class="n">naive_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">aware_time</span> <span class="o">=</span> <span class="n">naive_time</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;America/Chicago&quot;</span><span class="p">))</span>
+<span class="n">india_time</span> <span class="o">=</span> <span class="n">aware_time</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Asia/Kolkata&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">india_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-12-25 19:30:00+05:30</strong></p>
+<hr />
+<h3 id="example-4-converting-current-utc-time-to-multiple-regional-zones_1">🌍 Example 4: Converting current UTC time to multiple regional zones</h3>
+<p>This example gets the current UTC time and converts it to three different regional zones.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timezone</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+
+<span class="n">now_utc</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+<span class="n">pacific</span> <span class="o">=</span> <span class="n">now_utc</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;America/Los_Angeles&quot;</span><span class="p">))</span>
+<span class="n">berlin</span> <span class="o">=</span> <span class="n">now_utc</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Europe/Berlin&quot;</span><span class="p">))</span>
+<span class="n">sydney</span> <span class="o">=</span> <span class="n">now_utc</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Australia/Sydney&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pacific:&quot;</span><span class="p">,</span> <span class="n">pacific</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Berlin:&quot;</span><span class="p">,</span> <span class="n">berlin</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sydney:&quot;</span><span class="p">,</span> <span class="n">sydney</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Pacific: 2024-12-25 06:30:00-08:00</strong><br />
+📤 Output: <strong>Berlin: 2024-12-25 15:30:00+01:00</strong><br />
+📤 Output: <strong>Sydney: 2024-12-26 01:30:00+11:00</strong></p>
+<hr />
+<h3 id="example-5-converting-a-timestamp-string-from-one-zone-to-another_1">🌍 Example 5: Converting a timestamp string from one zone to another</h3>
+<p>This example parses a timestamp string, assigns a source time zone, and converts to a target zone.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+
+<span class="n">timestamp_str</span> <span class="o">=</span> <span class="s2">&quot;2024-12-25 10:00:00&quot;</span>
+<span class="n">source_zone</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;America/Denver&quot;</span><span class="p">)</span>
+<span class="n">target_zone</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Asia/Dubai&quot;</span><span class="p">)</span>
+
+<span class="n">source_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">timestamp_str</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="n">source_time</span> <span class="o">=</span> <span class="n">source_time</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">source_zone</span><span class="p">)</span>
+<span class="n">target_time</span> <span class="o">=</span> <span class="n">source_time</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">target_zone</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">target_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-12-25 21:00:00+04:00</strong></p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch01_04_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 01 | What a Virtual Environment is and Dependency Isolation - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 01 | What a Virtual Environment is and Dependency Isolation";
         var mkdocs_page_input_path = "Getting Started\\ch01_04_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch01_04_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -110,6 +110,44 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-7-deactivating-and-confirming-you-are-back-to-system-python">🧪 Example 7: Deactivating and confirming you are back to system Python</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-system-python-vs-virtual-environment">Comparison Table: System Python vs Virtual Environment</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-exactly-is-a-virtual-environment_1">⚙️ What Exactly is a Virtual Environment?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#why-dependency-isolation-matters_1">📊 Why Dependency Isolation Matters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-virtual-environments-work-conceptually_1">🛠️ How Virtual Environments Work (Conceptually)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-virtual-environment-tools_1">🕵️ Common Virtual Environment Tools</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-global-vs-virtual-environment_1">📋 Comparison: Global vs Virtual Environment</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#typical-workflow-with-virtual-environments_1">🔄 Typical Workflow with Virtual Environments</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-happens-inside-a-virtual-environment-folder_1">📁 What Happens Inside a Virtual Environment Folder</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#best-practices-for-engineers_1">✅ Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#key-takeaways_1">🎯 Key Takeaways</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-checking-if-you-are-inside-a-virtual-environment_1">🧪 Example 1: Checking if you are inside a virtual environment</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-creating-a-virtual-environment_1">🧪 Example 2: Creating a virtual environment</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-activating-a-virtual-environment-and-checking-python-location_1">🧪 Example 3: Activating a virtual environment and checking Python location</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-listing-installed-packages-inside-and-outside-the-environment_1">🧪 Example 4: Listing installed packages inside and outside the environment</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-installing-a-package-only-inside-the-environment_1">🧪 Example 5: Installing a package only inside the environment</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-6-freezing-dependencies-to-share-with-other-engineers_1">🧪 Example 6: Freezing dependencies to share with other engineers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-7-deactivating-and-confirming-you-are-back-to-system-python_1">🧪 Example 7: Deactivating and confirming you are back to system Python</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-system-python-vs-virtual-environment_1">Comparison Table: System Python vs Virtual Environment</a>
     </li>
     </ul>
                 </li>
@@ -1084,7 +1122,7 @@
               
                 <h1 id="what-a-virtual-environment-is-and-dependency-isolation">What a Virtual Environment is and Dependency Isolation</h1>
 <p><span class="category-tag">🏷️ Setting Up Your Python Environment /  Virtual Environments</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1210,8 +1248,7 @@
 <li>Always activate the environment before installing packages or running your code</li>
 </ul>
 <p>Virtual environments are not optional—they are a fundamental best practice for any Python developer. Once you start using them, you'll wonder how you ever worked without them.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>A virtual environment is an isolated folder that keeps your project's Python packages separate from other projects on your machine.</p>
 <hr />
 <h3 id="example-1-checking-if-you-are-inside-a-virtual-environment">🧪 Example 1: Checking if you are inside a virtual environment</h3>
@@ -1278,6 +1315,239 @@
 <p>📤 Output: <strong>/usr/bin/python3 (or C:\Python311\python.exe)</strong></p>
 <hr />
 <h2 id="comparison-table-system-python-vs-virtual-environment">Comparison Table: System Python vs Virtual Environment</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>System Python</th>
+<th>Virtual Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Package location</td>
+<td>Global (shared by all users)</td>
+<td>Local (inside project folder)</td>
+</tr>
+<tr>
+<td>Package conflicts</td>
+<td>Possible (different projects need different versions)</td>
+<td>Avoided (each project has its own packages)</td>
+</tr>
+<tr>
+<td>Reproducibility</td>
+<td>Hard (depends on system state)</td>
+<td>Easy (use <code>requirements.txt</code>)</td>
+</tr>
+<tr>
+<td>Cleanup</td>
+<td>Risk of breaking other projects</td>
+<td>Delete the folder — no side effects</td>
+</tr>
+<tr>
+<td>Sharing with engineers</td>
+<td>Not recommended</td>
+<td>Recommended (just share <code>requirements.txt</code>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When you start working with Python, you'll quickly realize that different projects need different versions of libraries and packages. Imagine you have one project that requires <strong>Django 3.2</strong> and another that needs <strong>Django 4.0</strong>. If you install both globally, they will conflict and break each other. This is where <strong>virtual environments</strong> come to the rescue.</p>
+<p>A virtual environment is like a <strong>sandbox</strong> for your Python project. It creates an isolated space where you can install specific versions of packages without affecting other projects or your system's global Python installation.</p>
+<hr />
+<h3 id="what-exactly-is-a-virtual-environment_1">⚙️ What Exactly is a Virtual Environment?</h3>
+<p>A virtual environment is a self-contained directory that contains:
+- A specific Python interpreter version
+- Its own set of installed packages
+- Its own scripts and binaries</p>
+<p>When you activate a virtual environment, your terminal session temporarily switches to use this isolated environment. Any packages you install or Python commands you run will only affect that environment, not your global system.</p>
+<hr />
+<h3 id="why-dependency-isolation-matters_1">📊 Why Dependency Isolation Matters</h3>
+<p>Dependency isolation solves several critical problems:</p>
+<ul>
+<li><strong>Version Conflicts</strong>: Different projects can use different versions of the same library without breaking each other</li>
+<li><strong>Clean System</strong>: Your global Python installation stays clean and minimal</li>
+<li><strong>Reproducibility</strong>: You can share your project with others knowing exactly which packages and versions are needed</li>
+<li><strong>Experimentation</strong>: You can test new libraries or versions without risking your existing projects</li>
+<li><strong>Team Collaboration</strong>: Every team member can have identical environments for the same project</li>
+</ul>
+<hr />
+<h3 id="how-virtual-environments-work-conceptually_1">🛠️ How Virtual Environments Work (Conceptually)</h3>
+<p>Think of a virtual environment as a <strong>copy of Python</strong> that lives inside your project folder. When you activate it:</p>
+<ul>
+<li>Your <strong>PATH</strong> is modified so that Python commands point to the environment's copy</li>
+<li>Package installations go into the environment's own <strong>site-packages</strong> folder</li>
+<li>The environment has its own <strong>pip</strong> and <strong>Python executable</strong></li>
+</ul>
+<p>When you deactivate the environment, everything returns to normal as if nothing happened.</p>
+<hr />
+<h3 id="common-virtual-environment-tools_1">🕵️ Common Virtual Environment Tools</h3>
+<p>There are several tools available for creating virtual environments:</p>
+<ul>
+<li><strong>venv</strong>: Built into Python 3.3+, no extra installation needed</li>
+<li><strong>virtualenv</strong>: A third-party tool that works with older Python versions</li>
+<li><strong>conda</strong>: Used with Anaconda distributions, good for data science projects</li>
+<li><strong>pipenv</strong>: Combines pip and virtualenv with a lock file for reproducibility</li>
+<li><strong>poetry</strong>: Modern dependency management with virtual environment support</li>
+</ul>
+<p>For most engineers starting out, <strong>venv</strong> is the simplest and most recommended choice since it comes with Python itself.</p>
+<hr />
+<h3 id="comparison-global-vs-virtual-environment_1">📋 Comparison: Global vs Virtual Environment</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Global Environment</th>
+<th>Virtual Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Package Scope</td>
+<td>All projects share the same packages</td>
+<td>Each project has its own packages</td>
+</tr>
+<tr>
+<td>Version Flexibility</td>
+<td>One version per package for all projects</td>
+<td>Different versions allowed per project</td>
+</tr>
+<tr>
+<td>System Impact</td>
+<td>Can break system tools if packages conflict</td>
+<td>No impact on system or other projects</td>
+</tr>
+<tr>
+<td>Reproducibility</td>
+<td>Hard to track exact dependencies</td>
+<td>Easy to export and recreate</td>
+</tr>
+<tr>
+<td>Cleanup</td>
+<td>Difficult to remove unused packages</td>
+<td>Just delete the environment folder</td>
+</tr>
+<tr>
+<td>Sharing</td>
+<td>Impossible to guarantee same setup</td>
+<td>Simple with a requirements file</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="typical-workflow-with-virtual-environments_1">🔄 Typical Workflow with Virtual Environments</h3>
+<p>The typical workflow for using virtual environments follows this pattern:</p>
+<ol>
+<li><strong>Create</strong> a new virtual environment inside your project folder</li>
+<li><strong>Activate</strong> the environment to start using it</li>
+<li><strong>Install</strong> the packages your project needs</li>
+<li><strong>Work</strong> on your project with confidence that dependencies are isolated</li>
+<li><strong>Deactivate</strong> the environment when you're done</li>
+<li><strong>Delete</strong> the environment folder when the project is complete</li>
+</ol>
+<hr />
+<h3 id="what-happens-inside-a-virtual-environment-folder_1">📁 What Happens Inside a Virtual Environment Folder</h3>
+<p>When you create a virtual environment, it generates a folder (commonly named <strong>venv</strong> or <strong>.venv</strong>) containing:</p>
+<ul>
+<li>A <strong>bin</strong> or <strong>Scripts</strong> folder with the Python executable and activation scripts</li>
+<li>A <strong>lib</strong> or <strong>Lib</strong> folder with the Python standard library and site-packages</li>
+<li>A <strong>pyvenv.cfg</strong> configuration file pointing to the original Python installation</li>
+</ul>
+<p>This folder is completely self-contained and can be deleted at any time without affecting anything else.</p>
+<hr />
+<h3 id="best-practices-for-engineers_1">✅ Best Practices for Engineers</h3>
+<ul>
+<li><strong>Always use a virtual environment</strong> for every project, no matter how small</li>
+<li><strong>Keep the environment folder inside your project</strong> for easy management</li>
+<li><strong>Never commit the environment folder</strong> to version control (add it to <strong>.gitignore</strong>)</li>
+<li><strong>Use a requirements file</strong> to track your project's dependencies</li>
+<li><strong>Name your environment folder</strong> something standard like <strong>venv</strong> or <strong>.venv</strong></li>
+<li><strong>Recreate environments</strong> rather than moving or copying them between machines</li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">🎯 Key Takeaways</h3>
+<ul>
+<li>A virtual environment is an <strong>isolated Python workspace</strong> for each project</li>
+<li>Dependency isolation prevents <strong>version conflicts</strong> between projects</li>
+<li>Python's built-in <strong>venv</strong> module is the simplest tool to get started</li>
+<li>Virtual environments make your projects <strong>portable and reproducible</strong></li>
+<li>Always activate the environment before installing packages or running your code</li>
+</ul>
+<p>Virtual environments are not optional—they are a fundamental best practice for any Python developer. Once you start using them, you'll wonder how you ever worked without them.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>A virtual environment is an isolated folder that keeps your project's Python packages separate from other projects on your machine.</p>
+<hr />
+<h3 id="example-1-checking-if-you-are-inside-a-virtual-environment_1">🧪 Example 1: Checking if you are inside a virtual environment</h3>
+<p>This shows how to see whether your current Python session is running inside a virtual environment.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">prefix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">base_prefix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">prefix</span> <span class="o">!=</span> <span class="n">sys</span><span class="o">.</span><span class="n">base_prefix</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>/usr (or C:\Python311) / /usr (or C:\Python311) / False</strong></p>
+<hr />
+<h3 id="example-2-creating-a-virtual-environment_1">🧪 Example 2: Creating a virtual environment</h3>
+<p>This demonstrates the command to create a fresh, empty virtual environment in your project folder.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run this in your terminal, not in Python</span>
+<span class="c1"># python -m venv my_project_env</span>
+</code></pre></div>
+<p>📤 Output: <strong>A new folder named "my_project_env" is created in your current directory</strong></p>
+<hr />
+<h3 id="example-3-activating-a-virtual-environment-and-checking-python-location_1">🧪 Example 3: Activating a virtual environment and checking Python location</h3>
+<p>This shows how to activate the environment and confirm your Python interpreter now lives inside the isolated folder.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run these commands in your terminal</span>
+<span class="c1"># On macOS/Linux: source my_project_env/bin/activate</span>
+<span class="c1"># On Windows: my_project_env\Scripts\activate</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>/home/user/my_project_env/bin/python (or similar path inside your environment)</strong></p>
+<hr />
+<h3 id="example-4-listing-installed-packages-inside-and-outside-the-environment_1">🧪 Example 4: Listing installed packages inside and outside the environment</h3>
+<p>This demonstrates that a fresh virtual environment has no extra packages, while your system Python may have many.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run this after activating your environment</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;pip&quot;</span><span class="p">,</span> <span class="s2">&quot;list&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>pip, setuptools, wheel (only these three default packages)</strong></p>
+<hr />
+<h3 id="example-5-installing-a-package-only-inside-the-environment_1">🧪 Example 5: Installing a package only inside the environment</h3>
+<p>This shows how to install a package that will be available only when the environment is active.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run this in your terminal after activating the environment</span>
+<span class="c1"># pip install requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://api.github.com&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>200</strong></p>
+<hr />
+<h3 id="example-6-freezing-dependencies-to-share-with-other-engineers_1">🧪 Example 6: Freezing dependencies to share with other engineers</h3>
+<p>This demonstrates how to save the exact list of packages so other engineers can recreate your environment.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run this in your terminal after activating the environment</span>
+<span class="c1"># pip freeze &gt; requirements.txt</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;requirements.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>requests==2.31.0 certifi==2024.2.2 charset-normalizer==3.3.2 idna==3.6 urllib3==2.2.1</strong></p>
+<hr />
+<h3 id="example-7-deactivating-and-confirming-you-are-back-to-system-python_1">🧪 Example 7: Deactivating and confirming you are back to system Python</h3>
+<p>This shows how to leave the virtual environment and verify your Python path returns to the system default.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run this in your terminal</span>
+<span class="c1"># deactivate</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>/usr/bin/python3 (or C:\Python311\python.exe)</strong></p>
+<hr />
+<h2 id="comparison-table-system-python-vs-virtual-environment_1">Comparison Table: System Python vs Virtual Environment</h2>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch20_05_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 20 | Ingesting Parameters Out of Separate JSON or YAML Files - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 20 | Ingesting Parameters Out of Separate JSON or YAML Files";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch20_05_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch20_05_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -963,6 +963,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-use-separate-configuration-files_1">⚙️ Why Use Separate Configuration Files?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#json-vs-yaml-a-quick-comparison_1">📂 JSON vs YAML: A Quick Comparison</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#loading-parameters-from-a-json-file_1">🛠️ Loading Parameters from a JSON File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#loading-parameters-from-a-yaml-file_1">🛠️ Loading Parameters from a YAML File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-configuration-management_1">🕵️ Best Practices for Configuration Management</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">📊 Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together-a-simple-workflow_1">🧪 Putting It All Together: A Simple Workflow</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-reading-a-simple-json-file_1">📂 Example 1: Reading a Simple JSON File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-reading-a-simple-yaml-file_1">📂 Example 2: Reading a Simple YAML File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-accessing-nested-values-from-json_1">📂 Example 3: Accessing Nested Values from JSON</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-yaml-with-lists-of-values_1">📂 Example 4: Using YAML with Lists of Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-merging-defaults-with-user-overrides_1">📂 Example 5: Merging Defaults with User Overrides</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch20_05_04/">Ch 20 | Anti-Pattern Warning: Hardcoding Passwords and IPs</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="ingesting-parameters-out-of-separate-json-or-yaml-files">Ingesting Parameters Out of Separate JSON or YAML Files</h1>
 <p><span class="category-tag">🏷️ Python Scripting Best Practices /  Configuration Management</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1209,8 +1237,7 @@
 <li><strong>Run your script</strong> with different config files to test different environments.</li>
 </ol>
 <p>This approach ensures your scripts are flexible, maintainable, and ready for production use across various environments without code changes.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This technique lets you store settings in separate files so your Python scripts can read them without hardcoding values.</p>
 <hr />
 <h3 id="example-1-reading-a-simple-json-file">📂 Example 1: Reading a Simple JSON File</h3>
@@ -1281,6 +1308,255 @@
 <p><em>(Assumes overrides.json contains: <code>{"timeout": 60, "debug": true}</code>)</em></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>JSON</th>
+<th>YAML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File extension</td>
+<td><code>.json</code></td>
+<td><code>.yaml</code> or <code>.yml</code></td>
+</tr>
+<tr>
+<td>Python import</td>
+<td><code>import json</code></td>
+<td><code>import yaml</code></td>
+</tr>
+<tr>
+<td>Load function</td>
+<td><code>json.load(file)</code></td>
+<td><code>yaml.safe_load(file)</code></td>
+</tr>
+<tr>
+<td>Supports comments</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Human readability</td>
+<td>Good</td>
+<td>Excellent</td>
+</tr>
+<tr>
+<td>Common use case</td>
+<td>API configs</td>
+<td>Complex settings</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When building automation scripts or tools, hardcoding values like API endpoints, database credentials, or file paths directly into your code is a common pitfall. A better approach is to store these parameters in separate configuration files using <strong>JSON</strong> or <strong>YAML</strong> formats. This practice makes your scripts reusable, easier to maintain, and safer to share across teams. Instead of editing code every time an environment changes, you simply update the configuration file.</p>
+<hr />
+<h3 id="why-use-separate-configuration-files_1">⚙️ Why Use Separate Configuration Files?</h3>
+<ul>
+<li><strong>Separation of Concerns</strong> – Keeps logic and configuration independent.</li>
+<li><strong>Reusability</strong> – Same script can run in development, staging, and production by swapping config files.</li>
+<li><strong>Security</strong> – Sensitive data (like passwords) can be excluded from version control.</li>
+<li><strong>Clarity</strong> – Non-technical team members can modify settings without touching code.</li>
+</ul>
+<hr />
+<h3 id="json-vs-yaml-a-quick-comparison_1">📂 JSON vs YAML: A Quick Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>JSON</th>
+<th>YAML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Good, but can become cluttered with braces</td>
+<td>Excellent, uses indentation like Python</td>
+</tr>
+<tr>
+<td><strong>Comments</strong></td>
+<td>Not supported natively</td>
+<td>Supported with <code>#</code></td>
+</tr>
+<tr>
+<td><strong>Data Types</strong></td>
+<td>Strings, numbers, booleans, arrays, objects</td>
+<td>Same, plus dates and multi-line strings</td>
+</tr>
+<tr>
+<td><strong>File Extension</strong></td>
+<td><code>.json</code></td>
+<td><code>.yaml</code> or <code>.yml</code></td>
+</tr>
+<tr>
+<td><strong>Python Library</strong></td>
+<td>Built-in <code>json</code> module</td>
+<td>Third-party <code>pyyaml</code> library</td>
+</tr>
+<tr>
+<td><strong>Best For</strong></td>
+<td>Simple key-value pairs, API responses</td>
+<td>Complex configurations, human-readable files</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="loading-parameters-from-a-json-file_1">🛠️ Loading Parameters from a JSON File</h3>
+<p><strong>Step 1: Create your JSON configuration file</strong> (e.g., <code>config.json</code>)</p>
+<ul>
+<li>The file contains key-value pairs where keys are strings and values can be strings, numbers, lists, or nested objects.</li>
+<li>Example structure: a dictionary with keys like <code>database_host</code>, <code>database_port</code>, <code>api_key</code>, and <code>timeout_seconds</code>.</li>
+</ul>
+<p><strong>Step 2: Import the <code>json</code> module</strong> in your Python script</p>
+<ul>
+<li>This module is part of Python's standard library, so no installation is needed.</li>
+</ul>
+<p><strong>Step 3: Open and load the file</strong></p>
+<ul>
+<li>Use the <code>open()</code> function to read the file in read mode.</li>
+<li>Pass the file object to <code>json.load()</code> to convert the JSON content into a Python dictionary.</li>
+</ul>
+<p><strong>Step 4: Access the parameters</strong></p>
+<ul>
+<li>Use dictionary key lookups to retrieve values, for example: <code>config["database_host"]</code>.</li>
+</ul>
+<p><strong>Example inline flow:</strong></p>
+<p>Your script starts by importing <code>json</code>. Then you define a variable like <code>config_file_path = "config.json"</code>. You open the file using <code>with open(config_file_path, "r") as file:</code> and inside that block, you call <code>config = json.load(file)</code>. Now <code>config</code> is a dictionary containing all your parameters. You can print or use any value by referencing its key.</p>
+<hr />
+<h3 id="loading-parameters-from-a-yaml-file_1">🛠️ Loading Parameters from a YAML File</h3>
+<p><strong>Step 1: Install the <code>pyyaml</code> library</strong></p>
+<ul>
+<li>Run <code>pip install pyyaml</code> in your terminal or add it to your <code>requirements.txt</code>.</li>
+</ul>
+<p><strong>Step 2: Create your YAML configuration file</strong> (e.g., <code>config.yaml</code>)</p>
+<ul>
+<li>YAML uses indentation (spaces, not tabs) to define structure.</li>
+<li>Comments start with <code>#</code> and are ignored when loading.</li>
+</ul>
+<p><strong>Step 3: Import the <code>yaml</code> module</strong></p>
+<ul>
+<li>After installation, you can import it with <code>import yaml</code>.</li>
+</ul>
+<p><strong>Step 4: Open and load the file</strong></p>
+<ul>
+<li>Similar to JSON, use <code>open()</code> to read the file.</li>
+<li>Pass the file object to <code>yaml.safe_load()</code> to convert YAML content into a Python dictionary.</li>
+</ul>
+<p><strong>Step 5: Access the parameters</strong></p>
+<ul>
+<li>Use dictionary key lookups just like with JSON.</li>
+</ul>
+<p><strong>Example inline flow:</strong></p>
+<p>Your script begins with <code>import yaml</code>. You set a variable like <code>config_file = "config.yaml"</code>. Using <code>with open(config_file, "r") as stream:</code>, you load the content with <code>config = yaml.safe_load(stream)</code>. Now <code>config</code> holds all your settings as a Python dictionary.</p>
+<hr />
+<h3 id="best-practices-for-configuration-management_1">🕵️ Best Practices for Configuration Management</h3>
+<ul>
+<li><strong>Use environment variables for secrets</strong> – Never hardcode passwords or API keys in config files. Instead, reference environment variables inside your config or use a secrets manager.</li>
+<li><strong>Validate configuration on load</strong> – Check that required keys exist and values are of the expected type. This prevents runtime errors.</li>
+<li><strong>Provide default values</strong> – Use the <code>.get()</code> method on dictionaries to supply fallback values if a key is missing.</li>
+<li><strong>Keep config files outside your source code</strong> – Store them in a separate directory or use a <code>.env</code> file approach.</li>
+<li><strong>Use a single entry point</strong> – Create a helper function like <code>load_config(file_path)</code> that handles both JSON and YAML formats based on file extension.</li>
+</ul>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">📊 Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Forgetting to close the file</strong> – Always use the <code>with</code> statement to ensure files are properly closed after reading.</li>
+<li><strong>Mixing tabs and spaces in YAML</strong> – YAML is strict about indentation; always use spaces.</li>
+<li><strong>Assuming all values are strings</strong> – JSON and YAML preserve data types. A number like <code>8080</code> will be loaded as an integer, not a string.</li>
+<li><strong>Storing config files in version control with real secrets</strong> – Use <code>.gitignore</code> to exclude sensitive config files or use template files with placeholder values.</li>
+<li><strong>Not handling file-not-found errors</strong> – Wrap your file loading logic in a <code>try-except</code> block to provide meaningful error messages.</li>
+</ul>
+<hr />
+<h3 id="putting-it-all-together-a-simple-workflow_1">🧪 Putting It All Together: A Simple Workflow</h3>
+<ol>
+<li><strong>Create a configuration file</strong> (JSON or YAML) with your parameters.</li>
+<li><strong>Write a Python script</strong> that imports the appropriate module (<code>json</code> or <code>yaml</code>).</li>
+<li><strong>Define a function</strong> to load the configuration, with error handling for missing files or invalid syntax.</li>
+<li><strong>Access the parameters</strong> throughout your script using the returned dictionary.</li>
+<li><strong>Run your script</strong> with different config files to test different environments.</li>
+</ol>
+<p>This approach ensures your scripts are flexible, maintainable, and ready for production use across various environments without code changes.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This technique lets you store settings in separate files so your Python scripts can read them without hardcoding values.</p>
+<hr />
+<h3 id="example-1-reading-a-simple-json-file_1">📂 Example 1: Reading a Simple JSON File</h3>
+<p>This shows how to load a single value from a JSON file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="n">server_name</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;server&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>📤 Output: <strong>"web-server-01"</strong></p>
+<p><em>(Assumes config.json contains: <code>{"server": "web-server-01"}</code>)</em></p>
+<hr />
+<h3 id="example-2-reading-a-simple-yaml-file_1">📂 Example 2: Reading a Simple YAML File</h3>
+<p>This shows how to load a single value from a YAML file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;settings.yaml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">settings</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="n">port_number</span> <span class="o">=</span> <span class="n">settings</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>📤 Output: <strong>8080</strong></p>
+<p><em>(Assumes settings.yaml contains: <code>port: 8080</code>)</em></p>
+<hr />
+<h3 id="example-3-accessing-nested-values-from-json_1">📂 Example 3: Accessing Nested Values from JSON</h3>
+<p>This shows how to read a value that is inside a nested dictionary in a JSON file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;database.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">db_config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="n">host</span> <span class="o">=</span> <span class="n">db_config</span><span class="p">[</span><span class="s2">&quot;connection&quot;</span><span class="p">][</span><span class="s2">&quot;host&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>📤 Output: <strong>"localhost"</strong></p>
+<p><em>(Assumes database.json contains: <code>{"connection": {"host": "localhost", "port": 5432}}</code>)</em></p>
+<hr />
+<h3 id="example-4-using-yaml-with-lists-of-values_1">📂 Example 4: Using YAML with Lists of Values</h3>
+<p>This shows how to read a list of items from a YAML file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;servers.yaml&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">server_list</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="n">first_server</span> <span class="o">=</span> <span class="n">server_list</span><span class="p">[</span><span class="s2">&quot;nodes&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<p>📤 Output: <strong>"node-01"</strong></p>
+<p><em>(Assumes servers.yaml contains: <code>nodes: ["node-01", "node-02", "node-03"]</code>)</em></p>
+<hr />
+<h3 id="example-5-merging-defaults-with-user-overrides_1">📂 Example 5: Merging Defaults with User Overrides</h3>
+<p>This shows how to combine default settings with overrides from a separate JSON file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;timeout&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s2">&quot;retries&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;debug&quot;</span><span class="p">:</span> <span class="kc">False</span>
+<span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;overrides.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">overrides</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="n">merged</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">defaults</span><span class="p">,</span> <span class="o">**</span><span class="n">overrides</span><span class="p">}</span>
+<span class="n">final_timeout</span> <span class="o">=</span> <span class="n">merged</span><span class="p">[</span><span class="s2">&quot;timeout&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>📤 Output: <strong>60</strong></p>
+<p><em>(Assumes overrides.json contains: <code>{"timeout": 60, "debug": true}</code>)</em></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch17_04_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 17 | Implementing Manual Retry Backoff Loops - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 17 | Implementing Manual Retry Backoff Loops";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch17_04_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch17_04_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -815,6 +815,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-retry-backoff-loop_1">🧠 What Is a Retry Backoff Loop?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-use-manual-retry-backoff_1">⚙️ Why Use Manual Retry Backoff?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simple-retry-loop-fixed-delay_1">📊 Simple Retry Loop (Fixed Delay)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exponential-backoff-loop_1">📈 Exponential Backoff Loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-fixed-delay-vs-exponential-backoff_1">🛠️ Comparison: Fixed Delay vs. Exponential Backoff</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-jitter-for-real-world-robustness_1">🕵️ Adding Jitter for Real-World Robustness</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-implementation-tips_1">🧩 Practical Implementation Tips</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-simple-fixed-delay-retry-loop_1">⏳ Example 1: Simple Fixed-Delay Retry Loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-linear-backoff-increasing-delay_1">⏳ Example 2: Linear Backoff (Increasing Delay)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-exponential-backoff-doubling-delay_1">⏳ Example 3: Exponential Backoff (Doubling Delay)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-exponential-backoff-with-jitter-random-variation_1">⏳ Example 4: Exponential Backoff with Jitter (Random Variation)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-retry-with-success-condition-and-max-cap_1">⏳ Example 5: Retry with Success Condition and Max Cap</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch17_05_01/">Ch 17 | Parsing Payload Content into Native Objects via .json()</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="implementing-manual-retry-backoff-loops">Implementing Manual Retry Backoff Loops</h1>
 <p><span class="category-tag">🏷️ APIs and HTTP Requests /  Timeouts and Error Handling</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When your code makes requests to external services—like APIs, databases, or cloud endpoints—things don't always go smoothly. Networks get slow, servers become overloaded, or a temporary glitch causes a request to fail. Instead of giving up immediately, a smart approach is to <strong>retry the request</strong>, but with a delay that increases each time. This is called a <strong>retry backoff loop</strong>, and it helps reduce load on the target service while giving it time to recover.</p>
@@ -1180,8 +1208,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Manual retry backoff loops give you fine-grained control over how your code handles temporary failures. By choosing between fixed delays and exponential backoff—and adding jitter—you can build resilient integrations that play nicely with external services. Start simple, then add sophistication as your system grows.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>A manual retry backoff loop retries a failed operation with increasing delays between attempts to avoid overwhelming a service.</p>
 <hr />
 <h3 id="example-1-simple-fixed-delay-retry-loop">⏳ Example 1: Simple Fixed-Delay Retry Loop</h3>
@@ -1350,6 +1377,319 @@ Service is healthy<br />
 Operation completed successfully</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Backoff Strategy</th>
+<th>Delay Pattern</th>
+<th>Best Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fixed Delay</td>
+<td>Constant (e.g., 1s)</td>
+<td>Simple retries for predictable failures</td>
+</tr>
+<tr>
+<td>Linear Backoff</td>
+<td>Increases by fixed amount (e.g., 2s, 4s, 6s)</td>
+<td>Gradual recovery from temporary issues</td>
+</tr>
+<tr>
+<td>Exponential Backoff</td>
+<td>Doubles each time (e.g., 1s, 2s, 4s, 8s)</td>
+<td>Reducing server load during outages</td>
+</tr>
+<tr>
+<td>Exponential with Jitter</td>
+<td>Doubles + random variation</td>
+<td>Preventing thundering herd problems</td>
+</tr>
+<tr>
+<td>Capped Exponential</td>
+<td>Doubles up to a maximum limit</td>
+<td>Protecting against runaway wait times</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When your code makes requests to external services—like APIs, databases, or cloud endpoints—things don't always go smoothly. Networks get slow, servers become overloaded, or a temporary glitch causes a request to fail. Instead of giving up immediately, a smart approach is to <strong>retry the request</strong>, but with a delay that increases each time. This is called a <strong>retry backoff loop</strong>, and it helps reduce load on the target service while giving it time to recover.</p>
+<hr />
+<h3 id="what-is-a-retry-backoff-loop_1">🧠 What Is a Retry Backoff Loop?</h3>
+<p>A retry backoff loop is a pattern where you:</p>
+<ul>
+<li>Attempt an operation (like an HTTP request).</li>
+<li>If it fails, wait for a short period.</li>
+<li>Try again.</li>
+<li>If it fails again, wait longer.</li>
+<li>Repeat until either the operation succeeds or you reach a maximum number of attempts.</li>
+</ul>
+<p>The "backoff" part means the wait time grows—often exponentially—between each retry. This prevents you from hammering a struggling server with rapid, repeated requests.</p>
+<hr />
+<h3 id="why-use-manual-retry-backoff_1">⚙️ Why Use Manual Retry Backoff?</h3>
+<ul>
+<li><strong>Resilience</strong> – Your code can recover from transient failures (e.g., network timeouts, 503 Service Unavailable).</li>
+<li><strong>Fairness</strong> – You avoid overwhelming a service that is already under stress.</li>
+<li><strong>Control</strong> – You decide exactly how many retries happen and how long to wait between them.</li>
+</ul>
+<hr />
+<h3 id="simple-retry-loop-fixed-delay_1">📊 Simple Retry Loop (Fixed Delay)</h3>
+<p>The most basic retry loop uses a constant wait time between attempts.</p>
+<p><strong>Example logic:</strong></p>
+<ul>
+<li>Set a maximum number of retries (e.g., 3).</li>
+<li>For each attempt, try the operation.</li>
+<li>If it succeeds, break out of the loop.</li>
+<li>If it fails, wait for a fixed number of seconds (e.g., 2 seconds), then try again.</li>
+<li>After all retries are exhausted, handle the failure (e.g., log an error or raise an exception).</li>
+</ul>
+<p><strong>When to use:</strong> When the failure is likely to be very short-lived and you don't need to be gentle with the target service.</p>
+<hr />
+<h3 id="exponential-backoff-loop_1">📈 Exponential Backoff Loop</h3>
+<p>Exponential backoff increases the wait time by multiplying it by a factor (usually 2) after each failure.</p>
+<p><strong>Example logic:</strong></p>
+<ul>
+<li>Start with a base delay (e.g., 1 second).</li>
+<li>After each failed attempt, multiply the delay by 2 (1s → 2s → 4s → 8s).</li>
+<li>Add a small random "jitter" to prevent multiple clients from retrying at exactly the same time (thundering herd problem).</li>
+</ul>
+<p><strong>When to use:</strong> When the target service is shared or might be under heavy load. This is the standard pattern for production-grade retry logic.</p>
+<hr />
+<h3 id="comparison-fixed-delay-vs-exponential-backoff_1">🛠️ Comparison: Fixed Delay vs. Exponential Backoff</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Fixed Delay Retry</th>
+<th>Exponential Backoff</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wait time between retries</td>
+<td>Constant (e.g., 2s)</td>
+<td>Grows (e.g., 1s, 2s, 4s, 8s)</td>
+</tr>
+<tr>
+<td>Load on target service</td>
+<td>Higher (constant pressure)</td>
+<td>Lower (gives time to recover)</td>
+</tr>
+<tr>
+<td>Risk of thundering herd</td>
+<td>High</td>
+<td>Low (especially with jitter)</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Low</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Best use case</td>
+<td>Simple scripts, local services</td>
+<td>Production APIs, cloud services</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="adding-jitter-for-real-world-robustness_1">🕵️ Adding Jitter for Real-World Robustness</h3>
+<p>Jitter is a small random amount added to your backoff delay. Without jitter, if many clients all retry at the same intervals, they can synchronize and overwhelm the server together.</p>
+<p><strong>How to add jitter:</strong></p>
+<ul>
+<li>Calculate the base backoff delay (e.g., 4 seconds).</li>
+<li>Add a random value between 0 and 1 second.</li>
+<li>Wait for the total (e.g., 4.37 seconds).</li>
+</ul>
+<p>This spreads out retry attempts across time, making your system more resilient in shared environments.</p>
+<hr />
+<h3 id="practical-implementation-tips_1">🧩 Practical Implementation Tips</h3>
+<ul>
+<li><strong>Always set a maximum retry limit</strong> – Without one, your loop could run forever if the service is permanently down.</li>
+<li><strong>Log each retry attempt</strong> – Record the attempt number, delay used, and error received. This helps with debugging.</li>
+<li><strong>Consider the type of failure</strong> – Not all errors should trigger a retry. For example, a 400 Bad Request (client error) will likely fail again, while a 503 Service Unavailable (server error) is worth retrying.</li>
+<li><strong>Use a reasonable base delay</strong> – 1 second is common for exponential backoff. Adjust based on the service's expected response time.</li>
+<li><strong>Cap the maximum delay</strong> – Even with exponential growth, set an upper limit (e.g., 60 seconds) so you never wait unreasonably long.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Manual retry backoff loops give you fine-grained control over how your code handles temporary failures. By choosing between fixed delays and exponential backoff—and adding jitter—you can build resilient integrations that play nicely with external services. Start simple, then add sophistication as your system grows.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>A manual retry backoff loop retries a failed operation with increasing delays between attempts to avoid overwhelming a service.</p>
+<hr />
+<h3 id="example-1-simple-fixed-delay-retry-loop_1">⏳ Example 1: Simple Fixed-Delay Retry Loop</h3>
+<p>This example retries a failing operation three times with a 1-second delay between each attempt.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">max_retries</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_retries</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Attempting operation...&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Service unavailable&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="n">attempts</span> <span class="o">=</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempt </span><span class="si">{</span><span class="n">attempts</span><span class="si">}</span><span class="s2"> failed: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_retries</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All retries exhausted&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Attempting operation...<br />
+Attempt 1 failed: Service unavailable<br />
+Attempting operation...<br />
+Attempt 2 failed: Service unavailable<br />
+Attempting operation...<br />
+Attempt 3 failed: Service unavailable<br />
+All retries exhausted</strong></p>
+<hr />
+<h3 id="example-2-linear-backoff-increasing-delay_1">⏳ Example 2: Linear Backoff (Increasing Delay)</h3>
+<p>This example increases the delay by 2 seconds after each failed attempt.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">max_retries</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">base_delay</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_retries</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Calling external API...&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="s2">&quot;Timeout error&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ConnectionError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="n">attempts</span> <span class="o">=</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">delay</span> <span class="o">=</span> <span class="n">base_delay</span> <span class="o">*</span> <span class="n">attempts</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Retry </span><span class="si">{</span><span class="n">attempts</span><span class="si">}</span><span class="s2">: waiting </span><span class="si">{</span><span class="n">delay</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_retries</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Max retries reached&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Calling external API...<br />
+Retry 1: waiting 2 seconds<br />
+Calling external API...<br />
+Retry 2: waiting 4 seconds<br />
+Calling external API...<br />
+Retry 3: waiting 6 seconds<br />
+Calling external API...<br />
+Retry 4: waiting 8 seconds<br />
+Max retries reached</strong></p>
+<hr />
+<h3 id="example-3-exponential-backoff-doubling-delay_1">⏳ Example 3: Exponential Backoff (Doubling Delay)</h3>
+<p>This example doubles the wait time after each failed attempt to reduce load on the server.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">max_retries</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_retries</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sending request...&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TimeoutError</span><span class="p">(</span><span class="s2">&quot;Server not responding&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TimeoutError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="n">attempts</span> <span class="o">=</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempt </span><span class="si">{</span><span class="n">attempts</span><span class="si">}</span><span class="s2"> failed. Waiting </span><span class="si">{</span><span class="n">delay</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_retries</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+            <span class="n">delay</span> <span class="o">=</span> <span class="n">delay</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Operation failed after 5 attempts&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Sending request...<br />
+Attempt 1 failed. Waiting 1 seconds<br />
+Sending request...<br />
+Attempt 2 failed. Waiting 2 seconds<br />
+Sending request...<br />
+Attempt 3 failed. Waiting 4 seconds<br />
+Sending request...<br />
+Attempt 4 failed. Waiting 8 seconds<br />
+Sending request...<br />
+Attempt 5 failed. Waiting 16 seconds<br />
+Operation failed after 5 attempts</strong></p>
+<hr />
+<h3 id="example-4-exponential-backoff-with-jitter-random-variation_1">⏳ Example 4: Exponential Backoff with Jitter (Random Variation)</h3>
+<p>This example adds random jitter to prevent multiple retries from hitting the server at the same time.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">max_retries</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">base_delay</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_retries</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fetching data from API...&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="s2">&quot;Rate limit exceeded&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ConnectionError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="n">attempts</span> <span class="o">=</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">jitter</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">delay</span> <span class="o">=</span> <span class="p">(</span><span class="n">base_delay</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">attempts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span> <span class="o">+</span> <span class="n">jitter</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Retry </span><span class="si">{</span><span class="n">attempts</span><span class="si">}</span><span class="s2">: waiting </span><span class="si">{</span><span class="n">delay</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_retries</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All retry attempts completed&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Fetching data from API...<br />
+Retry 1: waiting 1.34 seconds<br />
+Fetching data from API...<br />
+Retry 2: waiting 2.18 seconds<br />
+Fetching data from API...<br />
+Retry 3: waiting 4.42 seconds<br />
+Fetching data from API...<br />
+Retry 4: waiting 8.07 seconds<br />
+All retry attempts completed</strong></p>
+<hr />
+<h3 id="example-5-retry-with-success-condition-and-max-cap_1">⏳ Example 5: Retry with Success Condition and Max Cap</h3>
+<p>This example retries until success or until a maximum delay cap is reached, then stops.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">max_retries</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">delay</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">max_delay</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">while</span> <span class="n">attempts</span> <span class="o">&lt;</span> <span class="n">max_retries</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Checking service health...&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">attempts</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Service is healthy&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Service not ready&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="n">attempts</span> <span class="o">=</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">delay</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">delay</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">max_delay</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attempt </span><span class="si">{</span><span class="n">attempts</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">. Waiting </span><span class="si">{</span><span class="n">delay</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Operation completed successfully&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Operation failed after all retries&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Checking service health...<br />
+Attempt 1: Service not ready. Waiting 2 seconds<br />
+Checking service health...<br />
+Attempt 2: Service not ready. Waiting 4 seconds<br />
+Checking service health...<br />
+Attempt 3: Service not ready. Waiting 8 seconds<br />
+Checking service health...<br />
+Service is healthy<br />
+Operation completed successfully</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

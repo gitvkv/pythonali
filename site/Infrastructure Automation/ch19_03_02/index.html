@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch19_03_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 19 | Extracting Row Cells as Dictionary Keys via DictReader - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 19 | Extracting Row Cells as Dictionary Keys via DictReader";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch19_03_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch19_03_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -899,6 +899,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-dictreader-vs-standard-csvreader">📊 Comparison: DictReader vs Standard csv.reader</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">📝 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-dictreader-works_1">⚙️ How DictReader Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-usage-example_1">🛠️ Basic Usage Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-dictreader-vs-standard-reader_1">📊 Comparison: DictReader vs. Standard Reader</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#advanced-techniques-with-dictreader_1">🕵️ Advanced Techniques with DictReader</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-processing-configuration-data_1">🧪 Practical Example: Processing Configuration Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📚 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-dictreader-with-a-simple-csv_1">🧪 Example 1: Basic DictReader with a Simple CSV</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-accessing-specific-cell-values-by-key-name_1">🧪 Example 2: Accessing Specific Cell Values by Key Name</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-dictreader-with-custom-fieldnames_1">🧪 Example 3: Using DictReader with Custom Fieldnames</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-skipping-extra-columns-with-dictreader_1">🧪 Example 4: Skipping Extra Columns with DictReader</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-building-a-list-of-dictionaries-from-a-csv-file_1">🧪 Example 5: Building a List of Dictionaries from a CSV File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-dictreader-vs-standard-csvreader_1">📊 Comparison: DictReader vs Standard csv.reader</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch19_03_03/">Ch 19 | Emitting Flat Array Records into Files via csv.writer</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="extracting-row-cells-as-dictionary-keys-via-dictreader">Extracting Row Cells as Dictionary Keys via DictReader</h1>
 <p><span class="category-tag">🏷️ Structured Data Formats: JSON, YAML, and CSV /  CSV In-Depth</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">📝 Context Introduction</h3>
@@ -1216,8 +1244,7 @@
 <hr />
 <h3 id="summary">📚 Summary</h3>
 <p>Using <strong>DictReader</strong> to extract row cells as dictionary keys is a fundamental skill for anyone working with CSV data in Python. It bridges the gap between raw tabular data and structured, readable code. By leveraging column names as keys, you write code that is self-documenting, resilient to column reordering, and easier to maintain over time. Whether you are processing server inventories, configuration files, or log exports, DictReader provides a clean and efficient way to access and manipulate your data.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p><code>DictReader</code> reads each row of a CSV file as a dictionary, using the header row's values as the dictionary keys.</p>
 <hr />
 <h3 id="example-1-basic-dictreader-with-a-simple-csv">🧪 Example 1: Basic DictReader with a Simple CSV</h3>
@@ -1321,6 +1348,290 @@
 <p>📤 Output: <strong><code>[{'device': 'sensor_01', 'status': 'online', 'location': 'room_A'}, {'device': 'sensor_02', 'status': 'offline', 'location': 'room_B'}, {'device': 'sensor_03', 'status': 'online', 'location': 'room_C'}]</code></strong></p>
 <hr />
 <h3 id="comparison-dictreader-vs-standard-csvreader">📊 Comparison: DictReader vs Standard csv.reader</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>csv.DictReader</th>
+<th>csv.reader</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Output type</td>
+<td>Dictionary per row</td>
+<td>List per row</td>
+</tr>
+<tr>
+<td>Uses header as keys</td>
+<td>Yes (automatic)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Access by column name</td>
+<td>Yes (<code>row["name"]</code>)</td>
+<td>No (must use index <code>row[0]</code>)</td>
+</tr>
+<tr>
+<td>Custom fieldnames</td>
+<td>Supported via <code>fieldnames</code> parameter</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td>Best for engineers</td>
+<td>When column names are known and stable</td>
+<td>When position-based access is preferred</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">📝 Context Introduction</h3>
+<p>When working with CSV files in Python, one of the most common tasks is reading rows and accessing their values by column names rather than by numeric index positions. The <strong>DictReader</strong> class from Python's built-in <code>csv</code> module handles this elegantly by treating each row as an <strong>ordered dictionary</strong>, where column headers become the dictionary keys and row cells become the corresponding values. This approach makes your code more readable, maintainable, and less error-prone compared to traditional row indexing.</p>
+<hr />
+<h3 id="how-dictreader-works_1">⚙️ How DictReader Works</h3>
+<ul>
+<li><strong>DictReader</strong> reads the first row of a CSV file as the <strong>header row</strong> and uses those values as dictionary keys for every subsequent row.</li>
+<li>Each row returned is an <strong>OrderedDict</strong> object, preserving the order of columns as they appear in the file.</li>
+<li>You can access cell values using the column header name instead of a numeric index, like <strong>row['column_name']</strong> instead of <strong>row[2]</strong>.</li>
+</ul>
+<hr />
+<h3 id="basic-usage-example_1">🛠️ Basic Usage Example</h3>
+<p>Consider a CSV file named <strong>employees.csv</strong> with the following content:</p>
+<ul>
+<li><strong>Header row:</strong> Name, Department, Salary, Start_Date</li>
+<li><strong>Data rows:</strong></li>
+<li>Alice, Engineering, 85000, 2022-03-15</li>
+<li>Bob, Marketing, 72000, 2021-07-01</li>
+<li>Carol, Engineering, 91000, 2023-01-10</li>
+</ul>
+<p>To read this file using DictReader:</p>
+<ul>
+<li><strong>Step 1:</strong> Import the csv module: <strong>import csv</strong></li>
+<li><strong>Step 2:</strong> Open the file using a context manager: <strong>with open('employees.csv', mode='r') as file:</strong></li>
+<li><strong>Step 3:</strong> Create a DictReader object: <strong>reader = csv.DictReader(file)</strong></li>
+<li><strong>Step 4:</strong> Loop through each row: <strong>for row in reader:</strong></li>
+<li><strong>Step 5:</strong> Access cell values by key: <strong>print(row['Name'], row['Department'])</strong></li>
+</ul>
+<p>Expected output for each row would be:</p>
+<ul>
+<li><strong>Alice Engineering</strong></li>
+<li><strong>Bob Marketing</strong></li>
+<li><strong>Carol Engineering</strong></li>
+</ul>
+<hr />
+<h3 id="comparison-dictreader-vs-standard-reader_1">📊 Comparison: DictReader vs. Standard Reader</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>DictReader</th>
+<th>Standard Reader</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Access method</td>
+<td>By column name (e.g., <strong>row['Name']</strong>)</td>
+<td>By index position (e.g., <strong>row[0]</strong>)</td>
+</tr>
+<tr>
+<td>Header handling</td>
+<td>Automatically uses first row as keys</td>
+<td>Requires manual handling</td>
+</tr>
+<tr>
+<td>Code readability</td>
+<td>High - names are self-documenting</td>
+<td>Low - indices are cryptic</td>
+</tr>
+<tr>
+<td>Error risk</td>
+<td>Low - column order changes are handled</td>
+<td>High - reordering breaks code</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>Slightly more (stores header mapping)</td>
+<td>Minimal</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Data analysis, reporting, configuration</td>
+<td>Simple data extraction, fixed formats</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="advanced-techniques-with-dictreader_1">🕵️ Advanced Techniques with DictReader</h3>
+<p><strong>Specifying Custom Fieldnames</strong></p>
+<p>If your CSV file does not have a header row, you can provide your own fieldnames:</p>
+<ul>
+<li><strong>reader = csv.DictReader(file, fieldnames=['Name', 'Department', 'Salary', 'Start_Date'])</strong></li>
+<li>This forces DictReader to use your provided list as keys instead of reading the first row.</li>
+</ul>
+<p><strong>Handling Missing or Extra Columns</strong></p>
+<ul>
+<li>If a row has fewer cells than the header, missing values become <strong>None</strong>.</li>
+<li>If a row has more cells than the header, extra values are ignored by default.</li>
+<li>You can control this behavior using the <strong>restkey</strong> and <strong>restval</strong> parameters:</li>
+<li><strong>reader = csv.DictReader(file, restkey='extra_fields', restval='N/A')</strong></li>
+</ul>
+<p><strong>Filtering Rows by Condition</strong></p>
+<p>You can easily filter rows based on cell values:</p>
+<ul>
+<li><strong>for row in reader:</strong></li>
+<li><strong>if row['Department'] == 'Engineering':</strong><ul>
+<li><strong>print(row['Name'], row['Salary'])</strong></li>
+</ul>
+</li>
+</ul>
+<p>This would output only Alice and Carol from our example.</p>
+<hr />
+<h3 id="practical-example-processing-configuration-data_1">🧪 Practical Example: Processing Configuration Data</h3>
+<p>Imagine a CSV file named <strong>servers.csv</strong> with columns: <strong>Hostname, IP_Address, OS, CPU_Cores, RAM_GB</strong></p>
+<ul>
+<li><strong>Data rows:</strong></li>
+<li>web-01, 10.0.1.10, Ubuntu 22.04, 4, 16</li>
+<li>db-01, 10.0.1.20, CentOS 8, 8, 32</li>
+<li>cache-01, 10.0.1.30, Ubuntu 22.04, 2, 8</li>
+</ul>
+<p>Using DictReader to extract and process this data:</p>
+<ul>
+<li><strong>with open('servers.csv', mode='r') as file:</strong></li>
+<li><strong>reader = csv.DictReader(file)</strong></li>
+<li><strong>for server in reader:</strong><ul>
+<li><strong>print(f"Host: {server['Hostname']} | OS: {server['OS']} | RAM: {server['RAM_GB']}GB")</strong></li>
+</ul>
+</li>
+</ul>
+<p>Expected output:</p>
+<ul>
+<li><strong>Host: web-01 | OS: Ubuntu 22.04 | RAM: 16GB</strong></li>
+<li><strong>Host: db-01 | OS: CentOS 8 | RAM: 32GB</strong></li>
+<li><strong>Host: cache-01 | OS: Ubuntu 22.04 | RAM: 8GB</strong></li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li><strong>DictReader</strong> transforms CSV rows into dictionaries, making data access intuitive and robust.</li>
+<li>Column headers become dictionary keys, eliminating reliance on fragile numeric indices.</li>
+<li>The class handles missing data gracefully with <strong>None</strong> or custom default values.</li>
+<li>Custom fieldnames allow working with headerless CSV files seamlessly.</li>
+<li>This approach is ideal for data processing tasks where column names are stable but order may vary.</li>
+</ul>
+<hr />
+<h3 id="summary_1">📚 Summary</h3>
+<p>Using <strong>DictReader</strong> to extract row cells as dictionary keys is a fundamental skill for anyone working with CSV data in Python. It bridges the gap between raw tabular data and structured, readable code. By leveraging column names as keys, you write code that is self-documenting, resilient to column reordering, and easier to maintain over time. Whether you are processing server inventories, configuration files, or log exports, DictReader provides a clean and efficient way to access and manipulate your data.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><code>DictReader</code> reads each row of a CSV file as a dictionary, using the header row's values as the dictionary keys.</p>
+<hr />
+<h3 id="example-1-basic-dictreader-with-a-simple-csv_1">🧪 Example 1: Basic DictReader with a Simple CSV</h3>
+<p>This example shows how <code>DictReader</code> automatically uses the first row as keys for each subsequent row's values.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">csv_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;name,age,role</span>
+<span class="s2">Alice,30,Engineer</span>
+<span class="s2">Bob,25,Designer</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;team.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">csv_data</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;team.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>{'name': 'Alice', 'age': '30', 'role': 'Engineer'}</code></strong><br />
+📤 Output: <strong><code>{'name': 'Bob', 'age': '25', 'role': 'Designer'}</code></strong></p>
+<hr />
+<h3 id="example-2-accessing-specific-cell-values-by-key-name_1">🧪 Example 2: Accessing Specific Cell Values by Key Name</h3>
+<p>This example shows how to extract a single field from each row using the column name as a dictionary key.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">csv_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;city,population,country</span>
+<span class="s2">Tokyo,13960000,Japan</span>
+<span class="s2">Berlin,3645000,Germany</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;cities.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">csv_data</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;cities.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>Tokyo</code></strong><br />
+📤 Output: <strong><code>Berlin</code></strong></p>
+<hr />
+<h3 id="example-3-using-dictreader-with-custom-fieldnames_1">🧪 Example 3: Using DictReader with Custom Fieldnames</h3>
+<p>This example shows how to override the header row by passing a <code>fieldnames</code> list to <code>DictReader</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">csv_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Alice,30,Engineer</span>
+<span class="s2">Bob,25,Designer</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;people.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">csv_data</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;people.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">],</span> <span class="s2">&quot;years old&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>Alice is 30 years old</code></strong><br />
+📤 Output: <strong><code>Bob is 25 years old</code></strong></p>
+<hr />
+<h3 id="example-4-skipping-extra-columns-with-dictreader_1">🧪 Example 4: Skipping Extra Columns with DictReader</h3>
+<p>This example shows how <code>DictReader</code> ignores columns not present in the header when extra data exists.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">csv_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;name,age</span>
+<span class="s2">Charlie,28,extra_data</span>
+<span class="s2">Diana,32,more_extra</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;filtered.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">csv_data</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;filtered.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>{'name': 'Charlie', 'age': '28'}</code></strong><br />
+📤 Output: <strong><code>{'name': 'Diana', 'age': '32'}</code></strong></p>
+<hr />
+<h3 id="example-5-building-a-list-of-dictionaries-from-a-csv-file_1">🧪 Example 5: Building a List of Dictionaries from a CSV File</h3>
+<p>This example shows how to collect all rows into a list for later processing by engineers.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">csv_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;device,status,location</span>
+<span class="s2">sensor_01,online,room_A</span>
+<span class="s2">sensor_02,offline,room_B</span>
+<span class="s2">sensor_03,online,room_C</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;devices.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">csv_data</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;devices.csv&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">device_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">device_list</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><code>[{'device': 'sensor_01', 'status': 'online', 'location': 'room_A'}, {'device': 'sensor_02', 'status': 'offline', 'location': 'room_B'}, {'device': 'sensor_03', 'status': 'online', 'location': 'room_C'}]</code></strong></p>
+<hr />
+<h3 id="comparison-dictreader-vs-standard-csvreader_1">📊 Comparison: DictReader vs Standard csv.reader</h3>
 <table>
 <thead>
 <tr>

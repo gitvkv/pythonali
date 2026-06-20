@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch16_03_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 16 | Creating Timedeltas and Measurement Offsets - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 16 | Creating Timedeltas and Measurement Offsets";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch16_03_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch16_03_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -754,6 +754,38 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-creating-a-timedelta-from-a-floating-point-number-of-days">🧮 Example 5: Creating a timedelta from a floating-point number of days</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-timedelta-creation-methods">📊 Comparison Table: Common timedelta Creation Methods</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-a-timedelta_1">⚙️ What is a Timedelta?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#creating-timedeltas_1">🛠️ Creating Timedeltas</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#timedelta-with-different-units_1">📊 Timedelta with Different Units</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#using-timedeltas-for-measurement-offsets_1">🕵️ Using Timedeltas for Measurement Offsets</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-measurement-offsets-for-engineers_1">📐 Common Measurement Offsets for Engineers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparing-timedeltas_1">🧪 Comparing Timedeltas</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#important-notes_1">⚠️ Important Notes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#quick-reference_1">🧩 Quick Reference</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-creating-a-basic-timedelta-with-days_1">🧱 Example 1: Creating a basic timedelta with days</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-creating-a-timedelta-with-hours-and-minutes_1">⏱️ Example 2: Creating a timedelta with hours and minutes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-creating-a-timedelta-with-weeks-days-and-seconds_1">⚙️ Example 3: Creating a timedelta with weeks, days, and seconds</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-creating-a-negative-timedelta-for-past-offsets_1">📐 Example 4: Creating a negative timedelta for past offsets</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-creating-a-timedelta-from-a-floating-point-number-of-days_1">🧮 Example 5: Creating a timedelta from a floating-point number of days</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-timedelta-creation-methods_1">📊 Comparison Table: Common timedelta Creation Methods</a>
     </li>
     </ul>
                 </li>
@@ -1078,7 +1110,7 @@
               
                 <h1 id="creating-timedeltas-and-measurement-offsets">Creating Timedeltas and Measurement Offsets</h1>
 <p><span class="category-tag">🏷️ Working with Dates and Time /  Date Arithmetic with Timedelta</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1254,8 +1286,7 @@
 </tbody>
 </table>
 <p>Timedeltas are a fundamental tool for any engineer working with dates and times. They make date arithmetic clean, readable, and reliable — whether you're calculating expiry dates, scheduling tasks, or measuring intervals between events.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>A <code>timedelta</code> represents a duration of time—the difference between two dates or times—and can be used to create offsets for date arithmetic.</p>
 <hr />
 <h3 id="example-1-creating-a-basic-timedelta-with-days">🧱 Example 1: Creating a basic timedelta with days</h3>
@@ -1304,6 +1335,271 @@
 <p>📤 Output: <strong>12:00:00</strong></p>
 <hr />
 <h2 id="comparison-table-common-timedelta-creation-methods">📊 Comparison Table: Common timedelta Creation Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Days only</td>
+<td><code>timedelta(days=10)</code></td>
+<td>10 days, 0:00:00</td>
+</tr>
+<tr>
+<td>Hours and minutes</td>
+<td><code>timedelta(hours=2, minutes=15)</code></td>
+<td>2:15:00</td>
+</tr>
+<tr>
+<td>Weeks and seconds</td>
+<td><code>timedelta(weeks=1, seconds=1800)</code></td>
+<td>7 days, 0:30:00</td>
+</tr>
+<tr>
+<td>Negative offset</td>
+<td><code>timedelta(days=-3)</code></td>
+<td>-3 days, 0:00:00</td>
+</tr>
+<tr>
+<td>Fractional days</td>
+<td><code>timedelta(days=1.75)</code></td>
+<td>1 day, 18:00:00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When working with dates and times in Python, you'll often need to measure the difference between two moments or shift a date forward or backward by a specific amount. This is where <strong>timedelta</strong> objects come in. A timedelta represents a duration — the difference between two dates or times. Think of it as a "time bucket" you can add to or subtract from a datetime to calculate new dates, measure intervals, or create offsets for scheduling and monitoring tasks.</p>
+<hr />
+<h3 id="what-is-a-timedelta_1">⚙️ What is a Timedelta?</h3>
+<p>A <strong>timedelta</strong> is a Python object from the <strong>datetime</strong> module that stores a duration of time. It can hold days, seconds, and microseconds (and internally converts weeks, hours, and minutes into these base units).</p>
+<p>Key characteristics:
+- Timedeltas can be positive or negative
+- They support arithmetic with datetime objects (addition and subtraction)
+- They can be compared with each other (greater than, less than, equal)
+- They are immutable (cannot be changed after creation)</p>
+<hr />
+<h3 id="creating-timedeltas_1">🛠️ Creating Timedeltas</h3>
+<p>You create a timedelta by passing keyword arguments to the <strong>timedelta()</strong> constructor. The most commonly used arguments are:</p>
+<ul>
+<li><strong>days</strong> — number of days</li>
+<li><strong>seconds</strong> — number of seconds</li>
+<li><strong>microseconds</strong> — number of microseconds</li>
+<li><strong>milliseconds</strong> — number of milliseconds (1000 microseconds)</li>
+<li><strong>minutes</strong> — number of minutes (60 seconds)</li>
+<li><strong>hours</strong> — number of hours (3600 seconds)</li>
+<li><strong>weeks</strong> — number of weeks (7 days)</li>
+</ul>
+<p><strong>Example: Creating a 3-day timedelta</strong></p>
+<ul>
+<li><strong>from datetime import timedelta</strong></li>
+<li><strong>three_days = timedelta(days=3)</strong></li>
+<li>This creates a duration of exactly 3 days.</li>
+</ul>
+<p><strong>Example: Creating a 2-hour, 30-minute timedelta</strong></p>
+<ul>
+<li><strong>two_hours_thirty = timedelta(hours=2, minutes=30)</strong></li>
+<li>This creates a duration of 2 hours and 30 minutes (9000 seconds).</li>
+</ul>
+<p><strong>Example: Creating a negative timedelta (going backward)</strong></p>
+<ul>
+<li><strong>negative_offset = timedelta(days=-5)</strong></li>
+<li>This represents a duration of negative 5 days.</li>
+</ul>
+<hr />
+<h3 id="timedelta-with-different-units_1">📊 Timedelta with Different Units</h3>
+<p>You can mix and match any combination of arguments. Python automatically normalizes the values into days, seconds, and microseconds.</p>
+<table>
+<thead>
+<tr>
+<th>Argument Combination</th>
+<th>Resulting Duration</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>timedelta(days=1)</strong></td>
+<td>1 day</td>
+<td>Most common use case</td>
+</tr>
+<tr>
+<td><strong>timedelta(hours=24)</strong></td>
+<td>1 day</td>
+<td>24 hours = 1 day</td>
+</tr>
+<tr>
+<td><strong>timedelta(weeks=2)</strong></td>
+<td>14 days</td>
+<td>2 weeks = 14 days</td>
+</tr>
+<tr>
+<td><strong>timedelta(minutes=90)</strong></td>
+<td>1 hour 30 minutes</td>
+<td>90 minutes = 5400 seconds</td>
+</tr>
+<tr>
+<td><strong>timedelta(seconds=3600)</strong></td>
+<td>1 hour</td>
+<td>3600 seconds = 1 hour</td>
+</tr>
+<tr>
+<td><strong>timedelta(milliseconds=500)</strong></td>
+<td>0.5 seconds</td>
+<td>500 milliseconds = 0.5 seconds</td>
+</tr>
+<tr>
+<td><strong>timedelta(days=1, hours=-6)</strong></td>
+<td>18 hours</td>
+<td>Negative hours subtract from days</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="using-timedeltas-for-measurement-offsets_1">🕵️ Using Timedeltas for Measurement Offsets</h3>
+<p>The real power of timedeltas comes when you combine them with datetime objects. You can add or subtract a timedelta from a datetime to calculate a new date and time.</p>
+<p><strong>Example: Calculating a date 7 days from now</strong></p>
+<ul>
+<li><strong>from datetime import datetime, timedelta</strong></li>
+<li><strong>today = datetime.now()</strong></li>
+<li><strong>next_week = today + timedelta(days=7)</strong></li>
+<li>The variable <strong>next_week</strong> now holds the datetime exactly 7 days in the future.</li>
+</ul>
+<p><strong>Example: Finding what date was 30 days ago</strong></p>
+<ul>
+<li><strong>thirty_days_ago = today - timedelta(days=30)</strong></li>
+<li>This subtracts 30 days from today's date.</li>
+</ul>
+<p><strong>Example: Shifting by hours for a maintenance window</strong></p>
+<ul>
+<li><strong>maintenance_start = datetime(2024, 6, 15, 2, 0, 0)</strong></li>
+<li><strong>maintenance_end = maintenance_start + timedelta(hours=4)</strong></li>
+<li>This creates a 4-hour maintenance window starting at 2:00 AM.</li>
+</ul>
+<hr />
+<h3 id="common-measurement-offsets-for-engineers_1">📐 Common Measurement Offsets for Engineers</h3>
+<p>Here are practical timedelta patterns you'll use frequently:</p>
+<ul>
+<li><strong>1 hour offset</strong> — <strong>timedelta(hours=1)</strong> — for hourly checks or rotations</li>
+<li><strong>24 hours offset</strong> — <strong>timedelta(days=1)</strong> — for daily reports or log rotation</li>
+<li><strong>7 days offset</strong> — <strong>timedelta(weeks=1)</strong> — for weekly backups or certificate checks</li>
+<li><strong>30 days offset</strong> — <strong>timedelta(days=30)</strong> — for monthly metrics or expiry warnings</li>
+<li><strong>90 days offset</strong> — <strong>timedelta(days=90)</strong> — for quarterly reviews or certificate renewal</li>
+<li><strong>365 days offset</strong> — <strong>timedelta(days=365)</strong> — for annual events or year-over-year comparisons</li>
+</ul>
+<hr />
+<h3 id="comparing-timedeltas_1">🧪 Comparing Timedeltas</h3>
+<p>You can compare two timedelta objects to see which duration is longer.</p>
+<p><strong>Example: Checking if one offset is larger than another</strong></p>
+<ul>
+<li><strong>one_day = timedelta(days=1)</strong></li>
+<li><strong>one_week = timedelta(weeks=1)</strong></li>
+<li><strong>one_day &lt; one_week</strong> — This returns <strong>True</strong> because 1 day is less than 7 days.</li>
+<li><strong>one_day == timedelta(hours=24)</strong> — This returns <strong>True</strong> because both represent the same duration.</li>
+</ul>
+<hr />
+<h3 id="important-notes_1">⚠️ Important Notes</h3>
+<ul>
+<li>Timedeltas only store days, seconds, and microseconds internally. When you create one with weeks, hours, or minutes, Python converts them automatically.</li>
+<li>You cannot create a timedelta with months or years because those durations vary (months have different lengths, and years can be leap years). For month or year offsets, use the <strong>dateutil</strong> library's <strong>relativedelta</strong>.</li>
+<li>Adding a timedelta to a datetime handles timezone-naive datetimes. For timezone-aware datetimes, use libraries like <strong>pytz</strong> or <strong>zoneinfo</strong> for proper handling.</li>
+</ul>
+<hr />
+<h3 id="quick-reference_1">🧩 Quick Reference</h3>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create a 1-day offset</td>
+<td><strong>timedelta(days=1)</strong></td>
+</tr>
+<tr>
+<td>Create a 1-hour offset</td>
+<td><strong>timedelta(hours=1)</strong></td>
+</tr>
+<tr>
+<td>Create a 30-minute offset</td>
+<td><strong>timedelta(minutes=30)</strong></td>
+</tr>
+<tr>
+<td>Add offset to today</td>
+<td><strong>datetime.now() + timedelta(days=5)</strong></td>
+</tr>
+<tr>
+<td>Subtract offset from a date</td>
+<td><strong>datetime(2024, 1, 1) - timedelta(weeks=2)</strong></td>
+</tr>
+<tr>
+<td>Compare two durations</td>
+<td><strong>timedelta(days=10) &gt; timedelta(days=5)</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Timedeltas are a fundamental tool for any engineer working with dates and times. They make date arithmetic clean, readable, and reliable — whether you're calculating expiry dates, scheduling tasks, or measuring intervals between events.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>A <code>timedelta</code> represents a duration of time—the difference between two dates or times—and can be used to create offsets for date arithmetic.</p>
+<hr />
+<h3 id="example-1-creating-a-basic-timedelta-with-days_1">🧱 Example 1: Creating a basic timedelta with days</h3>
+<p>This example shows how to create a timedelta representing a specific number of days.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">timedelta</span>
+
+<span class="n">one_week</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">one_week</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>7 days, 0:00:00</strong></p>
+<hr />
+<h3 id="example-2-creating-a-timedelta-with-hours-and-minutes_1">⏱️ Example 2: Creating a timedelta with hours and minutes</h3>
+<p>This example shows how to create a timedelta using hours and minutes together.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">timedelta</span>
+
+<span class="n">meeting_duration</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">minutes</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">meeting_duration</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>1:30:00</strong></p>
+<hr />
+<h3 id="example-3-creating-a-timedelta-with-weeks-days-and-seconds_1">⚙️ Example 3: Creating a timedelta with weeks, days, and seconds</h3>
+<p>This example shows how to combine multiple time units into a single timedelta.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">timedelta</span>
+
+<span class="n">project_deadline</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">weeks</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">seconds</span><span class="o">=</span><span class="mi">3600</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">project_deadline</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>17 days, 1:00:00</strong></p>
+<hr />
+<h3 id="example-4-creating-a-negative-timedelta-for-past-offsets_1">📐 Example 4: Creating a negative timedelta for past offsets</h3>
+<p>This example shows how to create a timedelta that represents a duration in the past.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">timedelta</span>
+
+<span class="n">past_offset</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">hours</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">past_offset</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>-5 days, 22:00:00</strong></p>
+<hr />
+<h3 id="example-5-creating-a-timedelta-from-a-floating-point-number-of-days_1">🧮 Example 5: Creating a timedelta from a floating-point number of days</h3>
+<p>This example shows how to use a decimal value to represent fractional days.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">timedelta</span>
+
+<span class="n">half_day</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">half_day</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>12:00:00</strong></p>
+<hr />
+<h2 id="comparison-table-common-timedelta-creation-methods_1">📊 Comparison Table: Common timedelta Creation Methods</h2>
 <table>
 <thead>
 <tr>

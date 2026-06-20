@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch09_02_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 09 | Updating Existing Key-Values - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 09 | Updating Existing Key-Values";
         var mkdocs_page_input_path = "Core Syntax\\ch09_02_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch09_02_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -422,6 +422,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-updating-a-value-based-on-its-current-value">✅ Example 5: Updating a value based on its current value</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-updating-methods">📊 Comparison Table: Updating Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-basics-of-updating-values_1">⚙️ The Basics of Updating Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simple-update-example_1">🛠️ Simple Update Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#direct-assignment-vs-update-method_1">📊 Direct Assignment vs. Update Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-the-update-method_1">🕵️ Using the .update() Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-key-must-exist-for-update_1">⚠️ Important: Key Must Exist for Update</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-updating-multiple-values_1">🧪 Practical Example: Updating Multiple Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#updating-values-with-conditional-logic_1">🔄 Updating Values with Conditional Logic</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">📝 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-updating-a-single-existing-key-value_1">✅ Example 1: Updating a single existing key-value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-updating-multiple-existing-keys-one-at-a-time_1">✅ Example 2: Updating multiple existing keys one at a time</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-update-with-keyword-arguments_1">✅ Example 3: Using update() with keyword arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-update-with-another-dictionary_1">✅ Example 4: Using update() with another dictionary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-updating-a-value-based-on-its-current-value_1">✅ Example 5: Updating a value based on its current value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-updating-methods_1">📊 Comparison Table: Updating Methods</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="updating-existing-key-values">Updating Existing Key-Values</h1>
 <p><span class="category-tag">🏷️ Dictionaries /  Modifying Dictionaries</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with dictionaries in Python, you'll often need to change the value associated with a key that already exists. This is a fundamental operation that allows you to keep your data current and accurate. Think of it like updating a contact's phone number in your address book—the contact (key) stays the same, but the information (value) changes.</p>
@@ -1167,8 +1195,7 @@
 <li>Updating a dictionary modifies it in place—no new dictionary is created</li>
 </ul>
 <p>Updating existing key-value pairs is one of the most common dictionary operations you'll perform. Mastering this skill will help you manage dynamic data efficiently in your Python programs.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Updating existing key-values means changing the value associated with a key that already exists in a dictionary.</p>
 <hr />
 <h3 id="example-1-updating-a-single-existing-key-value">✅ Example 1: Updating a single existing key-value</h3>
@@ -1214,6 +1241,178 @@
 <p>📤 Output: <strong>{'widgets': 125, 'gadgets': 50}</strong></p>
 <hr />
 <h3 id="comparison-table-updating-methods">📊 Comparison Table: Updating Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Syntax</th>
+<th>Updates multiple keys?</th>
+<th>Creates new keys if missing?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direct assignment</td>
+<td><code>dict[key] = value</code></td>
+<td>No (one at a time)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>update() with keywords</td>
+<td><code>dict.update(key=value)</code></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>update() with dict</td>
+<td><code>dict.update(other_dict)</code></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div class="tabbed-block">
+<p>When working with dictionaries in Python, you'll often need to change the value associated with a key that already exists. This is a fundamental operation that allows you to keep your data current and accurate. Think of it like updating a contact's phone number in your address book—the contact (key) stays the same, but the information (value) changes.</p>
+<hr />
+<h3 id="the-basics-of-updating-values_1">⚙️ The Basics of Updating Values</h3>
+<p>Updating an existing key-value pair is straightforward. You simply assign a new value to the existing key using the assignment operator <strong>=</strong>.</p>
+<ul>
+<li>To update a value, use the syntax: <strong>dictionary_name[key] = new_value</strong></li>
+<li>The key must already exist in the dictionary; otherwise, Python will add a new key-value pair instead of updating</li>
+<li>The new value can be of any data type—string, number, list, or even another dictionary</li>
+</ul>
+<hr />
+<h3 id="simple-update-example_1">🛠️ Simple Update Example</h3>
+<p>Consider a dictionary storing server configuration details:</p>
+<ul>
+<li>Start with a dictionary: <strong>server_config = {"host": "web01", "port": 8080, "status": "active"}</strong></li>
+<li>To update the port number: <strong>server_config["port"] = 9090</strong></li>
+<li>The dictionary now becomes: <strong>{"host": "web01", "port": 9090, "status": "active"}</strong></li>
+</ul>
+<p>The key <strong>"port"</strong> already existed, so Python replaced the old value <strong>8080</strong> with the new value <strong>9090</strong>.</p>
+<hr />
+<h3 id="direct-assignment-vs-update-method_1">📊 Direct Assignment vs. Update Method</h3>
+<p>There are two main ways to update existing key-value pairs in Python:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Syntax</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direct Assignment</td>
+<td><strong>dict[key] = value</strong></td>
+<td>Updates if key exists; adds if key is new</td>
+</tr>
+<tr>
+<td><strong>.update()</strong> Method</td>
+<td><strong>dict.update({key: value})</strong></td>
+<td>Updates if key exists; adds if key is new</td>
+</tr>
+</tbody>
+</table>
+<p>Both methods work similarly, but <strong>.update()</strong> becomes more powerful when updating multiple keys at once.</p>
+<hr />
+<h3 id="using-the-update-method_1">🕵️ Using the .update() Method</h3>
+<p>The <strong>.update()</strong> method accepts another dictionary or an iterable of key-value pairs:</p>
+<ul>
+<li>Single update: <strong>server_config.update({"port": 443})</strong></li>
+<li>Multiple updates at once: <strong>server_config.update({"host": "web02", "status": "maintenance"})</strong></li>
+<li>After this, the dictionary becomes: <strong>{"host": "web02", "port": 443, "status": "maintenance"}</strong></li>
+</ul>
+<p>This method is especially useful when you receive configuration changes as a separate dictionary.</p>
+<hr />
+<h3 id="important-key-must-exist-for-update_1">⚠️ Important: Key Must Exist for Update</h3>
+<p>A common mistake is accidentally creating a new key when you intended to update an existing one:</p>
+<ul>
+<li>If you write <strong>server_config["timeout"] = 30</strong> and <strong>"timeout"</strong> does not exist, Python adds it as a new key</li>
+<li>To avoid this, always verify the key exists before updating, or use the <strong>.get()</strong> method to check</li>
+<li>Example check: <strong>if "timeout" in server_config: server_config["timeout"] = 60</strong></li>
+</ul>
+<hr />
+<h3 id="practical-example-updating-multiple-values_1">🧪 Practical Example: Updating Multiple Values</h3>
+<p>Imagine you have a dictionary tracking application deployment status:</p>
+<ul>
+<li>Initial dictionary: <strong>deploy_status = {"app1": "running", "app2": "stopped", "app3": "running"}</strong></li>
+<li>You want to update <strong>app2</strong> to <strong>"running"</strong> and <strong>app3</strong> to <strong>"deploying"</strong></li>
+<li>Using direct assignment: <strong>deploy_status["app2"] = "running"</strong> and <strong>deploy_status["app3"] = "deploying"</strong></li>
+<li>Or using <strong>.update()</strong>: <strong>deploy_status.update({"app2": "running", "app3": "deploying"})</strong></li>
+<li>Final dictionary: <strong>{"app1": "running", "app2": "running", "app3": "deploying"}</strong></li>
+</ul>
+<hr />
+<h3 id="updating-values-with-conditional-logic_1">🔄 Updating Values with Conditional Logic</h3>
+<p>Sometimes you need to update values based on certain conditions:</p>
+<ul>
+<li>Check if a value meets a condition before updating</li>
+<li>Example: <strong>if server_config["port"] &lt; 1024: server_config["port"] = 8080</strong></li>
+<li>This ensures you only update when the port number is below the privileged port range</li>
+</ul>
+<hr />
+<h3 id="key-takeaways_1">📝 Key Takeaways</h3>
+<ul>
+<li>Use <strong>dict[key] = value</strong> for simple, single updates</li>
+<li>Use <strong>dict.update()</strong> for multiple updates or when working with another dictionary</li>
+<li>Always confirm the key exists if you only want to update, not add</li>
+<li>The new value can be any data type, including lists or nested dictionaries</li>
+<li>Updating a dictionary modifies it in place—no new dictionary is created</li>
+</ul>
+<p>Updating existing key-value pairs is one of the most common dictionary operations you'll perform. Mastering this skill will help you manage dynamic data efficiently in your Python programs.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Updating existing key-values means changing the value associated with a key that already exists in a dictionary.</p>
+<hr />
+<h3 id="example-1-updating-a-single-existing-key-value_1">✅ Example 1: Updating a single existing key-value</h3>
+<p>This shows how to change the value of one key by assigning a new value to it.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineer</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;junior&quot;</span><span class="p">}</span>
+<span class="n">engineer</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;senior&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'name': 'Alice', 'role': 'senior'}</strong></p>
+<hr />
+<h3 id="example-2-updating-multiple-existing-keys-one-at-a-time_1">✅ Example 2: Updating multiple existing keys one at a time</h3>
+<p>This demonstrates changing several existing keys by assigning new values to each.</p>
+<div class="highlight"><pre><span></span><code><span class="n">project</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;pending&quot;</span><span class="p">,</span> <span class="s2">&quot;deadline&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-12-01&quot;</span><span class="p">,</span> <span class="s2">&quot;priority&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">project</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;in progress&quot;</span>
+<span class="n">project</span><span class="p">[</span><span class="s2">&quot;priority&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'status': 'in progress', 'deadline': '2024-12-01', 'priority': 1}</strong></p>
+<hr />
+<h3 id="example-3-using-update-with-keyword-arguments_1">✅ Example 3: Using update() with keyword arguments</h3>
+<p>This shows how to update multiple existing keys at once using the update() method with named arguments.</p>
+<div class="highlight"><pre><span></span><code><span class="n">server</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;server01&quot;</span><span class="p">,</span> <span class="s2">&quot;cpu&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;memory&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">}</span>
+<span class="n">server</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cpu</span><span class="o">=</span><span class="mi">75</span><span class="p">,</span> <span class="n">memory</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'host': 'server01', 'cpu': 75, 'memory': 80}</strong></p>
+<hr />
+<h3 id="example-4-using-update-with-another-dictionary_1">✅ Example 4: Using update() with another dictionary</h3>
+<p>This demonstrates updating existing keys by passing a second dictionary to the update() method.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;dark&quot;</span><span class="p">,</span> <span class="s2">&quot;font_size&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">}</span>
+<span class="n">new_settings</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;font_size&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;fr&quot;</span><span class="p">}</span>
+<span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">new_settings</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'theme': 'dark', 'font_size': 14, 'language': 'fr'}</strong></p>
+<hr />
+<h3 id="example-5-updating-a-value-based-on-its-current-value_1">✅ Example 5: Updating a value based on its current value</h3>
+<p>This shows a practical pattern where you read the current value, modify it, and assign it back.</p>
+<div class="highlight"><pre><span></span><code><span class="n">inventory</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;widgets&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;gadgets&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">}</span>
+<span class="n">inventory</span><span class="p">[</span><span class="s2">&quot;widgets&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inventory</span><span class="p">[</span><span class="s2">&quot;widgets&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">25</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inventory</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'widgets': 125, 'gadgets': 50}</strong></p>
+<hr />
+<h3 id="comparison-table-updating-methods_1">📊 Comparison Table: Updating Methods</h3>
 <table>
 <thead>
 <tr>

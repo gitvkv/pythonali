@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch11_03_05/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 11 | The time and datetime Modules for Tracking - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 11 | The time and datetime Modules for Tracking";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch11_03_05.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch11_03_05/";
       </script>
     
     <!--[if lt IE 9]>
@@ -528,6 +528,30 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-converting-a-string-into-a-datetime-object-with-strptime">🔄 Example 5: Converting a string into a datetime object with strptime</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-time-vs-datetime">Comparison Table: time vs datetime</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-time-module-working-with-timestamps_1">⚙️ The time Module – Working with Timestamps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-datetime-module-human-readable-dates-and-times_1">📅 The datetime Module – Human-Readable Dates and Times</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-time-vs-datetime_1">🛠️ Comparison: time vs datetime</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-patterns-for-engineers_1">🕵️ Practical Patterns for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary-checklist_1">✅ Summary Checklist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-getting-the-current-timestamp-with-timetime_1">⏱️ Example 1: Getting the current timestamp with time.time()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-getting-the-current-date-and-time-with-datetimenow_1">📅 Example 2: Getting the current date and time with datetime.now()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-measuring-elapsed-time-with-timeperf_counter_1">⏳ Example 3: Measuring elapsed time with time.perf_counter()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-formatting-a-datetime-object-into-a-readable-string_1">🗓️ Example 4: Formatting a datetime object into a readable string</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-converting-a-string-into-a-datetime-object-with-strptime_1">🔄 Example 5: Converting a string into a datetime object with strptime</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-time-vs-datetime_1">Comparison Table: time vs datetime</a>
     </li>
     </ul>
                 </li>
@@ -1072,7 +1096,7 @@
               
                 <h1 id="the-time-and-datetime-modules-for-tracking">The time and datetime Modules for Tracking</h1>
 <p><span class="category-tag">🏷️ Modules and Imports /  Built-in Modules for Engineers</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1229,8 +1253,7 @@
 <li>Use <strong>time</strong> for lightweight timing and delays.</li>
 </ul>
 <p>Both modules are built-in, so no installation is needed. Start with <strong>datetime</strong> for most date-related work, and reach for <strong>time</strong> when you need simple counters or delays. Together, they give you full control over time in your Python scripts.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>time</code> and <code>datetime</code> modules provide functions for working with time values, timestamps, and calendar dates in Python.</p>
 <hr />
 <h3 id="example-1-getting-the-current-timestamp-with-timetime">⏱️ Example 1: Getting the current timestamp with time.time()</h3>
@@ -1292,6 +1315,270 @@
 📤 Output: <strong><class 'datetime.datetime'></strong></p>
 <hr />
 <h3 id="comparison-table-time-vs-datetime">Comparison Table: time vs datetime</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>time module</th>
+<th>datetime module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purpose</td>
+<td>Low-level time functions (timestamps, delays)</td>
+<td>High-level date and time objects</td>
+</tr>
+<tr>
+<td>Current time</td>
+<td><code>time.time()</code> returns a float (Unix timestamp)</td>
+<td><code>datetime.now()</code> returns a datetime object</td>
+</tr>
+<tr>
+<td>Formatting</td>
+<td>Limited to <code>time.strftime()</code></td>
+<td>Full <code>strftime()</code> and <code>strptime()</code> support</td>
+</tr>
+<tr>
+<td>Measuring duration</td>
+<td><code>time.perf_counter()</code> for high-precision timing</td>
+<td><code>datetime</code> subtraction returns timedelta</td>
+</tr>
+<tr>
+<td>Date arithmetic</td>
+<td>Not supported directly</td>
+<td>Full support with timedelta objects</td>
+</tr>
+<tr>
+<td>Best for engineers</td>
+<td>Timing code execution, delays</td>
+<td>Logging dates, scheduling, date math</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>When working with scripts that run over long periods, schedule tasks, or need to log when events happen, you need reliable ways to track time. Python provides two essential built-in modules for this purpose: <strong>time</strong> and <strong>datetime</strong>. The <strong>time</strong> module works with timestamps and basic timing operations, while <strong>datetime</strong> gives you more human-friendly date and time objects. Together, they help you measure execution duration, add delays, format timestamps for logs, and schedule recurring tasks.</p>
+<hr />
+<h3 id="the-time-module-working-with-timestamps_1">⚙️ The <code>time</code> Module – Working with Timestamps</h3>
+<p>The <strong>time</strong> module is your go-to for measuring how long something takes or adding pauses in your script. It works primarily with <strong>epoch timestamps</strong> (seconds since January 1, 1970).</p>
+<p><strong>Key functions you will use most often:</strong></p>
+<ul>
+<li><strong>time.time()</strong> – Returns the current timestamp as a float (seconds since epoch). Use this to measure elapsed time by capturing it before and after an operation.</li>
+<li><strong>time.sleep(seconds)</strong> – Pauses your script for a given number of seconds. Useful for rate-limiting API calls or waiting between retries.</li>
+<li><strong>time.ctime()</strong> – Converts a timestamp into a readable string like "Mon Mar 10 12:30:45 2025". If called with no argument, it returns the current time.</li>
+</ul>
+<p><strong>Common use case – measuring execution time:</strong></p>
+<ul>
+<li>Capture <strong>start_time = time.time()</strong> before your code runs.</li>
+<li>Run your code or function.</li>
+<li>Capture <strong>end_time = time.time()</strong> after it finishes.</li>
+<li>Calculate <strong>elapsed = end_time - start_time</strong> to get seconds.</li>
+<li>Print the result formatted to two decimal places.</li>
+</ul>
+<p><strong>Common use case – adding delays:</strong></p>
+<ul>
+<li>Call <strong>time.sleep(5)</strong> to pause execution for 5 seconds.</li>
+<li>Use <strong>time.sleep(0.5)</strong> for half-second delays between retries.</li>
+</ul>
+<hr />
+<h3 id="the-datetime-module-human-readable-dates-and-times_1">📅 The <code>datetime</code> Module – Human-Readable Dates and Times</h3>
+<p>The <strong>datetime</strong> module is more powerful for working with dates, times, and time arithmetic. It provides objects you can compare, format, and manipulate easily.</p>
+<p><strong>Core classes you will use:</strong></p>
+<ul>
+<li><strong>datetime.datetime</strong> – Combines date and time into one object (year, month, day, hour, minute, second, microsecond).</li>
+<li><strong>datetime.date</strong> – Represents a date only (year, month, day).</li>
+<li><strong>datetime.time</strong> – Represents a time only (hour, minute, second, microsecond).</li>
+<li><strong>datetime.timedelta</strong> – Represents a duration or difference between two dates/times.</li>
+</ul>
+<p><strong>Key functions and methods:</strong></p>
+<ul>
+<li><strong>datetime.datetime.now()</strong> – Returns the current local date and time as a datetime object.</li>
+<li><strong>datetime.datetime.utcnow()</strong> – Returns the current UTC date and time.</li>
+<li><strong>.strftime(format)</strong> – Converts a datetime object into a formatted string (string from time).</li>
+<li><strong>.strptime(date_string, format)</strong> – Parses a string into a datetime object (string parse time).</li>
+</ul>
+<p><strong>Common format codes for strftime and strptime:</strong></p>
+<ul>
+<li><strong>%Y</strong> – Four-digit year (2025)</li>
+<li><strong>%m</strong> – Two-digit month (01 to 12)</li>
+<li><strong>%d</strong> – Two-digit day (01 to 31)</li>
+<li><strong>%H</strong> – Two-digit hour in 24-hour format (00 to 23)</li>
+<li><strong>%M</strong> – Two-digit minute (00 to 59)</li>
+<li><strong>%S</strong> – Two-digit second (00 to 59)</li>
+</ul>
+<p><strong>Common use case – getting the current timestamp for logs:</strong></p>
+<ul>
+<li>Call <strong>now = datetime.datetime.now()</strong> to get the current time.</li>
+<li>Format it with <strong>now.strftime("%Y-%m-%d %H:%M:%S")</strong> to get a string like "2025-03-10 14:30:00".</li>
+<li>Use this string in your log messages.</li>
+</ul>
+<p><strong>Common use case – calculating time differences:</strong></p>
+<ul>
+<li>Create two datetime objects: <strong>start_time = datetime.datetime.now()</strong> and <strong>end_time = datetime.datetime.now()</strong> after your operation.</li>
+<li>Subtract them: <strong>duration = end_time - start_time</strong>.</li>
+<li>Access <strong>duration.total_seconds()</strong> to get the total seconds as a float.</li>
+</ul>
+<hr />
+<h3 id="comparison-time-vs-datetime_1">🛠️ Comparison: <code>time</code> vs <code>datetime</code></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>time Module</th>
+<th>datetime Module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Primary data type</strong></td>
+<td>Timestamps (floats)</td>
+<td>Objects (datetime, date, time)</td>
+</tr>
+<tr>
+<td><strong>Human readability</strong></td>
+<td>Low – needs conversion</td>
+<td>High – built-in formatting</td>
+</tr>
+<tr>
+<td><strong>Time arithmetic</strong></td>
+<td>Manual subtraction of floats</td>
+<td>Use timedelta objects</td>
+</tr>
+<tr>
+<td><strong>Date manipulation</strong></td>
+<td>Limited</td>
+<td>Full support (add days, months)</td>
+</tr>
+<tr>
+<td><strong>Formatting output</strong></td>
+<td>time.ctime() or time.strftime()</td>
+<td>.strftime() method</td>
+</tr>
+<tr>
+<td><strong>Parsing strings</strong></td>
+<td>time.strptime()</td>
+<td>datetime.strptime()</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Measuring durations, delays, simple timing</td>
+<td>Logging timestamps, scheduling, date math</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-patterns-for-engineers_1">🕵️ Practical Patterns for Engineers</h3>
+<p><strong>Pattern 1 – Logging with timestamps:</strong></p>
+<ul>
+<li>Get current time using <strong>datetime.datetime.now()</strong>.</li>
+<li>Format it with <strong>.strftime("%Y-%m-%d %H:%M:%S")</strong>.</li>
+<li>Build your log message: <strong>f"[{timestamp}] INFO: Task completed successfully"</strong>.</li>
+<li>Write this to a file or print it.</li>
+</ul>
+<p><strong>Pattern 2 – Measuring how long a task takes:</strong></p>
+<ul>
+<li>Use <strong>time.time()</strong> before and after the task.</li>
+<li>Calculate <strong>elapsed = end - start</strong>.</li>
+<li>Print <strong>f"Task took {elapsed:.2f} seconds"</strong>.</li>
+<li>For more precision, use <strong>time.perf_counter()</strong> instead of <strong>time.time()</strong>.</li>
+</ul>
+<p><strong>Pattern 3 – Running a task every N seconds:</strong></p>
+<ul>
+<li>Use a <strong>while True</strong> loop.</li>
+<li>Inside the loop, run your task.</li>
+<li>Call <strong>time.sleep(interval)</strong> where interval is your desired delay in seconds.</li>
+<li>Add a break condition to stop the loop when needed.</li>
+</ul>
+<p><strong>Pattern 4 – Scheduling a task at a specific time:</strong></p>
+<ul>
+<li>Define your target time as a string: <strong>target = "14:30:00"</strong>.</li>
+<li>Parse it: <strong>target_time = datetime.datetime.strptime(target, "%H:%M:%S").time()</strong>.</li>
+<li>In a loop, get <strong>now = datetime.datetime.now().time()</strong>.</li>
+<li>Compare <strong>now &gt;= target_time</strong> to trigger your task.</li>
+<li>Add a small <strong>time.sleep(1)</strong> to avoid busy-waiting.</li>
+</ul>
+<hr />
+<h3 id="summary-checklist_1">✅ Summary Checklist</h3>
+<ul>
+<li>Use <strong>time.time()</strong> for simple duration measurements.</li>
+<li>Use <strong>time.sleep()</strong> to add pauses between operations.</li>
+<li>Use <strong>datetime.datetime.now()</strong> for human-readable timestamps.</li>
+<li>Use <strong>.strftime()</strong> to format dates for logs and filenames.</li>
+<li>Use <strong>.strptime()</strong> to parse date strings from configuration files.</li>
+<li>Use <strong>timedelta</strong> objects for date arithmetic (add days, subtract hours).</li>
+<li>Prefer <strong>datetime</strong> for most scheduling and logging tasks.</li>
+<li>Use <strong>time</strong> for lightweight timing and delays.</li>
+</ul>
+<p>Both modules are built-in, so no installation is needed. Start with <strong>datetime</strong> for most date-related work, and reach for <strong>time</strong> when you need simple counters or delays. Together, they give you full control over time in your Python scripts.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>time</code> and <code>datetime</code> modules provide functions for working with time values, timestamps, and calendar dates in Python.</p>
+<hr />
+<h3 id="example-1-getting-the-current-timestamp-with-timetime_1">⏱️ Example 1: Getting the current timestamp with time.time()</h3>
+<p>This example shows how to get the current Unix timestamp (seconds since January 1, 1970).</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">current_timestamp</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_timestamp</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>1700000000.123456</strong> <em>(value will vary each run)</em></p>
+<hr />
+<h3 id="example-2-getting-the-current-date-and-time-with-datetimenow_1">📅 Example 2: Getting the current date and time with datetime.now()</h3>
+<p>This example shows how to get the current date and time as a readable datetime object.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">current_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_datetime</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-11-14 15:30:45.123456</strong> <em>(value will vary each run)</em></p>
+<hr />
+<h3 id="example-3-measuring-elapsed-time-with-timeperf_counter_1">⏳ Example 3: Measuring elapsed time with time.perf_counter()</h3>
+<p>This example shows how to measure how long a block of code takes to execute.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="c1"># Simulate a short delay</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+
+<span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">elapsed</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elapsed</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>1.500123456</strong> <em>(value will vary slightly)</em></p>
+<hr />
+<h3 id="example-4-formatting-a-datetime-object-into-a-readable-string_1">🗓️ Example 4: Formatting a datetime object into a readable string</h3>
+<p>This example shows how to convert a datetime object into a custom string format using strftime.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">formatted_date</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">formatted_time</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted_date</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">formatted_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-11-14</strong><br />
+📤 Output: <strong>15:30:45</strong></p>
+<hr />
+<h3 id="example-5-converting-a-string-into-a-datetime-object-with-strptime_1">🔄 Example 5: Converting a string into a datetime object with strptime</h3>
+<p>This example shows how to parse a date string into a datetime object for calculations.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">date_string</span> <span class="o">=</span> <span class="s2">&quot;2024-12-25 10:30:00&quot;</span>
+<span class="n">parsed_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_string</span><span class="p">,</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parsed_date</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">parsed_date</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-12-25 10:30:00</strong><br />
+📤 Output: <strong><class 'datetime.datetime'></strong></p>
+<hr />
+<h3 id="comparison-table-time-vs-datetime_1">Comparison Table: time vs datetime</h3>
 <table>
 <thead>
 <tr>

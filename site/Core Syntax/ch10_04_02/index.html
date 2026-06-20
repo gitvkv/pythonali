@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch10_04_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 10 | Global Scope Outside Functions - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 10 | Global Scope Outside Functions";
         var mkdocs_page_input_path = "Core Syntax\\ch10_04_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch10_04_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -478,6 +478,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-global-variable-used-as-a-shared-configuration-value">🔧 Example 5: Global variable used as a shared configuration value</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-global-vs-local-scope">📊 Comparison: Global vs Local Scope</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🌱 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-global-scope_1">⚙️ What Is Global Scope?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reading-global-variables-inside-functions_1">📊 Reading Global Variables Inside Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#modifying-global-variables-inside-functions_1">🛠️ Modifying Global Variables Inside Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-global-keyword-explained_1">🕵️ The global Keyword Explained</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-reading-vs-modifying-global-variables_1">📋 Comparison: Reading vs. Modifying Global Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-and-best-practices_1">⚠️ Common Pitfalls and Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simple-example-walkthrough_1">🧪 Simple Example Walkthrough</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">📌 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-defining-a-global-variable-and-printing-it_1">🔧 Example 1: Defining a global variable and printing it</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-accessing-a-global-variable-inside-a-function_1">🔧 Example 2: Accessing a global variable inside a function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-modifying-a-global-variable-outside-a-function_1">🔧 Example 3: Modifying a global variable outside a function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-multiple-functions-reading-the-same-global-variable_1">🔧 Example 4: Multiple functions reading the same global variable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-global-variable-used-as-a-shared-configuration-value_1">🔧 Example 5: Global variable used as a shared configuration value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-global-vs-local-scope_1">📊 Comparison: Global vs Local Scope</a>
     </li>
     </ul>
                 </li>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="global-scope-outside-functions">Global Scope Outside Functions</h1>
 <p><span class="category-tag">🏷️ Functions /  Variable Scope</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🌱 Context Introduction</h3>
@@ -1202,8 +1232,7 @@
 <li>Modifying a mutable global object (like a list or dict) does not require <strong>global</strong></li>
 <li>Use global variables intentionally and sparingly for cleaner, more maintainable code</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Variables defined outside any function exist in the global scope and can be accessed from anywhere in the file.</p>
 <h3 id="example-1-defining-a-global-variable-and-printing-it">🔧 Example 1: Defining a global variable and printing it</h3>
 <p>A variable created at the top level of a script is global and available everywhere.</p>
@@ -1272,6 +1301,234 @@
 📤 Output: <strong>Resetting with max retries: 3</strong></p>
 <hr />
 <h3 id="comparison-global-vs-local-scope">📊 Comparison: Global vs Local Scope</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Global Scope</th>
+<th>Local Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Defined where</td>
+<td>Outside any function</td>
+<td>Inside a function</td>
+</tr>
+<tr>
+<td>Accessible from</td>
+<td>Anywhere in file</td>
+<td>Only inside that function</td>
+</tr>
+<tr>
+<td>Lifetime</td>
+<td>Entire program runs</td>
+<td>Only while function runs</td>
+</tr>
+<tr>
+<td>Example use</td>
+<td>Configuration values</td>
+<td>Temporary loop variables</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🌱 Context Introduction</h3>
+<p>When you define a variable outside of any function in Python, that variable lives in the <strong>global scope</strong>. This means it can be accessed from anywhere in your script — both inside and outside of functions. Understanding how global scope works is essential for writing clean, predictable code and avoiding accidental variable modifications.</p>
+<hr />
+<h3 id="what-is-global-scope_1">⚙️ What Is Global Scope?</h3>
+<p>A variable created at the top level of your script (not inside any function or class) is called a <strong>global variable</strong>. It exists for the entire lifetime of your program and is visible to all parts of your code.</p>
+<p><strong>Key characteristics:</strong>
+- Defined outside any function or class
+- Accessible from anywhere in the script
+- Can be read inside functions without special keywords
+- To modify a global variable inside a function, you must use the <strong>global</strong> keyword</p>
+<hr />
+<h3 id="reading-global-variables-inside-functions_1">📊 Reading Global Variables Inside Functions</h3>
+<p>You can read a global variable inside a function without any extra syntax. Python will look for the variable in the local scope first, then in the enclosing scopes, and finally in the global scope.</p>
+<p><strong>Example:</strong>
+- Define a variable <strong>server_name = "web-prod-01"</strong> at the top of your script
+- Inside a function called <strong>print_server()</strong>, simply reference <strong>server_name</strong>
+- The function will print <strong>"Server: web-prod-01"</strong> without any errors</p>
+<p>This works because Python automatically searches the global scope when it cannot find the variable locally.</p>
+<hr />
+<h3 id="modifying-global-variables-inside-functions_1">🛠️ Modifying Global Variables Inside Functions</h3>
+<p>If you try to assign a new value to a global variable inside a function without declaring it as global, Python will create a <strong>new local variable</strong> with the same name instead. This is a common source of bugs.</p>
+<p><strong>Example of unintended behavior:</strong>
+- Global variable <strong>count = 10</strong>
+- Inside function <strong>update_count()</strong>, write <strong>count = count + 1</strong>
+- Python will throw an <strong>UnboundLocalError</strong> because it sees an assignment and treats <strong>count</strong> as local, but it hasn't been defined locally yet</p>
+<p>To fix this, you must explicitly declare the variable as global using the <strong>global</strong> keyword.</p>
+<p><strong>Correct approach:</strong>
+- Inside the function, write <strong>global count</strong> before modifying it
+- Then assign <strong>count = count + 1</strong>
+- The global variable is now updated successfully</p>
+<hr />
+<h3 id="the-global-keyword-explained_1">🕵️ The <code>global</code> Keyword Explained</h3>
+<p>The <strong>global</strong> keyword tells Python that a variable inside a function refers to the global version, not a local one.</p>
+<p><strong>Rules to remember:</strong>
+- Use <strong>global</strong> only when you need to <strong>reassign</strong> a global variable
+- You do not need <strong>global</strong> to read or modify mutable objects like lists or dictionaries
+- Using <strong>global</strong> too often can make code harder to debug and maintain</p>
+<p><strong>Example with a list:</strong>
+- Global list <strong>ports = [80, 443]</strong>
+- Inside function <strong>add_port()</strong>, write <strong>ports.append(8080)</strong>
+- This works without <strong>global</strong> because you are modifying the list, not reassigning it</p>
+<p><strong>Example with reassignment:</strong>
+- Global variable <strong>status = "active"</strong>
+- Inside function <strong>change_status()</strong>, write <strong>global status</strong> then <strong>status = "inactive"</strong>
+- This correctly updates the global variable</p>
+<hr />
+<h3 id="comparison-reading-vs-modifying-global-variables_1">📋 Comparison: Reading vs. Modifying Global Variables</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Inside Function</th>
+<th>Keyword Needed?</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read a global variable</td>
+<td><strong>print(server_name)</strong></td>
+<td>No</td>
+<td>Python finds it in global scope</td>
+</tr>
+<tr>
+<td>Modify a mutable global object</td>
+<td><strong>ports.append(8080)</strong></td>
+<td>No</td>
+<td>Object is modified in place</td>
+</tr>
+<tr>
+<td>Reassign a global variable</td>
+<td><strong>count = count + 1</strong></td>
+<td>Yes — use <strong>global count</strong></td>
+<td>Without global, creates a local variable</td>
+</tr>
+<tr>
+<td>Create a new global from inside a function</td>
+<td><strong>global new_var</strong> then <strong>new_var = 100</strong></td>
+<td>Yes</td>
+<td>Variable becomes globally accessible</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-pitfalls-and-best-practices_1">⚠️ Common Pitfalls and Best Practices</h3>
+<p><strong>Pitfall 1: Accidentally creating a local variable</strong>
+- You have a global <strong>timeout = 30</strong>
+- Inside a function, you write <strong>timeout = timeout + 10</strong>
+- Python raises an error because it treats <strong>timeout</strong> as local but it's not defined locally</p>
+<p><strong>Pitfall 2: Overusing global variables</strong>
+- Too many global variables make code unpredictable
+- Functions become dependent on external state
+- Testing and debugging become more difficult</p>
+<p><strong>Best practices:</strong>
+- Use global variables sparingly, mainly for configuration constants
+- Prefer passing values as function arguments instead
+- If you must modify a global, document it clearly with comments
+- Consider using a <strong>config dictionary</strong> or a <strong>class</strong> to group related global values</p>
+<hr />
+<h3 id="simple-example-walkthrough_1">🧪 Simple Example Walkthrough</h3>
+<p><strong>Step 1:</strong> Define a global variable at the top of your script
+- <strong>app_name = "MonitorTool"</strong></p>
+<p><strong>Step 2:</strong> Create a function that reads the global variable
+- <strong>def show_app():</strong>
+- Inside, write <strong>print(f"Application: {app_name}")</strong>
+- Call <strong>show_app()</strong> — it prints <strong>"Application: MonitorTool"</strong></p>
+<p><strong>Step 3:</strong> Create a function that modifies the global variable
+- <strong>def rename_app(new_name):</strong>
+- Inside, write <strong>global app_name</strong> then <strong>app_name = new_name</strong>
+- Call <strong>rename_app("HealthChecker")</strong>
+- Call <strong>show_app()</strong> again — it now prints <strong>"Application: HealthChecker"</strong></p>
+<p>This demonstrates how global variables persist across function calls and can be intentionally updated when needed.</p>
+<hr />
+<h3 id="key-takeaways_1">📌 Key Takeaways</h3>
+<ul>
+<li>Global variables are defined outside any function and are accessible everywhere</li>
+<li>Reading a global inside a function requires no special keyword</li>
+<li>Reassigning a global inside a function requires the <strong>global</strong> keyword</li>
+<li>Modifying a mutable global object (like a list or dict) does not require <strong>global</strong></li>
+<li>Use global variables intentionally and sparingly for cleaner, more maintainable code</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Variables defined outside any function exist in the global scope and can be accessed from anywhere in the file.</p>
+<h3 id="example-1-defining-a-global-variable-and-printing-it_1">🔧 Example 1: Defining a global variable and printing it</h3>
+<p>A variable created at the top level of a script is global and available everywhere.</p>
+<div class="highlight"><pre><span></span><code><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Hello from global scope&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello from global scope</strong></p>
+<hr />
+<h3 id="example-2-accessing-a-global-variable-inside-a-function_1">🔧 Example 2: Accessing a global variable inside a function</h3>
+<p>Functions can read global variables without any special declaration.</p>
+<div class="highlight"><pre><span></span><code><span class="n">temperature</span> <span class="o">=</span> <span class="mi">25</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">show_temperature</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+
+<span class="n">show_temperature</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>25</strong></p>
+<hr />
+<h3 id="example-3-modifying-a-global-variable-outside-a-function_1">🔧 Example 3: Modifying a global variable outside a function</h3>
+<p>Global variables can be changed directly by assignment at the top level.</p>
+<div class="highlight"><pre><span></span><code><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>0</strong><br />
+📤 Output: <strong>10</strong></p>
+<hr />
+<h3 id="example-4-multiple-functions-reading-the-same-global-variable_1">🔧 Example 4: Multiple functions reading the same global variable</h3>
+<p>All functions in a file share access to the same global variable.</p>
+<div class="highlight"><pre><span></span><code><span class="n">app_name</span> <span class="o">=</span> <span class="s2">&quot;SensorMonitor&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">print_app</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">app_name</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_app</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Logging from:&quot;</span><span class="p">,</span> <span class="n">app_name</span><span class="p">)</span>
+
+<span class="n">print_app</span><span class="p">()</span>
+<span class="n">log_app</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>SensorMonitor</strong><br />
+📤 Output: <strong>Logging from: SensorMonitor</strong></p>
+<hr />
+<h3 id="example-5-global-variable-used-as-a-shared-configuration-value_1">🔧 Example 5: Global variable used as a shared configuration value</h3>
+<p>Engineers often use global variables to store settings that multiple functions need.</p>
+<div class="highlight"><pre><span></span><code><span class="n">max_retries</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Attempting connection...&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_retries</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Retry </span><span class="si">{</span><span class="n">attempt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Resetting with max retries:&quot;</span><span class="p">,</span> <span class="n">max_retries</span><span class="p">)</span>
+
+<span class="n">connect</span><span class="p">()</span>
+<span class="n">reset</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Attempting connection...</strong><br />
+📤 Output: <strong>Retry 1</strong><br />
+📤 Output: <strong>Retry 2</strong><br />
+📤 Output: <strong>Retry 3</strong><br />
+📤 Output: <strong>Resetting with max retries: 3</strong></p>
+<hr />
+<h3 id="comparison-global-vs-local-scope_1">📊 Comparison: Global vs Local Scope</h3>
 <table>
 <thead>
 <tr>

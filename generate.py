@@ -97,6 +97,55 @@ def build_portal():
     margin-bottom: 20px;
     display: inline-block;
 }
+
+/* 4. Tabbed Panel styling (Theory/Code) */
+.tabbed-set {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 1.5em 0 2em;
+}
+.tabbed-set > input {
+    display: none;
+}
+.tabbed-labels {
+    display: flex;
+    width: 100%;
+    border-bottom: 2px solid #e1e4e5;
+    margin-bottom: 1.5em;
+}
+.tabbed-labels > label {
+    padding: 12px 24px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555555;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s ease-in-out;
+    user-select: none;
+}
+.tabbed-labels > label:hover {
+    color: #2980b9;
+}
+.tabbed-content {
+    width: 100%;
+}
+.tabbed-block {
+    display: none;
+}
+
+/* Toggle Visibility and Active Tab Styling */
+.tabbed-set > input:nth-of-type(1):checked ~ .tabbed-labels > label:nth-of-type(1),
+.tabbed-set > input:nth-of-type(2):checked ~ .tabbed-labels > label:nth-of-type(2),
+.tabbed-set > input:nth-of-type(3):checked ~ .tabbed-labels > label:nth-of-type(3) {
+    color: #2980b9;
+    border-bottom: 2px solid #2980b9;
+}
+.tabbed-set > input:nth-of-type(1):checked ~ .tabbed-content > .tabbed-block:nth-of-type(1),
+.tabbed-set > input:nth-of-type(2):checked ~ .tabbed-content > .tabbed-block:nth-of-type(2),
+.tabbed-set > input:nth-of-type(3):checked ~ .tabbed-content > .tabbed-block:nth-of-type(3) {
+    display: block;
+}
 """
     with open(os.path.join(DOCS_DIR, 'stylesheets', 'extra.css'), 'w', encoding='utf-8') as f:
         f.write(css_content)
@@ -130,26 +179,36 @@ def build_portal():
         
         # Extract title and contents
         category, title, theory_text = extract_metadata(theory_path)
-        _, _, code_text = extract_metadata(code_path)
         
-        # Format the lesson name for nav, keeping it clean: e.g. "Ch 01 | What is Python & History"
-        # We parse the chapter number from ch01 -> "Ch 01" or similar
-        ch_label = f"Ch {ch_num[2:]}"
-        nav_title = f"{ch_label} | {title}"
-        
-        # Create output filename
+        # Determine output filename
         safe_group_dir = os.path.join(DOCS_DIR, group_name)
         os.makedirs(safe_group_dir, exist_ok=True)
         
         target_filename = f"{ch_num}_{sec_num}_{seq_num}.md"
         target_path = os.path.join(safe_group_dir, target_filename)
         
-        # Combine using Markdown tabs with clean tag below H1
-        combined_md = f"# {title}\n"
-        combined_md += f'<span class="category-tag">🏷️ {category}</span>\n\n'
-        combined_md += f'=== "📖 Theory"\n{indent_content(theory_text)}\n\n'
-        combined_md += f'=== "💻 Code"\n{indent_content(code_text)}\n'
-        
+        # Compile content based on whether a matching code file exists
+        if os.path.exists(code_path):
+            _, _, code_text = extract_metadata(code_path)
+            
+            # Add a dynamic callout/tip at the bottom of theory to guide the student
+            theory_text_with_tip = theory_text + "\n\n!!! info \"Interactive Views\"\n    You are currently in **📚 All-in-One** mode. Use the tabs at the top to switch to **📖 Theory Only** or **💻 Code Only** views."
+            
+            combined_md = f"# {title}\n"
+            combined_md += f'<span class="category-tag">🏷️ {category}</span>\n\n'
+            combined_md += f'=== "📚 All-in-One"\n{indent_content(theory_text)}\n\n    ---\n\n{indent_content(code_text)}\n\n'
+            combined_md += f'=== "📖 Theory Only"\n{indent_content(theory_text_with_tip)}\n\n'
+            combined_md += f'=== "💻 Code Only"\n{indent_content(code_text)}\n'
+        else:
+            # Standard page layout without tabs (e.g. for future non-coding lessons)
+            combined_md = f"# {title}\n"
+            combined_md += f'<span class="category-tag">🏷️ {category}</span>\n\n'
+            combined_md += theory_text
+            
+        # Format the lesson name for nav, keeping it clean: e.g. "Ch 01 | What is Python & History"
+        ch_label = f"Ch {ch_num[2:]}"
+        nav_title = f"{ch_label} | {title}"
+
         with open(target_path, 'w', encoding='utf-8') as f:
             f.write(combined_md)
             
@@ -254,6 +313,7 @@ We have packed this curriculum with hands-on examples and real-world scenarios. 
 
     mkdocs_config = {
         'site_name': 'Python Ali',
+        'site_url': 'https://pythonali.com',
         'theme': {
             'name': 'readthedocs',
             'highlightjs': True,

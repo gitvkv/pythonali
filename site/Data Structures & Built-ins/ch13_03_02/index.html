@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch13_03_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 13 | Guaranteed Cleanup Execution via finally - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 13 | Guaranteed Cleanup Execution via finally";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch13_03_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch13_03_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -616,6 +616,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-finally-ensures-resource-cleanup-in-a-real-scenario">🔧 Example 5: Finally ensures resource cleanup in a real scenario</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🔍 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-the-finally-clause_1">⚙️ What Is the finally Clause?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#basic-structure-of-a-try-finally-block_1">🛠️ Basic Structure of a try-finally Block</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#why-finally-is-essential-for-engineers_1">🕵️ Why finally Is Essential for Engineers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-with-vs-without-finally_1">📊 Comparison: With vs. Without finally</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-examples-for-everyday-use_1">🧪 Practical Examples for Everyday Use</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#important-notes-to-remember_1">⚠️ Important Notes to Remember</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-finally-runs-after-successful-execution_1">🔧 Example 1: Finally runs after successful execution</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-finally-runs-after-an-exception_1">🔧 Example 2: Finally runs after an exception</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-finally-runs-even-without-an-except-block_1">🔧 Example 3: Finally runs even without an except block</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-finally-runs-before-the-exception-propagates_1">🔧 Example 4: Finally runs before the exception propagates</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-finally-ensures-resource-cleanup-in-a-real-scenario_1">🔧 Example 5: Finally ensures resource cleanup in a real scenario</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1106,7 @@
               
                 <h1 id="guaranteed-cleanup-execution-via-finally">Guaranteed Cleanup Execution via finally</h1>
 <p><span class="category-tag">🏷️ Error Handling and Exceptions /  Else and Finally Clauses</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🔍 Context Introduction</h3>
@@ -1192,8 +1222,7 @@
 <li>Using <strong>finally</strong> prevents resource leaks and ensures your programs are robust and production-ready.</li>
 <li>Always pair resource acquisition with a <strong>finally</strong> block to release those resources—this is a best practice every engineer should adopt.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>finally</code> block always runs after a <code>try</code> block, whether an exception occurs or not, to ensure cleanup actions like closing files or releasing resources.</p>
 <hr />
 <h3 id="example-1-finally-runs-after-successful-execution">🔧 Example 1: Finally runs after successful execution</h3>
@@ -1260,6 +1289,229 @@
 <strong>File closed</strong></p>
 <hr />
 <h2 id="comparison-table">Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th><code>try</code> block runs?</th>
+<th><code>except</code> block runs?</th>
+<th><code>finally</code> block runs?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No error</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Error caught</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Error not caught</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>No <code>except</code> clause</td>
+<td>Yes</td>
+<td>N/A</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🔍 Context Introduction</h3>
+<p>When writing Python code, there are certain actions that <strong>must</strong> happen regardless of whether an error occurs. Think of opening a file, connecting to a database, or acquiring a network socket. If your code crashes midway, these resources can remain locked or orphaned. The <strong>finally</strong> clause exists precisely for this purpose: it guarantees that specific cleanup code runs no matter what—whether an exception is raised, caught, or not.</p>
+<hr />
+<h3 id="what-is-the-finally-clause_1">⚙️ What Is the <code>finally</code> Clause?</h3>
+<ul>
+<li>The <strong>finally</strong> block is part of a <strong>try-except-finally</strong> structure.</li>
+<li>Code inside <strong>finally</strong> executes <strong>unconditionally</strong>:</li>
+<li>After the <strong>try</strong> block completes successfully.</li>
+<li>After an <strong>except</strong> block handles an exception.</li>
+<li>Even if a <strong>return</strong>, <strong>break</strong>, or <strong>continue</strong> statement is encountered inside the <strong>try</strong> or <strong>except</strong> blocks.</li>
+<li>The primary use case is <strong>resource cleanup</strong>: closing files, releasing locks, terminating network connections.</li>
+</ul>
+<hr />
+<h3 id="basic-structure-of-a-try-finally-block_1">🛠️ Basic Structure of a <code>try-finally</code> Block</h3>
+<ul>
+<li>A <strong>try</strong> block contains the code that might raise an exception.</li>
+<li>A <strong>finally</strong> block follows immediately after the <strong>try</strong> (or after an optional <strong>except</strong>).</li>
+<li>The <strong>finally</strong> block contains the cleanup logic that must always run.</li>
+</ul>
+<p><strong>Example (without exceptions):</strong></p>
+<ul>
+<li>You open a configuration file for reading.</li>
+<li>You attempt to parse its contents inside the <strong>try</strong> block.</li>
+<li>In the <strong>finally</strong> block, you close the file handle.</li>
+<li>Even if parsing succeeds, the file is closed properly.</li>
+</ul>
+<p><strong>Example (with exceptions):</strong></p>
+<ul>
+<li>You open a database connection.</li>
+<li>Inside <strong>try</strong>, you execute a query that fails (e.g., invalid SQL syntax).</li>
+<li>The exception is raised, and you may or may not catch it.</li>
+<li>The <strong>finally</strong> block still runs, ensuring the database connection is closed.</li>
+</ul>
+<hr />
+<h3 id="why-finally-is-essential-for-engineers_1">🕵️ Why <code>finally</code> Is Essential for Engineers</h3>
+<ul>
+<li><strong>Prevents resource leaks</strong> – Unclosed files or connections can exhaust system limits.</li>
+<li><strong>Ensures cleanup across all code paths</strong> – Whether your code succeeds, fails, or returns early, cleanup runs.</li>
+<li><strong>Works with nested structures</strong> – You can have multiple <strong>try-finally</strong> blocks for layered resources (e.g., open a file, then acquire a lock).</li>
+<li><strong>Does not suppress exceptions</strong> – If an exception occurs in <strong>try</strong> and is not caught, it propagates after <strong>finally</strong> executes. The <strong>finally</strong> block does not swallow the error.</li>
+</ul>
+<hr />
+<h3 id="comparison-with-vs-without-finally_1">📊 Comparison: With vs. Without <code>finally</code></h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Without <code>finally</code></th>
+<th>With <code>finally</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code completes normally</td>
+<td>Cleanup must be manually written after the try block</td>
+<td>Cleanup runs automatically</td>
+</tr>
+<tr>
+<td>Exception occurs and is caught</td>
+<td>Cleanup must be duplicated inside the except block</td>
+<td>Cleanup runs once in finally</td>
+</tr>
+<tr>
+<td>Exception occurs and is NOT caught</td>
+<td>Cleanup never runs; resource is leaked</td>
+<td>Cleanup runs before exception propagates</td>
+</tr>
+<tr>
+<td>Early return inside try</td>
+<td>Cleanup code after try is skipped</td>
+<td>Cleanup in finally still executes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-examples-for-everyday-use_1">🧪 Practical Examples for Everyday Use</h3>
+<p><strong>Example 1: File Handling</strong></p>
+<ul>
+<li>You open a log file for writing.</li>
+<li>Inside <strong>try</strong>, you write several lines.</li>
+<li>An unexpected error occurs mid-write (e.g., disk full).</li>
+<li>The <strong>finally</strong> block closes the file handle, preventing corruption or locked file issues.</li>
+</ul>
+<p><strong>Example 2: Network Socket</strong></p>
+<ul>
+<li>You open a TCP socket to a remote server.</li>
+<li>Inside <strong>try</strong>, you send a request and wait for a response.</li>
+<li>The connection times out, raising an exception.</li>
+<li>The <strong>finally</strong> block closes the socket, freeing the port.</li>
+</ul>
+<p><strong>Example 3: Database Connection</strong></p>
+<ul>
+<li>You establish a connection to a PostgreSQL database.</li>
+<li>Inside <strong>try</strong>, you run a transaction.</li>
+<li>The transaction fails due to a constraint violation.</li>
+<li>The <strong>finally</strong> block closes the connection, ensuring the database pool is not exhausted.</li>
+</ul>
+<hr />
+<h3 id="important-notes-to-remember_1">⚠️ Important Notes to Remember</h3>
+<ul>
+<li>The <strong>finally</strong> block is <strong>optional</strong> but highly recommended whenever you acquire external resources.</li>
+<li>You can combine <strong>finally</strong> with <strong>except</strong> and <strong>else</strong> clauses. The order is: <strong>try</strong> → <strong>except</strong> (optional) → <strong>else</strong> (optional) → <strong>finally</strong>.</li>
+<li>If you include a <strong>return</strong> statement inside <strong>finally</strong>, it will override any <strong>return</strong> or exception from the <strong>try</strong> or <strong>except</strong> blocks. Avoid this unless you have a specific reason.</li>
+<li>The <strong>finally</strong> block itself should be simple and focused on cleanup. Avoid placing complex logic or additional resource acquisition inside it.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li>The <strong>finally</strong> clause guarantees that cleanup code runs <strong>no matter what</strong>.</li>
+<li>It is the safest way to manage resources like files, sockets, and database connections.</li>
+<li>Using <strong>finally</strong> prevents resource leaks and ensures your programs are robust and production-ready.</li>
+<li>Always pair resource acquisition with a <strong>finally</strong> block to release those resources—this is a best practice every engineer should adopt.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>finally</code> block always runs after a <code>try</code> block, whether an exception occurs or not, to ensure cleanup actions like closing files or releasing resources.</p>
+<hr />
+<h3 id="example-1-finally-runs-after-successful-execution_1">🔧 Example 1: Finally runs after successful execution</h3>
+<p>This example shows that <code>finally</code> executes even when no error happens.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Performing operation&quot;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error occurred&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleanup complete&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Performing operation</strong><br />
+<strong>Cleanup complete</strong></p>
+<hr />
+<h3 id="example-2-finally-runs-after-an-exception_1">🔧 Example 2: Finally runs after an exception</h3>
+<p>This example shows that <code>finally</code> executes even when an error is caught.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleanup complete&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Cannot divide by zero</strong><br />
+<strong>Cleanup complete</strong></p>
+<hr />
+<h3 id="example-3-finally-runs-even-without-an-except-block_1">🔧 Example 3: Finally runs even without an except block</h3>
+<p>This example shows that <code>finally</code> works even when no <code>except</code> clause is present.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Opening file&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Closing file&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Opening file</strong><br />
+<strong>Closing file</strong></p>
+<hr />
+<h3 id="example-4-finally-runs-before-the-exception-propagates_1">🔧 Example 4: Finally runs before the exception propagates</h3>
+<p>This example shows that <code>finally</code> runs before an unhandled exception stops the program.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting risky operation&quot;</span><span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;not a number&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Releasing resources&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Starting risky operation</strong><br />
+<strong>Releasing resources</strong><br />
+<em>(then a ValueError is raised)</em></p>
+<hr />
+<h3 id="example-5-finally-ensures-resource-cleanup-in-a-real-scenario_1">🔧 Example 5: Finally ensures resource cleanup in a real scenario</h3>
+<p>This example shows a practical pattern for closing a file handle.</p>
+<div class="highlight"><pre><span></span><code><span class="n">file_handle</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">file_handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file_handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">file_handle</span><span class="p">:</span>
+        <span class="n">file_handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File closed&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>File not found</strong><br />
+<strong>File closed</strong></p>
+<hr />
+<h2 id="comparison-table_1">Comparison Table</h2>
 <table>
 <thead>
 <tr>

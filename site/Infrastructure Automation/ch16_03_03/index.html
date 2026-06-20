@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch16_03_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 16 | Calculating Intervals Between Two Datetimes - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 16 | Calculating Intervals Between Two Datetimes";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch16_03_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch16_03_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -759,6 +759,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🌱 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-timedelta_1">⚙️ What is a Timedelta?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-interval-calculation_1">🛠️ Basic Interval Calculation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accessing-timedelta-attributes_1">📊 Accessing Timedelta Attributes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples-for-engineers_1">🕵️ Practical Examples for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#working-with-negative-intervals_1">📈 Working with Negative Intervals</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#combining-timedelta-with-other-operations_1">🧩 Combining Timedelta with Other Operations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary-checklist_1">✅ Summary Checklist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">📚 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-difference-between-two-dates_1">⏱ Example 1: Basic difference between two dates</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-difference-between-two-datetimes-with-time_1">⏱ Example 2: Difference between two datetimes with time</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-extracting-days-and-seconds-from-the-interval_1">⏱ Example 3: Extracting days and seconds from the interval</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-checking-if-a-deadline-has-passed_1">⏱ Example 4: Checking if a deadline has passed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-calculating-age-in-years-from-birthdate_1">⏱ Example 5: Calculating age in years from birthdate</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch16_03_04/">Ch 16 | Practical Example: SSL Certificate Expiry Alerts</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="calculating-intervals-between-two-datetimes">Calculating Intervals Between Two Datetimes</h1>
 <p><span class="category-tag">🏷️ Working with Dates and Time /  Date Arithmetic with Timedelta</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1187,8 +1217,7 @@
 <li>Calculating recurring intervals for scheduling tasks</li>
 </ul>
 <p>Practice by capturing start and end times from your own workflows and computing the durations — this skill will become invaluable for monitoring, automation, and analysis tasks.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how to find the difference between two datetime objects to measure elapsed time or date spans.</p>
 <h3 id="example-1-basic-difference-between-two-dates">⏱ Example 1: Basic difference between two dates</h3>
 <p>This example subtracts one date from another to get the number of days between them.</p>
@@ -1271,6 +1300,244 @@
 <p>📤 Output: <strong>34</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Input Type</th>
+<th>Output Type</th>
+<th>Common Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date subtraction</td>
+<td><code>date - date</code></td>
+<td><code>timedelta</code></td>
+<td>Days between dates</td>
+</tr>
+<tr>
+<td>Datetime subtraction</td>
+<td><code>datetime - datetime</code></td>
+<td><code>timedelta</code></td>
+<td>Hours/minutes between events</td>
+</tr>
+<tr>
+<td>Access <code>.days</code></td>
+<td><code>timedelta</code></td>
+<td><code>int</code></td>
+<td>Extract whole days</td>
+</tr>
+<tr>
+<td>Access <code>.total_seconds()</code></td>
+<td><code>timedelta</code></td>
+<td><code>float</code></td>
+<td>Convert interval to seconds</td>
+</tr>
+<tr>
+<td>Floor division by 365</td>
+<td><code>int // 365</code></td>
+<td><code>int</code></td>
+<td>Approximate years</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🌱 Context Introduction</h3>
+<p>When working with real-world data, you'll often need to measure the time between two events. Whether you're calculating how long a server has been running, the duration of a deployment process, or the time between log entries, understanding how to compute datetime intervals is essential. Python's <strong>timedelta</strong> object makes this straightforward and intuitive.</p>
+<hr />
+<h3 id="what-is-a-timedelta_1">⚙️ What is a Timedelta?</h3>
+<p>A <strong>timedelta</strong> represents the difference between two datetime objects. It stores duration information in days, seconds, and microseconds, and can be used for:</p>
+<ul>
+<li><strong>Subtracting</strong> one datetime from another to get the interval</li>
+<li><strong>Adding or subtracting</strong> time from a specific datetime</li>
+<li><strong>Comparing</strong> durations across different events</li>
+</ul>
+<hr />
+<h3 id="basic-interval-calculation_1">🛠️ Basic Interval Calculation</h3>
+<p>To calculate the interval between two datetimes, simply subtract one from the other:</p>
+<ul>
+<li><strong>Step 1:</strong> Import the <strong>datetime</strong> module</li>
+<li><strong>Step 2:</strong> Create two datetime objects (e.g., <strong>start_time</strong> and <strong>end_time</strong>)</li>
+<li><strong>Step 3:</strong> Subtract the earlier datetime from the later one: <strong>interval = end_time - start_time</strong></li>
+<li><strong>Step 4:</strong> The result is a <strong>timedelta</strong> object containing the duration</li>
+</ul>
+<p><strong>Example:</strong> If a deployment started at <strong>2024-01-15 10:00:00</strong> and finished at <strong>2024-01-15 12:30:45</strong>, the interval would be <strong>2 hours, 30 minutes, and 45 seconds</strong>.</p>
+<hr />
+<h3 id="accessing-timedelta-attributes_1">📊 Accessing Timedelta Attributes</h3>
+<p>Once you have a timedelta object, you can extract specific components:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.days</strong></td>
+<td>Total number of days in the interval</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td><strong>.seconds</strong></td>
+<td>Remaining seconds after days (0–86399)</td>
+<td><strong>9045</strong></td>
+</tr>
+<tr>
+<td><strong>.microseconds</strong></td>
+<td>Remaining microseconds after seconds</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td><strong>.total_seconds()</strong></td>
+<td>Complete duration converted to seconds</td>
+<td><strong>9045.0</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Important:</strong> The <strong>.seconds</strong> attribute only shows the seconds component within a single day. For the full duration in seconds, always use <strong>.total_seconds()</strong>.</p>
+<hr />
+<h3 id="practical-examples-for-engineers_1">🕵️ Practical Examples for Engineers</h3>
+<p><strong>Example 1: Server Uptime Calculation</strong></p>
+<ul>
+<li>Capture the server start time: <strong>start = datetime(2024, 1, 1, 8, 0, 0)</strong></li>
+<li>Capture the current time: <strong>now = datetime.now()</strong></li>
+<li>Calculate uptime: <strong>uptime = now - start</strong></li>
+<li>Display results: <strong>uptime.days</strong> days, <strong>uptime.seconds // 3600</strong> hours, and <strong>(uptime.seconds % 3600) // 60</strong> minutes</li>
+</ul>
+<p><strong>Example 2: Log Entry Time Difference</strong></p>
+<ul>
+<li>Parse two log timestamps: <strong>log1 = datetime(2024, 1, 15, 14, 23, 10)</strong> and <strong>log2 = datetime(2024, 1, 15, 14, 25, 45)</strong></li>
+<li>Compute the gap: <strong>gap = log2 - log1</strong></li>
+<li>Convert to seconds for analysis: <strong>gap.total_seconds()</strong> returns <strong>155.0</strong> seconds</li>
+</ul>
+<hr />
+<h3 id="working-with-negative-intervals_1">📈 Working with Negative Intervals</h3>
+<p>If you subtract a later datetime from an earlier one, the timedelta will be <strong>negative</strong>:</p>
+<ul>
+<li><strong>Example:</strong> <strong>early = datetime(2024, 1, 15, 10, 0, 0)</strong> and <strong>late = datetime(2024, 1, 15, 8, 0, 0)</strong></li>
+<li><strong>result = early - late</strong> gives a negative timedelta of <strong>-1 day, 22:00:00</strong></li>
+<li>To avoid confusion, always ensure you subtract the earlier datetime from the later one, or use <strong>abs()</strong> to get the absolute duration</li>
+</ul>
+<hr />
+<h3 id="combining-timedelta-with-other-operations_1">🧩 Combining Timedelta with Other Operations</h3>
+<p>Timedelta objects can be used in arithmetic with datetime objects:</p>
+<ul>
+<li><strong>Add time to a datetime:</strong> <strong>new_time = current_time + timedelta(hours=5, minutes=30)</strong></li>
+<li><strong>Subtract time from a datetime:</strong> <strong>past_time = current_time - timedelta(days=7)</strong></li>
+<li><strong>Compare intervals:</strong> Check if <strong>interval1 &gt; interval2</strong> to compare durations</li>
+</ul>
+<p><strong>Use case:</strong> Schedule a task to run <strong>3 hours</strong> after a trigger event: <strong>trigger_time + timedelta(hours=3)</strong></p>
+<hr />
+<h3 id="summary-checklist_1">✅ Summary Checklist</h3>
+<ul>
+<li>✅ Use <strong>datetime</strong> objects to represent specific points in time</li>
+<li>✅ Subtract two datetimes to get a <strong>timedelta</strong> interval</li>
+<li>✅ Access <strong>.days</strong>, <strong>.seconds</strong>, and <strong>.total_seconds()</strong> for different duration representations</li>
+<li>✅ Use <strong>timedelta</strong> for adding or subtracting time from datetimes</li>
+<li>✅ Handle negative intervals by ensuring correct subtraction order or using <strong>abs()</strong></li>
+</ul>
+<hr />
+<h3 id="next-steps_1">📚 Next Steps</h3>
+<p>Now that you understand how to calculate intervals between two datetimes, you can move on to more advanced date arithmetic, such as:</p>
+<ul>
+<li>Formatting timedelta output for human-readable reports</li>
+<li>Working with time zones and daylight saving time adjustments</li>
+<li>Calculating recurring intervals for scheduling tasks</li>
+</ul>
+<p>Practice by capturing start and end times from your own workflows and computing the durations — this skill will become invaluable for monitoring, automation, and analysis tasks.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how to find the difference between two datetime objects to measure elapsed time or date spans.</p>
+<h3 id="example-1-basic-difference-between-two-dates_1">⏱ Example 1: Basic difference between two dates</h3>
+<p>This example subtracts one date from another to get the number of days between them.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+
+<span class="n">start_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">interval</span> <span class="o">=</span> <span class="n">end_date</span> <span class="o">-</span> <span class="n">start_date</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>9 days, 0:00:00</strong></p>
+<hr />
+<h3 id="example-2-difference-between-two-datetimes-with-time_1">⏱ Example 2: Difference between two datetimes with time</h3>
+<p>This example calculates the exact interval between two datetime objects that include hours and minutes.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">interval</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>6:15:00</strong></p>
+<hr />
+<h3 id="example-3-extracting-days-and-seconds-from-the-interval_1">⏱ Example 3: Extracting days and seconds from the interval</h3>
+<p>This example shows how to access the days and total seconds from a timedelta object.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">interval</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="n">days</span> <span class="o">=</span> <span class="n">interval</span><span class="o">.</span><span class="n">days</span>
+<span class="n">seconds</span> <span class="o">=</span> <span class="n">interval</span><span class="o">.</span><span class="n">seconds</span>
+<span class="n">total_seconds</span> <span class="o">=</span> <span class="n">interval</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">days</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total_seconds</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>5</strong><br />
+📤 Output: <strong>37800</strong><br />
+📤 Output: <strong>469800.0</strong></p>
+<hr />
+<h3 id="example-4-checking-if-a-deadline-has-passed_1">⏱ Example 4: Checking if a deadline has passed</h3>
+<p>This example compares the current datetime to a future deadline and prints a message based on the result.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">deadline</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">59</span><span class="p">)</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">remaining</span> <span class="o">=</span> <span class="n">deadline</span> <span class="o">-</span> <span class="n">now</span>
+
+<span class="k">if</span> <span class="n">remaining</span><span class="o">.</span><span class="n">days</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Deadline has not passed&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Deadline has passed&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">remaining</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Deadline has not passed</strong><br />
+📤 Output: <strong>6 days, 13:59:59</strong></p>
+<hr />
+<h3 id="example-5-calculating-age-in-years-from-birthdate_1">⏱ Example 5: Calculating age in years from birthdate</h3>
+<p>This example computes a person's age by subtracting their birthdate from today's date and converting the result to years.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">date</span>
+
+<span class="n">birthdate</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">1990</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">age_delta</span> <span class="o">=</span> <span class="n">today</span> <span class="o">-</span> <span class="n">birthdate</span>
+<span class="n">age_years</span> <span class="o">=</span> <span class="n">age_delta</span><span class="o">.</span><span class="n">days</span> <span class="o">//</span> <span class="mi">365</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">age_years</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>34</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

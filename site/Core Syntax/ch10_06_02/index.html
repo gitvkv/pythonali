@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch10_06_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 10 | Lambda Syntax (Arguments and Expression) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 10 | Lambda Syntax (Arguments and Expression)";
         var mkdocs_page_input_path = "Core Syntax\\ch10_06_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch10_06_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -492,6 +492,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-lambda-with-map-to-transform-a-list">🧩 Example 5: Lambda with map() to transform a list</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lambda-syntax-breakdown_1">⚙️ Lambda Syntax Breakdown</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#arguments-in-lambda-functions_1">📊 Arguments in Lambda Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#expression-in-lambda-functions_1">🛠️ Expression in Lambda Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#lambda-vs-regular-function-comparison_1">🕵️ Lambda vs Regular Function Comparison</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-use-cases-for-engineers_1">🎯 Common Use Cases for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-limitations-to-remember_1">⚠️ Important Limitations to Remember</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices_1">💡 Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-lambda-with-one-argument_1">🧩 Example 1: Basic lambda with one argument</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-lambda-with-two-arguments_1">🧩 Example 2: Lambda with two arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-lambda-with-default-argument_1">🧩 Example 3: Lambda with default argument</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-lambda-used-inline-with-sorted_1">🧩 Example 4: Lambda used inline with sorted()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-lambda-with-map-to-transform-a-list_1">🧩 Example 5: Lambda with map() to transform a list</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="lambda-syntax-arguments-and-expression">Lambda Syntax (Arguments and Expression)</h1>
 <p><span class="category-tag">🏷️ Functions /  Lambda Functions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1204,8 +1232,7 @@
 <li>Document complex lambdas with a comment above them explaining the purpose</li>
 </ul>
 <p>Remember: Lambda functions are a tool for conciseness, not a replacement for regular functions. When in doubt about readability, choose a regular <strong>def</strong> function with a descriptive name.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>A lambda function is a small, anonymous function defined in a single line using the <code>lambda</code> keyword, with arguments before the colon and an expression after it.</p>
 <hr />
 <h3 id="example-1-basic-lambda-with-one-argument">🧩 Example 1: Basic lambda with one argument</h3>
@@ -1252,6 +1279,221 @@
 <p>📤 Output: <strong>[32.0, 68.0, 86.0, 212.0]</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Regular Function (<code>def</code>)</th>
+<th>Lambda Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Syntax</td>
+<td><code>def name(args): return expr</code></td>
+<td><code>lambda args: expr</code></td>
+</tr>
+<tr>
+<td>Name required</td>
+<td>Yes</td>
+<td>No (anonymous)</td>
+</tr>
+<tr>
+<td>Lines of code</td>
+<td>Multiple</td>
+<td>One</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Complex logic</td>
+<td>Simple, single-use operations</td>
+</tr>
+<tr>
+<td>Can contain statements</td>
+<td>Yes (loops, conditionals, etc.)</td>
+<td>No (only a single expression)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>Lambda functions are small, anonymous functions in Python that can be defined in a single line. Unlike regular functions created with the <strong>def</strong> keyword, lambda functions don't require a name and are typically used for short, simple operations. For engineers working with automation scripts or data processing, lambdas provide a concise way to write quick functions without the overhead of a full function definition.</p>
+<hr />
+<h3 id="lambda-syntax-breakdown_1">⚙️ Lambda Syntax Breakdown</h3>
+<p>The basic syntax for a lambda function follows this structure:</p>
+<p><strong>lambda arguments: expression</strong></p>
+<ul>
+<li><strong>lambda</strong> is the keyword that signals you're creating an anonymous function</li>
+<li><strong>arguments</strong> are the input parameters (can be zero, one, or multiple)</li>
+<li><strong>expression</strong> is a single operation that gets evaluated and returned</li>
+</ul>
+<p>Key rules to remember:
+- Lambda functions can only contain a single expression, not multiple statements
+- The expression result is automatically returned (no <strong>return</strong> keyword needed)
+- Lambda functions are typically used where function objects are required temporarily</p>
+<hr />
+<h3 id="arguments-in-lambda-functions_1">📊 Arguments in Lambda Functions</h3>
+<p>Lambda functions can accept different types of arguments, just like regular functions:</p>
+<p><strong>Zero arguments:</strong>
+- <strong>lambda: 42</strong> — This lambda takes no inputs and always returns the value 42</p>
+<p><strong>Single argument:</strong>
+- <strong>lambda x: x * 2</strong> — Takes one argument and returns it doubled</p>
+<p><strong>Multiple arguments:</strong>
+- <strong>lambda x, y: x + y</strong> — Takes two arguments and returns their sum</p>
+<p><strong>Default arguments:</strong>
+- <strong>lambda x, y=10: x + y</strong> — The second argument defaults to 10 if not provided</p>
+<p><strong>Variable arguments:</strong>
+- <strong>lambda *args: sum(args)</strong> — Accepts any number of positional arguments
+- <strong>lambda </strong>kwargs: kwargs** — Accepts any number of keyword arguments</p>
+<hr />
+<h3 id="expression-in-lambda-functions_1">🛠️ Expression in Lambda Functions</h3>
+<p>The expression part of a lambda is the operation that gets executed and returned. Here are common expression patterns:</p>
+<p><strong>Mathematical operations:</strong>
+- <strong>lambda a, b: a ** b</strong> — Raises a to the power of b
+- <strong>lambda x: x % 2 == 0</strong> — Returns True if x is even</p>
+<p><strong>String operations:</strong>
+- <strong>lambda s: s.upper()</strong> — Converts string to uppercase
+- <strong>lambda s: s[::-1]</strong> — Reverses a string</p>
+<p><strong>Conditional expressions:</strong>
+- <strong>lambda x: "even" if x % 2 == 0 else "odd"</strong> — Returns a string based on condition
+- <strong>lambda age: "adult" if age &gt;= 18 else "minor"</strong> — Age classification</p>
+<p><strong>Collection operations:</strong>
+- <strong>lambda items: len(items)</strong> — Returns the length of a collection
+- <strong>lambda d: d.get("key", "default")</strong> — Safely gets a value from a dictionary</p>
+<hr />
+<h3 id="lambda-vs-regular-function-comparison_1">🕵️ Lambda vs Regular Function Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Lambda Function</th>
+<th>Regular Function (def)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>Anonymous (no name required)</td>
+<td>Must have a name</td>
+</tr>
+<tr>
+<td><strong>Syntax</strong></td>
+<td>Single line only</td>
+<td>Multiple lines allowed</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td>Expression result auto-returned</td>
+<td>Requires explicit <strong>return</strong></td>
+</tr>
+<tr>
+<td><strong>Statements</strong></td>
+<td>Single expression only</td>
+<td>Multiple statements allowed</td>
+</tr>
+<tr>
+<td><strong>Use case</strong></td>
+<td>Simple, one-time operations</td>
+<td>Complex, reusable logic</td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Concise but limited</td>
+<td>More verbose but clearer</td>
+</tr>
+<tr>
+<td><strong>Documentation</strong></td>
+<td>No docstrings possible</td>
+<td>Can include docstrings</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-use-cases-for-engineers_1">🎯 Common Use Cases for Engineers</h3>
+<p><strong>Sorting data with custom logic:</strong>
+- <strong>sorted(data, key=lambda x: x["timestamp"])</strong> — Sort dictionaries by timestamp
+- <strong>sorted(names, key=lambda n: len(n))</strong> — Sort strings by their length</p>
+<p><strong>Filtering collections:</strong>
+- <strong>filter(lambda x: x &gt; 0, numbers)</strong> — Keep only positive numbers
+- <strong>filter(lambda s: s.startswith("err"), logs)</strong> — Find error log entries</p>
+<p><strong>Transforming data:</strong>
+- <strong>map(lambda x: x.strip().lower(), raw_data)</strong> — Clean and normalize strings
+- <strong>map(lambda record: record["status"], records)</strong> — Extract specific fields</p>
+<p><strong>Quick calculations in pipelines:</strong>
+- <strong>reduce(lambda a, b: a * b, values)</strong> — Multiply all values together
+- <strong>lambda total, item: total + item["price"]</strong> — Accumulate prices</p>
+<hr />
+<h3 id="important-limitations-to-remember_1">⚠️ Important Limitations to Remember</h3>
+<ul>
+<li>Lambda functions cannot contain assignments (no <strong>=</strong> operator inside)</li>
+<li>Lambda functions cannot contain statements like <strong>print</strong>, <strong>return</strong>, or <strong>raise</strong></li>
+<li>Complex logic should always use a regular <strong>def</strong> function for clarity</li>
+<li>Lambda functions are harder to debug since they don't appear clearly in tracebacks</li>
+<li>Overusing lambdas can make code less readable for other engineers</li>
+</ul>
+<hr />
+<h3 id="best-practices_1">💡 Best Practices</h3>
+<ul>
+<li>Use lambdas for simple, obvious operations that fit on one line</li>
+<li>Assign lambdas to variables only when the variable name adds clarity</li>
+<li>Prefer regular functions when the logic requires more than a single expression</li>
+<li>Use lambdas with built-in functions like <strong>sorted</strong>, <strong>filter</strong>, and <strong>map</strong> for cleaner code</li>
+<li>Document complex lambdas with a comment above them explaining the purpose</li>
+</ul>
+<p>Remember: Lambda functions are a tool for conciseness, not a replacement for regular functions. When in doubt about readability, choose a regular <strong>def</strong> function with a descriptive name.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>A lambda function is a small, anonymous function defined in a single line using the <code>lambda</code> keyword, with arguments before the colon and an expression after it.</p>
+<hr />
+<h3 id="example-1-basic-lambda-with-one-argument_1">🧩 Example 1: Basic lambda with one argument</h3>
+<p>This shows the simplest lambda — one argument, one expression, no name.</p>
+<div class="highlight"><pre><span></span><code><span class="n">square</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>25</strong></p>
+<hr />
+<h3 id="example-2-lambda-with-two-arguments_1">🧩 Example 2: Lambda with two arguments</h3>
+<p>This demonstrates a lambda that takes two arguments and returns their sum.</p>
+<div class="highlight"><pre><span></span><code><span class="n">add</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>30</strong></p>
+<hr />
+<h3 id="example-3-lambda-with-default-argument_1">🧩 Example 3: Lambda with default argument</h3>
+<p>This shows how to use a default value in a lambda argument.</p>
+<div class="highlight"><pre><span></span><code><span class="n">multiply</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+<span class="n">result1</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>10</strong><br />
+📤 Output: <strong>15</strong></p>
+<hr />
+<h3 id="example-4-lambda-used-inline-with-sorted_1">🧩 Example 4: Lambda used inline with sorted()</h3>
+<p>This demonstrates passing a lambda directly as a key function to sort a list of tuples.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineers</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)]</span>
+<span class="n">sorted_engineers</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">engineers</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">person</span><span class="p">:</span> <span class="n">person</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_engineers</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[('Bob', 28), ('Alice', 35), ('Charlie', 42)]</strong></p>
+<hr />
+<h3 id="example-5-lambda-with-map-to-transform-a-list_1">🧩 Example 5: Lambda with map() to transform a list</h3>
+<p>This shows using a lambda inside <code>map()</code> to apply a transformation to every element in a list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">temperatures_c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="n">temperatures_f</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span><span class="p">,</span> <span class="n">temperatures_c</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">temperatures_f</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[32.0, 68.0, 86.0, 212.0]</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_06_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | User-Facing String Representations via __str__ - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | User-Facing String Representations via __str__";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_06_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_06_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -865,6 +865,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-__str__-vs-default-string-representation">Comparison: __str__ vs default string representation</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-__str___1">⚙️ What is __str__?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-example-a-server-class_1">🛠️ Basic Example: A Server Class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-implement-__str___1">📊 How to Implement __str__</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-does-python-call-__str___1">🕵️ When Does Python Call __str__?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#__str__-vs-__repr__-whats-the-difference_1">🔍 __str__ vs __repr__: What's the Difference?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-a-configuration-class_1">🧪 Practical Example: A Configuration Class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-__str___1">🎯 Best Practices for __str__</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-default-string-representation-no-__str___1">🧱 Example 1: Default string representation (no __str__)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-basic-__str__-returning-a-simple-string_1">📝 Example 2: Basic __str__ returning a simple string</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-__str__-using-multiple-instance-attributes_1">🔧 Example 3: __str__ using multiple instance attributes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-__str__-with-conditional-formatting_1">📊 Example 4: __str__ with conditional formatting</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-__str__-for-a-collection-of-objects_1">🏗️ Example 5: __str__ for a collection of objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-__str__-vs-default-string-representation_1">Comparison: __str__ vs default string representation</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_06_02/">Ch 18 | Developer-Facing Evaluations via __repr__</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="user-facing-string-representations-via-str">User-Facing String Representations via <strong>str</strong></h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Special Dunder Methods</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1222,8 +1252,7 @@
 <li>Implementing <code>__str__</code> makes your classes <strong>intuitive, debuggable, and professional</strong></li>
 </ul>
 <p>By adding <code>__str__</code> to your classes, you transform cryptic memory addresses into meaningful, readable information — a small change that makes a huge difference in day-to-day coding and debugging.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>__str__</code> method defines how your object appears when engineers need to read it as a string.</p>
 <hr />
 <h3 id="example-1-default-string-representation-no-__str__">🧱 Example 1: Default string representation (no <code>__str__</code>)</h3>
@@ -1311,6 +1340,273 @@
 <p>📤 Output: <strong>Team 'Structural': Alice, Bob, Carol</strong></p>
 <hr />
 <h3 id="comparison-__str__-vs-default-string-representation">Comparison: <code>__str__</code> vs default string representation</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default (no <code>__str__</code>)</th>
+<th>With <code>__str__</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What <code>print()</code> shows</td>
+<td>Memory address like <code>&lt;__main__.Engineer object at 0x...&gt;</code></td>
+<td>Human-readable string you define</td>
+</tr>
+<tr>
+<td>Useful for engineers</td>
+<td>No — shows internal Python details</td>
+<td>Yes — shows meaningful data</td>
+</tr>
+<tr>
+<td>Customization</td>
+<td>None</td>
+<td>Full control over output format</td>
+</tr>
+<tr>
+<td>Example output</td>
+<td><code>&lt;__main__.Engineer object at 0x7f8b1c2d3a90&gt;</code></td>
+<td><code>Engineer: Alice</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>When you create custom classes in Python, you'll often want to display meaningful information about your objects. Without any special methods, printing an object shows a technical, unhelpful output like <code>&lt;__main__.Server object at 0x7f8b1c&gt;</code> — which tells engineers nothing useful. The <strong><code>__str__</code></strong> method solves this by defining how your object should appear as a <strong>user-friendly string</strong>. This is one of Python's most commonly used "dunder" (double underscore) methods and is essential for making your classes intuitive to work with.</p>
+<hr />
+<h3 id="what-is-__str___1">⚙️ What is <code>__str__</code>?</h3>
+<ul>
+<li><strong><code>__str__</code></strong> is a special method that Python calls automatically when you use <strong><code>print()</code></strong> or <strong><code>str()</code></strong> on an object.</li>
+<li>It must return a <strong>string</strong> — nothing else.</li>
+<li>Its purpose is to provide a <strong>readable, human-friendly representation</strong> of the object's current state.</li>
+<li>Think of it as the "what should the user see?" method.</li>
+</ul>
+<hr />
+<h3 id="basic-example-a-server-class_1">🛠️ Basic Example: A Server Class</h3>
+<p>Consider a simple <strong>Server</strong> class that tracks hostname and IP address. Without <code>__str__</code>, printing a server object gives you a memory address. With <code>__str__</code>, you get clean, useful output.</p>
+<p><strong>Without <code>__str__</code>:</strong></p>
+<ul>
+<li>Create a server object: <strong>server = Server("web-01", "192.168.1.10")</strong></li>
+<li>Print the object: <strong>print(server)</strong></li>
+<li>Output: <strong>&lt;<strong>main</strong>.Server object at 0x7f8b1c2d3e4f&gt;</strong></li>
+</ul>
+<p><strong>With <code>__str__</code> defined:</strong></p>
+<ul>
+<li>Same creation: <strong>server = Server("web-01", "192.168.1.10")</strong></li>
+<li>Print the object: <strong>print(server)</strong></li>
+<li>Output: <strong>Server: web-01 (192.168.1.10)</strong></li>
+</ul>
+<p>The difference is dramatic — the second output tells you exactly what the object represents.</p>
+<hr />
+<h3 id="how-to-implement-__str___1">📊 How to Implement <code>__str__</code></h3>
+<p>To add <code>__str__</code> to your class, define a method with this exact signature:</p>
+<ul>
+<li><strong>def <strong>str</strong>(self):</strong></li>
+<li>Inside the method, build and <strong>return</strong> a string using <code>self</code> attributes.</li>
+<li>Use <strong>f-strings</strong> for clean, readable formatting.</li>
+</ul>
+<p><strong>Example implementation:</strong></p>
+<ul>
+<li><strong>class Server:</strong></li>
+<li><strong>def <strong>init</strong>(self, hostname, ip_address):</strong><ul>
+<li><strong>self.hostname = hostname</strong></li>
+<li><strong>self.ip_address = ip_address</strong></li>
+</ul>
+</li>
+<li><strong>def <strong>str</strong>(self):</strong><ul>
+<li><strong>return f"Server: {self.hostname} ({self.ip_address})"</strong></li>
+</ul>
+</li>
+</ul>
+<p>Now, any time you print a Server object, you get a clean, descriptive string.</p>
+<hr />
+<h3 id="when-does-python-call-__str___1">🕵️ When Does Python Call <code>__str__</code>?</h3>
+<p>Python automatically invokes <code>__str__</code> in these common scenarios:</p>
+<ul>
+<li><strong>print(my_object)</strong> — the most common use case</li>
+<li><strong>str(my_object)</strong> — explicit conversion to string</li>
+<li><strong>f"{my_object}"</strong> — string interpolation in f-strings</li>
+<li><strong>format(my_object)</strong> — when using the format() function</li>
+<li><strong>logging.debug(f"Status: {my_object}")</strong> — in log messages</li>
+</ul>
+<hr />
+<h3 id="__str__-vs-__repr__-whats-the-difference_1">🔍 <code>__str__</code> vs <code>__repr__</code>: What's the Difference?</h3>
+<p>Engineers often confuse <code>__str__</code> with another dunder method called <code>__repr__</code>. Here's a quick comparison:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>__str__</code></th>
+<th><code>__repr__</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>User-friendly display</td>
+<td>Developer/debug representation</td>
+</tr>
+<tr>
+<td><strong>Audience</strong></td>
+<td>End users</td>
+<td>Developers</td>
+</tr>
+<tr>
+<td><strong>Called by</strong></td>
+<td><code>print()</code>, <code>str()</code></td>
+<td><code>repr()</code>, interactive console</td>
+</tr>
+<tr>
+<td><strong>Goal</strong></td>
+<td>Readability</td>
+<td>Unambiguous, often recreatable</td>
+</tr>
+<tr>
+<td><strong>Fallback</strong></td>
+<td>If missing, Python uses <code>__repr__</code></td>
+<td>No fallback</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Simple rule of thumb:</strong> <code>__str__</code> is for <strong>humans</strong> reading output; <code>__repr__</code> is for <strong>developers</strong> debugging code.</p>
+<hr />
+<h3 id="practical-example-a-configuration-class_1">🧪 Practical Example: A Configuration Class</h3>
+<p>Let's build a <strong>Config</strong> class that stores application settings. With <code>__str__</code>, engineers can quickly inspect configuration values.</p>
+<ul>
+<li><strong>class Config:</strong></li>
+<li><strong>def <strong>init</strong>(self, app_name, port, debug_mode):</strong><ul>
+<li><strong>self.app_name = app_name</strong></li>
+<li><strong>self.port = port</strong></li>
+<li><strong>self.debug_mode = debug_mode</strong></li>
+</ul>
+</li>
+<li><strong>def <strong>str</strong>(self):</strong><ul>
+<li><strong>return f"Config(app={self.app_name}, port={self.port}, debug={self.debug_mode})"</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>Usage:</strong></p>
+<ul>
+<li><strong>config = Config("webapp", 8080, True)</strong></li>
+<li><strong>print(config)</strong></li>
+<li>Output: <strong>Config(app=webapp, port=8080, debug=True)</strong></li>
+</ul>
+<p>This makes debugging and logging much easier — you see the full state at a glance.</p>
+<hr />
+<h3 id="best-practices-for-__str___1">🎯 Best Practices for <code>__str__</code></h3>
+<ul>
+<li><strong>Keep it concise</strong> — aim for one line of output when possible</li>
+<li><strong>Include key identifying attributes</strong> — hostname, ID, status, etc.</li>
+<li><strong>Use f-strings</strong> for clean, readable formatting</li>
+<li><strong>Avoid printing sensitive data</strong> — passwords, tokens, or secrets</li>
+<li><strong>Return a string, always</strong> — never print inside <code>__str__</code></li>
+<li><strong>Make it informative</strong> — the output should tell you what the object is and its current state</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li><strong><code>__str__</code></strong> defines how your object appears when printed or converted to a string</li>
+<li>It must <strong>return a string</strong> and takes only <strong>self</strong> as a parameter</li>
+<li>Python calls it automatically with <strong>print()</strong>, <strong>str()</strong>, and <strong>f-strings</strong></li>
+<li>It's distinct from <strong><code>__repr__</code></strong> — <code>__str__</code> is for users, <code>__repr__</code> is for developers</li>
+<li>Implementing <code>__str__</code> makes your classes <strong>intuitive, debuggable, and professional</strong></li>
+</ul>
+<p>By adding <code>__str__</code> to your classes, you transform cryptic memory addresses into meaningful, readable information — a small change that makes a huge difference in day-to-day coding and debugging.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>__str__</code> method defines how your object appears when engineers need to read it as a string.</p>
+<hr />
+<h3 id="example-1-default-string-representation-no-__str___1">🧱 Example 1: Default string representation (no <code>__str__</code>)</h3>
+<p>Shows what Python shows when you print an object that has no <code>__str__</code> defined.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Engineer</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>&lt;<strong>main</strong>.Engineer object at 0x7f8b1c2d3a90&gt;</strong></p>
+<hr />
+<h3 id="example-2-basic-__str__-returning-a-simple-string_1">📝 Example 2: Basic <code>__str__</code> returning a simple string</h3>
+<p>Demonstrates the simplest possible <code>__str__</code> method that returns a fixed string.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Engineer</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Engineer: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Engineer: Bob</strong></p>
+<hr />
+<h3 id="example-3-__str__-using-multiple-instance-attributes_1">🔧 Example 3: <code>__str__</code> using multiple instance attributes</h3>
+<p>Shows how to combine several attributes into a readable string.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Project</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">deadline</span><span class="p">,</span> <span class="n">budget</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deadline</span> <span class="o">=</span> <span class="n">deadline</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">budget</span> <span class="o">=</span> <span class="n">budget</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Project &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39; — due </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">deadline</span><span class="si">}</span><span class="s2">, budget $</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">budget</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Project</span><span class="p">(</span><span class="s2">&quot;Bridge Design&quot;</span><span class="p">,</span> <span class="s2">&quot;2025-06-01&quot;</span><span class="p">,</span> <span class="mi">500000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Project 'Bridge Design' — due 2025-06-01, budget $500000</strong></p>
+<hr />
+<h3 id="example-4-__str__-with-conditional-formatting_1">📊 Example 4: <code>__str__</code> with conditional formatting</h3>
+<p>Shows how to include logic inside <code>__str__</code> to make output more useful.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Task</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">completed</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">completed</span> <span class="o">=</span> <span class="n">completed</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;✓ done&quot;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">completed</span> <span class="k">else</span> <span class="s2">&quot;○ pending&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="s2">&quot;Review schematics&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">Task</span><span class="p">(</span><span class="s2">&quot;Update documentation&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[✓ done] Review schematics</strong><br />
+📤 Output: <strong>[○ pending] Update documentation</strong></p>
+<hr />
+<h3 id="example-5-__str__-for-a-collection-of-objects_1">🏗️ Example 5: <code>__str__</code> for a collection of objects</h3>
+<p>Shows how to make a container object display its contents in a readable way.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Team</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">members</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_member</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engineer_name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">engineer_name</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">member_list</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">members</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">members</span> <span class="k">else</span> <span class="s2">&quot;no members&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Team &#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;: </span><span class="si">{</span><span class="n">member_list</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">team</span> <span class="o">=</span> <span class="n">Team</span><span class="p">(</span><span class="s2">&quot;Structural&quot;</span><span class="p">)</span>
+<span class="n">team</span><span class="o">.</span><span class="n">add_member</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+<span class="n">team</span><span class="o">.</span><span class="n">add_member</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+<span class="n">team</span><span class="o">.</span><span class="n">add_member</span><span class="p">(</span><span class="s2">&quot;Carol&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">team</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Team 'Structural': Alice, Bob, Carol</strong></p>
+<hr />
+<h3 id="comparison-__str__-vs-default-string-representation_1">Comparison: <code>__str__</code> vs default string representation</h3>
 <table>
 <thead>
 <tr>

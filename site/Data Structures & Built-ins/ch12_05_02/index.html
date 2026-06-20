@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch12_05_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 12 | Using csv.reader and csv.writer - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 12 | Using csv.reader and csv.writer";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch12_05_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch12_05_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -586,6 +586,36 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-reading-a-csv-and-writing-a-filtered-version">📘 Example 5: Reading a CSV and writing a filtered version</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#quick-comparison">Quick Comparison</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">📝 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-are-csvreader-and-csvwriter_1">⚙️ What Are csv.reader and csv.writer?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#reading-csv-files-with-csvreader_1">📊 Reading CSV Files with csv.reader</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#writing-csv-files-with-csvwriter_1">🛠️ Writing CSV Files with csv.writer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-csv-dialects-and-options_1">🕵️ Common CSV Dialects and Options</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-csvreader-vs-csvwriter_1">📊 Comparison: csv.reader vs csv.writer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-tips-for-engineers_1">💡 Practical Tips for Engineers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-reading-a-csv-file-with-csvreader_1">📘 Example 1: Reading a CSV file with csv.reader</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-writing-a-csv-file-with-csvwriter_1">📘 Example 2: Writing a CSV file with csv.writer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-reading-specific-columns-from-a-csv-file_1">📘 Example 3: Reading specific columns from a CSV file</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-writing-multiple-rows-at-once-with-writerows_1">📘 Example 4: Writing multiple rows at once with writerows</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-reading-a-csv-and-writing-a-filtered-version_1">📘 Example 5: Reading a CSV and writing a filtered version</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-comparison_1">Quick Comparison</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1106,7 @@
               
                 <h1 id="using-csvreader-and-csvwriter">Using csv.reader and csv.writer</h1>
 <p><span class="category-tag">🏷️ File Handling /  CSV Files</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">📝 Context Introduction</h3>
@@ -1214,8 +1244,7 @@
 <li>These tools handle all the tricky formatting details so you can focus on your data</li>
 </ul>
 <p>Now you're ready to read and write CSV files like a pro!</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>csv</code> module provides <code>reader</code> and <code>writer</code> functions to read from and write to comma-separated value files.</p>
 <hr />
 <h3 id="example-1-reading-a-csv-file-with-csvreader">📘 Example 1: Reading a CSV file with csv.reader</h3>
@@ -1290,6 +1319,259 @@
 <p>📤 Output: <strong>(file 'filtered.csv' created with only rows where age &gt; 25)</strong></p>
 <hr />
 <h2 id="quick-comparison">Quick Comparison</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>csv.reader</th>
+<th>csv.writer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purpose</td>
+<td>Reads data from CSV files</td>
+<td>Writes data to CSV files</td>
+</tr>
+<tr>
+<td>Returns</td>
+<td>An iterable of row lists</td>
+<td>A writer object with write methods</td>
+</tr>
+<tr>
+<td>Common methods</td>
+<td><code>next()</code> to skip header</td>
+<td><code>writerow()</code> for one row, <code>writerows()</code> for many</td>
+</tr>
+<tr>
+<td>File mode</td>
+<td><code>'r'</code> (read)</td>
+<td><code>'w'</code> (write) with <code>newline=''</code></td>
+</tr>
+<tr>
+<td>Handles headers</td>
+<td>Manually skip with <code>next()</code></td>
+<td>Manually write header row first</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">📝 Context Introduction</h3>
+<p>CSV (Comma-Separated Values) files are one of the most common formats for storing tabular data in infrastructure work. Whether you're processing server logs, configuration exports, or inventory lists, you'll frequently encounter CSV files. Python's built-in <strong>csv module</strong> provides two powerful tools: <strong>csv.reader</strong> for reading data and <strong>csv.writer</strong> for writing data. These tools handle the complexities of parsing commas, quotes, and newlines automatically, making your life much easier.</p>
+<hr />
+<h3 id="what-are-csvreader-and-csvwriter_1">⚙️ What Are csv.reader and csv.writer?</h3>
+<ul>
+<li><strong>csv.reader</strong> – Reads a CSV file and returns each row as a list of strings</li>
+<li><strong>csv.writer</strong> – Writes lists of data into a CSV file, handling formatting automatically</li>
+<li>Both are part of Python's <strong>csv module</strong>, which you import with <strong>import csv</strong></li>
+<li>They work with file objects opened using Python's <strong>open()</strong> function</li>
+<li>The reader and writer handle edge cases like commas inside quoted fields</li>
+</ul>
+<hr />
+<h3 id="reading-csv-files-with-csvreader_1">📊 Reading CSV Files with csv.reader</h3>
+<p><strong>Basic usage pattern:</strong>
+- Open the file using <strong>open('filename.csv', 'r')</strong> with mode <strong>'r'</strong> for reading
+- Pass the file object to <strong>csv.reader(file_object)</strong>
+- Loop through the reader to access each row as a list
+- Close the file using <strong>file.close()</strong> or use a <strong>with</strong> statement for automatic cleanup</p>
+<p><strong>Example workflow:</strong>
+- Create a file object: <strong>file = open('servers.csv', 'r')</strong>
+- Create a reader: <strong>reader = csv.reader(file)</strong>
+- Loop through rows: <strong>for row in reader: print(row)</strong>
+- Close the file: <strong>file.close()</strong></p>
+<p><strong>Using the with statement (recommended):</strong>
+- <strong>with open('servers.csv', 'r') as file:</strong>
+- Inside the block: <strong>reader = csv.reader(file)</strong>
+- Then: <strong>for row in reader: print(row)</strong>
+- The file closes automatically when the block ends</p>
+<p><strong>Accessing specific columns:</strong>
+- Each row is a list, so you use index numbers: <strong>row[0]</strong> for first column, <strong>row[1]</strong> for second, etc.
+- Example: <strong>print(f"Server name: {row[0]}, IP: {row[1]}")</strong></p>
+<p><strong>Skipping header rows:</strong>
+- Use <strong>next(reader)</strong> before the loop to skip the first row (header)
+- Example: <strong>header = next(reader)</strong> then loop through the remaining rows</p>
+<hr />
+<h3 id="writing-csv-files-with-csvwriter_1">🛠️ Writing CSV Files with csv.writer</h3>
+<p><strong>Basic usage pattern:</strong>
+- Open the file using <strong>open('output.csv', 'w', newline='')</strong> with mode <strong>'w'</strong> for writing
+- The <strong>newline=''</strong> parameter prevents extra blank lines on Windows
+- Pass the file object to <strong>csv.writer(file_object)</strong>
+- Use <strong>writer.writerow(list)</strong> to write a single row
+- Use <strong>writer.writerows(list_of_lists)</strong> to write multiple rows at once</p>
+<p><strong>Example workflow:</strong>
+- Create a file object: <strong>file = open('output.csv', 'w', newline='')</strong>
+- Create a writer: <strong>writer = csv.writer(file)</strong>
+- Write header: <strong>writer.writerow(['Name', 'IP', 'OS'])</strong>
+- Write data: <strong>writer.writerow(['web01', '10.0.0.1', 'Ubuntu'])</strong>
+- Close the file: <strong>file.close()</strong></p>
+<p><strong>Using the with statement (recommended):</strong>
+- <strong>with open('output.csv', 'w', newline='') as file:</strong>
+- Inside the block: <strong>writer = csv.writer(file)</strong>
+- Then: <strong>writer.writerow(['Name', 'IP', 'OS'])</strong>
+- The file closes automatically when the block ends</p>
+<p><strong>Writing multiple rows at once:</strong>
+- Prepare a list of lists: <strong>data = [['web01', '10.0.0.1'], ['db01', '10.0.0.2']]</strong>
+- Use: <strong>writer.writerows(data)</strong></p>
+<hr />
+<h3 id="common-csv-dialects-and-options_1">🕵️ Common CSV Dialects and Options</h3>
+<p><strong>What is a dialect?</strong>
+- A dialect defines the format rules for a CSV file (delimiter, quote character, etc.)
+- The default dialect is <strong>excel</strong>, which uses commas and double quotes</p>
+<p><strong>Common parameters you can customize:</strong>
+- <strong>delimiter</strong> – The character separating values (default is comma)
+- <strong>quotechar</strong> – The character used to quote fields (default is double quote)
+- <strong>quoting</strong> – Controls when quotes are added (use <strong>csv.QUOTE_ALL</strong> or <strong>csv.QUOTE_MINIMAL</strong>)
+- <strong>lineterminator</strong> – The line ending character (default is <strong>\r\n</strong>)</p>
+<p><strong>Example with custom delimiter (tab-separated):</strong>
+- <strong>reader = csv.reader(file, delimiter='\t')</strong>
+- <strong>writer = csv.writer(file, delimiter='\t')</strong></p>
+<p><strong>Example with all quotes:</strong>
+- <strong>writer = csv.writer(file, quoting=csv.QUOTE_ALL)</strong></p>
+<hr />
+<h3 id="comparison-csvreader-vs-csvwriter_1">📊 Comparison: csv.reader vs csv.writer</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>csv.reader</th>
+<th>csv.writer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purpose</td>
+<td>Read CSV data into Python</td>
+<td>Write Python data to CSV</td>
+</tr>
+<tr>
+<td>Input/Output</td>
+<td>Takes a file object, returns rows</td>
+<td>Takes a file object, writes rows</td>
+</tr>
+<tr>
+<td>Row format</td>
+<td>Returns each row as a list</td>
+<td>Accepts each row as a list</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>Loop through the reader object</td>
+<td>Use <strong>writerow()</strong> or <strong>writerows()</strong></td>
+</tr>
+<tr>
+<td>File mode</td>
+<td><strong>'r'</strong> for reading</td>
+<td><strong>'w'</strong> for writing (or <strong>'a'</strong> for appending)</td>
+</tr>
+<tr>
+<td>Newline handling</td>
+<td>Handled automatically</td>
+<td>Use <strong>newline=''</strong> when opening file</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-tips-for-engineers_1">💡 Practical Tips for Engineers</h3>
+<ul>
+<li>Always use the <strong>with</strong> statement to avoid forgetting to close files</li>
+<li>Use <strong>newline=''</strong> when opening files for writing CSV on Windows</li>
+<li>Check if a file exists before reading using <strong>os.path.exists('filename.csv')</strong></li>
+<li>For large files, process rows one at a time instead of loading everything into memory</li>
+<li>Use <strong>try/except</strong> blocks to handle file not found or permission errors</li>
+<li>Test your CSV output by opening it in a spreadsheet application</li>
+<li>Remember that <strong>csv.reader</strong> returns strings – convert to numbers with <strong>int()</strong> or <strong>float()</strong> when needed</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li><strong>csv.reader</strong> and <strong>csv.writer</strong> are your go-to tools for handling CSV files in Python</li>
+<li>Always import the csv module first: <strong>import csv</strong></li>
+<li>Use the <strong>with</strong> statement for safe file handling</li>
+<li>Customize delimiters and quoting options as needed for different CSV formats</li>
+<li>These tools handle all the tricky formatting details so you can focus on your data</li>
+</ul>
+<p>Now you're ready to read and write CSV files like a pro!</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>csv</code> module provides <code>reader</code> and <code>writer</code> functions to read from and write to comma-separated value files.</p>
+<hr />
+<h3 id="example-1-reading-a-csv-file-with-csvreader_1">📘 Example 1: Reading a CSV file with csv.reader</h3>
+<p>This example shows how to open and read all rows from a CSV file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Name', 'Age', 'City'] ['Alice', '30', 'New York'] ['Bob', '25', 'Los Angeles']</strong></p>
+<hr />
+<h3 id="example-2-writing-a-csv-file-with-csvwriter_1">📘 Example 2: Writing a CSV file with csv.writer</h3>
+<p>This example shows how to create a new CSV file and write rows to it.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Score&#39;</span><span class="p">])</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="mi">95</span><span class="p">])</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="mi">87</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>(file 'output.csv' created with three rows)</strong></p>
+<hr />
+<h3 id="example-3-reading-specific-columns-from-a-csv-file_1">📘 Example 3: Reading specific columns from a CSV file</h3>
+<p>This example shows how to access individual columns by index from each row.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>  <span class="c1"># skip header row</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">age</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Alice is 30 years old Bob is 25 years old</strong></p>
+<hr />
+<h3 id="example-4-writing-multiple-rows-at-once-with-writerows_1">📘 Example 4: Writing multiple rows at once with writerows</h3>
+<p>This example shows how to write a list of rows in a single operation.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;Product&#39;</span><span class="p">,</span> <span class="s1">&#39;Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Widget&#39;</span><span class="p">,</span> <span class="mf">12.50</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Gadget&#39;</span><span class="p">,</span> <span class="mf">24.99</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Doohickey&#39;</span><span class="p">,</span> <span class="mf">5.75</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;inventory.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(file 'inventory.csv' created with four rows)</strong></p>
+<hr />
+<h3 id="example-5-reading-a-csv-and-writing-a-filtered-version_1">📘 Example 5: Reading a CSV and writing a filtered version</h3>
+<p>This example shows how to read data from one CSV file and write only selected rows to another.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;filtered.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
+        <span class="n">header</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+            <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span>
+                <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(file 'filtered.csv' created with only rows where age &gt; 25)</strong></p>
+<hr />
+<h2 id="quick-comparison_1">Quick Comparison</h2>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch02_02_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 02 | Reassigning and Deleting Variables with del - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 02 | Reassigning and Deleting Variables with del";
         var mkdocs_page_input_path = "Getting Started\\ch02_02_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch02_02_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -128,6 +128,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-resetting-a-sensor-reading">🔧 Example 5: Practical use — resetting a sensor reading</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reassigning-variables_1">⚙️ Reassigning Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deleting-variables-with-del_1">🛠️ Deleting Variables with del</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reassigning-vs-deleting-comparison-table_1">📊 Reassigning vs. Deleting: Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-considerations_1">🕵️ Practical Considerations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices_1">✅ Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-summary_1">💡 Quick Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-reassigning-a-variable-to-a-new-value_1">🔧 Example 1: Reassigning a variable to a new value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-reassigning-a-variable-to-a-different-data-type_1">🔧 Example 2: Reassigning a variable to a different data type</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-deleting-a-single-variable-with-del_1">🔧 Example 3: Deleting a single variable with del</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-deleting-a-variable-and-then-reassigning-it_1">🔧 Example 4: Deleting a variable and then reassigning it</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-resetting-a-sensor-reading_1">🔧 Example 5: Practical use — resetting a sensor reading</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="reassigning-and-deleting-variables-with-del">Reassigning and Deleting Variables with del</h1>
 <p><span class="category-tag">🏷️ Python Basics: Syntax, Variables, and Types /  Variables and Assignment</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1186,8 +1212,7 @@
 <li>Deletion is useful for memory management and cleaning up sensitive data</li>
 <li>Multiple variables can be deleted in a single <strong>del</strong> statement</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Reassigning lets you change what a variable points to, while <code>del</code> removes the variable name so it can no longer be used.</p>
 <hr />
 <h3 id="example-1-reassigning-a-variable-to-a-new-value">🔧 Example 1: Reassigning a variable to a new value</h3>
@@ -1243,6 +1268,204 @@
 📤 Output: <strong>Reset reading: 0.0</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>What it does</th>
+<th>Variable still usable?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x = 5</code> then <code>x = 10</code></td>
+<td>Reassigns value</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>x = 5</code> then <code>del x</code></td>
+<td>Removes variable name</td>
+<td>No — raises <code>NameError</code></td>
+</tr>
+<tr>
+<td><code>del x</code> then <code>x = 5</code></td>
+<td>Deletes then recreates</td>
+<td>Yes (new variable)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>In Python, variables are like labels that point to data stored in memory. Unlike some other programming languages, Python variables don't have fixed types—they can be reassigned to different values at any time. Additionally, Python gives you the ability to remove variables entirely when they're no longer needed using the <strong>del</strong> statement. Understanding how to reassign and delete variables helps you manage memory efficiently and write cleaner code.</p>
+<hr />
+<h3 id="reassigning-variables_1">⚙️ Reassigning Variables</h3>
+<p>Reassigning a variable simply means giving it a new value. The old value is discarded (unless other variables still reference it), and the variable now points to the new data.</p>
+<p><strong>Key points about reassignment:</strong>
+- You can reassign a variable to any data type—Python doesn't enforce type consistency
+- The original value is automatically cleaned up by Python's garbage collector when no longer referenced
+- Reassignment does not modify the original data; it just changes what the variable points to</p>
+<p><strong>Example of reassignment:</strong>
+- Start with: <strong>server_name = "web-01"</strong>
+- Then reassign: <strong>server_name = "db-01"</strong>
+- Now <strong>server_name</strong> holds the value <strong>"db-01"</strong> instead of <strong>"web-01"</strong></p>
+<p><strong>Reassigning to a different type:</strong>
+- <strong>count = 10</strong> (integer)
+- <strong>count = "ten"</strong> (string) — perfectly valid in Python</p>
+<p><strong>Multiple reassignments in sequence:</strong>
+- <strong>status = "active"</strong>
+- <strong>status = "inactive"</strong>
+- <strong>status = "maintenance"</strong>
+- Each reassignment overwrites the previous value</p>
+<hr />
+<h3 id="deleting-variables-with-del_1">🛠️ Deleting Variables with del</h3>
+<p>The <strong>del</strong> statement removes a variable entirely from memory. After deletion, the variable name no longer exists, and attempting to use it will cause an error.</p>
+<p><strong>How to use del:</strong>
+- Syntax: <strong>del variable_name</strong>
+- Example: <strong>del server_name</strong> removes the variable <strong>server_name</strong> from memory</p>
+<p><strong>What happens after deletion:</strong>
+- The variable name is removed from the namespace
+- The data it pointed to may be garbage collected if no other references exist
+- Any attempt to access the variable raises a <strong>NameError</strong></p>
+<p><strong>Example of deletion behavior:</strong>
+- <strong>port = 8080</strong>
+- <strong>del port</strong>
+- <strong>print(port)</strong> → This would raise: <strong>NameError: name 'port' is not defined</strong></p>
+<hr />
+<h3 id="reassigning-vs-deleting-comparison-table_1">📊 Reassigning vs. Deleting: Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Reassigning</th>
+<th>Deleting with del</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>What happens</strong></td>
+<td>Variable points to a new value</td>
+<td>Variable is removed entirely</td>
+</tr>
+<tr>
+<td><strong>Variable existence</strong></td>
+<td>Variable still exists</td>
+<td>Variable no longer exists</td>
+</tr>
+<tr>
+<td><strong>Access after operation</strong></td>
+<td>Works normally with new value</td>
+<td>Raises NameError</td>
+</tr>
+<tr>
+<td><strong>Memory impact</strong></td>
+<td>Old value may be garbage collected</td>
+<td>Variable and its reference are removed</td>
+</tr>
+<tr>
+<td><strong>Use case</strong></td>
+<td>Updating values during program execution</td>
+<td>Cleaning up unused variables</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-considerations_1">🕵️ Practical Considerations</h3>
+<p><strong>When to reassign:</strong>
+- Updating configuration values during runtime
+- Changing state flags (e.g., <strong>is_connected = True</strong> to <strong>is_connected = False</strong>)
+- Iterating through loops where variables hold temporary values</p>
+<p><strong>When to delete:</strong>
+- Freeing memory for large data structures that are no longer needed
+- Removing temporary variables after their purpose is served
+- Cleaning up sensitive data (like passwords) from memory</p>
+<p><strong>Important notes:</strong>
+- Deleting a variable does not delete the data if other variables still reference it
+- You can delete multiple variables in one statement: <strong>del var1, var2, var3</strong>
+- The <strong>del</strong> statement can also delete items from lists and dictionaries</p>
+<p><strong>Example of multiple deletions:</strong>
+- <strong>temp_data = [1, 2, 3, 4, 5]</strong>
+- <strong>cache_result = "stored_value"</strong>
+- <strong>del temp_data, cache_result</strong> — removes both variables at once</p>
+<hr />
+<h3 id="best-practices_1">✅ Best Practices</h3>
+<ul>
+<li>Avoid deleting variables unnecessarily—Python's garbage collector handles memory management well</li>
+<li>Use reassignment instead of deletion when you plan to reuse the variable name</li>
+<li>Delete sensitive data explicitly to ensure it's removed from memory promptly</li>
+<li>Be careful not to delete variables that are still needed elsewhere in your code</li>
+<li>Remember that deleting a variable from a function's local scope doesn't affect global variables with the same name</li>
+</ul>
+<hr />
+<h3 id="quick-summary_1">💡 Quick Summary</h3>
+<ul>
+<li><strong>Reassigning</strong> changes what a variable points to without removing the variable itself</li>
+<li><strong>del</strong> removes the variable entirely, making it inaccessible</li>
+<li>Python allows reassignment to any data type without restrictions</li>
+<li>Deletion is useful for memory management and cleaning up sensitive data</li>
+<li>Multiple variables can be deleted in a single <strong>del</strong> statement</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Reassigning lets you change what a variable points to, while <code>del</code> removes the variable name so it can no longer be used.</p>
+<hr />
+<h3 id="example-1-reassigning-a-variable-to-a-new-value_1">🔧 Example 1: Reassigning a variable to a new value</h3>
+<p>This shows that a variable can be overwritten with a completely different value.</p>
+<div class="highlight"><pre><span></span><code><span class="n">speed</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+<span class="n">speed</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">speed</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>100</strong><br />
+📤 Output: <strong>200</strong></p>
+<hr />
+<h3 id="example-2-reassigning-a-variable-to-a-different-data-type_1">🔧 Example 2: Reassigning a variable to a different data type</h3>
+<p>This demonstrates that Python variables are not fixed to one type — you can change from a number to text.</p>
+<div class="highlight"><pre><span></span><code><span class="n">status</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+<span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;active&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>1</strong><br />
+📤 Output: <strong>active</strong></p>
+<hr />
+<h3 id="example-3-deleting-a-single-variable-with-del_1">🔧 Example 3: Deleting a single variable with <code>del</code></h3>
+<p>This shows how to remove a variable so it no longer exists in memory.</p>
+<div class="highlight"><pre><span></span><code><span class="n">temperature</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">temperature</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>25</strong><br />
+📤 Output: <strong>NameError: name 'temperature' is not defined</strong></p>
+<hr />
+<h3 id="example-4-deleting-a-variable-and-then-reassigning-it_1">🔧 Example 4: Deleting a variable and then reassigning it</h3>
+<p>This shows that after deletion, you can create a new variable with the same name.</p>
+<div class="highlight"><pre><span></span><code><span class="n">count</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">count</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>10</strong><br />
+📤 Output: <strong>20</strong></p>
+<hr />
+<h3 id="example-5-practical-use-resetting-a-sensor-reading_1">🔧 Example 5: Practical use — resetting a sensor reading</h3>
+<p>This shows a real-world pattern where an engineer clears a variable before taking a new measurement.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensor_reading</span> <span class="o">=</span> <span class="mf">45.2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Old reading:&quot;</span><span class="p">,</span> <span class="n">sensor_reading</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">sensor_reading</span>
+<span class="n">sensor_reading</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reset reading:&quot;</span><span class="p">,</span> <span class="n">sensor_reading</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Old reading: 45.2</strong><br />
+📤 Output: <strong>Reset reading: 0.0</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

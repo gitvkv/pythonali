@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch12_06_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 12 | Practical Example: Reading JSON Configurations - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 12 | Practical Example: Reading JSON Configurations";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch12_06_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch12_06_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -607,6 +607,42 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-json-configuration-file_1">⚙️ What is a JSON Configuration File?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-json-module-in-python_1">🛠️ The json Module in Python</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-by-step-reading-a-json-configuration-file_1">📊 Step-by-Step: Reading a JSON Configuration File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-scenario_1">🕵️ Example Scenario</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#code-walkthrough-inline-format_1">📝 Code Walkthrough (Inline Format)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#expected-output-inline_1">📋 Expected Output (Inline)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-json-vs-other-config-formats_1">🧩 Comparison: JSON vs Other Config Formats</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-reading-json-configs_1">✅ Best Practices for Reading JSON Configs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-exercise-for-practice_1">🧪 Quick Exercise for Practice</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📚 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">🔗 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-reading-a-simple-json-config-file_1">📄 Example 1: Reading a simple JSON config file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-accessing-specific-configuration-values_1">📄 Example 2: Accessing specific configuration values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-reading-a-nested-json-configuration_1">📄 Example 3: Reading a nested JSON configuration</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-a-default-value-when-a-key-is-missing_1">📄 Example 4: Using a default value when a key is missing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-validating-required-configuration-keys_1">📄 Example 5: Validating required configuration keys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch13_01_01/">Ch 13 | Interpreter Error Raising Concepts</a>
@@ -1084,7 +1120,7 @@
               
                 <h1 id="practical-example-reading-json-configurations">Practical Example: Reading JSON Configurations</h1>
 <p><span class="category-tag">🏷️ File Handling /  JSON Files</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1221,8 +1257,7 @@ Write: <strong>print(config['log_level'])</strong>  </p>
 <li>Validating JSON schema using external libraries like <strong>jsonschema</strong></li>
 <li>Combining JSON configs with environment variables for secure credential management</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>JSON configuration files store settings for your Python programs in a structured, readable format.</p>
 <hr />
 <h3 id="example-1-reading-a-simple-json-config-file">📄 Example 1: Reading a simple JSON config file</h3>
@@ -1298,6 +1333,254 @@ Write: <strong>print(config['log_level'])</strong>  </p>
 <p>📤 Output: <strong>All required keys present</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>json.load(file)</code></td>
+<td>Read entire JSON file</td>
+<td>Python dictionary</td>
+</tr>
+<tr>
+<td><code>config["key"]</code></td>
+<td>Access a specific key</td>
+<td>Value or KeyError</td>
+</tr>
+<tr>
+<td><code>config.get("key", default)</code></td>
+<td>Access key with fallback</td>
+<td>Value or default</td>
+</tr>
+<tr>
+<td>List comprehension</td>
+<td>Check for missing keys</td>
+<td>List of missing keys</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>JSON (JavaScript Object Notation) is one of the most common formats for storing configuration data in modern applications. As an engineer, you will frequently encounter JSON files that hold settings for services, databases, API keys, or environment parameters. Learning how to read and parse these files in Python is a foundational skill that allows you to automate configuration loading, validation, and modification tasks.</p>
+<hr />
+<h3 id="what-is-a-json-configuration-file_1">⚙️ What is a JSON Configuration File?</h3>
+<p>A JSON configuration file is a structured text file that stores data in key-value pairs. It uses a lightweight format that is both human-readable and machine-parseable. Typical examples include:</p>
+<ul>
+<li><strong>Database connection settings</strong> (host, port, username, password)</li>
+<li><strong>Application environment variables</strong> (debug mode, log levels)</li>
+<li><strong>Service endpoints</strong> (URLs, API keys, timeout values)</li>
+</ul>
+<hr />
+<h3 id="the-json-module-in-python_1">🛠️ The <code>json</code> Module in Python</h3>
+<p>Python provides a built-in module called <strong>json</strong> that allows you to work with JSON data. The most commonly used function for reading JSON files is:</p>
+<ul>
+<li><strong>json.load()</strong> – Reads a JSON file and converts it into a Python dictionary</li>
+</ul>
+<hr />
+<h3 id="step-by-step-reading-a-json-configuration-file_1">📊 Step-by-Step: Reading a JSON Configuration File</h3>
+<p>Here is a simple workflow to read a JSON configuration file in Python:</p>
+<ol>
+<li><strong>Import the json module</strong> at the top of your script</li>
+<li><strong>Open the JSON file</strong> using Python's built-in <strong>open()</strong> function</li>
+<li><strong>Load the file contents</strong> using <strong>json.load()</strong> to convert the JSON data into a Python dictionary</li>
+<li><strong>Access the configuration values</strong> using dictionary key lookups</li>
+</ol>
+<hr />
+<h3 id="example-scenario_1">🕵️ Example Scenario</h3>
+<p>Imagine you have a configuration file named <strong>config.json</strong> that contains the following settings:</p>
+<ul>
+<li>A <strong>database host</strong> set to <strong>localhost</strong></li>
+<li>A <strong>database port</strong> set to <strong>5432</strong></li>
+<li>A <strong>debug mode</strong> set to <strong>false</strong></li>
+<li>A <strong>log level</strong> set to <strong>info</strong></li>
+</ul>
+<p>Your Python script will read this file and print out each configuration value.</p>
+<hr />
+<h3 id="code-walkthrough-inline-format_1">📝 Code Walkthrough (Inline Format)</h3>
+<p><strong>Step 1: Import the json module</strong><br />
+Write: <strong>import json</strong></p>
+<p><strong>Step 2: Open the config.json file</strong><br />
+Write: <strong>with open('config.json', 'r') as file:</strong><br />
+This opens the file in read mode and ensures it closes automatically after use.</p>
+<p><strong>Step 3: Load the JSON data</strong><br />
+Inside the with block, write: <strong>config = json.load(file)</strong><br />
+This converts the JSON content into a Python dictionary stored in the variable <strong>config</strong>.</p>
+<p><strong>Step 4: Access and print values</strong><br />
+Write: <strong>print(config['database_host'])</strong><br />
+Write: <strong>print(config['database_port'])</strong><br />
+Write: <strong>print(config['debug_mode'])</strong><br />
+Write: <strong>print(config['log_level'])</strong>  </p>
+<hr />
+<h3 id="expected-output-inline_1">📋 Expected Output (Inline)</h3>
+<p>When you run the script, the output will display:</p>
+<ul>
+<li><strong>localhost</strong></li>
+<li><strong>5432</strong></li>
+<li><strong>False</strong></li>
+<li><strong>info</strong></li>
+</ul>
+<hr />
+<h3 id="comparison-json-vs-other-config-formats_1">🧩 Comparison: JSON vs Other Config Formats</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>JSON</th>
+<th>YAML</th>
+<th>INI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Readability</td>
+<td>Good</td>
+<td>Excellent</td>
+<td>Simple</td>
+</tr>
+<tr>
+<td>Native Python Support</td>
+<td>Built-in json module</td>
+<td>Requires PyYAML library</td>
+<td>Requires configparser module</td>
+</tr>
+<tr>
+<td>Data Types</td>
+<td>Strings, numbers, booleans, arrays, objects</td>
+<td>Same as JSON plus more</td>
+<td>Only strings</td>
+</tr>
+<tr>
+<td>Common Use Cases</td>
+<td>Web APIs, config files</td>
+<td>Kubernetes, Docker, Ansible</td>
+<td>Legacy Windows apps</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="best-practices-for-reading-json-configs_1">✅ Best Practices for Reading JSON Configs</h3>
+<ul>
+<li>Always use the <strong>with open()</strong> statement to ensure the file is properly closed</li>
+<li>Handle missing files gracefully using <strong>try-except</strong> blocks</li>
+<li>Validate that required keys exist before accessing them to avoid KeyError</li>
+<li>Use <strong>json.loads()</strong> if you are reading JSON from a string instead of a file</li>
+<li>Store configuration in a separate file (not hardcoded) for flexibility across environments</li>
+</ul>
+<hr />
+<h3 id="quick-exercise-for-practice_1">🧪 Quick Exercise for Practice</h3>
+<p>Create a JSON file named <strong>settings.json</strong> with the following keys:</p>
+<ul>
+<li><strong>app_name</strong> set to <strong>MyApp</strong></li>
+<li><strong>version</strong> set to <strong>1.0.0</strong></li>
+<li><strong>enabled</strong> set to <strong>true</strong></li>
+</ul>
+<p>Write a Python script that reads this file and prints each value. Then modify the <strong>enabled</strong> value to <strong>false</strong> in the JSON file and run the script again to confirm the change is reflected.</p>
+<hr />
+<h3 id="summary_1">📚 Summary</h3>
+<ul>
+<li>JSON is a widely used format for configuration files</li>
+<li>Python's <strong>json</strong> module provides simple functions to read JSON data</li>
+<li>Use <strong>json.load()</strong> to convert a JSON file into a Python dictionary</li>
+<li>Always handle file operations safely with <strong>with open()</strong></li>
+<li>Access configuration values using dictionary key lookups</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">🔗 Next Steps</h3>
+<p>Once you are comfortable reading JSON configurations, explore:</p>
+<ul>
+<li>Writing JSON data back to files using <strong>json.dump()</strong></li>
+<li>Handling nested JSON structures with multiple levels of keys</li>
+<li>Validating JSON schema using external libraries like <strong>jsonschema</strong></li>
+<li>Combining JSON configs with environment variables for secure credential management</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>JSON configuration files store settings for your Python programs in a structured, readable format.</p>
+<hr />
+<h3 id="example-1-reading-a-simple-json-config-file_1">📄 Example 1: Reading a simple JSON config file</h3>
+<p>This example opens a JSON file and prints its contents as a Python dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'host': 'localhost', 'port': 8080, 'debug': True}</strong></p>
+<hr />
+<h3 id="example-2-accessing-specific-configuration-values_1">📄 Example 2: Accessing specific configuration values</h3>
+<p>This example reads a JSON config and retrieves individual settings by key name.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="n">host</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">]</span>
+<span class="n">port</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;port&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>localhost 8080</strong></p>
+<hr />
+<h3 id="example-3-reading-a-nested-json-configuration_1">📄 Example 3: Reading a nested JSON configuration</h3>
+<p>This example extracts a value from a JSON config that contains nested objects.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;database.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="n">db_name</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;database&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="n">db_user</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;database&quot;</span><span class="p">][</span><span class="s2">&quot;user&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">db_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">db_user</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>app_db admin</strong></p>
+<hr />
+<h3 id="example-4-using-a-default-value-when-a-key-is-missing_1">📄 Example 4: Using a default value when a key is missing</h3>
+<p>This example safely reads a config value and provides a fallback if the key does not exist.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="n">timeout</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;timeout&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>30</strong></p>
+<hr />
+<h3 id="example-5-validating-required-configuration-keys_1">📄 Example 5: Validating required configuration keys</h3>
+<p>This example checks that all required keys exist in a JSON config before using them.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">required_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">,</span> <span class="s2">&quot;port&quot;</span><span class="p">,</span> <span class="s2">&quot;debug&quot;</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+<span class="n">missing</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">required_keys</span> <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Missing keys:&quot;</span><span class="p">,</span> <span class="n">missing</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All required keys present&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>All required keys present</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

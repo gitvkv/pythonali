@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch16_02_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 16 | Converting Datetime to String via strftime - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 16 | Converting Datetime to String via strftime";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch16_02_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch16_02_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -741,6 +741,30 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#common-strftime-format-codes">📊 Common strftime Format Codes</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-strftime_1">⚙️ What is strftime?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-format-directives_1">📊 Common Format Directives</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-usage-examples_1">🛠️ Basic Usage Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-patterns-for-engineers_1">🕵️ Common Patterns for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-notes-to-remember_1">⚠️ Important Notes to Remember</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-practice-ideas_1">🧪 Quick Practice Ideas</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-date-to-string_1">🧪 Example 1: Basic date to string</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-include-time-components_1">🧪 Example 2: Include time components</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-full-readable-date-and-time_1">🧪 Example 3: Full readable date and time</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-weekday-and-abbreviated-month_1">🧪 Example 4: Weekday and abbreviated month</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-iso-like-timestamp-for-logs_1">🧪 Example 5: ISO-like timestamp for logs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-strftime-format-codes_1">📊 Common strftime Format Codes</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch16_02_02/">Ch 16 | Parsing Strings into Datetime via strptime</a>
@@ -1072,7 +1096,7 @@
               
                 <h1 id="converting-datetime-to-string-via-strftime">Converting Datetime to String via strftime</h1>
 <p><span class="category-tag">🏷️ Working with Dates and Time /  Formatting and Parsing Dates</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with dates and times in Python, you'll often need to convert a <strong>datetime object</strong> into a <strong>human-readable string</strong>. This is especially useful when generating log entries, creating timestamps for filenames, or formatting dates for reports. The <strong>strftime</strong> method (string format time) gives you full control over how the date and time appear.</p>
@@ -1217,8 +1241,7 @@
 <li><strong>"14:30:15.123456"</strong> using <strong>"%H:%M:%S.%f"</strong></li>
 </ol>
 <p>Remember: <strong>strftime</strong> is your tool for making dates and times readable and usable in any context where a string is required. The more you practice with different format combinations, the more natural it becomes to build exactly the output you need.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p><code>strftime</code> converts a datetime object into a formatted string using special format codes.</p>
 <hr />
 <h3 id="example-1-basic-date-to-string">🧪 Example 1: Basic date to string</h3>
@@ -1272,6 +1295,280 @@
 <p>📤 Output: <strong>2025-03-15 10:30:45</strong></p>
 <hr />
 <h3 id="common-strftime-format-codes">📊 Common strftime Format Codes</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>Example Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%Y</td>
+<td>4-digit year</td>
+<td>2025</td>
+</tr>
+<tr>
+<td>%m</td>
+<td>2-digit month</td>
+<td>03</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>2-digit day</td>
+<td>15</td>
+</tr>
+<tr>
+<td>%H</td>
+<td>24-hour hour</td>
+<td>10</td>
+</tr>
+<tr>
+<td>%M</td>
+<td>Minute</td>
+<td>30</td>
+</tr>
+<tr>
+<td>%S</td>
+<td>Second</td>
+<td>45</td>
+</tr>
+<tr>
+<td>%B</td>
+<td>Full month name</td>
+<td>March</td>
+</tr>
+<tr>
+<td>%b</td>
+<td>Abbreviated month</td>
+<td>Mar</td>
+</tr>
+<tr>
+<td>%A</td>
+<td>Full weekday</td>
+<td>Saturday</td>
+</tr>
+<tr>
+<td>%a</td>
+<td>Abbreviated weekday</td>
+<td>Sat</td>
+</tr>
+<tr>
+<td>%I</td>
+<td>12-hour hour</td>
+<td>10</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>AM/PM</td>
+<td>AM</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with dates and times in Python, you'll often need to convert a <strong>datetime object</strong> into a <strong>human-readable string</strong>. This is especially useful when generating log entries, creating timestamps for filenames, or formatting dates for reports. The <strong>strftime</strong> method (string format time) gives you full control over how the date and time appear.</p>
+<hr />
+<h3 id="what-is-strftime_1">⚙️ What is strftime?</h3>
+<p><strong>strftime</strong> is a method available on datetime objects that converts them into a formatted string. You provide a <strong>format string</strong> containing special codes (called directives), and Python replaces each code with the corresponding date or time component.</p>
+<ul>
+<li>The method is called directly on a datetime object.</li>
+<li>The format string uses <strong>%</strong> followed by a letter to represent different date/time parts.</li>
+<li>The result is always a <strong>string</strong> that you can print, save, or use in other operations.</li>
+</ul>
+<hr />
+<h3 id="common-format-directives_1">📊 Common Format Directives</h3>
+<p>Here are the most frequently used format codes for building your date strings:</p>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Meaning</th>
+<th>Example Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>%Y</strong></td>
+<td>Year with century (4 digits)</td>
+<td>2025</td>
+</tr>
+<tr>
+<td><strong>%y</strong></td>
+<td>Year without century (2 digits)</td>
+<td>25</td>
+</tr>
+<tr>
+<td><strong>%m</strong></td>
+<td>Month as zero-padded number</td>
+<td>01 to 12</td>
+</tr>
+<tr>
+<td><strong>%B</strong></td>
+<td>Full month name</td>
+<td>January</td>
+</tr>
+<tr>
+<td><strong>%b</strong></td>
+<td>Abbreviated month name</td>
+<td>Jan</td>
+</tr>
+<tr>
+<td><strong>%d</strong></td>
+<td>Day of month (zero-padded)</td>
+<td>01 to 31</td>
+</tr>
+<tr>
+<td><strong>%A</strong></td>
+<td>Full weekday name</td>
+<td>Monday</td>
+</tr>
+<tr>
+<td><strong>%a</strong></td>
+<td>Abbreviated weekday name</td>
+<td>Mon</td>
+</tr>
+<tr>
+<td><strong>%H</strong></td>
+<td>Hour (24-hour clock)</td>
+<td>00 to 23</td>
+</tr>
+<tr>
+<td><strong>%I</strong></td>
+<td>Hour (12-hour clock)</td>
+<td>01 to 12</td>
+</tr>
+<tr>
+<td><strong>%M</strong></td>
+<td>Minute (zero-padded)</td>
+<td>00 to 59</td>
+</tr>
+<tr>
+<td><strong>%S</strong></td>
+<td>Second (zero-padded)</td>
+<td>00 to 59</td>
+</tr>
+<tr>
+<td><strong>%p</strong></td>
+<td>AM or PM</td>
+<td>AM</td>
+</tr>
+<tr>
+<td><strong>%f</strong></td>
+<td>Microsecond (6 digits)</td>
+<td>000000 to 999999</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="basic-usage-examples_1">🛠️ Basic Usage Examples</h3>
+<p><strong>Example 1: Simple date string</strong>
+- Create a datetime object: <strong>from datetime import datetime</strong> then <strong>now = datetime.now()</strong>
+- Convert to string: <strong>date_string = now.strftime("%Y-%m-%d")</strong>
+- Result: <strong>2025-04-07</strong></p>
+<p><strong>Example 2: Full readable format</strong>
+- Format string: <strong>"%B %d, %Y"</strong>
+- Result: <strong>April 07, 2025</strong></p>
+<p><strong>Example 3: Including time</strong>
+- Format string: <strong>"%Y-%m-%d %H:%M:%S"</strong>
+- Result: <strong>2025-04-07 14:30:15</strong></p>
+<p><strong>Example 4: 12-hour clock with AM/PM</strong>
+- Format string: <strong>"%I:%M %p on %A, %B %d"</strong>
+- Result: <strong>02:30 PM on Monday, April 07</strong></p>
+<hr />
+<h3 id="common-patterns-for-engineers_1">🕵️ Common Patterns for Engineers</h3>
+<p>Here are some practical format patterns you'll likely use in your daily work:</p>
+<p><strong>For log timestamps:</strong>
+- Pattern: <strong>"%Y-%m-%d %H:%M:%S"</strong>
+- Output: <strong>2025-04-07 14:30:15</strong></p>
+<p><strong>For filenames (no spaces or colons):</strong>
+- Pattern: <strong>"%Y%m%d_%H%M%S"</strong>
+- Output: <strong>20250407_143015</strong></p>
+<p><strong>For human-readable logs:</strong>
+- Pattern: <strong>"%a %b %d %H:%M:%S %Y"</strong>
+- Output: <strong>Mon Apr 07 14:30:15 2025</strong></p>
+<p><strong>For ISO 8601 format:</strong>
+- Pattern: <strong>"%Y-%m-%dT%H:%M:%S"</strong>
+- Output: <strong>2025-04-07T14:30:15</strong></p>
+<hr />
+<h3 id="important-notes-to-remember_1">⚠️ Important Notes to Remember</h3>
+<ul>
+<li><strong>strftime</strong> always returns a <strong>string</strong>, not a datetime object.</li>
+<li>The method is case-sensitive: <strong>%Y</strong> (year) is different from <strong>%y</strong> (year without century).</li>
+<li>Any characters in the format string that are not directives (like hyphens, colons, or spaces) appear exactly as written.</li>
+<li>If you need to include a literal <strong>%</strong> sign in your output, use <strong>%%</strong> in the format string.</li>
+<li>The output depends on the system's locale settings for month and weekday names.</li>
+</ul>
+<hr />
+<h3 id="quick-practice-ideas_1">🧪 Quick Practice Ideas</h3>
+<p>Try converting a datetime object to these string formats:</p>
+<ol>
+<li><strong>"2025-04-07"</strong> using <strong>"%Y-%m-%d"</strong></li>
+<li><strong>"07/04/2025"</strong> using <strong>"%d/%m/%Y"</strong></li>
+<li><strong>"Monday, April 7th 2025"</strong> using <strong>"%A, %B %dth %Y"</strong> (note: ordinal suffixes like "th" are not automatic)</li>
+<li><strong>"14:30:15.123456"</strong> using <strong>"%H:%M:%S.%f"</strong></li>
+</ol>
+<p>Remember: <strong>strftime</strong> is your tool for making dates and times readable and usable in any context where a string is required. The more you practice with different format combinations, the more natural it becomes to build exactly the output you need.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><code>strftime</code> converts a datetime object into a formatted string using special format codes.</p>
+<hr />
+<h3 id="example-1-basic-date-to-string_1">🧪 Example 1: Basic date to string</h3>
+<p>Converts a full datetime object into a simple date string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+<span class="n">date_string</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">date_string</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2025-03-15</strong></p>
+<hr />
+<h3 id="example-2-include-time-components_1">🧪 Example 2: Include time components</h3>
+<p>Adds hours, minutes, and seconds to the output string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+<span class="n">time_string</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time_string</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>10:30:45</strong></p>
+<hr />
+<h3 id="example-3-full-readable-date-and-time_1">🧪 Example 3: Full readable date and time</h3>
+<p>Creates a human-friendly string with month name, day, year, and time.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+<span class="n">full_string</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%B </span><span class="si">%d</span><span class="s2">, %Y at %I:%M %p&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">full_string</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>March 15, 2025 at 10:30 AM</strong></p>
+<hr />
+<h3 id="example-4-weekday-and-abbreviated-month_1">🧪 Example 4: Weekday and abbreviated month</h3>
+<p>Shows the day of the week and a short month name for reports.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+<span class="n">short_string</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%a</span><span class="s2">, %b </span><span class="si">%d</span><span class="s2"> %Y&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">short_string</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Sat, Mar 15 2025</strong></p>
+<hr />
+<h3 id="example-5-iso-like-timestamp-for-logs_1">🧪 Example 5: ISO-like timestamp for logs</h3>
+<p>Formats a timestamp suitable for log files or database entries.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2025</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+<span class="n">log_string</span> <span class="o">=</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">log_string</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2025-03-15 10:30:45</strong></p>
+<hr />
+<h3 id="common-strftime-format-codes_1">📊 Common strftime Format Codes</h3>
 <table>
 <thead>
 <tr>

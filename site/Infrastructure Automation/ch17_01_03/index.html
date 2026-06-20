@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch17_01_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 17 | HTTP Status Codes Classification and Meanings - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 17 | HTTP Status Codes Classification and Meanings";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch17_01_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch17_01_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -793,6 +793,40 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#status-code-classification-table">📊 Status Code Classification Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">📝 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-five-status-code-classes_1">⚙️ The Five Status Code Classes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-status-codes-breakdown_1">📊 Common Status Codes Breakdown</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#2xx-success-codes_1">✅ 2xx Success Codes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3xx-redirection-codes_1">🔀 3xx Redirection Codes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4xx-client-error-codes_1">❌ 4xx Client Error Codes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5xx-server-error-codes_1">🛠️ 5xx Server Error Codes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-interpret-status-codes-in-practice_1">🕵️ How to Interpret Status Codes in Practice</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference-table_1">📋 Quick Reference Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways-for-engineers_1">💡 Key Takeaways for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-checking-a-200-ok-status-code_1">🌐 Example 1: Checking a 200 OK status code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-identifying-client-errors-with-400-codes_1">🔍 Example 2: Identifying client errors with 400 codes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-recognizing-server-errors-with-500-codes_1">⚠️ Example 3: Recognizing server errors with 500 codes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-handling-redirects-with-300-codes_1">🔄 Example 4: Handling redirects with 300 codes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-classifying-any-status-code-into-its-category_1">🛠️ Example 5: Classifying any status code into its category</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#status-code-classification-table_1">📊 Status Code Classification Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch17_01_04/">Ch 17 | JSON as the Standard Transmission Payload Format</a>
@@ -1082,7 +1116,7 @@
               
                 <h1 id="http-status-codes-classification-and-meanings">HTTP Status Codes Classification and Meanings</h1>
 <p><span class="category-tag">🏷️ APIs and HTTP Requests /  API Architecture Brief Recap</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">📝 Context Introduction</h3>
@@ -1239,8 +1273,7 @@
 <li><strong>Remember that 3xx codes</strong> are not errors—they are instructions for the client to look elsewhere.</li>
 </ul>
 <p>Understanding HTTP status codes is one of the most practical skills for working with APIs. Once you internalize these categories, you'll be able to diagnose most integration issues within seconds.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>HTTP status codes are three-digit numbers returned by servers to tell engineers whether a request succeeded, failed, or needs more action.</p>
 <h3 id="example-1-checking-a-200-ok-status-code">🌐 Example 1: Checking a 200 OK status code</h3>
 <p>This example shows how to check if a server response indicates success.</p>
@@ -1312,6 +1345,275 @@
 <p>📤 Output: <strong>Success Client Error Server Error Redirection</strong></p>
 <hr />
 <h3 id="status-code-classification-table">📊 Status Code Classification Table</h3>
+<table>
+<thead>
+<tr>
+<th>Code Range</th>
+<th>Category</th>
+<th>Meaning for Engineers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100–199</td>
+<td>Informational</td>
+<td>Request received, continuing process</td>
+</tr>
+<tr>
+<td>200–299</td>
+<td>Success</td>
+<td>Request understood and accepted</td>
+</tr>
+<tr>
+<td>300–399</td>
+<td>Redirection</td>
+<td>Further action needed to complete request</td>
+</tr>
+<tr>
+<td>400–499</td>
+<td>Client Error</td>
+<td>Request contains bad syntax or cannot be fulfilled</td>
+</tr>
+<tr>
+<td>500–599</td>
+<td>Server Error</td>
+<td>Server failed to fulfill a valid request</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">📝 Context Introduction</h3>
+<p>When working with APIs, every response from a server includes a three-digit HTTP status code. These codes act as a quick summary of what happened with your request—whether it succeeded, failed, or requires further action. Understanding these codes helps engineers debug issues, build reliable integrations, and communicate effectively with backend services. This guide breaks down the five main categories of HTTP status codes and their most common meanings.</p>
+<hr />
+<h3 id="the-five-status-code-classes_1">⚙️ The Five Status Code Classes</h3>
+<p>HTTP status codes are grouped into five classes, each defined by the first digit:</p>
+<ul>
+<li><strong>1xx (Informational)</strong> – The request was received and processing is continuing.</li>
+<li><strong>2xx (Successful)</strong> – The request was successfully received, understood, and accepted.</li>
+<li><strong>3xx (Redirection)</strong> – Further action is needed to complete the request (usually a redirect).</li>
+<li><strong>4xx (Client Error)</strong> – The request contains bad syntax or cannot be fulfilled by the server.</li>
+<li><strong>5xx (Server Error)</strong> – The server failed to fulfill a valid request.</li>
+</ul>
+<hr />
+<h3 id="common-status-codes-breakdown_1">📊 Common Status Codes Breakdown</h3>
+<h4 id="2xx-success-codes_1">✅ 2xx Success Codes</h4>
+<p>These are the codes you want to see most often—they mean everything worked as expected.</p>
+<ul>
+<li><strong>200 OK</strong> – The standard success response. The request was processed and data is returned.</li>
+<li><strong>201 Created</strong> – A new resource was successfully created (common after POST requests).</li>
+<li><strong>202 Accepted</strong> – The request was accepted for processing, but the action is not yet complete (used for asynchronous tasks).</li>
+<li><strong>204 No Content</strong> – The request succeeded, but there is no content to return (common after DELETE requests).</li>
+</ul>
+<h4 id="3xx-redirection-codes_1">🔀 3xx Redirection Codes</h4>
+<p>These codes tell the client that the resource they requested is available at a different location.</p>
+<ul>
+<li><strong>301 Moved Permanently</strong> – The resource has been permanently moved to a new URL. Future requests should use the new URL.</li>
+<li><strong>302 Found</strong> – The resource is temporarily located at a different URL. Future requests should still use the original URL.</li>
+<li><strong>304 Not Modified</strong> – The resource has not changed since the last request. The client can use its cached version.</li>
+</ul>
+<h4 id="4xx-client-error-codes_1">❌ 4xx Client Error Codes</h4>
+<p>These codes indicate the problem is on the client side—bad request, missing authentication, or trying to access something that doesn't exist.</p>
+<ul>
+<li><strong>400 Bad Request</strong> – The server could not understand the request due to invalid syntax or malformed data.</li>
+<li><strong>401 Unauthorized</strong> – Authentication is required and has failed or not been provided.</li>
+<li><strong>403 Forbidden</strong> – The server understood the request, but the client does not have permission to access the resource.</li>
+<li><strong>404 Not Found</strong> – The requested resource could not be found on the server.</li>
+<li><strong>405 Method Not Allowed</strong> – The HTTP method used (e.g., GET, POST) is not supported for this resource.</li>
+<li><strong>409 Conflict</strong> – The request conflicts with the current state of the server (e.g., trying to create a duplicate resource).</li>
+<li><strong>422 Unprocessable Entity</strong> – The request was well-formed but contains semantic errors (common with validation failures).</li>
+<li><strong>429 Too Many Requests</strong> – The client has sent too many requests in a given amount of time (rate limiting).</li>
+</ul>
+<h4 id="5xx-server-error-codes_1">🛠️ 5xx Server Error Codes</h4>
+<p>These codes indicate the server encountered an error while processing a valid request.</p>
+<ul>
+<li><strong>500 Internal Server Error</strong> – A generic error message when the server encounters an unexpected condition.</li>
+<li><strong>502 Bad Gateway</strong> – The server, acting as a gateway, received an invalid response from an upstream server.</li>
+<li><strong>503 Service Unavailable</strong> – The server is temporarily unable to handle the request (often due to maintenance or overload).</li>
+<li><strong>504 Gateway Timeout</strong> – The server, acting as a gateway, did not receive a timely response from an upstream server.</li>
+</ul>
+<hr />
+<h3 id="how-to-interpret-status-codes-in-practice_1">🕵️ How to Interpret Status Codes in Practice</h3>
+<p>When you receive a response from an API, follow this quick mental checklist:</p>
+<ul>
+<li><strong>Check the first digit</strong> – Is it 2 (success), 4 (client error), or 5 (server error)?</li>
+<li><strong>For 4xx codes</strong> – Look at your request payload, headers, or authentication token. The problem is likely on your side.</li>
+<li><strong>For 5xx codes</strong> – The issue is on the server side. Retry the request after a short delay, or contact the API provider.</li>
+<li><strong>For 3xx codes</strong> – Follow the redirect or check if you need to update your stored URL.</li>
+</ul>
+<hr />
+<h3 id="quick-reference-table_1">📋 Quick Reference Table</h3>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Category</th>
+<th>Meaning</th>
+<th>Common Scenario</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+<td>OK</td>
+<td>Data retrieved successfully</td>
+</tr>
+<tr>
+<td>201</td>
+<td>Success</td>
+<td>Created</td>
+<td>New record added</td>
+</tr>
+<tr>
+<td>204</td>
+<td>Success</td>
+<td>No Content</td>
+<td>Record deleted</td>
+</tr>
+<tr>
+<td>301</td>
+<td>Redirection</td>
+<td>Moved Permanently</td>
+<td>URL changed permanently</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Client Error</td>
+<td>Bad Request</td>
+<td>Invalid JSON payload</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Client Error</td>
+<td>Unauthorized</td>
+<td>Missing API key</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Client Error</td>
+<td>Forbidden</td>
+<td>Insufficient permissions</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Client Error</td>
+<td>Not Found</td>
+<td>Wrong endpoint URL</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Client Error</td>
+<td>Too Many Requests</td>
+<td>Rate limit exceeded</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server Error</td>
+<td>Internal Server Error</td>
+<td>Server bug or crash</td>
+</tr>
+<tr>
+<td>502</td>
+<td>Server Error</td>
+<td>Bad Gateway</td>
+<td>Upstream service down</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Server Error</td>
+<td>Service Unavailable</td>
+<td>Server under maintenance</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="key-takeaways-for-engineers_1">💡 Key Takeaways for Engineers</h3>
+<ul>
+<li><strong>Always check status codes</strong> in your API responses before processing the data. Never assume a request succeeded.</li>
+<li><strong>Log status codes</strong> during development and debugging to quickly identify where issues occur.</li>
+<li><strong>Handle 4xx and 5xx codes gracefully</strong> in your code—retry on 5xx, fix the request on 4xx.</li>
+<li><strong>Use the first digit</strong> as your high-level indicator: 2 = good, 4 = fix your request, 5 = server issue.</li>
+<li><strong>Remember that 3xx codes</strong> are not errors—they are instructions for the client to look elsewhere.</li>
+</ul>
+<p>Understanding HTTP status codes is one of the most practical skills for working with APIs. Once you internalize these categories, you'll be able to diagnose most integration issues within seconds.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>HTTP status codes are three-digit numbers returned by servers to tell engineers whether a request succeeded, failed, or needs more action.</p>
+<h3 id="example-1-checking-a-200-ok-status-code_1">🌐 Example 1: Checking a 200 OK status code</h3>
+<p>This example shows how to check if a server response indicates success.</p>
+<div class="highlight"><pre><span></span><code><span class="n">status_code</span> <span class="o">=</span> <span class="mi">200</span>
+
+<span class="k">if</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Request succeeded — everything is working&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Something went wrong&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Request succeeded — everything is working</strong></p>
+<hr />
+<h3 id="example-2-identifying-client-errors-with-400-codes_1">🔍 Example 2: Identifying client errors with 400 codes</h3>
+<p>This example demonstrates how to detect when the client made a bad request.</p>
+<div class="highlight"><pre><span></span><code><span class="n">status_code</span> <span class="o">=</span> <span class="mi">404</span>
+
+<span class="k">if</span> <span class="n">status_code</span> <span class="o">&gt;=</span> <span class="mi">400</span> <span class="ow">and</span> <span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Client error — check your request&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No client error detected&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Client error — check your request</strong></p>
+<hr />
+<h3 id="example-3-recognizing-server-errors-with-500-codes_1">⚠️ Example 3: Recognizing server errors with 500 codes</h3>
+<p>This example shows how to identify when the server itself has a problem.</p>
+<div class="highlight"><pre><span></span><code><span class="n">status_code</span> <span class="o">=</span> <span class="mi">503</span>
+
+<span class="k">if</span> <span class="n">status_code</span> <span class="o">&gt;=</span> <span class="mi">500</span> <span class="ow">and</span> <span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">600</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Server error — the server cannot handle the request&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No server error detected&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Server error — the server cannot handle the request</strong></p>
+<hr />
+<h3 id="example-4-handling-redirects-with-300-codes_1">🔄 Example 4: Handling redirects with 300 codes</h3>
+<p>This example demonstrates how to detect when a resource has moved to a new location.</p>
+<div class="highlight"><pre><span></span><code><span class="n">status_code</span> <span class="o">=</span> <span class="mi">301</span>
+
+<span class="k">if</span> <span class="n">status_code</span> <span class="o">&gt;=</span> <span class="mi">300</span> <span class="ow">and</span> <span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">400</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Redirection — the resource moved to a new URL&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success — resource found at this URL&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Other status code received&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Redirection — the resource moved to a new URL</strong></p>
+<hr />
+<h3 id="example-5-classifying-any-status-code-into-its-category_1">🛠️ Example 5: Classifying any status code into its category</h3>
+<p>This example shows a practical function that tells engineers which category a status code belongs to.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">classify_status</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">code</span> <span class="o">&gt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">code</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Informational&quot;</span>
+    <span class="k">elif</span> <span class="n">code</span> <span class="o">&gt;=</span> <span class="mi">200</span> <span class="ow">and</span> <span class="n">code</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Success&quot;</span>
+    <span class="k">elif</span> <span class="n">code</span> <span class="o">&gt;=</span> <span class="mi">300</span> <span class="ow">and</span> <span class="n">code</span> <span class="o">&lt;</span> <span class="mi">400</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Redirection&quot;</span>
+    <span class="k">elif</span> <span class="n">code</span> <span class="o">&gt;=</span> <span class="mi">400</span> <span class="ow">and</span> <span class="n">code</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Client Error&quot;</span>
+    <span class="k">elif</span> <span class="n">code</span> <span class="o">&gt;=</span> <span class="mi">500</span> <span class="ow">and</span> <span class="n">code</span> <span class="o">&lt;</span> <span class="mi">600</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Server Error&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;Unknown&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">classify_status</span><span class="p">(</span><span class="mi">200</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classify_status</span><span class="p">(</span><span class="mi">404</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classify_status</span><span class="p">(</span><span class="mi">500</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classify_status</span><span class="p">(</span><span class="mi">302</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>Success Client Error Server Error Redirection</strong></p>
+<hr />
+<h3 id="status-code-classification-table_1">📊 Status Code Classification Table</h3>
 <table>
 <thead>
 <tr>

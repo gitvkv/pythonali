@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch15_03_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 15 | Finding All Matches (findall vs finditer) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 15 | Finding All Matches (findall vs finditer)";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch15_03_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch15_03_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -709,6 +709,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-findall-vs-finditer_1">Comparison Table: findall vs finditer</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#whats-the-core-difference_1">⚙️ What's the Core Difference?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-findall-vs-finditer_2">📊 Comparison Table: findall vs finditer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-findall-works_1">🕵️ How findall Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-finditer-works_1">🛠️ How finditer Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-which_1">📌 When to Use Which</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#performance-tip-for-engineers_1">⚡ Performance Tip for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-decision-flowchart_1">🧠 Quick Decision Flowchart</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-findall-returns-a-list-of-all-matches_1">🔧 Example 1: Basic findall — returns a list of all matches</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-basic-finditer-returns-an-iterator-of-match-objects_1">🔧 Example 2: Basic finditer — returns an iterator of match objects</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-findall-with-groups-returns-tuples_1">🔧 Example 3: findall with groups — returns tuples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-finditer-with-groups-access-group-positions_1">🔧 Example 4: finditer with groups — access group positions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-extracting-email-addresses-with-finditer-for-validation_1">🔧 Example 5: Practical — extracting email addresses with finditer for validation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-findall-vs-finditer_3">Comparison Table: findall vs finditer</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch15_03_03/">Ch 15 | Substitutions and Replacing Patterns via sub()</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="finding-all-matches-findall-vs-finditer">Finding All Matches (findall vs finditer)</h1>
 <p><span class="category-tag">🏷️ Regular Expressions (Regex) /  Key re Functions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with text data, you often need to find <strong>every occurrence</strong> of a pattern, not just the first one. Python's <strong>re</strong> module gives you two powerful tools for this: <strong>findall</strong> and <strong>finditer</strong>. While both find all matches, they return results in very different ways, and choosing the right one can make your code cleaner and more efficient.</p>
@@ -1183,8 +1211,7 @@
 <li>For most engineering work involving logs, configs, or data extraction, <strong>finditer</strong> is the professional choice</li>
 <li>Both are essential tools in your regex toolkit – knowing when to use each makes you a more effective Python programmer</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>findall</code> and <code>finditer</code> functions both find all occurrences of a pattern in a string, but return results in different formats — <code>findall</code> returns a list, while <code>finditer</code> returns an iterator of match objects.</p>
 <hr />
 <h3 id="example-1-basic-findall-returns-a-list-of-all-matches">🔧 Example 1: Basic findall — returns a list of all matches</h3>
@@ -1257,6 +1284,226 @@
 <strong>Email: bob@test.org, Found at index 31-43</strong></p>
 <hr />
 <h3 id="comparison-table-findall-vs-finditer_1">Comparison Table: findall vs finditer</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>findall</th>
+<th>finditer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Return type</td>
+<td>List of strings or tuples</td>
+<td>Iterator of match objects</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>Stores all matches in memory</td>
+<td>Processes one match at a time</td>
+</tr>
+<tr>
+<td>Access to match position</td>
+<td>No</td>
+<td>Yes (start, end, span)</td>
+</tr>
+<tr>
+<td>Access to group details</td>
+<td>Only group values</td>
+<td>Full group objects</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Simple extraction of all matches</td>
+<td>When you need match metadata</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with text data, you often need to find <strong>every occurrence</strong> of a pattern, not just the first one. Python's <strong>re</strong> module gives you two powerful tools for this: <strong>findall</strong> and <strong>finditer</strong>. While both find all matches, they return results in very different ways, and choosing the right one can make your code cleaner and more efficient.</p>
+<hr />
+<h3 id="whats-the-core-difference_1">⚙️ What's the Core Difference?</h3>
+<ul>
+<li><strong>findall</strong> returns a <strong>list</strong> of all matches as strings (or tuples if you use groups). It's simple and quick for small tasks.</li>
+<li><strong>finditer</strong> returns an <strong>iterator</strong> that yields match objects one at a time. It's more memory-efficient and gives you access to extra details like positions and groups.</li>
+</ul>
+<hr />
+<h3 id="comparison-table-findall-vs-finditer_2">📊 Comparison Table: findall vs finditer</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>findall</th>
+<th>finditer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Return Type</strong></td>
+<td>List of strings (or tuples)</td>
+<td>Iterator of match objects</td>
+</tr>
+<tr>
+<td><strong>Memory Usage</strong></td>
+<td>Stores all results in memory at once</td>
+<td>Yields results one by one (lazy evaluation)</td>
+</tr>
+<tr>
+<td><strong>Access to Match Details</strong></td>
+<td>No (just the matched text)</td>
+<td>Yes (position, groups, start/end indices)</td>
+</tr>
+<tr>
+<td><strong>Best For</strong></td>
+<td>Small data, simple extraction</td>
+<td>Large data, detailed analysis</td>
+</tr>
+<tr>
+<td><strong>Performance on Large Text</strong></td>
+<td>Can be slow and memory-heavy</td>
+<td>Efficient and scalable</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-findall-works_1">🕵️ How findall Works</h3>
+<p><strong>findall</strong> scans the entire string and returns <strong>every non-overlapping match</strong> as a list. If your pattern has <strong>no groups</strong>, you get a list of strings. If your pattern has <strong>groups</strong>, you get a list of tuples.</p>
+<p><strong>Basic example (no groups):</strong>
+- Pattern: <strong>\d+</strong>
+- Text: <strong>"Order 100, invoice 200, receipt 300"</strong>
+- Result: <strong>['100', '200', '300']</strong></p>
+<p><strong>Example with groups:</strong>
+- Pattern: <strong>(\w+)@(\w+.\w+)</strong>
+- Text: <strong>"Contact: alice@example.com or bob@test.org"</strong>
+- Result: <strong>[('alice', 'example.com'), ('bob', 'test.org')]</strong></p>
+<hr />
+<h3 id="how-finditer-works_1">🛠️ How finditer Works</h3>
+<p><strong>finditer</strong> returns an iterator. You loop over it, and each iteration gives you a <strong>match object</strong> with rich information.</p>
+<p><strong>Key attributes of each match object:</strong>
+- <strong>.group()</strong> – the full matched text
+- <strong>.group(1), .group(2)</strong> – specific captured groups
+- <strong>.start()</strong> – starting index in the original string
+- <strong>.end()</strong> – ending index in the original string
+- <strong>.span()</strong> – tuple of (start, end)</p>
+<p><strong>Example usage:</strong>
+- Pattern: <strong>\d{3}-\d{2}-\d{4}</strong>
+- Text: <strong>"SSN: 123-45-6789 and 987-65-4321"</strong>
+- Loop through <strong>finditer</strong> and for each match, print: <strong>"Found SSN at position 5: 123-45-6789"</strong></p>
+<hr />
+<h3 id="when-to-use-which_1">📌 When to Use Which</h3>
+<p><strong>Use findall when:</strong>
+- You only need the matched text, nothing else
+- Your data is small (fits easily in memory)
+- You want a quick one-liner to collect all matches
+- You're doing simple validation or counting</p>
+<p><strong>Use finditer when:</strong>
+- You need match positions (start/end indices)
+- You need to extract specific groups with context
+- You're processing large files or long strings
+- You want to avoid loading everything into memory
+- You need to do additional processing per match</p>
+<hr />
+<h3 id="performance-tip-for-engineers_1">⚡ Performance Tip for Engineers</h3>
+<p>If you're parsing logs, configuration files, or large datasets, <strong>finditer</strong> is almost always the better choice. It processes matches <strong>lazily</strong>, meaning it doesn't build a huge list in memory. This is especially important when dealing with files that have thousands or millions of lines.</p>
+<p><strong>Example scenario:</strong>
+- You're scanning a 500MB log file for IP addresses
+- Using <strong>findall</strong> would load all IPs into memory at once
+- Using <strong>finditer</strong> lets you process each IP as it's found, keeping memory usage low</p>
+<hr />
+<h3 id="quick-decision-flowchart_1">🧠 Quick Decision Flowchart</h3>
+<p><strong>Ask yourself:</strong>
+1. Do I only need the matched text? → <strong>findall</strong>
+2. Do I need positions, groups, or extra details? → <strong>finditer</strong>
+3. Is the text very large? → <strong>finditer</strong>
+4. Am I doing this just once for a small string? → <strong>findall</strong> (simpler)</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li><strong>findall</strong> gives you a simple list of matches – quick and easy for small jobs</li>
+<li><strong>finditer</strong> gives you match objects with full details – powerful and memory-efficient for real-world tasks</li>
+<li>For most engineering work involving logs, configs, or data extraction, <strong>finditer</strong> is the professional choice</li>
+<li>Both are essential tools in your regex toolkit – knowing when to use each makes you a more effective Python programmer</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>findall</code> and <code>finditer</code> functions both find all occurrences of a pattern in a string, but return results in different formats — <code>findall</code> returns a list, while <code>finditer</code> returns an iterator of match objects.</p>
+<hr />
+<h3 id="example-1-basic-findall-returns-a-list-of-all-matches_1">🔧 Example 1: Basic findall — returns a list of all matches</h3>
+<p>This example shows how <code>findall</code> returns every match as a simple list of strings.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;cat bat rat&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[cbr]at&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['cat', 'bat', 'rat']</strong></p>
+<hr />
+<h3 id="example-2-basic-finditer-returns-an-iterator-of-match-objects_1">🔧 Example 2: Basic finditer — returns an iterator of match objects</h3>
+<p>This example shows how <code>finditer</code> returns match objects that contain more information than plain strings.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;cat bat rat&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[cbr]at&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>cat bat rat</strong> (each on a separate line)</p>
+<hr />
+<h3 id="example-3-findall-with-groups-returns-tuples_1">🔧 Example 3: findall with groups — returns tuples</h3>
+<p>This example shows that when you use capturing groups with <code>findall</code>, it returns a list of tuples instead of strings.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;John 25, Jane 30, Bob 22&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\w+) (\d+)&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[('John', '25'), ('Jane', '30'), ('Bob', '22')]</strong></p>
+<hr />
+<h3 id="example-4-finditer-with-groups-access-group-positions_1">🔧 Example 4: finditer with groups — access group positions</h3>
+<p>This example shows how <code>finditer</code> gives you access to each group's position in the original string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;John 25, Jane 30, Bob 22&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\w+) (\d+)&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, Age: </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">, Position: </span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Name: John, Age: 25, Position: 0-7</strong><br />
+<strong>Name: Jane, Age: 30, Position: 9-16</strong><br />
+<strong>Name: Bob, Age: 22, Position: 18-24</strong></p>
+<hr />
+<h3 id="example-5-practical-extracting-email-addresses-with-finditer-for-validation_1">🔧 Example 5: Practical — extracting email addresses with finditer for validation</h3>
+<p>This example shows a practical use case where <code>finditer</code> helps validate each match's position in a larger document.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Contact: alice@example.com or bob@test.org&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;([a-z]+)@([a-z]+\.[a-z]+)&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">domain</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Email: </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">domain</span><span class="si">}</span><span class="s2">, Found at index </span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Email: alice@example.com, Found at index 9-27</strong><br />
+<strong>Email: bob@test.org, Found at index 31-43</strong></p>
+<hr />
+<h3 id="comparison-table-findall-vs-finditer_3">Comparison Table: findall vs finditer</h3>
 <table>
 <thead>
 <tr>

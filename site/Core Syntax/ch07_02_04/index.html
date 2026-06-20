@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch07_02_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 07 | Removing by Matching Value - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 07 | Removing by Matching Value";
         var mkdocs_page_input_path = "Core Syntax\\ch07_02_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch07_02_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -334,6 +334,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-removing-a-value-from-a-list-of-mixed-types">🔧 Example 5: Removing a Value from a List of Mixed Types</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-removing-by-value-vs-removing-by-index">📊 Comparison: Removing by Value vs. Removing by Index</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-does-removing-by-matching-value-mean_1">⚙️ What Does "Removing by Matching Value" Mean?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-remove-method_1">🛠️ The .remove() Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-behavior-to-understand_1">🕵️ Important Behavior to Understand</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples_1">📊 Practical Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-handle-missing-values-safely_1">✅ How to Handle Missing Values Safely</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#alternative-using-list-comprehension_1">🔄 Alternative: Using List Comprehension</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">🧠 Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-removing-a-single-matching-value_1">🔧 Example 1: Removing a Single Matching Value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-removing-a-string-value_1">🔧 Example 2: Removing a String Value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-removing-only-the-first-match-when-duplicates-exist_1">🔧 Example 3: Removing Only the First Match When Duplicates Exist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-removing-a-value-that-does-not-exist-error-handling_1">🔧 Example 4: Removing a Value That Does Not Exist (Error Handling)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-removing-a-value-from-a-list-of-mixed-types_1">🔧 Example 5: Removing a Value from a List of Mixed Types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-removing-by-value-vs-removing-by-index_1">📊 Comparison: Removing by Value vs. Removing by Index</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="removing-by-matching-value">Removing by Matching Value</h1>
 <p><span class="category-tag">🏷️ Lists and List Operations /  Modifying Lists</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with lists in Python, you often need to remove specific items based on their value rather than their position. This is a common task when cleaning up data, filtering out unwanted entries, or managing dynamic collections of information.</p>
@@ -1169,8 +1195,7 @@
 <li>Use list comprehension when you need to remove every occurrence of a value</li>
 <li>The <strong>in</strong> keyword is your safety net for value-based removal operations</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Removing by matching value removes the first occurrence of a specified value from a list, rather than removing by position.</p>
 <hr />
 <h3 id="example-1-removing-a-single-matching-value">🔧 Example 1: Removing a Single Matching Value</h3>
@@ -1218,6 +1243,189 @@
 <p>📤 Output: <strong>[1, 3.14, True, 'hello']</strong></p>
 <hr />
 <h3 id="comparison-removing-by-value-vs-removing-by-index">📊 Comparison: Removing by Value vs. Removing by Index</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>remove(value)</code></th>
+<th><code>pop(index)</code></th>
+<th><code>del list[index]</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Removes by</td>
+<td>Matching value</td>
+<td>Index position</td>
+<td>Index position</td>
+</tr>
+<tr>
+<td>Returns removed value?</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Removes only first match?</td>
+<td>Yes</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Raises error if not found?</td>
+<td>ValueError</td>
+<td>IndexError</td>
+<td>IndexError</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with lists in Python, you often need to remove specific items based on their value rather than their position. This is a common task when cleaning up data, filtering out unwanted entries, or managing dynamic collections of information.</p>
+<hr />
+<h3 id="what-does-removing-by-matching-value-mean_1">⚙️ What Does "Removing by Matching Value" Mean?</h3>
+<p>Instead of removing an item by its index number (like the third item in a list), you remove it by specifying the actual value you want to delete. Python will search through the list and remove the first occurrence of that value.</p>
+<ul>
+<li><strong>Index-based removal</strong>: You say "remove item at position 2"</li>
+<li><strong>Value-based removal</strong>: You say "remove the item that equals 'apple'"</li>
+</ul>
+<hr />
+<h3 id="the-remove-method_1">🛠️ The <code>.remove()</code> Method</h3>
+<p>The primary tool for removing by matching value is the <strong>.remove()</strong> method. It takes one argument: the value you want to delete.</p>
+<p><strong>How it works:</strong>
+- Python scans the list from beginning to end
+- It finds the first item that matches your specified value
+- It removes only that one occurrence
+- The list shrinks by one element</p>
+<p><strong>Example:</strong>
+- You have a list: <strong>fruits = ['apple', 'banana', 'cherry', 'apple']</strong>
+- You call: <strong>fruits.remove('apple')</strong>
+- Result: <strong>['banana', 'cherry', 'apple']</strong> (only the first 'apple' is removed)</p>
+<hr />
+<h3 id="important-behavior-to-understand_1">🕵️ Important Behavior to Understand</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>What Happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Value exists once</td>
+<td>Removed successfully</td>
+</tr>
+<tr>
+<td>Value exists multiple times</td>
+<td>Only the first occurrence is removed</td>
+</tr>
+<tr>
+<td>Value does not exist</td>
+<td>Python raises a <strong>ValueError</strong> and stops your program</td>
+</tr>
+<tr>
+<td>List is empty</td>
+<td>Python raises a <strong>ValueError</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-examples_1">📊 Practical Examples</h3>
+<p><strong>Removing a single item:</strong>
+- Original list: <strong>servers = ['web01', 'db01', 'cache01', 'web02']</strong>
+- Command: <strong>servers.remove('db01')</strong>
+- Updated list: <strong>['web01', 'cache01', 'web02']</strong></p>
+<p><strong>Removing from a list with duplicates:</strong>
+- Original list: <strong>ips = ['10.0.0.1', '10.0.0.2', '10.0.0.1', '10.0.0.3']</strong>
+- Command: <strong>ips.remove('10.0.0.1')</strong>
+- Updated list: <strong>['10.0.0.2', '10.0.0.1', '10.0.0.3']</strong> (notice one duplicate remains)</p>
+<p><strong>What happens when value is missing:</strong>
+- Original list: <strong>ports = [80, 443, 22]</strong>
+- Command: <strong>ports.remove(8080)</strong>
+- Result: Python stops with an error: <strong>ValueError: list.remove(x): x not in list</strong></p>
+<hr />
+<h3 id="how-to-handle-missing-values-safely_1">✅ How to Handle Missing Values Safely</h3>
+<p>Since removing a non-existent value crashes your program, you should check if the value exists first using the <strong>in</strong> keyword.</p>
+<p><strong>Safe removal pattern:</strong>
+- Check: <strong>if 'target_value' in my_list:</strong>
+- Then remove: <strong>my_list.remove('target_value')</strong>
+- Otherwise: Do nothing or print a message</p>
+<p><strong>Example:</strong>
+- List: <strong>configs = ['nginx.conf', 'mysql.cnf', 'redis.conf']</strong>
+- Safe removal: <strong>if 'apache.conf' in configs: configs.remove('apache.conf')</strong>
+- No error occurs because the condition prevents the removal attempt</p>
+<hr />
+<h3 id="alternative-using-list-comprehension_1">🔄 Alternative: Using List Comprehension</h3>
+<p>For removing ALL occurrences of a value (not just the first), use a list comprehension to create a new filtered list.</p>
+<p><strong>How it works:</strong>
+- You create a new list that includes only items that do NOT match the value you want to remove
+- This replaces the original list entirely</p>
+<p><strong>Example:</strong>
+- Original list: <strong>logs = ['error.log', 'access.log', 'error.log', 'system.log']</strong>
+- Remove all 'error.log': <strong>logs = [log for log in logs if log != 'error.log']</strong>
+- Updated list: <strong>['access.log', 'system.log']</strong></p>
+<hr />
+<h3 id="key-takeaways_1">🧠 Key Takeaways</h3>
+<ul>
+<li><strong>.remove()</strong> deletes the first matching value from a list</li>
+<li>It modifies the original list directly (no new list is created)</li>
+<li>Always check if the value exists before removing to avoid crashes</li>
+<li>Use list comprehension when you need to remove every occurrence of a value</li>
+<li>The <strong>in</strong> keyword is your safety net for value-based removal operations</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Removing by matching value removes the first occurrence of a specified value from a list, rather than removing by position.</p>
+<hr />
+<h3 id="example-1-removing-a-single-matching-value_1">🔧 Example 1: Removing a Single Matching Value</h3>
+<p>This example removes the first occurrence of the number 3 from a list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">numbers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[1, 2, 4, 5]</strong></p>
+<hr />
+<h3 id="example-2-removing-a-string-value_1">🔧 Example 2: Removing a String Value</h3>
+<p>This example removes a specific string from a list of names.</p>
+<div class="highlight"><pre><span></span><code><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Diana&quot;</span><span class="p">]</span>
+<span class="n">names</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Alice', 'Charlie', 'Diana']</strong></p>
+<hr />
+<h3 id="example-3-removing-only-the-first-match-when-duplicates-exist_1">🔧 Example 3: Removing Only the First Match When Duplicates Exist</h3>
+<p>This example shows that <code>remove()</code> only deletes the first matching value, not all duplicates.</p>
+<div class="highlight"><pre><span></span><code><span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="n">scores</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[10, 30, 20, 40, 20]</strong></p>
+<hr />
+<h3 id="example-4-removing-a-value-that-does-not-exist-error-handling_1">🔧 Example 4: Removing a Value That Does Not Exist (Error Handling)</h3>
+<p>This example demonstrates what happens when you try to remove a value not present in the list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;pen&quot;</span><span class="p">,</span> <span class="s2">&quot;book&quot;</span><span class="p">,</span> <span class="s2">&quot;ruler&quot;</span><span class="p">]</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">items</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;eraser&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Value not found in list&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Value not found in list</strong><br />
+📤 Output: <strong>['pen', 'book', 'ruler']</strong></p>
+<hr />
+<h3 id="example-5-removing-a-value-from-a-list-of-mixed-types_1">🔧 Example 5: Removing a Value from a List of Mixed Types</h3>
+<p>This example removes a specific value from a list containing different data types.</p>
+<div class="highlight"><pre><span></span><code><span class="n">mixed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">]</span>
+<span class="n">mixed</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mixed</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[1, 3.14, True, 'hello']</strong></p>
+<hr />
+<h3 id="comparison-removing-by-value-vs-removing-by-index_1">📊 Comparison: Removing by Value vs. Removing by Index</h3>
 <table>
 <thead>
 <tr>

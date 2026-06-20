@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_05_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Handling SIGINT (Ctrl+C) Gracefully - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Handling SIGINT (Ctrl+C) Gracefully";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_05_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_05_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -686,6 +686,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-handling-sigint-in-a-multi-threaded-program">🛑 Example 5: Handling SIGINT in a multi-threaded program</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-sigint_1">⚙️ What is SIGINT?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-to-catch-sigint-using-the-signal-module_1">🛠️ How to Catch SIGINT Using the signal Module</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#using-a-graceful-shutdown-flag_1">🕵️ Using a Graceful Shutdown Flag</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-default-vs-graceful-handling_1">📊 Comparison: Default vs Graceful Handling</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-example-scenario_1">🧪 Practical Example Scenario</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#best-practices-for-engineers_1">✅ Best Practices for Engineers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">🧠 Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-basic-sigint-handler-that-prints-a-message_1">🛑 Example 1: Basic SIGINT handler that prints a message</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-graceful-shutdown-with-a-flag_1">🛑 Example 2: Graceful shutdown with a flag</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-performing-cleanup-before-exit_1">🛑 Example 3: Performing cleanup before exit</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-restoring-the-default-sigint-behavior_1">🛑 Example 4: Restoring the default SIGINT behavior</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-handling-sigint-in-a-multi-threaded-program_1">🛑 Example 5: Handling SIGINT in a multi-threaded program</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1102,7 @@
               
                 <h1 id="handling-sigint-ctrlc-gracefully">Handling SIGINT (Ctrl+C) Gracefully</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  Working with Processes and Signals</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When you run a Python script in the terminal and press <strong>Ctrl+C</strong>, your operating system sends a <strong>SIGINT</strong> (Signal Interrupt) to the running process. By default, this immediately terminates your program. However, in many real-world scenarios—like cleaning up temporary files, closing database connections, or saving progress—you want your script to shut down gracefully instead of stopping abruptly. Handling SIGINT allows you to intercept this signal and run custom cleanup logic before exiting.</p>
@@ -1168,8 +1196,7 @@
 <hr />
 <h3 id="summary">🧠 Summary</h3>
 <p>Handling SIGINT gracefully is a simple but powerful technique that makes your Python scripts more robust and professional. Instead of letting your program crash with an ugly traceback, you take control of the shutdown process—cleaning up resources, saving state, and providing a clean exit. This is especially important for scripts that run for long periods, interact with external systems, or handle important data. By using the <strong>signal</strong> module and a shutdown flag pattern, you ensure your programs behave reliably even when interrupted.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how to catch the SIGINT signal (sent when a user presses Ctrl+C) and perform cleanup actions before your Python program exits.</p>
 <h3 id="example-1-basic-sigint-handler-that-prints-a-message">🛑 Example 1: Basic SIGINT handler that prints a message</h3>
 <p>This example creates a simple handler that prints a message when Ctrl+C is pressed, instead of immediately terminating.</p>
@@ -1296,6 +1323,285 @@
 <p>📤 Output: <strong>Main program running. Press Ctrl+C to stop all threads. (then threads print messages) (after Ctrl+C) Stopping all threads... Thread 1 stopped. Thread 2 stopped. All threads stopped. Program exiting.</strong></p>
 <hr />
 <h2 id="comparison-table">Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Basic Handler</th>
+<th>Graceful Shutdown</th>
+<th>Cleanup Actions</th>
+<th>Restore Default</th>
+<th>Multi-threaded</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prints message on Ctrl+C</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Stops loop cleanly</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Releases resources</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Restores default behavior</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Handles multiple threads</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you run a Python script in the terminal and press <strong>Ctrl+C</strong>, your operating system sends a <strong>SIGINT</strong> (Signal Interrupt) to the running process. By default, this immediately terminates your program. However, in many real-world scenarios—like cleaning up temporary files, closing database connections, or saving progress—you want your script to shut down gracefully instead of stopping abruptly. Handling SIGINT allows you to intercept this signal and run custom cleanup logic before exiting.</p>
+<hr />
+<h3 id="what-is-sigint_1">⚙️ What is SIGINT?</h3>
+<ul>
+<li><strong>SIGINT</strong> stands for <strong>Signal Interrupt</strong>. It is a standard Unix/Linux signal sent when a user presses <strong>Ctrl+C</strong> in the terminal.</li>
+<li>The default behavior of Python is to raise a <strong>KeyboardInterrupt</strong> exception when SIGINT is received.</li>
+<li>If unhandled, this exception causes your script to exit immediately with a traceback error message.</li>
+<li>By catching this signal, you can control what happens before your program stops.</li>
+</ul>
+<hr />
+<h3 id="how-to-catch-sigint-using-the-signal-module_1">🛠️ How to Catch SIGINT Using the <code>signal</code> Module</h3>
+<p>Python's built-in <strong>signal</strong> module allows you to register a custom handler function that runs when a specific signal is received.</p>
+<ul>
+<li>Import the <strong>signal</strong> module and the <strong>sys</strong> module for clean exit.</li>
+<li>Define a handler function that accepts two arguments: <strong>signum</strong> (the signal number) and <strong>frame</strong> (the current stack frame).</li>
+<li>Use <strong>signal.signal(signal.SIGINT, your_handler)</strong> to register your function.</li>
+<li>Inside the handler, print a message, perform cleanup, and call <strong>sys.exit(0)</strong> to exit gracefully.</li>
+</ul>
+<p>Example flow:</p>
+<ul>
+<li>Your script starts and registers the handler.</li>
+<li>While running, the user presses <strong>Ctrl+C</strong>.</li>
+<li>Instead of crashing, your handler runs: it prints <strong>"Shutting down gracefully..."</strong>, closes any open resources, and exits with status code <strong>0</strong>.</li>
+</ul>
+<hr />
+<h3 id="using-a-graceful-shutdown-flag_1">🕵️ Using a Graceful Shutdown Flag</h3>
+<p>A common pattern for long-running scripts (like servers or data processors) is to use a <strong>global flag</strong> that signals the main loop to stop.</p>
+<ul>
+<li>Create a variable like <strong>running = True</strong>.</li>
+<li>In your SIGINT handler, set <strong>running = False</strong> instead of calling <strong>sys.exit</strong> immediately.</li>
+<li>Your main loop checks this flag at the start of each iteration.</li>
+<li>When the flag becomes <strong>False</strong>, the loop exits naturally, and any cleanup code after the loop runs.</li>
+</ul>
+<p>This approach is cleaner because it lets your program finish its current task before stopping.</p>
+<hr />
+<h3 id="comparison-default-vs-graceful-handling_1">📊 Comparison: Default vs Graceful Handling</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Default Behavior</th>
+<th>Graceful Handling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What happens on Ctrl+C</td>
+<td>Script crashes with <strong>KeyboardInterrupt</strong> traceback</td>
+<td>Custom handler runs, then clean exit</td>
+</tr>
+<tr>
+<td>Cleanup</td>
+<td>No cleanup performed</td>
+<td>Resources like files, sockets, and DB connections are closed</td>
+</tr>
+<tr>
+<td>Exit code</td>
+<td>Non-zero (error)</td>
+<td>Zero (success)</td>
+</tr>
+<tr>
+<td>User experience</td>
+<td>Ugly error message</td>
+<td>Friendly message like <strong>"Shutting down..."</strong></td>
+</tr>
+<tr>
+<td>Control</td>
+<td>None</td>
+<td>You decide what to do before exit</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-scenario_1">🧪 Practical Example Scenario</h3>
+<p>Imagine you have a script that writes data to a file every second.</p>
+<ul>
+<li>Without handling SIGINT: Pressing <strong>Ctrl+C</strong> stops the script mid-write, potentially corrupting the file.</li>
+<li>With graceful handling: The script catches the signal, finishes writing the current data, closes the file properly, and prints <strong>"Data saved. Exiting."</strong> before stopping.</li>
+</ul>
+<hr />
+<h3 id="best-practices-for-engineers_1">✅ Best Practices for Engineers</h3>
+<ul>
+<li>Always register your SIGINT handler <strong>at the very beginning</strong> of your script, before any critical operations.</li>
+<li>Keep your handler function <strong>short and fast</strong>—avoid complex logic inside it.</li>
+<li>Use a <strong>shutdown flag</strong> for loops instead of exiting immediately from the handler.</li>
+<li>If your script uses multiple threads, remember that signals are only received by the <strong>main thread</strong>.</li>
+<li>Test your graceful shutdown by running your script and pressing <strong>Ctrl+C</strong> to verify the behavior.</li>
+</ul>
+<hr />
+<h3 id="summary_1">🧠 Summary</h3>
+<p>Handling SIGINT gracefully is a simple but powerful technique that makes your Python scripts more robust and professional. Instead of letting your program crash with an ugly traceback, you take control of the shutdown process—cleaning up resources, saving state, and providing a clean exit. This is especially important for scripts that run for long periods, interact with external systems, or handle important data. By using the <strong>signal</strong> module and a shutdown flag pattern, you ensure your programs behave reliably even when interrupted.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how to catch the SIGINT signal (sent when a user presses Ctrl+C) and perform cleanup actions before your Python program exits.</p>
+<h3 id="example-1-basic-sigint-handler-that-prints-a-message_1">🛑 Example 1: Basic SIGINT handler that prints a message</h3>
+<p>This example creates a simple handler that prints a message when Ctrl+C is pressed, instead of immediately terminating.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_sigint</span><span class="p">(</span><span class="n">signal_number</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You pressed Ctrl+C. Exiting now.&quot;</span><span class="p">)</span>
+
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">handle_sigint</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Press Ctrl+C to trigger the handler.&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Press Ctrl+C to trigger the handler. (then after Ctrl+C) You pressed Ctrl+C. Exiting now.</strong></p>
+<hr />
+<h3 id="example-2-graceful-shutdown-with-a-flag_1">🛑 Example 2: Graceful shutdown with a flag</h3>
+<p>This example uses a running flag to stop a loop cleanly when Ctrl+C is pressed.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_sigint</span><span class="p">(</span><span class="n">signal_number</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">running</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shutting down gracefully...&quot;</span><span class="p">)</span>
+    <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">handle_sigint</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Program is running. Press Ctrl+C to stop.&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">running</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Working...&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cleanup complete. Goodbye.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Program is running. Press Ctrl+C to stop. (then after Ctrl+C) Shutting down gracefully... Cleanup complete. Goodbye.</strong></p>
+<hr />
+<h3 id="example-3-performing-cleanup-before-exit_1">🛑 Example 3: Performing cleanup before exit</h3>
+<p>This example shows how to close a file or release a resource when the user interrupts the program.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">file_handle</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_sigint</span><span class="p">(</span><span class="n">signal_number</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Interrupt received. Closing file...&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">file_handle</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">file_handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File closed. Exiting.&quot;</span><span class="p">)</span>
+    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">handle_sigint</span><span class="p">)</span>
+
+<span class="n">file_handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;temp_log.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">file_handle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Starting work...</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Writing to file. Press Ctrl+C to stop.&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">file_handle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Working...</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Writing to file. Press Ctrl+C to stop. (then after Ctrl+C) Interrupt received. Closing file... File closed. Exiting.</strong></p>
+<hr />
+<h3 id="example-4-restoring-the-default-sigint-behavior_1">🛑 Example 4: Restoring the default SIGINT behavior</h3>
+<p>This example shows how to temporarily override Ctrl+C behavior and then restore the default handler.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">custom_handler</span><span class="p">(</span><span class="n">signal_number</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Custom handler: Ctrl+C ignored this time.&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Setting custom handler for 5 seconds...&quot;</span><span class="p">)</span>
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">custom_handler</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Second </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> - try Ctrl+C now&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Restoring default SIGINT behavior.&quot;</span><span class="p">)</span>
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">signal</span><span class="o">.</span><span class="n">SIG_DFL</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Now Ctrl+C will exit normally.&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Setting custom handler for 5 seconds... (then messages for 5 seconds) Restoring default SIGINT behavior. Now Ctrl+C will exit normally.</strong></p>
+<hr />
+<h3 id="example-5-handling-sigint-in-a-multi-threaded-program_1">🛑 Example 5: Handling SIGINT in a multi-threaded program</h3>
+<p>This example demonstrates how to stop all worker threads gracefully when Ctrl+C is pressed.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+
+<span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">worker_thread</span><span class="p">(</span><span class="n">thread_id</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">running</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Thread </span><span class="si">{</span><span class="n">thread_id</span><span class="si">}</span><span class="s2"> is working...&quot;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Thread </span><span class="si">{</span><span class="n">thread_id</span><span class="si">}</span><span class="s2"> stopped.&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_sigint</span><span class="p">(</span><span class="n">signal_number</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">running</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stopping all threads...&quot;</span><span class="p">)</span>
+    <span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGINT</span><span class="p">,</span> <span class="n">handle_sigint</span><span class="p">)</span>
+
+<span class="n">thread1</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker_thread</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+<span class="n">thread2</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker_thread</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,))</span>
+
+<span class="n">thread1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">thread2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Main program running. Press Ctrl+C to stop all threads.&quot;</span><span class="p">)</span>
+<span class="n">thread1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+<span class="n">thread2</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All threads stopped. Program exiting.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Main program running. Press Ctrl+C to stop all threads. (then threads print messages) (after Ctrl+C) Stopping all threads... Thread 1 stopped. Thread 2 stopped. All threads stopped. Program exiting.</strong></p>
+<hr />
+<h2 id="comparison-table_1">Comparison Table</h2>
 <table>
 <thead>
 <tr>

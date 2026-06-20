@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch16_05_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 16 | Modern Timezone Management via zoneinfo - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 16 | Modern Timezone Management via zoneinfo";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch16_05_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch16_05_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -771,6 +771,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-zoneinfo-vs-pytz-older-library">Comparison Table: zoneinfo vs pytz (older library)</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-zoneinfo_1">⚙️ What is zoneinfo?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#creating-timezone-aware-datetimes_1">🛠️ Creating Timezone-Aware Datetimes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#converting-between-time-zones_1">🔄 Converting Between Time Zones</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparing-zoneinfo-with-pytz_1">📊 Comparing zoneinfo with pytz</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-timezone-operations_1">🕵️ Common Timezone Operations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-considerations_1">⚠️ Important Considerations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-logging-with-timezone-awareness_1">🚀 Practical Example: Logging with Timezone Awareness</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📝 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-getting-the-current-time-in-utc_1">🕐 Example 1: Getting the current time in UTC</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-creating-a-timezone-aware-datetime-for-new-york_1">🕑 Example 2: Creating a timezone-aware datetime for New York</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-converting-a-time-from-one-timezone-to-another_1">🕒 Example 3: Converting a time from one timezone to another</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-listing-all-available-timezones-for-a-region_1">🕓 Example 4: Listing all available timezones for a region</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-scheduling-a-meeting-across-time-zones_1">🕔 Example 5: Scheduling a meeting across time zones</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-zoneinfo-vs-pytz-older-library_1">Comparison Table: zoneinfo vs pytz (older library)</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch16_05_03/">Ch 16 | Converting Timestamps Between Regional Zones</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="modern-timezone-management-via-zoneinfo">Modern Timezone Management via zoneinfo</h1>
 <p><span class="category-tag">🏷️ Working with Dates and Time /  Time Zones</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Working with time zones has historically been one of the trickiest parts of date and time handling in Python. Older approaches relied on external libraries like <strong>pytz</strong>, which worked but had quirks and complexities. Starting with Python 3.9, a modern solution arrived directly in the standard library: <strong>zoneinfo</strong>. This module provides access to the IANA time zone database (the same database your operating system uses), making timezone-aware programming cleaner, more reliable, and easier to understand.</p>
@@ -1211,8 +1239,7 @@
 <hr />
 <h3 id="summary">📝 Summary</h3>
 <p>The <strong>zoneinfo</strong> module represents a significant improvement in how Python handles time zones. By being part of the standard library, it eliminates external dependencies and provides a cleaner, more intuitive API. For engineers working with distributed systems, global applications, or any code that crosses timezone boundaries, zoneinfo makes the common patterns of creating, converting, and comparing timezone-aware datetimes straightforward and reliable. Remember to always store timestamps in UTC, use IANA timezone names for clarity, and leverage zoneinfo's automatic DST handling to avoid the pitfalls that plagued older approaches.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>zoneinfo</code> module provides access to the IANA time zone database, allowing engineers to work with real-world time zones directly in Python.</p>
 <hr />
 <h3 id="example-1-getting-the-current-time-in-utc">🕐 Example 1: Getting the current time in UTC</h3>
@@ -1287,6 +1314,251 @@
 📤 Output: <strong>Sydney: 2024-07-21 07:00:00+10:00</strong></p>
 <hr />
 <h3 id="comparison-table-zoneinfo-vs-pytz-older-library">Comparison Table: zoneinfo vs pytz (older library)</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>zoneinfo</th>
+<th>pytz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Built into Python 3.9+</td>
+<td>✅ Yes</td>
+<td>❌ No (third-party)</td>
+</tr>
+<tr>
+<td>Handles daylight saving time</td>
+<td>✅ Automatically</td>
+<td>✅ Manually with <code>localize()</code></td>
+</tr>
+<tr>
+<td>Simple timezone creation</td>
+<td>✅ <code>ZoneInfo("name")</code></td>
+<td>❌ Requires <code>pytz.timezone("name")</code></td>
+</tr>
+<tr>
+<td>Recommended for new projects</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>Working with time zones has historically been one of the trickiest parts of date and time handling in Python. Older approaches relied on external libraries like <strong>pytz</strong>, which worked but had quirks and complexities. Starting with Python 3.9, a modern solution arrived directly in the standard library: <strong>zoneinfo</strong>. This module provides access to the IANA time zone database (the same database your operating system uses), making timezone-aware programming cleaner, more reliable, and easier to understand.</p>
+<hr />
+<h3 id="what-is-zoneinfo_1">⚙️ What is zoneinfo?</h3>
+<p>The <strong>zoneinfo</strong> module brings first-class timezone support into Python's standard library. It uses the system's timezone data (or a bundled <code>tzdata</code> package on some platforms) to handle time zones correctly, including daylight saving time transitions and historical timezone changes.</p>
+<p>Key points to understand:</p>
+<ul>
+<li><strong>No external dependencies needed</strong> – zoneinfo is built into Python 3.9 and later</li>
+<li><strong>Uses IANA time zone names</strong> like <code>"America/New_York"</code>, <code>"Europe/London"</code>, <code>"Asia/Tokyo"</code></li>
+<li><strong>Handles DST transitions automatically</strong> – no manual offset calculations required</li>
+<li><strong>Works seamlessly with datetime objects</strong> from the standard library</li>
+</ul>
+<hr />
+<h3 id="creating-timezone-aware-datetimes_1">🛠️ Creating Timezone-Aware Datetimes</h3>
+<p>To work with time zones, you first need to create a timezone object using <strong>zoneinfo.ZoneInfo</strong>, then attach it to your datetime objects.</p>
+<p><strong>Basic approach for creating a timezone object:</strong></p>
+<ul>
+<li>Import <strong>ZoneInfo</strong> from the <strong>zoneinfo</strong> module</li>
+<li>Create a timezone with <strong>ZoneInfo("America/New_York")</strong></li>
+<li>Use the <strong>.replace(tzinfo=...)</strong> method to attach it to a naive datetime</li>
+<li>Alternatively, use <strong>datetime.now(tz=...)</strong> to get the current time in a specific zone</li>
+</ul>
+<p><strong>Example of creating timezone-aware datetimes:</strong></p>
+<ul>
+<li><strong>from zoneinfo import ZoneInfo</strong> – import the module</li>
+<li><strong>ny_tz = ZoneInfo("America/New_York")</strong> – create a New York timezone</li>
+<li><strong>dt_ny = datetime(2024, 3, 10, 12, 0, tzinfo=ny_tz)</strong> – create an aware datetime</li>
+<li><strong>dt_now_ny = datetime.now(tz=ny_tz)</strong> – get current time in New York</li>
+</ul>
+<hr />
+<h3 id="converting-between-time-zones_1">🔄 Converting Between Time Zones</h3>
+<p>One of the most common tasks is converting a datetime from one timezone to another. With zoneinfo, this is straightforward using the <strong>.astimezone()</strong> method.</p>
+<p><strong>How to convert between time zones:</strong></p>
+<ul>
+<li>Start with a timezone-aware datetime object</li>
+<li>Call <strong>.astimezone(ZoneInfo("Europe/London"))</strong> to convert to London time</li>
+<li>The method handles all DST and offset calculations automatically</li>
+<li>The result is a new datetime object in the target timezone</li>
+</ul>
+<p><strong>Example of timezone conversion:</strong></p>
+<ul>
+<li><strong>london_tz = ZoneInfo("Europe/London")</strong> – create London timezone</li>
+<li><strong>dt_london = dt_ny.astimezone(london_tz)</strong> – convert New York time to London</li>
+<li>The datetime object now reflects the correct London time, accounting for any DST differences</li>
+</ul>
+<hr />
+<h3 id="comparing-zoneinfo-with-pytz_1">📊 Comparing zoneinfo with pytz</h3>
+<p>For engineers who have encountered <strong>pytz</strong> in older codebases, here is a comparison to highlight the improvements zoneinfo brings:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>zoneinfo (Modern)</th>
+<th>pytz (Legacy)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard library</td>
+<td>✅ Built into Python 3.9+</td>
+<td>❌ Third-party package required</td>
+</tr>
+<tr>
+<td>DST handling</td>
+<td>✅ Automatic and intuitive</td>
+<td>⚠️ Requires manual <strong>localize()</strong> and <strong>normalize()</strong></td>
+</tr>
+<tr>
+<td>Arithmetic operations</td>
+<td>✅ Works directly with timedelta</td>
+<td>❌ Can produce incorrect results without normalize()</td>
+</tr>
+<tr>
+<td>IANA database access</td>
+<td>✅ Uses system or tzdata package</td>
+<td>✅ Uses bundled database</td>
+</tr>
+<tr>
+<td>Learning curve</td>
+<td>🟢 Simple and consistent</td>
+<td>🟡 More complex, error-prone patterns</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-timezone-operations_1">🕵️ Common Timezone Operations</h3>
+<p>Here are practical operations you will frequently perform when working with time zones in infrastructure code.</p>
+<p><strong>Getting all available time zones:</strong></p>
+<ul>
+<li><strong>import zoneinfo</strong> – import the module</li>
+<li><strong>zoneinfo.available_timezones()</strong> – returns a set of all IANA timezone names</li>
+<li>Filter with <strong>{tz for tz in zoneinfo.available_timezones() if "America" in tz}</strong> to find specific regions</li>
+</ul>
+<p><strong>Checking if a timezone exists:</strong></p>
+<ul>
+<li><strong>"America/New_York" in zoneinfo.available_timezones()</strong> – returns <strong>True</strong> or <strong>False</strong></li>
+<li>Useful for validating user input or configuration values</li>
+</ul>
+<p><strong>Working with UTC:</strong></p>
+<ul>
+<li><strong>ZoneInfo("UTC")</strong> – creates a UTC timezone object</li>
+<li><strong>datetime.now(tz=ZoneInfo("UTC"))</strong> – gets current UTC time</li>
+<li>UTC is the standard reference for logging and system-wide timestamps</li>
+</ul>
+<hr />
+<h3 id="important-considerations_1">⚠️ Important Considerations</h3>
+<p>When using zoneinfo in production environments, keep these points in mind:</p>
+<ul>
+<li><strong>Python version requirement</strong> – zoneinfo is only available in Python 3.9 and later. For older versions, you may need to use <strong>pytz</strong> or the <strong>backports.zoneinfo</strong> package</li>
+<li><strong>System timezone data</strong> – zoneinfo relies on the operating system's timezone database. On some platforms (especially Windows), you may need to install the <strong>tzdata</strong> package via pip</li>
+<li><strong>Daylight saving time</strong> – always be aware that converting across DST boundaries can result in ambiguous or non-existent times. zoneinfo handles these cases by raising <strong>AmbiguousTimeError</strong> or <strong>NonExistentTimeError</strong></li>
+<li><strong>Storage best practice</strong> – always store datetimes in UTC in your databases and logs. Convert to local time zones only when displaying to users</li>
+</ul>
+<hr />
+<h3 id="practical-example-logging-with-timezone-awareness_1">🚀 Practical Example: Logging with Timezone Awareness</h3>
+<p>A common infrastructure scenario is logging events with timestamps that include timezone information for global teams.</p>
+<p><strong>Steps to implement timezone-aware logging:</strong></p>
+<ul>
+<li>Create a UTC timezone with <strong>ZoneInfo("UTC")</strong></li>
+<li>Record all timestamps in UTC using <strong>datetime.now(tz=utc_tz)</strong></li>
+<li>When displaying logs, convert to the reader's local timezone using <strong>.astimezone()</strong></li>
+<li>Store the timezone name alongside the timestamp for clarity</li>
+</ul>
+<p><strong>Example of a logging helper function:</strong></p>
+<ul>
+<li><strong>def log_event(message):</strong> – define a logging function</li>
+<li><strong>utc_now = datetime.now(tz=ZoneInfo("UTC"))</strong> – get current UTC time</li>
+<li><strong>print(f"[{utc_now.isoformat()}] {message}")</strong> – log with ISO 8601 format</li>
+<li>The ISO format includes timezone information, making it unambiguous</li>
+</ul>
+<hr />
+<h3 id="summary_1">📝 Summary</h3>
+<p>The <strong>zoneinfo</strong> module represents a significant improvement in how Python handles time zones. By being part of the standard library, it eliminates external dependencies and provides a cleaner, more intuitive API. For engineers working with distributed systems, global applications, or any code that crosses timezone boundaries, zoneinfo makes the common patterns of creating, converting, and comparing timezone-aware datetimes straightforward and reliable. Remember to always store timestamps in UTC, use IANA timezone names for clarity, and leverage zoneinfo's automatic DST handling to avoid the pitfalls that plagued older approaches.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>zoneinfo</code> module provides access to the IANA time zone database, allowing engineers to work with real-world time zones directly in Python.</p>
+<hr />
+<h3 id="example-1-getting-the-current-time-in-utc_1">🕐 Example 1: Getting the current time in UTC</h3>
+<p>This example shows how to get the current time in the UTC time zone.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">utc_zone</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;UTC&quot;</span><span class="p">)</span>
+<span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">utc_zone</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">current_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-01-15 14:30:00+00:00</strong></p>
+<hr />
+<h3 id="example-2-creating-a-timezone-aware-datetime-for-new-york_1">🕑 Example 2: Creating a timezone-aware datetime for New York</h3>
+<p>This example creates a specific datetime object set to the America/New_York time zone.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">ny_zone</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;America/New_York&quot;</span><span class="p">)</span>
+<span class="n">meeting_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">ny_zone</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">meeting_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-03-15 09:00:00-04:00</strong></p>
+<hr />
+<h3 id="example-3-converting-a-time-from-one-timezone-to-another_1">🕒 Example 3: Converting a time from one timezone to another</h3>
+<p>This example converts a London time to its equivalent in Tokyo.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">london_zone</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Europe/London&quot;</span><span class="p">)</span>
+<span class="n">tokyo_zone</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Asia/Tokyo&quot;</span><span class="p">)</span>
+
+<span class="n">london_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">london_zone</span><span class="p">)</span>
+<span class="n">tokyo_time</span> <span class="o">=</span> <span class="n">london_time</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">tokyo_zone</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokyo_time</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2024-06-01 18:00:00+09:00</strong></p>
+<hr />
+<h3 id="example-4-listing-all-available-timezones-for-a-region_1">🕓 Example 4: Listing all available timezones for a region</h3>
+<p>This example shows how to find all time zones available for Europe.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">zoneinfo</span>
+
+<span class="n">europe_zones</span> <span class="o">=</span> <span class="p">[</span><span class="n">tz</span> <span class="k">for</span> <span class="n">tz</span> <span class="ow">in</span> <span class="n">zoneinfo</span><span class="o">.</span><span class="n">available_timezones</span><span class="p">()</span> <span class="k">if</span> <span class="n">tz</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Europe&quot;</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">europe_zones</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Europe/Amsterdam', 'Europe/Andorra', 'Europe/Astrakhan', 'Europe/Athens', 'Europe/Belgrade']</strong></p>
+<hr />
+<h3 id="example-5-scheduling-a-meeting-across-time-zones_1">🕔 Example 5: Scheduling a meeting across time zones</h3>
+<p>This example converts a meeting time from San Francisco to three different time zones for a global team.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">zoneinfo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZoneInfo</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">sf_zone</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;America/Los_Angeles&quot;</span><span class="p">)</span>
+<span class="n">ny_zone</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;America/New_York&quot;</span><span class="p">)</span>
+<span class="n">london_zone</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Europe/London&quot;</span><span class="p">)</span>
+<span class="n">sydney_zone</span> <span class="o">=</span> <span class="n">ZoneInfo</span><span class="p">(</span><span class="s2">&quot;Australia/Sydney&quot;</span><span class="p">)</span>
+
+<span class="n">meeting_sf</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">sf_zone</span><span class="p">)</span>
+
+<span class="n">meeting_ny</span> <span class="o">=</span> <span class="n">meeting_sf</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">ny_zone</span><span class="p">)</span>
+<span class="n">meeting_london</span> <span class="o">=</span> <span class="n">meeting_sf</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">london_zone</span><span class="p">)</span>
+<span class="n">meeting_sydney</span> <span class="o">=</span> <span class="n">meeting_sf</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">sydney_zone</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;San Francisco:&quot;</span><span class="p">,</span> <span class="n">meeting_sf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;New York:&quot;</span><span class="p">,</span> <span class="n">meeting_ny</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;London:&quot;</span><span class="p">,</span> <span class="n">meeting_london</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sydney:&quot;</span><span class="p">,</span> <span class="n">meeting_sydney</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>San Francisco: 2024-07-20 14:00:00-07:00</strong><br />
+📤 Output: <strong>New York: 2024-07-20 17:00:00-04:00</strong><br />
+📤 Output: <strong>London: 2024-07-20 22:00:00+01:00</strong><br />
+📤 Output: <strong>Sydney: 2024-07-21 07:00:00+10:00</strong></p>
+<hr />
+<h3 id="comparison-table-zoneinfo-vs-pytz-older-library_1">Comparison Table: zoneinfo vs pytz (older library)</h3>
 <table>
 <thead>
 <tr>

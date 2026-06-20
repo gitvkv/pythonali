@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_01_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Deleting Files and Directories (remove, rmdir) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Deleting Files and Directories (remove, rmdir)";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_01_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_01_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -649,6 +649,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-the-two-functions_1">⚙️ Understanding the Two Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-usage-examples_1">🛠️ Basic Usage Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#checking-before-deleting_1">🕵️ Checking Before Deleting</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparing-osremove-and-osrmdir_1">📊 Comparing os.remove() and os.rmdir()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-cleaning-up-a-temp-folder_1">🧪 Practical Example: Cleaning Up a Temp Folder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-warnings-and-best-practices_1">⚠️ Important Warnings and Best Practices</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#error-handling-example_1">🔁 Error Handling Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📝 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-deleting-a-single-file-with-osremove_1">📝 Example 1: Deleting a single file with os.remove()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-deleting-an-empty-directory-with-osrmdir_1">📝 Example 2: Deleting an empty directory with os.rmdir()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-handling-errors-when-file-does-not-exist_1">📝 Example 3: Handling errors when file does not exist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-deleting-all-files-in-a-directory_1">📝 Example 4: Deleting all files in a directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-safely-deleting-a-file-with-existence-check_1">📝 Example 5: Safely deleting a file with existence check</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-6-removing-a-non-empty-directory-using-shutil_1">📝 Example 6: Removing a non-empty directory (using shutil)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_01_05/">Ch 14 | Renaming Files and Targets with os.rename</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="deleting-files-and-directories-remove-rmdir">Deleting Files and Directories (remove, rmdir)</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  The os Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with files and folders in Python, you'll often need to clean up temporary files, remove old logs, or delete empty directories. The <strong>os</strong> module provides two simple functions for this: <strong>os.remove()</strong> for files and <strong>os.rmdir()</strong> for empty directories. These are the basic building blocks for file cleanup operations.</p>
@@ -1184,8 +1214,7 @@
 <li>For deleting entire folder trees (non-empty directories), look into <strong>shutil.rmtree()</strong> in a later topic.</li>
 </ul>
 <p>Mastering these two functions gives you precise control over file and directory cleanup in your Python scripts.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>os.remove()</code> and <code>os.rmdir()</code> functions delete files and empty directories from the filesystem, respectively.</p>
 <h3 id="example-1-deleting-a-single-file-with-osremove">📝 Example 1: Deleting a single file with os.remove()</h3>
 <p>This example shows how to delete a single file by specifying its path.</p>
@@ -1321,6 +1350,286 @@
 📤 Output: <strong>Directory exists: False</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+<th>Works on</th>
+<th>Requires empty?</th>
+<th>Removes contents?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>os.remove()</code></td>
+<td>Delete a file</td>
+<td>Files only</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><code>os.rmdir()</code></td>
+<td>Delete a directory</td>
+<td>Directories only</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>shutil.rmtree()</code></td>
+<td>Delete a directory tree</td>
+<td>Directories only</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with files and folders in Python, you'll often need to clean up temporary files, remove old logs, or delete empty directories. The <strong>os</strong> module provides two simple functions for this: <strong>os.remove()</strong> for files and <strong>os.rmdir()</strong> for empty directories. These are the basic building blocks for file cleanup operations.</p>
+<hr />
+<h3 id="understanding-the-two-functions_1">⚙️ Understanding the Two Functions</h3>
+<ul>
+<li><strong>os.remove(path)</strong> – Deletes a single file at the specified path. If the file does not exist, Python raises a <strong>FileNotFoundError</strong>.</li>
+<li><strong>os.rmdir(path)</strong> – Deletes an empty directory at the specified path. If the directory contains any files or subdirectories, Python raises an <strong>OSError</strong> (specifically "Directory not empty").</li>
+</ul>
+<p>Both functions are permanent operations — there is no recycle bin or undo. Once deleted, the data is gone.</p>
+<hr />
+<h3 id="basic-usage-examples_1">🛠️ Basic Usage Examples</h3>
+<p><strong>Deleting a file:</strong>
+- Import the os module: <strong>import os</strong>
+- Call <strong>os.remove("old_log.txt")</strong> to delete a file named <strong>old_log.txt</strong> in the current directory.
+- For a full path: <strong>os.remove("/tmp/temp_data.csv")</strong></p>
+<p><strong>Deleting an empty directory:</strong>
+- Call <strong>os.rmdir("empty_folder")</strong> to delete a folder named <strong>empty_folder</strong> in the current directory.
+- For a full path: <strong>os.rmdir("/home/user/old_backup")</strong></p>
+<hr />
+<h3 id="checking-before-deleting_1">🕵️ Checking Before Deleting</h3>
+<p>It is good practice to check if a file or directory exists before attempting to delete it. This prevents your script from crashing with an error.</p>
+<p><strong>Check if a file exists before removing:</strong>
+- Use <strong>os.path.exists("myfile.txt")</strong> which returns <strong>True</strong> or <strong>False</strong>
+- Combine with a conditional: <strong>if os.path.exists("myfile.txt"): os.remove("myfile.txt")</strong></p>
+<p><strong>Check if a directory exists before removing:</strong>
+- Use <strong>os.path.isdir("myfolder")</strong> which returns <strong>True</strong> only if the path is a directory
+- Example: <strong>if os.path.isdir("myfolder"): os.rmdir("myfolder")</strong></p>
+<hr />
+<h3 id="comparing-osremove-and-osrmdir_1">📊 Comparing os.remove() and os.rmdir()</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>os.remove()</th>
+<th>os.rmdir()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>What it deletes</strong></td>
+<td>A single file</td>
+<td>An empty directory</td>
+</tr>
+<tr>
+<td><strong>Error if not found</strong></td>
+<td>FileNotFoundError</td>
+<td>FileNotFoundError</td>
+</tr>
+<tr>
+<td><strong>Error if not empty</strong></td>
+<td>N/A (files don't have contents)</td>
+<td>OSError: Directory not empty</td>
+</tr>
+<tr>
+<td><strong>Can delete non-empty</strong></td>
+<td>Yes (files are always "empty")</td>
+<td>No — only empty directories</td>
+</tr>
+<tr>
+<td><strong>Common use case</strong></td>
+<td>Removing old log files, temp files</td>
+<td>Cleaning up empty folders after file deletion</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-cleaning-up-a-temp-folder_1">🧪 Practical Example: Cleaning Up a Temp Folder</h3>
+<p>Imagine you have a temporary folder where you store generated reports. After processing, you want to delete each report file and then remove the empty folder.</p>
+<p><strong>Step-by-step approach:</strong>
+- Define the folder path: <strong>folder = "/tmp/reports"</strong>
+- List all files in the folder: <strong>files = os.listdir(folder)</strong>
+- Loop through each file: <strong>for file in files:</strong>
+- Build the full file path: <strong>file_path = os.path.join(folder, file)</strong>
+- Delete the file: <strong>os.remove(file_path)</strong>
+- After the loop, delete the now-empty folder: <strong>os.rmdir(folder)</strong></p>
+<p>This pattern is very common in automation scripts that generate and clean up temporary data.</p>
+<hr />
+<h3 id="important-warnings-and-best-practices_1">⚠️ Important Warnings and Best Practices</h3>
+<ul>
+<li><strong>Deleted files cannot be recovered</strong> — always double-check the path before calling remove or rmdir.</li>
+<li><strong>Use try/except blocks</strong> to handle errors gracefully instead of letting your script crash.</li>
+<li><strong>Never delete files based on user input</strong> without validation — this is a security risk.</li>
+<li><strong>For non-empty directories</strong>, you need <strong>shutil.rmtree()</strong> (covered in a separate topic), not os.rmdir().</li>
+<li><strong>On Windows</strong>, you may encounter permission errors if the file is open in another program.</li>
+</ul>
+<hr />
+<h3 id="error-handling-example_1">🔁 Error Handling Example</h3>
+<p>A safe way to delete a file with error handling:</p>
+<ul>
+<li>Use a <strong>try</strong> block: <strong>try: os.remove("important.txt")</strong></li>
+<li>Catch the <strong>FileNotFoundError</strong>: <strong>except FileNotFoundError: print("File not found, skipping")</strong></li>
+<li>Catch other <strong>OSError</strong> issues: <strong>except OSError: print("Permission denied or other error")</strong></li>
+</ul>
+<p>This pattern ensures your script continues running even if something goes wrong.</p>
+<hr />
+<h3 id="summary_1">📝 Summary</h3>
+<ul>
+<li><strong>os.remove()</strong> deletes a single file — use it to clean up individual files.</li>
+<li><strong>os.rmdir()</strong> deletes an empty directory — use it after removing all files inside.</li>
+<li>Always check existence with <strong>os.path.exists()</strong> or <strong>os.path.isdir()</strong> before deleting.</li>
+<li>Wrap deletion calls in <strong>try/except</strong> blocks to handle errors without crashing.</li>
+<li>For deleting entire folder trees (non-empty directories), look into <strong>shutil.rmtree()</strong> in a later topic.</li>
+</ul>
+<p>Mastering these two functions gives you precise control over file and directory cleanup in your Python scripts.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>os.remove()</code> and <code>os.rmdir()</code> functions delete files and empty directories from the filesystem, respectively.</p>
+<h3 id="example-1-deleting-a-single-file-with-osremove_1">📝 Example 1: Deleting a single file with os.remove()</h3>
+<p>This example shows how to delete a single file by specifying its path.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Create a test file first</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;temp_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;This file will be deleted.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Delete the file</span>
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;temp_file.txt&quot;</span><span class="p">)</span>
+
+<span class="c1"># Check if file still exists</span>
+<span class="n">file_exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;temp_file.txt&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">file_exists</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>False</strong></p>
+<hr />
+<h3 id="example-2-deleting-an-empty-directory-with-osrmdir_1">📝 Example 2: Deleting an empty directory with os.rmdir()</h3>
+<p>This example demonstrates how to remove an empty directory using os.rmdir().</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Create an empty directory first</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;empty_folder&quot;</span><span class="p">)</span>
+
+<span class="c1"># Delete the empty directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s2">&quot;empty_folder&quot;</span><span class="p">)</span>
+
+<span class="c1"># Check if directory still exists</span>
+<span class="n">dir_exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;empty_folder&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dir_exists</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>False</strong></p>
+<hr />
+<h3 id="example-3-handling-errors-when-file-does-not-exist_1">📝 Example 3: Handling errors when file does not exist</h3>
+<p>This example shows how to safely attempt deletion when the target file might not exist.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;non_existent_file.txt&quot;</span>
+
+<span class="c1"># Try to delete a file that doesn&#39;t exist</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File deleted successfully&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found - nothing to delete&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>File not found - nothing to delete</strong></p>
+<hr />
+<h3 id="example-4-deleting-all-files-in-a-directory_1">📝 Example 4: Deleting all files in a directory</h3>
+<p>This example demonstrates how to remove every file inside a directory while keeping the directory itself.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Create a directory with test files</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;log_files&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;log_files/log_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Log entry </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># List all files in the directory</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;log_files&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Files before deletion:&quot;</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span>
+
+<span class="c1"># Delete each file</span>
+<span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;log_files&quot;</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="c1"># Verify all files are gone</span>
+<span class="n">remaining_files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;log_files&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Files after deletion:&quot;</span><span class="p">,</span> <span class="n">remaining_files</span><span class="p">)</span>
+
+<span class="c1"># Clean up the empty directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s2">&quot;log_files&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Files before deletion: ['log_0.txt', 'log_1.txt', 'log_2.txt']</strong><br />
+📤 Output: <strong>Files after deletion: []</strong></p>
+<hr />
+<h3 id="example-5-safely-deleting-a-file-with-existence-check_1">📝 Example 5: Safely deleting a file with existence check</h3>
+<p>This example shows a practical pattern for deleting a file only if it exists.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Create a temporary file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;config_backup.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;backup configuration data&quot;</span><span class="p">)</span>
+
+<span class="n">file_to_delete</span> <span class="o">=</span> <span class="s2">&quot;config_backup.txt&quot;</span>
+
+<span class="c1"># Check existence before deletion</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_to_delete</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file_to_delete</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deleted: </span><span class="si">{</span><span class="n">file_to_delete</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{</span><span class="n">file_to_delete</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Try deleting again (file is already gone)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_to_delete</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file_to_delete</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Deleted: </span><span class="si">{</span><span class="n">file_to_delete</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File not found: </span><span class="si">{</span><span class="n">file_to_delete</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Deleted: config_backup.txt</strong><br />
+📤 Output: <strong>File not found: config_backup.txt</strong></p>
+<hr />
+<h3 id="example-6-removing-a-non-empty-directory-using-shutil_1">📝 Example 6: Removing a non-empty directory (using shutil)</h3>
+<p>This example demonstrates that os.rmdir() fails on non-empty directories, and shows the alternative using shutil.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+
+<span class="c1"># Create a directory with files inside</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s2">&quot;project_data&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;project_data/data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;important data&quot;</span><span class="p">)</span>
+
+<span class="c1"># Attempt to remove non-empty directory with os.rmdir</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="s2">&quot;project_data&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory removed with rmdir&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;os.rmdir failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using shutil.rmtree instead...&quot;</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="s2">&quot;project_data&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Directory removed with shutil.rmtree&quot;</span><span class="p">)</span>
+
+<span class="c1"># Verify deletion</span>
+<span class="n">dir_exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;project_data&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Directory exists: </span><span class="si">{</span><span class="n">dir_exists</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>os.rmdir failed: [Errno 39] Directory not empty: 'project_data'</strong><br />
+📤 Output: <strong>Using shutil.rmtree instead...</strong><br />
+📤 Output: <strong>Directory removed with shutil.rmtree</strong><br />
+📤 Output: <strong>Directory exists: False</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

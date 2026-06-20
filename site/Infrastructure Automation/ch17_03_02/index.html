@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch17_03_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 17 | Setting Operational Fields in Request Headers - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 17 | Setting Operational Fields in Request Headers";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch17_03_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch17_03_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -815,6 +815,46 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-operational-header-fields">📊 Comparison Table: Common Operational Header Fields</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-request-headers_1">⚙️ What Are Request Headers?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-operational-headers_1">🛠️ Common Operational Headers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setting-headers-in-python-requests_1">📊 Setting Headers in Python Requests</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#basic-example_1">Basic Example</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#setting-multiple-headers_1">Setting Multiple Headers</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#authentication-headers_1">🔐 Authentication Headers</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#bearer-token-authentication_1">Bearer Token Authentication</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#api-key-authentication_1">API Key Authentication</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#inspecting-response-headers_1">🕵️ Inspecting Response Headers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#best-practices-for-setting-headers_1">🧪 Best Practices for Setting Headers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together_1">📝 Putting It All Together</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-setting-a-single-header-field_1">🧪 Example 1: Setting a Single Header Field</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-setting-multiple-header-fields_1">🧪 Example 2: Setting Multiple Header Fields</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-an-authorization-token-in-headers_1">🧪 Example 3: Using an Authorization Token in Headers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-setting-headers-for-a-post-request-with-json-body_1">🧪 Example 4: Setting Headers for a POST Request with JSON Body</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-overriding-default-headers-with-custom-values_1">🧪 Example 5: Overriding Default Headers with Custom Values</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-operational-header-fields_1">📊 Comparison Table: Common Operational Header Fields</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch17_03_03/">Ch 17 | Bearer Token Authentication Headers Rules</a>
@@ -1088,7 +1128,7 @@
               
                 <h1 id="setting-operational-fields-in-request-headers">Setting Operational Fields in Request Headers</h1>
 <p><span class="category-tag">🏷️ APIs and HTTP Requests /  Passing Parameters and Headers</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1218,8 +1258,7 @@
 <li>Handle errors by checking for specific status codes like <strong>401</strong> or <strong>403</strong></li>
 </ul>
 <p>This pattern will serve you well across most API integrations you encounter as you work with Python and HTTP services.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how to add operational fields like authentication tokens, content types, and custom metadata into HTTP request headers using Python's <code>requests</code> library.</p>
 <hr />
 <h3 id="example-1-setting-a-single-header-field">🧪 Example 1: Setting a Single Header Field</h3>
@@ -1297,6 +1336,254 @@
 <p>📤 Output: <strong>EngineeringBot/1.0</strong></p>
 <hr />
 <h3 id="comparison-table-common-operational-header-fields">📊 Comparison Table: Common Operational Header Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Header Field</th>
+<th>Purpose</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Authorization</code></td>
+<td>Pass authentication tokens</td>
+<td><code>Bearer eyJhbGciOiJIUzI1NiJ9</code></td>
+</tr>
+<tr>
+<td><code>Content-Type</code></td>
+<td>Specify data format in body</td>
+<td><code>application/json</code></td>
+</tr>
+<tr>
+<td><code>User-Agent</code></td>
+<td>Identify the client application</td>
+<td><code>EngineeringBot/1.0</code></td>
+</tr>
+<tr>
+<td><code>X-Request-ID</code></td>
+<td>Track a specific request</td>
+<td><code>abc-123-def</code></td>
+</tr>
+<tr>
+<td><code>X-Operation</code></td>
+<td>Describe the action being performed</td>
+<td><code>create-user</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>When working with APIs, you often need to communicate additional information beyond the actual data being sent or requested. This is where <strong>request headers</strong> come into play. Headers are like metadata for your HTTP requests—they tell the server how to handle your request, what format you expect in return, and what credentials you're using.</p>
+<p>For engineers who are new to Python, understanding how to set operational fields in request headers is essential for interacting with web services, authentication systems, and RESTful APIs.</p>
+<hr />
+<h3 id="what-are-request-headers_1">⚙️ What Are Request Headers?</h3>
+<p>Request headers are key-value pairs sent along with an HTTP request. They provide context about the request, such as:</p>
+<ul>
+<li><strong>Content-Type</strong>: What format the data is in (e.g., JSON, XML)</li>
+<li><strong>Authorization</strong>: Credentials for accessing protected resources</li>
+<li><strong>Accept</strong>: What response format the client expects</li>
+<li><strong>User-Agent</strong>: Information about the client making the request</li>
+<li><strong>Custom Headers</strong>: Application-specific metadata</li>
+</ul>
+<hr />
+<h3 id="common-operational-headers_1">🛠️ Common Operational Headers</h3>
+<p>Here are the most frequently used operational headers and their purposes:</p>
+<table>
+<thead>
+<tr>
+<th>Header Field</th>
+<th>Purpose</th>
+<th>Example Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Content-Type</strong></td>
+<td>Specifies the format of the request body</td>
+<td><strong>application/json</strong></td>
+</tr>
+<tr>
+<td><strong>Accept</strong></td>
+<td>Tells the server what response format you want</td>
+<td><strong>application/json</strong></td>
+</tr>
+<tr>
+<td><strong>Authorization</strong></td>
+<td>Carries authentication credentials</td>
+<td><strong>Bearer eyJhbGciOiJIUzI1NiIs...</strong></td>
+</tr>
+<tr>
+<td><strong>User-Agent</strong></td>
+<td>Identifies the client application</td>
+<td><strong>MyApp/1.0</strong></td>
+</tr>
+<tr>
+<td><strong>X-API-Key</strong></td>
+<td>Custom header for API key authentication</td>
+<td><strong>abc123def456</strong></td>
+</tr>
+<tr>
+<td><strong>Cache-Control</strong></td>
+<td>Directives for caching behavior</td>
+<td><strong>no-cache</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="setting-headers-in-python-requests_1">📊 Setting Headers in Python Requests</h3>
+<p>The <strong>requests</strong> library in Python makes it straightforward to add headers to your HTTP calls. You simply pass a dictionary of headers to the <strong>headers</strong> parameter.</p>
+<h4 id="basic-example_1">Basic Example</h4>
+<p>To set a <strong>Content-Type</strong> header for a POST request:</p>
+<ul>
+<li>Import the <strong>requests</strong> library</li>
+<li>Create a dictionary with your header key-value pairs</li>
+<li>Pass the dictionary to the <strong>headers</strong> parameter in your request method</li>
+</ul>
+<p><strong>Example structure:</strong></p>
+<ul>
+<li><strong>headers = {"Content-Type": "application/json"}</strong></li>
+<li><strong>response = requests.post("https://api.example.com/data", headers=headers, json={"key": "value"})</strong></li>
+</ul>
+<h4 id="setting-multiple-headers_1">Setting Multiple Headers</h4>
+<p>You can combine several operational headers in one dictionary:</p>
+<ul>
+<li><strong>headers = {</strong></li>
+<li><strong>"Content-Type": "application/json"</strong></li>
+<li><strong>"Accept": "application/json"</strong></li>
+<li><strong>"Authorization": "Bearer your_token_here"</strong></li>
+<li><strong>"User-Agent": "MyPythonApp/1.0"</strong></li>
+<li><strong>}</strong></li>
+<li><strong>response = requests.get("https://api.example.com/protected", headers=headers)</strong></li>
+</ul>
+<hr />
+<h3 id="authentication-headers_1">🔐 Authentication Headers</h3>
+<p>One of the most common uses of operational headers is authentication. Here are the two main patterns:</p>
+<h4 id="bearer-token-authentication_1">Bearer Token Authentication</h4>
+<ul>
+<li><strong>headers = {"Authorization": "Bearer your_access_token"}</strong></li>
+<li><strong>response = requests.get("https://api.example.com/user/profile", headers=headers)</strong></li>
+</ul>
+<h4 id="api-key-authentication_1">API Key Authentication</h4>
+<ul>
+<li><strong>headers = {"X-API-Key": "your_api_key_12345"}</strong></li>
+<li><strong>response = requests.get("https://api.example.com/data", headers=headers)</strong></li>
+</ul>
+<hr />
+<h3 id="inspecting-response-headers_1">🕵️ Inspecting Response Headers</h3>
+<p>Sometimes you need to check what headers the server sends back. This is useful for debugging or extracting session information.</p>
+<ul>
+<li><strong>response = requests.get("https://api.example.com")</strong></li>
+<li><strong>print(response.headers)</strong></li>
+<li><strong>print(response.headers.get("Content-Type"))</strong></li>
+<li><strong>print(response.headers.get("Set-Cookie"))</strong></li>
+</ul>
+<p>Expected output would show a dictionary of response headers, and specific values for <strong>Content-Type</strong> and <strong>Set-Cookie</strong> if present.</p>
+<hr />
+<h3 id="best-practices-for-setting-headers_1">🧪 Best Practices for Setting Headers</h3>
+<ul>
+<li><strong>Always specify Content-Type</strong> when sending a request body to avoid server confusion</li>
+<li><strong>Use Accept headers</strong> to explicitly request your preferred response format</li>
+<li><strong>Keep authentication tokens secure</strong>—never hardcode them in your scripts</li>
+<li><strong>Use descriptive User-Agent strings</strong> to help API providers identify your application</li>
+<li><strong>Check for required headers</strong> in the API documentation before making requests</li>
+<li><strong>Handle header-related errors</strong> gracefully, such as <strong>401 Unauthorized</strong> or <strong>415 Unsupported Media Type</strong></li>
+</ul>
+<hr />
+<h3 id="putting-it-all-together_1">📝 Putting It All Together</h3>
+<p>Here is a complete workflow for setting operational headers in a typical API interaction:</p>
+<ul>
+<li>Define your headers dictionary with <strong>Content-Type</strong>, <strong>Accept</strong>, and <strong>Authorization</strong></li>
+<li>Make a GET request to the API endpoint with your headers</li>
+<li>Check the response status code to confirm success</li>
+<li>Print the response data if the request was successful</li>
+<li>Handle errors by checking for specific status codes like <strong>401</strong> or <strong>403</strong></li>
+</ul>
+<p>This pattern will serve you well across most API integrations you encounter as you work with Python and HTTP services.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how to add operational fields like authentication tokens, content types, and custom metadata into HTTP request headers using Python's <code>requests</code> library.</p>
+<hr />
+<h3 id="example-1-setting-a-single-header-field_1">🧪 Example 1: Setting a Single Header Field</h3>
+<p>This example sends a simple request with one custom header field to identify the client application.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/headers&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;X-Client-Name&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineering-Tool&quot;</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;headers&quot;</span><span class="p">][</span><span class="s2">&quot;X-Client-Name&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>Engineering-Tool</strong></p>
+<hr />
+<h3 id="example-2-setting-multiple-header-fields_1">🧪 Example 2: Setting Multiple Header Fields</h3>
+<p>This example adds several operational fields at once, including content type and a custom identifier.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/headers&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;X-Request-ID&quot;</span><span class="p">:</span> <span class="s2">&quot;abc-123-def&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;X-Engineer-ID&quot;</span><span class="p">:</span> <span class="s2">&quot;e42&quot;</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;headers&quot;</span><span class="p">][</span><span class="s2">&quot;X-Request-ID&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>abc-123-def</strong></p>
+<hr />
+<h3 id="example-3-using-an-authorization-token-in-headers_1">🧪 Example 3: Using an Authorization Token in Headers</h3>
+<p>This example passes a bearer token in the header for authenticated API access.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/headers&quot;</span>
+<span class="n">token</span> <span class="o">=</span> <span class="s2">&quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;headers&quot;</span><span class="p">][</span><span class="s2">&quot;Authorization&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0</strong></p>
+<hr />
+<h3 id="example-4-setting-headers-for-a-post-request-with-json-body_1">🧪 Example 4: Setting Headers for a POST Request with JSON Body</h3>
+<p>This example sends JSON data to an API while specifying the content type and an operation tracking field.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/post&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;X-Operation&quot;</span><span class="p">:</span> <span class="s2">&quot;create-user&quot;</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;engineer&quot;</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;headers&quot;</span><span class="p">][</span><span class="s2">&quot;X-Operation&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>create-user</strong></p>
+<hr />
+<h3 id="example-5-overriding-default-headers-with-custom-values_1">🧪 Example 5: Overriding Default Headers with Custom Values</h3>
+<p>This example shows how to replace a default header (like <code>User-Agent</code>) with a custom operational field.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://httpbin.org/headers&quot;</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;EngineeringBot/1.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;X-Debug-Mode&quot;</span><span class="p">:</span> <span class="s2">&quot;enabled&quot;</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;headers&quot;</span><span class="p">][</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>EngineeringBot/1.0</strong></p>
+<hr />
+<h3 id="comparison-table-common-operational-header-fields_1">📊 Comparison Table: Common Operational Header Fields</h3>
 <table>
 <thead>
 <tr>

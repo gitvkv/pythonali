@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch03_01_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 03 | Practical Example: Extracting a Subnet from an IP String - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 03 | Practical Example: Extracting a Subnet from an IP String";
         var mkdocs_page_input_path = "Getting Started\\ch03_01_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch03_01_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -164,6 +164,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-extracting-subnet-from-multiple-ip-addresses">🧩 Example 5: Extracting Subnet from Multiple IP Addresses</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-problem_1">⚙️ The Problem</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-by-step-solution_1">🛠️ Step-by-Step Solution</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#complete-example-breakdown_1">📊 Complete Example Breakdown</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-concepts-explained_1">🕵️ Key Concepts Explained</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-tips-for-engineers_1">🔧 Practical Tips for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#real-world-use-cases_1">📝 Real-World Use Cases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-extracting-the-first-octet_1">🧩 Example 1: Extracting the First Octet</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-extracting-the-last-octet_1">🧩 Example 2: Extracting the Last Octet</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-extracting-the-subnet-first-three-octets_1">🧩 Example 3: Extracting the Subnet (First Three Octets)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-extracting-the-subnet-with-a-variable-octet-length_1">🧩 Example 4: Extracting the Subnet with a Variable Octet Length</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-extracting-subnet-from-multiple-ip-addresses_1">🧩 Example 5: Extracting Subnet from Multiple IP Addresses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="practical-example-extracting-a-subnet-from-an-ip-string">Practical Example: Extracting a Subnet from an IP String</h1>
 <p><span class="category-tag">🏷️ Working with Strings In-Depth /  Advanced Indexing and Slicing</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1170,8 +1198,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Extracting a subnet from an IP string is a straightforward task using Python's <strong>find()</strong> method combined with <strong>string slicing</strong>. This technique is fundamental for any engineer working with network data, configuration parsing, or log analysis. The same approach can be extended to extract other delimited data from strings in your automation workflows.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This example shows how to extract a subnet portion from an IP address string using Python's string slicing and indexing.</p>
 <hr />
 <h3 id="example-1-extracting-the-first-octet">🧩 Example 1: Extracting the First Octet</h3>
@@ -1220,6 +1247,183 @@
 📤 Output: <strong>172.16.0</strong></p>
 <hr />
 <h3 id="comparison-table">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Input Example</th>
+<th>Output</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fixed slice <code>[:-4]</code></td>
+<td><code>192.168.1.100</code></td>
+<td><code>192.168.1</code></td>
+<td>Fixed-length last octets</td>
+</tr>
+<tr>
+<td><code>rfind()</code> + slice</td>
+<td><code>10.0.0.255</code></td>
+<td><code>10.0.0</code></td>
+<td>Variable-length last octets</td>
+</tr>
+<tr>
+<td>Loop with <code>rfind()</code></td>
+<td>List of IPs</td>
+<td>Multiple subnets</td>
+<td>Batch processing</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>When working with network configurations or logs, you'll often encounter IP addresses in string format like <strong>192.168.1.0/24</strong>. Extracting just the subnet portion (the part after the slash) is a common task. This example shows how Python's string slicing and indexing can help you parse such data efficiently.</p>
+<hr />
+<h3 id="the-problem_1">⚙️ The Problem</h3>
+<p>Given an IP string like <strong>10.0.0.0/16</strong>, we need to extract:</p>
+<ul>
+<li>The <strong>subnet mask length</strong>: <strong>16</strong></li>
+<li>The <strong>network address</strong>: <strong>10.0.0.0</strong></li>
+</ul>
+<p>Engineers frequently need to separate these components for automation scripts, configuration validation, or reporting.</p>
+<hr />
+<h3 id="step-by-step-solution_1">🛠️ Step-by-Step Solution</h3>
+<p><strong>Step 1: Find the slash position</strong></p>
+<p>Use the <strong>find()</strong> method to locate where the slash character (<strong>/</strong>) appears in the string.</p>
+<ul>
+<li>Input: <strong>10.0.0.0/16</strong></li>
+<li>Code: <strong>ip_string.find("/")</strong></li>
+<li>Result: <strong>8</strong> (the slash is at index 8)</li>
+</ul>
+<p><strong>Step 2: Extract the subnet mask</strong></p>
+<p>Slice the string starting from the position right after the slash to the end.</p>
+<ul>
+<li>Code: <strong>ip_string[9:]</strong></li>
+<li>Result: <strong>16</strong></li>
+</ul>
+<p><strong>Step 3: Extract the network address</strong></p>
+<p>Slice the string from the beginning up to (but not including) the slash position.</p>
+<ul>
+<li>Code: <strong>ip_string[:8]</strong></li>
+<li>Result: <strong>10.0.0.0</strong></li>
+</ul>
+<hr />
+<h3 id="complete-example-breakdown_1">📊 Complete Example Breakdown</h3>
+<p>Let's walk through a full example using the IP <strong>192.168.1.0/24</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Operation</th>
+<th>Code</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Find slash position</td>
+<td><strong>ip_string.find("/")</strong></td>
+<td><strong>11</strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Extract subnet mask</td>
+<td><strong>ip_string[12:]</strong></td>
+<td><strong>24</strong></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Extract network address</td>
+<td><strong>ip_string[:11]</strong></td>
+<td><strong>192.168.1.0</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="key-concepts-explained_1">🕵️ Key Concepts Explained</h3>
+<ul>
+<li><strong>String indexing</strong> starts at <strong>0</strong> for the first character</li>
+<li><strong>Slicing</strong> uses the format <strong>[start:stop]</strong> where <strong>stop</strong> is exclusive</li>
+<li><strong>Negative indexing</strong> can also work: <strong>ip_string[-3:]</strong> would give <strong>/24</strong> (but we want just <strong>24</strong>)</li>
+<li>The <strong>find()</strong> method returns <strong>-1</strong> if the character is not found (good for error checking)</li>
+</ul>
+<hr />
+<h3 id="practical-tips-for-engineers_1">🔧 Practical Tips for Engineers</h3>
+<ul>
+<li>Always validate that the slash exists before slicing to avoid errors</li>
+<li>Convert the extracted subnet mask to an integer using <strong>int()</strong> for calculations</li>
+<li>Handle edge cases like <strong>/32</strong> (single host) or <strong>/0</strong> (default route)</li>
+<li>Use <strong>strip()</strong> to remove any whitespace that might be present in log files</li>
+</ul>
+<hr />
+<h3 id="real-world-use-cases_1">📝 Real-World Use Cases</h3>
+<ul>
+<li>Parsing <strong>CIDR notation</strong> from configuration files</li>
+<li>Extracting subnet masks from <strong>network device logs</strong></li>
+<li>Validating <strong>IP address ranges</strong> in automation scripts</li>
+<li>Building <strong>network inventory reports</strong> from raw data</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Extracting a subnet from an IP string is a straightforward task using Python's <strong>find()</strong> method combined with <strong>string slicing</strong>. This technique is fundamental for any engineer working with network data, configuration parsing, or log analysis. The same approach can be extended to extract other delimited data from strings in your automation workflows.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This example shows how to extract a subnet portion from an IP address string using Python's string slicing and indexing.</p>
+<hr />
+<h3 id="example-1-extracting-the-first-octet_1">🧩 Example 1: Extracting the First Octet</h3>
+<p>This demonstrates how to get the first number in an IP address using basic slicing.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ip_address</span> <span class="o">=</span> <span class="s2">&quot;192.168.1.100&quot;</span>
+<span class="n">first_octet</span> <span class="o">=</span> <span class="n">ip_address</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_octet</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>192</strong></p>
+<hr />
+<h3 id="example-2-extracting-the-last-octet_1">🧩 Example 2: Extracting the Last Octet</h3>
+<p>This shows how to get the final number in an IP address using negative indexing.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ip_address</span> <span class="o">=</span> <span class="s2">&quot;192.168.1.100&quot;</span>
+<span class="n">last_octet</span> <span class="o">=</span> <span class="n">ip_address</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">last_octet</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>100</strong></p>
+<hr />
+<h3 id="example-3-extracting-the-subnet-first-three-octets_1">🧩 Example 3: Extracting the Subnet (First Three Octets)</h3>
+<p>This demonstrates how to get the subnet portion by slicing everything except the last octet.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ip_address</span> <span class="o">=</span> <span class="s2">&quot;192.168.1.100&quot;</span>
+<span class="n">subnet</span> <span class="o">=</span> <span class="n">ip_address</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subnet</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>192.168.1</strong></p>
+<hr />
+<h3 id="example-4-extracting-the-subnet-with-a-variable-octet-length_1">🧩 Example 4: Extracting the Subnet with a Variable Octet Length</h3>
+<p>This shows how to handle IP addresses where the last octet may have a different number of digits.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ip_address</span> <span class="o">=</span> <span class="s2">&quot;10.0.0.255&quot;</span>
+<span class="n">last_dot_position</span> <span class="o">=</span> <span class="n">ip_address</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">subnet</span> <span class="o">=</span> <span class="n">ip_address</span><span class="p">[:</span><span class="n">last_dot_position</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subnet</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>10.0.0</strong></p>
+<hr />
+<h3 id="example-5-extracting-subnet-from-multiple-ip-addresses_1">🧩 Example 5: Extracting Subnet from Multiple IP Addresses</h3>
+<p>This demonstrates how to extract subnets from a list of IP addresses using a loop.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ip_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;192.168.1.100&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0.0.50&quot;</span><span class="p">,</span> <span class="s2">&quot;172.16.0.25&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">ip</span> <span class="ow">in</span> <span class="n">ip_list</span><span class="p">:</span>
+    <span class="n">last_dot</span> <span class="o">=</span> <span class="n">ip</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+    <span class="n">subnet</span> <span class="o">=</span> <span class="n">ip</span><span class="p">[:</span><span class="n">last_dot</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">subnet</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>192.168.1</strong><br />
+📤 Output: <strong>10.0.0</strong><br />
+📤 Output: <strong>172.16.0</strong></p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

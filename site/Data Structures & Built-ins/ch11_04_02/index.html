@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch11_04_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 11 | Importing Custom Modules Locally - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 11 | Importing Custom Modules Locally";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch11_04_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch11_04_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -544,6 +544,34 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-importing-all-functions-from-a-custom-module">🔧 Example 5: Importing all functions from a custom module</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-custom-module_1">⚙️ What Is a Custom Module?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-create-and-import-a-local-module_1">🛠️ How to Create and Import a Local Module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#importing-specific-parts-of-a-module_1">📊 Importing Specific Parts of a Module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-the-module-search-path_1">🕵️ Understanding the Module Search Path</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-full-module-import-vs-specific-import_1">📋 Comparison: Full Module Import vs. Specific Import</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-organizing-utility-functions_1">🧪 Practical Example: Organizing Utility Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">⚠️ Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-importing-a-module-from-the-same-folder_1">🔧 Example 1: Importing a module from the same folder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-importing-only-a-specific-function-from-your-module_1">🔧 Example 2: Importing only a specific function from your module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-importing-a-module-from-a-subfolder_1">🔧 Example 3: Importing a module from a subfolder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-an-alias-for-a-long-module-path_1">🔧 Example 4: Using an alias for a long module path</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-importing-all-functions-from-a-custom-module_1">🔧 Example 5: Importing all functions from a custom module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="importing-custom-modules-locally">Importing Custom Modules Locally</h1>
 <p><span class="category-tag">🏷️ Modules and Imports /  Creating Your Own Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>As you start writing more Python scripts, you will naturally want to reuse useful functions across multiple projects. Instead of copying and pasting the same code everywhere, you can create your own custom module—a simple Python file containing functions and variables—and import it locally into your scripts. This keeps your code organized, maintainable, and much easier to debug.</p>
@@ -1186,8 +1214,7 @@
 <li>Use <strong>import module_name</strong> or <strong>from module_name import item</strong> to bring its functionality into your script.</li>
 </ol>
 <p>This approach saves time, reduces errors, and makes your projects much easier to maintain as they grow.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This is how you import a Python file you wrote yourself from the same folder or a nearby folder.</p>
 <hr />
 <h3 id="example-1-importing-a-module-from-the-same-folder">🔧 Example 1: Importing a module from the same folder</h3>
@@ -1273,6 +1300,242 @@
 <p>📤 Output: <strong>HELLO WORLD</strong></p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Syntax</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full module import</td>
+<td><code>import module_name</code></td>
+<td>You need multiple functions from the module</td>
+</tr>
+<tr>
+<td>Specific function import</td>
+<td><code>from module_name import func</code></td>
+<td>You only need one or two functions</td>
+</tr>
+<tr>
+<td>Subfolder import</td>
+<td><code>import folder.module_name</code></td>
+<td>Your module is inside a subfolder</td>
+</tr>
+<tr>
+<td>Alias import</td>
+<td><code>import folder.module as alias</code></td>
+<td>You want a shorter name in your code</td>
+</tr>
+<tr>
+<td>Wildcard import</td>
+<td><code>from module import *</code></td>
+<td>Quick prototyping (avoid in larger projects)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>As you start writing more Python scripts, you will naturally want to reuse useful functions across multiple projects. Instead of copying and pasting the same code everywhere, you can create your own custom module—a simple Python file containing functions and variables—and import it locally into your scripts. This keeps your code organized, maintainable, and much easier to debug.</p>
+<hr />
+<h3 id="what-is-a-custom-module_1">⚙️ What Is a Custom Module?</h3>
+<p>A custom module is just a <strong>Python file</strong> (with a <strong>.py</strong> extension) that contains definitions like functions, classes, or variables. You create it once and then import it into any other script that needs its functionality.</p>
+<ul>
+<li>Any <strong>.py</strong> file you write can act as a module.</li>
+<li>The module's name is the filename without the <strong>.py</strong> extension.</li>
+<li>You can place your module in the same folder as your main script for simple local imports.</li>
+</ul>
+<hr />
+<h3 id="how-to-create-and-import-a-local-module_1">🛠️ How to Create and Import a Local Module</h3>
+<p><strong>Step 1: Create your module file</strong></p>
+<p>Create a new file named <strong>my_helpers.py</strong> in the same directory as your main script. Inside it, define a simple function:</p>
+<ul>
+<li><strong>my_helpers.py</strong> contains: a function called <strong>greet(name)</strong> that returns a greeting string, and a variable called <strong>pi</strong> set to <strong>3.14159</strong>.</li>
+</ul>
+<p><strong>Step 2: Import and use the module in your main script</strong></p>
+<p>In your main script (for example, <strong>main.py</strong>), you import the module using the <strong>import</strong> statement:</p>
+<ul>
+<li>Write <strong>import my_helpers</strong> at the top of your script.</li>
+<li>To call the function, use <strong>my_helpers.greet("Alice")</strong>.</li>
+<li>To access the variable, use <strong>my_helpers.pi</strong>.</li>
+</ul>
+<p><strong>Expected output when you run main.py:</strong></p>
+<ul>
+<li><strong>my_helpers.greet("Alice")</strong> returns: <strong>Hello, Alice! Welcome to Python.</strong></li>
+<li><strong>my_helpers.pi</strong> returns: <strong>3.14159</strong></li>
+</ul>
+<hr />
+<h3 id="importing-specific-parts-of-a-module_1">📊 Importing Specific Parts of a Module</h3>
+<p>If you only need one function or variable from your module, you can import it directly using the <strong>from ... import ...</strong> syntax. This saves you from typing the module name every time.</p>
+<ul>
+<li><strong>from my_helpers import greet</strong> lets you call <strong>greet("Bob")</strong> directly without the <strong>my_helpers.</strong> prefix.</li>
+<li><strong>from my_helpers import pi</strong> lets you use <strong>pi</strong> directly.</li>
+</ul>
+<p><strong>Important note:</strong> If you import multiple items, separate them with commas: <strong>from my_helpers import greet, pi</strong></p>
+<hr />
+<h3 id="understanding-the-module-search-path_1">🕵️ Understanding the Module Search Path</h3>
+<p>When you write <strong>import my_helpers</strong>, Python looks for the file in a specific order:</p>
+<ul>
+<li>First, it checks the <strong>current directory</strong> (where your main script is running).</li>
+<li>Then, it checks directories listed in the <strong>PYTHONPATH</strong> environment variable.</li>
+<li>Finally, it checks the default installation paths for third-party libraries.</li>
+</ul>
+<p>For local custom modules, simply keeping your module file in the <strong>same folder</strong> as your main script is the easiest and most reliable approach.</p>
+<hr />
+<h3 id="comparison-full-module-import-vs-specific-import_1">📋 Comparison: Full Module Import vs. Specific Import</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Full Module Import (import module)</th>
+<th>Specific Import (from module import item)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Syntax when using</strong></td>
+<td>You must prefix with <strong>module_name.</strong></td>
+<td>You use the item directly by name</td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Very clear where the function comes from</td>
+<td>Less explicit, but cleaner for frequent use</td>
+</tr>
+<tr>
+<td><strong>Namespace pollution</strong></td>
+<td>No risk of name conflicts</td>
+<td>Can overwrite existing names if you are not careful</td>
+</tr>
+<tr>
+<td><strong>Best use case</strong></td>
+<td>When using many items from the module</td>
+<td>When using only one or two items frequently</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-organizing-utility-functions_1">🧪 Practical Example: Organizing Utility Functions</h3>
+<p>Imagine you have several utility functions you use often—like converting units or formatting dates. Instead of rewriting them, create a module called <strong>utils.py</strong>:</p>
+<ul>
+<li><strong>utils.py</strong> contains: <strong>celsius_to_fahrenheit(c)</strong> and <strong>fahrenheit_to_celsius(f)</strong>.</li>
+</ul>
+<p>In your main script, you import it:</p>
+<ul>
+<li><strong>import utils</strong></li>
+<li>Call <strong>utils.celsius_to_fahrenheit(100)</strong> to get <strong>212.0</strong>.</li>
+<li>Call <strong>utils.fahrenheit_to_celsius(212)</strong> to get <strong>100.0</strong>.</li>
+</ul>
+<p>This keeps your main script clean and your reusable logic in one place.</p>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">⚠️ Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Naming conflicts:</strong> Do not name your module the same as a built-in Python module (like <strong>math.py</strong> or <strong>sys.py</strong>). This will override the standard library and cause unexpected errors.</li>
+<li><strong>Circular imports:</strong> If module A imports module B, and module B imports module A, you will get an error. Keep your imports flowing in one direction.</li>
+<li><strong>File location:</strong> If your module is not in the same folder, Python will not find it. Either move it to the same directory or adjust the <strong>PYTHONPATH</strong>.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Creating and importing custom modules locally is a fundamental skill that helps you write cleaner, more reusable code. You simply:</p>
+<ol>
+<li>Write your functions and variables in a <strong>.py</strong> file.</li>
+<li>Place that file in the same folder as your main script.</li>
+<li>Use <strong>import module_name</strong> or <strong>from module_name import item</strong> to bring its functionality into your script.</li>
+</ol>
+<p>This approach saves time, reduces errors, and makes your projects much easier to maintain as they grow.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This is how you import a Python file you wrote yourself from the same folder or a nearby folder.</p>
+<hr />
+<h3 id="example-1-importing-a-module-from-the-same-folder_1">🔧 Example 1: Importing a module from the same folder</h3>
+<p>Create a file called <code>tools.py</code> in your project folder, then import it in another script.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># tools.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># main.py (same folder as tools.py)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tools</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>8</strong></p>
+<hr />
+<h3 id="example-2-importing-only-a-specific-function-from-your-module_1">🔧 Example 2: Importing only a specific function from your module</h3>
+<p>Use <code>from</code> to bring in just the function you need, so you don't have to write the module name each time.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># tools.py (same as before)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># main.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">multiply</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>24</strong></p>
+<hr />
+<h3 id="example-3-importing-a-module-from-a-subfolder_1">🔧 Example 3: Importing a module from a subfolder</h3>
+<p>Place your custom module inside a subfolder named <code>helpers</code>, then use dot notation to import it.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># helpers/calculations.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cube</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># main.py (in the parent folder)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">helpers.calculations</span>
+
+<span class="n">value</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">calculations</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>25</strong></p>
+<hr />
+<h3 id="example-4-using-an-alias-for-a-long-module-path_1">🔧 Example 4: Using an alias for a long module path</h3>
+<p>Shorten the module name with <code>as</code> when the path is long or you want a cleaner name.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># helpers/calculations.py (same as above)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># main.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">helpers.calculations</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">calc</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">double</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>18</strong></p>
+<hr />
+<h3 id="example-5-importing-all-functions-from-a-custom-module_1">🔧 Example 5: Importing all functions from a custom module</h3>
+<p>Use <code>from module import *</code> to bring every public function into your namespace (use sparingly).</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># helpers/strings.py</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">upper_case</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">lower_case</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># main.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">helpers.strings</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">greeting</span> <span class="o">=</span> <span class="n">upper_case</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>HELLO WORLD</strong></p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

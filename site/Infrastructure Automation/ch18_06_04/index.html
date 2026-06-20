@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_06_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Why Implementing Dunder Signatures Makes Objects Feel Native - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Why Implementing Dunder Signatures Makes Objects Feel Native";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_06_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_06_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -881,6 +881,46 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-without-vs-with-dunder-methods">📋 Comparison Table: Without vs With Dunder Methods</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-dunder-methods_1">⚙️ What Are Dunder Methods?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-implement-dunder-methods_1">🛠️ Why Implement Dunder Methods?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-most-impactful-dunder-methods_1">🕵️ The Most Impactful Dunder Methods</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#str-and-repr-making-objects-printable_1">🔹 str and repr — Making Objects Printable</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#len-making-objects-measurable_1">🔹 len — Making Objects Measurable</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#eq-and-lt-making-objects-comparable_1">🔹 eq and lt — Making Objects Comparable</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#add-sub-and-friends-making-objects-operable_1">🔹 add, sub, and Friends — Making Objects Operable</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#getitem-and-setitem-making-objects-indexable_1">🔹 getitem and setitem — Making Objects Indexable</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-dunder-methods-change-the-user-experience_1">📊 How Dunder Methods Change the User Experience</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-native-feeling-explained_1">🎯 The "Native" Feeling Explained</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-guidelines-for-engineers_1">💡 Practical Guidelines for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">🧩 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-making-an-object-respond-to-len_1">🧪 Example 1: Making an object respond to len()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-making-an-object-support-addition-with_1">🔢 Example 2: Making an object support addition with +</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-making-an-object-comparable-with_1">🔍 Example 3: Making an object comparable with ==</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-making-an-object-printable-with-str_1">📝 Example 4: Making an object printable with str()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-making-an-object-subscriptable-with_1">📊 Example 5: Making an object subscriptable with []</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-without-vs-with-dunder-methods_1">📋 Comparison Table: Without vs With Dunder Methods</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_07_01/">Ch 18 | Shared Class Variables Across Active Instances</a>
@@ -1088,7 +1128,7 @@
               
                 <h1 id="why-implementing-dunder-signatures-makes-objects-feel-native">Why Implementing Dunder Signatures Makes Objects Feel Native</h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Special Dunder Methods</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1213,8 +1253,7 @@
 - <strong><strong>add</strong></strong> for combination
 - <strong><strong>getitem</strong></strong> for indexing</p>
 <p>Each dunder method you implement makes your objects feel more native, more intuitive, and more powerful. Your future self and your fellow engineers will thank you for the investment.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Dunder methods are special Python methods with double underscores that let your custom objects behave like built-in types.</p>
 <hr />
 <h3 id="example-1-making-an-object-respond-to-len">🧪 Example 1: Making an object respond to <code>len()</code></h3>
@@ -1300,6 +1339,257 @@
 📤 Output: <strong>Song C</strong></p>
 <hr />
 <h3 id="comparison-table-without-vs-with-dunder-methods">📋 Comparison Table: Without vs With Dunder Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Without Dunder</th>
+<th>With Dunder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get length</td>
+<td><code>obj.get_length()</code></td>
+<td><code>len(obj)</code></td>
+</tr>
+<tr>
+<td>Add objects</td>
+<td><code>obj1.add(obj2)</code></td>
+<td><code>obj1 + obj2</code></td>
+</tr>
+<tr>
+<td>Compare objects</td>
+<td><code>obj1.is_equal(obj2)</code></td>
+<td><code>obj1 == obj2</code></td>
+</tr>
+<tr>
+<td>Print object</td>
+<td><code>obj.display()</code></td>
+<td><code>print(obj)</code></td>
+</tr>
+<tr>
+<td>Access by index</td>
+<td><code>obj.get_item(0)</code></td>
+<td><code>obj[0]</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When you create custom classes in Python, they often feel... clunky. You might have to call specific methods like <strong>obj.display()</strong> or <strong>obj.get_data()</strong> just to see what's inside. But have you ever wondered why built-in types like strings, lists, and dictionaries feel so natural to use? You can print them, add them, compare them, and loop over them with simple, intuitive syntax.</p>
+<p>The secret lies in <strong>dunder methods</strong> (short for "double underscore" methods). These special methods, also known as magic methods, allow your custom objects to behave like native Python types. By implementing them, you make your objects feel less like custom constructs and more like first-class citizens of the Python language.</p>
+<hr />
+<h3 id="what-are-dunder-methods_1">⚙️ What Are Dunder Methods?</h3>
+<p>Dunder methods are predefined methods in Python that begin and end with double underscores. They allow your objects to interact with Python's built-in operations and syntax.</p>
+<p>Key characteristics:
+- They are automatically called by Python when you use certain operators or functions
+- You never call them directly by name in normal code
+- They give your objects access to Python's internal behaviors</p>
+<p>Common examples you already use:
+- <strong><strong>init</strong></strong> is called when you create a new object
+- <strong><strong>str</strong></strong> is called when you print an object
+- <strong><strong>len</strong></strong> is called when you use the <strong>len()</strong> function</p>
+<hr />
+<h3 id="why-implement-dunder-methods_1">🛠️ Why Implement Dunder Methods?</h3>
+<p>Without dunder methods, your objects require explicit method calls for basic operations. With dunder methods, your objects work with standard Python syntax.</p>
+<table>
+<thead>
+<tr>
+<th>Without Dunder Methods</th>
+<th>With Dunder Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>obj.display()</strong> to see contents</td>
+<td><strong>print(obj)</strong> or <strong>str(obj)</strong></td>
+</tr>
+<tr>
+<td><strong>obj.get_length()</strong> to get size</td>
+<td><strong>len(obj)</strong></td>
+</tr>
+<tr>
+<td><strong>obj1.add(obj2)</strong> to combine</td>
+<td><strong>obj1 + obj2</strong></td>
+</tr>
+<tr>
+<td><strong>obj.is_equal(other)</strong> to compare</td>
+<td><strong>obj == other</strong></td>
+</tr>
+<tr>
+<td><strong>obj.get_item(0)</strong> to access elements</td>
+<td><strong>obj[0]</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The difference is dramatic. Dunder methods transform your objects from something that requires learning custom APIs into something that works exactly like Python's built-in types.</p>
+<hr />
+<h3 id="the-most-impactful-dunder-methods_1">🕵️ The Most Impactful Dunder Methods</h3>
+<h4 id="str-and-repr-making-objects-printable_1">🔹 <strong><strong>str</strong></strong> and <strong><strong>repr</strong></strong> — Making Objects Printable</h4>
+<p>These methods control how your objects appear when converted to strings.</p>
+<ul>
+<li><strong><strong>str</strong></strong> is called by <strong>print()</strong> and <strong>str()</strong> — it should return a human-readable description</li>
+<li><strong><strong>repr</strong></strong> is called in the interactive interpreter and by <strong>repr()</strong> — it should return an unambiguous representation, often showing how to recreate the object</li>
+</ul>
+<p>When you implement these, your objects become readable and debuggable without extra effort.</p>
+<h4 id="len-making-objects-measurable_1">🔹 <strong><strong>len</strong></strong> — Making Objects Measurable</h4>
+<p>Implementing <strong><strong>len</strong></strong> allows your object to work with the <strong>len()</strong> function. This is essential for any container-like object.</p>
+<h4 id="eq-and-lt-making-objects-comparable_1">🔹 <strong><strong>eq</strong></strong> and <strong><strong>lt</strong></strong> — Making Objects Comparable</h4>
+<p>These methods enable comparison operators:
+- <strong><strong>eq</strong></strong> enables <strong>==</strong> and <strong>!=</strong>
+- <strong><strong>lt</strong></strong> enables <strong>&lt;</strong> and <strong>&gt;</strong>
+- Implementing these also enables sorting with <strong>sorted()</strong></p>
+<h4 id="add-sub-and-friends-making-objects-operable_1">🔹 <strong><strong>add</strong></strong>, <strong><strong>sub</strong></strong>, and Friends — Making Objects Operable</h4>
+<p>These methods enable arithmetic operators:
+- <strong><strong>add</strong></strong> enables <strong>+</strong>
+- <strong><strong>sub</strong></strong> enables <strong>-</strong>
+- <strong><strong>mul</strong></strong> enables <strong>*</strong>
+- <strong><strong>truediv</strong></strong> enables <strong>/</strong></p>
+<h4 id="getitem-and-setitem-making-objects-indexable_1">🔹 <strong><strong>getitem</strong></strong> and <strong><strong>setitem</strong></strong> — Making Objects Indexable</h4>
+<p>These methods enable bracket notation:
+- <strong><strong>getitem</strong></strong> enables <strong>obj[key]</strong>
+- <strong><strong>setitem</strong></strong> enables <strong>obj[key] = value</strong>
+- This also enables iteration with <strong>for item in obj</strong></p>
+<hr />
+<h3 id="how-dunder-methods-change-the-user-experience_1">📊 How Dunder Methods Change the User Experience</h3>
+<p>Consider two versions of a simple <strong>Inventory</strong> class. One without dunder methods, one with them.</p>
+<p><strong>Without dunder methods:</strong>
+- To see what's in inventory, you call <strong>inventory.show()</strong>
+- To check how many items, you call <strong>inventory.count()</strong>
+- To compare two inventories, you call <strong>inventory1.is_same_as(inventory2)</strong>
+- To combine inventories, you call <strong>inventory1.merge(inventory2)</strong></p>
+<p>Every operation requires remembering custom method names. The code feels foreign and requires documentation to understand.</p>
+<p><strong>With dunder methods:</strong>
+- To see what's in inventory, you use <strong>print(inventory)</strong>
+- To check how many items, you use <strong>len(inventory)</strong>
+- To compare two inventories, you use <strong>inventory1 == inventory2</strong>
+- To combine inventories, you use <strong>inventory1 + inventory2</strong></p>
+<p>The code reads like natural Python. Anyone familiar with Python's built-in types can immediately understand and use your class.</p>
+<hr />
+<h3 id="the-native-feeling-explained_1">🎯 The "Native" Feeling Explained</h3>
+<p>When objects feel "native," it means they integrate seamlessly with Python's syntax and built-in functions. This integration provides several benefits:</p>
+<ul>
+<li><strong>Reduced learning curve</strong> — Engineers don't need to learn custom APIs for each class</li>
+<li><strong>Consistent patterns</strong> — The same syntax works across all objects that implement the same dunder methods</li>
+<li><strong>Better readability</strong> — Code expresses intent clearly with operators rather than method calls</li>
+<li><strong>Built-in compatibility</strong> — Your objects work with Python's standard library functions like <strong>sorted()</strong>, <strong>max()</strong>, <strong>min()</strong>, and more</li>
+</ul>
+<hr />
+<h3 id="practical-guidelines-for-engineers_1">💡 Practical Guidelines for Engineers</h3>
+<p>When designing your own classes, consider these questions to decide which dunder methods to implement:</p>
+<ul>
+<li>Will engineers need to print or display this object? Implement <strong><strong>str</strong></strong></li>
+<li>Will engineers need to check the size or length? Implement <strong><strong>len</strong></strong></li>
+<li>Will engineers need to compare instances? Implement <strong><strong>eq</strong></strong> and <strong><strong>lt</strong></strong></li>
+<li>Will engineers need to combine instances? Implement <strong><strong>add</strong></strong> or similar</li>
+<li>Will engineers need to access elements by key or index? Implement <strong><strong>getitem</strong></strong></li>
+<li>Will engineers need to iterate over the object? Implement <strong><strong>iter</strong></strong> and <strong><strong>next</strong></strong></li>
+</ul>
+<p>A good rule of thumb: if you find yourself writing a method like <strong>get_data()</strong>, <strong>show()</strong>, <strong>compare()</strong>, or <strong>combine()</strong>, consider whether a dunder method might serve the purpose better.</p>
+<hr />
+<h3 id="summary_1">🧩 Summary</h3>
+<p>Dunder methods are the bridge between your custom classes and Python's native behavior. By implementing them, you transform your objects from custom constructs that require specialized knowledge into intuitive, Pythonic tools that any engineer can use immediately.</p>
+<p>The most impactful dunder methods to start with are:
+- <strong><strong>str</strong></strong> and <strong><strong>repr</strong></strong> for display
+- <strong><strong>len</strong></strong> for size
+- <strong><strong>eq</strong></strong> and <strong><strong>lt</strong></strong> for comparison
+- <strong><strong>add</strong></strong> for combination
+- <strong><strong>getitem</strong></strong> for indexing</p>
+<p>Each dunder method you implement makes your objects feel more native, more intuitive, and more powerful. Your future self and your fellow engineers will thank you for the investment.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Dunder methods are special Python methods with double underscores that let your custom objects behave like built-in types.</p>
+<hr />
+<h3 id="example-1-making-an-object-respond-to-len_1">🧪 Example 1: Making an object respond to <code>len()</code></h3>
+<p>This example shows how <code>__len__</code> lets your object work with the built-in <code>len()</code> function.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Backpack</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="n">items</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+
+<span class="n">my_bag</span> <span class="o">=</span> <span class="n">Backpack</span><span class="p">([</span><span class="s2">&quot;laptop&quot;</span><span class="p">,</span> <span class="s2">&quot;notebook&quot;</span><span class="p">,</span> <span class="s2">&quot;pen&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_bag</span><span class="p">))</span>
+</code></pre></div>
+<p>📤 Output: <strong>3</strong></p>
+<hr />
+<h3 id="example-2-making-an-object-support-addition-with_1">🔢 Example 2: Making an object support addition with <code>+</code></h3>
+<p>This example shows how <code>__add__</code> lets you use the <code>+</code> operator on your custom objects.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Score</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="n">points</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Score</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">points</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+
+<span class="n">team_a</span> <span class="o">=</span> <span class="n">Score</span><span class="p">(</span><span class="mi">85</span><span class="p">)</span>
+<span class="n">team_b</span> <span class="o">=</span> <span class="n">Score</span><span class="p">(</span><span class="mi">92</span><span class="p">)</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">team_a</span> <span class="o">+</span> <span class="n">team_b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>177</strong></p>
+<hr />
+<h3 id="example-3-making-an-object-comparable-with_1">🔍 Example 3: Making an object comparable with <code>==</code></h3>
+<p>This example shows how <code>__eq__</code> lets you compare two custom objects for equality.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Employee</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">employee_id</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">employee_id</span> <span class="o">=</span> <span class="n">employee_id</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">employee_id</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">employee_id</span>
+
+<span class="n">emp1</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+<span class="n">emp2</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
+<span class="n">emp3</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">(</span><span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="mi">102</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">emp1</span> <span class="o">==</span> <span class="n">emp2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">emp1</span> <span class="o">==</span> <span class="n">emp3</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong><br />
+📤 Output: <strong>False</strong></p>
+<hr />
+<h3 id="example-4-making-an-object-printable-with-str_1">📝 Example 4: Making an object printable with <code>str()</code></h3>
+<p>This example shows how <code>__str__</code> gives your object a readable string representation.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Invoice</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">customer</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">customer</span> <span class="o">=</span> <span class="n">customer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Invoice for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">customer</span><span class="si">}</span><span class="s2">: $</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">amount</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">inv</span> <span class="o">=</span> <span class="n">Invoice</span><span class="p">(</span><span class="s2">&quot;Acme Corp&quot;</span><span class="p">,</span> <span class="mf">1250.50</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">inv</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inv</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Invoice for Acme Corp: $1250.50</strong><br />
+📤 Output: <strong>Invoice for Acme Corp: $1250.50</strong></p>
+<hr />
+<h3 id="example-5-making-an-object-subscriptable-with_1">📊 Example 5: Making an object subscriptable with <code>[]</code></h3>
+<p>This example shows how <code>__getitem__</code> lets you use square brackets on your custom object.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Playlist</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">songs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">songs</span> <span class="o">=</span> <span class="n">songs</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">songs</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+<span class="n">my_playlist</span> <span class="o">=</span> <span class="n">Playlist</span><span class="p">([</span><span class="s2">&quot;Song A&quot;</span><span class="p">,</span> <span class="s2">&quot;Song B&quot;</span><span class="p">,</span> <span class="s2">&quot;Song C&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_playlist</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_playlist</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>Song A</strong><br />
+📤 Output: <strong>Song C</strong></p>
+<hr />
+<h3 id="comparison-table-without-vs-with-dunder-methods_1">📋 Comparison Table: Without vs With Dunder Methods</h3>
 <table>
 <thead>
 <tr>

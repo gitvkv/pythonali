@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch15_03_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 15 | Match at Start vs Search Anywhere - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 15 | Match at Start vs Search Anywhere";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch15_03_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch15_03_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -705,6 +705,32 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#whats-the-difference_1">⚙️ What's the Difference?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-each-function-works_1">🕵️ How Each Function Works</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_2">📊 Comparison Table</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples_1">🛠️ Practical Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-each_1">🎯 When to Use Each</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfall_1">⚠️ Common Pitfall</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-reference_1">📝 Quick Reference</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-match-finds-pattern-only-at-the-start_1">🔧 Example 1: Match finds pattern only at the start</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-search-finds-pattern-anywhere-in-the-string_1">🔍 Example 2: Search finds pattern anywhere in the string</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-match-fails-when-pattern-is-not-at-the-start_1">❌ Example 3: Match fails when pattern is not at the start</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-practical-use-validating-a-url-prefix_1">📝 Example 4: Practical use — validating a URL prefix</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-finding-an-error-code-anywhere-in-a-log_1">🔎 Example 5: Practical use — finding an error code anywhere in a log</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_3">📊 Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch15_03_02/">Ch 15 | Finding All Matches (findall vs finditer)</a>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="match-at-start-vs-search-anywhere">Match at Start vs Search Anywhere</h1>
 <p><span class="category-tag">🏷️ Regular Expressions (Regex) /  Key re Functions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with regular expressions in Python, one of the most common tasks is finding patterns within strings. Two essential functions for this are <strong>re.match()</strong> and <strong>re.search()</strong>. While they may seem similar, they behave very differently in terms of where they look for a match. Understanding this distinction is crucial for writing accurate and efficient pattern-matching logic.</p>
@@ -1178,8 +1204,7 @@
 <li>Both return a match object on success, or <strong>None</strong> if no match is found.</li>
 <li>Use <strong>re.match()</strong> for prefix validation; use <strong>re.search()</strong> for general pattern discovery.</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>re.match()</code> function checks for a pattern only at the beginning of a string, while <code>re.search()</code> looks for the pattern anywhere in the string.</p>
 <hr />
 <h3 id="example-1-match-finds-pattern-only-at-the-start">🔧 Example 1: Match finds pattern only at the start</h3>
@@ -1257,6 +1282,216 @@
 📤 Output: <strong><re.Match object; span=(21, 26), match='ERROR'></strong></p>
 <hr />
 <h3 id="comparison-table_1">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Searches from start only?</th>
+<th>Returns match if pattern is in the middle?</th>
+<th>Typical use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>re.match()</code></td>
+<td>Yes</td>
+<td>No</td>
+<td>Validating prefixes or headers</td>
+</tr>
+<tr>
+<td><code>re.search()</code></td>
+<td>No</td>
+<td>Yes</td>
+<td>Finding patterns anywhere in text</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with regular expressions in Python, one of the most common tasks is finding patterns within strings. Two essential functions for this are <strong>re.match()</strong> and <strong>re.search()</strong>. While they may seem similar, they behave very differently in terms of where they look for a match. Understanding this distinction is crucial for writing accurate and efficient pattern-matching logic.</p>
+<hr />
+<h3 id="whats-the-difference_1">⚙️ What's the Difference?</h3>
+<p>The core difference lies in where each function begins its search:</p>
+<ul>
+<li><strong>re.match()</strong> only checks for a match at the <strong>beginning</strong> of the string. If the pattern does not appear at the start, no match is found.</li>
+<li><strong>re.search()</strong> scans the <strong>entire string</strong> and returns the first match it finds, regardless of position.</li>
+</ul>
+<p>This means <strong>re.match()</strong> is like a gatekeeper at the entrance, while <strong>re.search()</strong> is a scout that explores the whole territory.</p>
+<hr />
+<h3 id="how-each-function-works_1">🕵️ How Each Function Works</h3>
+<p><strong>re.match()</strong> behavior:
+- Starts checking from the very first character of the string.
+- Returns a match object only if the pattern is found at position 0.
+- If the pattern appears later in the string, it is ignored entirely.</p>
+<p><strong>re.search()</strong> behavior:
+- Scans the entire string from left to right.
+- Returns the first match object found anywhere in the string.
+- Stops searching once a match is found.</p>
+<hr />
+<h3 id="comparison-table_2">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>re.match()</th>
+<th>re.search()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Search starting point</td>
+<td>Beginning of string only</td>
+<td>Anywhere in the string</td>
+</tr>
+<tr>
+<td>Returns match if pattern is in the middle</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Returns match if pattern is at the end</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Returns match if pattern is at the start</td>
+<td>✅ Yes</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Typical use case</td>
+<td>Validating string prefixes</td>
+<td>Finding patterns anywhere</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-examples_1">🛠️ Practical Examples</h3>
+<p><strong>Example 1: Pattern at the beginning</strong></p>
+<p>Given the string <strong>"hello world"</strong> and the pattern <strong>"hello"</strong>:</p>
+<ul>
+<li><strong>re.match("hello", "hello world")</strong> → Returns a match object (pattern found at start)</li>
+<li><strong>re.search("hello", "hello world")</strong> → Returns a match object (pattern found at start)</li>
+</ul>
+<p>Both functions return a match because the pattern appears at the beginning.</p>
+<p><strong>Example 2: Pattern in the middle</strong></p>
+<p>Given the string <strong>"say hello world"</strong> and the pattern <strong>"hello"</strong>:</p>
+<ul>
+<li><strong>re.match("hello", "say hello world")</strong> → Returns <strong>None</strong> (pattern not at start)</li>
+<li><strong>re.search("hello", "say hello world")</strong> → Returns a match object (pattern found in the middle)</li>
+</ul>
+<p>Here, <strong>re.match()</strong> fails because the string does not start with "hello", while <strong>re.search()</strong> succeeds.</p>
+<p><strong>Example 3: Pattern at the end</strong></p>
+<p>Given the string <strong>"world hello"</strong> and the pattern <strong>"hello"</strong>:</p>
+<ul>
+<li><strong>re.match("hello", "world hello")</strong> → Returns <strong>None</strong> (pattern not at start)</li>
+<li><strong>re.search("hello", "world hello")</strong> → Returns a match object (pattern found at the end)</li>
+</ul>
+<hr />
+<h3 id="when-to-use-each_1">🎯 When to Use Each</h3>
+<p><strong>Use re.match() when:</strong>
+- You need to validate that a string starts with a specific pattern.
+- You are checking prefixes like file extensions, protocol headers, or log entry types.
+- You want to enforce strict formatting rules from the beginning of the input.</p>
+<p><strong>Use re.search() when:</strong>
+- You need to find a pattern anywhere in the string.
+- You are searching for keywords, error codes, or specific values in larger text blocks.
+- You don't care about the position of the pattern, only its existence.</p>
+<hr />
+<h3 id="common-pitfall_1">⚠️ Common Pitfall</h3>
+<p>A frequent mistake is using <strong>re.match()</strong> when <strong>re.search()</strong> is needed. This often leads to unexpected <strong>None</strong> results, causing confusion and bugs. Always ask yourself: "Do I need the pattern to be at the start, or can it appear anywhere?"</p>
+<p>If you're unsure, <strong>re.search()</strong> is generally the safer default choice for most pattern-finding tasks.</p>
+<hr />
+<h3 id="quick-reference_1">📝 Quick Reference</h3>
+<ul>
+<li><strong>re.match(pattern, string)</strong> → Checks only the beginning of the string.</li>
+<li><strong>re.search(pattern, string)</strong> → Checks the entire string for the first match.</li>
+<li>Both return a match object on success, or <strong>None</strong> if no match is found.</li>
+<li>Use <strong>re.match()</strong> for prefix validation; use <strong>re.search()</strong> for general pattern discovery.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>re.match()</code> function checks for a pattern only at the beginning of a string, while <code>re.search()</code> looks for the pattern anywhere in the string.</p>
+<hr />
+<h3 id="example-1-match-finds-pattern-only-at-the-start_1">🔧 Example 1: Match finds pattern only at the start</h3>
+<p>This example shows that <code>re.match()</code> returns a match object only when the pattern is at position 0.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><re.Match object; span=(0, 5), match='Hello'></strong></p>
+<hr />
+<h3 id="example-2-search-finds-pattern-anywhere-in-the-string_1">🔍 Example 2: Search finds pattern anywhere in the string</h3>
+<p>This example shows that <code>re.search()</code> returns a match object even when the pattern is not at the start.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Say Hello World&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><re.Match object; span=(4, 9), match='Hello'></strong></p>
+<hr />
+<h3 id="example-3-match-fails-when-pattern-is-not-at-the-start_1">❌ Example 3: Match fails when pattern is not at the start</h3>
+<p>This example demonstrates that <code>re.match()</code> returns <code>None</code> when the pattern appears later in the string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Say Hello World&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>None</strong></p>
+<hr />
+<h3 id="example-4-practical-use-validating-a-url-prefix_1">📝 Example 4: Practical use — validating a URL prefix</h3>
+<p>This example shows how engineers use <code>re.match()</code> to check if a string starts with a specific protocol.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">url1</span> <span class="o">=</span> <span class="s2">&quot;https://example.com&quot;</span>
+<span class="n">url2</span> <span class="o">=</span> <span class="s2">&quot;ftp://files.example.com&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;https&quot;</span>
+
+<span class="n">result1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">url1</span><span class="p">)</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">url2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong><re.Match object; span=(0, 5), match='https'></strong><br />
+📤 Output: <strong>None</strong></p>
+<hr />
+<h3 id="example-5-practical-use-finding-an-error-code-anywhere-in-a-log_1">🔎 Example 5: Practical use — finding an error code anywhere in a log</h3>
+<p>This example shows how engineers use <code>re.search()</code> to find a pattern that could appear anywhere in a log message.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">log1</span> <span class="o">=</span> <span class="s2">&quot;System startup complete&quot;</span>
+<span class="n">log2</span> <span class="o">=</span> <span class="s2">&quot;ERROR 404: Page not found&quot;</span>
+<span class="n">log3</span> <span class="o">=</span> <span class="s2">&quot;Connection timeout ERROR 500&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;ERROR&quot;</span>
+
+<span class="n">result1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log1</span><span class="p">)</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log2</span><span class="p">)</span>
+<span class="n">result3</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">log3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result3</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>None</strong><br />
+📤 Output: <strong><re.Match object; span=(0, 5), match='ERROR'></strong><br />
+📤 Output: <strong><re.Match object; span=(21, 26), match='ERROR'></strong></p>
+<hr />
+<h3 id="comparison-table_3">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

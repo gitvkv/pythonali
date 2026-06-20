@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch10_05_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 10 | Variable Keyword Arguments (kwargs) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 10 | Variable Keyword Arguments (kwargs)";
         var mkdocs_page_input_path = "Core Syntax\\ch10_05_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch10_05_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -486,6 +486,38 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-building-a-url-query-string">📘 Example 5: Practical use — building a URL query string</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-args-vs-kwargs">📊 Comparison: args vs *kwargs</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🌱 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-are-variable-keyword-arguments-kwargs_1">⚙️ What Are Variable Keyword Arguments (kwargs)?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#how-to-define-and-use-kwargs_1">🛠️ How to Define and Use kwargs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#comparison-regular-parameters-vs-kwargs_1">📊 Comparison: Regular Parameters vs kwargs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-use-cases-for-kwargs_1">🕵️ Common Use Cases for kwargs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#combining-kwargs-with-regular-parameters_1">🧩 Combining kwargs with Regular Parameters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-tips-for-using-kwargs_1">🎯 Practical Tips for Using kwargs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-mistakes-to-avoid_1">🚦 Common Mistakes to Avoid</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-basic-kwargs-capturing-named-arguments_1">📘 Example 1: Basic **kwargs — capturing named arguments</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-mixing-regular-parameters-with-kwargs_1">📘 Example 2: Mixing regular parameters with **kwargs</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-iterating-over-kwargs-items_1">📘 Example 3: Iterating over **kwargs items</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-using-kwargs-to-pass-arguments-to-another-function_1">📘 Example 4: Using **kwargs to pass arguments to another function</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-practical-use-building-a-url-query-string_1">📘 Example 5: Practical use — building a URL query string</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-args-vs-kwargs_1">📊 Comparison: args vs *kwargs</a>
     </li>
     </ul>
                 </li>
@@ -1078,7 +1110,7 @@
               
                 <h1 id="variable-keyword-arguments-kwargs">Variable Keyword Arguments (kwargs)</h1>
 <p><span class="category-tag">🏷️ Functions /  Args and Kwargs</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <hr />
@@ -1201,8 +1233,7 @@
 </ul>
 <hr />
 <p><em>With kwargs in your toolkit, you can write more adaptable and reusable functions that gracefully handle a wide range of inputs.</em></p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Variable keyword arguments (<code>**kwargs</code>) let a function accept any number of named arguments as a dictionary.</p>
 <h3 id="example-1-basic-kwargs-capturing-named-arguments">📘 Example 1: Basic **kwargs — capturing named arguments</h3>
 <p>This shows how <code>**kwargs</code> collects all extra named arguments into a dictionary.</p>
@@ -1268,6 +1299,230 @@
 <p>📤 Output: <strong>https://api.example.com/data?sensor=temp&amp;unit=celsius&amp;limit=10</strong></p>
 <hr />
 <h2 id="comparison-args-vs-kwargs">📊 Comparison: <em>args vs </em>*kwargs</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>*args</code></th>
+<th><code>**kwargs</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What it collects</td>
+<td>Positional arguments</td>
+<td>Keyword (named) arguments</td>
+</tr>
+<tr>
+<td>Data type</td>
+<td>Tuple</td>
+<td>Dictionary</td>
+</tr>
+<tr>
+<td>Access items</td>
+<td><code>args[0]</code>, <code>args[1]</code>, ...</td>
+<td><code>kwargs['key']</code> or <code>kwargs.get('key')</code></td>
+</tr>
+<tr>
+<td>Typical use</td>
+<td>Variable number of values</td>
+<td>Variable number of named options</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<hr />
+<h3 id="context-introduction_1">🌱 Context Introduction</h3>
+<p>When building scripts or tools, you often need to create functions that can accept a flexible number of named arguments. This is where <strong>kwargs</strong> (keyword arguments) come into play. The term <strong>kwargs</strong> stands for "keyword arguments," and it allows you to pass a variable number of key-value pairs to a function. This is especially useful when you don't know in advance how many named parameters will be provided, or when you want to build functions that can handle optional configuration settings.</p>
+<hr />
+<h3 id="what-are-variable-keyword-arguments-kwargs_1">⚙️ What Are Variable Keyword Arguments (kwargs)?</h3>
+<ul>
+<li><strong>kwargs</strong> is a special syntax in Python that collects any extra keyword arguments passed to a function into a dictionary.</li>
+<li>The double asterisk (<strong>) before the parameter name (usually </strong>kwargs) tells Python to capture all named arguments that were not explicitly defined in the function signature.</li>
+<li>Inside the function, **kwargs behaves like a regular Python dictionary where:</li>
+<li>The <strong>keys</strong> are the argument names (as strings).</li>
+<li>The <strong>values</strong> are the corresponding argument values.</li>
+<li>You can name the parameter anything you like, but <strong>kwargs</strong> is the widely accepted convention.</li>
+</ul>
+<hr />
+<h3 id="how-to-define-and-use-kwargs_1">🛠️ How to Define and Use kwargs</h3>
+<p><strong>Basic Syntax:</strong></p>
+<ul>
+<li>Define a function with <strong>kwargs as the last parameter: </strong>def my_function(<strong>kwargs):</strong></li>
+<li>Inside the function, access the dictionary like any other: <strong>kwargs['key']</strong> or <strong>kwargs.get('key')</strong></li>
+<li>Call the function by passing any number of keyword arguments: <strong>my_function(name='Alice', role='engineer', years=5)</strong></li>
+</ul>
+<p><strong>Simple Example:</strong></p>
+<ul>
+<li>Function definition: <strong>def print_settings(</strong>kwargs):**</li>
+<li>Inside the function: <strong>for key, value in kwargs.items(): print(f'{key}: {value}')</strong></li>
+<li>Function call: <strong>print_settings(host='localhost', port=8080, debug=True)</strong></li>
+<li>Expected output:</li>
+<li><strong>host: localhost</strong></li>
+<li><strong>port: 8080</strong></li>
+<li><strong>debug: True</strong></li>
+</ul>
+<hr />
+<h3 id="comparison-regular-parameters-vs-kwargs_1">📊 Comparison: Regular Parameters vs kwargs</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Regular Parameters</th>
+<th>Variable Keyword Arguments (kwargs)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of arguments</td>
+<td>Fixed, defined in function signature</td>
+<td>Variable, any number of named arguments</td>
+</tr>
+<tr>
+<td>Data type received</td>
+<td>Individual variables</td>
+<td>Dictionary</td>
+</tr>
+<tr>
+<td>Flexibility</td>
+<td>Must match exactly</td>
+<td>Accepts any key-value pairs</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>When you know exactly what you need</td>
+<td>When you need optional or dynamic parameters</td>
+</tr>
+<tr>
+<td>Order requirement</td>
+<td>Positional order matters</td>
+<td>No order requirement (named)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="common-use-cases-for-kwargs_1">🕵️ Common Use Cases for kwargs</h3>
+<ul>
+<li><strong>Configuration functions:</strong> Passing multiple settings or options without defining each one explicitly.</li>
+<li><strong>Wrapper or decorator functions:</strong> Forwarding arguments to another function without knowing all parameters in advance.</li>
+<li><strong>Database query builders:</strong> Passing column names and values dynamically.</li>
+<li><strong>API request handlers:</strong> Accepting optional parameters for filtering, sorting, or pagination.</li>
+<li><strong>Logging utilities:</strong> Allowing custom metadata to be attached to log messages.</li>
+</ul>
+<hr />
+<h3 id="combining-kwargs-with-regular-parameters_1">🧩 Combining kwargs with Regular Parameters</h3>
+<p>You can mix regular parameters with <strong>kwargs, but </strong>kwargs must always come last in the function signature.</p>
+<p><strong>Example structure:</strong></p>
+<ul>
+<li><strong>def create_user(username, age, </strong>kwargs):**</li>
+<li>Regular parameters: <strong>username</strong> and <strong>age</strong> are required.</li>
+<li><strong>kwargs</strong> captures any additional named arguments like <strong>email='test@example.com'</strong> or <strong>role='admin'</strong></li>
+</ul>
+<p><strong>Calling the function:</strong></p>
+<ul>
+<li><strong>create_user('john_doe', 30, email='john@example.com', role='engineer')</strong></li>
+<li>Inside the function, <strong>username</strong> is <strong>'john_doe'</strong>, <strong>age</strong> is <strong>30</strong>, and <strong>kwargs</strong> is <strong>{'email': 'john@example.com', 'role': 'engineer'}</strong></li>
+</ul>
+<hr />
+<h3 id="practical-tips-for-using-kwargs_1">🎯 Practical Tips for Using kwargs</h3>
+<ul>
+<li>Always use <strong>kwargs</strong> as the parameter name for consistency and readability.</li>
+<li>Access dictionary values safely using <strong>kwargs.get('key')</strong> instead of <strong>kwargs['key']</strong> to avoid KeyError if a key is missing.</li>
+<li>Use <strong>kwargs</strong> when you want to make your functions extensible without breaking existing code.</li>
+<li>Document the expected keys in your function's docstring so other engineers know what to pass.</li>
+<li>Avoid overusing kwargs for functions that have a small, fixed set of parameters — explicit parameters are clearer.</li>
+</ul>
+<hr />
+<h3 id="common-mistakes-to-avoid_1">🚦 Common Mistakes to Avoid</h3>
+<ul>
+<li>Placing **kwargs before regular parameters in the function definition.</li>
+<li>Forgetting that **kwargs is a dictionary, not a list or tuple.</li>
+<li>Assuming a key exists without checking — always use <strong>.get()</strong> or test with <strong>in</strong>.</li>
+<li>Using <strong>kwargs</strong> when the function truly needs a fixed set of named parameters — this reduces code clarity.</li>
+<li>Naming the parameter something confusing instead of the standard <strong>kwargs</strong>.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li><strong>kwargs</strong> allows a function to accept any number of keyword arguments as a dictionary.</li>
+<li>It provides flexibility for building functions that can handle dynamic or optional named parameters.</li>
+<li>Combine <strong>kwargs</strong> with regular parameters for maximum control and readability.</li>
+<li>Use <strong>kwargs</strong> wisely — it's powerful for extensibility but can obscure the function's expected inputs if overused.</li>
+</ul>
+<hr />
+<p><em>With kwargs in your toolkit, you can write more adaptable and reusable functions that gracefully handle a wide range of inputs.</em></p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Variable keyword arguments (<code>**kwargs</code>) let a function accept any number of named arguments as a dictionary.</p>
+<h3 id="example-1-basic-kwargs-capturing-named-arguments_1">📘 Example 1: Basic **kwargs — capturing named arguments</h3>
+<p>This shows how <code>**kwargs</code> collects all extra named arguments into a dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">show_details</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">show_details</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;engineer&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'name': 'Alice', 'role': 'engineer'}</strong></p>
+<hr />
+<h3 id="example-2-mixing-regular-parameters-with-kwargs_1">📘 Example 2: Mixing regular parameters with **kwargs</h3>
+<p>This demonstrates combining a fixed parameter with variable keyword arguments.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">greeting</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Your details: </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="n">department</span><span class="o">=</span><span class="s2">&quot;mechanical&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello, Bob!</strong><br />
+📤 Output: <strong>Your details: {'name': 'Bob', 'department': 'mechanical'}</strong></p>
+<hr />
+<h3 id="example-3-iterating-over-kwargs-items_1">📘 Example 3: Iterating over **kwargs items</h3>
+<p>This shows how to loop through all keyword arguments using <code>.items()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">print_config</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">print_config</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>host = localhost</strong><br />
+📤 Output: <strong>port = 8080</strong><br />
+📤 Output: <strong>debug = True</strong></p>
+<hr />
+<h3 id="example-4-using-kwargs-to-pass-arguments-to-another-function_1">📘 Example 4: Using **kwargs to pass arguments to another function</h3>
+<p>This demonstrates forwarding keyword arguments from one function to another.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecting to </span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;timeout&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Timeout set to </span><span class="si">{</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;timeout&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">setup_connection</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Setting up connection...&quot;</span><span class="p">)</span>
+    <span class="n">connect</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="n">setup_connection</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;10.0.0.1&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Setting up connection...</strong><br />
+📤 Output: <strong>Connecting to 10.0.0.1:22</strong><br />
+📤 Output: <strong>Timeout set to 30 seconds</strong></p>
+<hr />
+<h3 id="example-5-practical-use-building-a-url-query-string_1">📘 Example 5: Practical use — building a URL query string</h3>
+<p>This shows a real-world pattern where **kwargs builds dynamic parameters.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">build_url</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+    <span class="n">query_parts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">query_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">query_string</span> <span class="o">=</span> <span class="s2">&quot;&amp;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">query_parts</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">?</span><span class="si">{</span><span class="n">query_string</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="n">build_url</span><span class="p">(</span><span class="s2">&quot;https://api.example.com/data&quot;</span><span class="p">,</span> <span class="n">sensor</span><span class="o">=</span><span class="s2">&quot;temp&quot;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;celsius&quot;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>https://api.example.com/data?sensor=temp&amp;unit=celsius&amp;limit=10</strong></p>
+<hr />
+<h2 id="comparison-args-vs-kwargs_1">📊 Comparison: <em>args vs </em>*kwargs</h2>
 <table>
 <thead>
 <tr>

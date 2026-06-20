@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_03_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Method Bindings vs Regular Function Structures - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Method Bindings vs Regular Function Structures";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_03_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_03_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -845,6 +845,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-method-bindings-vs-regular-functions">📊 Comparison Table: Method Bindings vs Regular Functions</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-method-binding_1">⚙️ What Is Method Binding?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-bound-methods-vs-regular-functions_1">📊 Comparison Table: Bound Methods vs Regular Functions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-binding-works-in-practice_1">🛠️ How Binding Works in Practice</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-differences-in-behavior_1">🕵️ Key Differences in Behavior</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-walkthrough-no-code-blocks_1">🧪 Example Walkthrough (No Code Blocks)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-to-use-each_1">🧩 When to Use Each</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-a-regular-function-that-takes-no-arguments_1">🔧 Example 1: A regular function that takes no arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-a-method-that-uses-self-to-access-object-data_1">🔧 Example 2: A method that uses self to access object data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-calling-a-method-through-the-class-unbound-call_1">🔧 Example 3: Calling a method through the class (unbound call)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-a-regular-function-that-works-like-a-method_1">🔧 Example 4: A regular function that works like a method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-comparing-bound-method-vs-unbound-function-behavior_1">🔧 Example 5: Comparing bound method vs unbound function behavior</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-method-bindings-vs-regular-functions_1">📊 Comparison Table: Method Bindings vs Regular Functions</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_03_03/">Ch 18 | Practical Example: Server Class with check_status()</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="method-bindings-vs-regular-function-structures">Method Bindings vs Regular Function Structures</h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  Instance Methods</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When you start working with Python classes, you'll notice that methods inside a class behave differently than regular functions defined outside. This difference is called <strong>method binding</strong>. Understanding this concept helps you write cleaner, more predictable code when working with objects.</p>
@@ -1168,8 +1196,7 @@
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Method binding is a fundamental concept in Python's OOP that makes methods automatically aware of the object they belong to. This automatic passing of <strong>self</strong> is what distinguishes a bound method from a regular function. Understanding this difference helps you design classes that are intuitive, maintainable, and aligned with Python's object-oriented philosophy.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how Python methods are connected to objects differently than regular functions.</p>
 <hr />
 <h3 id="example-1-a-regular-function-that-takes-no-arguments">🔧 Example 1: A regular function that takes no arguments</h3>
@@ -1242,6 +1269,211 @@
 <p>📤 Output: <strong>I am R2-D2</strong> (both produce the same output)</p>
 <hr />
 <h3 id="comparison-table-method-bindings-vs-regular-functions">📊 Comparison Table: Method Bindings vs Regular Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Method (bound to object)</th>
+<th>Regular Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>How it is called</td>
+<td><code>object.method()</code></td>
+<td><code>function(object)</code></td>
+</tr>
+<tr>
+<td>First parameter</td>
+<td><code>self</code> (automatic)</td>
+<td>Explicit argument</td>
+</tr>
+<tr>
+<td>Knows its object</td>
+<td>Yes, automatically</td>
+<td>No, must be passed</td>
+</tr>
+<tr>
+<td>Can be reassigned</td>
+<td>Yes, to another class</td>
+<td>Yes, to any variable</td>
+</tr>
+<tr>
+<td>Typical use</td>
+<td>Working with object data</td>
+<td>General-purpose logic</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you start working with Python classes, you'll notice that methods inside a class behave differently than regular functions defined outside. This difference is called <strong>method binding</strong>. Understanding this concept helps you write cleaner, more predictable code when working with objects.</p>
+<hr />
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>In Python, a <strong>regular function</strong> is a standalone block of code that takes arguments and returns a result. A <strong>method</strong> is a function that belongs to an object (an instance of a class). The key difference is that when you call a method on an object, Python automatically passes the object itself as the first argument (commonly named <strong>self</strong>). This automatic passing is called <strong>binding</strong>.</p>
+<hr />
+<h3 id="what-is-method-binding_1">⚙️ What Is Method Binding?</h3>
+<p>Method binding is the process where Python connects a method call to the specific object that owns it. When you call <strong>my_object.my_method()</strong>, Python automatically passes <strong>my_object</strong> as the first argument to <strong>my_method</strong>. This is why the method definition always includes <strong>self</strong> as the first parameter.</p>
+<ul>
+<li>A <strong>bound method</strong> is a method that is attached to a specific instance of a class.</li>
+<li>A <strong>regular function</strong> has no automatic connection to any object.</li>
+<li>Binding happens at the moment you access the method through an instance.</li>
+</ul>
+<hr />
+<h3 id="comparison-table-bound-methods-vs-regular-functions_1">📊 Comparison Table: Bound Methods vs Regular Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Bound Method</th>
+<th>Regular Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Definition location</td>
+<td>Inside a class</td>
+<td>Outside any class</td>
+</tr>
+<tr>
+<td>First parameter</td>
+<td>Always <strong>self</strong></td>
+<td>No automatic first parameter</td>
+</tr>
+<tr>
+<td>Automatic argument</td>
+<td>Receives the instance as <strong>self</strong></td>
+<td>No automatic argument</td>
+</tr>
+<tr>
+<td>Called via</td>
+<td><strong>instance.method()</strong></td>
+<td><strong>function_name()</strong></td>
+</tr>
+<tr>
+<td>Can be called without instance</td>
+<td>No (needs an instance)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Access to instance data</td>
+<td>Yes, via <strong>self</strong></td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="how-binding-works-in-practice_1">🛠️ How Binding Works in Practice</h3>
+<p>When you define a method inside a class, Python treats it as a regular function stored in the class namespace. But when you access it through an instance, Python creates a <strong>bound method object</strong> that remembers which instance it belongs to.</p>
+<ul>
+<li>The method definition uses <strong>self</strong> as the first parameter.</li>
+<li>When called on an instance, Python automatically fills <strong>self</strong> with that instance.</li>
+<li>If you access the method without calling it, you get a bound method object, not a regular function.</li>
+</ul>
+<hr />
+<h3 id="key-differences-in-behavior_1">🕵️ Key Differences in Behavior</h3>
+<p><strong>Regular functions</strong> are simple: you define them, you call them, and they do their job. They don't know anything about objects unless you explicitly pass those objects as arguments.</p>
+<p><strong>Bound methods</strong> are smarter: they know which object they belong to. This means they can access and modify the object's data directly through <strong>self</strong>.</p>
+<ul>
+<li>Regular functions require you to pass all arguments explicitly.</li>
+<li>Bound methods automatically receive the instance as the first argument.</li>
+<li>Bound methods can be stored in variables and called later, still remembering their instance.</li>
+</ul>
+<hr />
+<h3 id="example-walkthrough-no-code-blocks_1">🧪 Example Walkthrough (No Code Blocks)</h3>
+<p>Imagine you have a class called <strong>Car</strong> with a method called <strong>start_engine</strong>. The method definition includes <strong>self</strong> as the first parameter. When you create an instance <strong>my_car</strong> and call <strong>my_car.start_engine()</strong>, Python automatically passes <strong>my_car</strong> as the <strong>self</strong> argument. This allows the method to access <strong>my_car</strong>'s attributes like <strong>fuel_level</strong> or <strong>engine_status</strong>.</p>
+<p>If you instead wrote a regular function called <strong>start_engine(car)</strong>, you would have to pass the car object manually every time. The bound method does this automatically, making your code cleaner and less error-prone.</p>
+<hr />
+<h3 id="when-to-use-each_1">🧩 When to Use Each</h3>
+<p><strong>Use regular functions when:</strong>
+- The logic does not depend on any specific object's data.
+- You want a utility that works on any data passed to it.
+- You are performing calculations or transformations that don't need object state.</p>
+<p><strong>Use bound methods when:</strong>
+- The logic needs to access or modify the object's internal data.
+- You want to encapsulate behavior with the data it operates on.
+- You are building reusable components that carry their own context.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Method binding is a fundamental concept in Python's OOP that makes methods automatically aware of the object they belong to. This automatic passing of <strong>self</strong> is what distinguishes a bound method from a regular function. Understanding this difference helps you design classes that are intuitive, maintainable, and aligned with Python's object-oriented philosophy.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how Python methods are connected to objects differently than regular functions.</p>
+<hr />
+<h3 id="example-1-a-regular-function-that-takes-no-arguments_1">🔧 Example 1: A regular function that takes no arguments</h3>
+<p>A regular function stands alone and does not need an object to be called.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;Hello, engineer!&quot;</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello, engineer!</strong></p>
+<hr />
+<h3 id="example-2-a-method-that-uses-self-to-access-object-data_1">🔧 Example 2: A method that uses <code>self</code> to access object data</h3>
+<p>A method is bound to an object and uses <code>self</code> to refer to that specific object.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Engineer</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello, I am </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">alice</span> <span class="o">=</span> <span class="n">Engineer</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">alice</span><span class="o">.</span><span class="n">greet</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Hello, I am Alice</strong></p>
+<hr />
+<h3 id="example-3-calling-a-method-through-the-class-unbound-call_1">🔧 Example 3: Calling a method through the class (unbound call)</h3>
+<p>A method can be called directly from the class if you pass the object manually.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Calculator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">amount</span>
+
+<span class="n">calc</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">Calculator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">calc</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>15</strong></p>
+<hr />
+<h3 id="example-4-a-regular-function-that-works-like-a-method_1">🔧 Example 4: A regular function that works like a method</h3>
+<p>A regular function can be assigned to a class and then becomes a method.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">factor</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Container</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="n">Container</span><span class="o">.</span><span class="n">multiply</span> <span class="o">=</span> <span class="n">multiply</span>
+
+<span class="n">box</span> <span class="o">=</span> <span class="n">Container</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>21</strong></p>
+<hr />
+<h3 id="example-5-comparing-bound-method-vs-unbound-function-behavior_1">🔧 Example 5: Comparing bound method vs unbound function behavior</h3>
+<p>A bound method remembers its object, while a regular function needs the object passed explicitly.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Robot</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">introduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;I am </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">introduce_robot</span><span class="p">(</span><span class="n">robot_obj</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;I am </span><span class="si">{</span><span class="n">robot_obj</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">r2d2</span> <span class="o">=</span> <span class="n">Robot</span><span class="p">(</span><span class="s2">&quot;R2-D2&quot;</span><span class="p">)</span>
+<span class="n">bound_result</span> <span class="o">=</span> <span class="n">r2d2</span><span class="o">.</span><span class="n">introduce</span><span class="p">()</span>
+<span class="n">unbound_result</span> <span class="o">=</span> <span class="n">introduce_robot</span><span class="p">(</span><span class="n">r2d2</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>I am R2-D2</strong> (both produce the same output)</p>
+<hr />
+<h3 id="comparison-table-method-bindings-vs-regular-functions_1">📊 Comparison Table: Method Bindings vs Regular Functions</h3>
 <table>
 <thead>
 <tr>

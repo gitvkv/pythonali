@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_01_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Identifying Module Dependencies and Requirements Sets - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Identifying Module Dependencies and Requirements Sets";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_01_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_01_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -983,6 +983,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#quick-comparison-table">Quick Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-module-dependencies_1">⚙️ What Are Module Dependencies?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-identify-dependencies-in-your-script_1">🕵️ How to Identify Dependencies in Your Script</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-requirements-file-your-dependency-manifest_1">📊 The Requirements File: Your Dependency Manifest</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#requirements-sets-when-one-file-isnt-enough_1">🛠️ Requirements Sets: When One File Isn't Enough</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-manual-vs-automated-dependency-management_1">📋 Comparison: Manual vs Automated Dependency Management</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#checklist-for-engineers-new-to-dependency-management_1">✅ Checklist for Engineers New to Dependency Management</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pro-tips-for-beginners_1">💡 Pro Tips for Beginners</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps-after-identifying-dependencies_1">🚀 Next Steps After Identifying Dependencies</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-checking-if-a-module-is-installed_1">🔧 Example 1: Checking if a module is installed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-listing-all-installed-modules-with-pip_1">🔧 Example 2: Listing all installed modules with pip</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-generating-a-requirementstxt-file_1">🔧 Example 3: Generating a requirements.txt file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-finding-dependencies-for-a-specific-script_1">🔧 Example 4: Finding dependencies for a specific script</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-creating-a-requirements-file-for-a-project-folder_1">🔧 Example 5: Creating a requirements file for a project folder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-comparison-table_1">Quick Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_01_03/">Ch 21 | Tracing High-Level Information Flow and Error Catching</a>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="identifying-module-dependencies-and-requirements-sets">Identifying Module Dependencies and Requirements Sets</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Planning an Automation Script</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1216,8 +1246,7 @@
 - Create a Docker container that uses your requirements file to build the environment
 - Hand off your project to another engineer with clear setup instructions</p>
 <p>Dependency management is one of those small habits that separates a script from a professional automation tool. Master this, and your code becomes portable, reproducible, and truly shareable.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how to find what external modules your Python script needs and how to list them in a requirements file.</p>
 <h3 id="example-1-checking-if-a-module-is-installed">🔧 Example 1: Checking if a module is installed</h3>
 <p>This example checks whether the <code>requests</code> module is available on your system.</p>
@@ -1304,6 +1333,271 @@
 <p>📤 Output: <strong>requirements.txt written with 3 modules</strong></p>
 <hr />
 <h3 id="quick-comparison-table">Quick Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>What It Does</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pip list</code></td>
+<td>Shows all installed modules</td>
+<td>Checking your environment</td>
+</tr>
+<tr>
+<td><code>pip freeze</code></td>
+<td>Exports all installed modules with versions</td>
+<td>Creating a full requirements file</td>
+</tr>
+<tr>
+<td>AST scanning</td>
+<td>Finds only imports in your script</td>
+<td>Minimal dependency lists</td>
+</tr>
+<tr>
+<td>Folder walk + AST</td>
+<td>Scans all scripts in a project</td>
+<td>Multi-file projects</td>
+</tr>
+<tr>
+<td><code>importlib.find_spec</code></td>
+<td>Checks if a single module exists</td>
+<td>Quick validation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>Before you can share your Python automation script with anyone—whether it's a teammate, a reviewer, or a production system—you need to know exactly what external modules your script relies on. Think of it like packing for a trip: you need to know which ingredients are required before you can run your recipe on a different kitchen. This section will help you identify, document, and manage those dependencies so your script runs smoothly everywhere.</p>
+<hr />
+<h3 id="what-are-module-dependencies_1">⚙️ What Are Module Dependencies?</h3>
+<p>A <strong>module dependency</strong> is any external Python package or library that your script imports to function. If your script uses <code>requests</code> to make HTTP calls or <code>pandas</code> to process data, those are dependencies.</p>
+<p>Key points to remember:
+- Python's standard library (like <code>os</code>, <code>sys</code>, <code>json</code>) is built-in and does not need to be listed as a dependency.
+- Any package you install via <strong>pip</strong> (like <code>requests</code>, <code>boto3</code>, <code>paramiko</code>) must be documented.
+- Dependencies can have their own dependencies—these are called <strong>transitive dependencies</strong>.</p>
+<hr />
+<h3 id="how-to-identify-dependencies-in-your-script_1">🕵️ How to Identify Dependencies in Your Script</h3>
+<p>There are two main approaches to find out what your script needs:</p>
+<p><strong>Manual inspection approach:</strong>
+- Open your script and look for all <code>import</code> statements at the top of the file.
+- Separate standard library imports from third-party imports.
+- For third-party imports, note the exact package name (often the same as the import name, but not always—for example, you import <code>yaml</code> but the package is <code>PyYAML</code>).</p>
+<p><strong>Automated approach using tools:</strong>
+- Run a tool like <strong>pipreqs</strong> or <strong>pip-tools</strong> to scan your script and generate a list automatically.
+- These tools parse your imports and match them to installed packages in your environment.</p>
+<hr />
+<h3 id="the-requirements-file-your-dependency-manifest_1">📊 The Requirements File: Your Dependency Manifest</h3>
+<p>The standard way to document dependencies is a <strong>requirements.txt</strong> file. This file lives in the root of your project and lists every package your script needs.</p>
+<p>What a well-written requirements file includes:
+- Each package on its own line
+- Version pinning using operators like <code>==</code>, <code>&gt;=</code>, or <code>~=</code>
+- Comments to explain why a specific version is needed</p>
+<p>Example structure (not code, just a list):
+- <strong>requests==2.31.0</strong> (pinned to exact version for stability)
+- <strong>boto3&gt;=1.28.0</strong> (any version 1.28 or newer is acceptable)
+- <strong>pyyaml~=6.0</strong> (compatible with version 6.x)</p>
+<hr />
+<h3 id="requirements-sets-when-one-file-isnt-enough_1">🛠️ Requirements Sets: When One File Isn't Enough</h3>
+<p>As your automation scripts grow, you may need different dependency sets for different environments. This is where <strong>requirements sets</strong> come in.</p>
+<p>Common requirements sets you might create:</p>
+<table>
+<thead>
+<tr>
+<th>Set Name</th>
+<th>Purpose</th>
+<th>Example Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>requirements-base.txt</strong></td>
+<td>Core dependencies for all environments</td>
+<td><code>requests</code>, <code>pyyaml</code></td>
+</tr>
+<tr>
+<td><strong>requirements-dev.txt</strong></td>
+<td>Tools for development and testing</td>
+<td><code>pytest</code>, <code>black</code>, <code>mypy</code></td>
+</tr>
+<tr>
+<td><strong>requirements-prod.txt</strong></td>
+<td>Production-only dependencies</td>
+<td><code>gunicorn</code>, <code>uvicorn</code></td>
+</tr>
+<tr>
+<td><strong>requirements-ci.txt</strong></td>
+<td>Continuous integration dependencies</td>
+<td><code>flake8</code>, <code>coverage</code></td>
+</tr>
+</tbody>
+</table>
+<p>Best practices for managing multiple sets:
+- Use a <strong>base</strong> file that other sets reference using the <code>-r</code> directive
+- Keep development dependencies separate from runtime dependencies
+- Document which set to use for which purpose in your project README</p>
+<hr />
+<h3 id="comparison-manual-vs-automated-dependency-management_1">📋 Comparison: Manual vs Automated Dependency Management</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Manual Approach</th>
+<th>Automated Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Effort</strong></td>
+<td>High—you inspect every file</td>
+<td>Low—tools scan for you</td>
+</tr>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>Prone to missing imports</td>
+<td>Very accurate with proper tools</td>
+</tr>
+<tr>
+<td><strong>Version info</strong></td>
+<td>You must look up versions</td>
+<td>Tools capture current versions</td>
+</tr>
+<tr>
+<td><strong>Learning value</strong></td>
+<td>Teaches you what your script uses</td>
+<td>Less educational but faster</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>Small scripts with few imports</td>
+<td>Large projects with many dependencies</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="checklist-for-engineers-new-to-dependency-management_1">✅ Checklist for Engineers New to Dependency Management</h3>
+<ul>
+<li>[ ] Scan your script and list all <code>import</code> statements</li>
+<li>[ ] Identify which imports are third-party (not in Python's standard library)</li>
+<li>[ ] Check the installed version of each third-party package using <strong>pip list</strong></li>
+<li>[ ] Create a <strong>requirements.txt</strong> file with pinned versions</li>
+<li>[ ] Test your script in a fresh virtual environment using <strong>pip install -r requirements.txt</strong></li>
+<li>[ ] If you have multiple environments, create separate requirements sets</li>
+<li>[ ] Add a comment at the top of your requirements file explaining its purpose</li>
+<li>[ ] Commit the requirements file to your version control repository</li>
+</ul>
+<hr />
+<h3 id="pro-tips-for-beginners_1">💡 Pro Tips for Beginners</h3>
+<ul>
+<li>Always use a <strong>virtual environment</strong> before generating your requirements file. This prevents capturing packages you don't actually need.</li>
+<li>If you're unsure whether a package is standard library or third-party, run <strong>pip show <package_name></strong>. If it returns details, it's third-party.</li>
+<li>For scripts that will run on different operating systems, test your requirements file on each OS before sharing.</li>
+<li>Consider using <strong>pip freeze</strong> to generate a complete list, but be aware it captures everything in your environment—not just what your script needs. Always trim it down.</li>
+</ul>
+<hr />
+<h3 id="next-steps-after-identifying-dependencies_1">🚀 Next Steps After Identifying Dependencies</h3>
+<p>Once you have your dependencies documented, you're ready to:
+- Share your script with confidence, knowing others can install everything they need
+- Set up automated testing that installs dependencies from your requirements file
+- Create a Docker container that uses your requirements file to build the environment
+- Hand off your project to another engineer with clear setup instructions</p>
+<p>Dependency management is one of those small habits that separates a script from a professional automation tool. Master this, and your code becomes portable, reproducible, and truly shareable.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how to find what external modules your Python script needs and how to list them in a requirements file.</p>
+<h3 id="example-1-checking-if-a-module-is-installed_1">🔧 Example 1: Checking if a module is installed</h3>
+<p>This example checks whether the <code>requests</code> module is available on your system.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+<span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">find_spec</span><span class="p">(</span><span class="s2">&quot;requests&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">spec</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Module not installed&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Module is installed&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Module not installed</strong> (if requests is not installed)</p>
+<hr />
+<h3 id="example-2-listing-all-installed-modules-with-pip_1">🔧 Example 2: Listing all installed modules with pip</h3>
+<p>This example uses pip to show every module currently installed in your Python environment.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;pip&quot;</span><span class="p">,</span> <span class="s2">&quot;list&quot;</span><span class="p">],</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Package Version \n--- --- \npip 23.0.1 \nsetuptools 58.1.0 ...</strong> (partial list)</p>
+<hr />
+<h3 id="example-3-generating-a-requirementstxt-file_1">🔧 Example 3: Generating a requirements.txt file</h3>
+<p>This example creates a requirements file that lists all installed modules and their versions.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;requirements.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;pip&quot;</span><span class="p">,</span> <span class="s2">&quot;freeze&quot;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;requirements.txt created&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>requirements.txt created</strong></p>
+<hr />
+<h3 id="example-4-finding-dependencies-for-a-specific-script_1">🔧 Example 4: Finding dependencies for a specific script</h3>
+<p>This example scans a Python script and identifies which imported modules are not part of Python's standard library.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">script_code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">import os</span>
+<span class="s2">import requests</span>
+<span class="s2">import json</span>
+<span class="s2">from datetime import datetime</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">script_code</span><span class="p">)</span>
+<span class="n">imports</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ast</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Import</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">names</span><span class="p">:</span>
+            <span class="n">imports</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alias</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">ImportFrom</span><span class="p">):</span>
+        <span class="n">imports</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">module</span><span class="p">)</span>
+<span class="n">standard_libs</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdlib_module_names</span>
+<span class="n">external_modules</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">imports</span> <span class="k">if</span> <span class="n">m</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">standard_libs</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">external_modules</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['requests']</strong></p>
+<hr />
+<h3 id="example-5-creating-a-requirements-file-for-a-project-folder_1">🔧 Example 5: Creating a requirements file for a project folder</h3>
+<p>This example finds all Python files in a folder, collects their external imports, and writes a requirements file.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="n">project_folder</span> <span class="o">=</span> <span class="s2">&quot;./my_script_folder&quot;</span>
+<span class="n">all_imports</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">project_folder</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.py&quot;</span><span class="p">):</span>
+            <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+                    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">ast</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">tree</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">Import</span><span class="p">):</span>
+                            <span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">node</span><span class="o">.</span><span class="n">names</span><span class="p">:</span>
+                                <span class="n">all_imports</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">alias</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">ast</span><span class="o">.</span><span class="n">ImportFrom</span><span class="p">):</span>
+                            <span class="n">all_imports</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">module</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="k">pass</span>
+<span class="n">standard_libs</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdlib_module_names</span>
+<span class="n">external_modules</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">all_imports</span> <span class="k">if</span> <span class="n">m</span> <span class="ow">and</span> <span class="n">m</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">standard_libs</span><span class="p">]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;requirements.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">module</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">external_modules</span><span class="p">):</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">module</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;requirements.txt written with&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">external_modules</span><span class="p">),</span> <span class="s2">&quot;modules&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>requirements.txt written with 3 modules</strong></p>
+<hr />
+<h3 id="quick-comparison-table_1">Quick Comparison Table</h3>
 <table>
 <thead>
 <tr>

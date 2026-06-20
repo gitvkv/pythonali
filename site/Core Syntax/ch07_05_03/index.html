@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch07_05_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 07 | Filtering Comprehensions with Conditions - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 07 | Filtering Comprehensions with Conditions";
         var mkdocs_page_input_path = "Core Syntax\\ch07_05_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch07_05_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -360,6 +360,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-filter-a-list-of-dictionaries-by-a-key-value">🔧 Example 5: Filter a list of dictionaries by a key value</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-list-comprehension-vs-traditional-for-loop">📊 Comparison: List Comprehension vs. Traditional For Loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-a-filtering-comprehension_1">⚙️ What is a Filtering Comprehension?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-conditions-work-in-comprehensions_1">🕵️ How Conditions Work in Comprehensions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-traditional-loop-vs-filtering-comprehension_1">📊 Comparison: Traditional Loop vs. Filtering Comprehension</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-filtering-examples_1">🛠️ Practical Filtering Examples</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#combining-filtering-with-transformation_1">🔄 Combining Filtering with Transformation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfalls-to-avoid_1">🎯 Common Pitfalls to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-tips-for-engineers_1">💡 Quick Tips for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-numeric-filter-keep-only-even-numbers_1">🔧 Example 1: Basic numeric filter — keep only even numbers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-filter-strings-by-length_1">🔧 Example 2: Filter strings by length</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-filter-and-transform-in-one-step_1">🔧 Example 3: Filter and transform in one step</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-filter-using-a-condition-on-another-list-zip_1">🔧 Example 4: Filter using a condition on another list (zip)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-filter-a-list-of-dictionaries-by-a-key-value_1">🔧 Example 5: Filter a list of dictionaries by a key value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-list-comprehension-vs-traditional-for-loop_1">📊 Comparison: List Comprehension vs. Traditional For Loop</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="filtering-comprehensions-with-conditions">Filtering Comprehensions with Conditions</h1>
 <p><span class="category-tag">🏷️ Lists and List Operations /  List Comprehensions</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><strong>Context:</strong> As you begin working with Python, you'll often need to extract specific items from a list based on certain conditions. Instead of writing long loops with if-statements, Python offers a clean, readable way to filter data: <strong>filtering comprehensions</strong>. This technique lets you combine list creation with condition checking in a single, elegant line of code.</p>
@@ -1193,8 +1219,7 @@
 <li>For very large datasets, consider using generator expressions <code>(x for x in data if condition)</code> to save memory</li>
 </ul>
 <p><strong>Next step:</strong> Practice by taking a list of server status codes and filtering for only successful responses (200-299 range), or extract all log entries containing the word "ERROR" from a list of log lines.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Filtering comprehensions let you create a new list by including only items from an existing list that satisfy a condition.</p>
 <h3 id="example-1-basic-numeric-filter-keep-only-even-numbers">🔧 Example 1: Basic numeric filter — keep only even numbers</h3>
 <p>This example shows how to filter a list of numbers to keep only those divisible by 2.</p>
@@ -1243,6 +1268,209 @@
 <p>📤 Output: <strong>['Bridge', 'Tower']</strong></p>
 <hr />
 <h3 id="comparison-list-comprehension-vs-traditional-for-loop">📊 Comparison: List Comprehension vs. Traditional For Loop</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>List Comprehension</th>
+<th>Traditional For Loop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lines of code</td>
+<td>1 line</td>
+<td>3–5 lines</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>Compact, expressive</td>
+<td>Verbose but explicit</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Faster (C-optimized)</td>
+<td>Slower (Python loop)</td>
+</tr>
+<tr>
+<td>Best for</td>
+<td>Simple filtering + transformation</td>
+<td>Complex logic or side effects</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p><strong>Context:</strong> As you begin working with Python, you'll often need to extract specific items from a list based on certain conditions. Instead of writing long loops with if-statements, Python offers a clean, readable way to filter data: <strong>filtering comprehensions</strong>. This technique lets you combine list creation with condition checking in a single, elegant line of code.</p>
+<hr />
+<h3 id="what-is-a-filtering-comprehension_1">⚙️ What is a Filtering Comprehension?</h3>
+<p>A filtering comprehension is a list comprehension that includes a condition at the end. It follows this pattern:</p>
+<ul>
+<li><strong>Basic structure:</strong> <code>[expression for item in list if condition]</code></li>
+<li>The condition acts as a gatekeeper — only items that evaluate to <strong>True</strong> are included in the new list</li>
+<li>The expression can be the item itself, or a transformed version of it</li>
+</ul>
+<p><strong>Simple example:</strong> To get only even numbers from a list:
+- Original list: <code>numbers = [1, 2, 3, 4, 5, 6]</code>
+- Filtering comprehension: <code>[n for n in numbers if n % 2 == 0]</code>
+- <strong>Result:</strong> <code>[2, 4, 6]</code></p>
+<hr />
+<h3 id="how-conditions-work-in-comprehensions_1">🕵️ How Conditions Work in Comprehensions</h3>
+<p>The condition in a filtering comprehension can be any expression that returns <strong>True</strong> or <strong>False</strong>. Here are common types of conditions:</p>
+<ul>
+<li><strong>Comparison operators:</strong> <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>==</code>, <code>!=</code></li>
+<li><strong>Membership tests:</strong> <code>in</code>, <code>not in</code></li>
+<li><strong>String methods:</strong> <code>.startswith()</code>, <code>.endswith()</code>, <code>.isalpha()</code></li>
+<li><strong>Custom functions:</strong> Any function that returns a boolean value</li>
+</ul>
+<p><strong>Example with string filtering:</strong>
+- Original list: <code>fruits = ["apple", "banana", "avocado", "cherry", "apricot"]</code>
+- Filter for fruits starting with "a": <code>[f for f in fruits if f.startswith("a")]</code>
+- <strong>Result:</strong> <code>["apple", "avocado", "apricot"]</code></p>
+<hr />
+<h3 id="comparison-traditional-loop-vs-filtering-comprehension_1">📊 Comparison: Traditional Loop vs. Filtering Comprehension</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Traditional Loop</th>
+<th>Filtering Comprehension</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Code length</strong></td>
+<td>4-5 lines</td>
+<td>1 line</td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Clear but verbose</td>
+<td>Concise and direct</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Slower</td>
+<td>Faster (optimized in C)</td>
+</tr>
+<tr>
+<td><strong>When to use</strong></td>
+<td>Complex logic or side effects</td>
+<td>Simple filtering tasks</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Traditional loop example:</strong>
+- Create an empty list: <code>even_numbers = []</code>
+- Loop through numbers: <code>for n in numbers:</code>
+- Check condition: <code>if n % 2 == 0:</code>
+- Append to list: <code>even_numbers.append(n)</code></p>
+<p><strong>Filtering comprehension equivalent:</strong>
+- One line: <code>even_numbers = [n for n in numbers if n % 2 == 0]</code></p>
+<hr />
+<h3 id="practical-filtering-examples_1">🛠️ Practical Filtering Examples</h3>
+<p><strong>Filtering numeric data:</strong>
+- Get values above a threshold: <code>[x for x in data if x &gt; 100]</code>
+- Get values within a range: <code>[x for x in data if 10 &lt;= x &lt;= 50]</code>
+- Get non-zero values: <code>[x for x in data if x != 0]</code></p>
+<p><strong>Filtering text data:</strong>
+- Get strings longer than 5 characters: <code>[word for word in words if len(word) &gt; 5]</code>
+- Get strings containing a specific substring: <code>[item for item in items if "error" in item.lower()]</code>
+- Get non-empty strings: <code>[s for s in strings if s]</code></p>
+<p><strong>Filtering with multiple conditions:</strong>
+- Combine conditions with <code>and</code>: <code>[x for x in data if x &gt; 0 and x &lt; 100]</code>
+- Combine conditions with <code>or</code>: <code>[x for x in data if x &lt; 10 or x &gt; 90]</code>
+- Use <code>not</code> for negation: <code>[x for x in data if not x % 2 == 0]</code> (odd numbers)</p>
+<hr />
+<h3 id="combining-filtering-with-transformation_1">🔄 Combining Filtering with Transformation</h3>
+<p>You can filter <strong>and</strong> transform items in the same comprehension:</p>
+<ul>
+<li><strong>Double only even numbers:</strong> <code>[n * 2 for n in numbers if n % 2 == 0]</code></li>
+<li><strong>Capitalize long words:</strong> <code>[word.upper() for word in words if len(word) &gt; 5]</code></li>
+<li><strong>Extract first letter of fruits starting with 'a':</strong> <code>[f[0] for f in fruits if f.startswith("a")]</code></li>
+</ul>
+<p><strong>Example breakdown:</strong>
+- Input: <code>numbers = [1, 2, 3, 4, 5, 6]</code>
+- Comprehension: <code>[n ** 2 for n in numbers if n &gt; 3]</code>
+- Step 1: Filter items where <code>n &gt; 3</code> → <code>[4, 5, 6]</code>
+- Step 2: Apply expression <code>n ** 2</code> → <code>[16, 25, 36]</code>
+- <strong>Final result:</strong> <code>[16, 25, 36]</code></p>
+<hr />
+<h3 id="common-pitfalls-to-avoid_1">🎯 Common Pitfalls to Avoid</h3>
+<ul>
+<li><strong>Forgetting the condition syntax:</strong> The <code>if</code> keyword comes <strong>after</strong> the <code>for</code> clause, not before</li>
+<li><strong>Using assignment in conditions:</strong> Conditions should only contain comparisons, not <code>=</code> (use <code>==</code> for equality)</li>
+<li><strong>Overcomplicating conditions:</strong> If your condition is too complex, consider using a helper function</li>
+<li><strong>Modifying the original list:</strong> Comprehensions create a <strong>new list</strong> — they don't modify the original</li>
+</ul>
+<p><strong>Incorrect example:</strong>
+- <code>[x = x * 2 for x in data if x &gt; 0]</code> — this will cause a syntax error</p>
+<p><strong>Correct version:</strong>
+- <code>[x * 2 for x in data if x &gt; 0]</code> — expression on the left, condition on the right</p>
+<hr />
+<h3 id="quick-tips-for-engineers_1">💡 Quick Tips for Engineers</h3>
+<ul>
+<li>Start with simple conditions and add complexity gradually</li>
+<li>Test your condition separately before putting it in a comprehension</li>
+<li>Use filtering comprehensions for data cleaning tasks (removing None, empty strings, outliers)</li>
+<li>Remember that filtering comprehensions work with any iterable, not just lists (tuples, strings, sets)</li>
+<li>For very large datasets, consider using generator expressions <code>(x for x in data if condition)</code> to save memory</li>
+</ul>
+<p><strong>Next step:</strong> Practice by taking a list of server status codes and filtering for only successful responses (200-299 range), or extract all log entries containing the word "ERROR" from a list of log lines.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Filtering comprehensions let you create a new list by including only items from an existing list that satisfy a condition.</p>
+<h3 id="example-1-basic-numeric-filter-keep-only-even-numbers_1">🔧 Example 1: Basic numeric filter — keep only even numbers</h3>
+<p>This example shows how to filter a list of numbers to keep only those divisible by 2.</p>
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">even_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">even_numbers</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>[2, 4, 6]</strong></p>
+<hr />
+<h3 id="example-2-filter-strings-by-length_1">🔧 Example 2: Filter strings by length</h3>
+<p>This example shows how to keep only strings that are longer than 4 characters.</p>
+<div class="highlight"><pre><span></span><code><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Al&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Diana&quot;</span><span class="p">,</span> <span class="s2">&quot;Eve&quot;</span><span class="p">]</span>
+<span class="n">long_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">long_names</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Charlie', 'Diana']</strong></p>
+<hr />
+<h3 id="example-3-filter-and-transform-in-one-step_1">🔧 Example 3: Filter and transform in one step</h3>
+<p>This example shows how to filter items and apply a transformation to the items that pass the condition.</p>
+<div class="highlight"><pre><span></span><code><span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">55</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">79</span><span class="p">]</span>
+<span class="n">passing_grades</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">% - Pass&quot;</span> <span class="k">for</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">scores</span> <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">passing_grades</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['72% - Pass', '88% - Pass', '91% - Pass', '79% - Pass']</strong></p>
+<hr />
+<h3 id="example-4-filter-using-a-condition-on-another-list-zip_1">🔧 Example 4: Filter using a condition on another list (zip)</h3>
+<p>This example shows how to filter one list based on a condition applied to a parallel list.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Diana&quot;</span><span class="p">]</span>
+<span class="n">years_experience</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">senior_engineers</span> <span class="o">=</span> <span class="p">[</span><span class="n">engineers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">engineers</span><span class="p">))</span> <span class="k">if</span> <span class="n">years_experience</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">senior_engineers</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Bob', 'Charlie']</strong></p>
+<hr />
+<h3 id="example-5-filter-a-list-of-dictionaries-by-a-key-value_1">🔧 Example 5: Filter a list of dictionaries by a key value</h3>
+<p>This example shows how to filter a list of structured data (dictionaries) to find matching records.</p>
+<div class="highlight"><pre><span></span><code><span class="n">projects</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bridge&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;complete&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Tunnel&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;in_progress&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Tower&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;complete&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Dam&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;planning&quot;</span><span class="p">}</span>
+<span class="p">]</span>
+<span class="n">completed_projects</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">projects</span> <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;complete&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">completed_projects</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['Bridge', 'Tower']</strong></p>
+<hr />
+<h3 id="comparison-list-comprehension-vs-traditional-for-loop_1">📊 Comparison: List Comprehension vs. Traditional For Loop</h3>
 <table>
 <thead>
 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch15_01_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 15 | Text Pattern Matching and Bound Concepts - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 15 | Text Pattern Matching and Bound Concepts";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch15_01_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch15_01_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -705,6 +705,48 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-boundary-anchors">Comparison Table: Common Boundary Anchors</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-text-pattern-matching_1">🧠 What is Text Pattern Matching?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#core-pattern-matching-concepts_1">⚙️ Core Pattern Matching Concepts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-bound-concepts-anchors_1">🕵️ Understanding Bound Concepts (Anchors)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#start-of-string-anchor_1">🚩 Start of String Anchor: ^</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#end-of-string-anchor_1">🚩 End of String Anchor: $</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#word-boundary-b_1">🚩 Word Boundary: \b</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#non-word-boundary-b_1">🚩 Non-Word Boundary: \B</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples-for-engineers_1">🛠️ Practical Examples for Engineers</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#log-file-analysis_1">📄 Log File Analysis</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#configuration-file-parsing_1">📝 Configuration File Parsing</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ip-address-validation_1">🔍 IP Address Validation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways-for-pattern-matching_1">🎯 Key Takeaways for Pattern Matching</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">📚 Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-pattern-matching-with-research_1">🔍 Example 1: Basic pattern matching with re.search()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-using-word-boundary-b-to-match-whole-words_1">🔍 Example 2: Using word boundary \b to match whole words</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-start-of-string-boundary-and-end-of-string-boundary_1">🔍 Example 3: Using start-of-string boundary ^ and end-of-string boundary $</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-using-rematch-with-implicit-start-boundary_1">🔍 Example 4: Using re.match() with implicit start boundary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-using-refindall-with-word-boundaries-to-extract-valid-codes_1">🔍 Example 5: Using re.findall() with word boundaries to extract valid codes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-common-boundary-anchors_1">Comparison Table: Common Boundary Anchors</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch15_01_02/">Ch 15 | Regex Power and Advantages Over String Methods</a>
@@ -1090,7 +1132,7 @@
               
                 <h1 id="text-pattern-matching-and-bound-concepts">Text Pattern Matching and Bound Concepts</h1>
 <p><span class="category-tag">🏷️ Regular Expressions (Regex) /  What are Regular Expressions?</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Welcome to the world of text pattern matching! As an engineer working with logs, configuration files, or data streams, you'll often need to find specific patterns in text. Regular expressions (regex) are your Swiss Army knife for this task. This guide introduces the core concepts of pattern matching and the critical idea of "boundaries" that control where matches occur.</p>
@@ -1228,8 +1270,7 @@
 <h3 id="summary">📚 Summary</h3>
 <p>Text pattern matching with regular expressions is a fundamental skill for any engineer who works with text data. Understanding bound concepts—anchors like <strong>^</strong>, <strong>$</strong>, <strong>\b</strong>, and <strong>\B</strong>—gives you precise control over where your patterns match. This prevents false positives and ensures your searches are accurate and efficient.</p>
 <p>Start practicing with small patterns on sample log files or configuration data. As you become comfortable with these basics, you'll unlock the full power of regex for automating text processing tasks.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Text pattern matching uses regular expressions to find, extract, or validate strings that follow a specific pattern, while bound concepts define where matches can start or end within the text.</p>
 <hr />
 <h3 id="example-1-basic-pattern-matching-with-research">🔍 Example 1: Basic pattern matching with <code>re.search()</code></h3>
@@ -1291,6 +1332,251 @@
 <p>📤 Output: <strong>['AB123', 'CD456', 'X999Z']</strong></p>
 <hr />
 <h3 id="comparison-table-common-boundary-anchors">Comparison Table: Common Boundary Anchors</h3>
+<table>
+<thead>
+<tr>
+<th>Anchor</th>
+<th>Meaning</th>
+<th>Example Pattern</th>
+<th>Matches</th>
+<th>Does Not Match</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>^</code></td>
+<td>Start of string</td>
+<td><code>^Hello</code></td>
+<td>"Hello world"</td>
+<td>"Say Hello"</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>End of string</td>
+<td><code>world$</code></td>
+<td>"Hello world"</td>
+<td>"world peace"</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>Word boundary</td>
+<td><code>\bcat\b</code></td>
+<td>"cat" in "the cat"</td>
+<td>"cat" in "catalog"</td>
+</tr>
+<tr>
+<td><code>\B</code></td>
+<td>Non-word boundary</td>
+<td><code>\Bcat\B</code></td>
+<td>"cat" in "catalog"</td>
+<td>"cat" in "the cat"</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>Welcome to the world of text pattern matching! As an engineer working with logs, configuration files, or data streams, you'll often need to find specific patterns in text. Regular expressions (regex) are your Swiss Army knife for this task. This guide introduces the core concepts of pattern matching and the critical idea of "boundaries" that control where matches occur.</p>
+<hr />
+<h3 id="what-is-text-pattern-matching_1">🧠 What is Text Pattern Matching?</h3>
+<p>Text pattern matching is the process of searching for sequences of characters that follow a specific rule or pattern within a larger body of text. Instead of searching for exact words, you define a pattern that describes what you're looking for.</p>
+<ul>
+<li><strong>Exact Match</strong>: Looking for the literal word <strong>error</strong> in a log file.</li>
+<li><strong>Pattern Match</strong>: Looking for any word that starts with <strong>err</strong> and ends with a number, like <strong>error404</strong> or <strong>err500</strong>.</li>
+</ul>
+<p>Regular expressions provide a powerful, compact language to define these patterns.</p>
+<hr />
+<h3 id="core-pattern-matching-concepts_1">⚙️ Core Pattern Matching Concepts</h3>
+<p>Before diving into boundaries, let's review the fundamental building blocks of regex patterns.</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Description</th>
+<th>Example Pattern</th>
+<th>Matches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Literal Characters</strong></td>
+<td>Match the exact character</td>
+<td><strong>cat</strong></td>
+<td><strong>cat</strong>, but not <strong>cats</strong></td>
+</tr>
+<tr>
+<td><strong>Dot (.)</strong></td>
+<td>Matches any single character (except newline)</td>
+<td><strong>c.t</strong></td>
+<td><strong>cat</strong>, <strong>cot</strong>, <strong>c3t</strong></td>
+</tr>
+<tr>
+<td><strong>Asterisk (*)</strong></td>
+<td>Matches zero or more of the preceding element</td>
+<td><strong>ab*c</strong></td>
+<td><strong>ac</strong>, <strong>abc</strong>, <strong>abbc</strong></td>
+</tr>
+<tr>
+<td><strong>Plus (+)</strong></td>
+<td>Matches one or more of the preceding element</td>
+<td><strong>ab+c</strong></td>
+<td><strong>abc</strong>, <strong>abbc</strong>, but not <strong>ac</strong></td>
+</tr>
+<tr>
+<td><strong>Question Mark (?)</strong></td>
+<td>Makes the preceding element optional</td>
+<td><strong>colou?r</strong></td>
+<td><strong>color</strong>, <strong>colour</strong></td>
+</tr>
+<tr>
+<td><strong>Character Class [ ]</strong></td>
+<td>Matches any one character inside the brackets</td>
+<td><strong>[aeiou]</strong></td>
+<td>Any single vowel</td>
+</tr>
+<tr>
+<td><strong>Negated Class [^ ]</strong></td>
+<td>Matches any character NOT inside the brackets</td>
+<td><strong>[^0-9]</strong></td>
+<td>Any non-digit character</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="understanding-bound-concepts-anchors_1">🕵️ Understanding Bound Concepts (Anchors)</h3>
+<p>Bound concepts, often called "anchors," are special characters that don't match actual text characters. Instead, they match <strong>positions</strong> within the text. They are essential for ensuring your pattern matches exactly where you intend.</p>
+<h4 id="start-of-string-anchor_1">🚩 Start of String Anchor: <strong>^</strong></h4>
+<p>The caret (<strong>^</strong>) asserts that the match must occur at the very beginning of a line or string.</p>
+<ul>
+<li>Pattern: <strong>^ERROR</strong></li>
+<li>Matches: <strong>ERROR: Disk full</strong> (because ERROR is at the start)</li>
+<li>Does Not Match: <strong>Disk ERROR: Full</strong> (because ERROR is not at the start)</li>
+</ul>
+<h4 id="end-of-string-anchor_1">🚩 End of String Anchor: <strong>$</strong></h4>
+<p>The dollar sign (<strong>$</strong>) asserts that the match must occur at the very end of a line or string.</p>
+<ul>
+<li>Pattern: <strong>success$</strong></li>
+<li>Matches: <strong>Deployment success</strong> (because success is at the end)</li>
+<li>Does Not Match: <strong>successful deployment</strong> (because success is not at the end)</li>
+</ul>
+<h4 id="word-boundary-b_1">🚩 Word Boundary: <strong>\b</strong></h4>
+<p>The word boundary (<strong>\b</strong>) matches the position between a word character (letter, digit, underscore) and a non-word character (space, punctuation, start/end of string). This is incredibly useful for matching whole words.</p>
+<ul>
+<li>Pattern: <strong>\bcat\b</strong></li>
+<li>Matches: <strong>The cat sat</strong> (the word <strong>cat</strong> is isolated)</li>
+<li>Does Not Match: <strong>The caterpillar</strong> (because <strong>cat</strong> is part of a larger word)</li>
+</ul>
+<h4 id="non-word-boundary-b_1">🚩 Non-Word Boundary: <strong>\B</strong></h4>
+<p>The non-word boundary (<strong>\B</strong>) matches any position that is NOT a word boundary. It matches positions between two word characters or between two non-word characters.</p>
+<ul>
+<li>Pattern: <strong>\Bcat\B</strong></li>
+<li>Matches: <strong>The caterpillar</strong> (because <strong>cat</strong> is inside a word)</li>
+<li>Does Not Match: <strong>The cat sat</strong> (because <strong>cat</strong> is at a word boundary)</li>
+</ul>
+<hr />
+<h3 id="practical-examples-for-engineers_1">🛠️ Practical Examples for Engineers</h3>
+<p>Let's see how these bound concepts apply to real-world scenarios you might encounter.</p>
+<h4 id="log-file-analysis_1">📄 Log File Analysis</h4>
+<p>You have a log file with entries like:
+<strong>INFO: Server started on port 8080</strong>
+<strong>ERROR: Connection timeout</strong>
+<strong>WARNING: High memory usage</strong></p>
+<ul>
+<li>To find only lines that start with <strong>ERROR</strong>: Use pattern <strong>^ERROR</strong></li>
+<li>To find only lines that end with a number: Use pattern <strong>\d$</strong> (where <strong>\d</strong> matches any digit)</li>
+</ul>
+<h4 id="configuration-file-parsing_1">📝 Configuration File Parsing</h4>
+<p>You have a config file with lines like:
+<strong>hostname = server01</strong>
+<strong>port = 3000</strong>
+<strong>timeout = 30</strong></p>
+<ul>
+<li>To find the exact key <strong>port</strong>: Use pattern <strong>^port\b</strong> (start of line, then literal <strong>port</strong>, then a word boundary to ensure it's not <strong>portable</strong>)</li>
+</ul>
+<h4 id="ip-address-validation_1">🔍 IP Address Validation</h4>
+<p>You want to find IP addresses in a text, but avoid matching numbers that look like part of an IP.</p>
+<ul>
+<li>A simple pattern for an IP octet: <strong>\b(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\b</strong></li>
+<li>The <strong>\b</strong> at both ends ensures you match the entire octet, not a fragment like <strong>25</strong> in <strong>255</strong>.</li>
+</ul>
+<hr />
+<h3 id="key-takeaways-for-pattern-matching_1">🎯 Key Takeaways for Pattern Matching</h3>
+<ul>
+<li><strong>Be Specific</strong>: Use anchors (<strong>^</strong>, <strong>$</strong>, <strong>\b</strong>) to narrow down where matches can occur.</li>
+<li><strong>Think in Positions</strong>: Remember that anchors match positions, not characters.</li>
+<li><strong>Start Simple</strong>: Begin with literal patterns, then add metacharacters gradually.</li>
+<li><strong>Test Your Patterns</strong>: Always test your regex against sample data to verify it behaves as expected.</li>
+</ul>
+<hr />
+<h3 id="summary_1">📚 Summary</h3>
+<p>Text pattern matching with regular expressions is a fundamental skill for any engineer who works with text data. Understanding bound concepts—anchors like <strong>^</strong>, <strong>$</strong>, <strong>\b</strong>, and <strong>\B</strong>—gives you precise control over where your patterns match. This prevents false positives and ensures your searches are accurate and efficient.</p>
+<p>Start practicing with small patterns on sample log files or configuration data. As you become comfortable with these basics, you'll unlock the full power of regex for automating text processing tasks.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Text pattern matching uses regular expressions to find, extract, or validate strings that follow a specific pattern, while bound concepts define where matches can start or end within the text.</p>
+<hr />
+<h3 id="example-1-basic-pattern-matching-with-research_1">🔍 Example 1: Basic pattern matching with <code>re.search()</code></h3>
+<p>This example checks if a pattern exists anywhere inside a string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The part number is ABC-1234&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;ABC-\d</span><span class="si">{4}</span><span class="s2">&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>ABC-1234</strong></p>
+<hr />
+<h3 id="example-2-using-word-boundary-b-to-match-whole-words_1">🔍 Example 2: Using word boundary <code>\b</code> to match whole words</h3>
+<p>This example ensures the pattern matches only as a complete word, not as part of another word.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;The cat sat on the catalog&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\bcat\b&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>cat</strong></p>
+<hr />
+<h3 id="example-3-using-start-of-string-boundary-and-end-of-string-boundary_1">🔍 Example 3: Using start-of-string boundary <code>^</code> and end-of-string boundary <code>$</code></h3>
+<p>This example validates that a string starts with "Error" and ends with a number.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Error code 404&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^Error.*\d$&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>Error code 404</strong></p>
+<hr />
+<h3 id="example-4-using-rematch-with-implicit-start-boundary_1">🔍 Example 4: Using <code>re.match()</code> with implicit start boundary</h3>
+<p>This example shows how <code>re.match()</code> only checks from the beginning of the string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;World&quot;</span>
+<span class="n">result_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="n">result_search</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_match</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result_search</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>None</strong><br />
+📤 Output: <strong>World</strong></p>
+<hr />
+<h3 id="example-5-using-refindall-with-word-boundaries-to-extract-valid-codes_1">🔍 Example 5: Using <code>re.findall()</code> with word boundaries to extract valid codes</h3>
+<p>This example extracts all 5-character alphanumeric codes that appear as separate words.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Codes: AB123, CD456, and X999Z are valid. But ABCDE123 is not.&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\b[A-Z0-9]</span><span class="si">{5}</span><span class="s2">\b&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['AB123', 'CD456', 'X999Z']</strong></p>
+<hr />
+<h3 id="comparison-table-common-boundary-anchors_1">Comparison Table: Common Boundary Anchors</h3>
 <table>
 <thead>
 <tr>

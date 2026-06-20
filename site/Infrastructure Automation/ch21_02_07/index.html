@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_02_07/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Routing Script Operation Metrics to Tracking Logs - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Routing Script Operation Metrics to Tracking Logs";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_02_07.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_02_07/";
       </script>
     
     <!--[if lt IE 9]>
@@ -1003,6 +1003,38 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-operation-metrics_1">⚙️ What Are Operation Metrics?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-route-metrics-to-logs-instead-of-printing_1">📊 Why Route Metrics to Logs Instead of Printing?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-components-of-a-tracking-log-system_1">🛠️ Key Components of a Tracking Log System</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-information-should-your-tracking-logs-contain_1">🕵️ What Information Should Your Tracking Logs Contain?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#structuring-your-log-files_1">📁 Structuring Your Log Files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-routing-flow-from-script-to-log_1">🔄 The Routing Flow: From Script to Log</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#benefits-of-tracking-logs-for-engineers_1">📈 Benefits of Tracking Logs for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-tips-for-your-system-health-reporter_1">🧪 Practical Tips for Your System Health Reporter</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-writing-a-simple-metric-entry-to-a-log-file_1">📘 Example 1: Writing a simple metric entry to a log file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-logging-a-metric-with-a-timestamp_1">📘 Example 2: Logging a metric with a timestamp</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-logging-success-and-failure-counts_1">📘 Example 3: Logging success and failure counts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-logging-metrics-with-a-severity-level_1">📘 Example 4: Logging metrics with a severity level</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-writing-a-structured-metric-dictionary-to-a-log-file_1">📘 Example 5: Writing a structured metric dictionary to a log file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_03_01/">Ch 21 | Auditing Documentation Completeness Across Blocks</a>
@@ -1080,7 +1112,7 @@
               
                 <h1 id="routing-script-operation-metrics-to-tracking-logs">Routing Script Operation Metrics to Tracking Logs</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Project: System Health Reporter</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1191,8 +1223,7 @@
 <h3 id="summary">✅ Summary</h3>
 <p>Routing script operation metrics to tracking logs transforms your System Health Reporter from a simple automation into a transparent, auditable, and debuggable tool. By capturing execution data in structured log files, you gain the visibility needed to maintain reliable infrastructure monitoring. This practice is a foundational skill for any engineer building automated systems that need to run unattended and be trusted over time.</p>
 <p>Start small—log a few key metrics like start time, end time, and success status. As you become comfortable, expand your logs to include more detailed performance data. Your future self will thank you when troubleshooting a mysterious failure at 2 AM.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This section shows how to capture and send script operation metrics—like execution time, success counts, and error rates—into a tracking log file for monitoring script health.</p>
 <hr />
 <h3 id="example-1-writing-a-simple-metric-entry-to-a-log-file">📘 Example 1: Writing a simple metric entry to a log file</h3>
@@ -1261,6 +1292,232 @@
 <p>📤 Output: <strong>(file <code>metrics.log</code> contains:</strong> <code>{'script': 'network_latency.py', 'duration_s': 2.34, 'hosts_checked': 5, 'hosts_failed': 1}</code>)</p>
 <hr />
 <h3 id="comparison-table">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>What It Logs</th>
+<th>Format</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Script name + duration</td>
+<td>Plain text line</td>
+<td>Quick timing checks</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Timestamp + duration</td>
+<td>Timestamped line</td>
+<td>Time-based analysis</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Success/failure counts</td>
+<td>Count pairs</td>
+<td>Health check summaries</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Severity + error detail</td>
+<td>Labeled line</td>
+<td>Error tracking</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Full metric dictionary</td>
+<td>Python dict string</td>
+<td>Parsing and automation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>As you build your System Health Reporter, one critical piece is understanding how your script is performing over time. Simply running a script and hoping it works is not enough—you need visibility into its operations. This is where <strong>routing script operation metrics to tracking logs</strong> comes into play.</p>
+<p>By directing key performance data (execution time, success/failure counts, resource usage) into structured log files, you create a historical record that helps you debug issues, optimize performance, and prove that your automation is running reliably. Think of it as a black box recorder for your Python scripts.</p>
+<hr />
+<h3 id="what-are-operation-metrics_1">⚙️ What Are Operation Metrics?</h3>
+<p>Operation metrics are measurable data points that describe how your script behaves during execution. Common examples include:</p>
+<ul>
+<li><strong>Execution duration</strong> – How long did the script take to run?</li>
+<li><strong>Success/failure status</strong> – Did the script complete its task or encounter an error?</li>
+<li><strong>Resource consumption</strong> – CPU, memory, or disk usage during execution</li>
+<li><strong>Step-by-step progress</strong> – Which functions or modules ran successfully?</li>
+<li><strong>Error details</strong> – Specific error messages and traceback information</li>
+</ul>
+<p>These metrics give you the ability to answer questions like: <em>"Did my health check run at 3 AM?"</em> or <em>"Why did the disk usage report fail last Tuesday?"</em></p>
+<hr />
+<h3 id="why-route-metrics-to-logs-instead-of-printing_1">📊 Why Route Metrics to Logs Instead of Printing?</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Print statements only</strong></td>
+<td>Simple to write, immediate visibility in terminal</td>
+<td>No persistence, lost after session ends, hard to search</td>
+</tr>
+<tr>
+<td><strong>Routing to tracking logs</strong></td>
+<td>Persistent records, searchable, timestamped, supports automation</td>
+<td>Requires extra setup, needs log rotation management</td>
+</tr>
+</tbody>
+</table>
+<p>Routing to logs turns your script from a one-time tool into a <strong>monitored, auditable system component</strong>.</p>
+<hr />
+<h3 id="key-components-of-a-tracking-log-system_1">🛠️ Key Components of a Tracking Log System</h3>
+<p>To effectively route metrics to logs, your script needs these building blocks:</p>
+<ul>
+<li><strong>Log file location</strong> – A dedicated directory (e.g., <strong>logs/</strong>) where all tracking files are stored</li>
+<li><strong>Timestamping</strong> – Every log entry includes a date and time for chronological tracking</li>
+<li><strong>Log levels</strong> – Categories like <strong>INFO</strong> for normal operations, <strong>WARNING</strong> for potential issues, <strong>ERROR</strong> for failures</li>
+<li><strong>Structured format</strong> – Consistent layout so logs can be parsed by other tools</li>
+<li><strong>Rotation policy</strong> – Strategy to archive or delete old logs to prevent disk overflow</li>
+</ul>
+<hr />
+<h3 id="what-information-should-your-tracking-logs-contain_1">🕵️ What Information Should Your Tracking Logs Contain?</h3>
+<p>A well-designed tracking log entry for a health report script might include:</p>
+<ul>
+<li><strong>Timestamp</strong> – When the operation occurred</li>
+<li><strong>Script name</strong> – Which script generated the log</li>
+<li><strong>Operation type</strong> – What task was being performed (e.g., disk check, CPU monitor)</li>
+<li><strong>Status</strong> – Success, failure, or warning</li>
+<li><strong>Duration</strong> – How long the operation took in seconds</li>
+<li><strong>Details</strong> – Any additional context or error messages</li>
+</ul>
+<p>Example of a log entry formatted inline:</p>
+<p><strong>2025-03-20 14:30:01 | system_health_reporter.py | DISK_CHECK | SUCCESS | Duration: 2.34s | Disk usage at 67%</strong></p>
+<hr />
+<h3 id="structuring-your-log-files_1">📁 Structuring Your Log Files</h3>
+<p>For the System Health Reporter project, consider this file organization:</p>
+<ul>
+<li><strong>logs/</strong> – Root directory for all tracking logs</li>
+<li><strong>operations.log</strong> – Main log capturing all script activities</li>
+<li><strong>errors.log</strong> – Separate log for error-only entries</li>
+<li><strong>metrics.log</strong> – Structured log with numeric performance data</li>
+<li><strong>archive/</strong> – Old logs moved here after rotation</li>
+</ul>
+<p>This separation makes it easier to search for specific types of information without wading through unrelated entries.</p>
+<hr />
+<h3 id="the-routing-flow-from-script-to-log_1">🔄 The Routing Flow: From Script to Log</h3>
+<p>The process of routing metrics to tracking logs follows this general flow:</p>
+<ol>
+<li><strong>Script starts</strong> – Open or create the log file for writing</li>
+<li><strong>Operation begins</strong> – Record a start timestamp</li>
+<li><strong>Task executes</strong> – Perform the health check or monitoring action</li>
+<li><strong>Metrics collected</strong> – Capture duration, status, and any error details</li>
+<li><strong>Log entry written</strong> – Format and write the metric data to the log file</li>
+<li><strong>Script ends</strong> – Close the log file properly</li>
+</ol>
+<p>This flow ensures that every run of your script leaves a traceable record.</p>
+<hr />
+<h3 id="benefits-of-tracking-logs-for-engineers_1">📈 Benefits of Tracking Logs for Engineers</h3>
+<p>Implementing this routing pattern provides several advantages:</p>
+<ul>
+<li><strong>Historical analysis</strong> – Review past runs to identify trends or recurring failures</li>
+<li><strong>Alerting foundation</strong> – Logs can be monitored by external tools to trigger alerts</li>
+<li><strong>Debugging efficiency</strong> – Quickly locate when and where an error occurred</li>
+<li><strong>Compliance and auditing</strong> – Prove that automated checks ran on schedule</li>
+<li><strong>Performance optimization</strong> – Identify slow operations that need tuning</li>
+</ul>
+<hr />
+<h3 id="practical-tips-for-your-system-health-reporter_1">🧪 Practical Tips for Your System Health Reporter</h3>
+<p>When implementing tracking logs in your project, keep these guidelines in mind:</p>
+<ul>
+<li><strong>Use a consistent naming convention</strong> for log files so they are easy to identify</li>
+<li><strong>Include the script version</strong> in log entries to track changes over time</li>
+<li><strong>Avoid logging sensitive information</strong> like passwords or API keys</li>
+<li><strong>Test your logging setup</strong> with a simple run before adding complex logic</li>
+<li><strong>Plan for log rotation</strong> early to prevent your logs from consuming all available disk space</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Routing script operation metrics to tracking logs transforms your System Health Reporter from a simple automation into a transparent, auditable, and debuggable tool. By capturing execution data in structured log files, you gain the visibility needed to maintain reliable infrastructure monitoring. This practice is a foundational skill for any engineer building automated systems that need to run unattended and be trusted over time.</p>
+<p>Start small—log a few key metrics like start time, end time, and success status. As you become comfortable, expand your logs to include more detailed performance data. Your future self will thank you when troubleshooting a mysterious failure at 2 AM.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This section shows how to capture and send script operation metrics—like execution time, success counts, and error rates—into a tracking log file for monitoring script health.</p>
+<hr />
+<h3 id="example-1-writing-a-simple-metric-entry-to-a-log-file_1">📘 Example 1: Writing a simple metric entry to a log file</h3>
+<p>This example writes a single metric line (script name and duration) to a plain text log.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">script_name</span> <span class="o">=</span> <span class="s2">&quot;health_check.py&quot;</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;metrics.log&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">log_file</span><span class="p">:</span>
+    <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_name</span><span class="si">}</span><span class="s2"> | duration: </span><span class="si">{</span><span class="n">duration</span><span class="si">}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(no console output; file <code>metrics.log</code> contains:</strong> <code>health_check.py | duration: 1.00s</code>)</p>
+<hr />
+<h3 id="example-2-logging-a-metric-with-a-timestamp_1">📘 Example 2: Logging a metric with a timestamp</h3>
+<p>This example adds a readable timestamp to each metric entry for tracking when the operation ran.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">script_name</span> <span class="o">=</span> <span class="s2">&quot;disk_check.py&quot;</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">duration</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;metrics.log&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">log_file</span><span class="p">:</span>
+    <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">script_name</span><span class="si">}</span><span class="s2"> | duration: </span><span class="si">{</span><span class="n">duration</span><span class="si">}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(file <code>metrics.log</code> contains:</strong> <code>[2025-04-10 14:30:15] disk_check.py | duration: 0.50s</code>)</p>
+<hr />
+<h3 id="example-3-logging-success-and-failure-counts_1">📘 Example 3: Logging success and failure counts</h3>
+<p>This example tracks how many checks passed or failed and writes those counts as metrics.</p>
+<div class="highlight"><pre><span></span><code><span class="n">success_count</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">failure_count</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">script_name</span> <span class="o">=</span> <span class="s2">&quot;service_check.py&quot;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;metrics.log&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">log_file</span><span class="p">:</span>
+    <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_name</span><span class="si">}</span><span class="s2"> | success: </span><span class="si">{</span><span class="n">success_count</span><span class="si">}</span><span class="s2"> | failure: </span><span class="si">{</span><span class="n">failure_count</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(file <code>metrics.log</code> contains:</strong> <code>service_check.py | success: 8 | failure: 2</code>)</p>
+<hr />
+<h3 id="example-4-logging-metrics-with-a-severity-level_1">📘 Example 4: Logging metrics with a severity level</h3>
+<p>This example adds a severity label (INFO, WARNING, ERROR) to each metric entry for easier filtering.</p>
+<div class="highlight"><pre><span></span><code><span class="n">metric_type</span> <span class="o">=</span> <span class="s2">&quot;ERROR&quot;</span>
+<span class="n">script_name</span> <span class="o">=</span> <span class="s2">&quot;memory_monitor.py&quot;</span>
+<span class="n">error_detail</span> <span class="o">=</span> <span class="s2">&quot;memory usage above 90%&quot;</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;metrics.log&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">log_file</span><span class="p">:</span>
+    <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">metric_type</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">script_name</span><span class="si">}</span><span class="s2"> | </span><span class="si">{</span><span class="n">error_detail</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(file <code>metrics.log</code> contains:</strong> <code>[ERROR] memory_monitor.py | memory usage above 90%</code>)</p>
+<hr />
+<h3 id="example-5-writing-a-structured-metric-dictionary-to-a-log-file_1">📘 Example 5: Writing a structured metric dictionary to a log file</h3>
+<p>This example logs a full set of metrics as a dictionary string, making it easy to parse later.</p>
+<div class="highlight"><pre><span></span><code><span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;script&quot;</span><span class="p">:</span> <span class="s2">&quot;network_latency.py&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;duration_s&quot;</span><span class="p">:</span> <span class="mf">2.34</span><span class="p">,</span>
+    <span class="s2">&quot;hosts_checked&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;hosts_failed&quot;</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;metrics.log&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">log_file</span><span class="p">:</span>
+    <span class="n">log_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(file <code>metrics.log</code> contains:</strong> <code>{'script': 'network_latency.py', 'duration_s': 2.34, 'hosts_checked': 5, 'hosts_failed': 1}</code>)</p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

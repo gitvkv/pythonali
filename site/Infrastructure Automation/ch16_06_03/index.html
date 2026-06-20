@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch16_06_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 16 | Profiling and Measuring Execution Durations - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 16 | Profiling and Measuring Execution Durations";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch16_06_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch16_06_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -779,6 +779,32 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-measure-execution-time_1">⚙️ Why Measure Execution Time?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-the-time-module-for-simple-timing_1">🛠️ Using the time Module for Simple Timing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparing-timetime-vs-timeperf_counter_1">📊 Comparing time.time() vs time.perf_counter()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#profiling-multiple-sections-of-code_1">🕵️ Profiling Multiple Sections of Code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-timeit-for-repeated-measurements_1">📈 Using timeit for Repeated Measurements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-tips-for-accurate-timing_1">🧪 Practical Tips for Accurate Timing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-measuring-a-single-code-block-with-timetime_1">⏱️ Example 1: Measuring a single code block with time.time()</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-using-timeperf_counter-for-higher-precision_1">⏱️ Example 2: Using time.perf_counter() for higher precision</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-wrapping-a-function-call-with-timing-logic_1">⏱️ Example 3: Wrapping a function call with timing logic</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-comparing-two-different-approaches-to-the-same-task_1">⏱️ Example 4: Comparing two different approaches to the same task</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-running-multiple-trials-and-averaging-the-result_1">⏱️ Example 5: Running multiple trials and averaging the result</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch17_01_01/">Ch 17 | REST API Request-Response Framework Models</a>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="profiling-and-measuring-execution-durations">Profiling and Measuring Execution Durations</h1>
 <p><span class="category-tag">🏷️ Working with Dates and Time /  The Time Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When writing Python scripts, it's often important to know how long certain operations take to complete. Whether you're optimizing a slow function, comparing two approaches, or simply monitoring performance, measuring execution time helps you make informed decisions. This guide introduces simple, practical ways to profile and measure how long your code runs.</p>
@@ -1181,8 +1207,7 @@
 <li>Profile multiple sections by recording checkpoints throughout your script.</li>
 </ul>
 <p>Measuring execution time is a simple but powerful skill that helps you write faster, more efficient code. Start with the basic pattern and expand as your needs grow.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how to measure how long your Python code takes to run, helping engineers find slow parts in their programs.</p>
 <hr />
 <h3 id="example-1-measuring-a-single-code-block-with-timetime">⏱️ Example 1: Measuring a single code block with time.time()</h3>
@@ -1276,6 +1301,235 @@
 <p>📤 Output: <strong>0.0089</strong> (value will vary on your machine)</p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Best Use Case</th>
+<th>Precision</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>time.time()</code></td>
+<td>Long-running tasks (&gt; 0.1 sec)</td>
+<td>Seconds (low)</td>
+<td>Affected by system clock adjustments</td>
+</tr>
+<tr>
+<td><code>time.perf_counter()</code></td>
+<td>Short code snippets</td>
+<td>Nanoseconds (high)</td>
+<td>Includes sleep time, best for profiling</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When writing Python scripts, it's often important to know how long certain operations take to complete. Whether you're optimizing a slow function, comparing two approaches, or simply monitoring performance, measuring execution time helps you make informed decisions. This guide introduces simple, practical ways to profile and measure how long your code runs.</p>
+<hr />
+<h3 id="why-measure-execution-time_1">⚙️ Why Measure Execution Time?</h3>
+<ul>
+<li><strong>Identify bottlenecks</strong> – Find out which parts of your code are slowest.</li>
+<li><strong>Compare approaches</strong> – See if one method runs faster than another.</li>
+<li><strong>Monitor performance</strong> – Track how changes affect speed over time.</li>
+<li><strong>Set expectations</strong> – Know how long a script will take before running it.</li>
+</ul>
+<hr />
+<h3 id="using-the-time-module-for-simple-timing_1">🛠️ Using the <code>time</code> Module for Simple Timing</h3>
+<p>The <strong>time</strong> module provides a straightforward way to measure durations. The most common approach is to capture the current time before and after a block of code, then calculate the difference.</p>
+<p><strong>Basic pattern:</strong></p>
+<ul>
+<li>Call <strong>time.time()</strong> before your code starts and store it in a variable like <strong>start_time</strong>.</li>
+<li>Run the code you want to measure.</li>
+<li>Call <strong>time.time()</strong> again after the code finishes and store it as <strong>end_time</strong>.</li>
+<li>Subtract <strong>start_time</strong> from <strong>end_time</strong> to get the elapsed seconds.</li>
+</ul>
+<p><strong>Example (inline):</strong></p>
+<ul>
+<li>Import the time module.</li>
+<li>Set <strong>start = time.time()</strong> .</li>
+<li>Write a loop or function call you want to test.</li>
+<li>Set <strong>end = time.time()</strong> .</li>
+<li>Print <strong>f"Execution time: {end - start} seconds"</strong> .</li>
+</ul>
+<p><strong>Expected output (example):</strong> Execution time: 0.0342 seconds</p>
+<hr />
+<h3 id="comparing-timetime-vs-timeperf_counter_1">📊 Comparing <code>time.time()</code> vs <code>time.perf_counter()</code></h3>
+<p>For most timing needs, <strong>time.time()</strong> works well. However, for very short operations or high-precision measurements, <strong>time.perf_counter()</strong> is better because it uses the most accurate clock available on your system.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Best Use Case</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>time.time()</strong></td>
+<td>General timing for longer operations</td>
+<td>May be affected by system clock adjustments</td>
+</tr>
+<tr>
+<td><strong>time.perf_counter()</strong></td>
+<td>High-precision timing for short code</td>
+<td>Includes time during sleep, not affected by clock changes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>When to use each:</strong></p>
+<ul>
+<li>Use <strong>time.time()</strong> for scripts that run for several seconds or more.</li>
+<li>Use <strong>time.perf_counter()</strong> when measuring milliseconds or microseconds.</li>
+</ul>
+<hr />
+<h3 id="profiling-multiple-sections-of-code_1">🕵️ Profiling Multiple Sections of Code</h3>
+<p>Sometimes you want to measure several parts of a script independently. A simple approach is to store timestamps at key points and calculate differences.</p>
+<p><strong>Example approach:</strong></p>
+<ul>
+<li>Record <strong>start</strong> at the beginning of the script.</li>
+<li>After the first section, record <strong>checkpoint1</strong>.</li>
+<li>After the second section, record <strong>checkpoint2</strong>.</li>
+<li>At the end, print <strong>checkpoint1 - start</strong>, <strong>checkpoint2 - checkpoint1</strong>, and so on.</li>
+</ul>
+<p>This gives you a breakdown of where time is spent without needing any external tools.</p>
+<hr />
+<h3 id="using-timeit-for-repeated-measurements_1">📈 Using <code>timeit</code> for Repeated Measurements</h3>
+<p>The <strong>timeit</strong> module is designed specifically for timing small code snippets. It runs your code many times and returns the average duration, which helps reduce noise from system load.</p>
+<p><strong>How to use timeit (inline):</strong></p>
+<ul>
+<li>Import <strong>timeit</strong>.</li>
+<li>Define your code as a string or a callable function.</li>
+<li>Call <strong>timeit.timeit("your_code_here", number=1000)</strong> to run it 1000 times.</li>
+<li>The result is the total time for all runs. Divide by <strong>number</strong> to get the average per run.</li>
+</ul>
+<p><strong>Example (inline):</strong></p>
+<ul>
+<li>Set <strong>code_to_test = "sum(range(100))"</strong> .</li>
+<li>Call <strong>timeit.timeit(code_to_test, number=10000)</strong> .</li>
+<li>Print the result.</li>
+</ul>
+<p><strong>Expected output (example):</strong> 0.0458 seconds total for 10000 runs, or about 0.00000458 seconds per run.</p>
+<hr />
+<h3 id="practical-tips-for-accurate-timing_1">🧪 Practical Tips for Accurate Timing</h3>
+<ul>
+<li><strong>Run multiple times</strong> – A single measurement can be misleading. Run your code several times and take the average.</li>
+<li><strong>Avoid including setup code</strong> – Only time the part you care about, not imports or variable assignments.</li>
+<li><strong>Close other programs</strong> – Background processes can affect timing results.</li>
+<li><strong>Use larger workloads</strong> – For very fast code, increase the input size or repeat count to get measurable durations.</li>
+<li><strong>Be consistent</strong> – Always use the same timing function (e.g., <strong>perf_counter</strong>) when comparing results.</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li>Use <strong>time.time()</strong> or <strong>time.perf_counter()</strong> to measure execution duration in your scripts.</li>
+<li>Store start and end timestamps, then subtract to get elapsed time.</li>
+<li>For high-precision needs, prefer <strong>time.perf_counter()</strong> .</li>
+<li>Use <strong>timeit</strong> for reliable timing of small code snippets by running them many times.</li>
+<li>Profile multiple sections by recording checkpoints throughout your script.</li>
+</ul>
+<p>Measuring execution time is a simple but powerful skill that helps you write faster, more efficient code. Start with the basic pattern and expand as your needs grow.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how to measure how long your Python code takes to run, helping engineers find slow parts in their programs.</p>
+<hr />
+<h3 id="example-1-measuring-a-single-code-block-with-timetime_1">⏱️ Example 1: Measuring a single code block with time.time()</h3>
+<p>This example captures the current time before and after a task, then subtracts to find the duration.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">i</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">duration</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+</code></pre></div>
+<p>📤 Output: <strong>0.0453</strong> (value will vary on your machine)</p>
+<hr />
+<h3 id="example-2-using-timeperf_counter-for-higher-precision_1">⏱️ Example 2: Using time.perf_counter() for higher precision</h3>
+<p>This example uses a more precise timer than time.time(), which is better for short code snippets.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">*</span> <span class="n">i</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="n">duration</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+</code></pre></div>
+<p>📤 Output: <strong>0.000312</strong> (value will vary on your machine)</p>
+<hr />
+<h3 id="example-3-wrapping-a-function-call-with-timing-logic_1">⏱️ Example 3: Wrapping a function call with timing logic</h3>
+<p>This example measures how long it takes to call a function that simulates a slow operation.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">slow_calculation</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">500000</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">slow_calculation</span><span class="p">()</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+
+<span class="n">duration</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+</code></pre></div>
+<p>📤 Output: <strong>0.0221</strong> (value will vary on your machine)</p>
+<hr />
+<h3 id="example-4-comparing-two-different-approaches-to-the-same-task_1">⏱️ Example 4: Comparing two different approaches to the same task</h3>
+<p>This example measures two ways of building a string to see which is faster.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">method1_time</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">parts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="n">parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="n">method2_time</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
+</code></pre></div>
+<p>📤 Output: <strong>method1_time: 0.0089, method2_time: 0.0012</strong> (values will vary)</p>
+<hr />
+<h3 id="example-5-running-multiple-trials-and-averaging-the-result_1">⏱️ Example 5: Running multiple trials and averaging the result</h3>
+<p>This example runs the same code five times and reports the average duration for more reliable measurements.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_function</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200000</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+<span class="n">num_trials</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">total_time</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">trial</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_trials</span><span class="p">):</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">test_function</span><span class="p">()</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">total_time</span> <span class="o">=</span> <span class="n">total_time</span> <span class="o">+</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
+
+<span class="n">average_time</span> <span class="o">=</span> <span class="n">total_time</span> <span class="o">/</span> <span class="n">num_trials</span>
+</code></pre></div>
+<p>📤 Output: <strong>0.0089</strong> (value will vary on your machine)</p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>

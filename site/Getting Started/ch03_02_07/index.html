@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Getting%20Started/ch03_02_07/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 03 | Counting Occurrences of a Substring - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 03 | Counting Occurrences of a Substring";
         var mkdocs_page_input_path = "Getting Started\\ch03_02_07.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Getting%20Started/ch03_02_07/";
       </script>
     
     <!--[if lt IE 9]>
@@ -176,6 +176,32 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-counting-keyword-mentions-in-a-log-message">🔧 Example 5: Practical use — counting keyword mentions in a log message</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-count-vs-manual-loop">📊 Comparison Table: .count() vs manual loop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧠 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-count-method_1">⚙️ The .count() Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-it-works-under-the-hood_1">🕵️ How It Works Under the Hood</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-counting-methods_1">📊 Comparison Table: Counting Methods</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-examples-for-engineers_1">🛠️ Practical Examples for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-points-to-remember_1">🎯 Key Points to Remember</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-tip_1">💡 Quick Tip</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-substring-count-in-a-simple-string_1">🔧 Example 1: Basic substring count in a simple string</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-counting-a-word-in-a-sentence_1">🔧 Example 2: Counting a word in a sentence</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-counting-with-start-and-end-positions_1">🔧 Example 3: Counting with start and end positions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-counting-overlapping-vs-non-overlapping-substrings_1">🔧 Example 4: Counting overlapping vs non-overlapping substrings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-counting-keyword-mentions-in-a-log-message_1">🔧 Example 5: Practical use — counting keyword mentions in a log message</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-count-vs-manual-loop_1">📊 Comparison Table: .count() vs manual loop</a>
     </li>
     </ul>
                 </li>
@@ -1074,7 +1100,7 @@
               
                 <h1 id="counting-occurrences-of-a-substring">Counting Occurrences of a Substring</h1>
 <p><span class="category-tag">🏷️ Working with Strings In-Depth /  Common String Methods</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧠 Context Introduction</h3>
@@ -1159,8 +1185,7 @@
 <h3 id="quick-tip">💡 Quick Tip</h3>
 <p>For counting occurrences of multiple different substrings, you can combine <code>.count()</code> with a loop or dictionary. For simple single-substring counting, <code>.count()</code> is the cleanest and most readable approach.</p>
 <p><strong>Next step:</strong> Try using <code>.count()</code> on real-world strings like configuration files, log entries, or user input to get comfortable with the method.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>.count()</code> method returns the number of times a specified substring appears within a string.</p>
 <hr />
 <h3 id="example-1-basic-substring-count-in-a-simple-string">🔧 Example 1: Basic substring count in a simple string</h3>
@@ -1205,6 +1230,172 @@
 <p>📤 Output: <strong>2</strong></p>
 <hr />
 <h3 id="comparison-table-count-vs-manual-loop">📊 Comparison Table: <code>.count()</code> vs manual loop</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>.count()</code></th>
+<th>Manual loop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lines of code</td>
+<td>1</td>
+<td>5+</td>
+</tr>
+<tr>
+<td>Overlap support</td>
+<td>No</td>
+<td>Yes (if coded)</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Optimized</td>
+<td>Slower for large strings</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧠 Context Introduction</h3>
+<p>When working with text data in Python, you'll often need to find how many times a specific word, letter, or phrase appears within a larger string. This is called <strong>counting occurrences of a substring</strong>. For example, you might want to count how many times the word "error" appears in a log file, or how many times a specific character appears in a user input. Python provides a simple and efficient method for this task.</p>
+<hr />
+<h3 id="the-count-method_1">⚙️ The <code>.count()</code> Method</h3>
+<p>The primary tool for counting substring occurrences is the <strong><code>.count()</code> method</strong>. This method is available on any string object and returns an integer representing the number of non-overlapping occurrences of the substring you specify.</p>
+<p><strong>Basic syntax:</strong>
+- <strong><code>your_string.count("substring")</code></strong> — Returns the number of times the substring appears in the string.</p>
+<p><strong>Example:</strong>
+- <strong><code>"hello world hello".count("hello")</code></strong> returns <strong>2</strong>
+- <strong><code>"banana".count("na")</code></strong> returns <strong>2</strong>
+- <strong><code>"python".count("z")</code></strong> returns <strong>0</strong></p>
+<hr />
+<h3 id="how-it-works-under-the-hood_1">🕵️ How It Works Under the Hood</h3>
+<p>The <code>.count()</code> method scans the string from left to right and counts each time the exact substring appears. It does <strong>not</strong> count overlapping occurrences. For example, in the string <strong>"aaaa"</strong>, counting <strong>"aa"</strong> returns <strong>2</strong> (positions 0-1 and 2-3), not 3 (which would include overlapping positions 1-2).</p>
+<hr />
+<h3 id="comparison-table-counting-methods_1">📊 Comparison Table: Counting Methods</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+<th>Returns</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>.count("sub")</code></strong></td>
+<td>Counts non-overlapping occurrences</td>
+<td>Integer</td>
+<td>Simple frequency counting</td>
+</tr>
+<tr>
+<td><strong><code>.find("sub")</code></strong></td>
+<td>Finds first occurrence index</td>
+<td>Integer (or -1)</td>
+<td>Locating position, not counting</td>
+</tr>
+<tr>
+<td><strong><code>.index("sub")</code></strong></td>
+<td>Finds first occurrence index</td>
+<td>Integer (or error)</td>
+<td>When you need position and want exception</td>
+</tr>
+<tr>
+<td><strong>Manual loop</strong></td>
+<td>Custom counting logic</td>
+<td>Integer</td>
+<td>Complex patterns or conditions</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-examples-for-engineers_1">🛠️ Practical Examples for Engineers</h3>
+<p><strong>Example 1: Counting words in a log line</strong>
+- String: <strong>"INFO: Connection established. WARNING: Timeout. INFO: Retry successful."</strong>
+- Code: <strong><code>log_line.count("INFO")</code></strong>
+- Result: <strong>2</strong></p>
+<p><strong>Example 2: Counting specific characters</strong>
+- String: <strong>"192.168.1.1"</strong>
+- Code: <strong><code>ip_address.count(".")</code></strong>
+- Result: <strong>3</strong></p>
+<p><strong>Example 3: Case sensitivity matters</strong>
+- String: <strong>"Python is fun. python is powerful."</strong>
+- Code: <strong><code>text.count("python")</code></strong>
+- Result: <strong>1</strong> (only matches lowercase "python", not "Python")</p>
+<hr />
+<h3 id="key-points-to-remember_1">🎯 Key Points to Remember</h3>
+<ul>
+<li>The <code>.count()</code> method is <strong>case-sensitive</strong>. Use <strong><code>.lower()</code></strong> or <strong><code>.upper()</code></strong> first if you need case-insensitive counting.</li>
+<li>It counts <strong>non-overlapping</strong> occurrences only.</li>
+<li>If the substring is not found, it returns <strong>0</strong> (no error).</li>
+<li>You can also specify a <strong>start</strong> and <strong>end</strong> position to search within a slice of the string: <strong><code>text.count("sub", start, end)</code></strong></li>
+</ul>
+<p><strong>Example with start/end:</strong>
+- String: <strong>"hello world hello"</strong>
+- Code: <strong><code>text.count("hello", 6, 18)</code></strong>
+- Result: <strong>1</strong> (only searches from position 6 to 18)</p>
+<hr />
+<h3 id="quick-tip_1">💡 Quick Tip</h3>
+<p>For counting occurrences of multiple different substrings, you can combine <code>.count()</code> with a loop or dictionary. For simple single-substring counting, <code>.count()</code> is the cleanest and most readable approach.</p>
+<p><strong>Next step:</strong> Try using <code>.count()</code> on real-world strings like configuration files, log entries, or user input to get comfortable with the method.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>.count()</code> method returns the number of times a specified substring appears within a string.</p>
+<hr />
+<h3 id="example-1-basic-substring-count-in-a-simple-string_1">🔧 Example 1: Basic substring count in a simple string</h3>
+<p>This example shows how to count how many times the letter "l" appears in a word.</p>
+<div class="highlight"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2</strong></p>
+<hr />
+<h3 id="example-2-counting-a-word-in-a-sentence_1">🔧 Example 2: Counting a word in a sentence</h3>
+<p>This example demonstrates counting a full word within a longer string.</p>
+<div class="highlight"><pre><span></span><code><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;the cat and the dog and the bird&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">sentence</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;the&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>3</strong></p>
+<hr />
+<h3 id="example-3-counting-with-start-and-end-positions_1">🔧 Example 3: Counting with start and end positions</h3>
+<p>This example shows how to limit the search to a specific portion of the string.</p>
+<div class="highlight"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;banana banana banana&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;ana&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2</strong></p>
+<hr />
+<h3 id="example-4-counting-overlapping-vs-non-overlapping-substrings_1">🔧 Example 4: Counting overlapping vs non-overlapping substrings</h3>
+<p>This example shows that <code>.count()</code> does not count overlapping matches.</p>
+<div class="highlight"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;aaaa&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;aa&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2</strong></p>
+<hr />
+<h3 id="example-5-practical-use-counting-keyword-mentions-in-a-log-message_1">🔧 Example 5: Practical use — counting keyword mentions in a log message</h3>
+<p>This example shows how engineers might count how many times an error code appears in a log string.</p>
+<div class="highlight"><pre><span></span><code><span class="n">log_entry</span> <span class="o">=</span> <span class="s2">&quot;ERROR 404: Not found. ERROR 500: Server error. ERROR 404 again.&quot;</span>
+<span class="n">error_code</span> <span class="o">=</span> <span class="s2">&quot;ERROR 404&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">log_entry</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">error_code</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>2</strong></p>
+<hr />
+<h3 id="comparison-table-count-vs-manual-loop_1">📊 Comparison Table: <code>.count()</code> vs manual loop</h3>
 <table>
 <thead>
 <tr>

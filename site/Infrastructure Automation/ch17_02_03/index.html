@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch17_02_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 17 | Executing Data Submissions via requests.post() - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 17 | Executing Data Submissions via requests.post()";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch17_02_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch17_02_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -796,6 +796,38 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-handling-a-post-response-with-error-checking">🧪 Example 5: Handling a POST response with error checking</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#context-introduction_1">🌱 Context Introduction</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#what-is-a-post-request_1">⚙️ What is a POST Request?</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#the-anatomy-of-requestspost_1">🛠️ The Anatomy of requests.post()</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#data-formats-data-vs-json_1">📊 Data Formats: data vs json</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#handling-responses-from-post-requests_1">🕵️ Handling Responses from POST Requests</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#practical-example-submitting-data-to-an-api_1">🧪 Practical Example: Submitting Data to an API</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#common-mistakes-and-how-to-avoid-them_1">🧹 Common Mistakes and How to Avoid Them</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#quick-tips-for-success_1">🎯 Quick Tips for Success</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#summary_1">📚 Summary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-1-sending-a-simple-post-request-with-no-data_1">🧪 Example 1: Sending a simple POST request with no data</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-2-sending-form-encoded-data-as-a-dictionary_1">🧪 Example 2: Sending form-encoded data as a dictionary</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-3-sending-json-data-with-the-json-parameter_1">🧪 Example 3: Sending JSON data with the json parameter</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-4-sending-data-with-custom-headers_1">🧪 Example 4: Sending data with custom headers</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#example-5-handling-a-post-response-with-error-checking_1">🧪 Example 5: Handling a POST response with error checking</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
     </li>
     </ul>
                 </li>
@@ -1078,7 +1110,7 @@
               
                 <h1 id="executing-data-submissions-via-requestspost">Executing Data Submissions via requests.post()</h1>
 <p><span class="category-tag">🏷️ APIs and HTTP Requests /  The Requests Library</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🌱 Context Introduction</h3>
@@ -1245,8 +1277,7 @@
 <li>Test with dummy APIs before working with real endpoints</li>
 </ul>
 <p>You now have the foundation to start submitting data to APIs and building interactive Python scripts that communicate with web services.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>requests.post()</code> method sends data from your Python code to a web server, typically to create or update resources.</p>
 <hr />
 <h3 id="example-1-sending-a-simple-post-request-with-no-data">🧪 Example 1: Sending a simple POST request with no data</h3>
@@ -1309,6 +1340,271 @@
 <p>📤 Output: <strong>Action sent to PLC-07</strong></p>
 <hr />
 <h2 id="comparison-table">Comparison Table</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>data=</code> parameter</th>
+<th><code>json=</code> parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data format</td>
+<td>Form-encoded (key=value)</td>
+<td>JSON string</td>
+</tr>
+<tr>
+<td>Common use case</td>
+<td>HTML form submissions</td>
+<td>REST API calls</td>
+</tr>
+<tr>
+<td>Headers set automatically</td>
+<td>No (default <code>application/x-www-form-urlencoded</code>)</td>
+<td>Yes (<code>Content-Type: application/json</code>)</td>
+</tr>
+<tr>
+<td>Nested structures</td>
+<td>Not supported</td>
+<td>Fully supported</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🌱 Context Introduction</h3>
+<p>So far, you've learned how to fetch data from APIs using <strong>GET</strong> requests. But what happens when you need to <strong>send</strong> data to a server? This is where the <strong>POST</strong> method comes in. Think of it like filling out a form online and clicking "Submit" — you're sending information to be processed or stored. In Python, the <strong>requests.post()</strong> function handles this task, allowing you to submit data to APIs, create new resources, or trigger server-side actions.</p>
+<hr />
+<h3 id="what-is-a-post-request_1">⚙️ What is a POST Request?</h3>
+<p>A <strong>POST request</strong> is an HTTP method used to send data to a server. Unlike GET, which retrieves information, POST is designed for <strong>submitting</strong> data. Common use cases include:</p>
+<ul>
+<li>Creating a new user account</li>
+<li>Submitting a form response</li>
+<li>Uploading a file</li>
+<li>Sending JSON payloads to an API endpoint</li>
+</ul>
+<p>The data you send is typically included in the <strong>body</strong> of the request, not in the URL.</p>
+<hr />
+<h3 id="the-anatomy-of-requestspost_1">🛠️ The Anatomy of requests.post()</h3>
+<p>The <strong>requests.post()</strong> function accepts several key parameters:</p>
+<ul>
+<li><strong>url</strong>: The endpoint you're sending data to</li>
+<li><strong>data</strong>: The payload you want to submit (usually a dictionary)</li>
+<li><strong>json</strong>: Automatically converts a Python dictionary to JSON format</li>
+<li><strong>headers</strong>: Additional metadata like authentication tokens or content type</li>
+</ul>
+<p>A typical POST request looks like this:</p>
+<p><strong>Example script:</strong>
+- Import the requests library
+- Define the target URL
+- Create a dictionary with your data
+- Call <strong>requests.post(url, json=payload)</strong>
+- Store the response in a variable
+- Print the response status code and any returned data</p>
+<p><strong>Expected output:</strong>
+- A status code of <strong>201</strong> (Created) or <strong>200</strong> (Success)
+- A response body containing confirmation or the created resource details</p>
+<hr />
+<h3 id="data-formats-data-vs-json_1">📊 Data Formats: data vs json</h3>
+<p>When submitting data, you have two main options. Here's how they differ:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><strong>data</strong> parameter</th>
+<th><strong>json</strong> parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data format</td>
+<td>Form-encoded (like HTML forms)</td>
+<td>JSON (JavaScript Object Notation)</td>
+</tr>
+<tr>
+<td>Content-Type header</td>
+<td>application/x-www-form-urlencoded</td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Simple form submissions</td>
+<td>Modern REST APIs</td>
+</tr>
+<tr>
+<td>Python object accepted</td>
+<td>Dictionary or string</td>
+<td>Dictionary only</td>
+</tr>
+<tr>
+<td>Automatic serialization</td>
+<td>No (must encode manually)</td>
+<td>Yes (converts dict to JSON)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>When to use each:</strong>
+- Use <strong>json</strong> when working with modern REST APIs — it's cleaner and handles encoding automatically
+- Use <strong>data</strong> when submitting traditional HTML forms or when the API expects form-encoded data</p>
+<hr />
+<h3 id="handling-responses-from-post-requests_1">🕵️ Handling Responses from POST Requests</h3>
+<p>After submitting data, you'll want to verify the server's response. Key attributes to check:</p>
+<ul>
+<li><strong>response.status_code</strong>: Tells you if the request succeeded (200-299) or failed (400-500)</li>
+<li><strong>response.json()</strong>: Parses the response body as JSON (if the server returns JSON)</li>
+<li><strong>response.text</strong>: Returns the raw response as a string</li>
+<li><strong>response.headers</strong>: Shows metadata returned by the server</li>
+</ul>
+<p><strong>Common status codes for POST requests:</strong>
+- <strong>200 OK</strong>: Request succeeded, data processed
+- <strong>201 Created</strong>: New resource was successfully created
+- <strong>400 Bad Request</strong>: Server couldn't understand your data
+- <strong>401 Unauthorized</strong>: Missing or invalid authentication
+- <strong>500 Internal Server Error</strong>: Something went wrong on the server side</p>
+<hr />
+<h3 id="practical-example-submitting-data-to-an-api_1">🧪 Practical Example: Submitting Data to an API</h3>
+<p>Let's walk through a realistic scenario where you submit user data to create a new account.</p>
+<p><strong>Step-by-step script:</strong>
+- Import the requests library
+- Set the URL to a test API endpoint (like JSONPlaceholder)
+- Create a payload dictionary with keys like <strong>title</strong>, <strong>body</strong>, and <strong>userId</strong>
+- Call <strong>requests.post(url, json=payload)</strong>
+- Check if the status code indicates success
+- Print the returned data to confirm the resource was created</p>
+<p><strong>What happens behind the scenes:</strong>
+- Python converts your dictionary to a JSON string
+- The library sets the Content-Type header to application/json
+- The request is sent to the server with the data in the body
+- The server processes the data and returns a response</p>
+<p><strong>Expected output:</strong>
+- A status code of <strong>201</strong>
+- A JSON response containing your submitted data plus an <strong>id</strong> field (assigned by the server)</p>
+<hr />
+<h3 id="common-mistakes-and-how-to-avoid-them_1">🧹 Common Mistakes and How to Avoid Them</h3>
+<table>
+<thead>
+<tr>
+<th>Mistake</th>
+<th>Why it happens</th>
+<th>How to fix it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forgetting to import requests</td>
+<td>Library not loaded</td>
+<td>Add <strong>import requests</strong> at the top</td>
+</tr>
+<tr>
+<td>Using GET instead of POST</td>
+<td>Wrong HTTP method</td>
+<td>Use <strong>requests.post()</strong> instead of <strong>requests.get()</strong></td>
+</tr>
+<tr>
+<td>Sending data as a string instead of dict</td>
+<td>Incorrect formatting</td>
+<td>Use a Python dictionary for the payload</td>
+</tr>
+<tr>
+<td>Not checking the status code</td>
+<td>Assuming success</td>
+<td>Always verify with <strong>response.raise_for_status()</strong></td>
+</tr>
+<tr>
+<td>Ignoring authentication</td>
+<td>Missing credentials</td>
+<td>Include API keys in headers or use auth parameter</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="quick-tips-for-success_1">🎯 Quick Tips for Success</h3>
+<ul>
+<li>Always test with a <strong>sandbox or test API</strong> before hitting production endpoints</li>
+<li>Use <strong>response.raise_for_status()</strong> to automatically raise errors for bad responses</li>
+<li>Print the <strong>response.text</strong> if you're unsure what the server returned</li>
+<li>Check the API documentation to know whether to use <strong>data</strong> or <strong>json</strong></li>
+<li>Store sensitive data like API keys in environment variables, not in your code</li>
+</ul>
+<hr />
+<h3 id="summary_1">📚 Summary</h3>
+<ul>
+<li><strong>requests.post()</strong> is used to submit data to a server</li>
+<li>The <strong>json</strong> parameter is preferred for modern APIs</li>
+<li>Always check the <strong>status code</strong> to confirm success</li>
+<li>Use <strong>response.json()</strong> to parse the server's reply</li>
+<li>Test with dummy APIs before working with real endpoints</li>
+</ul>
+<p>You now have the foundation to start submitting data to APIs and building interactive Python scripts that communicate with web services.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>requests.post()</code> method sends data from your Python code to a web server, typically to create or update resources.</p>
+<hr />
+<h3 id="example-1-sending-a-simple-post-request-with-no-data_1">🧪 Example 1: Sending a simple POST request with no data</h3>
+<p>This example shows the most basic POST call — sending an empty request to a test endpoint.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/post&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>200</strong></p>
+<hr />
+<h3 id="example-2-sending-form-encoded-data-as-a-dictionary_1">🧪 Example 2: Sending form-encoded data as a dictionary</h3>
+<p>This example demonstrates how to send key-value pairs as form data using the <code>data</code> parameter.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;engineer42&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;devops&quot;</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/post&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;form&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'username': 'engineer42', 'role': 'devops'}</strong></p>
+<hr />
+<h3 id="example-3-sending-json-data-with-the-json-parameter_1">🧪 Example 3: Sending JSON data with the <code>json</code> parameter</h3>
+<p>This example shows how to send structured data as JSON, which is common in modern APIs.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;sensor_id&quot;</span><span class="p">:</span> <span class="s2">&quot;TEMP-001&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">23.5</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;celsius&quot;</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/post&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;json&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'sensor_id': 'TEMP-001', 'value': 23.5, 'unit': 'celsius'}</strong></p>
+<hr />
+<h3 id="example-4-sending-data-with-custom-headers_1">🧪 Example 4: Sending data with custom headers</h3>
+<p>This example demonstrates how to add custom HTTP headers, such as an API key or content type.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer abc123&quot;</span><span class="p">,</span> <span class="s2">&quot;X-Request-ID&quot;</span><span class="p">:</span> <span class="s2">&quot;req-001&quot;</span><span class="p">}</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;restart&quot;</span><span class="p">,</span> <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;server-3&quot;</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">&quot;https://httpbin.org/post&quot;</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+    <span class="n">json</span><span class="o">=</span><span class="n">payload</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;headers&quot;</span><span class="p">][</span><span class="s2">&quot;Authorization&quot;</span><span class="p">])</span>
+</code></pre></div>
+<p>📤 Output: <strong>Bearer abc123</strong></p>
+<hr />
+<h3 id="example-5-handling-a-post-response-with-error-checking_1">🧪 Example 5: Handling a POST response with error checking</h3>
+<p>This example shows a practical pattern — sending data and checking for success or failure before using the result.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;device&quot;</span><span class="p">:</span> <span class="s2">&quot;PLC-07&quot;</span><span class="p">,</span> <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="s2">&quot;calibrate&quot;</span><span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/post&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Action sent to </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;json&#39;</span><span class="p">][</span><span class="s1">&#39;device&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed with status </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Action sent to PLC-07</strong></p>
+<hr />
+<h2 id="comparison-table_1">Comparison Table</h2>
 <table>
 <thead>
 <tr>

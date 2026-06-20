@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch18_01_02/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 18 | Code Organization and Complexity Management Benefits - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 18 | Code Organization and Complexity Management Benefits";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch18_01_02.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch18_01_02/";
       </script>
     
     <!--[if lt IE 9]>
@@ -831,6 +831,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-without-oop-vs-with-oop">Comparison Table: Without OOP vs With OOP</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-code-organization-matters_1">🧠 Why Code Organization Matters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#grouping-related-data-and-behavior_1">🗂️ Grouping Related Data and Behavior</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#encapsulation-hiding-internal-complexity_1">🛡️ Encapsulation: Hiding Internal Complexity</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#reusability-through-inheritance_1">♻️ Reusability Through Inheritance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#polymorphism-one-interface-many-implementations_1">🔄 Polymorphism: One Interface, Many Implementations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-procedural-vs-object-oriented-approach_1">📊 Comparison: Procedural vs. Object-Oriented Approach</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-managing-configuration-files_1">🧩 Practical Example: Managing Configuration Files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#getting-started-with-oop-mindset_1">🚀 Getting Started with OOP Mindset</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-grouping-related-data-into-a-single-object_1">🧱 Example 1: Grouping related data into a single object</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-keeping-behavior-with-the-data-it-works-on_1">🔧 Example 2: Keeping behavior with the data it works on</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-hiding-internal-details-from-the-user_1">📦 Example 3: Hiding internal details from the user</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-reusing-code-through-inheritance_1">🔄 Example 4: Reusing code through inheritance</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-managing-multiple-related-objects-with-a-factory-pattern_1">🏭 Example 5: Managing multiple related objects with a factory pattern</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-without-oop-vs-with-oop_1">Comparison Table: Without OOP vs With OOP</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch18_01_03/">Ch 18 | Architectural Comparison (Procedural vs OOP)</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="code-organization-and-complexity-management-benefits">Code Organization and Complexity Management Benefits</h1>
 <p><span class="category-tag">🏷️ Object-Oriented Programming (OOP) Basics /  What is OOP?</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>As you begin writing more Python scripts and tools, you will quickly notice that simple, linear scripts can become difficult to manage as they grow. Without a clear structure, your code becomes a tangled web of functions and variables that is hard to read, debug, or extend. Object-Oriented Programming (OOP) offers a powerful way to organize your code, making it cleaner, more logical, and easier to maintain over time.</p>
@@ -1189,8 +1217,7 @@
 <li><strong>Create a class</strong> – Put the attributes and actions together.</li>
 </ul>
 <p>As you practice this, you will naturally start seeing opportunities to organize your code better. Over time, OOP becomes a habit that makes your Python projects cleaner, more reliable, and much easier to manage as they grow.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how OOP helps engineers group related code together and manage growing program complexity.</p>
 <hr />
 <h3 id="example-1-grouping-related-data-into-a-single-object">🧱 Example 1: Grouping related data into a single object</h3>
@@ -1323,6 +1350,292 @@
 📤 Output: <strong>2.6</strong></p>
 <hr />
 <h3 id="comparison-table-without-oop-vs-with-oop">Comparison Table: Without OOP vs With OOP</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Without OOP (Procedural)</th>
+<th>With OOP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data grouping</td>
+<td>Scattered variables</td>
+<td>Bundled in objects</td>
+</tr>
+<tr>
+<td>Code reuse</td>
+<td>Copy-paste functions</td>
+<td>Inheritance</td>
+</tr>
+<tr>
+<td>Changes impact</td>
+<td>Many functions affected</td>
+<td>One class change</td>
+</tr>
+<tr>
+<td>Adding new features</td>
+<td>Rewrite large sections</td>
+<td>Add new classes</td>
+</tr>
+<tr>
+<td>Understanding code</td>
+<td>Trace many functions</td>
+<td>Read one class</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>As you begin writing more Python scripts and tools, you will quickly notice that simple, linear scripts can become difficult to manage as they grow. Without a clear structure, your code becomes a tangled web of functions and variables that is hard to read, debug, or extend. Object-Oriented Programming (OOP) offers a powerful way to organize your code, making it cleaner, more logical, and easier to maintain over time.</p>
+<hr />
+<h3 id="why-code-organization-matters_1">🧠 Why Code Organization Matters</h3>
+<p>When you write a script that is just a list of instructions, every part of the code can potentially affect every other part. This creates a fragile system where a small change in one place can break something unexpected elsewhere. OOP helps you group related data and behaviors together, creating clear boundaries between different parts of your program.</p>
+<ul>
+<li><strong>Reduces mental load</strong> – You only need to think about one object or class at a time, rather than the entire script.</li>
+<li><strong>Improves readability</strong> – Code is structured around real-world concepts (like a Server, a Network, or a ConfigFile) instead of abstract functions.</li>
+<li><strong>Simplifies debugging</strong> – When something goes wrong, you know exactly which object or class to inspect.</li>
+<li><strong>Enables teamwork</strong> – Multiple engineers can work on different classes simultaneously without stepping on each other's code.</li>
+</ul>
+<hr />
+<h3 id="grouping-related-data-and-behavior_1">🗂️ Grouping Related Data and Behavior</h3>
+<p>In a procedural script, data and the functions that operate on that data are often scattered across the file. OOP allows you to bundle them together into a single unit called a class.</p>
+<ul>
+<li><strong>Before OOP</strong> – You might have a list of server names stored in one variable, and a separate function to ping them stored elsewhere. Keeping track of which function works with which data becomes a challenge.</li>
+<li><strong>After OOP</strong> – You create a <strong>Server</strong> class that holds the server name, IP address, and status. The class also contains methods like <strong>ping()</strong> or <strong>check_status()</strong> that operate directly on that data. Everything related to a server lives in one place.</li>
+</ul>
+<p>This grouping makes your code self-documenting. When you see a <strong>Server</strong> object, you immediately know what data it holds and what actions it can perform.</p>
+<hr />
+<h3 id="encapsulation-hiding-internal-complexity_1">🛡️ Encapsulation: Hiding Internal Complexity</h3>
+<p>One of the most practical benefits of OOP is encapsulation. This means you can hide the internal workings of a class from the outside world. Engineers using your class only need to know what it does, not how it does it.</p>
+<ul>
+<li><strong>Simplifies usage</strong> – Other parts of your code interact with an object through a clean, public interface (methods) without worrying about internal details.</li>
+<li><strong>Prevents accidental misuse</strong> – Internal variables can be protected so they are not modified directly by outside code.</li>
+<li><strong>Eases future changes</strong> – You can completely rewrite the internal logic of a class without affecting any code that uses it, as long as the public methods remain the same.</li>
+</ul>
+<p>For example, a <strong>DatabaseConnection</strong> class might have complex logic for connecting, authenticating, and handling timeouts. But an engineer using this class only needs to call <strong>connect()</strong> and <strong>disconnect()</strong>. The messy details are hidden safely inside.</p>
+<hr />
+<h3 id="reusability-through-inheritance_1">♻️ Reusability Through Inheritance</h3>
+<p>OOP allows you to create new classes based on existing ones using inheritance. This saves you from writing the same code repeatedly and helps you build on proven, tested logic.</p>
+<ul>
+<li><strong>Parent class</strong> – Contains common attributes and methods shared by multiple types of objects.</li>
+<li><strong>Child class</strong> – Inherits everything from the parent and can add or override specific behaviors.</li>
+</ul>
+<p>Consider a <strong>MonitoringTool</strong> class that has methods for logging, alerting, and reporting. You can create child classes like <strong>NetworkMonitor</strong> and <strong>ServerMonitor</strong> that inherit all the common functionality. Each child only needs to implement the specific checks unique to its domain.</p>
+<ul>
+<li><strong>Less duplication</strong> – Common code is written once in the parent class.</li>
+<li><strong>Easier updates</strong> – A change to the parent class automatically applies to all child classes.</li>
+<li><strong>Clear hierarchy</strong> – The relationship between different objects is explicit and logical.</li>
+</ul>
+<hr />
+<h3 id="polymorphism-one-interface-many-implementations_1">🔄 Polymorphism: One Interface, Many Implementations</h3>
+<p>Polymorphism allows different classes to be used interchangeably through a common interface. This makes your code flexible and adaptable to change.</p>
+<ul>
+<li><strong>Same method name, different behavior</strong> – Different classes can have a method called <strong>start()</strong> that does different things. A <strong>Service</strong> class might start a process, while a <strong>Timer</strong> class might begin a countdown.</li>
+<li><strong>Simplifies calling code</strong> – You can write a function that accepts any object with a <strong>start()</strong> method, without caring about the specific type of object.</li>
+<li><strong>Easier to extend</strong> – Adding a new type of object is simple. As long as it follows the expected interface, existing code works without modification.</li>
+</ul>
+<p>This is especially useful when you are building tools that need to handle different types of infrastructure components, like servers, containers, or network devices, all through a consistent set of commands.</p>
+<hr />
+<h3 id="comparison-procedural-vs-object-oriented-approach_1">📊 Comparison: Procedural vs. Object-Oriented Approach</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Procedural Approach</th>
+<th>Object-Oriented Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data and functions</strong></td>
+<td>Stored separately, often scattered</td>
+<td>Bundled together in classes</td>
+</tr>
+<tr>
+<td><strong>Code reuse</strong></td>
+<td>Relies on copying and pasting functions</td>
+<td>Uses inheritance and composition</td>
+</tr>
+<tr>
+<td><strong>Change impact</strong></td>
+<td>A change can affect many unrelated parts</td>
+<td>Changes are usually isolated to a class</td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Can become a long list of instructions</td>
+<td>Structured around real-world concepts</td>
+</tr>
+<tr>
+<td><strong>Team collaboration</strong></td>
+<td>Difficult to divide work cleanly</td>
+<td>Engineers can own different classes</td>
+</tr>
+<tr>
+<td><strong>Maintenance</strong></td>
+<td>Becomes harder as the script grows</td>
+<td>Scales well with project size</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-example-managing-configuration-files_1">🧩 Practical Example: Managing Configuration Files</h3>
+<p>Imagine you need to write a tool that reads, modifies, and saves configuration files for different services.</p>
+<ul>
+<li><strong>Without OOP</strong> – You might have a single script with functions like <strong>read_config()</strong>, <strong>update_config()</strong>, and <strong>save_config()</strong>. Each function needs to know the file path, format, and structure. If you add a new service with a different format, you have to modify multiple functions and add conditional logic everywhere.</li>
+<li><strong>With OOP</strong> – You create a <strong>ConfigFile</strong> class. Each service gets its own instance of this class, or you create child classes like <strong>JSONConfig</strong> and <strong>YAMLConfig</strong> that inherit from the parent. Each object knows its own file path, format, and rules. Adding a new service means creating a new object, not rewriting existing code.</li>
+</ul>
+<p>This approach keeps your code organized, reduces the risk of introducing bugs, and makes it easy to add new features later.</p>
+<hr />
+<h3 id="getting-started-with-oop-mindset_1">🚀 Getting Started with OOP Mindset</h3>
+<p>You do not need to rewrite all your existing scripts overnight. Start small by identifying parts of your code that deal with a single concept, like a server, a network interface, or a log file. Try wrapping that concept into a simple class.</p>
+<ul>
+<li><strong>Identify the noun</strong> – What real-world thing is your code about?</li>
+<li><strong>List its attributes</strong> – What data does it hold? (name, status, IP address)</li>
+<li><strong>List its actions</strong> – What can it do? (ping, restart, check status)</li>
+<li><strong>Create a class</strong> – Put the attributes and actions together.</li>
+</ul>
+<p>As you practice this, you will naturally start seeing opportunities to organize your code better. Over time, OOP becomes a habit that makes your Python projects cleaner, more reliable, and much easier to manage as they grow.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how OOP helps engineers group related code together and manage growing program complexity.</p>
+<hr />
+<h3 id="example-1-grouping-related-data-into-a-single-object_1">🧱 Example 1: Grouping related data into a single object</h3>
+<p>This example demonstrates how a class bundles multiple pieces of data into one reusable unit.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Motor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">temperature</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span> <span class="o">=</span> <span class="n">temperature</span>
+
+<span class="n">pump_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="mi">1500</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
+<span class="n">fan_motor</span> <span class="o">=</span> <span class="n">Motor</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pump_motor</span><span class="o">.</span><span class="n">speed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fan_motor</span><span class="o">.</span><span class="n">temperature</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>1500</strong><br />
+📤 Output: <strong>45</strong></p>
+<hr />
+<h3 id="example-2-keeping-behavior-with-the-data-it-works-on_1">🔧 Example 2: Keeping behavior with the data it works on</h3>
+<p>This example shows how methods inside a class keep related actions close to the data.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TemperatureSensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">current_temp</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_temp</span> <span class="o">=</span> <span class="n">current_temp</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">convert_to_fahrenheit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_temp</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">32</span>
+
+<span class="n">sensor</span> <span class="o">=</span> <span class="n">TemperatureSensor</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">sensor</span><span class="o">.</span><span class="n">convert_to_fahrenheit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>77.0</strong></p>
+<hr />
+<h3 id="example-3-hiding-internal-details-from-the-user_1">📦 Example 3: Hiding internal details from the user</h3>
+<p>This example demonstrates encapsulation — keeping internal logic private and exposing only what engineers need.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Battery</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capacity</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__charge_level</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__capacity</span> <span class="o">=</span> <span class="n">capacity</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">use_energy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__charge_level</span> <span class="o">&gt;=</span> <span class="n">amount</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__charge_level</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__charge_level</span> <span class="o">-</span> <span class="n">amount</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Insufficient charge&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_charge_percent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__charge_level</span>
+
+<span class="n">battery</span> <span class="o">=</span> <span class="n">Battery</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">battery</span><span class="o">.</span><span class="n">use_energy</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">battery</span><span class="o">.</span><span class="n">get_charge_percent</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>-200</strong></p>
+<hr />
+<h3 id="example-4-reusing-code-through-inheritance_1">🔄 Example 4: Reusing code through inheritance</h3>
+<p>This example shows how a child class inherits attributes and methods from a parent class, reducing duplication.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Device</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device_id</span> <span class="o">=</span> <span class="n">device_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_on</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">turn_on</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_on</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Pump</span><span class="p">(</span><span class="n">Device</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device_id</span><span class="p">,</span> <span class="n">flow_rate</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">device_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flow_rate</span> <span class="o">=</span> <span class="n">flow_rate</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_flow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">flow_rate</span>
+
+<span class="n">water_pump</span> <span class="o">=</span> <span class="n">Pump</span><span class="p">(</span><span class="s2">&quot;P-001&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">water_pump</span><span class="o">.</span><span class="n">turn_on</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">water_pump</span><span class="o">.</span><span class="n">is_on</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">water_pump</span><span class="o">.</span><span class="n">get_flow</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>True</strong><br />
+📤 Output: <strong>50</strong></p>
+<hr />
+<h3 id="example-5-managing-multiple-related-objects-with-a-factory-pattern_1">🏭 Example 5: Managing multiple related objects with a factory pattern</h3>
+<p>This example shows how OOP helps engineers create and manage many similar objects in an organized way.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Sensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">unit</span> <span class="o">=</span> <span class="n">unit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">readings</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_reading</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">readings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">average_reading</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">readings</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">reading</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">readings</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">reading</span>
+        <span class="k">return</span> <span class="n">total</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">readings</span><span class="p">)</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SensorManager</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sensors</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_sensor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">unit</span><span class="p">):</span>
+        <span class="n">new_sensor</span> <span class="o">=</span> <span class="n">Sensor</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">unit</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sensors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_sensor</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_sensor</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_all_averages</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">averages</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">sensor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sensors</span><span class="p">:</span>
+            <span class="n">averages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sensor</span><span class="o">.</span><span class="n">average_reading</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">averages</span>
+
+<span class="n">manager</span> <span class="o">=</span> <span class="n">SensorManager</span><span class="p">()</span>
+<span class="n">temp_sensor</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">add_sensor</span><span class="p">(</span><span class="s2">&quot;Temperature&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">pressure_sensor</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">add_sensor</span><span class="p">(</span><span class="s2">&quot;Pressure&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+
+<span class="n">temp_sensor</span><span class="o">.</span><span class="n">add_reading</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span>
+<span class="n">temp_sensor</span><span class="o">.</span><span class="n">add_reading</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+<span class="n">temp_sensor</span><span class="o">.</span><span class="n">add_reading</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+<span class="n">pressure_sensor</span><span class="o">.</span><span class="n">add_reading</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">pressure_sensor</span><span class="o">.</span><span class="n">add_reading</span><span class="p">(</span><span class="mf">2.7</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">temp_sensor</span><span class="o">.</span><span class="n">average_reading</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pressure_sensor</span><span class="o">.</span><span class="n">average_reading</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>23.0</strong><br />
+📤 Output: <strong>2.6</strong></p>
+<hr />
+<h3 id="comparison-table-without-oop-vs-with-oop_1">Comparison Table: Without OOP vs With OOP</h3>
 <table>
 <thead>
 <tr>

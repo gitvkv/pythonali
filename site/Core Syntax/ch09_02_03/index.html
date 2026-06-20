@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Core%20Syntax/ch09_02_03/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 09 | Deleting Keys (del vs pop) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 09 | Deleting Keys (del vs pop)";
         var mkdocs_page_input_path = "Core Syntax\\ch09_02_03.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Core%20Syntax/ch09_02_03/";
       </script>
     
     <!--[if lt IE 9]>
@@ -418,6 +418,28 @@
     <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-processing-and-removing-items">🔧 Example 5: Practical use — processing and removing items</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-del-vs-pop_1">Comparison Table: del vs pop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-del-statement_1">⚙️ The del Statement</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-pop-method_1">🛠️ The pop Method</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-del-vs-pop_2">📊 Comparison Table: del vs pop</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#choosing-the-right-tool_1">🕵️ Choosing the Right Tool</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-using-del-to-remove-a-key_1">🔧 Example 1: Using del to remove a key</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-using-pop-to-remove-and-return-a-value_1">🔧 Example 2: Using pop to remove and return a value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-using-pop-with-a-default-value_1">🔧 Example 3: Using pop with a default value</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-del-raises-keyerror-for-missing-keys_1">🔧 Example 4: del raises KeyError for missing keys</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-practical-use-processing-and-removing-items_1">🔧 Example 5: Practical use — processing and removing items</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-del-vs-pop_3">Comparison Table: del vs pop</a>
     </li>
     </ul>
                 </li>
@@ -1070,7 +1092,7 @@
               
                 <h1 id="deleting-keys-del-vs-pop">Deleting Keys (del vs pop)</h1>
 <p><span class="category-tag">🏷️ Dictionaries /  Modifying Dictionaries</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When working with dictionaries in Python, you'll often need to remove key-value pairs. Two common ways to do this are using the <strong>del</strong> statement and the <strong>pop</strong> method. While both remove a key from a dictionary, they behave differently—especially when the key doesn't exist. Understanding these differences helps you write cleaner, safer code.</p>
@@ -1165,8 +1187,7 @@ Using the same <strong>server_config</strong> dictionary:<br />
 <hr />
 <h3 id="summary">✅ Summary</h3>
 <p>Both <strong>del</strong> and <strong>pop</strong> are essential tools for modifying dictionaries. <strong>del</strong> is simple and direct—perfect when you're certain the key exists. <strong>pop</strong> is more flexible, letting you retrieve values and handle missing keys gracefully. By choosing the right method for each situation, you keep your code robust and easy to read.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Deleting keys from a dictionary can be done with <code>del</code> (permanent removal) or <code>pop</code> (removal with return value).</p>
 <h3 id="example-1-using-del-to-remove-a-key">🔧 Example 1: Using del to remove a key</h3>
 <p>Removes a key-value pair permanently from the dictionary.</p>
@@ -1216,6 +1237,186 @@ Using the same <strong>server_config</strong> dictionary:<br />
 <p>📤 Output: <strong>Server cost: $5000 Remaining budget: $3500</strong></p>
 <hr />
 <h3 id="comparison-table-del-vs-pop_1">Comparison Table: del vs pop</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>del</th>
+<th>pop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Returns removed value</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Requires default value</td>
+<td>No</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Raises KeyError if missing</td>
+<td>Yes</td>
+<td>Yes (unless default given)</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Permanent removal</td>
+<td>Removal with value capture</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When working with dictionaries in Python, you'll often need to remove key-value pairs. Two common ways to do this are using the <strong>del</strong> statement and the <strong>pop</strong> method. While both remove a key from a dictionary, they behave differently—especially when the key doesn't exist. Understanding these differences helps you write cleaner, safer code.</p>
+<hr />
+<h3 id="the-del-statement_1">⚙️ The <strong>del</strong> Statement</h3>
+<p>The <strong>del</strong> statement directly removes a key-value pair from a dictionary. It's straightforward but unforgiving.</p>
+<ul>
+<li><strong>Syntax</strong>: <strong>del dictionary_name[key]</strong></li>
+<li><strong>Behavior</strong>: Permanently deletes the key and its value from the dictionary.</li>
+<li><strong>Error handling</strong>: If the key does not exist, Python raises a <strong>KeyError</strong> and your program stops.</li>
+</ul>
+<p><strong>Example</strong>:<br />
+You have a dictionary named <strong>server_config</strong> with keys <strong>'host'</strong>, <strong>'port'</strong>, and <strong>'protocol'</strong>.<br />
+Using <strong>del server_config['protocol']</strong> removes that entry.<br />
+If you try <strong>del server_config['timeout']</strong> and <strong>'timeout'</strong> doesn't exist, you get a <strong>KeyError</strong>.</p>
+<p><strong>When to use it</strong>:<br />
+- You are absolutely sure the key exists.<br />
+- You don't need the removed value for anything else.<br />
+- You want the simplest, fastest removal.</p>
+<hr />
+<h3 id="the-pop-method_1">🛠️ The <strong>pop</strong> Method</h3>
+<p>The <strong>pop</strong> method removes a key and returns its value. It gives you more control, especially when dealing with missing keys.</p>
+<ul>
+<li><strong>Syntax</strong>: <strong>dictionary.pop(key, default_value)</strong></li>
+<li><strong>Behavior</strong>: Removes the key and returns the associated value.</li>
+<li><strong>Error handling</strong>: If the key is missing and you provide a <strong>default_value</strong>, that value is returned instead of an error. If no default is given and the key is missing, a <strong>KeyError</strong> is raised.</li>
+</ul>
+<p><strong>Example</strong>:<br />
+Using the same <strong>server_config</strong> dictionary:<br />
+<strong>server_config.pop('protocol')</strong> removes <strong>'protocol'</strong> and returns its value (e.g., <strong>'https'</strong>).<br />
+<strong>server_config.pop('timeout', 'not found')</strong> returns <strong>'not found'</strong> without crashing, even though <strong>'timeout'</strong> doesn't exist.</p>
+<p><strong>When to use it</strong>:<br />
+- You need to use the removed value later in your code.<br />
+- You want to safely handle cases where the key might not exist.<br />
+- You prefer a single line that both removes and retrieves data.</p>
+<hr />
+<h3 id="comparison-table-del-vs-pop_2">📊 Comparison Table: del vs pop</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><strong>del</strong></th>
+<th><strong>pop</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Returns the removed value</td>
+<td>❌ No</td>
+<td>✅ Yes</td>
+</tr>
+<tr>
+<td>Requires key to exist</td>
+<td>✅ Yes (or error)</td>
+<td>❌ No (if default provided)</td>
+</tr>
+<tr>
+<td>Handles missing keys safely</td>
+<td>❌ Raises KeyError</td>
+<td>✅ Can return default value</td>
+</tr>
+<tr>
+<td>Use case</td>
+<td>Simple removal when key is guaranteed</td>
+<td>Removal with value retrieval or safe fallback</td>
+</tr>
+<tr>
+<td>Syntax style</td>
+<td>Statement</td>
+<td>Method (needs parentheses)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="choosing-the-right-tool_1">🕵️ Choosing the Right Tool</h3>
+<p>Your choice depends on what you need from the operation:</p>
+<ul>
+<li><strong>Use del when</strong>:  </li>
+<li>You are cleaning up known, temporary keys.  </li>
+<li>You don't care about the value being removed.  </li>
+<li>
+<p>You want the most minimal code for removal.</p>
+</li>
+<li>
+<p><strong>Use pop when</strong>:  </p>
+</li>
+<li>You need to capture the value before it's gone (e.g., logging, moving data).  </li>
+<li>You are unsure if the key exists and want to avoid crashes.  </li>
+<li>You want a single expression that removes and returns in one step.</li>
+</ul>
+<p><strong>Quick rule of thumb</strong>: If you just want something gone, use <strong>del</strong>. If you want something gone <em>and</em> need to know what it was, use <strong>pop</strong>.</p>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<p>Both <strong>del</strong> and <strong>pop</strong> are essential tools for modifying dictionaries. <strong>del</strong> is simple and direct—perfect when you're certain the key exists. <strong>pop</strong> is more flexible, letting you retrieve values and handle missing keys gracefully. By choosing the right method for each situation, you keep your code robust and easy to read.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Deleting keys from a dictionary can be done with <code>del</code> (permanent removal) or <code>pop</code> (removal with return value).</p>
+<h3 id="example-1-using-del-to-remove-a-key_1">🔧 Example 1: Using del to remove a key</h3>
+<p>Removes a key-value pair permanently from the dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineer_scores</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">78</span><span class="p">}</span>
+<span class="k">del</span> <span class="n">engineer_scores</span><span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_scores</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>{'Alice': 85, 'Charlie': 78}</strong></p>
+<hr />
+<h3 id="example-2-using-pop-to-remove-and-return-a-value_1">🔧 Example 2: Using pop to remove and return a value</h3>
+<p>Removes a key-value pair and returns the value for use.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineer_scores</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">78</span><span class="p">}</span>
+<span class="n">removed_score</span> <span class="o">=</span> <span class="n">engineer_scores</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">removed_score</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_scores</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>92 {'Alice': 85, 'Charlie': 78}</strong></p>
+<hr />
+<h3 id="example-3-using-pop-with-a-default-value_1">🔧 Example 3: Using pop with a default value</h3>
+<p>Prevents KeyError by providing a default value if the key doesn't exist.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineer_scores</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">92</span><span class="p">}</span>
+<span class="n">removed_score</span> <span class="o">=</span> <span class="n">engineer_scores</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">removed_score</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_scores</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>0 {'Alice': 85, 'Bob': 92}</strong></p>
+<hr />
+<h3 id="example-4-del-raises-keyerror-for-missing-keys_1">🔧 Example 4: del raises KeyError for missing keys</h3>
+<p>Shows that del cannot handle missing keys without extra code.</p>
+<div class="highlight"><pre><span></span><code><span class="n">engineer_scores</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">92</span><span class="p">}</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">del</span> <span class="n">engineer_scores</span><span class="p">[</span><span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Key &#39;Charlie&#39; not found&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">engineer_scores</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Key 'Charlie' not found {'Alice': 85, 'Bob': 92}</strong></p>
+<hr />
+<h3 id="example-5-practical-use-processing-and-removing-items_1">🔧 Example 5: Practical use — processing and removing items</h3>
+<p>Uses pop to extract and process a specific value from a dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">project_budget</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;server&quot;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="s2">&quot;licenses&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span> <span class="s2">&quot;training&quot;</span><span class="p">:</span> <span class="mi">1500</span><span class="p">}</span>
+<span class="n">server_cost</span> <span class="o">=</span> <span class="n">project_budget</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;server&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">total_remaining</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">project_budget</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Server cost: $</span><span class="si">{</span><span class="n">server_cost</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Remaining budget: $</span><span class="si">{</span><span class="n">total_remaining</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Server cost: $5000 Remaining budget: $3500</strong></p>
+<hr />
+<h3 id="comparison-table-del-vs-pop_3">Comparison Table: del vs pop</h3>
 <table>
 <thead>
 <tr>

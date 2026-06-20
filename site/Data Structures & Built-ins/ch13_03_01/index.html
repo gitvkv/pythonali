@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch13_03_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 13 | Successful Execution Blocks with else - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 13 | Successful Execution Blocks with else";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch13_03_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch13_03_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -615,6 +615,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-try-except-vs-try-except-else">📊 Comparison: try-except vs try-except-else</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">📝 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-the-else-clause-in-try-except_1">⚙️ What is the else Clause in try-except?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-structure_1">🛠️ Basic Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-with-vs-without-else_1">📊 Comparison: With vs Without else</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#real-world-example-reading-a-configuration-file_1">🕵️ Real-World Example: Reading a Configuration File</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-engineers-love-the-else-clause_1">✅ Why Engineers Love the else Clause</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#common-pitfall-to-avoid_1">⚠️ Common Pitfall to Avoid</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quick-summary_1">🧠 Quick Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-basic-else-block-execution_1">🧪 Example 1: Basic else block execution</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-else-block-skipped-when-exception-occurs_1">🧪 Example 2: else block skipped when exception occurs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-else-block-with-multiple-except-clauses_1">🧪 Example 3: else block with multiple except clauses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-else-block-with-file-operations_1">🧪 Example 4: else block with file operations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-else-block-with-dictionary-key-lookup_1">🧪 Example 5: else block with dictionary key lookup</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-try-except-vs-try-except-else_1">📊 Comparison: try-except vs try-except-else</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch13_03_02/">Ch 13 | Guaranteed Cleanup Execution via finally</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="successful-execution-blocks-with-else">Successful Execution Blocks with else</h1>
 <p><span class="category-tag">🏷️ Error Handling and Exceptions /  Else and Finally Clauses</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">📝 Context Introduction</h3>
@@ -1167,8 +1195,7 @@
 <li>It makes your code cleaner, safer, and easier to understand.</li>
 </ul>
 <p>Use else whenever you have code that should only execute after a successful try block — it's a small addition that brings big improvements to code quality.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>else</code> block in a try-except structure runs only when no exception occurs in the try block.</p>
 <h3 id="example-1-basic-else-block-execution">🧪 Example 1: Basic else block execution</h3>
 <p>This example shows the else block running when the try block succeeds without errors.</p>
@@ -1232,6 +1259,196 @@
 <p>📤 Output: <strong>Host configured as: localhost</strong></p>
 <hr />
 <h3 id="comparison-try-except-vs-try-except-else">📊 Comparison: try-except vs try-except-else</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>try-except</th>
+<th>try-except-else</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No exception occurs</td>
+<td>Code after except runs</td>
+<td>else block runs</td>
+</tr>
+<tr>
+<td>Exception occurs</td>
+<td>except block runs</td>
+<td>except block runs, else skipped</td>
+</tr>
+<tr>
+<td>Intent</td>
+<td>Handle errors anywhere</td>
+<td>Separate success logic from error handling</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>Error handling mixed with success code</td>
+<td>Clear separation of success and error paths</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">📝 Context Introduction</h3>
+<p>When writing Python code, you often need to handle situations where things might go wrong. The <strong>try-except</strong> block is your safety net. But what if you want to run some code <strong>only when everything goes perfectly</strong> — no exceptions raised at all? That's exactly what the <strong>else clause</strong> is for. It gives you a clean way to separate "success path" logic from "error handling" logic, making your code more readable and intentional.</p>
+<hr />
+<h3 id="what-is-the-else-clause-in-try-except_1">⚙️ What is the else Clause in try-except?</h3>
+<p>The <strong>else block</strong> is an optional part of a try-except structure. It runs <strong>only if no exception was raised</strong> in the try block. If an exception occurs, the else block is skipped entirely.</p>
+<ul>
+<li>The else block must come after all except blocks.</li>
+<li>It runs only on successful execution of the try block.</li>
+<li>It helps you keep the try block minimal — just the risky operation — and move the "happy path" code into the else block.</li>
+</ul>
+<hr />
+<h3 id="basic-structure_1">🛠️ Basic Structure</h3>
+<p>A typical try-except-else block looks like this:</p>
+<p><strong>try:</strong>
+  <em>Code that might raise an exception</em></p>
+<p><strong>except SomeError:</strong>
+  <em>Code that runs if an exception occurs</em></p>
+<p><strong>else:</strong>
+  <em>Code that runs only if no exception occurred in the try block</em></p>
+<p>The flow is simple: Python attempts the try block. If it succeeds, the else block runs. If it fails, the except block runs and the else block is skipped.</p>
+<hr />
+<h3 id="comparison-with-vs-without-else_1">📊 Comparison: With vs Without else</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Without else (mixing success logic)</th>
+<th>With else (clean separation)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Try block content</strong></td>
+<td>Contains both risky operation and success logic</td>
+<td>Contains only the risky operation</td>
+</tr>
+<tr>
+<td><strong>Readability</strong></td>
+<td>Harder to see what is "normal" vs "error"</td>
+<td>Clear separation of concerns</td>
+</tr>
+<tr>
+<td><strong>Maintenance</strong></td>
+<td>Easy to accidentally catch exceptions from success logic</td>
+<td>Success logic runs outside the try block</td>
+</tr>
+<tr>
+<td><strong>Intent</strong></td>
+<td>Mixed — hard to tell what you expect to happen</td>
+<td>Explicit — "this runs only on success"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="real-world-example-reading-a-configuration-file_1">🕵️ Real-World Example: Reading a Configuration File</h3>
+<p>Imagine you need to read a configuration file and then process its contents. The file might not exist, but if it does, you want to parse it.</p>
+<p><strong>try:</strong>
+  <em>Open and read the configuration file</em></p>
+<p><strong>except FileNotFoundError:</strong>
+  <em>Log a warning and use default settings</em></p>
+<p><strong>else:</strong>
+  <em>Parse the file contents and apply the configuration</em></p>
+<p>Notice how the else block keeps the "happy path" separate. If the file is read successfully, you parse it. If the file is missing, you handle that gracefully and skip parsing.</p>
+<hr />
+<h3 id="why-engineers-love-the-else-clause_1">✅ Why Engineers Love the else Clause</h3>
+<ul>
+<li><strong>Clarity:</strong> It makes your code self-documenting. Anyone reading it immediately knows "this code runs only when everything went well."</li>
+<li><strong>Safety:</strong> Code inside the else block is not inside the try block, so it won't accidentally catch exceptions that shouldn't be caught.</li>
+<li><strong>Minimalism:</strong> You keep the try block as small as possible, reducing the risk of catching unexpected errors.</li>
+<li><strong>Intentionality:</strong> It forces you to think about what "success" means for each operation.</li>
+</ul>
+<hr />
+<h3 id="common-pitfall-to-avoid_1">⚠️ Common Pitfall to Avoid</h3>
+<p>A frequent mistake is putting code in the try block that doesn't need to be there. For example, if you open a file successfully and then process its data inside the try block, any error in processing will be caught by your except block — even if the error has nothing to do with file access. Using else prevents this.</p>
+<p><strong>Bad practice:</strong>
+  <em>try block contains both file opening and data processing</em></p>
+<p><strong>Good practice:</strong>
+  <em>try block contains only file opening</em>
+  <em>else block contains data processing</em></p>
+<hr />
+<h3 id="quick-summary_1">🧠 Quick Summary</h3>
+<ul>
+<li>The <strong>else clause</strong> runs only when the try block completes without any exception.</li>
+<li>It comes after all except blocks and before any finally block.</li>
+<li>It helps separate "success logic" from "error handling logic."</li>
+<li>It makes your code cleaner, safer, and easier to understand.</li>
+</ul>
+<p>Use else whenever you have code that should only execute after a successful try block — it's a small addition that brings big improvements to code quality.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>else</code> block in a try-except structure runs only when no exception occurs in the try block.</p>
+<h3 id="example-1-basic-else-block-execution_1">🧪 Example 1: Basic else block execution</h3>
+<p>This example shows the else block running when the try block succeeds without errors.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Division was successful&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Division was successful</strong></p>
+<hr />
+<h3 id="example-2-else-block-skipped-when-exception-occurs_1">🧪 Example 2: else block skipped when exception occurs</h3>
+<p>This example shows the else block being skipped because an exception is raised in the try block.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cannot divide by zero&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Division was successful&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Cannot divide by zero</strong></p>
+<hr />
+<h3 id="example-3-else-block-with-multiple-except-clauses_1">🧪 Example 3: else block with multiple except clauses</h3>
+<p>This example demonstrates the else block running only when no exception matches any except clause.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;42&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not a valid number&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wrong type provided&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number conversion successful&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Number conversion successful</strong></p>
+<hr />
+<h3 id="example-4-else-block-with-file-operations_1">🧪 Example 4: else block with file operations</h3>
+<p>This example shows the else block used to process data after a file opens successfully.</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File contents:&quot;</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>File contents: [contents of data.txt]</strong></p>
+<hr />
+<h3 id="example-5-else-block-with-dictionary-key-lookup_1">🧪 Example 5: else block with dictionary key lookup</h3>
+<p>This example demonstrates the else block running after a successful dictionary key access.</p>
+<div class="highlight"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="s2">&quot;port&quot;</span><span class="p">:</span> <span class="mi">8080</span><span class="p">}</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">host_value</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;host&quot;</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Host key not found in config&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Host configured as:&quot;</span><span class="p">,</span> <span class="n">host_value</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Host configured as: localhost</strong></p>
+<hr />
+<h3 id="comparison-try-except-vs-try-except-else_1">📊 Comparison: try-except vs try-except-else</h3>
 <table>
 <thead>
 <tr>

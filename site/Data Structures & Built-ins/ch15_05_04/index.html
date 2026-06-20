@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch15_05_04/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 15 | Extracting Interface Names from show interface - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 15 | Extracting Interface Names from show interface";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch15_05_04.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch15_05_04/";
       </script>
     
     <!--[if lt IE 9]>
@@ -731,6 +731,36 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">📊 Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🎯 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#the-challenge_1">⚙️ The Challenge</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-the-regex-pattern_1">🕵️ Building the Regex Pattern</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-with-vs-without-regex_1">📊 Comparison: With vs. Without Regex</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-python-example_1">🛠️ Practical Python Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#expected-output_1">📋 Expected Output</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#handling-different-interface-formats_1">🔄 Handling Different Interface Formats</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways_1">✅ Key Takeaways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">📚 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-finding-a-single-interface-name_1">🔧 Example 1: Finding a single interface name</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-extracting-multiple-interface-names_1">🔧 Example 2: Extracting multiple interface names</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-handling-different-interface-types_1">🔧 Example 3: Handling different interface types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-extracting-full-interface-names-with-status_1">🔧 Example 4: Extracting full interface names with status</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-extracting-only-up-interfaces_1">🔧 Example 5: Extracting only up interfaces</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">📊 Comparison Table</a>
+    </li>
     </ul>
                 </li>
     </ul>
@@ -1078,7 +1108,7 @@
               
                 <h1 id="extracting-interface-names-from-show-interface">Extracting Interface Names from show interface</h1>
 <p><span class="category-tag">🏷️ Regular Expressions (Regex) /  Practical Engineering Examples</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🎯 Context Introduction</h3>
@@ -1198,8 +1228,7 @@
 - Compare interface lists across multiple devices
 - Generate reports showing which interfaces are up or down</p>
 <p>Regular expressions are a powerful tool in any engineer's toolkit, and mastering this simple extraction pattern opens the door to much more advanced text parsing and automation workflows.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>This topic shows how to use regular expressions to extract interface names from Cisco "show interface" command output.</p>
 <hr />
 <h3 id="example-1-finding-a-single-interface-name">🔧 Example 1: Finding a single interface name</h3>
@@ -1278,6 +1307,245 @@
 <p>📤 Output: <strong>['GigabitEthernet0/1', 'GigabitEthernet0/3', 'FastEthernet0/1']</strong></p>
 <hr />
 <h3 id="comparison-table">📊 Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Pattern Used</th>
+<th>What It Extracts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Example 1</td>
+<td><code>GigabitEthernet\d+/\d+</code></td>
+<td>Single interface name</td>
+</tr>
+<tr>
+<td>Example 2</td>
+<td><code>GigabitEthernet\d+/\d+</code></td>
+<td>All interface names</td>
+</tr>
+<tr>
+<td>Example 3</td>
+<td><code>(FastEthernet\|GigabitEthernet)\d+/\d+</code></td>
+<td>Interface type only</td>
+</tr>
+<tr>
+<td>Example 4</td>
+<td><code>(GigabitEthernet\d+/\d+) is (up\|down)</code></td>
+<td>Interface name + status</td>
+</tr>
+<tr>
+<td>Example 5</td>
+<td><code>(GigabitEthernet\d+/\d+\|FastEthernet\d+/\d+) is up</code></td>
+<td>Only up interfaces</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🎯 Context Introduction</h3>
+<p>When working with network devices, one of the most common tasks is parsing the output of <strong>show interface</strong> commands. Engineers often need to extract just the interface names from a large block of text to build inventories, check statuses, or feed into automation scripts. Regular expressions provide a clean and efficient way to pull out exactly what you need without manually scanning through pages of output.</p>
+<hr />
+<h3 id="the-challenge_1">⚙️ The Challenge</h3>
+<p>A typical <strong>show interface</strong> output contains many lines, but the interface name always appears at the beginning of its section, followed by status and statistics. The goal is to isolate only the lines that contain interface names like <strong>GigabitEthernet0/1</strong>, <strong>FastEthernet0/0</strong>, <strong>Serial1/0</strong>, or <strong>Loopback0</strong>.</p>
+<p>Key observations about interface name lines:
+- They always start at the beginning of a line
+- They contain a combination of letters, numbers, and slashes
+- They are followed by either <strong>is up</strong> or <strong>is administratively down</strong>
+- They never contain leading spaces or indentation</p>
+<hr />
+<h3 id="building-the-regex-pattern_1">🕵️ Building the Regex Pattern</h3>
+<p>To match interface names, we need a pattern that captures the following structure:</p>
+<ul>
+<li><strong>Start of line</strong> – Use the caret symbol <strong>^</strong></li>
+<li><strong>Interface type</strong> – A word like <strong>GigabitEthernet</strong>, <strong>FastEthernet</strong>, <strong>Serial</strong>, <strong>Loopback</strong>, <strong>Vlan</strong>, or <strong>Tunnel</strong></li>
+<li><strong>Interface number</strong> – Digits, possibly with a slash separator like <strong>0/1</strong> or <strong>1/0/0</strong></li>
+<li><strong>Followed by space and "is"</strong> – This confirms we are on the correct line</li>
+</ul>
+<p>The resulting pattern looks like this: <strong>^(\w+\d+/\d+|\w+\d+)\s+is</strong></p>
+<p>Breaking this down:
+- <strong>^</strong> – Anchors the match to the beginning of the line
+- <strong>\w+</strong> – Matches one or more word characters (letters and digits) for the interface type
+- <strong>\d+/\d+</strong> – Matches a number, slash, and another number (e.g., <strong>0/1</strong>)
+- <strong>|</strong> – The OR operator to handle interfaces without a slash (e.g., <strong>Loopback0</strong>)
+- <strong>\w+\d+</strong> – Matches a word followed by digits (e.g., <strong>Loopback0</strong>)
+- <strong>\s+is</strong> – Ensures the line continues with spaces and the word <strong>is</strong></p>
+<hr />
+<h3 id="comparison-with-vs-without-regex_1">📊 Comparison: With vs. Without Regex</h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Effort</th>
+<th>Accuracy</th>
+<th>Flexibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Manual scanning</td>
+<td>High – must read every line</td>
+<td>Low – prone to human error</td>
+<td>None – must redo for each device</td>
+</tr>
+<tr>
+<td>String splitting</td>
+<td>Medium – requires multiple steps</td>
+<td>Medium – misses edge cases</td>
+<td>Low – breaks on different formats</td>
+</tr>
+<tr>
+<td>Regex pattern matching</td>
+<td>Low – one pattern does all</td>
+<td>High – captures all variations</td>
+<td>High – works across vendors</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="practical-python-example_1">🛠️ Practical Python Example</h3>
+<p>Here is how you would use Python with the <strong>re</strong> module to extract interface names from a <strong>show interface</strong> output:</p>
+<ol>
+<li><strong>Import the re module</strong> – This gives you access to regex functions</li>
+<li><strong>Store the show interface output</strong> – As a multi-line string variable</li>
+<li><strong>Compile the pattern</strong> – Using <strong>re.compile()</strong> for better performance</li>
+<li><strong>Find all matches</strong> – Using <strong>findall()</strong> to return a list of interface names</li>
+<li><strong>Print or store the results</strong> – For further processing</li>
+</ol>
+<p>The script would:
+- Read the <strong>show interface</strong> output from a file or variable
+- Apply the regex pattern <strong>^(\w+\d+/\d+|\w+\d+)\s+is</strong>
+- Return a clean list like: <strong>['GigabitEthernet0/0', 'GigabitEthernet0/1', 'Serial1/0', 'Loopback0']</strong></p>
+<hr />
+<h3 id="expected-output_1">📋 Expected Output</h3>
+<p>After running the extraction, you would see a list similar to this:</p>
+<ul>
+<li><strong>GigabitEthernet0/0</strong></li>
+<li><strong>GigabitEthernet0/1</strong></li>
+<li><strong>Serial1/0</strong></li>
+<li><strong>Loopback0</strong></li>
+<li><strong>Vlan1</strong></li>
+<li><strong>Tunnel0</strong></li>
+</ul>
+<p>Each entry represents a single interface name extracted from the original output, ready for use in further automation or inventory tasks.</p>
+<hr />
+<h3 id="handling-different-interface-formats_1">🔄 Handling Different Interface Formats</h3>
+<p>Network devices from different vendors may use slightly different naming conventions. Here are variations your pattern should handle:</p>
+<ul>
+<li><strong>Cisco style</strong> – <strong>GigabitEthernet0/1</strong>, <strong>FastEthernet0/0</strong></li>
+<li><strong>Juniper style</strong> – <strong>ge-0/0/0</strong>, <strong>fxp0</strong></li>
+<li><strong>Generic style</strong> – <strong>eth0</strong>, <strong>ens192</strong>, <strong>bond0</strong></li>
+</ul>
+<p>To accommodate these, you can adjust the pattern to: <strong>^[a-zA-Z][a-zA-Z0-9-]+\d+(?:/\d+)*\s+is</strong></p>
+<p>This version:
+- Starts with a letter
+- Allows hyphens in the interface type name
+- Matches one or more digits
+- Optionally matches multiple slash-separated numbers</p>
+<hr />
+<h3 id="key-takeaways_1">✅ Key Takeaways</h3>
+<ul>
+<li>Regex provides a precise way to extract interface names from large text outputs</li>
+<li>The anchor <strong>^</strong> ensures you only match lines that start with an interface name</li>
+<li>Using <strong>\w+</strong> and <strong>\d+</strong> captures both the type and number portions</li>
+<li>The <strong>|</strong> operator handles interfaces with and without slash separators</li>
+<li>Python's <strong>re.findall()</strong> returns a clean list ready for automation</li>
+<li>Always test your pattern against actual device output to catch edge cases</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">📚 Next Steps</h3>
+<p>Once you have extracted interface names, you can:
+- Loop through each name to check its status
+- Build a configuration template for each interface
+- Compare interface lists across multiple devices
+- Generate reports showing which interfaces are up or down</p>
+<p>Regular expressions are a powerful tool in any engineer's toolkit, and mastering this simple extraction pattern opens the door to much more advanced text parsing and automation workflows.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>This topic shows how to use regular expressions to extract interface names from Cisco "show interface" command output.</p>
+<hr />
+<h3 id="example-1-finding-a-single-interface-name_1">🔧 Example 1: Finding a single interface name</h3>
+<p>This example finds the first interface name in a simple string.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;GigabitEthernet0/1 is up&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;GigabitEthernet\d+/\d+&quot;</span>
+<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</code></pre></div>
+<p>📤 Output: <strong>GigabitEthernet0/1</strong></p>
+<hr />
+<h3 id="example-2-extracting-multiple-interface-names_1">🔧 Example 2: Extracting multiple interface names</h3>
+<p>This example finds all interface names from a multi-line show interface output.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">show_int_output</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">GigabitEthernet0/1 is up</span>
+<span class="s2">GigabitEthernet0/2 is down</span>
+<span class="s2">GigabitEthernet0/3 is up</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;GigabitEthernet\d+/\d+&quot;</span>
+<span class="n">interfaces</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">show_int_output</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">interfaces</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['GigabitEthernet0/1', 'GigabitEthernet0/2', 'GigabitEthernet0/3']</strong></p>
+<hr />
+<h3 id="example-3-handling-different-interface-types_1">🔧 Example 3: Handling different interface types</h3>
+<p>This example extracts interface names that include FastEthernet and GigabitEthernet types.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">show_int_output</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">FastEthernet0/1 is up</span>
+<span class="s2">GigabitEthernet0/2 is down</span>
+<span class="s2">FastEthernet0/3 is up</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(FastEthernet|GigabitEthernet)\d+/\d+&quot;</span>
+<span class="n">interfaces</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">show_int_output</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">interfaces</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['FastEthernet', 'GigabitEthernet', 'FastEthernet']</strong></p>
+<hr />
+<h3 id="example-4-extracting-full-interface-names-with-status_1">🔧 Example 4: Extracting full interface names with status</h3>
+<p>This example captures both the interface name and its operational status.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">show_int_output</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">GigabitEthernet0/1 is up</span>
+<span class="s2">GigabitEthernet0/2 is down</span>
+<span class="s2">GigabitEthernet0/3 is up</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(GigabitEthernet\d+/\d+) is (up|down)&quot;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">show_int_output</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">interface</span><span class="p">,</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">interface</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>GigabitEthernet0/1: up</strong><br />
+<strong>GigabitEthernet0/2: down</strong><br />
+<strong>GigabitEthernet0/3: up</strong></p>
+<hr />
+<h3 id="example-5-extracting-only-up-interfaces_1">🔧 Example 5: Extracting only up interfaces</h3>
+<p>This example filters and returns only interfaces that are in "up" status.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">show_int_output</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">GigabitEthernet0/1 is up</span>
+<span class="s2">GigabitEthernet0/2 is down</span>
+<span class="s2">GigabitEthernet0/3 is up</span>
+<span class="s2">FastEthernet0/1 is up</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(GigabitEthernet\d+/\d+|FastEthernet\d+/\d+) is up&quot;</span>
+<span class="n">up_interfaces</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">show_int_output</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">up_interfaces</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['GigabitEthernet0/1', 'GigabitEthernet0/3', 'FastEthernet0/1']</strong></p>
+<hr />
+<h3 id="comparison-table_1">📊 Comparison Table</h3>
 <table>
 <thead>
 <tr>

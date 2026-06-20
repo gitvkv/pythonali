@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Infrastructure%20Automation/ch21_05_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 21 | Advanced Concepts (Decorators and Custom Context Managers) - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 21 | Advanced Concepts (Decorators and Custom Context Managers)";
         var mkdocs_page_input_path = "Infrastructure Automation\\ch21_05_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Infrastructure%20Automation/ch21_05_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -1029,6 +1029,40 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table-decorators-vs-context-managers">📊 Comparison Table: Decorators vs Context Managers</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#context-introduction_1">🧭 Context Introduction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-decorators_1">⚙️ What Are Decorators?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-a-simple-decorator_1">🛠️ Building a Simple Decorator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#decorators-with-arguments_1">🧩 Decorators with Arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-without-vs-with-decorators_1">📊 Comparison: Without vs. With Decorators</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-are-custom-context-managers_1">🕵️ What Are Custom Context Managers?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#class-based-context-manager_1">🏗️ Class-Based Context Manager</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generator-based-context-manager_1">🔄 Generator-Based Context Manager</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-use-cases_1">🧪 Practical Use Cases</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways-for-engineers_1">🎯 Key Takeaways for Engineers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps_1">📚 Next Steps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-a-simple-decorator-that-prints-before-and-after-a-function_1">🧩 Example 1: A simple decorator that prints before and after a function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-a-decorator-that-adds-timing-to-any-function_1">🧩 Example 2: A decorator that adds timing to any function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-a-decorator-that-works-with-function-arguments_1">🧩 Example 3: A decorator that works with function arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-a-basic-context-manager-using-a-class_1">🧩 Example 4: A basic context manager using a class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-a-context-manager-using-the-contextlib-module_1">🧩 Example 5: A context manager using the contextlib module</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table-decorators-vs-context-managers_1">📊 Comparison Table: Decorators vs Context Managers</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch21_05_02/">Ch 21 | Optimizing Iteration Pipelines via Generator Yields</a>
@@ -1082,7 +1116,7 @@
               
                 <h1 id="advanced-concepts-decorators-and-custom-context-managers">Advanced Concepts (Decorators and Custom Context Managers)</h1>
 <p><span class="category-tag">🏷️ Final Capstone Engineer Script project /  Next Steps After This Curriculum</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <h3 id="context-introduction">🧭 Context Introduction</h3>
@@ -1201,8 +1235,7 @@
 <li>Review open-source Python projects to see how professionals use these patterns in real-world code.</li>
 </ul>
 <p>Mastering decorators and custom context managers will significantly improve the quality, readability, and reliability of your Python scripts.</p>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>Decorators let you modify how a function behaves without changing its code, and context managers let you set up and tear down resources automatically.</p>
 <hr />
 <h3 id="example-1-a-simple-decorator-that-prints-before-and-after-a-function">🧩 Example 1: A simple decorator that prints before and after a function</h3>
@@ -1307,6 +1340,270 @@
 <strong>Restoring value to 42</strong></p>
 <hr />
 <h3 id="comparison-table-decorators-vs-context-managers">📊 Comparison Table: Decorators vs Context Managers</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Decorator</th>
+<th>Context Manager</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Purpose</td>
+<td>Modifies function behavior</td>
+<td>Manages resource setup/teardown</td>
+</tr>
+<tr>
+<td>Syntax</td>
+<td><code>@decorator_name</code> above function</td>
+<td><code>with context_manager as variable:</code></td>
+</tr>
+<tr>
+<td>Runs</td>
+<td>Before, after, or around a function</td>
+<td>Before and after a block of code</td>
+</tr>
+<tr>
+<td>Common use</td>
+<td>Logging, timing, access control</td>
+<td>File handling, database connections, locks</td>
+</tr>
+<tr>
+<td>Custom creation</td>
+<td>Define a wrapper function</td>
+<td>Define a class with <code>__enter__</code>/<code>__exit__</code> or use <code>@contextmanager</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<h3 id="context-introduction_1">🧭 Context Introduction</h3>
+<p>As you move beyond the fundamentals of Python, two powerful patterns will elevate your code from functional to elegant and professional. <strong>Decorators</strong> allow you to wrap and modify the behavior of functions without changing their source code. <strong>Custom Context Managers</strong> let you control resource setup and teardown in a clean, readable way. These concepts are essential for writing reusable, maintainable scripts that handle logging, timing, authentication, file operations, and database connections gracefully.</p>
+<hr />
+<h3 id="what-are-decorators_1">⚙️ What Are Decorators?</h3>
+<p>A decorator is a function that takes another function as input, adds some behavior to it, and returns a modified version. Think of it like a wrapper that runs extra code before and after your original function executes.</p>
+<ul>
+<li><strong>Purpose:</strong> Add cross-cutting concerns (logging, timing, access control) without cluttering your core logic.</li>
+<li><strong>Syntax:</strong> Use the <strong>@decorator_name</strong> syntax placed directly above a function definition.</li>
+<li><strong>Key Idea:</strong> Decorators are just functions that return functions.</li>
+</ul>
+<hr />
+<h3 id="building-a-simple-decorator_1">🛠️ Building a Simple Decorator</h3>
+<p>To create a decorator, you define an outer function that accepts a function, then define an inner wrapper function that calls the original function plus any extra logic.</p>
+<ul>
+<li>Define a decorator named <strong>my_logger</strong> that prints a message before and after the wrapped function runs.</li>
+<li>Apply it to a function called <strong>fetch_data</strong> using the <strong>@my_logger</strong> syntax.</li>
+<li>When <strong>fetch_data</strong> is called, the decorator automatically prints <strong>"Starting fetch_data..."</strong> and <strong>"Finished fetch_data."</strong> around the actual work.</li>
+</ul>
+<p>This pattern keeps your logging logic in one place and reusable across many functions.</p>
+<hr />
+<h3 id="decorators-with-arguments_1">🧩 Decorators with Arguments</h3>
+<p>Sometimes you need a decorator that accepts its own parameters, like a log level or a retry count. This requires an extra layer of wrapping.</p>
+<ul>
+<li>Create a decorator factory called <strong>repeat(num_times)</strong> that returns a decorator.</li>
+<li>The inner decorator wraps the function so it runs <strong>num_times</strong> times in a row.</li>
+<li>Apply it with <strong>@repeat(3)</strong> above a function named <strong>ping_server</strong>.</li>
+<li>Calling <strong>ping_server()</strong> will execute the function three times automatically.</li>
+</ul>
+<p>This pattern is useful for retries, rate limiting, or running validation checks multiple times.</p>
+<hr />
+<h3 id="comparison-without-vs-with-decorators_1">📊 Comparison: Without vs. With Decorators</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Without Decorator</th>
+<th>With Decorator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code duplication</td>
+<td>Manual logging/timing added inside every function</td>
+<td>Single decorator applied to any function</td>
+</tr>
+<tr>
+<td>Readability</td>
+<td>Core logic mixed with cross-cutting code</td>
+<td>Core logic stays clean and focused</td>
+</tr>
+<tr>
+<td>Maintenance</td>
+<td>Change requires editing every function</td>
+<td>Change decorator once, affects all wrapped functions</td>
+</tr>
+<tr>
+<td>Reusability</td>
+<td>No reuse of wrapper logic</td>
+<td>Decorator can be imported and used anywhere</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="what-are-custom-context-managers_1">🕵️ What Are Custom Context Managers?</h3>
+<p>Context managers handle setup and cleanup operations automatically. The built-in <strong>with open()</strong> statement is a classic example. Custom context managers let you define your own setup and teardown logic for resources like database connections, file handles, or temporary configurations.</p>
+<ul>
+<li><strong>Purpose:</strong> Ensure resources are always released, even if an error occurs.</li>
+<li><strong>Two Approaches:</strong> Use a class with <strong><strong>enter</strong></strong> and <strong><strong>exit</strong></strong> methods, or use the <strong>contextlib</strong> module with a generator function.</li>
+<li><strong>Key Benefit:</strong> Eliminates the risk of forgetting to close or release resources.</li>
+</ul>
+<hr />
+<h3 id="class-based-context-manager_1">🏗️ Class-Based Context Manager</h3>
+<p>To build a context manager using a class, you define two special methods:</p>
+<ul>
+<li><strong><strong>enter</strong></strong> runs when the <strong>with</strong> block starts. It sets up the resource and returns it.</li>
+<li><strong><strong>exit</strong></strong> runs when the <strong>with</strong> block ends, even if an exception occurs. It handles cleanup.</li>
+</ul>
+<p>Example: Create a <strong>Timer</strong> context manager that records the start time in <strong><strong>enter</strong></strong> and prints the elapsed time in <strong><strong>exit</strong></strong>. Use it with <strong>with Timer():</strong> to measure how long a block of code takes.</p>
+<hr />
+<h3 id="generator-based-context-manager_1">🔄 Generator-Based Context Manager</h3>
+<p>The <strong>contextlib</strong> module provides a simpler way using the <strong>@contextmanager</strong> decorator and a generator function.</p>
+<ul>
+<li>Import <strong>contextmanager</strong> from <strong>contextlib</strong>.</li>
+<li>Define a generator function with a <strong>yield</strong> statement separating setup from teardown.</li>
+<li>Code before <strong>yield</strong> runs on entry, code after <strong>yield</strong> runs on exit.</li>
+<li>Apply <strong>@contextmanager</strong> to the function, then use it with <strong>with</strong> just like a class-based manager.</li>
+</ul>
+<p>Example: Create a <strong>managed_file</strong> context manager that opens a file, yields the file object, and ensures the file is closed after the block.</p>
+<hr />
+<h3 id="practical-use-cases_1">🧪 Practical Use Cases</h3>
+<ul>
+<li><strong>Logging decorator:</strong> Automatically log every function call with its arguments and return value.</li>
+<li><strong>Retry decorator:</strong> Automatically retry a function a set number of times if it raises an exception.</li>
+<li><strong>Timing context manager:</strong> Measure and report execution time for any block of code.</li>
+<li><strong>Database connection manager:</strong> Open a connection, yield it for use, and close it automatically when done.</li>
+<li><strong>Configuration override:</strong> Temporarily change a configuration setting and restore it after the block.</li>
+</ul>
+<hr />
+<h3 id="key-takeaways-for-engineers_1">🎯 Key Takeaways for Engineers</h3>
+<ul>
+<li>Decorators and context managers are not just academic concepts; they solve real problems in production scripts.</li>
+<li>Start simple: write a logging decorator and a timer context manager first.</li>
+<li>Use decorators for cross-cutting behavior that applies to many functions.</li>
+<li>Use context managers for any resource that needs explicit setup and teardown.</li>
+<li>Both patterns promote the <strong>DRY (Don't Repeat Yourself)</strong> principle and make your code more robust.</li>
+<li>Practice by refactoring an existing script to use a decorator for logging or a context manager for file handling.</li>
+</ul>
+<hr />
+<h3 id="next-steps_1">📚 Next Steps</h3>
+<ul>
+<li>Experiment by combining decorators with context managers for powerful, clean abstractions.</li>
+<li>Explore the <strong>functools.wraps</strong> decorator to preserve metadata (like function names and docstrings) when writing decorators.</li>
+<li>Look into the <strong>contextlib.suppress</strong> and <strong>contextlib.redirect_stdout</strong> utilities for more advanced patterns.</li>
+<li>Review open-source Python projects to see how professionals use these patterns in real-world code.</li>
+</ul>
+<p>Mastering decorators and custom context managers will significantly improve the quality, readability, and reliability of your Python scripts.</p>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Decorators let you modify how a function behaves without changing its code, and context managers let you set up and tear down resources automatically.</p>
+<hr />
+<h3 id="example-1-a-simple-decorator-that-prints-before-and-after-a-function_1">🧩 Example 1: A simple decorator that prints before and after a function</h3>
+<p>This shows the basic structure of a decorator — a wrapper function that adds behavior around another function.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">simple_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Before the function runs&quot;</span><span class="p">)</span>
+        <span class="n">func</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;After the function runs&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@simple_decorator</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">say_hello</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, engineer!&quot;</span><span class="p">)</span>
+
+<span class="n">say_hello</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Before the function runs</strong><br />
+<strong>Hello, engineer!</strong><br />
+<strong>After the function runs</strong></p>
+<hr />
+<h3 id="example-2-a-decorator-that-adds-timing-to-any-function_1">🧩 Example 2: A decorator that adds timing to any function</h3>
+<p>This shows how to measure how long a function takes to execute using a decorator.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">timer_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">():</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">func</span><span class="p">()</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Function took </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@timer_decorator</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">slow_calculation</span><span class="p">():</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">i</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">slow_calculation</span><span class="p">()</span>
+</code></pre></div>
+<p>📤 Output: <strong>Total: 499999500000</strong><br />
+<strong>Function took 0.XXXX seconds</strong></p>
+<hr />
+<h3 id="example-3-a-decorator-that-works-with-function-arguments_1">🧩 Example 3: A decorator that works with function arguments</h3>
+<p>This shows how to pass arguments through a decorator to the wrapped function.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">log_arguments</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calling </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> with args: </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s2">, kwargs: </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nd">@log_arguments</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add_numbers</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="n">add_numbers</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Calling add_numbers with args: (5, 3), kwargs: {}</strong><br />
+<strong>Result: 8</strong></p>
+<hr />
+<h3 id="example-4-a-basic-context-manager-using-a-class_1">🧩 Example 4: A basic context manager using a class</h3>
+<p>This shows how to set up and tear down a resource using a class with <code>__enter__</code> and <code>__exit__</code> methods.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">FileManager</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="n">FileManager</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello, engineers!&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>(No output — file is written and closed automatically)</strong></p>
+<hr />
+<h3 id="example-5-a-context-manager-using-the-contextlib-module_1">🧩 Example 5: A context manager using the <code>contextlib</code> module</h3>
+<p>This shows a simpler way to create a context manager using a generator function.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span>
+
+<span class="nd">@contextmanager</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">temporary_change</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="n">original</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Setting value to </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">yield</span> <span class="n">value</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Restoring value to </span><span class="si">{</span><span class="n">original</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">temporary_change</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="k">as</span> <span class="n">current</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inside context: </span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Setting value to 42</strong><br />
+<strong>Inside context: 42</strong><br />
+<strong>Restoring value to 42</strong></p>
+<hr />
+<h3 id="comparison-table-decorators-vs-context-managers_1">📊 Comparison Table: Decorators vs Context Managers</h3>
 <table>
 <thead>
 <tr>

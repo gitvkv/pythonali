@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://pythonali.com/Data%20Structures%20%26%20Built-ins/ch14_04_01/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
     <title>Ch 14 | Reading Command-Line Arguments via argv - Python Ali</title>
     <link rel="stylesheet" href="../../css/theme.css" />
@@ -15,7 +15,7 @@
         // Current page data
         var mkdocs_page_name = "Ch 14 | Reading Command-Line Arguments via argv";
         var mkdocs_page_input_path = "Data Structures \u0026 Built-ins\\ch14_04_01.md";
-        var mkdocs_page_url = null;
+        var mkdocs_page_url = "/Data%20Structures%20%26%20Built-ins/ch14_04_01/";
       </script>
     
     <!--[if lt IE 9]>
@@ -677,6 +677,34 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#comparison-table">Comparison Table</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-sysargv_1">⚙️ What is sys.argv?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-access-command-line-arguments_1">🛠️ How to Access Command-Line Arguments</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-argument-count_1">📊 Understanding Argument Count</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#checking-for-arguments-before-use_1">🕵️ Checking for Arguments Before Use</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#practical-example-a-simple-greeting-script_1">🧪 Practical Example: A Simple Greeting Script</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#important-notes-about-sysargv_1">⚠️ Important Notes About sys.argv</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#why-this-matters-for-everyday-scripting_1">🎯 Why This Matters for Everyday Scripting</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#summary_1">✅ Summary</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-1-printing-all-arguments-including-the-script-name_1">🔧 Example 1: Printing all arguments including the script name</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-2-accessing-individual-arguments-by-index_1">🔧 Example 2: Accessing individual arguments by index</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-3-counting-how-many-arguments-were-passed_1">🔧 Example 3: Counting how many arguments were passed</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-4-checking-if-a-minimum-number-of-arguments-exist_1">🔧 Example 4: Checking if a minimum number of arguments exist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example-5-converting-a-command-line-argument-to-a-number-and-using-it_1">🔧 Example 5: Converting a command-line argument to a number and using it</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comparison-table_1">Comparison Table</a>
+    </li>
     </ul>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../ch14_04_02/">Ch 14 | Script Termination with System Exit Codes</a>
@@ -1076,7 +1104,7 @@
               
                 <h1 id="reading-command-line-arguments-via-argv">Reading Command-Line Arguments via argv</h1>
 <p><span class="category-tag">🏷️ Operating System and System Operations /  The sys Module</span></p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📖 Theory</label><label for="__tabbed_1_2">💻 Code</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">📚 All-in-One</label><label for="__tabbed_1_2">📖 Theory Only</label><label for="__tabbed_1_3">💻 Code Only</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>When you run a Python script from the terminal, you often need to pass information into the script at the moment of execution. This is where command-line arguments become essential. Instead of hardcoding values inside your script, you can supply them dynamically when you call the script. Python's <strong>sys</strong> module provides a simple list called <strong>argv</strong> that captures everything typed after the script name on the command line.</p>
@@ -1168,8 +1196,7 @@
 <li>Remember that all arguments are strings and may need conversion for numerical operations</li>
 <li>This simple mechanism gives you powerful control over how your scripts behave at runtime</li>
 </ul>
-</div>
-<div class="tabbed-block">
+<hr />
 <p>The <code>sys.argv</code> list holds the command-line arguments passed to a Python script when it is run from the terminal.</p>
 <hr />
 <h3 id="example-1-printing-all-arguments-including-the-script-name">🔧 Example 1: Printing all arguments including the script name</h3>
@@ -1228,6 +1255,187 @@
 <p>📤 Output: <strong>10</strong> (when run as <code>python script.py 5</code>)</p>
 <hr />
 <h3 id="comparison-table">Comparison Table</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th><code>sys.argv[0]</code></th>
+<th><code>sys.argv[1]</code> and beyond</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What it holds</td>
+<td>The script name</td>
+<td>User-provided arguments</td>
+</tr>
+<tr>
+<td>Always present?</td>
+<td>Yes</td>
+<td>Only if user passed them</td>
+</tr>
+<tr>
+<td>Typical use</td>
+<td>Not used for data</td>
+<td>Used for input values</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<p>When you run a Python script from the terminal, you often need to pass information into the script at the moment of execution. This is where command-line arguments become essential. Instead of hardcoding values inside your script, you can supply them dynamically when you call the script. Python's <strong>sys</strong> module provides a simple list called <strong>argv</strong> that captures everything typed after the script name on the command line.</p>
+<hr />
+<h3 id="what-is-sysargv_1">⚙️ What is sys.argv?</h3>
+<p>The <strong>sys.argv</strong> list contains all the arguments passed to your Python script when it is executed from the terminal. The first element, <strong>sys.argv[0]</strong>, is always the name of the script itself. Any additional words typed after the script name become subsequent elements in the list.</p>
+<ul>
+<li><strong>sys.argv[0]</strong> → The script name (e.g., <strong>script.py</strong>)</li>
+<li><strong>sys.argv[1]</strong> → The first argument after the script name</li>
+<li><strong>sys.argv[2]</strong> → The second argument after the script name</li>
+<li>And so on, for as many arguments as you provide</li>
+</ul>
+<hr />
+<h3 id="how-to-access-command-line-arguments_1">🛠️ How to Access Command-Line Arguments</h3>
+<p>To use <strong>sys.argv</strong>, you first need to import the <strong>sys</strong> module at the top of your script. Once imported, you can access the list directly. The number of arguments provided is given by <strong>len(sys.argv)</strong>.</p>
+<ul>
+<li>Import the module: <strong>import sys</strong></li>
+<li>Access the script name: <strong>sys.argv[0]</strong></li>
+<li>Access the first argument: <strong>sys.argv[1]</strong></li>
+<li>Check how many arguments were passed: <strong>len(sys.argv)</strong></li>
+</ul>
+<hr />
+<h3 id="understanding-argument-count_1">📊 Understanding Argument Count</h3>
+<p>The length of <strong>sys.argv</strong> tells you how many items were provided on the command line. This is useful for validating that the user supplied the correct number of arguments before your script tries to use them.</p>
+<table>
+<thead>
+<tr>
+<th>Number of Arguments</th>
+<th>What sys.argv Contains</th>
+<th>Example Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (only script name)</td>
+<td><strong>['script.py']</strong></td>
+<td><strong>python script.py</strong></td>
+</tr>
+<tr>
+<td>2 (script + one argument)</td>
+<td><strong>['script.py', 'config.yaml']</strong></td>
+<td><strong>python script.py config.yaml</strong></td>
+</tr>
+<tr>
+<td>3 (script + two arguments)</td>
+<td><strong>['script.py', 'server1', '8080']</strong></td>
+<td><strong>python script.py server1 8080</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="checking-for-arguments-before-use_1">🕵️ Checking for Arguments Before Use</h3>
+<p>A common practice is to check if the user provided the expected number of arguments before attempting to use them. This prevents your script from crashing with an index error if arguments are missing.</p>
+<ul>
+<li>Use an <strong>if</strong> statement to compare <strong>len(sys.argv)</strong> against the expected count</li>
+<li>If the count is too low, print a usage message and exit the script</li>
+<li>If the count is correct, proceed to use the arguments</li>
+</ul>
+<hr />
+<h3 id="practical-example-a-simple-greeting-script_1">🧪 Practical Example: A Simple Greeting Script</h3>
+<p>Imagine you want a script that greets a person by name. The user would run the script like this: <strong>python greet.py Alice</strong>. Inside the script, <strong>sys.argv[1]</strong> would contain the string <strong>Alice</strong>.</p>
+<ul>
+<li>The script checks that exactly one argument (besides the script name) was provided</li>
+<li>If not, it prints a message showing the correct usage</li>
+<li>If yes, it prints a greeting using the provided name</li>
+</ul>
+<hr />
+<h3 id="important-notes-about-sysargv_1">⚠️ Important Notes About sys.argv</h3>
+<ul>
+<li>All arguments are stored as <strong>strings</strong>, even if they look like numbers. If you need to perform math with an argument, you must convert it using <strong>int()</strong> or <strong>float()</strong>.</li>
+<li>Arguments are separated by spaces on the command line. If you need to pass a value that contains spaces, enclose it in double quotes: <strong>python script.py "this is one argument"</strong></li>
+<li>The script name in <strong>sys.argv[0]</strong> may include the full path depending on how you run the script</li>
+</ul>
+<hr />
+<h3 id="why-this-matters-for-everyday-scripting_1">🎯 Why This Matters for Everyday Scripting</h3>
+<p>Using command-line arguments makes your scripts reusable and flexible. Instead of editing the script file every time you need to change a value, you simply provide the new value when you run the script. This is especially useful for:</p>
+<ul>
+<li>Specifying configuration files or input data paths</li>
+<li>Passing server names, ports, or environment names</li>
+<li>Controlling script behavior (e.g., verbose mode, dry-run mode)</li>
+<li>Automating tasks where different parameters are needed each run</li>
+</ul>
+<hr />
+<h3 id="summary_1">✅ Summary</h3>
+<ul>
+<li><strong>sys.argv</strong> is a list in Python's <strong>sys</strong> module that holds command-line arguments</li>
+<li>The first element is always the script name, followed by any additional arguments</li>
+<li>Always check the length of <strong>sys.argv</strong> before accessing elements to avoid errors</li>
+<li>Remember that all arguments are strings and may need conversion for numerical operations</li>
+<li>This simple mechanism gives you powerful control over how your scripts behave at runtime</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Interactive Views</p>
+<p>You are currently in <strong>📚 All-in-One</strong> mode. Use the tabs at the top to switch to <strong>📖 Theory Only</strong> or <strong>💻 Code Only</strong> views.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p>The <code>sys.argv</code> list holds the command-line arguments passed to a Python script when it is run from the terminal.</p>
+<hr />
+<h3 id="example-1-printing-all-arguments-including-the-script-name_1">🔧 Example 1: Printing all arguments including the script name</h3>
+<p>This example shows the simplest use of <code>argv</code> — printing everything that was passed when running the script.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>['script.py', 'arg1', 'arg2', 'arg3']</strong></p>
+<hr />
+<h3 id="example-2-accessing-individual-arguments-by-index_1">🔧 Example 2: Accessing individual arguments by index</h3>
+<p>This example shows how to access specific arguments using their position in the list.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">first_argument</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">second_argument</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_argument</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">second_argument</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>script.py</strong> (then on next line) <strong>hello</strong></p>
+<hr />
+<h3 id="example-3-counting-how-many-arguments-were-passed_1">🔧 Example 3: Counting how many arguments were passed</h3>
+<p>This example shows how to check the number of arguments provided by the user.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">number_of_args</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number_of_args</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>3</strong> (when run as <code>python script.py one two</code>)</p>
+<hr />
+<h3 id="example-4-checking-if-a-minimum-number-of-arguments-exist_1">🔧 Example 4: Checking if a minimum number of arguments exist</h3>
+<p>This example shows how to validate that enough arguments were provided before using them.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Need at least 2 arguments&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">first_arg</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">second_arg</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first_arg</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">second_arg</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>Error: Need at least 2 arguments</strong> (when run with only 1 argument)</p>
+<hr />
+<h3 id="example-5-converting-a-command-line-argument-to-a-number-and-using-it_1">🔧 Example 5: Converting a command-line argument to a number and using it</h3>
+<p>This example shows a practical use — reading a number from the command line and performing a calculation.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Please provide a number&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+<p>📤 Output: <strong>10</strong> (when run as <code>python script.py 5</code>)</p>
+<hr />
+<h3 id="comparison-table_1">Comparison Table</h3>
 <table>
 <thead>
 <tr>
