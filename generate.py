@@ -106,7 +106,7 @@ def build_portal():
     margin: 1.5em 0 2em;
 }
 .tabbed-set > input {
-    display: none;
+    display: none !important;
 }
 .tabbed-labels {
     display: flex;
