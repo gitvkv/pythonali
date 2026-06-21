@@ -6,12 +6,12 @@ Welcome to the development and maintenance documentation for **Python Ali** (`py
 
 ## 1. Project Directory Structure
 The workspace is organized into two main parts:
-1. **The Generator Engine (`doc_engine_rtd`)**: Contains the scripts, configurations, and generated static pages.
+1. **The Generator Engine (`pythonali` repository, local folder `doc_engine_rtd`)**: Contains the scripts, configurations, and generated static pages.
 2. **The Content Source (`project_21_repo`)**: A sibling directory containing the raw Markdown files (`theory_for_student` and `code_for_student`).
 
 ### File Mapping
 ```text
-doc_engine_rtd/
+pythonali (local directory: doc_engine_rtd)/
 ├── .github/workflows/ci.yml # Automated deployment script to GitHub Pages
 ├── docs/                    # Dynamically generated Markdown (DO NOT edit directly)
 │   ├── Getting Started/     # Compiled chapters & index.md roadmap
@@ -91,7 +91,7 @@ To ensure the website is fully visible and ranked on Google:
 The site is hosted on **GitHub Pages** via the public repository [github.com/gitvkv/pythonali](https://github.com/gitvkv/pythonali) and proxied through **Cloudflare** for DNS and SSL caching.
 
 ### How GitHub Pages Deployment Works
-Because the repository only contains the `doc_engine_rtd` directory and does **not** contain the raw content files (`../project_21_repo`), GitHub cannot compile the site from scratch.
+Because the repository only contains the `pythonali` website directories (in local folder `doc_engine_rtd`) and does **not** contain the raw content files (`../project_21_repo`), GitHub cannot compile the site from scratch.
 Instead:
 1. You run `python generate.py` and `python -m mkdocs build` locally. This compiles your static site into the `site/` folder.
 2. You commit and push your changes (including the `site/` folder) to your `main` branch.
@@ -106,7 +106,7 @@ To ensure `https://pythonali.com` remains secure and online:
 
 ---
 
-## 5. Troubleshooting & Maintenance
+## 6. Troubleshooting & Maintenance
 
 ### How to Add a New Course (e.g. "Java for Infrastructure")
 1. Open `generate.py` and locate the `Java Course Placeholder` block.

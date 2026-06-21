@@ -147,6 +147,19 @@ def build_portal():
 .tabbed-set > input:nth-of-type(3):checked ~ .tabbed-content > .tabbed-block:nth-of-type(3) {
     display: block;
 }
+
+/* 5. Hide duplicate subheadings (TOC entries) in the sidebar caused by multiple tab views */
+.wy-menu-vertical li.toctree-l3:has(a[href$="_1"]),
+.wy-menu-vertical li.toctree-l3:has(a[href$="_2"]),
+.wy-menu-vertical li.toctree-l3:has(a[href$="_3"]),
+.wy-menu-vertical li.toctree-l3:has(a[href$="_4"]),
+.wy-menu-vertical li.toctree-l3:has(a[href$="_5"]),
+.wy-menu-vertical li.toctree-l3:has(a[href$="_6"]),
+.wy-menu-vertical li.toctree-l3:has(a[href$="_7"]),
+.wy-menu-vertical li.toctree-l3:has(a[href$="_8"]),
+.wy-menu-vertical li.toctree-l3:has(a[href$="_9"]) {
+    display: none !important;
+}
 """
     with open(os.path.join(DOCS_DIR, 'stylesheets', 'extra.css'), 'w', encoding='utf-8') as f:
         f.write(css_content)
@@ -197,8 +210,8 @@ def build_portal():
             
             combined_md = f"# {title}\n"
             combined_md += f'<span class="category-tag">🏷️ {category}</span>\n\n'
-            combined_md += f'=== "📚 All-in-One"\n{indent_content(theory_text)}\n\n    ---\n\n{indent_content(code_text)}\n\n'
-            combined_md += f'=== "📖 Theory Only"\n{indent_content(theory_text_with_tip)}\n\n'
+            combined_md += f'=== "📚 All-in-One"\n{indent_content(theory_text_with_tip)}\n\n    ---\n\n{indent_content(code_text)}\n\n'
+            combined_md += f'=== "📖 Theory Only"\n{indent_content(theory_text)}\n\n'
             combined_md += f'=== "💻 Code Only"\n{indent_content(code_text)}\n'
         else:
             # Standard page layout without tabs (e.g. for future non-coding lessons)
@@ -299,18 +312,6 @@ We have packed this curriculum with hands-on examples and real-world scenarios. 
         
     nav_structure.append({"Python for Infrastructure": python_nav})
     
-    # Java Course Placeholder
-    coming_soon_dir = os.path.join(DOCS_DIR, "Java for Infrastructure")
-    os.makedirs(coming_soon_dir, exist_ok=True)
-    coming_soon_path = os.path.join(coming_soon_dir, "coming_soon.md")
-    with open(coming_soon_path, 'w', encoding='utf-8') as f:
-        f.write("# Coming Soon\n\nThis course is currently in development. Stay tuned!\n")
-        
-    nav_structure.append({"Java for Infrastructure": [
-        {"Getting Ready": [
-            {"Coming Soon": "Java for Infrastructure/coming_soon.md"}
-        ]}
-    ]})
 
     mkdocs_config = {
         'site_name': 'Python Ali',
