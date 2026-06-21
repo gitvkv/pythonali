@@ -123,3 +123,6 @@ python generate.py
 python -m mkdocs serve -a localhost:8088
 ```
 Go to `http://localhost:8088` in your browser. Any edits you make to your local Markdown files or generator script will refresh automatically.
+
+---
+*Last updated: June 21, 2026*
