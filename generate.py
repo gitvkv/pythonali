@@ -262,6 +262,7 @@ Join hundreds of learners who are mastering Python. Whether you’re writing you
 When we—**Vivek Kumar**, **Adharsh Murukesan**, and **Hari Krishnan**—first decided to learn Python, we hit a wall. We were drowning in tutorials but couldn't find a clear, structured curriculum to take us from absolute beginners to capable IT infrastructure engineers who can automate daily operational tasks.
 
 Instead of giving up, we built the roadmap we wished we had. What started as a personal project to organize our own learning has grown into a platform trusted by hundreds of learners. We believe that high‑quality tech education should be accessible, which is why this entire curriculum is—and always will be—completely free to use.
+
 ---
 
 ### 💡 Trust the Process
