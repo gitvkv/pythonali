@@ -88,7 +88,7 @@ To ensure the website is fully visible and ranked on Google:
 
 ## 5. Hosting & Deployment
 
-The site is hosted on **GitHub Pages** and proxied through **Cloudflare** for DNS and SSL caching.
+The site is hosted on **GitHub Pages** via the public repository [github.com/gitvkv/pythonali](https://github.com/gitvkv/pythonali) and proxied through **Cloudflare** for DNS and SSL caching.
 
 ### How GitHub Pages Deployment Works
 Because the repository only contains the `doc_engine_rtd` directory and does **not** contain the raw content files (`../project_21_repo`), GitHub cannot compile the site from scratch.
@@ -100,8 +100,8 @@ Instead:
 
 ### Cloudflare DNS Configuration
 To ensure `https://pythonali.com` remains secure and online:
-- **Root Domain CNAME**: `@` points to `your-github-username.github.io` (Proxied - Orange Cloud).
-- **Subdomain CNAME**: `www` points to `your-github-username.github.io` (Proxied - Orange Cloud).
+- **Root Domain CNAME**: `@` points to `gitvkv.github.io` (Proxied - Orange Cloud).
+- **Subdomain CNAME**: `www` points to `gitvkv.github.io` (Proxied - Orange Cloud).
 - **SSL/TLS Mode**: Must be set to **Full** or **Full (Strict)** inside Cloudflare to prevent circular redirection loops.
 
 ---
